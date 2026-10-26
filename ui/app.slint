@@ -1,0 +1,471 @@
+import { Button, VerticalBox, HorizontalBox, ScrollView, CheckBox, LineEdit } from "std-widgets.slint";
+
+export struct TaskItem {
+    id: int,
+    title: string,
+    completed: bool,
+    estimate_mins: int,
+}
+
+export struct BlockedApp {
+    id: int,
+    name: string,
+    process_name: string,
+    active: bool,
+}
+
+export component MainWindow inherits Window {
+    title: "Thulli — Focus & Productivity";
+    preferred-width: 960px;
+    preferred-height: 640px;
+    background: #111418;
+    default-font-family: "Segoe UI, Inter, sans-serif";
+
+    in-out property <string> active-tab: "dashboard"; // "dashboard", "tower", "pill", "blocker", "notes"
+    in-out property <string> timer-display: "25:00";
+    in-out property <bool> timer-running: false;
+    in-out property <string> active-task-name: "Deep Work Session";
+    in-out property <[TaskItem]> tasks: [
+        { id: 1, title: "Refactor core Rust state engine", completed: false, estimate_mins: 45 },
+        { id: 2, title: "Review Thulli distraction blocker rules", completed: true, estimate_mins: 20 },
+        { id: 3, title: "Assemble BlitzTower dock mode", completed: false, estimate_mins: 30 },
+    ];
+    in-out property <[BlockedApp]> blocked-apps: [
+        { id: 1, name: "Discord", process_name: "Discord.exe", active: true },
+        { id: 2, name: "Steam", process_name: "steam.exe", active: true },
+        { id: 3, name: "Spotify", process_name: "Spotify.exe", active: false },
+    ];
+    in-out property <string> quick-note-text: "Locu-style scratchpad note:\n- Keep thoughts here without losing focus.";
+    in-out property <string> new-task-input: "";
+
+    callback toggle-timer();
+    callback reset-timer();
+    callback toggle-task-completed(int);
+    callback add-task(string);
+    callback switch-mode(string);
+    callback toggle-blocker-app(int);
+
+    HorizontalBox {
+        padding: 0px;
+        spacing: 0px;
+
+        // Left Navigation Sidebar
+        Rectangle {
+            width: 220px;
+            background: #181c24;
+
+            VerticalBox {
+                padding: 16px;
+                spacing: 12px;
+
+                // Brand
+                HorizontalBox {
+                    spacing: 8px;
+                    alignment: start;
+                    Text {
+                        text: "⚡";
+                        font-size: 20px;
+                    }
+                    Text {
+                        text: "THULLI";
+                        font-size: 20px;
+                        font-weight: 800;
+                        color: #ffffff;
+                    }
+                }
+
+                Text {
+                    text: "Blitzit × Locu in Rust";
+                    font-size: 11px;
+                    color: #727b8e;
+                }
+
+                Rectangle { height: 12px; }
+
+                // Mode Selectors
+                Rectangle {
+                    height: 40px;
+                    background: root.active-tab == "dashboard" ? #2a324b : transparent;
+                    border-radius: 8px;
+                    TouchArea {
+                        clicked => { root.active-tab = "dashboard"; root.switch-mode("dashboard"); }
+                        HorizontalBox {
+                            padding-left: 12px;
+                            alignment: center;
+                            Text {
+                                text: "📊 Dashboard";
+                                color: root.active-tab == "dashboard" ? #ffffff : #a0aec0;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: 40px;
+                    background: root.active-tab == "tower" ? #2a324b : transparent;
+                    border-radius: 8px;
+                    TouchArea {
+                        clicked => { root.active-tab = "tower"; root.switch-mode("tower"); }
+                        HorizontalBox {
+                            padding-left: 12px;
+                            alignment: center;
+                            Text {
+                                text: "🗼 BlitzTower (Dock)";
+                                color: root.active-tab == "tower" ? #ffffff : #a0aec0;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: 40px;
+                    background: root.active-tab == "pill" ? #2a324b : transparent;
+                    border-radius: 8px;
+                    TouchArea {
+                        clicked => { root.active-tab = "pill"; root.switch-mode("pill"); }
+                        HorizontalBox {
+                            padding-left: 12px;
+                            alignment: center;
+                            Text {
+                                text: "💊 Floating Pill HUD";
+                                color: root.active-tab == "pill" ? #ffffff : #a0aec0;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: 40px;
+                    background: root.active-tab == "blocker" ? #2a324b : transparent;
+                    border-radius: 8px;
+                    TouchArea {
+                        clicked => { root.active-tab = "blocker"; root.switch-mode("blocker"); }
+                        HorizontalBox {
+                            padding-left: 12px;
+                            alignment: center;
+                            Text {
+                                text: "🛡️ Locu Blocker";
+                                color: root.active-tab == "blocker" ? #ffffff : #a0aec0;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: 40px;
+                    background: root.active-tab == "notes" ? #2a324b : transparent;
+                    border-radius: 8px;
+                    TouchArea {
+                        clicked => { root.active-tab = "notes"; root.switch-mode("notes"); }
+                        HorizontalBox {
+                            padding-left: 12px;
+                            alignment: center;
+                            Text {
+                                text: "📝 Quick Scratchpad";
+                                color: root.active-tab == "notes" ? #ffffff : #a0aec0;
+                                font-weight: 600;
+                            }
+                        }
+                    }
+                }
+
+                Rectangle { /* Spacer */ }
+
+                // Timer Widget in Sidebar
+                Rectangle {
+                    height: 110px;
+                    background: #11141a;
+                    border-radius: 10px;
+                    border-width: 1px;
+                    border-color: #2b3240;
+
+                    VerticalBox {
+                        padding: 12px;
+                        alignment: center;
+                        spacing: 4px;
+
+                        Text {
+                            text: root.timer-display;
+                            font-size: 24px;
+                            font-weight: 700;
+                            color: #63b3ed;
+                            horizontal-alignment: center;
+                        }
+
+                        HorizontalBox {
+                            alignment: center;
+                            spacing: 8px;
+                            Button {
+                                text: root.timer-running ? "Pause" : "Start Focus";
+                                clicked => { root.toggle-timer(); }
+                            }
+                            Button {
+                                text: "Reset";
+                                clicked => { root.reset-timer(); }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Main Content Area
+        Rectangle {
+            background: #13171f;
+
+            VerticalBox {
+                padding: 24px;
+                spacing: 16px;
+
+                if root.active-tab == "dashboard": VerticalBox {
+                    spacing: 16px;
+                    Text {
+                        text: "Task Sprint & Daily Flow";
+                        font-size: 22px;
+                        font-weight: 700;
+                        color: #ffffff;
+                    }
+
+                    HorizontalBox {
+                        spacing: 8px;
+                        task-input := LineEdit {
+                            placeholder-text: "Add a new task (e.g. Implement DNS filter)...";
+                            text <=> root.new-task-input;
+                            accepted => {
+                                if (root.new-task-input != "") {
+                                    root.add-task(root.new-task-input);
+                                    root.new-task-input = "";
+                                }
+                            }
+                        }
+                        Button {
+                            text: "+ Add";
+                            clicked => {
+                                if (root.new-task-input != "") {
+                                    root.add-task(root.new-task-input);
+                                    root.new-task-input = "";
+                                }
+                            }
+                        }
+                    }
+
+                    ScrollView {
+                        VerticalBox {
+                            spacing: 8px;
+                            for task in root.tasks: Rectangle {
+                                height: 50px;
+                                background: #1c222e;
+                                border-radius: 8px;
+                                border-width: 1px;
+                                border-color: #283344;
+
+                                HorizontalBox {
+                                    padding-left: 16px;
+                                    padding-right: 16px;
+                                    spacing: 12px;
+                                    alignment: center;
+
+                                    CheckBox {
+                                        checked: task.completed;
+                                        toggled => { root.toggle-task-completed(task.id); }
+                                    }
+
+                                    Text {
+                                        text: task.title;
+                                        font-size: 14px;
+                                        color: task.completed ? #718096 : #e2e8f0;
+                                        horizontal-stretch: 1;
+                                    }
+
+                                    Text {
+                                        text: task.estimate_mins + "m";
+                                        font-size: 12px;
+                                        color: #a0aec0;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if root.active-tab == "tower": VerticalBox {
+                    spacing: 12px;
+                    Text {
+                        text: "🗼 BlitzTower Mode Preview";
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: #ffffff;
+                    }
+                    Text {
+                        text: "BlitzTower docks to the edge of your screen (width ~320px) keeping your current task queue visible while you code, browse, or design.";
+                        color: #a0aec0;
+                        font-size: 13px;
+                    }
+                    Rectangle {
+                        width: 320px;
+                        height: 380px;
+                        background: #181d27;
+                        border-radius: 12px;
+                        border-width: 1px;
+                        border-color: #2e384d;
+                        VerticalBox {
+                            padding: 16px;
+                            spacing: 10px;
+                            Text {
+                                text: "CURRENT FOCUS";
+                                font-size: 11px;
+                                font-weight: 700;
+                                color: #63b3ed;
+                            }
+                            Text {
+                                text: root.active-task-name;
+                                font-size: 15px;
+                                font-weight: 600;
+                                color: #ffffff;
+                            }
+                            Rectangle {
+                                height: 35px;
+                                background: #232c3d;
+                                border-radius: 6px;
+                                HorizontalBox {
+                                    padding-left: 10px;
+                                    padding-right: 10px;
+                                    Text { text: "⏱️ " + root.timer-display; color: #63b3ed; font-weight: 700; }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if root.active-tab == "pill": VerticalBox {
+                    spacing: 16px;
+                    alignment: center;
+                    Text {
+                        text: "💊 Floating Pill HUD Preview";
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: #ffffff;
+                    }
+                    Text {
+                        text: "The minimal HUD floats above all windows showing your current sprint and remaining time.";
+                        color: #a0aec0;
+                        font-size: 13px;
+                    }
+                    Rectangle {
+                        width: 420px;
+                        height: 56px;
+                        background: #1e2430;
+                        border-radius: 28px;
+                        border-width: 1.5px;
+                        border-color: #4a5568;
+
+                        HorizontalBox {
+                            padding-left: 20px;
+                            padding-right: 20px;
+                            spacing: 14px;
+                            alignment: center;
+
+                            Text {
+                                text: "⚡ " + root.active-task-name;
+                                font-size: 13px;
+                                font-weight: 600;
+                                color: #ffffff;
+                                horizontal-stretch: 1;
+                            }
+
+                            Text {
+                                text: root.timer-display;
+                                font-size: 15px;
+                                font-weight: 700;
+                                color: #4fd1c5;
+                            }
+
+                            Button {
+                                text: root.timer-running ? "⏸️" : "▶️";
+                                clicked => { root.toggle-timer(); }
+                            }
+                        }
+                    }
+                }
+
+                if root.active-tab == "blocker": VerticalBox {
+                    spacing: 16px;
+                    Text {
+                        text: "🛡️ Locu Distraction Blocker Engine";
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: #ffffff;
+                    }
+                    Text {
+                        text: "When focus session starts, active apps and distraction sites are blocked natively in Rust.";
+                        color: #a0aec0;
+                        font-size: 13px;
+                    }
+                    ScrollView {
+                        VerticalBox {
+                            spacing: 8px;
+                            for app in root.blocked-apps: Rectangle {
+                                height: 50px;
+                                background: #1c222e;
+                                border-radius: 8px;
+                                border-width: 1px;
+                                border-color: #283344;
+
+                                HorizontalBox {
+                                    padding-left: 16px;
+                                    padding-right: 16px;
+                                    spacing: 12px;
+                                    alignment: center;
+
+                                    Text {
+                                        text: app.name + " (" + app.process_name + ")";
+                                        font-size: 14px;
+                                        color: #e2e8f0;
+                                        horizontal-stretch: 1;
+                                    }
+
+                                    Button {
+                                        text: app.active ? "Shield Active" : "Shield Paused";
+                                        clicked => { root.toggle-blocker-app(app.id); }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                if root.active-tab == "notes": VerticalBox {
+                    spacing: 12px;
+                    Text {
+                        text: "📝 Locu Floating Scratchpad";
+                        font-size: 20px;
+                        font-weight: 700;
+                        color: #ffffff;
+                    }
+                    Text {
+                        text: "Jot down sudden thoughts or distraction triggers without breaking your current workflow context.";
+                        color: #a0aec0;
+                        font-size: 13px;
+                    }
+                    Rectangle {
+                        background: #171d26;
+                        border-radius: 8px;
+                        border-width: 1px;
+                        border-color: #2d3748;
+                        VerticalBox {
+                            padding: 12px;
+                            note-input := LineEdit {
+                                text <=> root.quick-note-text;
+                                placeholder-text: "Type scratchpad notes...";
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

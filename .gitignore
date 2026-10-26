@@ -1,0 +1,13 @@
+/target
+*.exe
+_extracted
+package*.json
+inspect*.js
+.env
+
+
+# Added by cargo
+#
+# already existing elements were commented out
+
+#/target
