@@ -1,35 +1,28 @@
 import { Theme } from "theme.slint";
-import { LineEdit, ScrollView } from "std-widgets.slint";
-import { IconSun, IconCalendar, IconInbox, IconCheck, IconRocket, IconTrash } from "icons.slint";
 import { TaskModel, ListModel, BlockedAppModel } from "types.slint";
-import { ThulliTopBar } from "components/topbar.slint";
-import { ThulliSidebar } from "components/sidebar.slint";
-import { ThulliButton } from "components/buttons.slint";
-import { ThulliTaskInput } from "components/inputs.slint";
-import { ThulliListCard, ThulliCreateListCard, ThulliTaskCard } from "components/cards.slint";
-import { ThulliCreateListModal, ThulliPreferencesModal } from "components/modals.slint";
+import { WindowControls } from "window_controls.slint";
 
 export { TaskModel, ListModel, BlockedAppModel }
 
-/// MainWindow — Main application orchestrator composed from modular UI library components
+/// MainWindow — Blank dark window with custom window border and window controls
 export component MainWindow inherits Window {
     title: "Thulli";
     no-frame: true;
     preferred-width: 1240px;
     preferred-height: 780px;
-    min-width: 980px;
-    min-height: 620px;
+    min-width: 800px;
+    min-height: 500px;
     background: Theme.bg-canvas;
     default-font-family: "Segoe UI, Inter, sans-serif";
 
-    // Application state
-    in-out property <string> active-nav: "all_lists"; // "all_lists", "archived", "board", "shield", "scratchpad"
+    // Application state (retained for backend service compatibility)
+    in-out property <string> active-nav: "all_lists";
     in-out property <string> selected-list-id: "";
     in-out property <string> selected-list-name: "All Lists";
-    in-out property <string> active-mode: "dashboard"; // "dashboard", "tower", "pill"
+    in-out property <string> active-mode: "dashboard";
     in-out property <string> timer-display: "25:00";
     in-out property <bool> timer-running: false;
-    in-out property <string> active-task-name: "Deep Work Session";
+    in-out property <string> active-task-name: "";
     in-out property <bool> show-create-list-modal: false;
     in-out property <bool> show-preferences-modal: false;
 
@@ -55,7 +48,7 @@ export component MainWindow inherits Window {
     callback reset-timer();
     callback select-list(string);
     callback toggle-task(string);
-    callback add-task(string, string, string); // (title, list_id, board)
+    callback add-task(string, string, string);
     callback delete-task(string);
     callback create-list(string, string);
     callback delete-list(string);
@@ -63,467 +56,75 @@ export component MainWindow inherits Window {
     callback switch-app-mode(string);
     callback save-scratchpad(string);
 
-    // Root layout
-    VerticalLayout {
-        padding: 0px;
-        spacing: 0px;
+    // Custom Window Frame Container with subtle border
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        background: Theme.bg-canvas;
+        border-width: 1px;
+        border-color: Theme.border-subtle;
+        clip: true;
 
-        // Modular Top Bar Component
-        ThulliTopBar {
-            active-mode <=> root.active-mode;
-            window-drag-start => { root.window-drag-start(); }
-            window-minimize => { root.window-minimize(); }
-            window-maximize => { root.window-maximize(); }
-            window-close => { root.window-close(); }
-            switch-mode(mode) => { root.switch-app-mode(mode); }
-            toggle-preferences => { root.show-preferences-modal = !root.show-preferences-modal; }
-        }
+        VerticalLayout {
+            padding: 0px;
+            spacing: 0px;
 
-        // Main Body Layout (Sidebar + Content Workspace)
-        HorizontalLayout {
-            // Modular Navigation Sidebar Component
-            ThulliSidebar {
-                active-nav <=> root.active-nav;
-                selected-list-id <=> root.selected-list-id;
-                lists: root.lists;
-                timer-display: root.timer-display;
-                timer-running: root.timer-running;
-                create-list-clicked => { root.show-create-list-modal = true; }
-                nav-changed(nav) => { root.active-nav = nav; }
-                select-list(id, name) => {
-                    root.selected-list-id = id;
-                    root.selected-list-name = name;
-                    root.active-nav = "board";
-                    root.select-list(id);
-                }
-                toggle-timer => { root.toggle-timer(); }
-                reset-timer => { root.reset-timer(); }
-            }
-
-            // Main Content Area
+            // Custom Title Bar with Native Drag Area and Window Controls
             Rectangle {
+                height: 40px;
                 background: Theme.bg-canvas;
 
-                VerticalLayout {
-                    padding: 24px;
-                    spacing: 20px;
-
-                    // Content Header
-                    HorizontalLayout {
-                        alignment: space-between;
-
-                        VerticalLayout {
-                            spacing: 4px;
-                            Text {
-                                text: root.active-nav == "all_lists" ? "All Lists" :
-                                      root.active-nav == "board" ? root.selected-list-name :
-                                      root.active-nav == "archived" ? "Archived Lists" :
-                                      root.active-nav == "shield" ? "App Shield" : "Scratchpad";
-                                font-size: 26px;
-                                font-weight: 800;
-                                color: Theme.text-primary;
-                            }
-                            Text {
-                                text: root.active-nav == "all_lists" ? "Select a list to view tasks or start a sprint" :
-                                      root.active-nav == "board" ? "Focus on today's tasks and sprint goals" :
-                                      root.active-nav == "archived" ? "Archived and completed sprint lists" :
-                                      root.active-nav == "shield" ? "Active process protection and app blocking" : "Quick ephemeral focus notes";
-                                font-size: 13px;
-                                color: Theme.text-secondary;
-                            }
-                        }
-
-                        // Header Actions (Back & Delete List buttons when on Kanban board)
-                        if root.active-nav == "board": HorizontalLayout {
-                            spacing: 12px;
-
-                            ThulliButton {
-                                width: 120px;
-                                height: 36px;
-                                text: "← All Lists";
-                                variant: "secondary";
-                                clicked => { root.active-nav = "all_lists"; }
-                            }
-
-                            ThulliButton {
-                                width: 110px;
-                                height: 36px;
-                                text: "Delete List";
-                                variant: "danger";
-                                clicked => {
-                                    root.delete-list(root.selected-list-id);
-                                    root.active-nav = "all_lists";
-                                }
-                            }
-                        }
-                    }
-
-                    // View 1: All Active Lists (Grid of Cards)
-                    if root.active-nav == "all_lists": VerticalLayout {
-                        spacing: 20px;
-
-                        Text {
-                            text: "Your Lists";
-                            font-size: 18px;
-                            font-weight: 700;
-                            color: Theme.text-primary;
-                        }
-
-                        HorizontalLayout {
-                            spacing: 16px;
-                            alignment: start;
-
-                            // Display List Cards
-                            for list in root.lists: ThulliListCard {
-                                visible: !list.is-archived;
-                                width: (!list.is-archived) ? 260px : 0px;
-                                height: (!list.is-archived) ? 260px : 0px;
-                                list-name: list.name;
-                                pending-count: list.pending-count;
-                                is-archived: list.is-archived;
-                                select => {
-                                    root.selected-list-id = list.id;
-                                    root.selected-list-name = list.name;
-                                    root.active-nav = "board";
-                                    root.select-list(list.id);
-                                }
-                                delete => { root.delete-list(list.id); }
-                            }
-
-                            // + CREATE LIST Card
-                            ThulliCreateListCard {
-                                action => { root.show-create-list-modal = true; }
-                            }
-                        }
-                    }
-
-                    // View 2: Archived Lists (Grid of Cards)
-                    if root.active-nav == "archived": VerticalLayout {
-                        spacing: 20px;
-
-                        Text {
-                            text: "Your Archived Lists";
-                            font-size: 18px;
-                            font-weight: 700;
-                            color: Theme.text-primary;
-                        }
-
-                        HorizontalLayout {
-                            spacing: 16px;
-                            alignment: start;
-
-                            for list in root.lists: ThulliListCard {
-                                visible: list.is-archived;
-                                width: (list.is-archived) ? 260px : 0px;
-                                height: (list.is-archived) ? 260px : 0px;
-                                list-name: list.name;
-                                pending-count: list.pending-count;
-                                is-archived: true;
-                                select => {
-                                    root.selected-list-id = list.id;
-                                    root.selected-list-name = list.name;
-                                    root.active-nav = "board";
-                                    root.select-list(list.id);
-                                }
-                                delete => { root.delete-list(list.id); }
-                            }
-                        }
-                    }
-
-                    // View 3: Full Kanban Board (Today | This Week | Backlog | Done)
-                    if root.active-nav == "board": VerticalLayout {
-                        spacing: 16px;
-
-                        HorizontalLayout {
-                            alignment: space-between;
-                            Text {
-                                text: root.selected-list-name + " Board";
-                                font-size: 20px;
-                                font-weight: 700;
-                                color: Theme.text-primary;
-                            }
-
-                            // Modular Smart Task Input Component
-                            ThulliTaskInput {
-                                text <=> root.new-task-input;
-                                submitted(raw) => {
-                                    root.add-task(raw, root.selected-list-id, "today");
-                                }
-                            }
-                        }
-
-                        // Kanban Columns
-                        HorizontalLayout {
-                            spacing: 16px;
-
-                            // Column 1: Today
-                            Rectangle {
-                                horizontal-stretch: 1;
-                                background: Theme.bg-panel;
-                                border-radius: Theme.radius-md;
-                                border-width: 1px;
-                                border-color: Theme.border-subtle;
-
-                                VerticalLayout {
-                                    padding: 14px;
-                                    spacing: 12px;
-
-                                    HorizontalLayout {
-                                        alignment: space-between;
-                                        HorizontalLayout {
-                                            spacing: 6px;
-                                            alignment: center;
-                                            IconSun { width: 15px; height: 15px; stroke-color: Theme.accent-cyan; fill-color: #3CC9C433; y: 2px; }
-                                            Text { text: "TODAY"; font-size: 13px; font-weight: 800; color: Theme.accent-cyan; }
-                                        }
-                                        Text { text: "Focus Queue"; font-size: 11px; color: Theme.text-muted; }
-                                    }
-
-                                    ScrollView {
-                                        VerticalLayout {
-                                            spacing: 8px;
-                                            for task in root.tasks: ThulliTaskCard {
-                                                visible: task.list-id == root.selected-list-id && task.board == "today" && !task.completed;
-                                                height: (task.list-id == root.selected-list-id && task.board == "today" && !task.completed) ? 52px : 0px;
-                                                title: task.title;
-                                                estimate-mins: task.estimate-mins;
-                                                completed: task.completed;
-                                                toggled => { root.toggle-task(task.id); }
-                                                deleted => { root.delete-task(task.id); }
-                                            }
-                                        }
-                                    }
-
-                                    // Launch Action Button
-                                    tower-launch-btn := TouchArea {
-                                        height: 38px;
-                                        clicked => { root.switch-app-mode("tower"); }
-
-                                        Rectangle {
-                                            width: 100%;
-                                            height: 100%;
-                                            border-radius: Theme.radius-sm;
-                                            background: tower-launch-btn.pressed ? Theme.accent-cyan.darker(20%) : (tower-launch-btn.has-hover ? Theme.accent-cyan.brighter(10%) : @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%));
-
-                                            HorizontalLayout {
-                                                alignment: center;
-                                                spacing: 8px;
-                                                IconRocket {
-                                                    width: 14px;
-                                                    height: 14px;
-                                                    stroke-color: #111111;
-                                                    fill-color: #11111125;
-                                                    y: 12px;
-                                                }
-                                                Text { text: "Launch Focus Tower"; font-size: 12px; font-weight: 800; color: #000000; vertical-alignment: center; }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            // Column 2: This Week
-                            Rectangle {
-                                horizontal-stretch: 1;
-                                background: Theme.bg-panel;
-                                border-radius: Theme.radius-md;
-                                border-width: 1px;
-                                border-color: Theme.border-subtle;
-
-                                VerticalLayout {
-                                    padding: 14px;
-                                    spacing: 12px;
-
-                                    HorizontalLayout {
-                                        spacing: 6px;
-                                        alignment: start;
-                                        IconCalendar { width: 15px; height: 15px; stroke-color: Theme.accent-lime; fill-color: #B3C06533; y: 2px; }
-                                        Text { text: "THIS WEEK"; font-size: 13px; font-weight: 800; color: Theme.accent-lime; }
-                                    }
-
-                                    ScrollView {
-                                        VerticalLayout {
-                                            spacing: 8px;
-                                            for task in root.tasks: ThulliTaskCard {
-                                                visible: task.list-id == root.selected-list-id && task.board == "week" && !task.completed;
-                                                height: (task.list-id == root.selected-list-id && task.board == "week" && !task.completed) ? 52px : 0px;
-                                                title: task.title;
-                                                estimate-mins: task.estimate-mins;
-                                                completed: task.completed;
-                                                toggled => { root.toggle-task(task.id); }
-                                                deleted => { root.delete-task(task.id); }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            // Column 3: Backlog
-                            Rectangle {
-                                horizontal-stretch: 1;
-                                background: Theme.bg-panel;
-                                border-radius: Theme.radius-md;
-                                border-width: 1px;
-                                border-color: Theme.border-subtle;
-
-                                VerticalLayout {
-                                    padding: 14px;
-                                    spacing: 12px;
-
-                                    HorizontalLayout {
-                                        spacing: 6px;
-                                        alignment: start;
-                                        IconInbox { width: 15px; height: 15px; stroke-color: Theme.accent-blue; fill-color: #6F98E833; y: 2px; }
-                                        Text { text: "BACKLOG"; font-size: 13px; font-weight: 800; color: Theme.accent-blue; }
-                                    }
-
-                                    ScrollView {
-                                        VerticalLayout {
-                                            spacing: 8px;
-                                            for task in root.tasks: ThulliTaskCard {
-                                                visible: task.list-id == root.selected-list-id && task.board == "backlog" && !task.completed;
-                                                height: (task.list-id == root.selected-list-id && task.board == "backlog" && !task.completed) ? 52px : 0px;
-                                                title: task.title;
-                                                estimate-mins: task.estimate-mins;
-                                                completed: task.completed;
-                                                toggled => { root.toggle-task(task.id); }
-                                                deleted => { root.delete-task(task.id); }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-
-                            // Column 4: Done
-                            Rectangle {
-                                horizontal-stretch: 1;
-                                background: Theme.bg-panel;
-                                border-radius: Theme.radius-md;
-                                border-width: 1px;
-                                border-color: Theme.border-subtle;
-
-                                VerticalLayout {
-                                    padding: 14px;
-                                    spacing: 12px;
-
-                                    HorizontalLayout {
-                                        spacing: 6px;
-                                        alignment: start;
-                                        IconCheck { width: 15px; height: 15px; stroke-color: Theme.accent-green; fill-color: #6FE2A433; y: 2px; }
-                                        Text { text: "DONE"; font-size: 13px; font-weight: 800; color: Theme.accent-green; }
-                                    }
-
-                                    ScrollView {
-                                        VerticalLayout {
-                                            spacing: 8px;
-                                            for task in root.tasks: ThulliTaskCard {
-                                                visible: task.list-id == root.selected-list-id && task.completed;
-                                                height: (task.list-id == root.selected-list-id && task.completed) ? 52px : 0px;
-                                                title: task.title;
-                                                estimate-mins: task.estimate-mins;
-                                                completed: task.completed;
-                                                toggled => { root.toggle-task(task.id); }
-                                                deleted => { root.delete-task(task.id); }
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    // View 4: App Shield
-                    if root.active-nav == "shield": VerticalLayout {
-                        spacing: 16px;
-                        Text {
-                            text: "Thulli App Shield";
-                            font-size: 18px;
-                            font-weight: 700;
-                            color: Theme.text-primary;
-                        }
-                        ScrollView {
-                            VerticalLayout {
-                                spacing: 8px;
-                                for app in root.blocked-apps: Rectangle {
-                                    height: 56px;
-                                    background: Theme.bg-card;
-                                    border-radius: Theme.radius-sm;
-                                    border-width: 1px;
-                                    border-color: Theme.border-subtle;
-                                    HorizontalLayout {
-                                        padding-left: 14px;
-                                        padding-right: 14px;
-                                        alignment: space-between;
-                                        VerticalLayout {
-                                            alignment: center;
-                                            spacing: 2px;
-                                            Text {
-                                                text: app.name;
-                                                font-size: 13px;
-                                                font-weight: 600;
-                                                color: Theme.text-primary;
-                                            }
-                                            Text {
-                                                text: app.process-name;
-                                                font-size: 11px;
-                                                color: Theme.text-muted;
-                                            }
-                                        }
-
-                                        ThulliButton {
-                                            width: 110px;
-                                            height: 32px;
-                                            y: 12px;
-                                            text: app.active ? "Shield Active" : "Shield Paused";
-                                            variant: app.active ? "primary" : "secondary";
-                                            clicked => { root.toggle-blocked-app(app.id); }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-
-                    // View 5: Scratchpad
-                    if root.active-nav == "scratchpad": VerticalLayout {
-                        spacing: 16px;
-                        Text {
-                            text: "Thulli Quick Scratchpad";
-                            font-size: 18px;
-                            font-weight: 700;
-                            color: Theme.text-primary;
-                        }
-                        Rectangle {
-                            background: Theme.bg-card;
-                            border-radius: Theme.radius-md;
-                            border-width: 1px;
-                            border-color: Theme.border-subtle;
-                            VerticalLayout {
-                                padding: 16px;
-                                LineEdit {
-                                    text <=> root.scratchpad-text;
-                                    placeholder-text: "Capture distractions or rapid thoughts...";
-                                }
-                            }
+                // Drag hit test area across the title bar
+                TouchArea {
+                    width: 100%;
+                    height: 100%;
+                    pointer-event(event) => {
+                        if (event.kind == PointerEventKind.down && event.button == PointerEventButton.left) {
+                            root.window-drag-start();
                         }
                     }
                 }
+
+                HorizontalLayout {
+                    padding-left: 16px;
+                    padding-right: 12px;
+                    alignment: space-between;
+
+                    // App Title / Branding
+                    HorizontalLayout {
+                        alignment: start;
+
+                        Text {
+                            text: "THULLI";
+                            font-size: 11px;
+                            font-weight: 700;
+                            letter-spacing: 1.5px;
+                            color: Theme.text-muted;
+                            vertical-alignment: center;
+                        }
+                    }
+
+                    // Window Controls (minimize, maximize, close)
+                    WindowControls {
+                        minimize => { root.window-minimize(); }
+                        maximize => { root.window-maximize(); }
+                        close => { root.window-close(); }
+                    }
+                }
+
+                // Subtle bottom border for the title bar
+                Rectangle {
+                    y: parent.height - 1px;
+                    width: 100%;
+                    height: 1px;
+                    background: Theme.border-subtle;
+                }
+            }
+
+            // Blank dark canvas window body
+            Rectangle {
+                background: Theme.bg-canvas;
             }
         }
-    }
-
-    // Modal Overlays
-    if root.show-create-list-modal: ThulliCreateListModal {
-        list-name <=> root.new-list-name;
-        list-color <=> root.new-list-color;
-        cancel => { root.show-create-list-modal = false; }
-        create(name, color) => {
-            root.create-list(name, color);
-            root.show-create-list-modal = false;
-        }
-    }
-
-    if root.show-preferences-modal: ThulliPreferencesModal {
-        close => { root.show-preferences-modal = false; }
     }
 }
