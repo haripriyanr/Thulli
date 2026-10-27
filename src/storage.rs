@@ -14,6 +14,7 @@ pub struct Task {
     pub time_taken_secs: u64,
     pub completed: bool,
     pub completed_at: Option<DateTime<Utc>>,
+    pub board: String, // "today", "week", "backlog", "done"
     pub sort_order: i32,
     pub created_at: DateTime<Utc>,
 }
@@ -50,7 +51,7 @@ pub struct ThulliPreferences {
     pub app_blocker_active: bool,
     pub web_blocker_active: bool,
     pub quick_notes: String,
-    pub active_mode: String, // "dashboard", "tower", "pill"
+    pub active_mode: String,
 }
 
 impl Default for ThulliPreferences {
@@ -89,7 +90,7 @@ impl Default for AppStateStore {
                 TaskList {
                     id: personal_list_id.clone(),
                     name: "Personal".to_string(),
-                    color: "#3CC9C4".to_string(), // Blitz cyan
+                    color: "#3CC9C4".to_string(),
                     is_archived: false,
                     sort_order: 0,
                     created_at: Utc::now(),
@@ -97,7 +98,7 @@ impl Default for AppStateStore {
                 TaskList {
                     id: Uuid::new_v4().to_string(),
                     name: "Work Sprint".to_string(),
-                    color: "#EF82EF".to_string(), // Blitz magenta
+                    color: "#EF82EF".to_string(),
                     is_archived: false,
                     sort_order: 1,
                     created_at: Utc::now(),
@@ -112,18 +113,32 @@ impl Default for AppStateStore {
                     time_taken_secs: 0,
                     completed: false,
                     completed_at: None,
+                    board: "today".to_string(),
                     sort_order: 0,
                     created_at: Utc::now(),
                 },
                 Task {
                     id: Uuid::new_v4().to_string(),
-                    list_id: personal_list_id,
+                    list_id: personal_list_id.clone(),
                     title: "Calibrate Locu app blocker rules".to_string(),
                     estimate_mins: 15,
                     time_taken_secs: 900,
                     completed: true,
                     completed_at: Some(Utc::now()),
+                    board: "done".to_string(),
                     sort_order: 1,
+                    created_at: Utc::now(),
+                },
+                Task {
+                    id: Uuid::new_v4().to_string(),
+                    list_id: personal_list_id,
+                    title: "Configure BlitzTower screen snapping".to_string(),
+                    estimate_mins: 30,
+                    time_taken_secs: 0,
+                    completed: false,
+                    completed_at: None,
+                    board: "week".to_string(),
+                    sort_order: 2,
                     created_at: Utc::now(),
                 },
             ],
@@ -173,7 +188,6 @@ impl EncryptedStorage {
         })
     }
 
-    /// Load decrypted state or create default initial data if none exists
     pub fn load(&self) -> AppStateStore {
         if self.file_path.exists() {
             match self.security.read_decrypted_file(&self.file_path) {
@@ -193,7 +207,6 @@ impl EncryptedStorage {
         default_store
     }
 
-    /// Save state encrypted with AES-256-GCM
     pub fn save(&self, store: &AppStateStore) -> Result<(), Box<dyn std::error::Error>> {
         let serialized = serde_json::to_vec_pretty(store)?;
         self.security.save_encrypted_file(&self.file_path, &serialized)?;

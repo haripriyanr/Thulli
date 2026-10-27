@@ -5201,6 +5201,7 @@ dependencies = [
  "argon2",
  "chrono",
  "rand",
+ "regex",
  "rusqlite",
  "serde",
  "serde_json",
@@ -5210,6 +5211,7 @@ dependencies = [
  "tokio",
  "tray-icon",
  "uuid",
+ "windows-sys 0.61.2",
  "winit",
  "zeroize",
 ]

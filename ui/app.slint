@@ -8,6 +8,7 @@ export struct TaskModel {
     title: string,
     estimate_mins: int,
     completed: bool,
+    board: string, // "today", "week", "backlog", "done"
 }
 
 export struct ListModel {
@@ -28,16 +29,17 @@ export struct BlockedAppModel {
 export component MainWindow inherits Window {
     title: "Thulli";
     no-frame: true;
-    preferred-width: 1200px;
-    preferred-height: 760px;
+    preferred-width: 1240px;
+    preferred-height: 780px;
     min-width: 980px;
     min-height: 620px;
     background: Theme.bg-canvas;
     default-font-family: "Segoe UI, Inter, sans-serif";
 
     // Application state
-    in-out property <string> active-nav: "all_lists"; // "all_lists", "archived", "reports"
+    in-out property <string> active-nav: "all_lists"; // "all_lists", "archived", "board", "reports", "blocker", "scratchpad"
     in-out property <string> selected-list-id: "";
+    in-out property <string> selected-list-name: "Personal";
     in-out property <string> active-mode: "dashboard"; // "dashboard", "tower", "pill"
     in-out property <string> user-name: "Hari";
     in-out property <string> timer-display: "25:00";
@@ -58,6 +60,7 @@ export component MainWindow inherits Window {
     in-out property <string> scratchpad-text: "";
 
     // Window action callbacks
+    callback window-drag-start();
     callback window-minimize();
     callback window-maximize();
     callback window-close();
@@ -67,7 +70,7 @@ export component MainWindow inherits Window {
     callback reset-timer();
     callback select-list(string);
     callback toggle-task(string);
-    callback add-task(string, string);
+    callback add-task(string, string, string); // (title, list_id, board)
     callback create-list(string, string);
     callback toggle-blocked-app(string);
     callback switch-app-mode(string);
@@ -78,10 +81,19 @@ export component MainWindow inherits Window {
         padding: 0px;
         spacing: 0px;
 
-        // Custom Top Bar (Window Header & Drag Region)
+        // Custom Top Bar (Window Header & Native Draggable Region)
         Rectangle {
             height: 48px;
             background: Theme.bg-canvas;
+
+            // Touch area for native window dragging
+            TouchArea {
+                pointer-event(event) => {
+                    if (event.button == PointerEventButton.left && event.kind == PointerEventKind.down) {
+                        root.window-drag-start();
+                    }
+                }
+            }
 
             HorizontalLayout {
                 padding-left: 20px;
@@ -510,9 +522,27 @@ export component MainWindow inherits Window {
                                 color: Theme.text-secondary;
                             }
                         }
+
+                        // Back to lists button if inside a Kanban board
+                        if root.active-nav == "board": Rectangle {
+                            height: 36px;
+                            width: 120px;
+                            border-radius: Theme.radius-sm;
+                            background: Theme.bg-card;
+                            border-width: 1px;
+                            border-color: Theme.border-light;
+                            TouchArea {
+                                clicked => { root.active-nav = "all_lists"; }
+                            }
+                            HorizontalLayout {
+                                alignment: center;
+                                spacing: 6px;
+                                Text { text: "← All Lists"; font-size: 12px; font-weight: 600; color: Theme.text-primary; vertical-alignment: center; }
+                            }
+                        }
                     }
 
-                    // Content View: All Lists (Grid of Cards)
+                    // View 1: All Lists (Grid of Cards)
                     if root.active-nav == "all_lists": VerticalLayout {
                         spacing: 20px;
 
@@ -538,7 +568,12 @@ export component MainWindow inherits Window {
                                 border-color: Theme.border-subtle;
 
                                 TouchArea {
-                                    clicked => { root.select-list(list.id); }
+                                    clicked => {
+                                        root.selected-list-id = list.id;
+                                        root.selected-list-name = list.name;
+                                        root.active-nav = "board";
+                                        root.select-list(list.id);
+                                    }
                                 }
 
                                 VerticalLayout {
@@ -554,7 +589,7 @@ export component MainWindow inherits Window {
                                             width: 28px;
                                             height: 28px;
                                             border-radius: Theme.radius-full;
-                                            background: #3CC9C4; // Color token
+                                            background: #3CC9C4;
                                             y: 2px;
                                             Text {
                                                 text: "P";
@@ -600,10 +635,10 @@ export component MainWindow inherits Window {
                                             }
 
                                             Text {
-                                                text: "ALL CLEAR";
+                                                text: list.pending-count == 0 ? "ALL CLEAR" : "IN PROGRESS";
                                                 font-size: 11px;
                                                 font-weight: 700;
-                                                color: Theme.text-muted;
+                                                color: list.pending-count == 0 ? Theme.text-muted : Theme.accent-cyan;
                                                 horizontal-alignment: center;
                                             }
                                         }
@@ -654,7 +689,248 @@ export component MainWindow inherits Window {
                         }
                     }
 
-                    // Content View: Blocker
+                    // View 2: Full Blitzit Kanban Board (Today | This Week | Backlog | Done)
+                    if root.active-nav == "board": VerticalLayout {
+                        spacing: 16px;
+
+                        HorizontalLayout {
+                            alignment: space-between;
+                            Text {
+                                text: root.selected-list-name + " Board";
+                                font-size: 20px;
+                                font-weight: 700;
+                                color: Theme.text-primary;
+                            }
+
+                            // Smart Task Input
+                            HorizontalLayout {
+                                spacing: 8px;
+                                width: 440px;
+                                LineEdit {
+                                    text <=> root.new-task-input;
+                                    placeholder-text: "Add task (e.g. 'Build auth 45m @today')...";
+                                    accepted => {
+                                        if (root.new-task-input != "") {
+                                            root.add-task(root.new-task-input, root.selected-list-id, "today");
+                                            root.new-task-input = "";
+                                        }
+                                    }
+                                }
+                                Rectangle {
+                                    width: 70px;
+                                    height: 36px;
+                                    border-radius: Theme.radius-sm;
+                                    background: @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%);
+                                    TouchArea {
+                                        clicked => {
+                                            if (root.new-task-input != "") {
+                                                root.add-task(root.new-task-input, root.selected-list-id, "today");
+                                                root.new-task-input = "";
+                                            }
+                                        }
+                                    }
+                                    Text {
+                                        text: "+ Add";
+                                        font-size: 12px;
+                                        font-weight: 700;
+                                        color: #000000;
+                                        horizontal-alignment: center;
+                                        vertical-alignment: center;
+                                    }
+                                }
+                            }
+                        }
+
+                        // Kanban Columns
+                        HorizontalLayout {
+                            spacing: 16px;
+
+                            // Column 1: Today (with Blitz Rocket Action)
+                            Rectangle {
+                                horizontal-stretch: 1;
+                                background: Theme.bg-panel;
+                                border-radius: Theme.radius-md;
+                                border-width: 1px;
+                                border-color: Theme.border-subtle;
+
+                                VerticalLayout {
+                                    padding: 14px;
+                                    spacing: 12px;
+
+                                    HorizontalLayout {
+                                        alignment: space-between;
+                                        Text { text: "TODAY"; font-size: 13px; font-weight: 800; color: Theme.accent-cyan; }
+                                        Text { text: "Focus Queue"; font-size: 11px; color: Theme.text-muted; }
+                                    }
+
+                                    ScrollView {
+                                        VerticalLayout {
+                                            spacing: 8px;
+                                            for task in root.tasks: Rectangle {
+                                                visible: task.board == "today" && !task.completed;
+                                                height: (task.board == "today" && !task.completed) ? 52px : 0px;
+                                                background: Theme.bg-card;
+                                                border-radius: Theme.radius-sm;
+                                                border-width: 1px;
+                                                border-color: Theme.border-subtle;
+
+                                                HorizontalLayout {
+                                                    padding-left: 12px;
+                                                    padding-right: 12px;
+                                                    alignment: space-between;
+
+                                                    HorizontalLayout {
+                                                        spacing: 10px;
+                                                        alignment: center;
+                                                        CheckBox {
+                                                            checked: task.completed;
+                                                            toggled => { root.toggle-task(task.id); }
+                                                        }
+                                                        Text {
+                                                            text: task.title;
+                                                            font-size: 13px;
+                                                            color: Theme.text-primary;
+                                                            vertical-alignment: center;
+                                                        }
+                                                    }
+
+                                                    Text {
+                                                        text: task.estimate-mins + "m";
+                                                        font-size: 11px;
+                                                        color: Theme.text-muted;
+                                                        vertical-alignment: center;
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+
+                                    // Blitzit Action Launch Button
+                                    Rectangle {
+                                        height: 38px;
+                                        border-radius: Theme.radius-sm;
+                                        background: @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%);
+                                        TouchArea {
+                                            clicked => { root.switch-app-mode("tower"); }
+                                        }
+                                        HorizontalLayout {
+                                            alignment: center;
+                                            spacing: 8px;
+                                            Text { text: "🚀"; font-size: 14px; }
+                                            Text { text: "Launch BlitzTower Focus"; font-size: 12px; font-weight: 800; color: #000000; vertical-alignment: center; }
+                                        }
+                                    }
+                                }
+                            }
+
+                            // Column 2: This Week
+                            Rectangle {
+                                horizontal-stretch: 1;
+                                background: Theme.bg-panel;
+                                border-radius: Theme.radius-md;
+                                border-width: 1px;
+                                border-color: Theme.border-subtle;
+
+                                VerticalLayout {
+                                    padding: 14px;
+                                    spacing: 12px;
+
+                                    Text { text: "THIS WEEK"; font-size: 13px; font-weight: 800; color: Theme.accent-lime; }
+
+                                    ScrollView {
+                                        VerticalLayout {
+                                            spacing: 8px;
+                                            for task in root.tasks: Rectangle {
+                                                visible: task.board == "week" && !task.completed;
+                                                height: (task.board == "week" && !task.completed) ? 52px : 0px;
+                                                background: Theme.bg-card;
+                                                border-radius: Theme.radius-sm;
+                                                HorizontalLayout {
+                                                    padding-left: 12px;
+                                                    padding-right: 12px;
+                                                    alignment: space-between;
+                                                    Text { text: task.title; font-size: 13px; color: Theme.text-primary; vertical-alignment: center; }
+                                                    Text { text: task.estimate-mins + "m"; font-size: 11px; color: Theme.text-muted; vertical-alignment: center; }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            // Column 3: Backlog
+                            Rectangle {
+                                horizontal-stretch: 1;
+                                background: Theme.bg-panel;
+                                border-radius: Theme.radius-md;
+                                border-width: 1px;
+                                border-color: Theme.border-subtle;
+
+                                VerticalLayout {
+                                    padding: 14px;
+                                    spacing: 12px;
+
+                                    Text { text: "BACKLOG"; font-size: 13px; font-weight: 800; color: Theme.accent-blue; }
+
+                                    ScrollView {
+                                        VerticalLayout {
+                                            spacing: 8px;
+                                            for task in root.tasks: Rectangle {
+                                                visible: task.board == "backlog" && !task.completed;
+                                                height: (task.board == "backlog" && !task.completed) ? 52px : 0px;
+                                                background: Theme.bg-card;
+                                                border-radius: Theme.radius-sm;
+                                                HorizontalLayout {
+                                                    padding-left: 12px;
+                                                    padding-right: 12px;
+                                                    alignment: space-between;
+                                                    Text { text: task.title; font-size: 13px; color: Theme.text-primary; vertical-alignment: center; }
+                                                    Text { text: task.estimate-mins + "m"; font-size: 11px; color: Theme.text-muted; vertical-alignment: center; }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            // Column 4: Done
+                            Rectangle {
+                                horizontal-stretch: 1;
+                                background: Theme.bg-panel;
+                                border-radius: Theme.radius-md;
+                                border-width: 1px;
+                                border-color: Theme.border-subtle;
+
+                                VerticalLayout {
+                                    padding: 14px;
+                                    spacing: 12px;
+
+                                    Text { text: "DONE 🎉"; font-size: 13px; font-weight: 800; color: Theme.accent-green; }
+
+                                    ScrollView {
+                                        VerticalLayout {
+                                            spacing: 8px;
+                                            for task in root.tasks: Rectangle {
+                                                visible: task.completed;
+                                                height: task.completed ? 52px : 0px;
+                                                background: Theme.bg-card;
+                                                border-radius: Theme.radius-sm;
+                                                HorizontalLayout {
+                                                    padding-left: 12px;
+                                                    padding-right: 12px;
+                                                    alignment: space-between;
+                                                    Text { text: task.title; font-size: 13px; color: Theme.text-muted; vertical-alignment: center; }
+                                                    Text { text: "✓ Done"; font-size: 11px; color: Theme.accent-green; vertical-alignment: center; }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // View 3: Blocker
                     if root.active-nav == "blocker": VerticalLayout {
                         spacing: 16px;
                         Text {
@@ -718,7 +994,7 @@ export component MainWindow inherits Window {
                         }
                     }
 
-                    // Content View: Scratchpad
+                    // View 4: Scratchpad
                     if root.active-nav == "scratchpad": VerticalLayout {
                         spacing: 16px;
                         Text {
@@ -746,17 +1022,14 @@ export component MainWindow inherits Window {
         }
     }
 
-    // Modal Overlay: Create List (Replica of user's screenshot)
+    // Modal Overlay: Create List
     if root.show-create-list-modal: Rectangle {
         width: 100%;
         height: 100%;
-        background: #000000b0; // Dim backdrop
+        background: #000000b0;
 
-        TouchArea {
-            // Absorb clicks on backdrop
-        }
+        TouchArea { }
 
-        // Modal Dialog Box
         Rectangle {
             width: 440px;
             height: 480px;
@@ -769,10 +1042,9 @@ export component MainWindow inherits Window {
                 padding: 28px;
                 spacing: 20px;
 
-                // Title + Close X
                 HorizontalLayout {
                     alignment: space-between;
-                    Rectangle { width: 1px; } // spacer
+                    Rectangle { width: 1px; }
                     Text {
                         text: "Create a new list";
                         font-size: 18px;
@@ -793,7 +1065,6 @@ export component MainWindow inherits Window {
                     }
                 }
 
-                // Avatar preview
                 VerticalLayout {
                     alignment: center;
                     spacing: 8px;
@@ -830,7 +1101,6 @@ export component MainWindow inherits Window {
                     }
                 }
 
-                // Color picker row (9 dots)
                 VerticalLayout {
                     spacing: 8px;
                     Text {
@@ -852,13 +1122,11 @@ export component MainWindow inherits Window {
                     }
                 }
 
-                // List Name Input
                 LineEdit {
                     text <=> root.new-list-name;
                     placeholder-text: "List name (e.g. Work, Personal)...";
                 }
 
-                // Actions: Cancel & Create
                 HorizontalLayout {
                     spacing: 14px;
                     alignment: center;
@@ -911,7 +1179,7 @@ export component MainWindow inherits Window {
         }
     }
 
-    // Modal Overlay: Preferences (Replica of user's screenshot)
+    // Modal Overlay: Preferences
     if root.show-preferences-modal: Rectangle {
         width: 100%;
         height: 100%;
@@ -962,7 +1230,6 @@ export component MainWindow inherits Window {
                     }
                 }
 
-                // Section: Time
                 VerticalLayout {
                     spacing: 8px;
                     Text {
@@ -997,7 +1264,6 @@ export component MainWindow inherits Window {
                     }
                 }
 
-                // Section: Blitz mode settings
                 VerticalLayout {
                     spacing: 10px;
                     Text {

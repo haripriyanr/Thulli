@@ -1,10 +1,12 @@
 slint::include_modules!();
 
+mod parser;
 mod security;
 mod storage;
 
+use parser::parse_task_title;
 use security::SecurityManager;
-use storage::{EncryptedStorage, TaskList as StoredList};
+use storage::{EncryptedStorage, TaskList as StoredList, Task as StoredTask};
 
 use slint::{Model, VecModel};
 use std::rc::Rc;
@@ -13,6 +15,13 @@ use std::sync::{Arc, Mutex};
 use std::time::Duration;
 use uuid::Uuid;
 use chrono::Utc;
+
+#[cfg(target_os = "windows")]
+use windows_sys::Win32::UI::WindowsAndMessaging::{
+    GetForegroundWindow, SendMessageW, WM_NCLBUTTONDOWN, HTCAPTION,
+};
+#[cfg(target_os = "windows")]
+use windows_sys::Win32::UI::Input::KeyboardAndMouse::ReleaseCapture;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
@@ -48,6 +57,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 title: t.title.clone().into(),
                 estimate_mins: t.estimate_mins as i32,
                 completed: t.completed,
+                board: t.board.clone().into(),
             }
         }).collect();
         main_window.set_tasks(Rc::new(VecModel::from(ui_tasks)).into());
@@ -66,6 +76,18 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         main_window.set_scratchpad_text(store.preferences.quick_notes.clone().into());
         main_window.set_active_mode(store.preferences.active_mode.clone().into());
     }
+
+    // Native Window Dragging on Windows (WM_NCLBUTTONDOWN + HTCAPTION)
+    main_window.on_window_drag_start(move || {
+        #[cfg(target_os = "windows")]
+        unsafe {
+            let hwnd = GetForegroundWindow();
+            if !hwnd.is_null() {
+                ReleaseCapture();
+                SendMessageW(hwnd, WM_NCLBUTTONDOWN, HTCAPTION as usize, 0);
+            }
+        }
+    });
 
     // Window controls
     main_window.on_window_minimize(move || {
@@ -143,6 +165,47 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         println!("[Thulli] Created list '{}' securely in encrypted store", name);
     });
 
+    // Add Task with Blitzit Smart Title & Duration Parser
+    let store_add = app_store.clone();
+    let storage_add = storage.clone();
+    let w_add = main_window.as_weak();
+    main_window.on_add_task(move |raw_input, list_id, default_board| {
+        let parsed = parse_task_title(raw_input.as_str(), default_board.as_str());
+        let new_task_id = Uuid::new_v4().to_string();
+
+        let new_task = StoredTask {
+            id: new_task_id.clone(),
+            list_id: list_id.to_string(),
+            title: parsed.cleaned_title.clone(),
+            estimate_mins: parsed.estimate_mins,
+            time_taken_secs: 0,
+            completed: false,
+            completed_at: None,
+            board: parsed.target_board.clone(),
+            sort_order: 0,
+            created_at: Utc::now(),
+        };
+
+        let mut st = store_add.lock().unwrap();
+        st.tasks.push(new_task);
+        let _ = storage_add.save(&st);
+
+        if let Some(w) = w_add.upgrade() {
+            let current = w.get_tasks();
+            let mut task_vec: Vec<TaskModel> = current.iter().collect();
+            task_vec.push(TaskModel {
+                id: new_task_id.into(),
+                list_id: list_id.clone(),
+                title: parsed.cleaned_title.clone().into(),
+                estimate_mins: parsed.estimate_mins as i32,
+                completed: false,
+                board: parsed.target_board.clone().into(),
+            });
+            w.set_tasks(Rc::new(VecModel::from(task_vec)).into());
+        }
+        println!("[Thulli] Added task '{}' with estimate {}m to board '{}'", parsed.cleaned_title, parsed.estimate_mins, parsed.target_board);
+    });
+
     // Toggle Task Completed
     let store_tt = app_store.clone();
     let storage_tt = storage.clone();
@@ -155,6 +218,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
                 t.completed = !t.completed;
                 completed_state = t.completed;
                 t.completed_at = if t.completed { Some(Utc::now()) } else { None };
+                if t.completed {
+                    t.board = "done".to_string();
+                }
             }
         }
         let _ = storage_tt.save(&st);
@@ -165,6 +231,9 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             for item in &mut tasks_vec {
                 if item.id == task_id {
                     item.completed = completed_state;
+                    if completed_state {
+                        item.board = "done".into();
+                    }
                 }
             }
             w.set_tasks(Rc::new(VecModel::from(tasks_vec)).into());
@@ -247,7 +316,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         }
     });
 
-    println!("[Thulli] Launching Custom Frameless Window...");
+    println!("[Thulli] Launching Custom Frameless Window with Native Dragging & Full Kanban...");
     main_window.run()?;
     Ok(())
 }
