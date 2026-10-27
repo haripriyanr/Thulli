@@ -1,0 +1,304 @@
+import { Theme } from "../theme.slint";
+import { ListModel } from "../types.slint";
+import { IconPlus, IconFolder, IconArchive, IconShield, IconScratchpad } from "../icons.slint";
+import { ThulliSearchBar } from "inputs.slint";
+import { ThulliButton } from "buttons.slint";
+
+/// ThulliSidebar — Reusable navigation sidebar with Pomodoro focus timer
+export component ThulliSidebar inherits Rectangle {
+    in-out property <string> active-nav: "all_lists";
+    in-out property <string> selected-list-id: "";
+    in property <[ListModel]> lists: [];
+    in property <string> timer-display: "25:00";
+    in property <bool> timer-running: false;
+
+    callback create-list-clicked();
+    callback nav-changed(string);
+    callback select-list(string, string);
+    callback toggle-timer();
+    callback reset-timer();
+
+    width: 250px;
+    background: Theme.bg-sidebar;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    VerticalLayout {
+        padding: 16px;
+        spacing: 12px;
+
+        // Search Bar Component
+        ThulliSearchBar { }
+
+        // Create New List Action
+        btn-add-list := TouchArea {
+            height: 42px;
+            clicked => { root.create-list-clicked(); }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: btn-add-list.has-hover ? Theme.bg-card-hover : Theme.bg-card;
+                border-width: 1px;
+                border-color: Theme.border-light;
+
+                HorizontalLayout {
+                    padding-left: 14px;
+                    spacing: 10px;
+                    alignment: center;
+                    IconPlus {
+                        width: 14px;
+                        height: 14px;
+                        stroke-color: Theme.accent-cyan;
+                        y: 14px;
+                    }
+                    Text {
+                        text: "Create new list";
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: Theme.text-primary;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+
+        Rectangle { height: 8px; }
+
+        // Navigation Tabs: All my lists
+        tab-all := TouchArea {
+            height: 38px;
+            clicked => { root.nav-changed("all_lists"); }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: root.active-nav == "all_lists" ? Theme.bg-card-selected : (tab-all.has-hover ? Theme.bg-card-hover : transparent);
+
+                HorizontalLayout {
+                    padding-left: 14px;
+                    spacing: 10px;
+                    alignment: center;
+                    IconFolder {
+                        width: 16px;
+                        height: 16px;
+                        stroke-color: root.active-nav == "all_lists" ? Theme.accent-cyan : Theme.text-secondary;
+                        fill-color: root.active-nav == "all_lists" ? #3CC9C433 : #88888820;
+                        y: 11px;
+                    }
+                    Text {
+                        text: "All my lists";
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: root.active-nav == "all_lists" ? Theme.text-primary : Theme.text-secondary;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+
+        // Active lists in sidebar
+        for list in root.lists: s-list := TouchArea {
+            visible: !list.is-archived;
+            height: (!list.is-archived) ? 34px : 0px;
+            clicked => {
+                root.select-list(list.id, list.name);
+            }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: (root.active-nav == "board" && root.selected-list-id == list.id) ? Theme.bg-card-selected : (s-list.has-hover ? Theme.bg-card-hover : transparent);
+
+                HorizontalLayout {
+                    padding-left: 24px;
+                    padding-right: 14px;
+                    alignment: space-between;
+
+                    HorizontalLayout {
+                        spacing: 10px;
+                        alignment: center;
+                        Rectangle {
+                            width: 8px;
+                            height: 8px;
+                            border-radius: Theme.radius-full;
+                            background: @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%);
+                        }
+                        Text {
+                            text: list.name;
+                            font-size: 13px;
+                            font-weight: (root.active-nav == "board" && root.selected-list-id == list.id) ? 700 : 500;
+                            color: (root.active-nav == "board" && root.selected-list-id == list.id) ? Theme.text-primary : Theme.text-secondary;
+                            vertical-alignment: center;
+                        }
+                    }
+
+                    if list.pending-count > 0: Text {
+                        text: list.pending-count;
+                        font-size: 11px;
+                        font-weight: 700;
+                        color: Theme.accent-cyan;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+
+        tab-arch := TouchArea {
+            height: 38px;
+            clicked => { root.nav-changed("archived"); }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: root.active-nav == "archived" ? Theme.bg-card-selected : (tab-arch.has-hover ? Theme.bg-card-hover : transparent);
+
+                HorizontalLayout {
+                    padding-left: 14px;
+                    spacing: 10px;
+                    alignment: center;
+                    IconArchive {
+                        width: 16px;
+                        height: 16px;
+                        stroke-color: root.active-nav == "archived" ? Theme.accent-blue : Theme.text-secondary;
+                        fill-color: root.active-nav == "archived" ? #6F98E833 : #88888820;
+                        y: 11px;
+                    }
+                    Text {
+                        text: "Archived lists";
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: root.active-nav == "archived" ? Theme.text-primary : Theme.text-secondary;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+
+        Rectangle { height: 8px; }
+
+        // Focus Tools Section
+        Text {
+            text: "FOCUS & SHIELD";
+            font-size: 10px;
+            font-weight: 800;
+            color: Theme.text-muted;
+            letter-spacing: 1px;
+        }
+
+        tab-shield := TouchArea {
+            height: 38px;
+            clicked => { root.nav-changed("shield"); }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: root.active-nav == "shield" ? Theme.bg-card-selected : (tab-shield.has-hover ? Theme.bg-card-hover : transparent);
+
+                HorizontalLayout {
+                    padding-left: 14px;
+                    spacing: 10px;
+                    alignment: center;
+                    IconShield {
+                        width: 16px;
+                        height: 16px;
+                        stroke-color: root.active-nav == "shield" ? Theme.accent-cyan : Theme.text-secondary;
+                        fill-color: root.active-nav == "shield" ? #3CC9C433 : #88888820;
+                        y: 11px;
+                    }
+                    Text {
+                        text: "App Shield";
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: root.active-nav == "shield" ? Theme.text-primary : Theme.text-secondary;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+
+        tab-scratch := TouchArea {
+            height: 38px;
+            clicked => { root.nav-changed("scratchpad"); }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: root.active-nav == "scratchpad" ? Theme.bg-card-selected : (tab-scratch.has-hover ? Theme.bg-card-hover : transparent);
+
+                HorizontalLayout {
+                    padding-left: 14px;
+                    spacing: 10px;
+                    alignment: center;
+                    IconScratchpad {
+                        width: 16px;
+                        height: 16px;
+                        stroke-color: root.active-nav == "scratchpad" ? Theme.accent-lime : Theme.text-secondary;
+                        fill-color: root.active-nav == "scratchpad" ? #B3C06533 : #88888820;
+                        y: 11px;
+                    }
+                    Text {
+                        text: "Scratchpad";
+                        font-size: 13px;
+                        font-weight: 600;
+                        color: root.active-nav == "scratchpad" ? Theme.text-primary : Theme.text-secondary;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+
+        // Spacer
+        Rectangle { }
+
+        // Persistent Sidebar Timer
+        Rectangle {
+            height: 120px;
+            background: Theme.bg-card;
+            border-radius: Theme.radius-md;
+            border-width: 1px;
+            border-color: Theme.border-subtle;
+
+            VerticalLayout {
+                padding: 14px;
+                spacing: 8px;
+                alignment: center;
+
+                Text {
+                    text: root.timer-display;
+                    font-size: 26px;
+                    font-weight: 800;
+                    color: Theme.accent-cyan;
+                    horizontal-alignment: center;
+                }
+
+                HorizontalLayout {
+                    spacing: 8px;
+                    alignment: center;
+
+                    ThulliButton {
+                        width: 90px;
+                        height: 32px;
+                        text: root.timer-running ? "Pause" : "Start";
+                        variant: "primary";
+                        clicked => { root.toggle-timer(); }
+                    }
+
+                    ThulliButton {
+                        width: 60px;
+                        height: 32px;
+                        text: "Reset";
+                        variant: "secondary";
+                        clicked => { root.reset-timer(); }
+                    }
+                }
+            }
+        }
+    }
+}

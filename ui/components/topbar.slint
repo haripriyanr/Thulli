@@ -1,0 +1,188 @@
+import { Theme } from "../theme.slint";
+import { WindowControls } from "../window_controls.slint";
+import { IconBolt, IconSettings } from "../icons.slint";
+import { ThulliIconButton } from "buttons.slint";
+
+/// ThulliTopBar — Reusable frameless application header with isolated window drag
+export component ThulliTopBar inherits Rectangle {
+    in-out property <string> active-mode: "dashboard";
+    callback window-drag-start();
+    callback window-minimize();
+    callback window-maximize();
+    callback window-close();
+    callback switch-mode(string);
+    callback toggle-preferences();
+
+    height: 48px;
+    background: Theme.bg-canvas;
+
+    HorizontalLayout {
+        padding-left: 20px;
+        padding-right: 14px;
+        alignment: space-between;
+
+        // Left: Brand Title & Modes
+        HorizontalLayout {
+            spacing: 12px;
+            alignment: start;
+
+            // Brand Mark
+            Rectangle {
+                width: 26px;
+                height: 26px;
+                border-radius: Theme.radius-sm;
+                background: #182226;
+                border-width: 1px;
+                border-color: #3CC9C440;
+                y: 11px;
+
+                IconBolt {
+                    width: 14px;
+                    height: 14px;
+                    x: 6px;
+                    y: 6px;
+                }
+            }
+
+            Text {
+                text: "THULLI";
+                font-size: 15px;
+                font-weight: 800;
+                color: Theme.text-primary;
+                letter-spacing: 2px;
+                vertical-alignment: center;
+            }
+
+            // Divider
+            Rectangle {
+                width: 1px;
+                height: 18px;
+                background: Theme.border-subtle;
+                y: 15px;
+            }
+
+            // Mode Selector
+            HorizontalLayout {
+                spacing: 6px;
+                alignment: center;
+
+                dash-touch := TouchArea {
+                    height: 28px;
+                    clicked => { root.switch-mode("dashboard"); }
+
+                    Rectangle {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: Theme.radius-sm;
+                        background: root.active-mode == "dashboard" ? Theme.bg-card-selected : (dash-touch.has-hover ? Theme.bg-card-hover : transparent);
+                        border-width: root.active-mode == "dashboard" ? 1px : 0px;
+                        border-color: Theme.border-light;
+                        HorizontalLayout {
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            alignment: center;
+                            Text {
+                                text: "Dashboard";
+                                font-size: 11px;
+                                font-weight: 600;
+                                color: root.active-mode == "dashboard" ? Theme.text-primary : Theme.text-secondary;
+                                vertical-alignment: center;
+                            }
+                        }
+                    }
+                }
+
+                tower-touch := TouchArea {
+                    height: 28px;
+                    clicked => { root.switch-mode("tower"); }
+
+                    Rectangle {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: Theme.radius-sm;
+                        background: root.active-mode == "tower" ? Theme.bg-card-selected : (tower-touch.has-hover ? Theme.bg-card-hover : transparent);
+                        border-width: root.active-mode == "tower" ? 1px : 0px;
+                        border-color: Theme.border-light;
+                        HorizontalLayout {
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            alignment: center;
+                            Text {
+                                text: "Focus Tower";
+                                font-size: 11px;
+                                font-weight: 600;
+                                color: root.active-mode == "tower" ? Theme.text-primary : Theme.text-secondary;
+                                vertical-alignment: center;
+                            }
+                        }
+                    }
+                }
+
+                pill-touch := TouchArea {
+                    height: 28px;
+                    clicked => { root.switch-mode("pill"); }
+
+                    Rectangle {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: Theme.radius-sm;
+                        background: root.active-mode == "pill" ? Theme.bg-card-selected : (pill-touch.has-hover ? Theme.bg-card-hover : transparent);
+                        border-width: root.active-mode == "pill" ? 1px : 0px;
+                        border-color: Theme.border-light;
+                        HorizontalLayout {
+                            padding-left: 10px;
+                            padding-right: 10px;
+                            alignment: center;
+                            Text {
+                                text: "Pill HUD";
+                                font-size: 11px;
+                                font-weight: 600;
+                                color: root.active-mode == "pill" ? Theme.text-primary : Theme.text-secondary;
+                                vertical-alignment: center;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        // Center: Dedicated Drag Region that covers all remaining title bar space
+        Rectangle {
+            horizontal-stretch: 1;
+            drag-touch := TouchArea {
+                pointer-event(event) => {
+                    if (event.button == PointerEventButton.left && event.kind == PointerEventKind.down) {
+                        root.window-drag-start();
+                    }
+                }
+            }
+        }
+
+        // Window right actions & controls
+        HorizontalLayout {
+            spacing: 14px;
+            alignment: end;
+
+            pref-touch := ThulliIconButton {
+                size: 30px;
+                y: 9px;
+                hover-bg: Theme.bg-card-hover;
+                clicked => { root.toggle-preferences(); }
+
+                IconSettings {
+                    width: 14px;
+                    height: 14px;
+                    stroke-color: pref-touch.has-hover ? Theme.text-primary : Theme.text-secondary;
+                    x: 8px;
+                    y: 8px;
+                }
+            }
+
+            WindowControls {
+                minimize => { root.window-minimize(); }
+                maximize => { root.window-maximize(); }
+                close => { root.window-close(); }
+            }
+        }
+    }
+}

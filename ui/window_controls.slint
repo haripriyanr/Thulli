@@ -11,66 +11,72 @@ export component WindowControls {
         alignment: end;
 
         // Minimize
-        Rectangle {
+        min-touch := TouchArea {
             width: 28px;
             height: 28px;
-            border-radius: Theme.radius-sm;
-            background: min-touch.has-hover ? #222938 : transparent;
-
-            min-touch := TouchArea {
-                clicked => { root.minimize(); }
-            }
+            clicked => { root.minimize(); }
 
             Rectangle {
-                width: 12px;
-                height: 2px;
-                background: Theme.text-secondary;
-                y: 13px;
-                x: 8px;
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: min-touch.has-hover ? #222938 : transparent;
+
+                Rectangle {
+                    width: 12px;
+                    height: 2px;
+                    background: Theme.text-secondary;
+                    y: 13px;
+                    x: 8px;
+                }
             }
         }
 
         // Maximize
-        Rectangle {
+        max-touch := TouchArea {
             width: 28px;
             height: 28px;
-            border-radius: Theme.radius-sm;
-            background: max-touch.has-hover ? #222938 : transparent;
-
-            max-touch := TouchArea {
-                clicked => { root.maximize(); }
-            }
+            clicked => { root.maximize(); }
 
             Rectangle {
-                width: 10px;
-                height: 10px;
-                border-width: 1.5px;
-                border-color: Theme.text-secondary;
-                border-radius: 1px;
-                y: 9px;
-                x: 9px;
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: max-touch.has-hover ? #222938 : transparent;
+
+                Rectangle {
+                    width: 10px;
+                    height: 10px;
+                    border-width: 1.5px;
+                    border-color: Theme.text-secondary;
+                    border-radius: 1px;
+                    y: 9px;
+                    x: 9px;
+                }
             }
         }
 
         // Close
-        Rectangle {
+        close-touch := TouchArea {
             width: 28px;
             height: 28px;
-            border-radius: Theme.radius-sm;
-            background: close-touch.has-hover ? #E81123 : transparent;
+            clicked => { root.close(); }
 
-            close-touch := TouchArea {
-                clicked => { root.close(); }
-            }
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: close-touch.has-hover ? #E81123 : transparent;
 
-            Path {
-                width: 10px;
-                height: 10px;
-                y: 9px;
-                x: 9px;
-                stroke: close-touch.has-hover ? #FFFFFF : Theme.text-secondary;
-                stroke-width: 1.5px;
-                commands: "M 0 0 L 10 10 M 10 0 L 0 10";
+                Path {
+                    width: 10px;
+                    height: 10px;
+                    y: 9px;
+                    x: 9px;
+                    stroke: close-touch.has-hover ? #FFFFFF : Theme.text-secondary;
+                    stroke-width: 1.5px;
+                    commands: "M 0 0 L 10 10 M 10 0 L 0 10";
+                }
             }
         }
     }

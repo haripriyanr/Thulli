@@ -1,44 +1,43 @@
+//! # Thulli Desktop Application Entry Point
+//!
+//! Wires the Slint GUI event loop to OOP backend services (TaskService,
+//! ListService, TimerService, WindowManager) and encrypted persistence.
+
 slint::include_modules!();
 
-mod parser;
-mod security;
-mod storage;
-
-use parser::parse_task_title;
-use security::SecurityManager;
-use storage::{EncryptedStorage, TaskList as StoredList, Task as StoredTask};
-
-use slint::{Model, VecModel};
 use std::rc::Rc;
-use std::sync::atomic::{AtomicBool, AtomicU32, Ordering};
 use std::sync::{Arc, Mutex};
-use std::time::Duration;
-use uuid::Uuid;
-use chrono::Utc;
+use slint::{Model, VecModel};
 
-#[cfg(target_os = "windows")]
-use windows_sys::Win32::UI::WindowsAndMessaging::{
-    GetForegroundWindow, SendMessageW, WM_NCLBUTTONDOWN, HTCAPTION,
-};
-#[cfg(target_os = "windows")]
-use windows_sys::Win32::UI::Input::KeyboardAndMouse::ReleaseCapture;
+use thulli_core::repository::{EncryptedStorageRepository, StorageRepository};
+use thulli_core::security::SecurityManager;
+use thulli_core::services::{ListService, TaskService, TimerService};
+use thulli_core::window::WindowManager;
 
 #[tokio::main]
 async fn main() -> Result<(), Box<dyn std::error::Error>> {
-    println!("[Thulli] Booting security vault...");
-    let security_mgr = Arc::new(SecurityManager::init()?);
-    let storage = Arc::new(EncryptedStorage::new(security_mgr)?);
-    let app_store = Arc::new(Mutex::new(storage.load()));
+    println!("[Thulli] Booting security vault and application services...");
 
+    // 1. Initialize OOP Security Vault and Repository
+    let security_mgr = Arc::new(SecurityManager::init()?);
+    let repository: Arc<dyn StorageRepository> = Arc::new(EncryptedStorageRepository::new_default(security_mgr)?);
+    let app_store = Arc::new(Mutex::new(repository.load()));
+
+    // 2. Initialize OOP Domain Services
+    let task_service = Arc::new(TaskService::new(app_store.clone(), repository.clone()));
+    let list_service = Arc::new(ListService::new(app_store.clone(), repository.clone()));
+    let timer_service = Arc::new(TimerService::new(25)); // 25-minute Pomodoro default
+
+    // 3. Create Slint Main Window
     let main_window = MainWindow::new()?;
 
-    // Sync initial state from encrypted storage to Slint UI
+    // 4. Initial State Synchronization (Store -> Slint UI)
     {
         let store = app_store.lock().unwrap();
 
         // Populate lists
         let ui_lists: Vec<ListModel> = store.lists.iter().map(|l| {
-            let pending = store.tasks.iter().filter(|t| t.list_id == l.id && !t.completed).count() as i32;
+            let pending = store.count_pending_for_list(&l.id) as i32;
             ListModel {
                 id: l.id.clone().into(),
                 name: l.name.clone().into(),
@@ -48,6 +47,12 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
         }).collect();
         main_window.set_lists(Rc::new(VecModel::from(ui_lists)).into());
+
+        // Initialize active list
+        if let Some(primary) = store.get_primary_list() {
+            main_window.set_selected_list_id(primary.id.clone().into());
+            main_window.set_selected_list_name(primary.name.clone().into());
+        }
 
         // Populate tasks
         let ui_tasks: Vec<TaskModel> = store.tasks.iter().map(|t| {
@@ -77,183 +82,233 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
         main_window.set_active_mode(store.preferences.active_mode.clone().into());
     }
 
-    // Native Window Dragging on Windows (WM_NCLBUTTONDOWN + HTCAPTION)
+    // 5. Window Management Event Wiring
     main_window.on_window_drag_start(move || {
-        #[cfg(target_os = "windows")]
-        unsafe {
-            let hwnd = GetForegroundWindow();
-            if !hwnd.is_null() {
-                ReleaseCapture();
-                SendMessageW(hwnd, WM_NCLBUTTONDOWN, HTCAPTION as usize, 0);
-            }
-        }
+        WindowManager::begin_native_drag();
     });
 
-    // Window controls
     main_window.on_window_minimize(move || {
-        println!("[Thulli] Minimize requested");
+        WindowManager::minimize();
     });
 
     main_window.on_window_maximize(move || {
-        println!("[Thulli] Maximize requested");
+        WindowManager::toggle_maximize();
     });
 
     main_window.on_window_close(move || {
-        println!("[Thulli] Clean shutdown requested");
-        std::process::exit(0);
+        WindowManager::exit_cleanly();
     });
 
-    // Timer controls
-    let is_running = Arc::new(AtomicBool::new(false));
-    let remaining_seconds = Arc::new(AtomicU32::new(25 * 60));
-
-    let t_toggle = is_running.clone();
+    // 6. Focus Timer Event Wiring
+    let ts_toggle = timer_service.clone();
     let w_timer = main_window.as_weak();
     main_window.on_toggle_timer(move || {
-        let cur = t_toggle.load(Ordering::SeqCst);
-        let next = !cur;
-        t_toggle.store(next, Ordering::SeqCst);
+        let is_running = ts_toggle.toggle();
         if let Some(w) = w_timer.upgrade() {
-            w.set_timer_running(next);
+            w.set_timer_running(is_running);
         }
     });
 
-    let t_reset_flag = is_running.clone();
-    let t_reset_sec = remaining_seconds.clone();
+    let ts_reset = timer_service.clone();
     let w_reset = main_window.as_weak();
     main_window.on_reset_timer(move || {
-        t_reset_flag.store(false, Ordering::SeqCst);
-        t_reset_sec.store(25 * 60, Ordering::SeqCst);
+        ts_reset.reset();
         if let Some(w) = w_reset.upgrade() {
             w.set_timer_running(false);
-            w.set_timer_display("25:00".into());
+            w.set_timer_display(ts_reset.formatted_display().into());
         }
     });
 
-    // Create New List Callback
-    let store_cl = app_store.clone();
-    let storage_cl = storage.clone();
-    let w_cl = main_window.as_weak();
+    // 7. List Management Event Wiring
+    let ls_create = list_service.clone();
+    let w_create_list = main_window.as_weak();
     main_window.on_create_list(move |name, color| {
-        let new_id = Uuid::new_v4().to_string();
-        let new_list = StoredList {
-            id: new_id.clone(),
-            name: name.to_string(),
-            color: color.to_string(),
-            is_archived: false,
-            sort_order: 0,
-            created_at: Utc::now(),
-        };
+        let new_list = ls_create.create_list(name.as_str(), color.as_str());
 
-        let mut st = store_cl.lock().unwrap();
-        st.lists.push(new_list);
-        let _ = storage_cl.save(&st);
-
-        // Update UI
-        if let Some(w) = w_cl.upgrade() {
+        if let Some(w) = w_create_list.upgrade() {
             let current = w.get_lists();
             let mut list_vec: Vec<ListModel> = current.iter().collect();
             list_vec.push(ListModel {
-                id: new_id.into(),
-                name: name.clone(),
-                color: color.into(),
+                id: new_list.id.clone().into(),
+                name: new_list.name.clone().into(),
+                color: new_list.color.clone().into(),
                 pending_count: 0,
                 is_archived: false,
             });
             w.set_lists(Rc::new(VecModel::from(list_vec)).into());
+            w.set_selected_list_id(new_list.id.into());
+            w.set_selected_list_name(name);
+            w.set_active_nav("board".into());
         }
-        println!("[Thulli] Created list '{}' securely in encrypted store", name);
     });
 
-    // Add Task with Blitzit Smart Title & Duration Parser
-    let store_add = app_store.clone();
-    let storage_add = storage.clone();
+    let ls_delete = list_service.clone();
+    let store_dl = app_store.clone();
+    let w_dl = main_window.as_weak();
+    main_window.on_delete_list(move |list_id| {
+        ls_delete.delete_list(list_id.as_str());
+
+        if let Some(w) = w_dl.upgrade() {
+            let current_lists = w.get_lists();
+            let mut list_vec: Vec<ListModel> = current_lists.iter().collect();
+            list_vec.retain(|l| l.id != list_id);
+            w.set_lists(Rc::new(VecModel::from(list_vec)).into());
+
+            let current_tasks = w.get_tasks();
+            let mut task_vec: Vec<TaskModel> = current_tasks.iter().collect();
+            task_vec.retain(|t| t.list_id != list_id);
+            w.set_tasks(Rc::new(VecModel::from(task_vec)).into());
+
+            let st = store_dl.lock().unwrap();
+            if let Some(primary) = st.get_primary_list() {
+                w.set_selected_list_id(primary.id.clone().into());
+                w.set_selected_list_name(primary.name.clone().into());
+            } else {
+                w.set_selected_list_id("".into());
+                w.set_selected_list_name("All Lists".into());
+                w.set_active_nav("all_lists".into());
+            }
+        }
+    });
+
+    let store_sl = app_store.clone();
+    let w_sl = main_window.as_weak();
+    main_window.on_select_list(move |list_id| {
+        let st = store_sl.lock().unwrap();
+        if let Some(target) = st.lists.iter().find(|l| l.id == list_id.as_str()) {
+            if let Some(w) = w_sl.upgrade() {
+                w.set_selected_list_id(target.id.clone().into());
+                w.set_selected_list_name(target.name.clone().into());
+                w.set_active_nav("board".into());
+            }
+        }
+    });
+
+    // 8. Task Management Event Wiring
+    let ts_add = task_service.clone();
     let w_add = main_window.as_weak();
     main_window.on_add_task(move |raw_input, list_id, default_board| {
-        let parsed = parse_task_title(raw_input.as_str(), default_board.as_str());
-        let new_task_id = Uuid::new_v4().to_string();
-
-        let new_task = StoredTask {
-            id: new_task_id.clone(),
-            list_id: list_id.to_string(),
-            title: parsed.cleaned_title.clone(),
-            estimate_mins: parsed.estimate_mins,
-            time_taken_secs: 0,
-            completed: false,
-            completed_at: None,
-            board: parsed.target_board.clone(),
-            sort_order: 0,
-            created_at: Utc::now(),
-        };
-
-        let mut st = store_add.lock().unwrap();
-        st.tasks.push(new_task);
-        let _ = storage_add.save(&st);
-
-        if let Some(w) = w_add.upgrade() {
-            let current = w.get_tasks();
-            let mut task_vec: Vec<TaskModel> = current.iter().collect();
-            task_vec.push(TaskModel {
-                id: new_task_id.into(),
-                list_id: list_id.clone(),
-                title: parsed.cleaned_title.clone().into(),
-                estimate_mins: parsed.estimate_mins as i32,
-                completed: false,
-                board: parsed.target_board.clone().into(),
-            });
-            w.set_tasks(Rc::new(VecModel::from(task_vec)).into());
-        }
-        println!("[Thulli] Added task '{}' with estimate {}m to board '{}'", parsed.cleaned_title, parsed.estimate_mins, parsed.target_board);
-    });
-
-    // Toggle Task Completed
-    let store_tt = app_store.clone();
-    let storage_tt = storage.clone();
-    let w_tt = main_window.as_weak();
-    main_window.on_toggle_task(move |task_id| {
-        let mut st = store_tt.lock().unwrap();
-        let mut completed_state = false;
-        for t in &mut st.tasks {
-            if t.id == task_id.as_str() {
-                t.completed = !t.completed;
-                completed_state = t.completed;
-                t.completed_at = if t.completed { Some(Utc::now()) } else { None };
-                if t.completed {
-                    t.board = "done".to_string();
+        if let Some(created) = ts_add.add_smart_task(raw_input.as_str(), list_id.as_str(), default_board.as_str()) {
+            if let Some(w) = w_add.upgrade() {
+                if w.get_selected_list_id().is_empty() {
+                    w.set_selected_list_id(created.list_id.clone().into());
                 }
-            }
-        }
-        let _ = storage_tt.save(&st);
 
-        if let Some(w) = w_tt.upgrade() {
-            let current = w.get_tasks();
-            let mut tasks_vec: Vec<TaskModel> = current.iter().collect();
-            for item in &mut tasks_vec {
-                if item.id == task_id {
-                    item.completed = completed_state;
-                    if completed_state {
-                        item.board = "done".into();
+                let current_tasks = w.get_tasks();
+                let mut task_vec: Vec<TaskModel> = current_tasks.iter().collect();
+                task_vec.push(TaskModel {
+                    id: created.id.clone().into(),
+                    list_id: created.list_id.clone().into(),
+                    title: created.title.clone().into(),
+                    estimate_mins: created.estimate_mins as i32,
+                    completed: created.completed,
+                    board: created.board.clone().into(),
+                });
+                w.set_tasks(Rc::new(VecModel::from(task_vec)).into());
+
+                let current_lists = w.get_lists();
+                let mut list_vec: Vec<ListModel> = current_lists.iter().collect();
+                for l in &mut list_vec {
+                    if l.id == created.list_id.as_str() {
+                        l.pending_count += 1;
                     }
                 }
+                w.set_lists(Rc::new(VecModel::from(list_vec)).into());
             }
-            w.set_tasks(Rc::new(VecModel::from(tasks_vec)).into());
         }
     });
 
-    // Toggle Blocked App
-    let store_ba = app_store.clone();
-    let storage_ba = storage.clone();
-    let w_ba = main_window.as_weak();
-    main_window.on_toggle_blocked_app(move |app_id| {
-        let mut st = store_ba.lock().unwrap();
-        let mut new_active = false;
-        for a in &mut st.blocked_apps {
-            if a.id == app_id.as_str() {
-                a.active = !a.active;
-                new_active = a.active;
+    let ts_delete = task_service.clone();
+    let store_dt = app_store.clone();
+    let w_dt = main_window.as_weak();
+    main_window.on_delete_task(move |task_id| {
+        let mut affected_list = String::new();
+        let mut was_pending = false;
+
+        {
+            let st = store_dt.lock().unwrap();
+            if let Some(t) = st.tasks.iter().find(|t| t.id == task_id.as_str()) {
+                affected_list = t.list_id.clone();
+                was_pending = !t.completed;
             }
         }
-        let _ = storage_ba.save(&st);
+
+        if ts_delete.delete_task(task_id.as_str()) {
+            if let Some(w) = w_dt.upgrade() {
+                let current_tasks = w.get_tasks();
+                let mut task_vec: Vec<TaskModel> = current_tasks.iter().collect();
+                task_vec.retain(|t| t.id != task_id);
+                w.set_tasks(Rc::new(VecModel::from(task_vec)).into());
+
+                if was_pending && !affected_list.is_empty() {
+                    let current_lists = w.get_lists();
+                    let mut list_vec: Vec<ListModel> = current_lists.iter().collect();
+                    for l in &mut list_vec {
+                        if l.id.as_str() == affected_list.as_str() && l.pending_count > 0 {
+                            l.pending_count -= 1;
+                        }
+                    }
+                    w.set_lists(Rc::new(VecModel::from(list_vec)).into());
+                }
+            }
+        }
+    });
+
+    let ts_toggle_task = task_service.clone();
+    let store_tt = app_store.clone();
+    let w_tt = main_window.as_weak();
+    main_window.on_toggle_task(move |task_id| {
+        if let Some(completed_state) = ts_toggle_task.toggle_task(task_id.as_str()) {
+            let mut list_id = String::new();
+            {
+                let st = store_tt.lock().unwrap();
+                if let Some(t) = st.tasks.iter().find(|t| t.id == task_id.as_str()) {
+                    list_id = t.list_id.clone();
+                }
+            }
+
+            if let Some(w) = w_tt.upgrade() {
+                let current_tasks = w.get_tasks();
+                let mut task_vec: Vec<TaskModel> = current_tasks.iter().collect();
+                for t in &mut task_vec {
+                    if t.id == task_id {
+                        t.completed = completed_state;
+                        t.board = if completed_state { "done".into() } else { "today".into() };
+                    }
+                }
+                w.set_tasks(Rc::new(VecModel::from(task_vec)).into());
+
+                let current_lists = w.get_lists();
+                let mut list_vec: Vec<ListModel> = current_lists.iter().collect();
+                for l in &mut list_vec {
+                    if l.id.as_str() == list_id.as_str() {
+                        if completed_state && l.pending_count > 0 {
+                            l.pending_count -= 1;
+                        } else if !completed_state {
+                            l.pending_count += 1;
+                        }
+                    }
+                }
+                w.set_lists(Rc::new(VecModel::from(list_vec)).into());
+            }
+        }
+    });
+
+    // 9. App Shield & Scratchpad Event Wiring
+    let store_ba = app_store.clone();
+    let repo_ba = repository.clone();
+    let w_ba = main_window.as_weak();
+    main_window.on_toggle_blocked_app(move |app_id| {
+        let mut new_active = false;
+        {
+            let mut st = store_ba.lock().unwrap();
+            for a in &mut st.blocked_apps {
+                if a.id == app_id.as_str() {
+                    new_active = a.toggle_active();
+                }
+            }
+            let _ = repo_ba.save(&st);
+        }
 
         if let Some(w) = w_ba.upgrade() {
             let current = w.get_blocked_apps();
@@ -265,58 +320,25 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
             w.set_blocked_apps(Rc::new(VecModel::from(app_vec)).into());
         }
-        println!("[Thulli Shield] Toggled app {} active state to {}", app_id, new_active);
     });
 
-    // Switch App Mode
+    let store_note = app_store.clone();
+    let repo_note = repository.clone();
+    main_window.on_save_scratchpad(move |notes| {
+        let mut st = store_note.lock().unwrap();
+        st.preferences.quick_notes = notes.to_string();
+        let _ = repo_note.save(&st);
+    });
+
     let store_mode = app_store.clone();
-    let storage_mode = storage.clone();
-    let w_mode = main_window.as_weak();
+    let repo_mode = repository.clone();
     main_window.on_switch_app_mode(move |mode| {
-        println!("[Thulli] Switching presentation mode: {}", mode);
         let mut st = store_mode.lock().unwrap();
         st.preferences.active_mode = mode.to_string();
-        let _ = storage_mode.save(&st);
-        if let Some(w) = w_mode.upgrade() {
-            w.set_active_mode(mode);
-        }
+        let _ = repo_mode.save(&st);
     });
 
-    // Background timer tick thread
-    let bg_running = is_running.clone();
-    let bg_sec = remaining_seconds.clone();
-    let w_bg = main_window.as_weak();
-
-    std::thread::spawn(move || {
-        loop {
-            std::thread::sleep(Duration::from_secs(1));
-            if bg_running.load(Ordering::SeqCst) {
-                let sec = bg_sec.load(Ordering::SeqCst);
-                if sec > 0 {
-                    let next = sec - 1;
-                    bg_sec.store(next, Ordering::SeqCst);
-                    let display = format!("{:02}:{:02}", next / 60, next % 60);
-
-                    let w_w = w_bg.clone();
-                    let _ = slint::invoke_from_event_loop(move || {
-                        if let Some(w) = w_w.upgrade() {
-                            w.set_timer_display(display.into());
-                        }
-                    });
-                } else {
-                    bg_running.store(false, Ordering::SeqCst);
-                    let w_w = w_bg.clone();
-                    let _ = slint::invoke_from_event_loop(move || {
-                        if let Some(w) = w_w.upgrade() {
-                            w.set_timer_running(false);
-                        }
-                    });
-                }
-            }
-        }
-    });
-
-    println!("[Thulli] Launching Custom Frameless Window with Native Dragging & Full Kanban...");
+    println!("[Thulli] Launching user interface...");
     main_window.run()?;
     Ok(())
 }

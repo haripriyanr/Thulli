@@ -1,0 +1,25 @@
+/// Reusable UI data models shared across Thulli components
+
+export struct TaskModel {
+    id: string,
+    list_id: string,
+    title: string,
+    estimate_mins: int,
+    completed: bool,
+    board: string, // "today", "week", "backlog", "done"
+}
+
+export struct ListModel {
+    id: string,
+    name: string,
+    color: string,
+    pending_count: int,
+    is_archived: bool,
+}
+
+export struct BlockedAppModel {
+    id: string,
+    name: string,
+    process_name: string,
+    active: bool,
+}

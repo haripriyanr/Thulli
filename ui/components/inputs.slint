@@ -1,0 +1,87 @@
+import { Theme } from "../theme.slint";
+import { LineEdit } from "std-widgets.slint";
+import { IconSearch } from "../icons.slint";
+import { ThulliButton } from "buttons.slint";
+
+/// ThulliSearchBar — Reusable search bar with duotone icon and shortcut hint
+export component ThulliSearchBar inherits Rectangle {
+    height: 38px;
+    background: Theme.bg-card;
+    border-radius: Theme.radius-sm;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    HorizontalLayout {
+        padding-left: 12px;
+        padding-right: 12px;
+        alignment: space-between;
+
+        HorizontalLayout {
+            spacing: 10px;
+            alignment: center;
+            IconSearch {
+                width: 14px;
+                height: 14px;
+                stroke-color: Theme.text-muted;
+                y: 12px;
+            }
+            Text {
+                text: "Search tasks or notes...";
+                font-size: 13px;
+                color: Theme.text-muted;
+                vertical-alignment: center;
+            }
+        }
+
+        Rectangle {
+            width: 50px;
+            height: 20px;
+            border-radius: 4px;
+            background: Theme.bg-panel;
+            border-width: 1px;
+            border-color: Theme.border-subtle;
+            y: 9px;
+            Text {
+                text: "Ctrl+F";
+                font-size: 10px;
+                font-weight: 700;
+                color: Theme.text-muted;
+                horizontal-alignment: center;
+                vertical-alignment: center;
+            }
+        }
+    }
+}
+
+/// ThulliTaskInput — Reusable smart task composer with integrated submit button
+export component ThulliTaskInput inherits HorizontalLayout {
+    in-out property <string> text <=> input.text;
+    in property <string> placeholder: "Add task (e.g. 'Build auth 45m @today')...";
+    callback submitted(string);
+
+    spacing: 8px;
+    width: 440px;
+
+    input := LineEdit {
+        placeholder-text: root.placeholder;
+        accepted(val) => {
+            if (val != "") {
+                root.submitted(val);
+                root.text = "";
+            }
+        }
+    }
+
+    add-btn := ThulliButton {
+        width: 76px;
+        height: 36px;
+        text: "+ Add";
+        variant: "primary";
+        clicked => {
+            if (root.text != "") {
+                root.submitted(root.text);
+                root.text = "";
+            }
+        }
+    }
+}

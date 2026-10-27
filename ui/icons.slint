@@ -1,0 +1,301 @@
+import { Theme } from "theme.slint";
+
+// High-end Duotone / Non-Solid Filled Icons
+// Soft translucent interior fills (15-20% opacity) with crisp geometric strokes
+
+export component IconBolt inherits Path {
+    in property <color> stroke-color: Theme.accent-cyan;
+    in property <color> fill-color: #3CC9C433; // 20% alpha
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 13 2 L 3 14 L 12 14 L 11 22 L 21 10 L 12 10 Z";
+}
+
+export component IconPlus inherits Path {
+    in property <color> stroke-color: Theme.text-primary;
+    width: 14px;
+    height: 14px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 12 5 L 12 19 M 5 12 L 19 12";
+}
+
+export component IconClose inherits Path {
+    in property <color> stroke-color: Theme.text-muted;
+    width: 12px;
+    height: 12px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 18 6 L 6 18 M 6 6 L 18 18";
+}
+
+export component IconSearch inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: #88888820;
+    width: 15px;
+    height: 15px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: fill-color;
+    commands: "M 11 19 A 8 8 0 1 0 11 3 A 8 8 0 1 0 11 19 Z M 21 21 L 16.65 16.65";
+}
+
+export component IconFolder inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: #3CC9C425; // 15% opacity non-solid fill
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 22 19 C 22 20.1 21.1 21 20 21 L 4 21 C 2.9 21 2 20.1 2 19 L 2 5 C 2 3.9 2.9 3 4 3 L 9.17 3 C 9.7 3 10.21 3.21 10.59 3.59 L 12.41 5.41 C 12.79 5.79 13.3 6 13.83 6 L 20 6 C 21.1 6 22 6.9 22 8 Z";
+}
+
+export component IconArchive inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: #6F98E825;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 21 8 L 21 21 L 3 21 L 3 8 M 1 3 L 23 3 L 23 8 L 1 8 Z M 10 12 L 14 12";
+}
+
+export component IconShield inherits Path {
+    in property <color> stroke-color: Theme.accent-cyan;
+    in property <color> fill-color: #3CC9C425;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 12 22 C 12 22 20 18 20 12 L 20 5 L 12 2 L 4 5 L 4 12 C 4 18 12 22 12 22 Z";
+}
+
+export component IconScratchpad inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: #B3C06525;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 19 3 L 5 3 C 3.9 3 3 3.9 3 5 L 3 19 C 3 20.1 3.9 21 5 21 L 19 21 C 20.1 21 21 20.1 21 19 L 21 5 C 21 3.9 20.1 3 19 3 Z M 7 7 L 17 7 M 7 12 L 17 12 M 7 17 L 13 17";
+}
+
+export component IconSettings inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: #88888825;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 12 15 C 13.66 15 15 13.66 15 12 C 15 10.34 13.66 9 12 9 C 10.34 9 9 10.34 9 12 C 9 13.66 10.34 15 12 15 Z M 19.4 15 C 19.49 14.53 19.55 14.05 19.55 13.55 L 21.54 11.96 C 21.72 11.82 21.77 11.56 21.66 11.36 L 19.78 8.11 C 19.66 7.91 19.41 7.84 19.21 7.92 L 16.87 8.87 C 16.38 8.49 15.86 8.18 15.29 7.94 L 14.93 5.45 C 14.9 5.23 14.71 5.06 14.49 5.06 L 10.73 5.06 C 10.51 5.06 10.32 5.23 10.29 5.45 L 9.93 7.94 C 9.36 8.18 8.84 8.49 8.35 8.87 L 6.01 7.92 C 5.81 7.84 5.56 7.91 5.44 8.11 L 3.56 11.36 C 3.45 11.56 3.5 11.82 3.68 11.96 L 5.67 13.55 C 5.67 14.05 5.73 14.53 5.82 15 L 3.83 16.59 C 3.65 16.73 3.6 16.99 3.71 17.19 L 5.59 20.44 C 5.71 20.64 5.96 20.71 6.16 20.63 L 8.5 19.68 C 8.99 20.06 9.51 20.37 10.08 20.61 L 10.44 23.1 C 10.47 23.32 10.66 23.49 10.88 23.49 L 14.64 23.49 C 14.86 23.49 15.05 23.32 15.08 23.1 L 15.44 20.61 C 16.01 20.37 16.53 20.06 17.02 19.68 L 19.36 20.63 C 19.56 20.71 19.81 20.64 19.93 20.44 L 21.81 17.19 C 21.92 16.99 21.87 16.73 21.69 16.59 Z";
+}
+
+export component IconTrash inherits Path {
+    in property <color> stroke-color: Theme.destructive;
+    in property <color> fill-color: #EF444425;
+    width: 14px;
+    height: 14px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 3 6 L 5 6 L 21 6 M 19 6 L 19 20 C 19 21.1 18.1 22 17 22 L 7 22 C 5.9 22 5 21.1 5 20 L 5 6 M 8 6 L 8 4 C 8 2.9 8.9 2 10 2 L 14 2 C 15.1 2 16 2.9 16 4 L 16 6 M 10 11 L 10 17 M 14 11 L 14 17";
+}
+
+export component IconCheck inherits Path {
+    in property <color> stroke-color: Theme.accent-lime;
+    in property <color> fill-color: #B3C06525;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.8px;
+    fill: fill-color;
+    commands: "M 22 11.08 V 12 A 10 10 0 1 1 16.17 3.24 M 22 4 L 12 14.01 L 9 11.01";
+}
+
+export component IconSun inherits Path {
+    in property <color> stroke-color: #F59E0B;
+    in property <color> fill-color: #F59E0B25;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 12 17 A 5 5 0 1 0 12 7 A 5 5 0 1 0 12 17 Z M 12 1 L 12 3 M 12 21 L 12 23 M 4.22 4.22 L 5.64 5.64 M 18.36 18.36 L 19.78 19.78 M 1 12 L 3 12 M 21 12 L 23 12 M 4.22 19.78 L 5.64 18.36 M 18.36 5.64 L 19.78 4.22";
+}
+
+export component IconCalendar inherits Path {
+    in property <color> stroke-color: #38BDF8;
+    in property <color> fill-color: #38BDF825;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 19 4 L 5 4 C 3.9 4 3 4.9 3 6 L 3 20 C 3 21.1 3.9 22 5 22 L 19 22 C 20.1 22 21 21.1 21 20 L 21 6 C 21 4.9 20.1 4 19 4 Z M 16 2 L 16 6 M 8 2 L 8 6 M 3 10 L 21 10";
+}
+
+export component IconInbox inherits Path {
+    in property <color> stroke-color: #A855F7;
+    in property <color> fill-color: #A855F725;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 22 12 L 18 12 L 15 16 L 9 16 L 6 12 L 2 12 L 2 20 C 2 21.1 2.9 22 4 22 L 20 22 C 21.1 22 22 21.1 22 20 Z M 2 12 L 5.5 3 C 5.8 2.4 6.4 2 7 2 L 17 2 C 17.6 2 18.2 2.4 18.5 3 L 22 12 Z";
+}
+
+export component IconRocket inherits Path {
+    in property <color> stroke-color: #3CC9C4;
+    in property <color> fill-color: #3CC9C425;
+    width: 15px;
+    height: 15px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 4.5 16.5 C 3 17.76 2.5 21.5 2.5 21.5 C 2.5 21.5 6.24 21 7.5 19.5 C 8.21 18.66 8.2 17.37 7.41 16.59 C 6.63 15.81 5.34 15.8 4.5 16.5 Z M 12 15 L 9 12 C 11 8.5 15.5 4.5 22 2 C 22 8.5 18 13 14.5 15 Z M 9 12 L 4 12 C 4 12 4.55 8.97 6 8 C 7.62 6.92 9 12 9 12 Z M 12 15 L 12 20 C 12 20 15.03 19.45 16 18 C 17.08 16.38 12 15 12 15 Z";
+}
+
+export component IconArrowRight inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    width: 14px;
+    height: 14px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 5 12 L 19 12 M 12 5 L 19 12 L 12 19";
+}
+
+export component IconClock inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: #88888820;
+    width: 14px;
+    height: 14px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 12 22 A 10 10 0 1 0 12 2 A 10 10 0 1 0 12 22 Z M 12 6 L 12 12 L 16 14";
+}
+
+export component IconPlay inherits Path {
+    in property <color> stroke-color: #111111;
+    in property <color> fill-color: #111111;
+    width: 13px;
+    height: 13px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 5 3 L 19 12 L 5 21 Z";
+}
+
+export component IconPause inherits Path {
+    in property <color> stroke-color: Theme.text-primary;
+    in property <color> fill-color: Theme.text-primary;
+    width: 13px;
+    height: 13px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 6 4 L 10 4 L 10 20 L 6 20 Z M 14 4 L 18 4 L 18 20 L 14 20 Z";
+}
+
+export component IconSkip inherits Path {
+    in property <color> stroke-color: Theme.text-primary;
+    in property <color> fill-color: Theme.text-primary;
+    width: 13px;
+    height: 13px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: stroke-color;
+    stroke-width: 1.5px;
+    fill: fill-color;
+    commands: "M 5 4 L 15 12 L 5 20 Z M 19 5 L 19 19";
+}

@@ -1,0 +1,328 @@
+import { Theme } from "../theme.slint";
+import { LineEdit } from "std-widgets.slint";
+import { IconClose } from "../icons.slint";
+import { ThulliButton, ThulliIconButton } from "buttons.slint";
+
+/// ThulliCreateListModal — Reusable dialog for creating new task boards
+export component ThulliCreateListModal inherits Rectangle {
+    in-out property <string> list-name: "";
+    in-out property <string> list-color: "#3CC9C4";
+    callback cancel();
+    callback create(string, string);
+
+    width: 100%;
+    height: 100%;
+    background: #000000b0;
+
+    TouchArea { } // Scrim blocker
+
+    Rectangle {
+        width: 440px;
+        height: 480px;
+        border-radius: Theme.radius-lg;
+        background: #181C22;
+        border-width: 1px;
+        border-color: Theme.border-light;
+
+        VerticalLayout {
+            padding: 28px;
+            spacing: 20px;
+
+            HorizontalLayout {
+                alignment: space-between;
+                Rectangle { width: 1px; }
+                Text {
+                    text: "Create a new list";
+                    font-size: 18px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                }
+                close-btn := ThulliIconButton {
+                    size: 24px;
+                    clicked => { root.cancel(); }
+                    IconClose {
+                        width: 14px;
+                        height: 14px;
+                        stroke-color: close-btn.has-hover ? Theme.text-primary : Theme.text-muted;
+                        x: 5px;
+                        y: 5px;
+                    }
+                }
+            }
+
+            VerticalLayout {
+                alignment: center;
+                spacing: 8px;
+
+                Rectangle {
+                    width: 64px;
+                    height: 64px;
+                    border-radius: Theme.radius-full;
+                    background: #6FE2A4;
+                    x: 160px;
+
+                    Text {
+                        text: "P";
+                        font-size: 24px;
+                        font-weight: 700;
+                        color: #000000;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+
+                Text {
+                    text: "UPLOAD AN ICON";
+                    font-size: 11px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                    horizontal-alignment: center;
+                }
+                Text {
+                    text: "Optional (jpg, png, svg)";
+                    font-size: 11px;
+                    color: Theme.text-muted;
+                    horizontal-alignment: center;
+                }
+            }
+
+            VerticalLayout {
+                spacing: 8px;
+                Text {
+                    text: "Pick a list color";
+                    font-size: 12px;
+                    color: Theme.text-secondary;
+                }
+                HorizontalLayout {
+                    spacing: 12px;
+                    alignment: center;
+
+                    c1 := TouchArea { width: 22px; height: 22px; clicked => { root.list-color = "#6F98E8"; } Rectangle { width: 100%; height: 100%; border-radius: Theme.radius-full; background: #6F98E8; border-width: root.list-color == "#6F98E8" ? 2px : 0px; border-color: #FFFFFF; } }
+                    c2 := TouchArea { width: 22px; height: 22px; clicked => { root.list-color = "#B3C065"; } Rectangle { width: 100%; height: 100%; border-radius: Theme.radius-full; background: #B3C065; border-width: root.list-color == "#B3C065" ? 2px : 0px; border-color: #FFFFFF; } }
+                    c3 := TouchArea { width: 22px; height: 22px; clicked => { root.list-color = "#EF82EF"; } Rectangle { width: 100%; height: 100%; border-radius: Theme.radius-full; background: #EF82EF; border-width: root.list-color == "#EF82EF" ? 2px : 0px; border-color: #FFFFFF; } }
+                    c4 := TouchArea { width: 22px; height: 22px; clicked => { root.list-color = "#3CC9C4"; } Rectangle { width: 100%; height: 100%; border-radius: Theme.radius-full; background: #3CC9C4; border-width: root.list-color == "#3CC9C4" ? 2px : 0px; border-color: #FFFFFF; } }
+                    c5 := TouchArea { width: 22px; height: 22px; clicked => { root.list-color = "#00FFF6"; } Rectangle { width: 100%; height: 100%; border-radius: Theme.radius-full; background: #00FFF6; border-width: root.list-color == "#00FFF6" ? 2px : 0px; border-color: #FFFFFF; } }
+                    c6 := TouchArea { width: 22px; height: 22px; clicked => { root.list-color = "#FFF176"; } Rectangle { width: 100%; height: 100%; border-radius: Theme.radius-full; background: #FFF176; border-width: root.list-color == "#FFF176" ? 2px : 0px; border-color: #FFFFFF; } }
+                }
+            }
+
+            LineEdit {
+                text <=> root.list-name;
+                placeholder-text: "List name (e.g. Work, Personal)...";
+            }
+
+            HorizontalLayout {
+                spacing: 14px;
+                alignment: center;
+
+                ThulliButton {
+                    width: 140px;
+                    height: 40px;
+                    text: "Cancel";
+                    variant: "secondary";
+                    border-radius: Theme.radius-md;
+                    clicked => { root.cancel(); }
+                }
+
+                ThulliButton {
+                    width: 140px;
+                    height: 40px;
+                    text: "Create";
+                    variant: "primary";
+                    border-radius: Theme.radius-md;
+                    clicked => {
+                        if (root.list-name != "") {
+                            root.create(root.list-name, root.list-color);
+                            root.list-name = "";
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// ThulliPreferencesModal — Reusable application preferences modal
+export component ThulliPreferencesModal inherits Rectangle {
+    callback close();
+
+    width: 100%;
+    height: 100%;
+    background: #000000b0;
+
+    TouchArea { } // Scrim blocker
+
+    Rectangle {
+        width: 520px;
+        height: 580px;
+        border-radius: Theme.radius-lg;
+        background: #181C22;
+        border-width: 1px;
+        border-color: Theme.border-light;
+
+        VerticalLayout {
+            padding: 28px;
+            spacing: 20px;
+
+            HorizontalLayout {
+                alignment: space-between;
+                VerticalLayout {
+                    spacing: 4px;
+                    Text {
+                        text: "Preferences";
+                        font-size: 20px;
+                        font-weight: 800;
+                        color: Theme.text-primary;
+                    }
+                    Text {
+                        text: "Customize your workflow for a personalized experience";
+                        font-size: 12px;
+                        color: Theme.text-secondary;
+                    }
+                }
+
+                close-pref-btn := ThulliIconButton {
+                    size: 24px;
+                    clicked => { root.close(); }
+                    IconClose {
+                        width: 14px;
+                        height: 14px;
+                        stroke-color: close-pref-btn.has-hover ? Theme.text-primary : Theme.text-muted;
+                        x: 5px;
+                        y: 5px;
+                    }
+                }
+            }
+
+            VerticalLayout {
+                spacing: 8px;
+                Text {
+                    text: "Time";
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                }
+                Rectangle {
+                    height: 42px;
+                    background: Theme.bg-card;
+                    border-radius: Theme.radius-sm;
+                    border-width: 1px;
+                    border-color: Theme.border-subtle;
+                    HorizontalLayout {
+                        padding-left: 12px;
+                        padding-right: 12px;
+                        alignment: space-between;
+                        Text {
+                            text: "Timezone";
+                            font-size: 12px;
+                            color: Theme.text-secondary;
+                            vertical-alignment: center;
+                        }
+                        Text {
+                            text: "(GMT+05:30) Asia/Calcutta ▾";
+                            font-size: 12px;
+                            color: Theme.text-primary;
+                            vertical-alignment: center;
+                        }
+                    }
+                }
+            }
+
+            VerticalLayout {
+                spacing: 10px;
+                Text {
+                    text: "Focus sprint settings";
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                }
+
+                Rectangle {
+                    height: 42px;
+                    background: Theme.bg-card;
+                    border-radius: Theme.radius-sm;
+                    border-width: 1px;
+                    border-color: Theme.border-subtle;
+                    HorizontalLayout {
+                        padding-left: 12px;
+                        padding-right: 12px;
+                        alignment: space-between;
+                        Text {
+                            text: "Timed Sprints";
+                            font-size: 13px;
+                            color: Theme.text-primary;
+                            vertical-alignment: center;
+                        }
+                        Rectangle {
+                            width: 38px;
+                            height: 22px;
+                            border-radius: Theme.radius-full;
+                            background: Theme.accent-cyan;
+                            y: 10px;
+                            Rectangle {
+                                width: 16px;
+                                height: 16px;
+                                border-radius: Theme.radius-full;
+                                background: #FFFFFF;
+                                x: 19px;
+                                y: 3px;
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: 42px;
+                    background: Theme.bg-card;
+                    border-radius: Theme.radius-sm;
+                    border-width: 1px;
+                    border-color: Theme.border-subtle;
+                    HorizontalLayout {
+                        padding-left: 12px;
+                        padding-right: 12px;
+                        alignment: space-between;
+                        Text {
+                            text: "Work sprint duration";
+                            font-size: 13px;
+                            color: Theme.text-primary;
+                            vertical-alignment: center;
+                        }
+                        Text {
+                            text: "60 mins ▾";
+                            font-size: 12px;
+                            font-weight: 700;
+                            color: Theme.accent-cyan;
+                            vertical-alignment: center;
+                        }
+                    }
+                }
+
+                Rectangle {
+                    height: 42px;
+                    background: Theme.bg-card;
+                    border-radius: Theme.radius-sm;
+                    border-width: 1px;
+                    border-color: Theme.border-subtle;
+                    HorizontalLayout {
+                        padding-left: 12px;
+                        padding-right: 12px;
+                        alignment: space-between;
+                        Text {
+                            text: "Break duration";
+                            font-size: 13px;
+                            color: Theme.text-primary;
+                            vertical-alignment: center;
+                        }
+                        Text {
+                            text: "15 mins ▾";
+                            font-size: 12px;
+                            font-weight: 700;
+                            color: Theme.accent-cyan;
+                            vertical-alignment: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

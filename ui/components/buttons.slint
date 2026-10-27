@@ -1,0 +1,66 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliButton — Reusable primary/secondary action button component
+///
+/// Features:
+/// - Explicit touch target geometry preventing 0x0 hit-testing dead zones
+/// - Dynamic visual feedback (hover, active/pressed)
+/// - Configurable variant: "primary" (accent gradient) | "secondary" (card background) | "danger"
+export component ThulliButton inherits TouchArea {
+    in property <string> text: "Action";
+    in property <string> variant: "primary"; // "primary", "secondary", "danger"
+    in property <length> font-size: 12px;
+    in property <length> border-radius: Theme.radius-sm;
+
+    width: 80px;
+    height: 36px;
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: root.border-radius;
+        background: root.variant == "primary" ? (
+            root.pressed ? Theme.accent-cyan.darker(20%) : (
+                root.has-hover ? Theme.accent-cyan.brighter(10%) : @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%)
+            )
+        ) : root.variant == "danger" ? (
+            root.pressed ? Theme.destructive.darker(20%) : (
+                root.has-hover ? Theme.destructive.brighter(10%) : Theme.destructive
+            )
+        ) : (
+            root.pressed ? Theme.bg-card-selected : (
+                root.has-hover ? Theme.bg-card-hover : Theme.bg-card
+            )
+        );
+        border-width: root.variant == "secondary" ? 1px : 0px;
+        border-color: Theme.border-light;
+
+        Text {
+            text: root.text;
+            font-size: root.font-size;
+            font-weight: 700;
+            color: root.variant == "primary" ? #000000 : Theme.text-primary;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+        }
+    }
+}
+
+/// ThulliIconButton — Reusable square/rounded icon action button
+export component ThulliIconButton inherits TouchArea {
+    in property <length> size: 24px;
+    in property <color> hover-bg: #EF444433;
+    in property <color> active-bg: #EF444455;
+
+    width: root.size;
+    height: root.size;
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: Theme.radius-sm;
+        background: root.pressed ? root.active-bg : (root.has-hover ? root.hover-bg : transparent);
+
+        @children
+    }
+}
