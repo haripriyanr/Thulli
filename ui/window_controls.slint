@@ -1,0 +1,77 @@
+import { Theme } from "theme.slint";
+
+export component WindowControls {
+    in property <bool> is-maximized: false;
+    callback minimize();
+    callback maximize();
+    callback close();
+
+    HorizontalLayout {
+        spacing: 8px;
+        alignment: end;
+
+        // Minimize
+        Rectangle {
+            width: 28px;
+            height: 28px;
+            border-radius: Theme.radius-sm;
+            background: min-touch.has-hover ? #222938 : transparent;
+
+            min-touch := TouchArea {
+                clicked => { root.minimize(); }
+            }
+
+            Rectangle {
+                width: 12px;
+                height: 2px;
+                background: Theme.text-secondary;
+                y: 13px;
+                x: 8px;
+            }
+        }
+
+        // Maximize
+        Rectangle {
+            width: 28px;
+            height: 28px;
+            border-radius: Theme.radius-sm;
+            background: max-touch.has-hover ? #222938 : transparent;
+
+            max-touch := TouchArea {
+                clicked => { root.maximize(); }
+            }
+
+            Rectangle {
+                width: 10px;
+                height: 10px;
+                border-width: 1.5px;
+                border-color: Theme.text-secondary;
+                border-radius: 1px;
+                y: 9px;
+                x: 9px;
+            }
+        }
+
+        // Close
+        Rectangle {
+            width: 28px;
+            height: 28px;
+            border-radius: Theme.radius-sm;
+            background: close-touch.has-hover ? #E81123 : transparent;
+
+            close-touch := TouchArea {
+                clicked => { root.close(); }
+            }
+
+            Path {
+                width: 10px;
+                height: 10px;
+                y: 9px;
+                x: 9px;
+                stroke: close-touch.has-hover ? #FFFFFF : Theme.text-secondary;
+                stroke-width: 1.5px;
+                commands: "M 0 0 L 10 10 M 10 0 L 0 10";
+            }
+        }
+    }
+}

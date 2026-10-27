@@ -1,466 +1,1095 @@
-import { Button, VerticalBox, HorizontalBox, ScrollView, CheckBox, LineEdit } from "std-widgets.slint";
+import { Theme } from "theme.slint";
+import { WindowControls } from "window_controls.slint";
+import { LineEdit, Button, ScrollView, CheckBox } from "std-widgets.slint";
 
-export struct TaskItem {
-    id: int,
+export struct TaskModel {
+    id: string,
+    list_id: string,
     title: string,
-    completed: bool,
     estimate_mins: int,
+    completed: bool,
 }
 
-export struct BlockedApp {
-    id: int,
+export struct ListModel {
+    id: string,
+    name: string,
+    color: string,
+    pending_count: int,
+    is_archived: bool,
+}
+
+export struct BlockedAppModel {
+    id: string,
     name: string,
     process_name: string,
     active: bool,
 }
 
 export component MainWindow inherits Window {
-    title: "Thulli — Focus & Productivity";
-    preferred-width: 960px;
-    preferred-height: 640px;
-    background: #111418;
+    title: "Thulli";
+    no-frame: true;
+    preferred-width: 1200px;
+    preferred-height: 760px;
+    min-width: 980px;
+    min-height: 620px;
+    background: Theme.bg-canvas;
     default-font-family: "Segoe UI, Inter, sans-serif";
 
-    in-out property <string> active-tab: "dashboard"; // "dashboard", "tower", "pill", "blocker", "notes"
+    // Application state
+    in-out property <string> active-nav: "all_lists"; // "all_lists", "archived", "reports"
+    in-out property <string> selected-list-id: "";
+    in-out property <string> active-mode: "dashboard"; // "dashboard", "tower", "pill"
+    in-out property <string> user-name: "Hari";
     in-out property <string> timer-display: "25:00";
     in-out property <bool> timer-running: false;
     in-out property <string> active-task-name: "Deep Work Session";
-    in-out property <[TaskItem]> tasks: [
-        { id: 1, title: "Refactor core Rust state engine", completed: false, estimate_mins: 45 },
-        { id: 2, title: "Review Thulli distraction blocker rules", completed: true, estimate_mins: 20 },
-        { id: 3, title: "Assemble BlitzTower dock mode", completed: false, estimate_mins: 30 },
-    ];
-    in-out property <[BlockedApp]> blocked-apps: [
-        { id: 1, name: "Discord", process_name: "Discord.exe", active: true },
-        { id: 2, name: "Steam", process_name: "steam.exe", active: true },
-        { id: 3, name: "Spotify", process_name: "Spotify.exe", active: false },
-    ];
-    in-out property <string> quick-note-text: "Locu-style scratchpad note:\n- Keep thoughts here without losing focus.";
-    in-out property <string> new-task-input: "";
+    in-out property <bool> show-create-list-modal: false;
+    in-out property <bool> show-preferences-modal: false;
 
+    // Data models
+    in-out property <[ListModel]> lists: [];
+    in-out property <[TaskModel]> tasks: [];
+    in-out property <[BlockedAppModel]> blocked-apps: [];
+
+    // Inputs
+    in-out property <string> new-list-name: "";
+    in-out property <string> new-list-color: "#3CC9C4";
+    in-out property <string> new-task-input: "";
+    in-out property <string> scratchpad-text: "";
+
+    // Window action callbacks
+    callback window-minimize();
+    callback window-maximize();
+    callback window-close();
+
+    // Functional callbacks
     callback toggle-timer();
     callback reset-timer();
-    callback toggle-task-completed(int);
-    callback add-task(string);
-    callback switch-mode(string);
-    callback toggle-blocker-app(int);
+    callback select-list(string);
+    callback toggle-task(string);
+    callback add-task(string, string);
+    callback create-list(string, string);
+    callback toggle-blocked-app(string);
+    callback switch-app-mode(string);
+    callback save-scratchpad(string);
 
-    HorizontalBox {
+    // Root layout
+    VerticalLayout {
         padding: 0px;
         spacing: 0px;
 
-        // Left Navigation Sidebar
+        // Custom Top Bar (Window Header & Drag Region)
         Rectangle {
-            width: 220px;
-            background: #181c24;
+            height: 48px;
+            background: Theme.bg-canvas;
 
-            VerticalBox {
-                padding: 16px;
-                spacing: 12px;
+            HorizontalLayout {
+                padding-left: 20px;
+                padding-right: 14px;
+                alignment: space-between;
 
-                // Brand
-                HorizontalBox {
-                    spacing: 8px;
+                // Drag region title
+                HorizontalLayout {
+                    spacing: 12px;
                     alignment: start;
-                    Text {
-                        text: "⚡";
-                        font-size: 20px;
-                    }
-                    Text {
-                        text: "THULLI";
-                        font-size: 20px;
-                        font-weight: 800;
-                        color: #ffffff;
-                    }
-                }
 
-                Text {
-                    text: "Blitzit × Locu in Rust";
-                    font-size: 11px;
-                    color: #727b8e;
-                }
-
-                Rectangle { height: 12px; }
-
-                // Mode Selectors
-                Rectangle {
-                    height: 40px;
-                    background: root.active-tab == "dashboard" ? #2a324b : transparent;
-                    border-radius: 8px;
-                    TouchArea {
-                        clicked => { root.active-tab = "dashboard"; root.switch-mode("dashboard"); }
-                        HorizontalBox {
-                            padding-left: 12px;
-                            alignment: center;
-                            Text {
-                                text: "📊 Dashboard";
-                                color: root.active-tab == "dashboard" ? #ffffff : #a0aec0;
-                                font-weight: 600;
-                            }
-                        }
-                    }
-                }
-
-                Rectangle {
-                    height: 40px;
-                    background: root.active-tab == "tower" ? #2a324b : transparent;
-                    border-radius: 8px;
-                    TouchArea {
-                        clicked => { root.active-tab = "tower"; root.switch-mode("tower"); }
-                        HorizontalBox {
-                            padding-left: 12px;
-                            alignment: center;
-                            Text {
-                                text: "🗼 BlitzTower (Dock)";
-                                color: root.active-tab == "tower" ? #ffffff : #a0aec0;
-                                font-weight: 600;
-                            }
-                        }
-                    }
-                }
-
-                Rectangle {
-                    height: 40px;
-                    background: root.active-tab == "pill" ? #2a324b : transparent;
-                    border-radius: 8px;
-                    TouchArea {
-                        clicked => { root.active-tab = "pill"; root.switch-mode("pill"); }
-                        HorizontalBox {
-                            padding-left: 12px;
-                            alignment: center;
-                            Text {
-                                text: "💊 Floating Pill HUD";
-                                color: root.active-tab == "pill" ? #ffffff : #a0aec0;
-                                font-weight: 600;
-                            }
-                        }
-                    }
-                }
-
-                Rectangle {
-                    height: 40px;
-                    background: root.active-tab == "blocker" ? #2a324b : transparent;
-                    border-radius: 8px;
-                    TouchArea {
-                        clicked => { root.active-tab = "blocker"; root.switch-mode("blocker"); }
-                        HorizontalBox {
-                            padding-left: 12px;
-                            alignment: center;
-                            Text {
-                                text: "🛡️ Locu Blocker";
-                                color: root.active-tab == "blocker" ? #ffffff : #a0aec0;
-                                font-weight: 600;
-                            }
-                        }
-                    }
-                }
-
-                Rectangle {
-                    height: 40px;
-                    background: root.active-tab == "notes" ? #2a324b : transparent;
-                    border-radius: 8px;
-                    TouchArea {
-                        clicked => { root.active-tab = "notes"; root.switch-mode("notes"); }
-                        HorizontalBox {
-                            padding-left: 12px;
-                            alignment: center;
-                            Text {
-                                text: "📝 Quick Scratchpad";
-                                color: root.active-tab == "notes" ? #ffffff : #a0aec0;
-                                font-weight: 600;
-                            }
-                        }
-                    }
-                }
-
-                Rectangle { /* Spacer */ }
-
-                // Timer Widget in Sidebar
-                Rectangle {
-                    height: 110px;
-                    background: #11141a;
-                    border-radius: 10px;
-                    border-width: 1px;
-                    border-color: #2b3240;
-
-                    VerticalBox {
-                        padding: 12px;
-                        alignment: center;
-                        spacing: 4px;
+                    // Brand Badge
+                    Rectangle {
+                        width: 26px;
+                        height: 26px;
+                        border-radius: Theme.radius-sm;
+                        background: @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%);
+                        y: 11px;
 
                         Text {
-                            text: root.timer-display;
-                            font-size: 24px;
-                            font-weight: 700;
-                            color: #63b3ed;
+                            text: "⚡";
+                            font-size: 13px;
                             horizontal-alignment: center;
+                            vertical-alignment: center;
+                        }
+                    }
+
+                    Text {
+                        text: "THULLI";
+                        font-size: 15px;
+                        font-weight: 800;
+                        color: Theme.text-primary;
+                        letter-spacing: 1px;
+                        vertical-alignment: center;
+                    }
+
+                    Rectangle {
+                        width: 1px;
+                        height: 16px;
+                        background: Theme.border-subtle;
+                        y: 16px;
+                    }
+
+                    // Mode switch buttons
+                    HorizontalLayout {
+                        spacing: 6px;
+                        alignment: center;
+
+                        Rectangle {
+                            height: 28px;
+                            border-radius: Theme.radius-sm;
+                            background: root.active-mode == "dashboard" ? Theme.bg-card-selected : transparent;
+                            border-width: root.active-mode == "dashboard" ? 1px : 0px;
+                            border-color: Theme.border-light;
+                            TouchArea {
+                                clicked => { root.switch-app-mode("dashboard"); }
+                                HorizontalLayout {
+                                    padding-left: 10px;
+                                    padding-right: 10px;
+                                    alignment: center;
+                                    Text {
+                                        text: "Dashboard";
+                                        font-size: 11px;
+                                        font-weight: 600;
+                                        color: root.active-mode == "dashboard" ? Theme.text-primary : Theme.text-secondary;
+                                        vertical-alignment: center;
+                                    }
+                                }
+                            }
                         }
 
-                        HorizontalBox {
-                            alignment: center;
-                            spacing: 8px;
-                            Button {
-                                text: root.timer-running ? "Pause" : "Start Focus";
-                                clicked => { root.toggle-timer(); }
+                        Rectangle {
+                            height: 28px;
+                            border-radius: Theme.radius-sm;
+                            background: root.active-mode == "tower" ? Theme.bg-card-selected : transparent;
+                            border-width: root.active-mode == "tower" ? 1px : 0px;
+                            border-color: Theme.border-light;
+                            TouchArea {
+                                clicked => { root.switch-app-mode("tower"); }
+                                HorizontalLayout {
+                                    padding-left: 10px;
+                                    padding-right: 10px;
+                                    alignment: center;
+                                    Text {
+                                        text: "BlitzTower";
+                                        font-size: 11px;
+                                        font-weight: 600;
+                                        color: root.active-mode == "tower" ? Theme.text-primary : Theme.text-secondary;
+                                        vertical-alignment: center;
+                                    }
+                                }
                             }
-                            Button {
-                                text: "Reset";
-                                clicked => { root.reset-timer(); }
+                        }
+
+                        Rectangle {
+                            height: 28px;
+                            border-radius: Theme.radius-sm;
+                            background: root.active-mode == "pill" ? Theme.bg-card-selected : transparent;
+                            border-width: root.active-mode == "pill" ? 1px : 0px;
+                            border-color: Theme.border-light;
+                            TouchArea {
+                                clicked => { root.switch-app-mode("pill"); }
+                                HorizontalLayout {
+                                    padding-left: 10px;
+                                    padding-right: 10px;
+                                    alignment: center;
+                                    Text {
+                                        text: "Pill HUD";
+                                        font-size: 11px;
+                                        font-weight: 600;
+                                        color: root.active-mode == "pill" ? Theme.text-primary : Theme.text-secondary;
+                                        vertical-alignment: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                // Window right actions & controls
+                HorizontalLayout {
+                    spacing: 14px;
+                    alignment: end;
+
+                    // Preferences Gear Button
+                    Rectangle {
+                        width: 30px;
+                        height: 30px;
+                        border-radius: Theme.radius-sm;
+                        background: pref-touch.has-hover ? Theme.bg-card-hover : transparent;
+                        y: 9px;
+
+                        pref-touch := TouchArea {
+                            clicked => { root.show-preferences-modal = !root.show-preferences-modal; }
+                        }
+
+                        Text {
+                            text: "⚙";
+                            font-size: 15px;
+                            color: Theme.text-secondary;
+                            horizontal-alignment: center;
+                            vertical-alignment: center;
+                        }
+                    }
+
+                    // Window Controls
+                    WindowControls {
+                        minimize => { root.window-minimize(); }
+                        maximize => { root.window-maximize(); }
+                        close => { root.window-close(); }
+                    }
+                }
+            }
+        }
+
+        // Horizontal Split: Left Navigation + Main Canvas
+        HorizontalLayout {
+            padding: 0px;
+            spacing: 0px;
+
+            // Sidebar
+            Rectangle {
+                width: 250px;
+                background: Theme.bg-panel;
+                border-width: 1px;
+                border-color: Theme.border-subtle;
+
+                VerticalLayout {
+                    padding: 18px;
+                    spacing: 12px;
+
+                    // Plan Info Box (Blitzit style)
+                    Rectangle {
+                        height: 72px;
+                        background: Theme.bg-card;
+                        border-radius: Theme.radius-md;
+                        border-width: 1px;
+                        border-color: Theme.border-subtle;
+
+                        VerticalLayout {
+                            padding: 12px;
+                            spacing: 4px;
+                            HorizontalLayout {
+                                alignment: space-between;
+                                Text {
+                                    text: "THULLI CORE";
+                                    font-size: 11px;
+                                    font-weight: 800;
+                                    color: Theme.accent-cyan;
+                                }
+                                Text {
+                                    text: "v0.1.0";
+                                    font-size: 10px;
+                                    color: Theme.text-muted;
+                                }
+                            }
+                            Text {
+                                text: "Encrypted AES-256 Vault";
+                                font-size: 11px;
+                                color: Theme.text-secondary;
+                            }
+                        }
+                    }
+
+                    // + Create New List Button
+                    Rectangle {
+                        height: 42px;
+                        border-radius: Theme.radius-md;
+                        background: btn-add-list.has-hover ? Theme.bg-card-hover : Theme.bg-card;
+                        border-width: 1px;
+                        border-color: Theme.border-light;
+
+                        btn-add-list := TouchArea {
+                            clicked => { root.show-create-list-modal = true; }
+                        }
+
+                        HorizontalLayout {
+                            padding-left: 14px;
+                            spacing: 10px;
+                            alignment: center;
+                            Text {
+                                text: "+";
+                                font-size: 16px;
+                                font-weight: 700;
+                                color: Theme.accent-cyan;
+                                vertical-alignment: center;
+                            }
+                            Text {
+                                text: "Create new list";
+                                font-size: 13px;
+                                font-weight: 600;
+                                color: Theme.text-primary;
+                                vertical-alignment: center;
+                            }
+                        }
+                    }
+
+                    Rectangle { height: 8px; }
+
+                    // Navigation Tabs
+                    Rectangle {
+                        height: 38px;
+                        border-radius: Theme.radius-sm;
+                        background: root.active-nav == "all_lists" ? Theme.bg-card-selected : transparent;
+                        TouchArea {
+                            clicked => { root.active-nav = "all_lists"; }
+                            HorizontalLayout {
+                                padding-left: 14px;
+                                alignment: center;
+                                Text {
+                                    text: "📋 All my lists";
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    color: root.active-nav == "all_lists" ? Theme.text-primary : Theme.text-secondary;
+                                    vertical-alignment: center;
+                                }
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        height: 38px;
+                        border-radius: Theme.radius-sm;
+                        background: root.active-nav == "archived" ? Theme.bg-card-selected : transparent;
+                        TouchArea {
+                            clicked => { root.active-nav = "archived"; }
+                            HorizontalLayout {
+                                padding-left: 14px;
+                                alignment: center;
+                                Text {
+                                    text: "📁 Archived lists";
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    color: root.active-nav == "archived" ? Theme.text-primary : Theme.text-secondary;
+                                    vertical-alignment: center;
+                                }
+                            }
+                        }
+                    }
+
+                    Rectangle { height: 8px; }
+
+                    // Locu Focus Tools Section
+                    Text {
+                        text: "FOCUS & SHIELD";
+                        font-size: 10px;
+                        font-weight: 800;
+                        color: Theme.text-muted;
+                        letter-spacing: 1px;
+                    }
+
+                    Rectangle {
+                        height: 38px;
+                        border-radius: Theme.radius-sm;
+                        background: root.active-nav == "blocker" ? Theme.bg-card-selected : transparent;
+                        TouchArea {
+                            clicked => { root.active-nav = "blocker"; }
+                            HorizontalLayout {
+                                padding-left: 14px;
+                                alignment: center;
+                                Text {
+                                    text: "🛡️ App Shield";
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    color: root.active-nav == "blocker" ? Theme.text-primary : Theme.text-secondary;
+                                    vertical-alignment: center;
+                                }
+                            }
+                        }
+                    }
+
+                    Rectangle {
+                        height: 38px;
+                        border-radius: Theme.radius-sm;
+                        background: root.active-nav == "scratchpad" ? Theme.bg-card-selected : transparent;
+                        TouchArea {
+                            clicked => { root.active-nav = "scratchpad"; }
+                            HorizontalLayout {
+                                padding-left: 14px;
+                                alignment: center;
+                                Text {
+                                    text: "📝 Scratchpad";
+                                    font-size: 13px;
+                                    font-weight: 600;
+                                    color: root.active-nav == "scratchpad" ? Theme.text-primary : Theme.text-secondary;
+                                    vertical-alignment: center;
+                                }
+                            }
+                        }
+                    }
+
+                    // Spacer
+                    Rectangle { }
+
+                    // Persistent Sidebar Timer (Blitzit / Locu style)
+                    Rectangle {
+                        height: 120px;
+                        background: Theme.bg-card;
+                        border-radius: Theme.radius-md;
+                        border-width: 1px;
+                        border-color: Theme.border-subtle;
+
+                        VerticalLayout {
+                            padding: 14px;
+                            spacing: 8px;
+                            alignment: center;
+
+                            Text {
+                                text: root.timer-display;
+                                font-size: 26px;
+                                font-weight: 800;
+                                color: Theme.accent-cyan;
+                                horizontal-alignment: center;
+                            }
+
+                            HorizontalLayout {
+                                spacing: 8px;
+                                alignment: center;
+
+                                Rectangle {
+                                    height: 32px;
+                                    width: 90px;
+                                    border-radius: Theme.radius-sm;
+                                    background: @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%);
+                                    TouchArea {
+                                        clicked => { root.toggle-timer(); }
+                                    }
+                                    Text {
+                                        text: root.timer-running ? "Pause" : "Start";
+                                        font-size: 12px;
+                                        font-weight: 700;
+                                        color: #000000;
+                                        horizontal-alignment: center;
+                                        vertical-alignment: center;
+                                    }
+                                }
+
+                                Rectangle {
+                                    height: 32px;
+                                    width: 60px;
+                                    border-radius: Theme.radius-sm;
+                                    background: Theme.bg-card-hover;
+                                    border-width: 1px;
+                                    border-color: Theme.border-light;
+                                    TouchArea {
+                                        clicked => { root.reset-timer(); }
+                                    }
+                                    Text {
+                                        text: "Reset";
+                                        font-size: 12px;
+                                        font-weight: 600;
+                                        color: Theme.text-secondary;
+                                        horizontal-alignment: center;
+                                        vertical-alignment: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Main Content Area
+            Rectangle {
+                background: Theme.bg-canvas;
+
+                VerticalLayout {
+                    padding: 32px;
+                    spacing: 24px;
+
+                    // Header: Greeting + Subtitle
+                    HorizontalLayout {
+                        alignment: space-between;
+
+                        VerticalLayout {
+                            spacing: 4px;
+                            Text {
+                                text: "Good Morning, " + root.user-name;
+                                font-size: 26px;
+                                font-weight: 800;
+                                color: Theme.text-primary;
+                            }
+                            Text {
+                                text: "Are you ready to blitz through your day?";
+                                font-size: 14px;
+                                color: Theme.text-secondary;
+                            }
+                        }
+                    }
+
+                    // Content View: All Lists (Grid of Cards)
+                    if root.active-nav == "all_lists": VerticalLayout {
+                        spacing: 20px;
+
+                        Text {
+                            text: "Your Lists";
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: Theme.text-primary;
+                        }
+
+                        // Grid of Cards
+                        HorizontalLayout {
+                            spacing: 16px;
+                            alignment: start;
+
+                            // Display List Cards
+                            for list in root.lists: Rectangle {
+                                width: 260px;
+                                height: 260px;
+                                border-radius: Theme.radius-lg;
+                                background: Theme.bg-card;
+                                border-width: 1px;
+                                border-color: Theme.border-subtle;
+
+                                TouchArea {
+                                    clicked => { root.select-list(list.id); }
+                                }
+
+                                VerticalLayout {
+                                    padding: 20px;
+                                    spacing: 12px;
+
+                                    HorizontalLayout {
+                                        spacing: 10px;
+                                        alignment: start;
+
+                                        // Color circle
+                                        Rectangle {
+                                            width: 28px;
+                                            height: 28px;
+                                            border-radius: Theme.radius-full;
+                                            background: #3CC9C4; // Color token
+                                            y: 2px;
+                                            Text {
+                                                text: "P";
+                                                font-size: 13px;
+                                                font-weight: 700;
+                                                color: #000000;
+                                                horizontal-alignment: center;
+                                                vertical-alignment: center;
+                                            }
+                                        }
+
+                                        Text {
+                                            text: list.name;
+                                            font-size: 16px;
+                                            font-weight: 700;
+                                            color: Theme.text-primary;
+                                            vertical-alignment: center;
+                                        }
+                                    }
+
+                                    // Inner Card Content: Status
+                                    Rectangle {
+                                        VerticalLayout {
+                                            alignment: center;
+                                            spacing: 8px;
+
+                                            Rectangle {
+                                                width: 32px;
+                                                height: 32px;
+                                                border-radius: Theme.radius-full;
+                                                border-width: 2px;
+                                                border-color: Theme.accent-green;
+                                                x: 94px;
+
+                                                Text {
+                                                    text: "✓";
+                                                    font-size: 14px;
+                                                    font-weight: 800;
+                                                    color: Theme.accent-green;
+                                                    horizontal-alignment: center;
+                                                    vertical-alignment: center;
+                                                }
+                                            }
+
+                                            Text {
+                                                text: "ALL CLEAR";
+                                                font-size: 11px;
+                                                font-weight: 700;
+                                                color: Theme.text-muted;
+                                                horizontal-alignment: center;
+                                            }
+                                        }
+                                    }
+
+                                    Text {
+                                        text: list.pending-count + " pending tasks";
+                                        font-size: 12px;
+                                        color: Theme.text-muted;
+                                    }
+                                }
+                            }
+
+                            // + CREATE LIST Card (Blitzit dashed style)
+                            Rectangle {
+                                width: 260px;
+                                height: 260px;
+                                border-radius: Theme.radius-lg;
+                                background: card-add-touch.has-hover ? Theme.bg-card-hover : Theme.bg-card;
+                                border-width: 1.5px;
+                                border-color: Theme.border-light;
+
+                                card-add-touch := TouchArea {
+                                    clicked => { root.show-create-list-modal = true; }
+                                }
+
+                                VerticalLayout {
+                                    alignment: center;
+                                    spacing: 12px;
+
+                                    Text {
+                                        text: "+";
+                                        font-size: 32px;
+                                        color: Theme.text-secondary;
+                                        horizontal-alignment: center;
+                                    }
+
+                                    Text {
+                                        text: "CREATE LIST";
+                                        font-size: 13px;
+                                        font-weight: 700;
+                                        color: Theme.text-primary;
+                                        letter-spacing: 1px;
+                                        horizontal-alignment: center;
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Content View: Blocker
+                    if root.active-nav == "blocker": VerticalLayout {
+                        spacing: 16px;
+                        Text {
+                            text: "Locu Distraction Shield";
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: Theme.text-primary;
+                        }
+
+                        ScrollView {
+                            VerticalLayout {
+                                spacing: 10px;
+                                for app in root.blocked-apps: Rectangle {
+                                    height: 56px;
+                                    background: Theme.bg-card;
+                                    border-radius: Theme.radius-md;
+                                    border-width: 1px;
+                                    border-color: Theme.border-subtle;
+
+                                    HorizontalLayout {
+                                        padding-left: 18px;
+                                        padding-right: 18px;
+                                        alignment: space-between;
+
+                                        VerticalLayout {
+                                            alignment: center;
+                                            Text {
+                                                text: app.name;
+                                                font-size: 14px;
+                                                font-weight: 600;
+                                                color: Theme.text-primary;
+                                            }
+                                            Text {
+                                                text: app.process-name;
+                                                font-size: 11px;
+                                                color: Theme.text-muted;
+                                            }
+                                        }
+
+                                        Rectangle {
+                                            width: 110px;
+                                            height: 32px;
+                                            border-radius: Theme.radius-sm;
+                                            background: app.active ? Theme.accent-green : Theme.bg-card-hover;
+                                            y: 12px;
+                                            TouchArea {
+                                                clicked => { root.toggle-blocked-app(app.id); }
+                                            }
+                                            Text {
+                                                text: app.active ? "Shield Active" : "Shield Paused";
+                                                font-size: 11px;
+                                                font-weight: 700;
+                                                color: app.active ? #000000 : Theme.text-secondary;
+                                                horizontal-alignment: center;
+                                                vertical-alignment: center;
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // Content View: Scratchpad
+                    if root.active-nav == "scratchpad": VerticalLayout {
+                        spacing: 16px;
+                        Text {
+                            text: "Locu Quick Scratchpad";
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: Theme.text-primary;
+                        }
+                        Rectangle {
+                            background: Theme.bg-card;
+                            border-radius: Theme.radius-md;
+                            border-width: 1px;
+                            border-color: Theme.border-subtle;
+                            VerticalLayout {
+                                padding: 16px;
+                                LineEdit {
+                                    text <=> root.scratchpad-text;
+                                    placeholder-text: "Capture distractions or rapid thoughts...";
+                                }
                             }
                         }
                     }
                 }
             }
         }
+    }
 
-        // Main Content Area
+    // Modal Overlay: Create List (Replica of user's screenshot)
+    if root.show-create-list-modal: Rectangle {
+        width: 100%;
+        height: 100%;
+        background: #000000b0; // Dim backdrop
+
+        TouchArea {
+            // Absorb clicks on backdrop
+        }
+
+        // Modal Dialog Box
         Rectangle {
-            background: #13171f;
+            width: 440px;
+            height: 480px;
+            border-radius: Theme.radius-lg;
+            background: #181C22;
+            border-width: 1px;
+            border-color: Theme.border-light;
 
-            VerticalBox {
-                padding: 24px;
-                spacing: 16px;
+            VerticalLayout {
+                padding: 28px;
+                spacing: 20px;
 
-                if root.active-tab == "dashboard": VerticalBox {
-                    spacing: 16px;
+                // Title + Close X
+                HorizontalLayout {
+                    alignment: space-between;
+                    Rectangle { width: 1px; } // spacer
                     Text {
-                        text: "Task Sprint & Daily Flow";
-                        font-size: 22px;
+                        text: "Create a new list";
+                        font-size: 18px;
                         font-weight: 700;
-                        color: #ffffff;
+                        color: Theme.text-primary;
+                    }
+                    Rectangle {
+                        width: 24px;
+                        height: 24px;
+                        TouchArea {
+                            clicked => { root.show-create-list-modal = false; }
+                        }
+                        Text {
+                            text: "✕";
+                            font-size: 14px;
+                            color: Theme.text-muted;
+                        }
+                    }
+                }
+
+                // Avatar preview
+                VerticalLayout {
+                    alignment: center;
+                    spacing: 8px;
+
+                    Rectangle {
+                        width: 64px;
+                        height: 64px;
+                        border-radius: Theme.radius-full;
+                        background: #6FE2A4;
+                        x: 160px;
+
+                        Text {
+                            text: "P";
+                            font-size: 24px;
+                            font-weight: 700;
+                            color: #000000;
+                            horizontal-alignment: center;
+                            vertical-alignment: center;
+                        }
                     }
 
-                    HorizontalBox {
-                        spacing: 8px;
-                        task-input := LineEdit {
-                            placeholder-text: "Add a new task (e.g. Implement DNS filter)...";
-                            text <=> root.new-task-input;
-                            accepted => {
-                                if (root.new-task-input != "") {
-                                    root.add-task(root.new-task-input);
-                                    root.new-task-input = "";
-                                }
-                            }
+                    Text {
+                        text: "UPLOAD AN ICON";
+                        font-size: 11px;
+                        font-weight: 700;
+                        color: Theme.text-primary;
+                        horizontal-alignment: center;
+                    }
+                    Text {
+                        text: "Optional (jpg, png, svg)";
+                        font-size: 11px;
+                        color: Theme.text-muted;
+                        horizontal-alignment: center;
+                    }
+                }
+
+                // Color picker row (9 dots)
+                VerticalLayout {
+                    spacing: 8px;
+                    Text {
+                        text: "Pick a list color";
+                        font-size: 12px;
+                        color: Theme.text-secondary;
+                    }
+                    HorizontalLayout {
+                        spacing: 12px;
+                        alignment: center;
+
+                        Rectangle { width: 22px; height: 22px; border-radius: Theme.radius-full; background: #6F98E8; }
+                        Rectangle { width: 22px; height: 22px; border-radius: Theme.radius-full; background: #B3C065; }
+                        Rectangle { width: 22px; height: 22px; border-radius: Theme.radius-full; background: #EF82EF; }
+                        Rectangle { width: 22px; height: 22px; border-radius: Theme.radius-full; background: #3CC9C4; border-width: 2px; border-color: #FFFFFF; }
+                        Rectangle { width: 22px; height: 22px; border-radius: Theme.radius-full; background: #00FFF6; }
+                        Rectangle { width: 22px; height: 22px; border-radius: Theme.radius-full; background: #FFF176; }
+                        Rectangle { width: 22px; height: 22px; border-radius: Theme.radius-full; background: #000000; }
+                    }
+                }
+
+                // List Name Input
+                LineEdit {
+                    text <=> root.new-list-name;
+                    placeholder-text: "List name (e.g. Work, Personal)...";
+                }
+
+                // Actions: Cancel & Create
+                HorizontalLayout {
+                    spacing: 14px;
+                    alignment: center;
+
+                    Rectangle {
+                        width: 140px;
+                        height: 40px;
+                        border-radius: Theme.radius-md;
+                        background: transparent;
+                        border-width: 1px;
+                        border-color: Theme.border-light;
+                        TouchArea {
+                            clicked => { root.show-create-list-modal = false; }
                         }
-                        Button {
-                            text: "+ Add";
+                        Text {
+                            text: "Cancel";
+                            font-size: 13px;
+                            font-weight: 600;
+                            color: Theme.text-primary;
+                            horizontal-alignment: center;
+                            vertical-alignment: center;
+                        }
+                    }
+
+                    Rectangle {
+                        width: 140px;
+                        height: 40px;
+                        border-radius: Theme.radius-md;
+                        background: @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%);
+                        TouchArea {
                             clicked => {
-                                if (root.new-task-input != "") {
-                                    root.add-task(root.new-task-input);
-                                    root.new-task-input = "";
+                                if (root.new-list-name != "") {
+                                    root.create-list(root.new-list-name, root.new-list-color);
+                                    root.new-list-name = "";
+                                    root.show-create-list-modal = false;
                                 }
                             }
                         }
+                        Text {
+                            text: "Create";
+                            font-size: 13px;
+                            font-weight: 700;
+                            color: #000000;
+                            horizontal-alignment: center;
+                            vertical-alignment: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    // Modal Overlay: Preferences (Replica of user's screenshot)
+    if root.show-preferences-modal: Rectangle {
+        width: 100%;
+        height: 100%;
+        background: #000000b0;
+
+        TouchArea { }
+
+        Rectangle {
+            width: 520px;
+            height: 580px;
+            border-radius: Theme.radius-lg;
+            background: #181C22;
+            border-width: 1px;
+            border-color: Theme.border-light;
+
+            VerticalLayout {
+                padding: 28px;
+                spacing: 20px;
+
+                HorizontalLayout {
+                    alignment: space-between;
+                    VerticalLayout {
+                        spacing: 4px;
+                        Text {
+                            text: "Preferences";
+                            font-size: 20px;
+                            font-weight: 800;
+                            color: Theme.text-primary;
+                        }
+                        Text {
+                            text: "Customize your workflow for a personalized experience";
+                            font-size: 12px;
+                            color: Theme.text-secondary;
+                        }
                     }
 
-                    ScrollView {
-                        VerticalBox {
-                            spacing: 8px;
-                            for task in root.tasks: Rectangle {
-                                height: 50px;
-                                background: #1c222e;
-                                border-radius: 8px;
-                                border-width: 1px;
-                                border-color: #283344;
+                    Rectangle {
+                        width: 24px;
+                        height: 24px;
+                        TouchArea {
+                            clicked => { root.show-preferences-modal = false; }
+                        }
+                        Text {
+                            text: "✕";
+                            font-size: 15px;
+                            color: Theme.text-muted;
+                        }
+                    }
+                }
 
-                                HorizontalBox {
-                                    padding-left: 16px;
-                                    padding-right: 16px;
-                                    spacing: 12px;
-                                    alignment: center;
-
-                                    CheckBox {
-                                        checked: task.completed;
-                                        toggled => { root.toggle-task-completed(task.id); }
-                                    }
-
-                                    Text {
-                                        text: task.title;
-                                        font-size: 14px;
-                                        color: task.completed ? #718096 : #e2e8f0;
-                                        horizontal-stretch: 1;
-                                    }
-
-                                    Text {
-                                        text: task.estimate_mins + "m";
-                                        font-size: 12px;
-                                        color: #a0aec0;
-                                    }
-                                }
+                // Section: Time
+                VerticalLayout {
+                    spacing: 8px;
+                    Text {
+                        text: "Time";
+                        font-size: 13px;
+                        font-weight: 700;
+                        color: Theme.text-primary;
+                    }
+                    Rectangle {
+                        height: 42px;
+                        background: Theme.bg-card;
+                        border-radius: Theme.radius-sm;
+                        border-width: 1px;
+                        border-color: Theme.border-subtle;
+                        HorizontalLayout {
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            alignment: space-between;
+                            Text {
+                                text: "Timezone";
+                                font-size: 12px;
+                                color: Theme.text-secondary;
+                                vertical-alignment: center;
+                            }
+                            Text {
+                                text: "(GMT+05:30) Asia/Calcutta ▾";
+                                font-size: 12px;
+                                color: Theme.text-primary;
+                                vertical-alignment: center;
                             }
                         }
                     }
                 }
 
-                if root.active-tab == "tower": VerticalBox {
-                    spacing: 12px;
+                // Section: Blitz mode settings
+                VerticalLayout {
+                    spacing: 10px;
                     Text {
-                        text: "🗼 BlitzTower Mode Preview";
-                        font-size: 20px;
-                        font-weight: 700;
-                        color: #ffffff;
-                    }
-                    Text {
-                        text: "BlitzTower docks to the edge of your screen (width ~320px) keeping your current task queue visible while you code, browse, or design.";
-                        color: #a0aec0;
+                        text: "Blitz mode settings";
                         font-size: 13px;
+                        font-weight: 700;
+                        color: Theme.text-primary;
                     }
+
                     Rectangle {
-                        width: 320px;
-                        height: 380px;
-                        background: #181d27;
-                        border-radius: 12px;
-                        border-width: 1px;
-                        border-color: #2e384d;
-                        VerticalBox {
-                            padding: 16px;
-                            spacing: 10px;
+                        height: 42px;
+                        background: Theme.bg-card;
+                        border-radius: Theme.radius-sm;
+                        HorizontalLayout {
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            alignment: space-between;
                             Text {
-                                text: "CURRENT FOCUS";
-                                font-size: 11px;
-                                font-weight: 700;
-                                color: #63b3ed;
-                            }
-                            Text {
-                                text: root.active-task-name;
-                                font-size: 15px;
-                                font-weight: 600;
-                                color: #ffffff;
+                                text: "Pomodoros";
+                                font-size: 13px;
+                                color: Theme.text-primary;
+                                vertical-alignment: center;
                             }
                             Rectangle {
-                                height: 35px;
-                                background: #232c3d;
-                                border-radius: 6px;
-                                HorizontalBox {
-                                    padding-left: 10px;
-                                    padding-right: 10px;
-                                    Text { text: "⏱️ " + root.timer-display; color: #63b3ed; font-weight: 700; }
+                                width: 38px;
+                                height: 22px;
+                                border-radius: Theme.radius-full;
+                                background: Theme.accent-cyan;
+                                y: 10px;
+                                Rectangle {
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: Theme.radius-full;
+                                    background: #FFFFFF;
+                                    x: 19px;
+                                    y: 3px;
                                 }
                             }
                         }
                     }
-                }
 
-                if root.active-tab == "pill": VerticalBox {
-                    spacing: 16px;
-                    alignment: center;
-                    Text {
-                        text: "💊 Floating Pill HUD Preview";
-                        font-size: 20px;
-                        font-weight: 700;
-                        color: #ffffff;
-                    }
-                    Text {
-                        text: "The minimal HUD floats above all windows showing your current sprint and remaining time.";
-                        color: #a0aec0;
-                        font-size: 13px;
-                    }
                     Rectangle {
-                        width: 420px;
-                        height: 56px;
-                        background: #1e2430;
-                        border-radius: 28px;
-                        border-width: 1.5px;
-                        border-color: #4a5568;
-
-                        HorizontalBox {
-                            padding-left: 20px;
-                            padding-right: 20px;
-                            spacing: 14px;
-                            alignment: center;
-
+                        height: 42px;
+                        background: Theme.bg-card;
+                        border-radius: Theme.radius-sm;
+                        HorizontalLayout {
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            alignment: space-between;
                             Text {
-                                text: "⚡ " + root.active-task-name;
+                                text: "Default break length";
                                 font-size: 13px;
-                                font-weight: 600;
-                                color: #ffffff;
-                                horizontal-stretch: 1;
+                                color: Theme.text-primary;
+                                vertical-alignment: center;
                             }
-
                             Text {
-                                text: root.timer-display;
-                                font-size: 15px;
-                                font-weight: 700;
-                                color: #4fd1c5;
-                            }
-
-                            Button {
-                                text: root.timer-running ? "⏸️" : "▶️";
-                                clicked => { root.toggle-timer(); }
+                                text: "10 mins ▾";
+                                font-size: 12px;
+                                color: Theme.text-secondary;
+                                vertical-alignment: center;
                             }
                         }
                     }
-                }
 
-                if root.active-tab == "blocker": VerticalBox {
-                    spacing: 16px;
-                    Text {
-                        text: "🛡️ Locu Distraction Blocker Engine";
-                        font-size: 20px;
-                        font-weight: 700;
-                        color: #ffffff;
-                    }
-                    Text {
-                        text: "When focus session starts, active apps and distraction sites are blocked natively in Rust.";
-                        color: #a0aec0;
-                        font-size: 13px;
-                    }
-                    ScrollView {
-                        VerticalBox {
-                            spacing: 8px;
-                            for app in root.blocked-apps: Rectangle {
-                                height: 50px;
-                                background: #1c222e;
-                                border-radius: 8px;
-                                border-width: 1px;
-                                border-color: #283344;
-
-                                HorizontalBox {
-                                    padding-left: 16px;
-                                    padding-right: 16px;
-                                    spacing: 12px;
-                                    alignment: center;
-
-                                    Text {
-                                        text: app.name + " (" + app.process_name + ")";
-                                        font-size: 14px;
-                                        color: #e2e8f0;
-                                        horizontal-stretch: 1;
-                                    }
-
-                                    Button {
-                                        text: app.active ? "Shield Active" : "Shield Paused";
-                                        clicked => { root.toggle-blocker-app(app.id); }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-
-                if root.active-tab == "notes": VerticalBox {
-                    spacing: 12px;
-                    Text {
-                        text: "📝 Locu Floating Scratchpad";
-                        font-size: 20px;
-                        font-weight: 700;
-                        color: #ffffff;
-                    }
-                    Text {
-                        text: "Jot down sudden thoughts or distraction triggers without breaking your current workflow context.";
-                        color: #a0aec0;
-                        font-size: 13px;
-                    }
                     Rectangle {
-                        background: #171d26;
-                        border-radius: 8px;
-                        border-width: 1px;
-                        border-color: #2d3748;
-                        VerticalBox {
-                            padding: 12px;
-                            note-input := LineEdit {
-                                text <=> root.quick-note-text;
-                                placeholder-text: "Type scratchpad notes...";
+                        height: 42px;
+                        background: Theme.bg-card;
+                        border-radius: Theme.radius-sm;
+                        HorizontalLayout {
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            alignment: space-between;
+                            Text {
+                                text: "Scrolling title on live timer";
+                                font-size: 13px;
+                                color: Theme.text-primary;
+                                vertical-alignment: center;
+                            }
+                            Rectangle {
+                                width: 38px;
+                                height: 22px;
+                                border-radius: Theme.radius-full;
+                                background: Theme.accent-cyan;
+                                y: 10px;
+                                Rectangle {
+                                    width: 16px;
+                                    height: 16px;
+                                    border-radius: Theme.radius-full;
+                                    background: #FFFFFF;
+                                    x: 19px;
+                                    y: 3px;
+                                }
                             }
                         }
                     }

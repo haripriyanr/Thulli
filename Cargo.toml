@@ -13,6 +13,12 @@ tokio = { version = "1.43", features = ["full"] }
 sysinfo = "0.33"
 tray-icon = "0.19"
 winit = "0.30"
+aes-gcm = "0.11.1"
+argon2 = "0.6.0"
+rand = "0.10.3"
+zeroize = "1.9.1"
+rusqlite = { version = "0.41.0", features = ["bundled"] }
+uuid = { version = "1.29.0", features = ["v4", "serde"] }
 
 [build-dependencies]
 slint-build = "1.18.1"
