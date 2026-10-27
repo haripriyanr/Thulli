@@ -37,7 +37,7 @@ export component MainWindow inherits Window {
     default-font-family: "Segoe UI, Inter, sans-serif";
 
     // Application state
-    in-out property <string> active-nav: "all_lists"; // "all_lists", "archived", "board", "reports", "blocker", "scratchpad"
+    in-out property <string> active-nav: "all_lists"; // "all_lists", "archived", "board", "reports", "shield", "scratchpad"
     in-out property <string> selected-list-id: "";
     in-out property <string> selected-list-name: "Personal";
     in-out property <string> active-mode: "dashboard"; // "dashboard", "tower", "pill"
@@ -178,7 +178,7 @@ export component MainWindow inherits Window {
                                     padding-right: 10px;
                                     alignment: center;
                                     Text {
-                                        text: "BlitzTower";
+                                        text: "Focus Tower";
                                         font-size: 11px;
                                         font-weight: 600;
                                         color: root.active-mode == "tower" ? Theme.text-primary : Theme.text-secondary;
@@ -265,7 +265,7 @@ export component MainWindow inherits Window {
                     padding: 18px;
                     spacing: 12px;
 
-                    // Plan Info Box (Blitzit style)
+                    // Plan Info Box
                     Rectangle {
                         height: 72px;
                         background: Theme.bg-card;
@@ -376,7 +376,7 @@ export component MainWindow inherits Window {
 
                     Rectangle { height: 8px; }
 
-                    // Locu Focus Tools Section
+                    // Focus Tools Section
                     Text {
                         text: "FOCUS & SHIELD";
                         font-size: 10px;
@@ -388,9 +388,9 @@ export component MainWindow inherits Window {
                     Rectangle {
                         height: 38px;
                         border-radius: Theme.radius-sm;
-                        background: root.active-nav == "blocker" ? Theme.bg-card-selected : transparent;
+                        background: root.active-nav == "shield" ? Theme.bg-card-selected : transparent;
                         TouchArea {
-                            clicked => { root.active-nav = "blocker"; }
+                            clicked => { root.active-nav = "shield"; }
                             HorizontalLayout {
                                 padding-left: 14px;
                                 alignment: center;
@@ -398,7 +398,7 @@ export component MainWindow inherits Window {
                                     text: "🛡️ App Shield";
                                     font-size: 13px;
                                     font-weight: 600;
-                                    color: root.active-nav == "blocker" ? Theme.text-primary : Theme.text-secondary;
+                                    color: root.active-nav == "shield" ? Theme.text-primary : Theme.text-secondary;
                                     vertical-alignment: center;
                                 }
                             }
@@ -428,7 +428,7 @@ export component MainWindow inherits Window {
                     // Spacer
                     Rectangle { }
 
-                    // Persistent Sidebar Timer (Blitzit / Locu style)
+                    // Persistent Sidebar Timer
                     Rectangle {
                         height: 120px;
                         background: Theme.bg-card;
@@ -517,7 +517,7 @@ export component MainWindow inherits Window {
                                 color: Theme.text-primary;
                             }
                             Text {
-                                text: "Are you ready to blitz through your day?";
+                                text: "Empower your focus and master your sprint.";
                                 font-size: 14px;
                                 color: Theme.text-secondary;
                             }
@@ -542,7 +542,7 @@ export component MainWindow inherits Window {
                         }
                     }
 
-                    // View 1: All Lists (Grid of Cards)
+                    // View 1: All Active Lists (Grid of Cards)
                     if root.active-nav == "all_lists": VerticalLayout {
                         spacing: 20px;
 
@@ -560,8 +560,9 @@ export component MainWindow inherits Window {
 
                             // Display List Cards
                             for list in root.lists: Rectangle {
-                                width: 260px;
-                                height: 260px;
+                                visible: !list.is-archived;
+                                width: (!list.is-archived) ? 260px : 0px;
+                                height: (!list.is-archived) ? 260px : 0px;
                                 border-radius: Theme.radius-lg;
                                 background: Theme.bg-card;
                                 border-width: 1px;
@@ -589,7 +590,7 @@ export component MainWindow inherits Window {
                                             width: 28px;
                                             height: 28px;
                                             border-radius: Theme.radius-full;
-                                            background: #3CC9C4;
+                                            background: #6FDBAB;
                                             y: 2px;
                                             Text {
                                                 text: "P";
@@ -652,7 +653,7 @@ export component MainWindow inherits Window {
                                 }
                             }
 
-                            // + CREATE LIST Card (Blitzit dashed style)
+                            // + CREATE LIST Card
                             Rectangle {
                                 width: 260px;
                                 height: 260px;
@@ -689,7 +690,97 @@ export component MainWindow inherits Window {
                         }
                     }
 
-                    // View 2: Full Blitzit Kanban Board (Today | This Week | Backlog | Done)
+                    // View 2: Archived Lists (Grid of Cards)
+                    if root.active-nav == "archived": VerticalLayout {
+                        spacing: 20px;
+
+                        Text {
+                            text: "Your Archived Lists";
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: Theme.text-primary;
+                        }
+
+                        HorizontalLayout {
+                            spacing: 16px;
+                            alignment: start;
+
+                            for list in root.lists: Rectangle {
+                                visible: list.is-archived;
+                                width: (list.is-archived) ? 260px : 0px;
+                                height: (list.is-archived) ? 260px : 0px;
+                                border-radius: Theme.radius-lg;
+                                background: Theme.bg-card;
+                                border-width: 1px;
+                                border-color: Theme.border-subtle;
+
+                                TouchArea {
+                                    clicked => {
+                                        root.selected-list-id = list.id;
+                                        root.selected-list-name = list.name;
+                                        root.active-nav = "board";
+                                        root.select-list(list.id);
+                                    }
+                                }
+
+                                VerticalLayout {
+                                    padding: 20px;
+                                    spacing: 12px;
+
+                                    HorizontalLayout {
+                                        spacing: 10px;
+                                        alignment: start;
+
+                                        Rectangle {
+                                            width: 28px;
+                                            height: 28px;
+                                            border-radius: Theme.radius-full;
+                                            background: #6F98E8;
+                                            y: 2px;
+                                            Text {
+                                                text: "T";
+                                                font-size: 13px;
+                                                font-weight: 700;
+                                                color: #FFFFFF;
+                                                horizontal-alignment: center;
+                                                vertical-alignment: center;
+                                            }
+                                        }
+
+                                        Text {
+                                            text: list.name;
+                                            font-size: 16px;
+                                            font-weight: 700;
+                                            color: Theme.text-primary;
+                                            vertical-alignment: center;
+                                        }
+                                    }
+
+                                    // Display tasks inside this archived list
+                                    ScrollView {
+                                        VerticalLayout {
+                                            spacing: 6px;
+                                            for task in root.tasks: Rectangle {
+                                                visible: task.list-id == list.id;
+                                                height: (task.list-id == list.id) ? 36px : 0px;
+                                                background: #11141A;
+                                                border-radius: 4px;
+                                                HorizontalLayout {
+                                                    padding-left: 10px;
+                                                    padding-right: 10px;
+                                                    alignment: space-between;
+                                                    Text { text: task.title; font-size: 12px; color: Theme.text-secondary; vertical-alignment: center; }
+                                                    Text { text: "00:00"; font-size: 11px; color: Theme.text-muted; vertical-alignment: center; }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                    // View 3: Full Kanban Board (Today | This Week | Backlog | Done)
                     if root.active-nav == "board": VerticalLayout {
                         spacing: 16px;
 
@@ -745,7 +836,7 @@ export component MainWindow inherits Window {
                         HorizontalLayout {
                             spacing: 16px;
 
-                            // Column 1: Today (with Blitz Rocket Action)
+                            // Column 1: Today
                             Rectangle {
                                 horizontal-stretch: 1;
                                 background: Theme.bg-panel;
@@ -805,7 +896,7 @@ export component MainWindow inherits Window {
                                         }
                                     }
 
-                                    // Blitzit Action Launch Button
+                                    // Launch Action Button
                                     Rectangle {
                                         height: 38px;
                                         border-radius: Theme.radius-sm;
@@ -817,7 +908,7 @@ export component MainWindow inherits Window {
                                             alignment: center;
                                             spacing: 8px;
                                             Text { text: "🚀"; font-size: 14px; }
-                                            Text { text: "Launch BlitzTower Focus"; font-size: 12px; font-weight: 800; color: #000000; vertical-alignment: center; }
+                                            Text { text: "Launch Focus Tower"; font-size: 12px; font-weight: 800; color: #000000; vertical-alignment: center; }
                                         }
                                     }
                                 }
@@ -930,11 +1021,11 @@ export component MainWindow inherits Window {
                         }
                     }
 
-                    // View 3: Blocker
-                    if root.active-nav == "blocker": VerticalLayout {
+                    // View 4: App Shield
+                    if root.active-nav == "shield": VerticalLayout {
                         spacing: 16px;
                         Text {
-                            text: "Locu Distraction Shield";
+                            text: "Thulli App Shield";
                             font-size: 18px;
                             font-weight: 700;
                             color: Theme.text-primary;
@@ -994,11 +1085,11 @@ export component MainWindow inherits Window {
                         }
                     }
 
-                    // View 4: Scratchpad
+                    // View 5: Scratchpad
                     if root.active-nav == "scratchpad": VerticalLayout {
                         spacing: 16px;
                         Text {
-                            text: "Locu Quick Scratchpad";
+                            text: "Thulli Quick Scratchpad";
                             font-size: 18px;
                             font-weight: 700;
                             color: Theme.text-primary;
@@ -1267,7 +1358,7 @@ export component MainWindow inherits Window {
                 VerticalLayout {
                     spacing: 10px;
                     Text {
-                        text: "Blitz mode settings";
+                        text: "Focus sprint settings";
                         font-size: 13px;
                         font-weight: 700;
                         color: Theme.text-primary;
@@ -1282,7 +1373,7 @@ export component MainWindow inherits Window {
                             padding-right: 12px;
                             alignment: space-between;
                             Text {
-                                text: "Pomodoros";
+                                text: "Timed Sprints";
                                 font-size: 13px;
                                 color: Theme.text-primary;
                                 vertical-alignment: center;

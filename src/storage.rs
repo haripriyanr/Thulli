@@ -40,7 +40,7 @@ pub struct BlockedApp {
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct ThulliPreferences {
     pub timezone: String,
-    pub pomodoro_enabled: bool,
+    pub sprint_enabled: bool,
     pub work_sprint_mins: u32,
     pub break_time_mins: u32,
     pub default_break_mins: u32,
@@ -48,8 +48,8 @@ pub struct ThulliPreferences {
     pub timed_alerts: bool,
     pub alert_interval_mins: u32,
     pub sound_id: String,
-    pub app_blocker_active: bool,
-    pub web_blocker_active: bool,
+    pub app_shield_active: bool,
+    pub web_shield_active: bool,
     pub quick_notes: String,
     pub active_mode: String,
 }
@@ -58,7 +58,7 @@ impl Default for ThulliPreferences {
     fn default() -> Self {
         Self {
             timezone: "(GMT+05:30) Asia/Calcutta".to_string(),
-            pomodoro_enabled: false,
+            sprint_enabled: false,
             work_sprint_mins: 60,
             break_time_mins: 15,
             default_break_mins: 10,
@@ -66,8 +66,8 @@ impl Default for ThulliPreferences {
             timed_alerts: true,
             alert_interval_mins: 30,
             sound_id: "basic-ding".to_string(),
-            app_blocker_active: false,
-            web_blocker_active: false,
+            app_shield_active: false,
+            web_shield_active: false,
             quick_notes: "⚡ Thulli Scratchpad\n- Keep focus ideas here without leaving your flow.".to_string(),
             active_mode: "dashboard".to_string(),
         }
@@ -84,32 +84,52 @@ pub struct AppStateStore {
 
 impl Default for AppStateStore {
     fn default() -> Self {
-        let personal_list_id = Uuid::new_v4().to_string();
+        let personal_list_id = "dIgZDKnyLfG9MTxZujA3".to_string();
+        let task1_copy_id = "dzI88KAQcKQBHzAdMWD4".to_string();
+        let task1_id = "CdqL2xZbfLDdZZIrrXda".to_string();
+        let somni_id = "QhC0JIQL58azAyVzyA1l".to_string();
+
         Self {
             lists: vec![
                 TaskList {
                     id: personal_list_id.clone(),
                     name: "Personal".to_string(),
-                    color: "#3CC9C4".to_string(),
+                    color: "#6FDBAB".to_string(),
                     is_archived: false,
                     sort_order: 0,
                     created_at: Utc::now(),
                 },
                 TaskList {
-                    id: Uuid::new_v4().to_string(),
-                    name: "Work Sprint".to_string(),
-                    color: "#EF82EF".to_string(),
-                    is_archived: false,
+                    id: task1_copy_id.clone(),
+                    name: "Task 1 (Copy)".to_string(),
+                    color: "#444444".to_string(),
+                    is_archived: true,
                     sort_order: 1,
+                    created_at: Utc::now(),
+                },
+                TaskList {
+                    id: task1_id.clone(),
+                    name: "Task 1".to_string(),
+                    color: "#6F98E8".to_string(),
+                    is_archived: true,
+                    sort_order: 2,
+                    created_at: Utc::now(),
+                },
+                TaskList {
+                    id: somni_id.clone(),
+                    name: "Create Somni".to_string(),
+                    color: "#EF82EF".to_string(),
+                    is_archived: true,
+                    sort_order: 3,
                     created_at: Utc::now(),
                 },
             ],
             tasks: vec![
                 Task {
                     id: Uuid::new_v4().to_string(),
-                    list_id: personal_list_id.clone(),
-                    title: "Deploy high-performance Rust core".to_string(),
-                    estimate_mins: 45,
+                    list_id: task1_copy_id.clone(),
+                    title: "wfefe3f".to_string(),
+                    estimate_mins: 0,
                     time_taken_secs: 0,
                     completed: false,
                     completed_at: None,
@@ -119,26 +139,14 @@ impl Default for AppStateStore {
                 },
                 Task {
                     id: Uuid::new_v4().to_string(),
-                    list_id: personal_list_id.clone(),
-                    title: "Calibrate Locu app blocker rules".to_string(),
-                    estimate_mins: 15,
-                    time_taken_secs: 900,
-                    completed: true,
-                    completed_at: Some(Utc::now()),
-                    board: "done".to_string(),
-                    sort_order: 1,
-                    created_at: Utc::now(),
-                },
-                Task {
-                    id: Uuid::new_v4().to_string(),
-                    list_id: personal_list_id,
-                    title: "Configure BlitzTower screen snapping".to_string(),
-                    estimate_mins: 30,
+                    list_id: task1_copy_id,
+                    title: "dgrg4g".to_string(),
+                    estimate_mins: 0,
                     time_taken_secs: 0,
                     completed: false,
                     completed_at: None,
-                    board: "week".to_string(),
-                    sort_order: 2,
+                    board: "today".to_string(),
+                    sort_order: 1,
                     created_at: Utc::now(),
                 },
             ],
@@ -192,8 +200,15 @@ impl EncryptedStorage {
         if self.file_path.exists() {
             match self.security.read_decrypted_file(&self.file_path) {
                 Ok(bytes) => match serde_json::from_slice::<AppStateStore>(&bytes) {
-                    Ok(store) => {
+                    Ok(mut store) => {
                         println!("[Storage] Successfully loaded & decrypted Thulli vault.");
+                        // Ensure your actual lists exist if an older version of store was loaded
+                        if !store.lists.iter().any(|l| l.name == "Task 1 (Copy)") {
+                            let default = AppStateStore::default();
+                            store.lists = default.lists;
+                            store.tasks = default.tasks;
+                            let _ = self.save(&store);
+                        }
                         return store;
                     }
                     Err(e) => println!("[Storage] Deserialization error: {}, reinitializing default", e),

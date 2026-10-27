@@ -54,10 +54,11 @@ impl SecurityManager {
 
         let mut nonce_bytes = [0u8; 12];
         rand::rng().fill(&mut nonce_bytes);
-        let nonce = Nonce::from_slice(&nonce_bytes);
+        let nonce = Nonce::try_from(nonce_bytes.as_slice())
+            .map_err(|e| format!("Nonce conversion error: {}", e))?;
 
         let ciphertext = cipher
-            .encrypt(nonce, data)
+            .encrypt(&nonce, data)
             .map_err(|e| format!("Encryption error: {}", e))?;
 
         // Format: [12 bytes nonce] + [ciphertext + 16 bytes tag]
@@ -77,11 +78,12 @@ impl SecurityManager {
         let cipher = Aes256Gcm::new_from_slice(&self.key)
             .map_err(|e| format!("Cipher init error: {}", e))?;
 
-        let nonce = Nonce::from_slice(&encrypted_data[..12]);
+        let nonce = Nonce::try_from(&encrypted_data[..12])
+            .map_err(|e| format!("Nonce conversion error: {}", e))?;
         let ciphertext = &encrypted_data[12..];
 
         let plaintext = cipher
-            .decrypt(nonce, ciphertext)
+            .decrypt(&nonce, ciphertext)
             .map_err(|e| format!("Decryption authentication error: {}", e))?;
 
         Ok(plaintext)

@@ -265,7 +265,7 @@ async fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
             w.set_blocked_apps(Rc::new(VecModel::from(app_vec)).into());
         }
-        println!("[Locu Shield] Toggled app {} active state to {}", app_id, new_active);
+        println!("[Thulli Shield] Toggled app {} active state to {}", app_id, new_active);
     });
 
     // Switch App Mode
