@@ -1,0 +1,38 @@
+// State and callbacks owned by the application shell: navigation, window
+// controls, the running-timer pill and the notice banner. Screens read this
+// global but never need to edit it.
+
+export global ShellState {
+    /// One of: "today", "tasks" (the board), "matrix", "calendar", "focus",
+    /// "insights", "reports", "notes", "lists", "shield", "assistant", "preferences".
+    in-out property <string> current-screen: "today";
+
+    // Running-timer pill (shown whenever a timer is not idle).
+    in-out property <bool> timer-visible: false;
+    in-out property <bool> timer-running: false;
+    in-out property <string> timer-display: "00:00";
+    in-out property <string> timer-label: "";
+
+    /// Space screens should leave free at the bottom for the floating tab pill.
+    out property <length> content-bottom-inset: 76px;
+
+    /// Message for the banner under the title bar; empty hides it.
+    in-out property <string> notice: "";
+
+    /// Name shown in the top bar.
+    in-out property <string> workspace-name: "My workspace";
+
+    public function navigate(screen: string) {
+        root.current-screen = screen;
+    }
+
+    // Window controls
+    callback window-drag-start();
+    callback window-minimize();
+    callback window-maximize();
+    callback window-close();
+
+    // Timer pill actions
+    callback timer-toggle();
+    callback timer-open();
+}

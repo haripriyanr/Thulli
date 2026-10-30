@@ -10,27 +10,33 @@ mod list;
 mod notes;
 mod preferences;
 mod shield;
+mod tag;
 mod task;
 
 use chrono::NaiveDate;
 use serde::{Deserialize, Serialize};
 
-pub use chat::{ChatMessage, ChatRole, ChatThread};
+pub use chat::{
+    AssistantMemory, ChatMessage, ChatRole, ChatThread, MemoryKind, MemoryRevision, SuggestionKind,
+    SuggestionState,
+};
 pub use focus::{DayPlan, FocusSession, TimeEntry, TimeEntryKind};
-pub use list::TaskList;
+pub use list::{ListFolder, TaskList};
 pub use notes::{BragEntry, MeetingNote, Note, NoteFolder, QuickCapture};
 pub use preferences::{
-    AppShortcuts, GlobalShortcuts, PanelSide, Preferences, ShortcutBinding, ThemeChoice, WeekStart,
-    SESSION_MAX_MINS, SESSION_MIN_MINS, SESSION_STEP_MINS,
+    AccentTheme, AppShortcuts, ExpandedWindowMode, FocusDisplayMode, GlobalShortcuts, PanelSide,
+    Preferences, ShortcutBinding, SuggestionToggles, ThemeChoice, WeekStart, SESSION_MAX_MINS,
+    SESSION_MIN_MINS, SESSION_STEP_MINS,
 };
 pub use shield::{BlockedApp, BlockedSite};
-pub use task::{Task, TaskSection, TaskStatus};
+pub use tag::Tag;
+pub use task::{MatrixQuadrant, Task, TaskHistoryEntry, TaskSection, TaskStatus};
 
 /// Former name of [`Preferences`].
 pub type ThulliPreferences = Preferences;
 
 /// Version of the persisted layout. Bump when a migration is added.
-pub const CURRENT_SCHEMA_VERSION: u32 = 2;
+pub const CURRENT_SCHEMA_VERSION: u32 = 3;
 
 /// Root aggregate persisted in encrypted storage.
 ///
@@ -43,6 +49,10 @@ pub struct AppStateStore {
     pub schema_version: u32,
     #[serde(default)]
     pub lists: Vec<TaskList>,
+    #[serde(default)]
+    pub list_folders: Vec<ListFolder>,
+    #[serde(default)]
+    pub tags: Vec<Tag>,
     #[serde(default)]
     pub tasks: Vec<Task>,
     #[serde(default)]
@@ -68,6 +78,10 @@ pub struct AppStateStore {
     #[serde(default)]
     pub chat_threads: Vec<ChatThread>,
     #[serde(default)]
+    pub assistant_memories: Vec<AssistantMemory>,
+    #[serde(default)]
+    pub suggestion_states: Vec<SuggestionState>,
+    #[serde(default)]
     pub preferences: Preferences,
 }
 
@@ -76,6 +90,8 @@ impl Default for AppStateStore {
         Self {
             schema_version: CURRENT_SCHEMA_VERSION,
             lists: vec![TaskList::new_personal()],
+            list_folders: Vec::new(),
+            tags: Vec::new(),
             tasks: Vec::new(),
             notes: Vec::new(),
             note_folders: Vec::new(),
@@ -88,6 +104,8 @@ impl Default for AppStateStore {
             blocked_apps: Vec::new(),
             blocked_sites: Vec::new(),
             chat_threads: Vec::new(),
+            assistant_memories: Vec::new(),
+            suggestion_states: Vec::new(),
             preferences: Preferences::default(),
         }
     }
@@ -200,8 +218,8 @@ mod tests {
     #[test]
     fn legacy_boards_map_to_sections() {
         assert_eq!(TaskSection::from_legacy_board("today"), TaskSection::Today);
-        assert_eq!(TaskSection::from_legacy_board("week"), TaskSection::Sooner);
-        assert_eq!(TaskSection::from_legacy_board("backlog"), TaskSection::Later);
+        assert_eq!(TaskSection::from_legacy_board("week"), TaskSection::ThisWeek);
+        assert_eq!(TaskSection::from_legacy_board("backlog"), TaskSection::Backlog);
     }
 
     #[test]
@@ -218,11 +236,46 @@ mod tests {
 
     #[test]
     fn status_transitions_track_completion_time() {
-        let mut t = Task::new("l", "x", 5, TaskSection::Later);
+        let mut t = Task::new("l", "x", 5, TaskSection::Backlog);
         assert!(t.toggle_completion());
         assert!(t.completed_at.is_some());
         t.mark_waiting();
         assert!(t.completed_at.is_none() && t.is_pending());
+    }
+
+    #[test]
+    fn sections_store_as_board_names_and_old_names_still_load() {
+        assert_eq!(serde_json::to_string(&TaskSection::ThisWeek).unwrap(), "\"this_week\"");
+        assert_eq!(serde_json::from_str::<TaskSection>("\"sooner\"").unwrap(), TaskSection::ThisWeek);
+        assert_eq!(serde_json::from_str::<TaskSection>("\"later\"").unwrap(), TaskSection::Backlog);
+        assert_eq!(MatrixQuadrant::DoMidWeek.section(), TaskSection::ThisWeek);
+    }
+
+    #[test]
+    fn new_defaults_follow_the_spec() {
+        let p = Preferences::default();
+        assert_eq!(p.default_break_mins, 5);
+        assert_eq!(p.focus_display_mode, FocusDisplayMode::Expanded);
+        assert!(p.suggestions.plan_my_day);
+        assert_eq!(p.app_shortcuts.preferences.keys, "Ctrl+,");
+    }
+
+    #[test]
+    fn memories_keep_their_history() {
+        let mut m = AssistantMemory::new(MemoryKind::Preference, "Likes mornings");
+        m.edit("Prefers early mornings");
+        assert_eq!(m.history.len(), 1);
+        assert_eq!(m.history[0].text, "Likes mornings");
+    }
+
+    #[test]
+    fn task_history_records_moves_and_status() {
+        let mut t = Task::new("l", "x", 5, TaskSection::Backlog);
+        t.prepare_for_focus();
+        t.complete();
+        assert_eq!(t.section, TaskSection::Today);
+        assert!(t.history.iter().any(|h| h.event == "Moved to Today"));
+        assert!(t.history.iter().any(|h| h.event == "Marked completed"));
     }
 
     #[test]

@@ -1,0 +1,42 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { ThulliButton } from "../components/buttons.slint";
+import { IconChart } from "../icons.slint";
+import { ChartPointModel, StatTileModel, BarModel, HeatCellModel, TaskModel, ActivityEntryModel } from "../types.slint";
+
+/// State and callbacks for the insights screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global InsightsState {
+    in-out property <string> period-label: "This week";
+    in-out property <string> list-filter: "";
+    /// Cumulative worked time against the goal pace line.
+    in-out property <[ChartPointModel]> worked-line: [];
+    in-out property <[ChartPointModel]> pace-line: [];
+    in-out property <string> pace-label: "";
+    in-out property <[StatTileModel]> tiles: [];
+    in-out property <[BarModel]> workday-bars: [];
+    in-out property <[HeatCellModel]> heatmap: [];
+    in-out property <int> streak-days: 0;
+    in-out property <[TaskModel]> worked-tasks: [];
+    in-out property <[ActivityEntryModel]> activity: [];
+    callback previous-period();
+    callback next-period();
+    callback set-list-filter(string);
+    callback export-csv();
+    callback export-report();
+}
+
+/// InsightsScreen: stub with an empty state. Replace the body with the real screen.
+export component InsightsScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Insights will appear here";
+        subtitle: "Once you have worked on a few tasks, you will see where your time goes.";
+
+        IconChart {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

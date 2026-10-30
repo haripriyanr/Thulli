@@ -1,0 +1,39 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { ThulliButton } from "../components/buttons.slint";
+import { IconShield } from "../icons.slint";
+import { BlockedAppModel, BlockedSiteModel } from "../types.slint";
+
+/// State and callbacks for the shield screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global ShieldState {
+    in-out property <[BlockedAppModel]> apps: [];
+    in-out property <[BlockedSiteModel]> sites: [];
+    in-out property <bool> apps-enabled: false;
+    in-out property <bool> sites-enabled: false;
+    /// Plain-language note about website blocking needing administrator access.
+    in-out property <string> sites-note: "";
+    callback add-app(string, string);       // name, process
+    callback toggle-app(string);
+    callback remove-app(string);
+    callback add-site(string);
+    callback toggle-site(string);
+    callback remove-site(string);
+    callback set-apps-enabled(bool);
+    callback set-sites-enabled(bool);
+}
+
+/// ShieldScreen: stub with an empty state. Replace the body with the real screen.
+export component ShieldScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Nothing is blocked yet";
+        subtitle: "Choose apps and websites to keep out of the way while you focus.";
+
+        IconShield {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

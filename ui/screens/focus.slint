@@ -1,0 +1,54 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { IconBolt } from "../icons.slint";
+import { TaskModel, FocusQueueItemModel } from "../types.slint";
+
+/// State and callbacks for the focus screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global FocusState {
+    /// "expanded", "tower" or "pill".
+    in-out property <string> display-mode: "expanded";
+    in-out property <string> task-id: "";
+    in-out property <string> task-title: "";
+    in-out property <string> task-notes: "";
+    /// Clock text, HH:MM:SS while counting up on a task.
+    in-out property <string> clock: "00:00:00";
+    in-out property <string> estimate-label: "";
+    /// 0 to 1 ring progress against the estimate.
+    in-out property <float> progress: 0;
+    in-out property <bool> overtime: false;
+    in-out property <bool> on-break: false;
+    in-out property <bool> paused: false;
+    in-out property <[TaskModel]> steps: [];
+    in-out property <[FocusQueueItemModel]> queue: [];
+    in-out property <int> queue-done: 0;
+    in-out property <int> queue-total: 0;
+    in-out property <string> background: "calm";
+    callback done();
+    callback start-break();
+    callback toggle-pause();
+    callback skip();
+    callback add-step(string);
+    callback add-note();
+    callback select-task(string);
+    callback add-queue-task(string);
+    callback close-session();
+    callback set-display-mode(string);
+    callback set-background(string);
+    callback pick-background-image();
+}
+
+/// FocusScreen: stub with an empty state. Replace the body with the real screen.
+export component FocusScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Ready when you are";
+        subtitle: "Start a task to focus on it. Time counts up against your estimate.";
+
+        IconBolt {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

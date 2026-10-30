@@ -1,0 +1,55 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { ThulliButton } from "../components/buttons.slint";
+import { IconCheck } from "../icons.slint";
+import { TaskModel, ListModel, ListFolderModel, BoardColumnModel, TagModel, HistoryEntryModel } from "../types.slint";
+
+/// State and callbacks for the tasks screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global TasksState {
+    /// Sidebar filter: "all", "logbook", "waiting" or a list id.
+    in-out property <string> filter: "all";
+    in-out property <[TaskModel]> tasks: [];
+    in-out property <[ListModel]> lists: [];
+    in-out property <int> all-count: 0;
+    in-out property <[ListFolderModel]> folders: [];
+    in-out property <[BoardColumnModel]> columns: [];
+    in-out property <[TagModel]> tags: [];
+    in-out property <[HistoryEntryModel]> history: [];
+    in-out property <bool> can-undo: false;
+    in-out property <bool> can-redo: false;
+    in-out property <bool> sidebar-collapsed: false;
+    /// Ids of tasks selected with the multi-select key.
+    in-out property <[string]> selected-ids: [];
+    callback add-task(string, string);          // section, text
+    callback add-step(string, string);          // parent id, text
+    callback set-status(string, string);        // task id, status
+    callback move-task(string, string);         // task id, "top", "up", "down" or "bottom"
+    callback move-to-section(string, string);   // task id, section
+    callback assign-list(string, string);       // task id, list id
+    callback edit-title(string, string);
+    callback edit-notes(string, string);
+    callback delete-task(string);
+    callback focus-task(string);
+    callback start-now();
+    callback undo();
+    callback redo();
+    callback save-task(string, string, string, int, string, string, string);   // id, title, notes, estimate mins, tag ids (comma separated), do date, deadline
+    callback toggle-column(string);
+    callback show-history(string);
+}
+
+/// TasksScreen: stub with an empty state. Replace the body with the real screen.
+export component TasksScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "No tasks yet";
+        subtitle: "Tasks you add will be sorted into Backlog, This Week and Today.";
+
+        IconCheck {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

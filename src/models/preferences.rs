@@ -33,6 +33,55 @@ pub enum WeekStart {
     Saturday,
 }
 
+/// The five accent colour themes.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "lowercase")]
+pub enum AccentTheme {
+    #[default]
+    Teal,
+    Blue,
+    Violet,
+    Amber,
+    Rose,
+}
+
+/// How the focus run is shown. `Tower` is a docked screen-edge panel and
+/// `Pill` a tiny floating timer.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "lowercase")]
+pub enum FocusDisplayMode {
+    #[default]
+    Expanded,
+    Tower,
+    Pill,
+}
+
+/// How the expanded focus view fills the screen.
+#[derive(Debug, Clone, Copy, PartialEq, Eq, Serialize, Deserialize, Default)]
+#[serde(rename_all = "snake_case")]
+pub enum ExpandedWindowMode {
+    #[default]
+    FullScreen,
+    Maximized,
+}
+
+/// Which in-app suggestions are switched on.
+#[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
+#[serde(default)]
+pub struct SuggestionToggles {
+    pub plan_my_day: bool,
+    pub welcome_back: bool,
+    pub take_a_break: bool,
+    pub wind_down: bool,
+    pub prioritize: bool,
+}
+
+impl Default for SuggestionToggles {
+    fn default() -> Self {
+        Self { plan_my_day: true, welcome_back: true, take_a_break: true, wind_down: true, prioritize: true }
+    }
+}
+
 /// A keyboard shortcut with an on/off switch.
 #[derive(Debug, Clone, PartialEq, Eq, Serialize, Deserialize)]
 pub struct ShortcutBinding {
@@ -80,6 +129,13 @@ pub struct AppShortcuts {
     pub finish: ShortcutBinding,
     pub add_notes: ShortcutBinding,
     pub search: ShortcutBinding,
+    pub dashboard: ShortcutBinding,
+    pub new_list: ShortcutBinding,
+    pub find_pill: ShortcutBinding,
+    pub preferences: ShortcutBinding,
+    pub next_task: ShortcutBinding,
+    /// Switches the focus run between tower and pill.
+    pub switch_display: ShortcutBinding,
 }
 
 impl Default for AppShortcuts {
@@ -92,6 +148,12 @@ impl Default for AppShortcuts {
             finish: ShortcutBinding::new("Ctrl+Alt+F"),
             add_notes: ShortcutBinding::new("Ctrl+Alt+N"),
             search: ShortcutBinding::new("Ctrl+F"),
+            dashboard: ShortcutBinding::new("Ctrl+Shift+,"),
+            new_list: ShortcutBinding::new("Ctrl+Alt+L"),
+            find_pill: ShortcutBinding::new("Ctrl+Alt+J"),
+            preferences: ShortcutBinding::new("Ctrl+,"),
+            next_task: ShortcutBinding::new("Ctrl+Alt+Right"),
+            switch_display: ShortcutBinding::new("Ctrl+Alt+D"),
         }
     }
 }
@@ -107,11 +169,18 @@ pub struct Preferences {
     pub week_start: WeekStart,
     /// Interface zoom in percent (view commands: zoom in, zoom out, actual size).
     pub zoom_percent: u32,
+    pub language: String,
+    pub accent_theme: AccentTheme,
 
     // General
     pub hide_estimates: bool,
     pub auto_parse_estimates: bool,
     pub open_at_login: bool,
+    pub open_on_wake: bool,
+    /// Wrap long task titles instead of cutting them off.
+    pub show_full_title: bool,
+    /// Set once the first-run checklist is finished or dismissed.
+    pub first_run_done: bool,
 
     // Daily goal
     pub daily_goal_mins: u32,
@@ -125,6 +194,19 @@ pub struct Preferences {
     pub default_break_mins: u32,
     pub pause_suggestions: bool,
     pub scrolling_title: bool,
+    /// Start the next task when a break ends early.
+    pub start_next_after_early_break: bool,
+
+    // Focus run
+    pub focus_display_mode: FocusDisplayMode,
+    pub tower_side: PanelSide,
+    /// Let the tower and pill be dragged anywhere.
+    pub move_freely: bool,
+    /// Tuck the tower against the screen edge when not in use.
+    pub auto_hide: bool,
+    pub expanded_window_mode: ExpandedWindowMode,
+    /// A preset id, or the path of the user's own image.
+    pub focus_background: String,
 
     // Alerts
     pub timed_alerts: bool,
@@ -134,10 +216,25 @@ pub struct Preferences {
     pub alert_flash: bool,
     /// Minutes before a scheduled task at which its reminder fires.
     pub reminder_mins_before: u32,
+    pub notification_sound_id: String,
+    pub break_start_sound_id: String,
+    pub task_start_sound_id: String,
+    pub overtime_sound_id: String,
+    pub overtime_alert: bool,
+    pub reminder_sound_id: String,
+    /// Remind about a break every N minutes of work; zero turns it off.
+    pub break_reminder_mins: u32,
+    pub break_reminder_sound_id: String,
+    /// Animate the pill when an alert fires.
+    pub pill_alert_animated: bool,
 
     // Celebration
     pub success_screen: bool,
     pub success_animation: bool,
+    pub success_animation_on_break_end: bool,
+    /// Artwork sets for tasks finished within and over their estimate.
+    pub success_set_on_time: String,
+    pub success_set_over_estimate: String,
     pub success_sound: bool,
     pub success_sound_id: String,
 
@@ -148,6 +245,9 @@ pub struct Preferences {
     // Shortcuts
     pub global_shortcuts: GlobalShortcuts,
     pub app_shortcuts: AppShortcuts,
+
+    // Assistant suggestions
+    pub suggestions: SuggestionToggles,
 
     // Distraction shield
     pub app_shield_active: bool,
@@ -168,10 +268,15 @@ impl Default for Preferences {
             timezone: String::new(),
             week_start: WeekStart::Monday,
             zoom_percent: 100,
+            language: "en".to_string(),
+            accent_theme: AccentTheme::Teal,
 
             hide_estimates: false,
             auto_parse_estimates: true,
             open_at_login: false,
+            open_on_wake: false,
+            show_full_title: false,
+            first_run_done: false,
 
             daily_goal_mins: 360,
             count_weekends: false,
@@ -180,18 +285,38 @@ impl Default for Preferences {
             sprint_enabled: false,
             work_sprint_mins: 60,
             break_time_mins: 15,
-            default_break_mins: 10,
+            default_break_mins: 5,
             pause_suggestions: false,
             scrolling_title: true,
+            start_next_after_early_break: false,
+
+            focus_display_mode: FocusDisplayMode::Expanded,
+            tower_side: PanelSide::Right,
+            move_freely: false,
+            auto_hide: false,
+            expanded_window_mode: ExpandedWindowMode::FullScreen,
+            focus_background: "calm".to_string(),
 
             timed_alerts: true,
             alert_interval_mins: 30,
             alert_sound_id: "basic-ding".to_string(),
             alert_flash: false,
             reminder_mins_before: 5,
+            notification_sound_id: "basic-ding".to_string(),
+            break_start_sound_id: "soft-chime".to_string(),
+            task_start_sound_id: "soft-chime".to_string(),
+            overtime_sound_id: "basic-ding".to_string(),
+            overtime_alert: true,
+            reminder_sound_id: "basic-ding".to_string(),
+            break_reminder_mins: 0,
+            break_reminder_sound_id: "soft-chime".to_string(),
+            pill_alert_animated: true,
 
             success_screen: true,
             success_animation: true,
+            success_animation_on_break_end: false,
+            success_set_on_time: "sunrise".to_string(),
+            success_set_over_estimate: "steady".to_string(),
             success_sound: true,
             success_sound_id: "soft-chime".to_string(),
 
@@ -200,6 +325,8 @@ impl Default for Preferences {
 
             global_shortcuts: GlobalShortcuts::default(),
             app_shortcuts: AppShortcuts::default(),
+
+            suggestions: SuggestionToggles::default(),
 
             app_shield_active: false,
             web_shield_active: false,

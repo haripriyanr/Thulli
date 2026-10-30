@@ -1,4 +1,6 @@
-//! Focus timer: a real countdown (and a planning count-up) driven by `tick`.
+//! Focus timer driven by `tick`: count-up on a task against its estimate
+//! (with overtime detection), countdown for breaks, sprints and sessions, and
+//! a count-up for planning time.
 //!
 //! The UI layer owns a `slint::Timer` that calls [`TimerService::tick`] a few
 //! times per second. Elapsed time is measured from `Instant`s, so late ticks
@@ -17,6 +19,24 @@ pub enum TimerMode {
     CountUp,
 }
 
+/// What the running timer is measuring.
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum TimerPurpose {
+    /// Counting up on a task against its estimate.
+    Task,
+    /// A countdown focus session with a chosen length.
+    Session,
+    /// A pomodoro work sprint (countdown).
+    Sprint,
+    /// A break (countdown).
+    Break,
+    /// Planning the day (count-up).
+    Planning,
+}
+
+/// Break length used when none is chosen.
+pub const DEFAULT_BREAK_MINS: u32 = 5;
+
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
 pub enum TimerPhase {
     Idle,
@@ -29,8 +49,11 @@ pub enum TimerPhase {
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TimerSnapshot {
     pub mode: TimerMode,
+    pub purpose: TimerPurpose,
     pub phase: TimerPhase,
     pub planned_secs: u64,
+    /// Estimate for a count-up task timer; zero when there is none.
+    pub estimate_secs: u64,
     pub elapsed_secs: u64,
     pub task_id: Option<String>,
 }
@@ -52,8 +75,26 @@ impl TimerSnapshot {
         }
     }
 
+    /// Seconds past the estimate on a count-up task timer.
+    pub fn overtime_secs(&self) -> u64 {
+        if self.mode == TimerMode::CountUp && self.estimate_secs > 0 {
+            self.elapsed_secs.saturating_sub(self.estimate_secs)
+        } else {
+            0
+        }
+    }
+
+    pub fn is_overtime(&self) -> bool {
+        self.overtime_secs() > 0
+    }
+
+    /// Clock text: HH:MM:SS for task timers, MM:SS otherwise.
     pub fn formatted(&self) -> String {
-        format_mm_ss(self.display_secs())
+        if self.purpose == TimerPurpose::Task {
+            format_hh_mm_ss(self.display_secs())
+        } else {
+            format_mm_ss(self.display_secs())
+        }
     }
 }
 
@@ -64,6 +105,8 @@ pub struct TickOutcome {
     pub advanced_secs: u64,
     /// True on the one tick where a countdown reached zero.
     pub finished: bool,
+    /// True on the one tick where a task timer passed its estimate.
+    pub entered_overtime: bool,
 }
 
 /// Formats seconds as MM:SS (minutes may exceed two digits).
@@ -71,9 +114,16 @@ pub fn format_mm_ss(total_secs: u64) -> String {
     format!("{:02}:{:02}", total_secs / 60, total_secs % 60)
 }
 
+/// Formats seconds as HH:MM:SS.
+pub fn format_hh_mm_ss(total_secs: u64) -> String {
+    format!("{:02}:{:02}:{:02}", total_secs / 3600, (total_secs / 60) % 60, total_secs % 60)
+}
+
 struct State {
     mode: TimerMode,
+    purpose: TimerPurpose,
     phase: TimerPhase,
+    estimate_secs: u64,
     planned_secs: u64,
     elapsed_secs: u64,
     last_tick: Option<Instant>,
@@ -84,8 +134,10 @@ impl State {
     fn snapshot(&self) -> TimerSnapshot {
         TimerSnapshot {
             mode: self.mode,
+            purpose: self.purpose,
             phase: self.phase,
             planned_secs: self.planned_secs,
+            estimate_secs: self.estimate_secs,
             elapsed_secs: self.elapsed_secs,
             task_id: self.task_id.clone(),
         }
@@ -107,6 +159,7 @@ impl State {
 
         let mut advanced = whole;
         let mut finished = false;
+        let mut entered_overtime = false;
         if self.mode == TimerMode::Countdown {
             let left = self.planned_secs.saturating_sub(self.elapsed_secs);
             if advanced >= left {
@@ -114,12 +167,19 @@ impl State {
                 finished = true;
             }
         }
+        if self.mode == TimerMode::CountUp
+            && self.estimate_secs > 0
+            && self.elapsed_secs <= self.estimate_secs
+            && self.elapsed_secs + advanced > self.estimate_secs
+        {
+            entered_overtime = true;
+        }
         self.elapsed_secs += advanced;
         if finished {
             self.phase = TimerPhase::Finished;
             self.last_tick = None;
         }
-        TickOutcome { advanced_secs: advanced, finished }
+        TickOutcome { advanced_secs: advanced, finished, entered_overtime }
     }
 }
 
@@ -137,7 +197,9 @@ impl TimerService {
             default_secs: secs,
             state: Mutex::new(State {
                 mode: TimerMode::Countdown,
+                purpose: TimerPurpose::Session,
                 phase: TimerPhase::Idle,
+                estimate_secs: 0,
                 planned_secs: secs,
                 elapsed_secs: 0,
                 last_tick: None,
@@ -152,17 +214,47 @@ impl TimerService {
 
     // ---- starting ----
 
+    /// Starts a countdown focus session.
     pub fn start_countdown(&self, minutes: u32) {
         self.start_countdown_at(minutes, Instant::now());
     }
 
     pub fn start_countdown_at(&self, minutes: u32, now: Instant) {
-        let mut s = self.lock();
-        s.mode = TimerMode::Countdown;
-        s.phase = TimerPhase::Running;
-        s.planned_secs = u64::from(minutes) * 60;
-        s.elapsed_secs = 0;
-        s.last_tick = Some(now);
+        self.begin(TimerMode::Countdown, TimerPurpose::Session, u64::from(minutes) * 60, 0, None, now);
+    }
+
+    /// Starts a pomodoro work sprint (countdown).
+    pub fn start_sprint(&self, minutes: u32) {
+        self.start_sprint_at(minutes, Instant::now());
+    }
+
+    pub fn start_sprint_at(&self, minutes: u32, now: Instant) {
+        self.begin(TimerMode::Countdown, TimerPurpose::Sprint, u64::from(minutes) * 60, 0, None, now);
+    }
+
+    /// Starts a break countdown; use `DEFAULT_BREAK_MINS` when none is chosen.
+    pub fn start_break(&self, minutes: u32) {
+        self.start_break_at(minutes, Instant::now());
+    }
+
+    pub fn start_break_at(&self, minutes: u32, now: Instant) {
+        self.begin(TimerMode::Countdown, TimerPurpose::Break, u64::from(minutes) * 60, 0, None, now);
+    }
+
+    /// Starts counting up on a task against its estimate (zero for none).
+    pub fn start_task_count_up(&self, task_id: &str, estimate_mins: u32) {
+        self.start_task_count_up_at(task_id, estimate_mins, Instant::now());
+    }
+
+    pub fn start_task_count_up_at(&self, task_id: &str, estimate_mins: u32, now: Instant) {
+        self.begin(
+            TimerMode::CountUp,
+            TimerPurpose::Task,
+            0,
+            u64::from(estimate_mins) * 60,
+            Some(task_id.to_string()),
+            now,
+        );
     }
 
     /// Starts counting up from zero (planning time).
@@ -171,12 +263,32 @@ impl TimerService {
     }
 
     pub fn start_count_up_at(&self, now: Instant) {
+        self.begin(TimerMode::CountUp, TimerPurpose::Planning, 0, 0, None, now);
+    }
+
+    fn begin(
+        &self,
+        mode: TimerMode,
+        purpose: TimerPurpose,
+        planned_secs: u64,
+        estimate_secs: u64,
+        task_id: Option<String>,
+        now: Instant,
+    ) {
         let mut s = self.lock();
-        s.mode = TimerMode::CountUp;
+        s.mode = mode;
+        s.purpose = purpose;
         s.phase = TimerPhase::Running;
-        s.planned_secs = 0;
+        s.planned_secs = planned_secs;
+        s.estimate_secs = estimate_secs;
         s.elapsed_secs = 0;
         s.last_tick = Some(now);
+        // Breaks and planning are not tied to a task; keep an attached task otherwise.
+        match purpose {
+            TimerPurpose::Break | TimerPurpose::Planning => s.task_id = None,
+            TimerPurpose::Task => s.task_id = task_id,
+            _ => {}
+        }
     }
 
     // ---- pause / resume ----
@@ -259,6 +371,8 @@ impl TimerService {
     pub fn reset(&self) {
         let mut s = self.lock();
         s.mode = TimerMode::Countdown;
+        s.purpose = TimerPurpose::Session;
+        s.estimate_secs = 0;
         s.phase = TimerPhase::Idle;
         s.planned_secs = self.default_secs;
         s.elapsed_secs = 0;
@@ -394,6 +508,50 @@ mod tests {
         assert_eq!(timer.formatted_display(), "62:05");
         assert_eq!(timer.snapshot().mode, TimerMode::CountUp);
         assert_eq!(timer.finish_at(t0 + secs(3730)), Some(3730));
+    }
+
+    #[test]
+    fn task_count_up_detects_overtime_once() {
+        let t0 = Instant::now();
+        let timer = TimerService::new(25);
+        timer.start_task_count_up_at("task-1", 1, t0);
+        assert_eq!(timer.formatted_display(), "00:00:00");
+
+        let out = timer.tick_at(t0 + secs(59));
+        assert!(!out.entered_overtime && !timer.snapshot().is_overtime());
+
+        // Exactly at the estimate is not yet overtime.
+        assert!(!timer.tick_at(t0 + secs(60)).entered_overtime);
+        let out = timer.tick_at(t0 + secs(65));
+        assert!(out.entered_overtime);
+        assert_eq!(timer.snapshot().overtime_secs(), 5);
+        assert!(!timer.tick_at(t0 + secs(70)).entered_overtime, "reported once");
+        assert_eq!(timer.snapshot().task_id.as_deref(), Some("task-1"));
+    }
+
+    #[test]
+    fn task_count_up_formats_hours_and_has_no_overtime_without_estimate() {
+        let t0 = Instant::now();
+        let timer = TimerService::new(25);
+        timer.start_task_count_up_at("t", 0, t0);
+        let out = timer.tick_at(t0 + secs(3725));
+        assert!(!out.entered_overtime && !out.finished);
+        assert_eq!(timer.formatted_display(), "01:02:05");
+        assert!(!timer.snapshot().is_overtime());
+    }
+
+    #[test]
+    fn break_counts_down_from_five_minutes_by_default() {
+        let t0 = Instant::now();
+        let timer = TimerService::new(25);
+        timer.start_task_count_up_at("t", 30, t0);
+        timer.pause_at(t0 + secs(10));
+        timer.start_break_at(DEFAULT_BREAK_MINS, t0 + secs(10));
+        let snap = timer.snapshot();
+        assert_eq!(snap.purpose, TimerPurpose::Break);
+        assert_eq!(timer.formatted_display(), "05:00");
+        assert!(snap.task_id.is_none());
+        assert!(timer.tick_at(t0 + secs(10 + 300)).finished);
     }
 
     #[test]

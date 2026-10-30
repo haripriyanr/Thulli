@@ -1,10 +1,41 @@
+// Application shell. Composes the title bar, notice banner, screen host, tab
+// pill and menus. All screen content lives in ui/screens/*.slint; each screen
+// owns a `<Name>State` global that Rust binds to, re-exported below so this
+// file stays unchanged when screens grow.
+
 import { Theme } from "theme.slint";
-import { TaskModel, ListModel, BlockedAppModel } from "types.slint";
 import { WindowControls } from "window_controls.slint";
+import { IconMore, IconUser, IconClose } from "icons.slint";
+import { ThulliTabPill } from "components/tabs.slint";
+import { ThulliTimerPill } from "components/timer_pill.slint";
+import { ThulliAppMenu } from "components/app_menu.slint";
+import { ShellState } from "shell_state.slint";
+import { TodayScreen, TodayState } from "screens/today.slint";
+import { TasksScreen, TasksState } from "screens/tasks.slint";
+import { NotesScreen, NotesState } from "screens/notes.slint";
+import { InsightsScreen, InsightsState } from "screens/insights.slint";
+import { PreferencesScreen, PreferencesState } from "screens/preferences.slint";
+import { ListsScreen, ListsState } from "screens/lists.slint";
+import { ShieldScreen, ShieldState } from "screens/shield.slint";
+import { AssistantScreen, AssistantState } from "screens/assistant.slint";
+import { MatrixScreen, MatrixState } from "screens/matrix.slint";
+import { CalendarScreen, CalendarState } from "screens/calendar.slint";
+import { ReportsScreen, ReportsState } from "screens/reports.slint";
+import { FocusScreen, FocusState } from "screens/focus.slint";
 
-export { TaskModel, ListModel, BlockedAppModel }
+export { ShellState }
+export {
+    TodayState, TasksState, NotesState, InsightsState, PreferencesState, ListsState, ShieldState, AssistantState,
+    MatrixState, CalendarState, ReportsState, FocusState
+}
+export {
+    TaskModel, ListModel, NoteModel, NoteFolderModel, QuickCaptureModel, BragModel, MeetingNoteModel,
+    TimeBlockModel, ChartPointModel, BarModel, HeatCellModel, StatTileModel, ActivityEntryModel,
+    BlockedAppModel, BlockedSiteModel, ChatThreadModel, ChatMessageModel, ShortcutModel, ChoiceModel,
+    TagModel, ListFolderModel, BoardColumnModel, HistoryEntryModel, MemoryModel, SuggestionModel,
+    SessionRowModel, CalendarItemModel, DonutSliceModel, FocusQueueItemModel
+} from "types.slint";
 
-/// MainWindow — Blank dark window with custom window border and window controls
 export component MainWindow inherits Window {
     title: "Thulli";
     no-frame: true;
@@ -15,48 +46,9 @@ export component MainWindow inherits Window {
     background: Theme.bg-canvas;
     default-font-family: "Segoe UI, Inter, sans-serif";
 
-    // Application state (retained for backend service compatibility)
-    in-out property <string> active-nav: "all_lists";
-    in-out property <string> selected-list-id: "";
-    in-out property <string> selected-list-name: "All Lists";
-    in-out property <string> active-mode: "dashboard";
-    in-out property <string> timer-display: "25:00";
-    in-out property <bool> timer-running: false;
-    in-out property <string> active-task-name: "";
-    in-out property <bool> show-create-list-modal: false;
-    in-out property <bool> show-preferences-modal: false;
+    property <bool> menu-open: false;
 
-    // Data models
-    in-out property <[ListModel]> lists: [];
-    in-out property <[TaskModel]> tasks: [];
-    in-out property <[BlockedAppModel]> blocked-apps: [];
-
-    // Inputs
-    in-out property <string> new-list-name: "";
-    in-out property <string> new-list-color: "#3CC9C4";
-    in-out property <string> new-task-input: "";
-    in-out property <string> scratchpad-text: "";
-
-    // Window action callbacks
-    callback window-drag-start();
-    callback window-minimize();
-    callback window-maximize();
-    callback window-close();
-
-    // Functional callbacks
-    callback toggle-timer();
-    callback reset-timer();
-    callback select-list(string);
-    callback toggle-task(string);
-    callback add-task(string, string, string);
-    callback delete-task(string);
-    callback create-list(string, string);
-    callback delete-list(string);
-    callback toggle-blocked-app(string);
-    callback switch-app-mode(string);
-    callback save-scratchpad(string);
-
-    // Custom Window Frame Container with subtle border
+    // Frame with a subtle border
     Rectangle {
         width: 100%;
         height: 100%;
@@ -69,50 +61,99 @@ export component MainWindow inherits Window {
             padding: 0px;
             spacing: 0px;
 
-            // Custom Title Bar with Native Drag Area and Window Controls
+            // Title bar: menu, workspace name, running timer, profile, window controls
             Rectangle {
                 height: 40px;
                 background: Theme.bg-canvas;
 
-                // Drag hit test area across the title bar
                 TouchArea {
                     width: 100%;
                     height: 100%;
                     pointer-event(event) => {
                         if (event.kind == PointerEventKind.down && event.button == PointerEventButton.left) {
-                            root.window-drag-start();
+                            ShellState.window-drag-start();
                         }
                     }
                 }
 
                 HorizontalLayout {
-                    padding-left: 16px;
+                    padding-left: 10px;
                     padding-right: 12px;
+                    spacing: 8px;
                     alignment: space-between;
 
-                    // App Title / Branding
                     HorizontalLayout {
                         alignment: start;
+                        spacing: 8px;
+
+                        menu-button := TouchArea {
+                            width: 28px;
+                            height: 28px;
+                            y: 6px;
+                            clicked => { root.menu-open = !root.menu-open; }
+
+                            Rectangle {
+                                width: 100%;
+                                height: 100%;
+                                border-radius: Theme.radius-sm;
+                                background: menu-button.has-hover || root.menu-open ? Theme.bg-card-hover : transparent;
+                                IconMore {
+                                    x: (parent.width - self.width) / 2;
+                                    y: (parent.height - self.height) / 2;
+                                }
+                            }
+                        }
 
                         Text {
-                            text: "THULLI";
-                            font-size: 11px;
-                            font-weight: 700;
-                            letter-spacing: 1.5px;
-                            color: Theme.text-muted;
+                            text: ShellState.workspace-name;
+                            font-size: 12px;
+                            font-weight: 600;
+                            color: Theme.text-secondary;
                             vertical-alignment: center;
                         }
                     }
 
-                    // Window Controls (minimize, maximize, close)
-                    WindowControls {
-                        minimize => { root.window-minimize(); }
-                        maximize => { root.window-maximize(); }
-                        close => { root.window-close(); }
+                    HorizontalLayout {
+                        alignment: end;
+                        spacing: 8px;
+
+                        profile-button := TouchArea {
+                            width: 28px;
+                            height: 28px;
+                            y: 6px;
+                            clicked => { ShellState.navigate("preferences"); }
+
+                            Rectangle {
+                                width: 100%;
+                                height: 100%;
+                                border-radius: Theme.radius-sm;
+                                background: profile-button.has-hover ? Theme.bg-card-hover : transparent;
+                                IconUser {
+                                    x: (parent.width - self.width) / 2;
+                                    y: (parent.height - self.height) / 2;
+                                }
+                            }
+                        }
+
+                        WindowControls {
+                            minimize => { ShellState.window-minimize(); }
+                            maximize => { ShellState.window-maximize(); }
+                            close => { ShellState.window-close(); }
+                        }
                     }
                 }
 
-                // Subtle bottom border for the title bar
+                // Running timer, centred, visible on every screen
+                if ShellState.timer-visible: ThulliTimerPill {
+                    x: (parent.width - self.width) / 2;
+                    y: 5px;
+                    display: ShellState.timer-display;
+                    label: ShellState.timer-label;
+                    running: ShellState.timer-running;
+                    clicked => { ShellState.timer-open(); }
+                    toggled => { ShellState.timer-toggle(); }
+                }
+
                 Rectangle {
                     y: parent.height - 1px;
                     width: 100%;
@@ -121,9 +162,96 @@ export component MainWindow inherits Window {
                 }
             }
 
-            // Blank dark canvas window body
+            // Notice banner (for example after recovering unreadable data)
+            if ShellState.notice != "": Rectangle {
+                height: 40px;
+                background: Theme.bg-card;
+
+                HorizontalLayout {
+                    padding-left: 16px;
+                    padding-right: 12px;
+                    spacing: 12px;
+
+                    Text {
+                        text: ShellState.notice;
+                        font-size: 12px;
+                        color: Theme.text-primary;
+                        vertical-alignment: center;
+                        overflow: elide;
+                        horizontal-stretch: 1;
+                    }
+
+                    dismiss := TouchArea {
+                        width: 28px;
+                        height: 28px;
+                        y: 6px;
+                        clicked => { ShellState.notice = ""; }
+
+                        Rectangle {
+                            width: 100%;
+                            height: 100%;
+                            border-radius: Theme.radius-sm;
+                            background: dismiss.has-hover ? Theme.bg-card-hover : transparent;
+                            IconClose {
+                                x: (parent.width - self.width) / 2;
+                                y: (parent.height - self.height) / 2;
+                            }
+                        }
+                    }
+                }
+
+                Rectangle {
+                    y: parent.height - 1px;
+                    width: 100%;
+                    height: 1px;
+                    background: Theme.border-subtle;
+                }
+            }
+
+            // Screen host: exactly one screen is alive at a time. Screens should
+            // leave ShellState.content-bottom-inset free for the tab pill.
             Rectangle {
+                vertical-stretch: 1;
                 background: Theme.bg-canvas;
+
+                if ShellState.current-screen == "today": TodayScreen { }
+                if ShellState.current-screen == "tasks": TasksScreen { }
+                if ShellState.current-screen == "matrix": MatrixScreen { }
+                if ShellState.current-screen == "calendar": CalendarScreen { }
+                if ShellState.current-screen == "focus": FocusScreen { }
+                if ShellState.current-screen == "reports": ReportsScreen { }
+                if ShellState.current-screen == "insights": InsightsScreen { }
+                if ShellState.current-screen == "notes": NotesScreen { }
+                if ShellState.current-screen == "lists": ListsScreen { }
+                if ShellState.current-screen == "shield": ShieldScreen { }
+                if ShellState.current-screen == "assistant": AssistantScreen { }
+                if ShellState.current-screen == "preferences": PreferencesScreen { }
+
+                // Bottom tab pill, floating above the screen
+                ThulliTabPill {
+                    x: (parent.width - self.width) / 2;
+                    y: parent.height - self.height - 16px;
+                    // Related screens keep their tab lit.
+                    current: (ShellState.current-screen == "tasks" || ShellState.current-screen == "matrix" || ShellState.current-screen == "calendar") ? "tasks"
+                        : (ShellState.current-screen == "insights" || ShellState.current-screen == "reports") ? "insights"
+                        : ShellState.current-screen == "focus" ? "today" : ShellState.current-screen;
+                    selected(id) => { ShellState.navigate(id); }
+                }
+            }
+        }
+
+        // App menu: click-away layer plus the menu itself
+        if root.menu-open: TouchArea {
+            width: 100%;
+            height: 100%;
+            clicked => { root.menu-open = false; }
+        }
+        if root.menu-open: ThulliAppMenu {
+            x: 10px;
+            y: 44px;
+            chosen(id) => {
+                root.menu-open = false;
+                ShellState.navigate(id);
             }
         }
     }

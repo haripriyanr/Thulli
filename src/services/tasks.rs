@@ -67,6 +67,17 @@ impl TaskService {
         self.handle.mutate(|st| st.task_mut(task_id).map(|t| t.move_to_section(section)).is_some())
     }
 
+    /// Prepares a task for a focus run: it moves to Today and is reopened if
+    /// it was waiting or cancelled. Returns the task's estimate in minutes.
+    pub fn start_focus(&self, task_id: &str) -> Option<u32> {
+        self.handle.mutate(|st| {
+            st.task_mut(task_id).map(|t| {
+                t.prepare_for_focus();
+                t.estimate_mins
+            })
+        })
+    }
+
     /// Deletes a task and its breakdown steps.
     pub fn delete_task(&self, task_id: &str) -> bool {
         self.handle.mutate(|st| st.remove_task(task_id))
@@ -98,16 +109,27 @@ mod tests {
         let t = svc.add_smart_task("Write report 45m @week", "", TaskSection::Today).unwrap();
         assert_eq!(t.title, "Write report");
         assert_eq!(t.estimate_mins, 45);
-        assert_eq!(t.section, TaskSection::Sooner);
+        assert_eq!(t.section, TaskSection::ThisWeek);
     }
 
     #[test]
     fn parsing_can_be_switched_off() {
         let svc = service();
         svc.handle().mutate(|st| st.preferences.auto_parse_estimates = false);
-        let t = svc.add_smart_task("Write report 45m", "", TaskSection::Later).unwrap();
+        let t = svc.add_smart_task("Write report 45m", "", TaskSection::Backlog).unwrap();
         assert_eq!(t.title, "Write report 45m");
-        assert_eq!(t.section, TaskSection::Later);
+        assert_eq!(t.section, TaskSection::Backlog);
+    }
+
+    #[test]
+    fn starting_focus_moves_task_to_today() {
+        let svc = service();
+        let t = svc.add_smart_task("x", "", TaskSection::Backlog).unwrap();
+        svc.set_status(&t.id, TaskStatus::Waiting);
+        assert_eq!(svc.start_focus(&t.id), Some(25));
+        let t = svc.handle().read(|s| s.task(&t.id).cloned()).unwrap();
+        assert_eq!((t.section, t.status), (TaskSection::Today, TaskStatus::Open));
+        assert!(svc.start_focus("missing").is_none());
     }
 
     #[test]
@@ -115,8 +137,8 @@ mod tests {
         let svc = service();
         let t = svc.add_smart_task("x", "", TaskSection::Today).unwrap();
         assert!(svc.set_status(&t.id, TaskStatus::Waiting));
-        assert!(svc.move_to_section(&t.id, TaskSection::Later));
+        assert!(svc.move_to_section(&t.id, TaskSection::Backlog));
         let st = svc.handle().read(|s| s.task(&t.id).cloned()).unwrap();
-        assert_eq!((st.status, st.section), (TaskStatus::Waiting, TaskSection::Later));
+        assert_eq!((st.status, st.section), (TaskStatus::Waiting, TaskSection::Backlog));
     }
 }

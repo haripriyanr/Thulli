@@ -1,0 +1,81 @@
+import { Theme } from "../theme.slint";
+import { IconSun, IconCheck, IconChart } from "../icons.slint";
+
+/// One entry of the bottom tab pill.
+component ThulliTab inherits TouchArea {
+    in property <string> text;
+    in property <string> icon-kind;
+    in property <bool> selected: false;
+
+    width: 112px;
+    height: 36px;
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: Theme.radius-full;
+        background: root.selected ? Theme.bg-card-selected : (root.has-hover ? Theme.bg-card-hover : transparent);
+        border-width: root.selected ? 1px : 0px;
+        border-color: Theme.border-light;
+
+        HorizontalLayout {
+            alignment: center;
+            spacing: 8px;
+
+            VerticalLayout {
+                alignment: center;
+                if root.icon-kind == "today": IconSun { }
+                if root.icon-kind == "tasks": IconCheck { }
+                if root.icon-kind == "insights": IconChart { }
+            }
+
+            Text {
+                text: root.text;
+                font-size: 13px;
+                font-weight: root.selected ? 700 : 500;
+                color: root.selected ? Theme.text-primary : Theme.text-secondary;
+                vertical-alignment: center;
+            }
+        }
+    }
+}
+
+/// ThulliTabPill: the floating bottom navigation (Today, Tasks, Insights).
+///
+/// Set `current` to the selected screen id; `selected(id)` fires on click.
+export component ThulliTabPill inherits Rectangle {
+    in-out property <string> current: "today";
+    callback selected(string);
+
+    width: 352px;
+    height: 46px;
+    border-radius: Theme.radius-full;
+    background: Theme.bg-card;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    HorizontalLayout {
+        padding: 4px;
+        spacing: 4px;
+        alignment: center;
+
+        ThulliTab {
+            text: "Today";
+            icon-kind: "today";
+            selected: root.current == "today";
+            clicked => { root.selected("today"); }
+        }
+        ThulliTab {
+            text: "Tasks";
+            icon-kind: "tasks";
+            selected: root.current == "tasks";
+            clicked => { root.selected("tasks"); }
+        }
+        ThulliTab {
+            text: "Insights";
+            icon-kind: "insights";
+            selected: root.current == "insights";
+            clicked => { root.selected("insights"); }
+        }
+    }
+}

@@ -1,25 +1,251 @@
-/// Reusable UI data models shared across Thulli components
+// Shared UI data models.
+//
+// Rust fills these from the domain models (see src/app/convert.rs). They are
+// defined up front for every screen so that screen owners do not need to edit
+// this file. Enumerations travel as lowercase strings that match the Rust
+// `as_str()` helpers.
 
+/// A reusable tag.
+export struct TagModel {
+    id: string,
+    name: string,
+    emoji: string,
+    color: color,
+}
+
+/// A task or a breakdown step. `depth` is 0 for top-level tasks.
 export struct TaskModel {
     id: string,
     list_id: string,
+    list_name: string,
+    list_color: color,
+    parent_id: string,
     title: string,
+    notes: string,
     estimate_mins: int,
-    completed: bool,
-    board: string, // "today", "week", "backlog", "done"
+    tracked_mins: int,
+    status: string,   // "open", "completed", "cancelled", "waiting"
+    section: string,  // "backlog", "this_week", "today"
+    quadrant: string, // "", "do_asap", "do_later_today", "do_mid_week", "leave_till_end"
+    tags: [TagModel],
+    do_date_label: string,
+    deadline_label: string,
+    overdue: bool,
+    over_estimate: bool,
+    depth: int,
+    step_count: int,
+    steps_done: int,
+    scheduled_label: string,
+    selected: bool,
 }
 
 export struct ListModel {
     id: string,
     name: string,
-    color: string,
+    color: color,
+    badge_letter: string,
+    folder_id: string,
+    icon: image,
+    has_icon: bool,
     pending_count: int,
     is_archived: bool,
+}
+
+export struct NoteModel {
+    id: string,
+    folder_id: string,
+    title: string,
+    preview: string,
+    body: string,
+    updated_label: string,
+    backlink_count: int,
+    trashed: bool,
+}
+
+export struct NoteFolderModel {
+    id: string,
+    name: string,
+    note_count: int,
+}
+
+export struct QuickCaptureModel {
+    id: string,
+    text: string,
+    created_label: string,
+    processed: bool,
+}
+
+export struct BragModel {
+    id: string,
+    text: string,
+    date_label: string,
+}
+
+export struct MeetingNoteModel {
+    id: string,
+    title: string,
+    body: string,
+    started_label: string,
+}
+
+/// A block on the day timeline. `start_mins` is minutes since local midnight.
+export struct TimeBlockModel {
+    id: string,
+    kind: string,     // "planning", "focus", "break", "other"
+    label: string,
+    start_mins: int,
+    length_mins: int,
+}
+
+/// One point of a line chart (x and y are 0 to 1 of the chart area).
+export struct ChartPointModel {
+    x: float,
+    y: float,
+}
+
+/// One bar of a bar chart; `value` is 0 to 1 of the tallest bar.
+export struct BarModel {
+    label: string,
+    value: float,
+    value_label: string,
+}
+
+/// One day on the consistency heatmap; `level` is 0 (none) to 4 (most).
+export struct HeatCellModel {
+    label: string,
+    level: int,
+}
+
+/// A headline figure such as "Time worked".
+export struct StatTileModel {
+    title: string,
+    value: string,
+    caption: string,
+}
+
+export struct ActivityEntryModel {
+    id: string,
+    task_title: string,
+    day_label: string,
+    time_label: string,
+    duration_label: string,
+    kind: string,
 }
 
 export struct BlockedAppModel {
     id: string,
     name: string,
     process_name: string,
+    active: bool,
+}
+
+export struct BlockedSiteModel {
+    id: string,
+    domain: string,
+    active: bool,
+}
+
+export struct ChatThreadModel {
+    id: string,
+    title: string,
+    updated_label: string,
+}
+
+export struct ChatMessageModel {
+    id: string,
+    from_user: bool,
+    text: string,
+}
+
+/// A keyboard shortcut row in preferences.
+export struct ShortcutModel {
+    id: string,
+    label: string,
+    keys: string,
+    enabled: bool,
+    is_global: bool,
+}
+
+/// A simple labelled choice (for pickers and drop-downs).
+export struct ChoiceModel {
+    id: string,
+    label: string,
+}
+
+/// A sidebar folder of lists.
+export struct ListFolderModel {
+    id: string,
+    name: string,
+    collapsed: bool,
+}
+
+/// One board column with its progress bar (done of total).
+export struct BoardColumnModel {
+    section: string,   // "backlog", "this_week", "today", "done"
+    title: string,
+    done_count: int,
+    total_count: int,
+    collapsed: bool,
+}
+
+/// One line of a task's history.
+export struct HistoryEntryModel {
+    at_label: string,
+    text: string,
+}
+
+/// A fact the assistant remembers.
+export struct MemoryModel {
+    id: string,
+    kind: string,   // "preference", "commitment", "person_or_project", "pattern"
+    text: string,
+    updated_label: string,
+}
+
+/// An in-app prompt such as "plan my day".
+export struct SuggestionModel {
+    id: string,
+    kind: string,   // "plan_my_day", "welcome_back", "take_a_break", "wind_down", "prioritize"
+    title: string,
+    body: string,
+}
+
+/// A task or break session row in reports.
+export struct SessionRowModel {
+    id: string,
+    title: string,
+    list_name: string,
+    date_label: string,
+    start_label: string,
+    end_label: string,
+    duration_label: string,
+    is_break: bool,
+}
+
+/// A scheduled item on the calendar grid. `day_index` counts from the first
+/// visible day; `start_mins` is minutes since midnight.
+export struct CalendarItemModel {
+    id: string,
+    task_id: string,
+    title: string,
+    day_index: int,
+    start_mins: int,
+    length_mins: int,
+    color: color,
+}
+
+/// One slice of a donut chart (time by list).
+export struct DonutSliceModel {
+    label: string,
+    fraction: float,
+    color: color,
+    value_label: string,
+}
+
+/// One queue row in the focus tower.
+export struct FocusQueueItemModel {
+    task_id: string,
+    title: string,
+    done: bool,
     active: bool,
 }

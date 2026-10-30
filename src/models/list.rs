@@ -14,6 +14,9 @@ pub struct TaskList {
     /// Optional uploaded icon (jpg, png or svg) shown instead of the letter badge.
     #[serde(default)]
     pub icon_path: Option<String>,
+    /// Folder the list sits in, if any.
+    #[serde(default)]
+    pub folder_id: Option<String>,
     #[serde(default)]
     pub is_archived: bool,
     #[serde(default)]
@@ -31,6 +34,7 @@ impl TaskList {
             name: name.into(),
             color: color.into(),
             icon_path: None,
+            folder_id: None,
             is_archived: false,
             archived_at: None,
             sort_order: 0,
@@ -52,6 +56,7 @@ impl TaskList {
     pub fn duplicate(&self) -> Self {
         let mut copy = Self::new(format!("{} copy", self.name), self.color.clone());
         copy.icon_path = self.icon_path.clone();
+        copy.folder_id = self.folder_id.clone();
         copy.sort_order = self.sort_order;
         copy
     }
@@ -66,5 +71,27 @@ impl TaskList {
     /// First letter of the name, upper-cased, for the letter badge.
     pub fn badge_letter(&self) -> String {
         self.name.chars().next().map(|c| c.to_uppercase().to_string()).unwrap_or_default()
+    }
+}
+
+/// A sidebar folder grouping lists.
+#[derive(Debug, Clone, Serialize, Deserialize)]
+pub struct ListFolder {
+    pub id: String,
+    pub name: String,
+    #[serde(default)]
+    pub collapsed: bool,
+    #[serde(default)]
+    pub sort_order: i32,
+}
+
+impl ListFolder {
+    pub fn new(name: impl Into<String>) -> Self {
+        Self { id: Uuid::new_v4().to_string(), name: name.into(), collapsed: false, sort_order: 0 }
+    }
+
+    pub fn toggle_collapsed(&mut self) -> bool {
+        self.collapsed = !self.collapsed;
+        self.collapsed
     }
 }

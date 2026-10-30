@@ -1,0 +1,39 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliEmptyState: centred icon, title and supporting line.
+///
+/// Put a duotone icon (sized by you, e.g. 40px) inside the element as its
+/// child; it is shown above the title. Buttons can be placed in an element
+/// alongside this one.
+///
+///   ThulliEmptyState { title: "Nothing here"; subtitle: "Add something."; IconSun { width: 40px; height: 40px; } }
+export component ThulliEmptyState inherits Rectangle {
+    in property <string> title;
+    in property <string> subtitle;
+
+    VerticalLayout {
+        alignment: center;
+        spacing: 14px;
+
+        HorizontalLayout {
+            alignment: center;
+            @children
+        }
+
+        Text {
+            text: root.title;
+            font-size: 20px;
+            font-weight: 700;
+            color: Theme.text-primary;
+            horizontal-alignment: center;
+        }
+
+        Text {
+            text: root.subtitle;
+            font-size: 13px;
+            color: Theme.text-secondary;
+            horizontal-alignment: center;
+            wrap: word-wrap;
+        }
+    }
+}

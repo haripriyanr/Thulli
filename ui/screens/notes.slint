@@ -1,0 +1,42 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { ThulliButton } from "../components/buttons.slint";
+import { IconNote } from "../icons.slint";
+import { NoteModel, NoteFolderModel, QuickCaptureModel, MeetingNoteModel, BragModel } from "../types.slint";
+
+/// State and callbacks for the notes screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global NotesState {
+    /// "all", "unsorted", "trash", "quick-capture", "meetings", "brag-book" or a folder id.
+    in-out property <string> section: "all";
+    in-out property <[NoteModel]> notes: [];
+    in-out property <[NoteFolderModel]> folders: [];
+    in-out property <[QuickCaptureModel]> captures: [];
+    in-out property <[MeetingNoteModel]> meetings: [];
+    in-out property <[BragModel]> brags: [];
+    in-out property <string> open-note-id: "";
+    callback new-note();
+    callback new-folder(string);
+    callback open-note(string);
+    callback save-note(string, string, string);   // id, title, body
+    callback trash-note(string);
+    callback restore-note(string);
+    callback add-capture(string);
+    callback add-brag(string);
+    callback task-from-selection(string);
+}
+
+/// NotesScreen: stub with an empty state. Replace the body with the real screen.
+export component NotesScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Your notes live here";
+        subtitle: "Jot things down, group them in folders, and link them to your tasks.";
+
+        IconNote {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

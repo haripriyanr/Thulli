@@ -1,0 +1,43 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { ThulliButton } from "../components/buttons.slint";
+import { IconChat } from "../icons.slint";
+import { ChatThreadModel, ChatMessageModel, MemoryModel, SuggestionModel } from "../types.slint";
+
+/// State and callbacks for the assistant screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global AssistantState {
+    in-out property <[ChatThreadModel]> threads: [];
+    in-out property <[ChatMessageModel]> messages: [];
+    in-out property <string> open-thread-id: "";
+    in-out property <bool> busy: false;
+    in-out property <[MemoryModel]> memories: [];
+    in-out property <[SuggestionModel]> suggestions: [];
+    in-out property <string> day-summary: "";
+    /// False until the user has chosen a model file in preferences.
+    in-out property <bool> model-ready: false;
+    callback send(string);
+    callback new-chat();
+    callback open-thread(string);
+    callback add-memory(string, string);        // kind, text
+    callback edit-memory(string, string);       // id, text
+    callback archive-memory(string);
+    callback accept-suggestion(string);
+    callback dismiss-suggestion(string);
+    callback quick-action(string);              // "wind_down_reflection" or "quick_prioritize"
+}
+
+/// AssistantScreen: stub with an empty state. Replace the body with the real screen.
+export component AssistantScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Ask for a hand";
+        subtitle: "Describe what you need and the assistant will turn it into tasks and notes. It runs on your device.";
+
+        IconChat {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

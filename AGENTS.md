@@ -39,7 +39,7 @@ Welcome to **Thulli**! This document provides authoritative architectural guidel
 ### 2.4. Iconography Standards
 - **Strict Rule**: NO flat solid color block icons, NO emojis (like `⚡`, `📋`, `✕`), and NO solid colored buttons.
 - **Accepted Standard**: Pure filled-in duotone vector icons with 15–20% translucent gradient fills and crisp geometric strokes.
-- Use only the components defined in [`ui/icons.slint`](file:///e:/repos/Thuli/ui/icons.slint) (`IconBolt`, `IconFolder`, `IconArchive`, `IconShield`, `IconScratchpad`, `IconSettings`, `IconSun`, `IconCalendar`, `IconInbox`, `IconRocket`, `IconPlus`, `IconClose`, `IconTrash`, `IconSearch`, `IconClock`, `IconPlay`, `IconPause`, `IconSkip`).
+- Use only the components defined in [`ui/icons.slint`](file:///e:/repos/Thuli/ui/icons.slint) (`IconBolt`, `IconFolder`, `IconArchive`, `IconShield`, `IconScratchpad`, `IconSettings`, `IconSun`, `IconCalendar`, `IconInbox`, `IconRocket`, `IconPlus`, `IconClose`, `IconTrash`, `IconSearch`, `IconClock`, `IconPlay`, `IconPause`, `IconSkip`, `IconCheck`, `IconArrowRight`, `IconChart`, `IconMore`, `IconChat`, `IconUser`, `IconChevronLeft`, `IconChevronRight`, `IconNote`, `IconStar`, `IconFlag`). Add new icons there in the same duotone style.
 
 ---
 
@@ -63,51 +63,51 @@ When building desktop productivity applications, developers frequently compare S
 
 All code in Thulli must follow clean Object-Oriented and SOLID design principles, emphasizing encapsulation, dependency inversion, and separation of concerns:
 
-### 4.1. Domain Models (`src/models/mod.rs`)
-- Domain entities must be encapsulated structs with rich behavioral methods rather than passive data bags.
-- Implement explicit factory constructors (`Task::new()`, `TaskList::new_personal()`, `BlockedApp::new()`).
-- Implement state transition methods on structs (`task.toggle_completion()`, `list.toggle_archived()`, `blocked_app.toggle_active()`).
-- The root aggregate `AppStateStore` encapsulates collection operations (`add_task()`, `remove_task()`, `toggle_task()`, `remove_list_cascade()`).
+### 4.1. Domain Models (`src/models/`)
+- Split by area: `task.rs`, `list.rs`, `notes.rs`, `focus.rs`, `shield.rs`, `chat.rs`, `tag.rs`, `preferences.rs`; `mod.rs` holds the root aggregate `AppStateStore` and re-exports everything.
+- Entities are encapsulated structs with rich behaviour, factory constructors (`Task::new()`, `TaskList::new_personal()`, `BlockedApp::new()`) and state transitions (`task.complete()`, `task.move_to_section()`, `list.toggle_archived()`).
+- Every persisted field uses `#[serde(default)]` so older files still load. `AppStateStore::migrate()` upgrades old data; bump `CURRENT_SCHEMA_VERSION` when a migration is added, and extend the migration test.
+- Task sections are `backlog`, `this_week`, `today`; Done is derived from `TaskStatus::Completed`.
 
 ### 4.2. Repository Pattern (`src/repository/mod.rs`)
-- Persistence is abstracted behind the `StorageRepository` trait:
-  ```rust
-  pub trait StorageRepository: Send + Sync {
-      fn load(&self) -> AppStateStore;
-      fn save(&self, store: &AppStateStore) -> Result<(), Box<dyn std::error::Error>>;
-  }
-  ```
-- `EncryptedStorageRepository` implements `StorageRepository` to provide local-first AES-256-GCM encrypted persistence. Business services depend exclusively on the trait interface, enabling easy mocking and testing.
+- Persistence is abstracted behind the `StorageRepository` trait (`load_with_report`, `load`, `save`).
+- `EncryptedStorageRepository` provides local-first AES-256-GCM encrypted persistence. Writes are atomic (temp file, then rename). A file that cannot be decrypted or parsed is kept as a timestamped `.bak` copy before starting fresh, and the failure is returned as a `RecoveryNotice` that the shell shows to the user.
 
-### 4.3. Domain Services (`src/services/mod.rs`)
-- Business workflows are encapsulated in dedicated service structs:
-  - `TaskService`: Handles natural language parsing, list fallback resolution, and task state mutations.
-  - `ListService`: Manages category lifecycles and cascade deletions.
-  - `TimerService`: Thread-safe, atomic Pomodoro focus sprint countdown timer.
+### 4.3. Domain Services (`src/services/`)
+- One file per area: `tasks.rs`, `lists.rs`, `timer.rs`, `today.rs`, `notes.rs`, `insights.rs`, `preferences.rs`, `shield.rs`, `assistant.rs`, `history.rs` (undo and redo seam), plus `store_handle.rs`.
+- Services read and write state only through `StoreHandle`, which saves after every `mutate`.
+- `TimerService` is driven by `tick()` from a `slint::Timer` in the shell; every transition also has an `_at(Instant)` variant for tests.
 
 ### 4.4. Platform Abstraction (`src/window/mod.rs`)
 - Low-level Win32 unsafe calls are encapsulated behind the safe, modular `WindowManager` interface (`begin_native_drag()`, `minimize()`, `toggle_maximize()`, `exit_cleanly()`).
+
+### 4.5. UI Wiring (`src/app/`)
+- Lives in the binary crate (needs the Slint-generated types). One file per screen, each exposing `pub fn bind(window, ctx)`, plus `shell.rs`, `context.rs` (`AppContext`) and `convert.rs`. `main.rs` only builds the context and calls each `bind`.
 
 ---
 
 ## 5. Reusable UI Library Component Standard (`ui/components/`)
 
-The user interface must never be implemented as a monolithic file. All UI widgets and controls must reside in `ui/components/` with detailed docstrings and configurable public properties so they can be reused across other desktop applications:
+The user interface must never be implemented as a monolithic file. `app.slint` is a thin shell; each screen is its own file in `ui/screens/` and owns a `<Name>State` global (properties and callbacks) that Rust binds to. Reusable widgets live in `ui/components/` with docstrings and configurable public properties.
 
 ```
 ui/
-├── app.slint                 # High-level orchestrator composing library components
-├── theme.slint               # Theme palette, spacing, and border radii
-├── types.slint               # Shared struct definitions (TaskModel, ListModel, BlockedAppModel)
+├── app.slint                 # Thin shell: title bar, notice, screen host, tab pill, menu
+├── shell_state.slint         # ShellState global: navigation, window controls, timer pill
+├── theme.slint               # Theme palette, spacing, border radii
+├── types.slint               # Shared structs for every screen
 ├── icons.slint               # Duotone vector icon library
 ├── window_controls.slint     # Frameless window action buttons
+├── screens/                  # One stub-or-real screen per file, each with its own State global
+│   ├── today.slint  tasks.slint (the Board)  matrix.slint  calendar.slint
+│   ├── focus.slint  insights.slint  reports.slint  notes.slint
+│   └── lists.slint  shield.slint  assistant.slint  preferences.slint
 └── components/
-    ├── buttons.slint         # ThulliButton, ThulliIconButton (with zero-deadzone TouchArea)
-    ├── inputs.slint          # ThulliSearchBar, ThulliTaskInput
-    ├── cards.slint           # ThulliListCard, ThulliCreateListCard, ThulliTaskCard
-    ├── topbar.slint          # ThulliTopBar (isolated drag region + mode switch)
-    ├── sidebar.slint         # ThulliSidebar (search, lists, active links, countdown timer)
-    └── modals.slint          # ThulliCreateListModal, ThulliPreferencesModal
+    ├── buttons.slint  inputs.slint  cards.slint  topbar.slint  sidebar.slint  modals.slint
+    ├── tabs.slint            # ThulliTabPill (Today, Tasks, Insights)
+    ├── timer_pill.slint      # ThulliTimerPill (global running timer)
+    ├── app_menu.slint        # ThulliAppMenu
+    └── empty_state.slint     # ThulliEmptyState
 ```
 
 ### 5.1. Component Design Guidelines
@@ -121,37 +121,25 @@ ui/
 
 ```
 E:\repos\Thuli\
-├── Cargo.toml                # Reusable thulli_core library + thulli application binary
+├── Cargo.toml                # thulli_core library + thulli application binary
 ├── build.rs                  # Slint compilation build script
+├── docs/PRODUCT_SPEC.md      # Target behaviour
 ├── src/
 │   ├── lib.rs                # Library root exporting reusable modules
-│   ├── main.rs               # Binary entry point, UI callback binder, event loop
-│   ├── models/
-│   │   └── mod.rs            # OOP domain models (Task, TaskList, BlockedApp, AppStateStore)
-│   ├── repository/
-│   │   └── mod.rs            # StorageRepository trait & EncryptedStorageRepository
-│   ├── services/
-│   │   └── mod.rs            # TaskService, ListService, TimerService
-│   ├── parser/
-│   │   └── mod.rs            # High-performance natural language task parser
-│   ├── security/
-│   │   └── mod.rs            # SecurityManager (Argon2id + AES-256-GCM)
-│   └── window/
-│       └── mod.rs            # WindowManager (Win32 native frameless window management)
-└── ui/
-    ├── app.slint             # Application root orchestrator
-    ├── theme.slint           # Reusable theme palette & typography constants
-    ├── types.slint           # Reusable data models
-    ├── icons.slint           # Reusable duotone vector icons
-    ├── window_controls.slint # Reusable window minimize, maximize, close buttons
-    └── components/           # Reusable UI component library
+│   ├── main.rs               # Entry point: build AppContext, create window, call each bind
+│   ├── parser.rs             # Natural language task parser (single file)
+│   ├── security.rs           # SecurityManager: Argon2id + AES-256-GCM (single file)
+│   ├── models/               # task, list, notes, focus, shield, chat, tag, preferences + mod.rs aggregate
+│   ├── repository/mod.rs     # StorageRepository trait, encrypted atomic storage, backup on failure
+│   ├── services/             # One file per area, StoreHandle, timer, undo history
+│   ├── window/mod.rs         # WindowManager (Win32 frameless window management)
+│   └── app/                  # UI wiring (binary crate): one bind file per screen, shell, context, convert
+└── ui/                       # See section 5
 ```
-
----
 
 ## 7. Natural Language Task Parser
 
-Located in [`src/parser.rs`](file:///e:/repos/Thuli/src/parser.rs), the smart parser extracts actionable metadata from single-line task descriptions:
+Located in the single file [`src/parser.rs`](file:///e:/repos/Thuli/src/parser.rs), the smart parser extracts actionable metadata from single-line task descriptions:
 
 - **Duration Patterns**:
   - `(\d+)\s*h(?:ours?)?\s*(\d+)\s*m(?:in(?:ute)?s?)?` (e.g. `1h 30m` -> 90 mins)

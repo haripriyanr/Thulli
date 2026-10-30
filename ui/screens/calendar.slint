@@ -1,0 +1,38 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { IconCalendar } from "../icons.slint";
+import { TaskModel, CalendarItemModel, TimeBlockModel } from "../types.slint";
+
+/// State and callbacks for the calendar screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global CalendarState {
+    /// "day", "week" or "month".
+    in-out property <string> view: "week";
+    in-out property <string> range-label: "";
+    in-out property <[CalendarItemModel]> items: [];
+    in-out property <[TimeBlockModel]> tracked: [];
+    in-out property <[TaskModel]> unscheduled-today: [];
+    in-out property <[TaskModel]> unscheduled-this-week: [];
+    in-out property <[TaskModel]> unscheduled-backlog: [];
+    callback set-view(string);
+    callback previous();
+    callback next();
+    callback go-today();
+    callback schedule-task(string, int, int);   // task id, day index, start minutes
+    callback create-at(int, int);               // day index, start minutes
+}
+
+/// CalendarScreen: stub with an empty state. Replace the body with the real screen.
+export component CalendarScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Nothing scheduled yet";
+        subtitle: "Drag a task onto the grid, or pick a time slot to add one.";
+
+        IconCalendar {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

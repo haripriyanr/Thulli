@@ -1,0 +1,80 @@
+import { Theme } from "../theme.slint";
+import { IconClock, IconPlay, IconPause } from "../icons.slint";
+
+/// ThulliTimerPill: compact running-timer readout shown on every screen.
+///
+/// `clicked()` opens the focus view; `toggled()` pauses or resumes.
+export component ThulliTimerPill inherits Rectangle {
+    in property <string> display: "00:00";
+    in property <string> label: "";
+    in property <bool> running: false;
+    callback clicked();
+    callback toggled();
+
+    height: 30px;
+    border-radius: Theme.radius-full;
+    background: Theme.bg-card;
+    border-width: 1px;
+    border-color: root.running ? Theme.accent-cyan : Theme.border-light;
+
+    open-area := TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.clicked(); }
+    }
+
+    HorizontalLayout {
+        padding-left: 12px;
+        padding-right: 4px;
+        spacing: 8px;
+        alignment: center;
+
+        VerticalLayout {
+            alignment: center;
+            IconClock { stroke-color: root.running ? Theme.accent-cyan : Theme.text-secondary; }
+        }
+
+        if root.label != "": Text {
+            text: root.label;
+            font-size: 12px;
+            color: Theme.text-secondary;
+            vertical-alignment: center;
+            overflow: elide;
+            max-width: 160px;
+        }
+
+        Text {
+            text: root.display;
+            font-size: 13px;
+            font-weight: 700;
+            color: Theme.text-primary;
+            vertical-alignment: center;
+        }
+
+        toggle-area := TouchArea {
+            width: 24px;
+            height: 24px;
+            clicked => { root.toggled(); }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-full;
+                background: toggle-area.has-hover ? Theme.bg-card-hover : transparent;
+
+                if root.running: IconPause {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                    stroke-color: Theme.text-primary;
+                    fill-color: #FFFFFF25;
+                }
+                if !root.running: IconPlay {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                    stroke-color: Theme.accent-cyan;
+                    fill-color: #3CC9C425;
+                }
+            }
+        }
+    }
+}

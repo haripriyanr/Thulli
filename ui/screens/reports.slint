@@ -1,0 +1,50 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { IconChart } from "../icons.slint";
+import { StatTileModel, BarModel, DonutSliceModel, TaskModel, SessionRowModel } from "../types.slint";
+
+/// State and callbacks for the reports screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global ReportsState {
+    /// "7d", "30d", "90d" or "custom".
+    in-out property <string> range: "7d";
+    in-out property <string> range-label: "";
+    in-out property <string> list-filter: "";
+    in-out property <[StatTileModel]> totals: [];
+    in-out property <[BarModel]> daily-tasks: [];
+    in-out property <[BarModel]> daily-breaks: [];
+    in-out property <[BarModel]> daily-total: [];
+    in-out property <[DonutSliceModel]> time-by-list: [];
+    in-out property <[TaskModel]> done-tasks: [];
+    in-out property <string> most-productive-hour: "";
+    in-out property <string> most-productive-day: "";
+    in-out property <string> on-time-ratio: "";
+    // Sessions tab
+    in-out property <bool> show-sessions: false;
+    in-out property <bool> show-breaks: true;
+    in-out property <[SessionRowModel]> sessions: [];
+    callback set-range(string);
+    callback set-custom-range(string, string);
+    callback set-list-filter(string);
+    callback set-show-breaks(bool);
+    callback add-session(string, string, string, string);   // title, list id, start, end
+    callback edit-session(string);
+    callback delete-session(string);
+    callback export-csv();
+    callback export-report();
+}
+
+/// ReportsScreen: stub with an empty state. Replace the body with the real screen.
+export component ReportsScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Reports will appear here";
+        subtitle: "Finish a few sessions and you will see your work broken down by day and by list.";
+
+        IconChart {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

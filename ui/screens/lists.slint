@@ -1,0 +1,41 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { ThulliButton } from "../components/buttons.slint";
+import { IconFolder } from "../icons.slint";
+import { ListModel, TaskModel, ListFolderModel } from "../types.slint";
+
+/// State and callbacks for the lists screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global ListsState {
+    in-out property <[ListModel]> lists: [];
+    in-out property <[ListModel]> archived-lists: [];
+    in-out property <[ListFolderModel]> folders: [];
+    in-out property <[TaskModel]> archived-tasks: [];
+    in-out property <bool> show-archive: false;
+    in-out property <string> open-list-id: "";
+    callback create-list(string, string, string);   // name, colour, icon path
+    callback edit-list(string, string, string, string);
+    callback duplicate-list(string);
+    callback archive-list(string);
+    callback restore-list(string);
+    callback open-list(string);
+    callback pick-icon();
+    callback create-folder(string);
+    callback move-list-to-folder(string, string);   // list id, folder id (empty for none)
+    callback toggle-folder(string);
+}
+
+/// ListsScreen: stub with an empty state. Replace the body with the real screen.
+export component ListsScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "No lists yet";
+        subtitle: "Lists keep related tasks together. Create one to get started.";
+
+        IconFolder {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

@@ -232,8 +232,8 @@ mod tests {
         assert_eq!(store.tasks.len(), 4);
 
         assert_eq!(store.tasks[0].section, TaskSection::Today);
-        assert_eq!(store.tasks[1].section, TaskSection::Sooner);
-        assert_eq!(store.tasks[2].section, TaskSection::Later);
+        assert_eq!(store.tasks[1].section, TaskSection::ThisWeek);
+        assert_eq!(store.tasks[2].section, TaskSection::Backlog);
         assert!(store.tasks.iter().take(3).all(|t| t.status == TaskStatus::Open));
         assert_eq!(store.tasks[3].status, TaskStatus::Completed);
         assert!(store.tasks[3].completed_at.is_some());
@@ -257,7 +257,7 @@ mod tests {
         assert!(!json.contains("\"board\""));
         let again = AppStateStore::from_json(json.as_bytes()).unwrap();
         assert_eq!(again.tasks[3].status, TaskStatus::Completed);
-        assert_eq!(again.tasks[1].section, TaskSection::Sooner);
+        assert_eq!(again.tasks[1].section, TaskSection::ThisWeek);
     }
 
     #[test]

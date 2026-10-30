@@ -1,0 +1,37 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { IconFlag } from "../icons.slint";
+import { TaskModel } from "../types.slint";
+
+/// State and callbacks for the matrix screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global MatrixState {
+    in-out property <[TaskModel]> do-asap: [];
+    in-out property <[TaskModel]> do-later-today: [];
+    in-out property <[TaskModel]> do-mid-week: [];
+    in-out property <[TaskModel]> leave-till-end: [];
+    /// Tasks not yet placed, grouped by section for the review rail.
+    in-out property <[TaskModel]> unsorted-today: [];
+    in-out property <[TaskModel]> unsorted-this-week: [];
+    in-out property <[TaskModel]> unsorted-backlog: [];
+    in-out property <string> list-filter: "";
+    callback place-task(string, string);     // task id, quadrant
+    callback review-quadrant(string);
+    callback start-review();                 // prioritize one by one
+    callback next-review-task();
+}
+
+/// MatrixScreen: stub with an empty state. Replace the body with the real screen.
+export component MatrixScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Sort what matters";
+        subtitle: "Drag tasks into Do ASAP, Do Later Today, Do Mid Week or Leave Till End.";
+
+        IconFlag {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

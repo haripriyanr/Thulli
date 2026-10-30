@@ -1,0 +1,104 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { ThulliButton } from "../components/buttons.slint";
+import { IconSettings } from "../icons.slint";
+import { ShortcutModel, ChoiceModel, TagModel } from "../types.slint";
+
+/// State and callbacks for the preferences screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global PreferencesState {
+    // Appearance and time
+    in-out property <string> language: "en";
+    in-out property <string> accent-theme: "teal";      // "teal", "blue", "violet", "amber", "rose"
+    in-out property <string> theme: "system";            // "system", "dark", "light"
+    in-out property <string> timezone-label: "";
+    in-out property <string> week-start: "monday";
+    // General
+    in-out property <bool> hide-estimates: false;
+    in-out property <bool> auto-parse-estimates: true;
+    in-out property <bool> open-at-login: false;
+    in-out property <bool> open-on-wake: false;
+    in-out property <bool> show-full-title: false;
+    // Daily goal
+    in-out property <int> daily-goal-mins: 360;
+    in-out property <bool> count-weekends: false;
+    in-out property <string> weekly-goal-label: "";
+    // Sessions
+    in-out property <int> default-session-mins: 90;
+    in-out property <bool> sprint-enabled: false;
+    in-out property <int> work-sprint-mins: 60;
+    in-out property <int> break-time-mins: 15;
+    in-out property <int> default-break-mins: 10;
+    in-out property <bool> pause-suggestions: false;
+    in-out property <bool> scrolling-title: true;
+    in-out property <bool> start-next-after-early-break: false;
+    // Focus run
+    in-out property <string> focus-display-mode: "expanded";   // "expanded", "tower", "pill"
+    in-out property <string> tower-side: "right";
+    in-out property <bool> move-freely: false;
+    in-out property <bool> auto-hide: false;
+    in-out property <string> expanded-window-mode: "full_screen";   // "full_screen", "maximized"
+    in-out property <string> focus-background: "calm";
+    // Alerts
+    in-out property <bool> timed-alerts: true;
+    in-out property <int> alert-interval-mins: 30;
+    in-out property <string> alert-sound: "basic-ding";
+    in-out property <bool> alert-flash: false;
+    in-out property <int> reminder-mins-before: 5;
+    in-out property <bool> overtime-alert: true;
+    in-out property <int> break-reminder-mins: 0;
+    in-out property <bool> pill-alert-animated: true;
+    in-out property <string> notification-sound: "basic-ding";
+    in-out property <string> break-start-sound: "soft-chime";
+    in-out property <string> task-start-sound: "soft-chime";
+    in-out property <string> overtime-sound: "basic-ding";
+    in-out property <string> reminder-sound: "basic-ding";
+    in-out property <string> break-reminder-sound: "soft-chime";
+    // Celebration
+    in-out property <bool> success-screen: true;
+    in-out property <bool> success-animation: true;
+    in-out property <bool> success-sound: true;
+    in-out property <bool> success-animation-on-break-end: false;
+    in-out property <string> success-set-on-time: "sunrise";
+    in-out property <string> success-set-over-estimate: "steady";
+    // Compact panel
+    in-out property <string> compact-panel-side: "right";
+    // Assistant suggestions
+    in-out property <bool> suggest-plan-my-day: true;
+    in-out property <bool> suggest-welcome-back: true;
+    in-out property <bool> suggest-take-a-break: true;
+    in-out property <bool> suggest-wind-down: true;
+    in-out property <bool> suggest-prioritize: true;
+    // Tags
+    in-out property <[TagModel]> tags: [];
+    // Assistant model file
+    in-out property <string> assistant-model-path: "";
+    // Shortcuts
+    in-out property <[ShortcutModel]> shortcuts: [];
+    in-out property <[ChoiceModel]> sound-choices: [];
+    // Generic change notifications: the key matches the property name above.
+    callback set-bool(string, bool);
+    callback set-int(string, int);
+    callback set-text(string, string);
+    callback set-shortcut(string, string, bool);   // id, keys, enabled
+    callback preview-sound(string);
+    callback pick-model-file();
+    callback add-tag(string, string, string);       // name, emoji, colour
+    callback edit-tag(string, string, string, string);
+    callback remove-tag(string);
+}
+
+/// PreferencesScreen: stub with an empty state. Replace the body with the real screen.
+export component PreferencesScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Preferences";
+        subtitle: "Appearance, sessions, alerts and shortcuts will be adjustable here.";
+
+        IconSettings {
+            width: 44px;
+            height: 44px;
+        }
+    }
+}

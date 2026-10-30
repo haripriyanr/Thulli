@@ -1,0 +1,60 @@
+import { Theme } from "../theme.slint";
+import { ThulliEmptyState } from "../components/empty_state.slint";
+import { ThulliButton } from "../components/buttons.slint";
+import { IconSun } from "../icons.slint";
+import { TaskModel, TimeBlockModel } from "../types.slint";
+
+/// State and callbacks for the today screen. The screen owner edits this
+/// global freely; the shell re-exports it, so app.slint does not change.
+export global TodayState {
+    /// "empty" before planning, then "planning", "working" and "wrapped".
+    in-out property <string> phase: "empty";
+    in-out property <[TaskModel]> tasks: [];
+    in-out property <[TimeBlockModel]> timeline: [];
+    in-out property <int> session-minutes: 90;
+    in-out property <float> goal-progress: 0;
+    in-out property <string> goal-label: "";
+    callback plan-day();
+    callback skip-planning();
+    callback finish-planning();
+    callback start-session(int);
+    callback toggle-session();
+    callback finish-session();
+    callback wrap-up();
+}
+
+/// TodayScreen: stub with an empty state. Replace the body with the real screen.
+export component TodayScreen inherits Rectangle {
+    background: transparent;
+
+    ThulliEmptyState {
+        title: "Your day starts here";
+        subtitle: "Plan your day to choose what matters, or jump straight into a focus session.";
+
+        IconSun {
+            width: 44px;
+            height: 44px;
+        }
+    }
+
+    HorizontalLayout {
+        y: parent.height / 2 + 90px;
+        width: parent.width;
+        alignment: center;
+        spacing: 12px;
+        height: 36px;
+
+        ThulliButton {
+            text: "Plan your day";
+            variant: "secondary";
+            width: 130px;
+            clicked => { TodayState.plan-day(); }
+        }
+        ThulliButton {
+            text: "Skip planning";
+            variant: "secondary";
+            width: 130px;
+            clicked => { TodayState.skip-planning(); }
+        }
+    }
+}
