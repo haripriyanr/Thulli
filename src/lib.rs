@@ -11,9 +11,12 @@ pub mod security;
 pub mod services;
 pub mod window;
 
-pub use models::{AppStateStore, BlockedApp, Task, TaskList, ThulliPreferences};
+pub use models::{
+    AppStateStore, BlockedApp, BlockedSite, Preferences, Task, TaskList, TaskSection, TaskStatus,
+    ThulliPreferences,
+};
 pub use parser::{parse_task_title, ParsedTaskTitle};
-pub use repository::{EncryptedStorageRepository, StorageRepository};
+pub use repository::{EncryptedStorageRepository, LoadReport, RecoveryNotice, StorageRepository};
 pub use security::SecurityManager;
-pub use services::{ListService, TaskService, TimerService};
+pub use services::{ListService, StoreHandle, TaskService, TimerService};
 pub use window::WindowManager;
