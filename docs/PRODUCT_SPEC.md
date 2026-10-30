@@ -166,6 +166,88 @@ in this pass: paid plans, trials, sign-in, workspaces beyond one local workspace
 cloud sync, team features, Google / Apple calendar, Slack status, Linear, Jira,
 Notion, ClickUp, Asana, Zapier, MCP server, REST API, webhooks, Loom and video embeds.
 
+## 10a. Additions from the newer app generation
+
+All **[seen]** unless tagged. These extend the sections above; where they differ,
+this section wins.
+
+### Board, one task model
+- Lists and tasks open in three views: **Board**, **Matrix**, **Calendar**.
+- Board columns: **Backlog, This Week, Today, Done**, each column with a progress bar
+  (n/m done), add task, and a collapse control. Today is highlighted.
+- These are the same sections as Later, Sooner, Today in section 3. Stored values:
+  `backlog`, `this_week`, `today`, plus completed status. Thulli shows one vocabulary:
+  Backlog, This Week, Today, Done.
+- Drag tasks between columns. Undo and redo for board actions.
+- Sidebar: search, list folders, add list, **All Lists** aggregate view, Shared
+  (excluded), Archive, Reports, Settings; collapses to an icon rail.
+- Filter menu with a Dates filter.
+- Mic button beside Add task for voice capture (excluded for now).
+
+### Task fields and editing
+- Inline card editor: title, time taken, estimate, tags, Do Date, Deadline, subtasks,
+  notes, with Save and Esc.
+- Hover actions on a card: move, start focus, edit, menu. Menu: ask assistant about
+  this task, history, delete.
+- Tags: reusable, with optional emoji and colour; managed in settings.
+
+### Matrix view
+- Four quadrants: Do ASAP (today, urgent and important), Do Later Today (today,
+  important), Do Mid Week (this week, important), Leave Till End (backlog, low value).
+- Each quadrant has a Review action and a count; drag tasks in.
+- Left rail: Matrix Review with a "prioritize one by one" flow and an Unsorted queue
+  grouped by Today, This Week, Backlog.
+
+### Calendar view
+- Unscheduled rail grouped by section; drag a task onto the grid, or click a slot to
+  create one. Day, Week, Month, Today, previous and next.
+
+### Focus run
+- Start from a card, or from a global **start now** action that is enabled when Today
+  has tasks. Starting moves the task to Today.
+- Three display modes: **Expanded** (full window, ring timer), **Tower** (docked
+  screen-edge panel), **Pill** (tiny floating timer). Switch by shortcut.
+- The timer counts **up** on a task (HH:MM:SS) against its estimate.
+- Tower: queue of Today's tasks, n/m done, add task, close session. Hover on the active
+  task reveals done, break, notes, pause, subtasks, skip.
+- Expanded: ring, time vs estimate, add subtasks, break, pause, notes, skip, Done, and a
+  background picker with presets plus your own image.
+- Break: starts a 5 minute countdown (default) and puts the task back in the queue.
+- Options: tower side, move freely, auto-hide at the screen edge, expanded as full
+  screen or maximized; pomodoro on or off; start next task when a break ends early.
+- Overtime alert when a task exceeds its estimate.
+
+### Assistant additions
+- Always-available **Ask anything** bar with a day summary, recent chats, and actions
+  Wind-down Reflection and Quick Prioritize. Action results **[listed]**.
+- Memory: facts the assistant keeps, each typed as preference, commitment, person or
+  project, or pattern. The user can add, edit, remove, and see history.
+- Suggestions, each switchable, shown in-app only and never during focus: plan my day,
+  welcome back, take a break, wind down, prioritize.
+- Voice call and wake word: excluded for now.
+
+### Reports additions
+- Quick ranges 7D, 30D, 90D, custom; daily activity bars for tasks, breaks, total;
+  time by list donut; done tasks.
+- Sessions tab: every task and break session with list, date, start, end, duration;
+  show or hide breaks; add a session by hand; edit via row menu; CSV export.
+
+### Settings additions
+- Language; open on wake and login; show full task title (wrap).
+- Colour mode plus five accent themes, with a live preview of dashboard, tower and pill.
+- Sounds: notification, break start, task start, overtime, schedule reminders (minutes
+  before), break reminders (every N minutes, own sound), timed task alerts, animated
+  pill alert.
+- Celebration: success screen, animation on success and on break end, separate sets for
+  on-time and over-estimate. Thulli ships its own artwork; no third-party GIFs.
+- Every shortcut can be enabled, disabled and rebound. New: dashboard, new list, search,
+  find pill, preferences, next task, switch tower and pill.
+- First-run checklist with coach tips.
+
+### Still excluded
+Sign-in, plans, sharing, the CLI, tokens, outbound webhooks, MCP and all outside
+integrations remain out of scope per section 10.
+
 ## 11. Preferences and shortcuts
 
 - Appearance: theme system / dark / light. [seen]
