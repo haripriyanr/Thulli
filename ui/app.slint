@@ -216,18 +216,18 @@ export component MainWindow inherits Window {
                 vertical-stretch: 1;
                 background: Theme.bg-canvas;
 
-                if ShellState.current-screen == "today": TodayScreen { }
-                if ShellState.current-screen == "tasks": TasksScreen { }
-                if ShellState.current-screen == "matrix": MatrixScreen { }
-                if ShellState.current-screen == "calendar": CalendarScreen { }
-                if ShellState.current-screen == "focus": FocusScreen { }
-                if ShellState.current-screen == "reports": ReportsScreen { }
-                if ShellState.current-screen == "insights": InsightsScreen { }
-                if ShellState.current-screen == "notes": NotesScreen { }
-                if ShellState.current-screen == "lists": ListsScreen { }
-                if ShellState.current-screen == "shield": ShieldScreen { }
-                if ShellState.current-screen == "assistant": AssistantScreen { }
-                if ShellState.current-screen == "preferences": PreferencesScreen { }
+                if ShellState.current-screen == "today": TodayScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "tasks": TasksScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "matrix": MatrixScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "calendar": CalendarScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "focus": FocusScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "reports": ReportsScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "insights": InsightsScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "notes": NotesScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "lists": ListsScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "shield": ShieldScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "assistant": AssistantScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "preferences": PreferencesScreen { width: 100%; height: 100%; }
 
                 // Bottom tab pill, floating above the screen
                 ThulliTabPill {
