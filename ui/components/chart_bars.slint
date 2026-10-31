@@ -73,7 +73,7 @@ export component ThulliBarChart inherits Rectangle {
         }
 
         Text {
-            visible: mod(i, root.label-step) == 0;
+            visible: root.label-height >= 12px && mod(i, root.label-step) == 0;
             x: -(root.slot * (root.label-step - 1)) / 2;
             width: root.slot * root.label-step;
             y: root.value-height + root.plot-height + 3px;
