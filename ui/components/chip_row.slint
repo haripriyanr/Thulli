@@ -1,0 +1,53 @@
+import { Theme } from "../theme.slint";
+import { ChoiceModel } from "../types.slint";
+
+/// ThulliChipRow: a row of selectable chips that scrolls sideways when it
+/// does not fit. Use it for filters, ranges and small tab switches.
+///
+/// `selected` holds the id of the active choice; `picked(id)` fires on click.
+///
+///   ThulliChipRow { choices: ranges; selected: "7d"; picked(id) => { ... } }
+export component ThulliChipRow inherits Rectangle {
+    in property <[ChoiceModel]> choices;
+    in property <string> selected;
+    callback picked(string);
+
+    height: 30px;
+    background: transparent;
+
+    Flickable {
+        content-width: row.preferred-width;
+        content-height: root.height;
+
+        row := HorizontalLayout {
+            spacing: 6px;
+            alignment: start;
+
+            for choice in root.choices: TouchArea {
+                width: label.preferred-width + 26px;
+                height: 28px;
+                clicked => {
+                    root.picked(choice.id);
+                }
+
+                Rectangle {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 14px;
+                    border-width: 1px;
+                    border-color: choice.id == root.selected ? Theme.accent-cyan.with-alpha(0.7) : Theme.border-light;
+                    background: choice.id == root.selected ? Theme.accent-cyan.with-alpha(0.16) : (parent.has-hover ? Theme.bg-card-hover : Theme.bg-card);
+
+                    label := Text {
+                        text: choice.label;
+                        font-size: 12px;
+                        font-weight: choice.id == root.selected ? 700 : 400;
+                        color: choice.id == root.selected ? Theme.text-primary : Theme.text-secondary;
+                        horizontal-alignment: center;
+                        vertical-alignment: center;
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,32 @@
+import { Theme } from "../theme.slint";
+import { HeatCellModel } from "../types.slint";
+
+/// ThulliHeatmap: a consistency grid, one small square per day.
+///
+/// Cell `i` is drawn in column `i / rows` and row `i % rows`, so pass the days
+/// in week order with `rows` set to 7. `HeatCellModel.level` runs from 0 (none)
+/// to 4 (most). The component sizes itself from the number of cells.
+///
+///   ThulliHeatmap { cells: heat; }
+export component ThulliHeatmap inherits Rectangle {
+    in property <[HeatCellModel]> cells;
+    in property <int> rows: 7;
+    in property <length> cell-size: 18px;
+    in property <length> gap: 4px;
+    in property <color> base-color: Theme.accent-green;
+
+    preferred-width: Math.ceil(root.cells.length / root.rows) * (root.cell-size + root.gap) - root.gap;
+    preferred-height: root.rows * (root.cell-size + root.gap) - root.gap;
+    background: transparent;
+
+    for cell[i] in root.cells: Rectangle {
+        x: Math.floor(i / root.rows) * (root.cell-size + root.gap);
+        y: Math.mod(i, root.rows) * (root.cell-size + root.gap);
+        width: root.cell-size;
+        height: root.cell-size;
+        border-radius: 4px;
+        border-width: 1px;
+        border-color: cell.level == 0 ? Theme.border-subtle : root.base-color.with-alpha(0.5);
+        background: cell.level == 0 ? Theme.bg-card : root.base-color.with-alpha(0.12 + 0.2 * cell.level);
+    }
+}

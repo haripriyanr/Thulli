@@ -1,0 +1,43 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliStatTile: a headline figure with a small title above and a caption
+/// below, such as "Time worked / 12h 30m / 2h 05m a day".
+///
+///   ThulliStatTile { title: "Time worked"; value: "12h 30m"; caption: "2h 05m a day"; }
+export component ThulliStatTile inherits Rectangle {
+    in property <string> title;
+    in property <string> value;
+    in property <string> caption;
+
+    min-width: 120px;
+    background: Theme.bg-card;
+    border-radius: Theme.radius-md;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    VerticalLayout {
+        padding: 14px;
+        spacing: 4px;
+        alignment: center;
+
+        Text {
+            text: root.title;
+            font-size: 11px;
+            color: Theme.text-secondary;
+            overflow: elide;
+        }
+        Text {
+            text: root.value;
+            font-size: 22px;
+            font-weight: 700;
+            color: Theme.text-primary;
+            overflow: elide;
+        }
+        Text {
+            text: root.caption;
+            font-size: 11px;
+            color: Theme.text-muted;
+            overflow: elide;
+        }
+    }
+}
