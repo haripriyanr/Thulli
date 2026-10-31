@@ -1,0 +1,54 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliCelebration: a short burst drawn with Slint shapes (no images).
+///
+/// Set `playing` to true to run the burst once (about 1.4 s). Set it back to
+/// false before the next run. `style` is "confetti" (dots fly out) or
+/// "ripple" (rings expand).
+export component ThulliCelebration inherits Rectangle {
+    in property <bool> playing: false;
+    in property <string> style: "confetti";
+
+    property <float> progress: root.playing ? 1.0 : 0.0;
+    animate progress { duration: 1400ms; easing: ease-out; }
+
+    height: 180px;
+    background: transparent;
+    clip: true;
+
+    // Centre medallion, visible while the burst runs.
+    Rectangle {
+        width: 56px;
+        height: 56px;
+        border-radius: 28px;
+        x: (root.width - self.width) / 2;
+        y: (root.height - self.height) / 2;
+        background: @linear-gradient(135deg, Theme.accent-cyan 0%, Theme.accent-lime 100%);
+        opacity: root.playing ? 1.0 - root.progress : 0.0;
+    }
+
+    for i in 12 : Rectangle {
+        property <angle> heading: (i * 30) * 1deg;
+        property <length> distance: root.progress * 120px;
+        width: 8px;
+        height: 8px;
+        border-radius: 4px;
+        x: root.width / 2 + cos(heading) * distance - 4px;
+        y: root.height / 2 + sin(heading) * distance - 4px;
+        background: mod(i, 2) == 0 ? Theme.accent-cyan : Theme.accent-lime;
+        opacity: (root.style == "ripple" || !root.playing) ? 0.0 : 1.0 - root.progress * 0.6;
+    }
+
+    for k in 3 : Rectangle {
+        property <length> diameter: 60px + k * 40px + root.progress * 110px;
+        width: diameter;
+        height: diameter;
+        border-radius: diameter / 2;
+        x: (root.width - self.width) / 2;
+        y: (root.height - self.height) / 2;
+        background: transparent;
+        border-width: 2px;
+        border-color: Theme.accent-cyan;
+        opacity: (root.style != "ripple" || !root.playing) ? 0.0 : (1.0 - root.progress) * (1.0 - k * 0.25);
+    }
+}

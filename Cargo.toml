@@ -27,8 +27,11 @@ rand = "0.10.3"
 zeroize = "1.9.1"
 rusqlite = { version = "0.41.0", features = ["bundled"] }
 uuid = { version = "1.29.0", features = ["v4", "serde"] }
-windows-sys = { version = "0.61.2", features = ["Win32_UI_WindowsAndMessaging", "Win32_Foundation", "Win32_UI_Input_KeyboardAndMouse"] }
+windows-sys = { version = "0.61.2", features = ["Win32_System_Registry", "Win32_UI_WindowsAndMessaging", "Win32_Foundation", "Win32_UI_Input_KeyboardAndMouse"] }
 regex = "1.13.1"
+rodio = { version = "0.23.0", default-features = false, features = ["playback"] }
+global-hotkey = "0.7"
+notify-rust = { version = "4", default-features = false }
 
 [build-dependencies]
 slint-build = "1.18.1"

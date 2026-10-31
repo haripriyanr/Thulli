@@ -1,0 +1,324 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliSwitch: a small on/off switch. The whole switch is the hit area.
+export component ThulliSwitch inherits TouchArea {
+    in property <bool> checked: false;
+    callback toggled(bool);
+
+    width: 40px;
+    height: 22px;
+
+    clicked => {
+        root.toggled(!root.checked);
+    }
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: 11px;
+        background: root.checked ? Theme.accent-cyan : Theme.bg-card-selected;
+
+        Rectangle {
+            width: 16px;
+            height: 16px;
+            border-radius: 8px;
+            y: 3px;
+            x: root.checked ? 21px : 3px;
+            background: #FFFFFF;
+            animate x { duration: 150ms; easing: ease-out; }
+        }
+    }
+}
+
+/// ThulliPrefCard: a titled group of preference rows.
+export component ThulliPrefCard inherits Rectangle {
+    in property <string> title;
+
+    background: Theme.bg-card;
+    border-radius: Theme.radius-md;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    VerticalLayout {
+        padding: 14px;
+        spacing: 2px;
+
+        Text {
+            text: root.title;
+            color: Theme.text-secondary;
+            font-size: 12px;
+            font-weight: 700;
+            height: 24px;
+            vertical-alignment: center;
+        }
+
+        @children
+    }
+}
+
+/// ThulliPrefToggle: a labelled on/off row. Emits `toggled` with the new value.
+export component ThulliPrefToggle inherits TouchArea {
+    in property <string> label;
+    in property <string> hint: "";
+    in property <bool> checked: false;
+    callback toggled(bool);
+
+    width: 100%;
+    height: 48px;
+
+    clicked => {
+        root.toggled(!root.checked);
+    }
+
+    HorizontalLayout {
+        padding: 4px;
+        spacing: 12px;
+
+        VerticalLayout {
+            horizontal-stretch: 1;
+            alignment: center;
+            spacing: 2px;
+
+            Text {
+                text: root.label;
+                color: Theme.text-primary;
+                font-size: 13px;
+                font-weight: 600;
+                overflow: elide;
+            }
+
+            Text {
+                text: root.hint;
+                visible: root.hint != "";
+                color: Theme.text-muted;
+                font-size: 11px;
+                wrap: word-wrap;
+            }
+        }
+
+        ThulliSwitch {
+            checked: root.checked;
+            toggled(v) => {
+                root.toggled(v);
+            }
+        }
+    }
+}
+
+/// ThulliPrefChoice: a labelled row that cycles through its choices on click.
+/// The caller computes the label of the current choice and handles `cycled`.
+export component ThulliPrefChoice inherits TouchArea {
+    in property <string> label;
+    in property <string> value-label;
+    callback cycled();
+
+    width: 100%;
+    height: 48px;
+
+    clicked => {
+        root.cycled();
+    }
+
+    HorizontalLayout {
+        padding: 4px;
+        spacing: 12px;
+
+        Text {
+            text: root.label;
+            color: Theme.text-primary;
+            font-size: 13px;
+            font-weight: 600;
+            horizontal-stretch: 1;
+            vertical-alignment: center;
+            overflow: elide;
+        }
+
+        Rectangle {
+            width: 150px;
+            height: 30px;
+            border-radius: Theme.radius-sm;
+            background: root.has-hover ? Theme.bg-card-hover : Theme.bg-card-selected;
+            border-width: 1px;
+            border-color: Theme.border-light;
+
+            Text {
+                text: root.value-label;
+                color: Theme.text-primary;
+                font-size: 12px;
+                horizontal-alignment: center;
+                vertical-alignment: center;
+                overflow: elide;
+            }
+        }
+    }
+}
+
+/// ThulliPrefStepper: a labelled number with minus and plus buttons.
+export component ThulliPrefStepper inherits Rectangle {
+    in property <string> label;
+    in property <string> unit: "min";
+    in property <int> value: 0;
+    in property <int> step: 5;
+    in property <int> minimum: 0;
+    in property <int> maximum: 999;
+    callback changed(int);
+
+    height: 48px;
+    background: transparent;
+
+    HorizontalLayout {
+        padding: 4px;
+        spacing: 12px;
+
+        Text {
+            text: root.label;
+            color: Theme.text-primary;
+            font-size: 13px;
+            font-weight: 600;
+            horizontal-stretch: 1;
+            vertical-alignment: center;
+            overflow: elide;
+        }
+
+        HorizontalLayout {
+            spacing: 8px;
+            alignment: end;
+
+            minus := TouchArea {
+                width: 28px;
+                height: 28px;
+                clicked => {
+                    root.changed(max(root.minimum, root.value - root.step));
+                }
+                Rectangle {
+                    background: minus.has-hover ? Theme.bg-card-hover : Theme.bg-card-selected;
+                    border-radius: 14px;
+                    Text { text: "-"; color: Theme.text-primary; font-size: 16px; font-weight: 700; horizontal-alignment: center; vertical-alignment: center; }
+                }
+            }
+
+            Text {
+                text: root.value + " " + root.unit;
+                color: Theme.text-primary;
+                font-size: 12px;
+                min-width: 72px;
+                horizontal-alignment: center;
+                vertical-alignment: center;
+            }
+
+            plus := TouchArea {
+                width: 28px;
+                height: 28px;
+                clicked => {
+                    root.changed(min(root.maximum, root.value + root.step));
+                }
+                Rectangle {
+                    background: plus.has-hover ? Theme.bg-card-hover : Theme.bg-card-selected;
+                    border-radius: 14px;
+                    Text { text: "+"; color: Theme.text-primary; font-size: 16px; font-weight: 700; horizontal-alignment: center; vertical-alignment: center; }
+                }
+            }
+        }
+    }
+}
+
+/// ThulliShortcutRow: one keyboard shortcut. Click the keys to record new ones;
+/// the parent decides what the captured keys mean.
+export component ThulliShortcutRow inherits Rectangle {
+    in property <string> label;
+    in property <string> keys;
+    in property <bool> is-on: true;
+    in property <bool> capturing: false;
+    in property <string> status-text: "";
+    callback toggled(bool);
+    callback capture-requested();
+    callback captured(string, bool, bool, bool, bool);
+    callback reset-requested();
+
+    height: 56px;
+    background: transparent;
+
+    scope := FocusScope {
+        key-pressed(event) => {
+            if (root.capturing) {
+                root.captured(event.text, event.modifiers.control, event.modifiers.alt, event.modifiers.shift, event.modifiers.meta);
+                return accept;
+            }
+            return reject;
+        }
+    }
+
+    HorizontalLayout {
+        padding: 6px;
+        spacing: 10px;
+
+        VerticalLayout {
+            horizontal-stretch: 1;
+            alignment: center;
+
+            Text {
+                text: root.label;
+                color: root.is-on ? Theme.text-primary : Theme.text-muted;
+                font-size: 13px;
+                font-weight: 600;
+                overflow: elide;
+            }
+
+            Text {
+                text: root.status-text;
+                visible: root.status-text != "";
+                color: Theme.text-muted;
+                font-size: 11px;
+                overflow: elide;
+            }
+        }
+
+        keys-area := TouchArea {
+            width: 150px;
+            height: 30px;
+            clicked => {
+                scope.focus();
+                root.capture-requested();
+            }
+
+            Rectangle {
+                border-radius: Theme.radius-sm;
+                background: root.capturing ? Theme.bg-card-selected : Theme.bg-card-hover;
+                border-width: 1px;
+                border-color: root.capturing ? Theme.accent-cyan : Theme.border-light;
+
+                Text {
+                    text: root.capturing ? "Press new keys" : root.keys;
+                    color: Theme.text-primary;
+                    font-size: 12px;
+                    horizontal-alignment: center;
+                    vertical-alignment: center;
+                    overflow: elide;
+                }
+            }
+        }
+
+        ThulliSwitch {
+            checked: root.is-on;
+            toggled(v) => {
+                root.toggled(v);
+            }
+        }
+
+        reset-area := TouchArea {
+            width: 56px;
+            height: 30px;
+            clicked => {
+                root.reset-requested();
+            }
+
+            Rectangle {
+                border-radius: Theme.radius-sm;
+                background: reset-area.has-hover ? Theme.bg-card-hover : Theme.bg-card;
+                border-width: 1px;
+                border-color: Theme.border-light;
+                Text { text: "Reset"; color: Theme.text-secondary; font-size: 11px; horizontal-alignment: center; vertical-alignment: center; }
+            }
+        }
+    }
+}
