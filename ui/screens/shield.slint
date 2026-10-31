@@ -1,7 +1,7 @@
 import { Theme } from "../theme.slint";
-import { ThulliEmptyState } from "../components/empty_state.slint";
-import { ThulliButton } from "../components/buttons.slint";
-import { IconShield } from "../icons.slint";
+import { ThulliButton, ThulliIconButton } from "../components/buttons.slint";
+import { ThulliToggleSwitch } from "../components/toggle_switch.slint";
+import { IconShield, IconPlus, IconTrash } from "../icons.slint";
 import { BlockedAppModel, BlockedSiteModel } from "../types.slint";
 
 /// State and callbacks for the shield screen. The screen owner edits this
@@ -13,6 +13,13 @@ export global ShieldState {
     in-out property <bool> sites-enabled: false;
     /// Plain-language note about website blocking needing administrator access.
     in-out property <string> sites-note: "";
+    /// Names of programs currently running that can be blocked.
+    in-out property <[string]> running: [];
+    /// Why the last app or website could not be added (empty when fine).
+    in-out property <string> app-error: "";
+    in-out property <string> site-error: "";
+    /// Short line such as "Closed Chrome" shown after the shield acted.
+    in-out property <string> status: "";
     callback add-app(string, string);       // name, process
     callback toggle-app(string);
     callback remove-app(string);
@@ -21,19 +28,333 @@ export global ShieldState {
     callback remove-site(string);
     callback set-apps-enabled(bool);
     callback set-sites-enabled(bool);
+    /// Reload the list of running programs for the picker.
+    callback refresh-running();
 }
 
-/// ShieldScreen: stub with an empty state. Replace the body with the real screen.
+/// One titled card with an on/off switch in its header.
+component ShieldCard inherits Rectangle {
+    in property <string> title;
+    in property <string> subtitle;
+    in property <bool> enabled;
+    callback switched();
+
+    background: Theme.bg-card;
+    border-radius: Theme.radius-md;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    VerticalLayout {
+        padding: 18px;
+        spacing: 12px;
+        alignment: start;
+
+        HorizontalLayout {
+            spacing: 12px;
+            VerticalLayout {
+                spacing: 3px;
+                horizontal-stretch: 1;
+                Text { text: root.title; font-size: 16px; font-weight: 700; color: Theme.text-primary; }
+                Text { text: root.subtitle; font-size: 12px; color: Theme.text-secondary; wrap: word-wrap; }
+            }
+            VerticalLayout {
+                alignment: start;
+                ThulliToggleSwitch {
+                    checked: root.enabled;
+                    toggled => { root.switched(); }
+                }
+            }
+        }
+
+        @children
+    }
+}
+
+/// A text box with an add button.
+component AddRow inherits Rectangle {
+    in property <string> placeholder;
+    in-out property <string> text <=> input.text;
+    callback submitted(string);
+
+    height: 36px;
+    background: Theme.bg-panel;
+    border-radius: Theme.radius-sm;
+    border-width: 1px;
+    border-color: input.has-focus ? Theme.accent-cyan : Theme.border-subtle;
+
+    HorizontalLayout {
+        padding-left: 12px;
+        padding-right: 4px;
+        spacing: 8px;
+
+        Rectangle {
+            horizontal-stretch: 1;
+            input := TextInput {
+                width: 100%;
+                height: 100%;
+                font-size: 13px;
+                color: Theme.text-primary;
+                vertical-alignment: center;
+                single-line: true;
+                accepted => { root.submitted(self.text); }
+            }
+            if input.text == "": Text {
+                text: root.placeholder;
+                font-size: 13px;
+                color: Theme.text-muted;
+                vertical-alignment: center;
+                x: 0px;
+                height: 100%;
+            }
+        }
+
+        add := TouchArea {
+            width: 30px;
+            height: 36px;
+            clicked => { root.submitted(input.text); }
+            Rectangle {
+                width: 26px;
+                height: 26px;
+                border-radius: Theme.radius-sm;
+                background: add.has-hover ? #3CC9C433 : transparent;
+                IconPlus { width: 16px; height: 16px; }
+            }
+        }
+    }
+}
+
+/// One rule row: name, optional detail, switch and delete.
+component RuleRow inherits Rectangle {
+    in property <string> title;
+    in property <string> detail;
+    in property <bool> active;
+    callback toggled();
+    callback removed();
+
+    height: 44px;
+    background: Theme.bg-panel;
+    border-radius: Theme.radius-sm;
+
+    HorizontalLayout {
+        padding-left: 12px;
+        padding-right: 8px;
+        spacing: 10px;
+
+        VerticalLayout {
+            horizontal-stretch: 1;
+            alignment: center;
+            Text {
+                text: root.title;
+                font-size: 13px;
+                font-weight: 600;
+                color: root.active ? Theme.text-primary : Theme.text-muted;
+                overflow: elide;
+            }
+            if root.detail != "": Text { text: root.detail; font-size: 11px; color: Theme.text-muted; overflow: elide; }
+        }
+        VerticalLayout {
+            alignment: center;
+            ThulliToggleSwitch { checked: root.active; toggled => { root.toggled(); } }
+        }
+        VerticalLayout {
+            alignment: center;
+            ThulliIconButton {
+                size: 30px;
+                clicked => { root.removed(); }
+                IconTrash { width: 16px; height: 16px; }
+            }
+        }
+    }
+}
+
+/// ShieldScreen: choose the apps and websites to keep out of the way while a
+/// focus session is running.
 export component ShieldScreen inherits Rectangle {
     background: transparent;
+    property <bool> picker-open: false;
 
-    ThulliEmptyState {
-        title: "Nothing is blocked yet";
-        subtitle: "Choose apps and websites to keep out of the way while you focus.";
+    Flickable {
+        content-height: content.preferred-height + 48px;
 
-        IconShield {
-            width: 44px;
-            height: 44px;
+        content := VerticalLayout {
+            x: 0px;
+            y: 24px;
+            padding-left: 24px;
+            padding-right: 24px;
+            spacing: 16px;
+            alignment: start;
+
+            HorizontalLayout {
+                spacing: 10px;
+                IconShield { width: 22px; height: 22px; y: 3px; }
+                VerticalLayout {
+                    spacing: 2px;
+                    Text { text: "Distraction shield"; font-size: 22px; font-weight: 700; color: Theme.text-primary; }
+                    Text {
+                        text: "Chosen apps and websites stay out of the way while a focus session is running.";
+                        font-size: 13px;
+                        color: Theme.text-secondary;
+                    }
+                }
+            }
+
+            if ShieldState.status != "": Text {
+                text: ShieldState.status;
+                font-size: 12px;
+                color: Theme.accent-cyan;
+            }
+
+            HorizontalLayout {
+                spacing: 16px;
+
+                ShieldCard {
+                    horizontal-stretch: 1;
+                    title: "Apps";
+                    subtitle: "Closed during focus sessions. Thulli, system programs and your command prompt are never touched.";
+                    enabled: ShieldState.apps-enabled;
+                    switched => { ShieldState.set-apps-enabled(!ShieldState.apps-enabled); }
+
+                    VerticalLayout {
+                        spacing: 8px;
+
+                        HorizontalLayout {
+                            alignment: start;
+                            ThulliButton {
+                                width: 190px;
+                                height: 32px;
+                                variant: "secondary";
+                                text: root.picker-open ? "Hide running apps" : "Choose from running apps";
+                                clicked => {
+                                    root.picker-open = !root.picker-open;
+                                    if root.picker-open { ShieldState.refresh-running(); }
+                                }
+                            }
+                        }
+
+                        if root.picker-open: Rectangle {
+                            height: min(180px, max(40px, ShieldState.running.length * 30px + 8px));
+                            background: Theme.bg-panel;
+                            border-radius: Theme.radius-sm;
+                            border-width: 1px;
+                            border-color: Theme.border-subtle;
+                            clip: true;
+
+                            if ShieldState.running.length == 0: Text {
+                                text: "No apps found right now.";
+                                font-size: 12px;
+                                color: Theme.text-muted;
+                                horizontal-alignment: center;
+                                vertical-alignment: center;
+                            }
+                            Flickable {
+                                content-height: ShieldState.running.length * 30px + 8px;
+                                for name[i] in ShieldState.running: pick := TouchArea {
+                                    x: 4px;
+                                    y: 4px + i * 30px;
+                                    width: parent.width - 8px;
+                                    height: 30px;
+                                    clicked => {
+                                        ShieldState.add-app("", name);
+                                        root.picker-open = false;
+                                    }
+                                    Rectangle {
+                                        border-radius: 4px;
+                                        background: pick.has-hover ? Theme.bg-card-hover : transparent;
+                                        Text {
+                                            x: 8px;
+                                            text: name;
+                                            font-size: 13px;
+                                            color: Theme.text-primary;
+                                            vertical-alignment: center;
+                                        }
+                                    }
+                                }
+                            }
+                        }
+
+                        AddRow {
+                            placeholder: "Or type a program name, like chrome.exe";
+                            submitted(text) => {
+                                ShieldState.add-app("", text);
+                                self.text = "";
+                            }
+                        }
+                        if ShieldState.app-error != "": Text {
+                            text: ShieldState.app-error;
+                            font-size: 12px;
+                            color: Theme.accent-amber;
+                            wrap: word-wrap;
+                        }
+
+                        if ShieldState.apps.length == 0: Text {
+                            text: "No apps yet.";
+                            font-size: 12px;
+                            color: Theme.text-muted;
+                        }
+                        for app in ShieldState.apps: RuleRow {
+                            title: app.name;
+                            detail: app.process_name;
+                            active: app.active;
+                            toggled => { ShieldState.toggle-app(app.id); }
+                            removed => { ShieldState.remove-app(app.id); }
+                        }
+                    }
+                }
+
+                ShieldCard {
+                    horizontal-stretch: 1;
+                    title: "Websites";
+                    subtitle: "Blocked in your browsers during focus sessions, and unblocked when the session ends.";
+                    enabled: ShieldState.sites-enabled;
+                    switched => { ShieldState.set-sites-enabled(!ShieldState.sites-enabled); }
+
+                    VerticalLayout {
+                        spacing: 8px;
+
+                        if ShieldState.sites-note != "": Rectangle {
+                            background: #DB9D2020;
+                            border-radius: Theme.radius-sm;
+                            border-width: 1px;
+                            border-color: Theme.accent-amber;
+                            VerticalLayout {
+                                padding: 10px;
+                                Text {
+                                    text: ShieldState.sites-note;
+                                    font-size: 12px;
+                                    color: Theme.text-primary;
+                                    wrap: word-wrap;
+                                }
+                            }
+                        }
+
+                        AddRow {
+                            placeholder: "Type a website, like example.com";
+                            submitted(text) => {
+                                ShieldState.add-site(text);
+                                self.text = "";
+                            }
+                        }
+                        if ShieldState.site-error != "": Text {
+                            text: ShieldState.site-error;
+                            font-size: 12px;
+                            color: Theme.accent-amber;
+                            wrap: word-wrap;
+                        }
+
+                        if ShieldState.sites.length == 0: Text {
+                            text: "No websites yet.";
+                            font-size: 12px;
+                            color: Theme.text-muted;
+                        }
+                        for site in ShieldState.sites: RuleRow {
+                            title: site.domain;
+                            active: site.active;
+                            toggled => { ShieldState.toggle-site(site.id); }
+                            removed => { ShieldState.remove-site(site.id); }
+                        }
+                    }
+                }
+            }
         }
     }
 }
