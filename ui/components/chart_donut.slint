@@ -1,0 +1,78 @@
+import { Theme } from "../theme.slint";
+
+/// One arc of a donut. Coordinates are in a 0 to 1000 box with the ring
+/// centred at (500, 500) and a radius of 400; `large` is true for arcs over
+/// half a turn.
+export struct DonutArcModel {
+    x0: float,
+    y0: float,
+    x1: float,
+    y1: float,
+    large: bool,
+    color: color,
+}
+
+/// ThulliDonut: a ring made of coloured arcs with a title and caption in the
+/// middle. Build the arcs in Rust from the slice fractions, starting at the
+/// top and going clockwise.
+///
+///   ThulliDonut { arcs: arcs; center-title: "12h 30m"; center-caption: "worked"; }
+export component ThulliDonut inherits Rectangle {
+    in property <[DonutArcModel]> arcs;
+    in property <length> thickness: 18px;
+    in property <string> center-title;
+    in property <string> center-caption;
+
+    background: transparent;
+
+    // Track behind the arcs.
+    Path {
+        width: 100%;
+        height: 100%;
+        viewbox-width: 1000;
+        viewbox-height: 1000;
+        stroke: Theme.border-subtle;
+        stroke-width: root.thickness;
+        commands: "M 500 100 A 400 400 0 1 1 499.99 100 Z";
+    }
+
+    for arc in root.arcs: Path {
+        width: 100%;
+        height: 100%;
+        viewbox-width: 1000;
+        viewbox-height: 1000;
+        stroke: arc.color;
+        stroke-width: root.thickness;
+
+        MoveTo {
+            x: arc.x0;
+            y: arc.y0;
+        }
+        ArcTo {
+            x: arc.x1;
+            y: arc.y1;
+            radius-x: 400;
+            radius-y: 400;
+            large-arc: arc.large;
+            sweep: true;
+        }
+    }
+
+    VerticalLayout {
+        alignment: center;
+        spacing: 2px;
+        Text {
+            text: root.center-title;
+            font-size: 18px;
+            font-weight: 700;
+            color: Theme.text-primary;
+            horizontal-alignment: center;
+        }
+        Text {
+            text: root.center-caption;
+            font-size: 11px;
+            color: Theme.text-secondary;
+            horizontal-alignment: center;
+        }
+    }
+}

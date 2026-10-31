@@ -1,0 +1,64 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliLineChart: a cumulative line with a soft fill, plus an optional
+/// reference line (for example a goal pace).
+///
+/// Slint cannot loop over path segments, so the lines arrive as SVG path
+/// commands in a 0 to 1000 box (y of 1000 is the bottom). Build them in Rust,
+/// for example with `line_path` and `area_path` from the insights service.
+/// The chart draws no text, so place your own labels around it.
+///
+///   ThulliLineChart { line: worked-path; area: worked-area-path; reference: pace-path; height: 160px; }
+export component ThulliLineChart inherits Rectangle {
+    /// Main line.
+    in property <string> line;
+    /// Closed shape under the main line, drawn with a soft gradient.
+    in property <string> area;
+    /// Secondary line, drawn thinner and fainter.
+    in property <string> reference;
+    in property <color> line-color: Theme.accent-cyan;
+    in property <color> reference-color: Theme.text-muted;
+    /// Number of horizontal grid divisions.
+    in property <int> grid-lines: 4;
+
+    min-height: 100px;
+    background: transparent;
+
+    for i in root.grid-lines + 1: Rectangle {
+        y: root.height * (i / root.grid-lines) - (i == root.grid-lines ? 1px : 0px);
+        width: root.width;
+        height: 1px;
+        background: Theme.border-subtle;
+    }
+
+    Path {
+        width: 100%;
+        height: 100%;
+        viewbox-width: 1000;
+        viewbox-height: 1000;
+        commands: root.area;
+        fill: @linear-gradient(180deg, root.line-color.with-alpha(0.28) 0%, root.line-color.with-alpha(0.02) 100%);
+    }
+
+    Path {
+        width: 100%;
+        height: 100%;
+        viewbox-width: 1000;
+        viewbox-height: 1000;
+        commands: root.reference;
+        stroke: root.reference-color;
+        stroke-width: 1.5px;
+    }
+
+    Path {
+        width: 100%;
+        height: 100%;
+        viewbox-width: 1000;
+        viewbox-height: 1000;
+        commands: root.line;
+        stroke: root.line-color;
+        stroke-width: 2.5px;
+        stroke-line-join: round;
+        stroke-line-cap: round;
+    }
+}

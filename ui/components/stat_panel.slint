@@ -1,0 +1,41 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliStatPanel: a titled card that stacks its children vertically, with an
+/// optional right-aligned subtitle in the header.
+///
+///   ThulliStatPanel { title: "Worked time"; subtitle: "On pace"; Text { text: "..."; } }
+export component ThulliStatPanel inherits Rectangle {
+    in property <string> title;
+    in property <string> subtitle;
+    in property <length> inner-padding: 16px;
+
+    background: Theme.bg-card;
+    border-radius: Theme.radius-lg;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    VerticalLayout {
+        padding: root.inner-padding;
+        spacing: 10px;
+
+        HorizontalLayout {
+            spacing: 10px;
+            Text {
+                text: root.title;
+                font-size: 14px;
+                font-weight: 700;
+                color: Theme.text-primary;
+                vertical-alignment: center;
+            }
+            Text {
+                text: root.subtitle;
+                font-size: 12px;
+                color: Theme.text-secondary;
+                horizontal-alignment: right;
+                vertical-alignment: center;
+            }
+        }
+
+        @children
+    }
+}

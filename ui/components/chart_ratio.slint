@@ -1,0 +1,39 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliRatioBar: one horizontal bar split into three shares (for example
+/// focus, planning and other time). Shares are fractions that add up to 1;
+/// with all zeros an empty track is shown.
+///
+///   ThulliRatioBar { first: 0.6; second: 0.3; third: 0.1; }
+export component ThulliRatioBar inherits Rectangle {
+    in property <float> first;
+    in property <float> second;
+    in property <float> third;
+    in property <color> first-color: Theme.accent-cyan;
+    in property <color> second-color: Theme.accent-blue;
+    in property <color> third-color: Theme.accent-pink;
+
+    height: 12px;
+    border-radius: 6px;
+    background: Theme.border-subtle;
+    clip: true;
+
+    Rectangle {
+        x: 0px;
+        width: root.width * root.first;
+        height: root.height;
+        background: root.first-color.with-alpha(0.85);
+    }
+    Rectangle {
+        x: root.width * root.first;
+        width: root.width * root.second;
+        height: root.height;
+        background: root.second-color.with-alpha(0.85);
+    }
+    Rectangle {
+        x: root.width * (root.first + root.second);
+        width: root.width * root.third;
+        height: root.height;
+        background: root.third-color.with-alpha(0.85);
+    }
+}
