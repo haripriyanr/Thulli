@@ -34,6 +34,11 @@ pub fn bind(window: &MainWindow, ctx: &AppContext) {
     shell.on_window_maximize(WindowManager::toggle_maximize);
     shell.on_window_close(|| WindowManager::exit_cleanly());
 
+    // Optional start screen, for checking a screen directly at launch.
+    if let Ok(screen) = std::env::var("THULLI_START_SCREEN") {
+        shell.set_current_screen(screen.into());
+    }
+
     if let Some(notice) = &ctx.startup_notice {
         shell.set_notice(notice.as_str().into());
     }
