@@ -1,55 +1,580 @@
 import { Theme } from "../theme.slint";
-import { ThulliEmptyState } from "../components/empty_state.slint";
-import { ThulliButton } from "../components/buttons.slint";
-import { IconCheck } from "../icons.slint";
-import { TaskModel, ListModel, ListFolderModel, BoardColumnModel, TagModel, HistoryEntryModel } from "../types.slint";
+import { LineEdit, TextEdit, ScrollView } from "std-widgets.slint";
+import { IconCheck, IconArrowRight, IconPlay, IconPlus } from "../icons.slint";
+import { ThulliSearchField, ThulliSearchResults, SearchHitModel } from "../components/search.slint";
+import { ShellState } from "../shell_state.slint";
+import { TaskModel, ListModel, BoardColumnModel } from "../types.slint";
 
-/// State and callbacks for the tasks screen. The screen owner edits this
-/// global freely; the shell re-exports it, so app.slint does not change.
+/// State and callbacks for the board (Tasks tab). Rust fills the properties
+/// and handles every callback; see src/app/tasks.rs.
 export global TasksState {
-    /// Sidebar filter: "all", "logbook", "waiting" or a list id.
+    /// Sidebar selection: "all", "logbook", "waiting" or a list id.
     in-out property <string> filter: "all";
+    in-out property <string> scope-title: "All tasks";
+    /// Every task visible in the current scope. Columns pick theirs by section.
     in-out property <[TaskModel]> tasks: [];
     in-out property <[ListModel]> lists: [];
     in-out property <int> all-count: 0;
-    in-out property <[ListFolderModel]> folders: [];
+    /// Four columns: backlog, this_week, today, done.
     in-out property <[BoardColumnModel]> columns: [];
-    in-out property <[TagModel]> tags: [];
-    in-out property <[HistoryEntryModel]> history: [];
+    /// Progress 0 to 1 for each entry of `columns`.
+    in-out property <[float]> column-progress: [];
+    /// Tasks for each entry of `columns`, in the same order.
+    in-out property <[[TaskModel]]> column-tasks: [];
     in-out property <bool> can-undo: false;
     in-out property <bool> can-redo: false;
-    in-out property <bool> sidebar-collapsed: false;
-    /// Ids of tasks selected with the multi-select key.
-    in-out property <[string]> selected-ids: [];
+    /// Task whose inline editor is open; empty when none.
+    in-out property <string> editing-id: "";
+    in-out property <string> editor-title: "";
+    in-out property <string> editor-notes: "";
+    in-out property <string> editor-estimate: "";
+    in-out property <string> editor-do-date: "";
+    in-out property <string> editor-deadline: "";
+    in-out property <string> search-text: "";
+    in-out property <[SearchHitModel]> search-hits: [];
+
+    callback request-refresh();
+    callback set-filter(string);
+    callback search(string);
+    callback search-pick(string);
     callback add-task(string, string);          // section, text
-    callback add-step(string, string);          // parent id, text
-    callback set-status(string, string);        // task id, status
-    callback move-task(string, string);         // task id, "top", "up", "down" or "bottom"
-    callback move-to-section(string, string);   // task id, section
-    callback assign-list(string, string);       // task id, list id
-    callback edit-title(string, string);
-    callback edit-notes(string, string);
+    callback toggle-complete(string);           // task id
+    callback move-task(string, string);         // task id, section
+    callback move-next(string);                 // task id, moves one column to the right
+    callback set-status(string, string);        // task id, "waiting" or "cancelled"
+    callback start-focus(string);
+    callback edit-task(string);
+    callback close-editor();
+    callback save-task(string, string, string, string, string, string); // id, title, notes, estimate, do date, deadline
     callback delete-task(string);
-    callback focus-task(string);
-    callback start-now();
+    callback toggle-column(string);
     callback undo();
     callback redo();
-    callback save-task(string, string, string, int, string, string, string);   // id, title, notes, estimate mins, tag ids (comma separated), do date, deadline
-    callback toggle-column(string);
-    callback show-history(string);
+    callback manage-lists();
 }
 
-/// TasksScreen: stub with an empty state. Replace the body with the real screen.
+/// Small text button used in the board chrome.
+component TextAction inherits TouchArea {
+    in property <string> label;
+    in property <bool> usable: true;
+    in property <bool> emphasis: false;
+    width: 72px;
+    height: 28px;
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: Theme.radius-sm;
+        background: (root.has-hover && root.usable) ? Theme.bg-card-hover : transparent;
+        border-width: root.emphasis ? 1px : 0px;
+        border-color: Theme.border-light;
+
+        Text {
+            text: root.label;
+            font-size: 12px;
+            font-weight: 600;
+            color: !root.usable ? Theme.text-muted : (root.emphasis ? Theme.accent-cyan : Theme.text-secondary);
+            horizontal-alignment: center;
+            vertical-alignment: center;
+        }
+    }
+}
+
+/// Inline editor shown in place of a card. Save with the button, cancel with Esc.
+component TaskEditor inherits Rectangle {
+    background: Theme.bg-card-selected;
+    border-radius: Theme.radius-sm;
+    border-width: 1px;
+    border-color: Theme.accent-cyan;
+
+    FocusScope {
+        key-pressed(event) => {
+            if (event.text == Key.Escape) {
+                TasksState.close-editor();
+                return accept;
+            }
+            return reject;
+        }
+
+        VerticalLayout {
+            padding: 10px;
+            spacing: 6px;
+
+            title-input := LineEdit {
+                text: TasksState.editor-title;
+                placeholder-text: "Task name";
+            }
+
+            notes-input := TextEdit {
+                text: TasksState.editor-notes;
+                height: 60px;
+            }
+
+            HorizontalLayout {
+                spacing: 6px;
+                estimate-input := LineEdit {
+                    text: TasksState.editor-estimate;
+                    placeholder-text: "Estimate (min)";
+                }
+            }
+
+            HorizontalLayout {
+                spacing: 6px;
+                do-input := LineEdit {
+                    text: TasksState.editor-do-date;
+                    placeholder-text: "Do date";
+                }
+                deadline-input := LineEdit {
+                    text: TasksState.editor-deadline;
+                    placeholder-text: "Deadline";
+                }
+            }
+
+            Text {
+                text: "Dates: YYYY-MM-DD, today or tomorrow. Leave empty to clear.";
+                font-size: 10px;
+                color: Theme.text-muted;
+                wrap: word-wrap;
+            }
+
+            HorizontalLayout {
+                spacing: 4px;
+                TextAction { width: 72px; label: "Backlog"; clicked => { TasksState.move-task(TasksState.editing-id, "backlog"); } }
+                TextAction { width: 84px; label: "This Week"; clicked => { TasksState.move-task(TasksState.editing-id, "this_week"); } }
+                TextAction { width: 72px; label: "Today"; clicked => { TasksState.move-task(TasksState.editing-id, "today"); } }
+            }
+
+            HorizontalLayout {
+                spacing: 4px;
+                TextAction { width: 72px; label: "Waiting"; clicked => { TasksState.set-status(TasksState.editing-id, "waiting"); } }
+                TextAction { width: 72px; label: "Cancel task"; clicked => { TasksState.set-status(TasksState.editing-id, "cancelled"); } }
+                TextAction { width: 72px; label: "Delete"; clicked => { TasksState.delete-task(TasksState.editing-id); } }
+            }
+
+            HorizontalLayout {
+                spacing: 6px;
+                alignment: end;
+                TextAction { width: 64px; label: "Close"; clicked => { TasksState.close-editor(); } }
+                TextAction {
+                    width: 64px;
+                    label: "Save";
+                    emphasis: true;
+                    clicked => {
+                        TasksState.save-task(TasksState.editing-id, title-input.text, notes-input.text,
+                            estimate-input.text, do-input.text, deadline-input.text);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// One task card: check to complete, click the title to edit, arrow to move
+/// one column right, play to start focus on it.
+component BoardCard inherits Rectangle {
+    in property <TaskModel> task;
+    in property <bool> show-move: true;
+
+    background: Theme.bg-card;
+    border-radius: Theme.radius-sm;
+    border-width: 1px;
+    border-color: root.task.overdue ? Theme.destructive : Theme.border-subtle;
+
+    // Behind everything else: a click anywhere on the card opens the editor.
+    edit-area := TouchArea {
+        clicked => { TasksState.edit-task(root.task.id); }
+    }
+
+    VerticalLayout {
+        padding: 10px;
+        spacing: 6px;
+
+        HorizontalLayout {
+            spacing: 8px;
+
+            check-touch := TouchArea {
+                width: 18px;
+                height: 18px;
+                y: 1px;
+                clicked => { TasksState.toggle-complete(root.task.id); }
+
+                Rectangle {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: Theme.radius-full;
+                    border-width: 1.5px;
+                    border-color: root.task.status == "completed" ? Theme.accent-lime : Theme.text-muted;
+                    background: root.task.status == "completed" ? Theme.accent-lime.transparentize(0.7) : transparent;
+
+                    if root.task.status == "completed": IconCheck {
+                        width: 10px;
+                        height: 10px;
+                        x: 4px;
+                        y: 4px;
+                        stroke-color: Theme.accent-lime;
+                    }
+                }
+            }
+
+            Text {
+                text: root.task.title;
+                font-size: 13px;
+                font-weight: 600;
+                color: root.task.status == "completed" ? Theme.text-muted : Theme.text-primary;
+                wrap: word-wrap;
+                horizontal-stretch: 1;
+                vertical-alignment: top;
+            }
+        }
+
+        Text {
+            text: root.task.list-name
+                + (root.task.estimate-mins > 0 ? "  |  " + root.task.estimate-mins + "m" : "")
+                + (root.task.do-date-label != "" ? "  |  " + root.task.do-date-label : "")
+                + (root.task.deadline-label != "" ? "  |  Due " + root.task.deadline-label : "")
+                + (root.task.step-count > 0 ? "  |  " + root.task.steps-done + "/" + root.task.step-count + " steps" : "")
+                + (root.task.status == "waiting" ? "  |  Waiting" : "");
+            font-size: 11px;
+            color: root.task.overdue ? Theme.destructive : Theme.text-muted;
+            overflow: elide;
+        }
+
+        HorizontalLayout {
+            alignment: end;
+            spacing: 2px;
+
+            play-touch := TouchArea {
+                width: 26px;
+                height: 24px;
+                clicked => { TasksState.start-focus(root.task.id); }
+                Rectangle {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: Theme.radius-sm;
+                    background: play-touch.has-hover ? Theme.bg-card-selected : transparent;
+                    IconPlay {
+                        width: 12px;
+                        height: 12px;
+                        x: 7px;
+                        y: 6px;
+                        stroke-color: Theme.accent-cyan;
+                    }
+                }
+            }
+
+            move-touch := TouchArea {
+                width: 26px;
+                height: 24px;
+                visible: root.show-move;
+                clicked => { TasksState.move-next(root.task.id); }
+                Rectangle {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: Theme.radius-sm;
+                    background: move-touch.has-hover ? Theme.bg-card-selected : transparent;
+                    IconArrowRight {
+                        width: 12px;
+                        height: 12px;
+                        x: 7px;
+                        y: 6px;
+                        stroke-color: Theme.text-secondary;
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// One board column: header with progress, add row, and the cards.
+component BoardColumn inherits Rectangle {
+    in property <BoardColumnModel> column;
+    in property <[TaskModel]> items;
+    in property <float> progress: 0;
+    in property <bool> is-today: false;
+    in property <bool> is-done: false;
+
+    background: root.is-today ? Theme.bg-card-selected : Theme.bg-panel;
+    border-radius: Theme.radius-md;
+    border-width: 1px;
+    border-color: root.is-today ? Theme.accent-cyan : Theme.border-subtle;
+
+    VerticalLayout {
+        padding: 10px;
+        spacing: 8px;
+
+        HorizontalLayout {
+            spacing: 6px;
+            Text {
+                text: root.column.title;
+                font-size: 13px;
+                font-weight: 700;
+                color: root.is-today ? Theme.accent-cyan : Theme.text-primary;
+                vertical-alignment: center;
+            }
+            Text {
+                text: root.column.done-count + "/" + root.column.total-count;
+                font-size: 11px;
+                color: Theme.text-muted;
+                vertical-alignment: center;
+                horizontal-stretch: 1;
+            }
+            TextAction {
+                width: 28px;
+                label: root.column.collapsed ? "+" : "-";
+                clicked => { TasksState.toggle-column(root.column.section); }
+            }
+        }
+
+        // Progress bar
+        Rectangle {
+            height: 4px;
+            border-radius: 2px;
+            background: Theme.bg-card;
+            Rectangle {
+                x: 0px;
+                width: parent.width * root.progress;
+                height: 100%;
+                border-radius: 2px;
+                background: Theme.accent-lime;
+            }
+        }
+
+        if !root.column.collapsed: VerticalLayout {
+            spacing: 8px;
+
+            if !root.is-done: Rectangle {
+                height: 32px;
+                border-radius: Theme.radius-sm;
+                background: Theme.bg-card;
+                border-width: 1px;
+                border-color: Theme.border-subtle;
+
+                HorizontalLayout {
+                    padding-left: 8px;
+                    padding-right: 8px;
+                    spacing: 6px;
+                    IconPlus {
+                        width: 12px;
+                        height: 12px;
+                        y: 10px;
+                        stroke-color: Theme.text-muted;
+                    }
+                    add-input := LineEdit {
+                        horizontal-stretch: 1;
+                        placeholder-text: "Add task (e.g. Write report 45m)";
+                        accepted(value) => {
+                            if (value != "") {
+                                TasksState.add-task(root.column.section, value);
+                                self.text = "";
+                            }
+                        }
+                    }
+                }
+            }
+
+            ScrollView {
+                vertical-stretch: 1;
+
+                VerticalLayout {
+                    spacing: 8px;
+                    alignment: start;
+
+                    for task in root.items: VerticalLayout {
+                        // Exactly one of these is shown: the card, or the editor in its place.
+                        if task.id != TasksState.editing-id: BoardCard {
+                            task: task;
+                            show-move: !root.is-done && root.column.section != "today";
+                        }
+                        if task.id == TasksState.editing-id: TaskEditor { }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// TasksScreen: sidebar, search, and the four-column board.
 export component TasksScreen inherits Rectangle {
     background: transparent;
 
-    ThulliEmptyState {
-        title: "No tasks yet";
-        subtitle: "Tasks you add will be sorted into Backlog, This Week and Today.";
+    init => { TasksState.request-refresh(); }
 
-        IconCheck {
-            width: 44px;
-            height: 44px;
+    HorizontalLayout {
+        // Sidebar
+        Rectangle {
+            width: 220px;
+            background: Theme.bg-sidebar;
+            border-width: 1px;
+            border-color: Theme.border-subtle;
+
+            VerticalLayout {
+                padding: 12px;
+                spacing: 4px;
+                alignment: start;
+
+                ThulliSearchField {
+                    text <=> TasksState.search-text;
+                    placeholder: "Search tasks and lists";
+                    changed(value) => { TasksState.search(value); }
+                }
+
+                Rectangle { height: 10px; }
+
+                for entry in [
+                    { key: "all", label: "All tasks" },
+                    { key: "logbook", label: "Logbook" },
+                    { key: "waiting", label: "Waiting" }
+                ]: Rectangle {
+                    height: 32px;
+                    border-radius: Theme.radius-sm;
+                    background: TasksState.filter == entry.key ? Theme.bg-card-selected : (row.has-hover ? Theme.bg-card-hover : transparent);
+                    row := TouchArea { clicked => { TasksState.set-filter(entry.key); } }
+                    HorizontalLayout {
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        Text {
+                            text: entry.label;
+                            font-size: 13px;
+                            font-weight: 600;
+                            color: TasksState.filter == entry.key ? Theme.text-primary : Theme.text-secondary;
+                            vertical-alignment: center;
+                            horizontal-stretch: 1;
+                        }
+                        Text {
+                            text: entry.key == "all" ? "" + TasksState.all-count : "";
+                            font-size: 11px;
+                            color: Theme.text-muted;
+                            vertical-alignment: center;
+                        }
+                    }
+                }
+
+                Rectangle { height: 14px; }
+
+                HorizontalLayout {
+                    padding-left: 10px;
+                    Text {
+                        text: "Your Lists";
+                        font-size: 11px;
+                        font-weight: 700;
+                        color: Theme.text-muted;
+                        horizontal-stretch: 1;
+                    }
+                    TextAction {
+                        width: 52px;
+                        label: "Manage";
+                        clicked => { TasksState.manage-lists(); }
+                    }
+                }
+
+                for list in TasksState.lists: Rectangle {
+                    height: 32px;
+                    border-radius: Theme.radius-sm;
+                    background: TasksState.filter == list.id ? Theme.bg-card-selected : (list-row.has-hover ? Theme.bg-card-hover : transparent);
+                    list-row := TouchArea { clicked => { TasksState.set-filter(list.id); } }
+                    HorizontalLayout {
+                        padding-left: 10px;
+                        padding-right: 10px;
+                        spacing: 8px;
+                        Rectangle {
+                            width: 8px;
+                            height: 8px;
+                            y: 12px;
+                            border-radius: 4px;
+                            background: list.color;
+                        }
+                        Text {
+                            text: list.name;
+                            font-size: 13px;
+                            color: TasksState.filter == list.id ? Theme.text-primary : Theme.text-secondary;
+                            overflow: elide;
+                            vertical-alignment: center;
+                            horizontal-stretch: 1;
+                        }
+                        Text {
+                            text: list.pending-count;
+                            font-size: 11px;
+                            color: Theme.text-muted;
+                            vertical-alignment: center;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Main area
+        VerticalLayout {
+            horizontal-stretch: 1;
+            padding: 16px;
+            padding-bottom: ShellState.content-bottom-inset;
+            spacing: 12px;
+
+            HorizontalLayout {
+                spacing: 8px;
+                Text {
+                    text: TasksState.search-text != "" ? "Search results" : TasksState.scope-title;
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                    vertical-alignment: center;
+                    horizontal-stretch: 1;
+                }
+                TextAction {
+                    width: 64px;
+                    label: "Undo";
+                    usable: TasksState.can-undo;
+                    clicked => { TasksState.undo(); }
+                }
+                TextAction {
+                    width: 64px;
+                    label: "Redo";
+                    usable: TasksState.can-redo;
+                    clicked => { TasksState.redo(); }
+                }
+            }
+
+            if TasksState.search-text != "": ScrollView {
+                vertical-stretch: 1;
+                ThulliSearchResults {
+                    hits: TasksState.search-hits;
+                    picked(id) => { TasksState.search-pick(id); }
+                }
+            }
+
+            // Logbook and Waiting: one flat list.
+            if TasksState.search-text == "" && (TasksState.filter == "logbook" || TasksState.filter == "waiting"): ScrollView {
+                vertical-stretch: 1;
+                VerticalLayout {
+                    spacing: 8px;
+                    alignment: start;
+                    for task in TasksState.tasks: VerticalLayout {
+                        if task.id != TasksState.editing-id: BoardCard { task: task; show-move: false; }
+                        if task.id == TasksState.editing-id: TaskEditor { }
+                    }
+                    if TasksState.tasks.length == 0: Text {
+                        text: TasksState.filter == "logbook" ? "Finished tasks show up here." : "Tasks you mark as waiting show up here.";
+                        font-size: 13px;
+                        color: Theme.text-muted;
+                    }
+                }
+            }
+
+            // The board
+            if TasksState.search-text == "" && TasksState.filter != "logbook" && TasksState.filter != "waiting": HorizontalLayout {
+                spacing: 12px;
+                vertical-stretch: 1;
+
+                for col[i] in TasksState.columns: BoardColumn {
+                    horizontal-stretch: 1;
+                    min-width: 180px;
+                    column: col;
+                    items: TasksState.column-tasks[i];
+                    progress: TasksState.column-progress[i];
+                    is-today: col.section == "today";
+                    is-done: col.section == "done";
+                }
+            }
+
         }
     }
 }
