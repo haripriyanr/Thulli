@@ -223,7 +223,7 @@ fn canonical_key(raw: &str) -> Option<String> {
 }
 
 impl KeyCombo {
-    /// Parses text like `Ctrl+Alt+Space` (case-insensitive, any modifier
+    /// Parses text like `Ctrl+Alt+Shift+T` (case-insensitive, any modifier
     /// order, common aliases accepted).
     pub fn parse(text: &str) -> Result<KeyCombo, ShortcutError> {
         let bad = |why: &str| ShortcutError::InvalidKeys(why.to_string());
@@ -711,6 +711,19 @@ mod tests {
     }
 
     #[test]
+    fn default_combos_are_unique_within_each_scope() {
+        let mut seen: HashMap<(bool, String), &str> = HashMap::new();
+        for d in SHORTCUT_DEFS {
+            let keys = default_keys(d.id).unwrap();
+            let combo = KeyCombo::parse(&keys).unwrap().display();
+            let key = (d.scope == Global, combo.clone());
+            if let Some(other) = seen.insert(key, d.id) {
+                panic!("{} and {} share the default combo {combo}", other, d.id);
+            }
+        }
+    }
+
+    #[test]
     fn parsing_is_flexible_and_canonical() {
         assert_eq!(KeyCombo::parse("alt+ctrl+t").unwrap().display(), "Ctrl+Alt+T");
         assert_eq!(KeyCombo::parse("Control + Shift + Comma").unwrap().display(), "Ctrl+Shift+,");
@@ -795,7 +808,7 @@ mod tests {
         let hit = Rc::new(Cell::new(false));
         let h = hit.clone();
         reg.on("show_app", move || h.set(true));
-        assert!(!reg.handle_app_key("Ctrl+Alt+Space"));
+        assert!(!reg.handle_app_key("Ctrl+Alt+Shift+T"));
         assert!(!hit.get());
     }
 
@@ -806,7 +819,7 @@ mod tests {
         {
             let st = state.borrow();
             assert_eq!(st.registered.len(), 5);
-            assert_eq!(st.registered["show_app"], "Ctrl+Alt+Space");
+            assert_eq!(st.registered["show_app"], "Ctrl+Alt+Shift+T");
         }
         let hit = Rc::new(Cell::new(0));
         let h = hit.clone();
@@ -824,7 +837,7 @@ mod tests {
     #[test]
     fn unavailable_global_shortcut_is_reported() {
         let (reg, state) = registry();
-        state.borrow_mut().refuse.push("Ctrl+Alt+Space".into());
+        state.borrow_mut().refuse.push("Ctrl+Alt+Shift+T".into());
         reg.sync_global();
         let row = reg.list().into_iter().find(|r| r.id == "show_app").unwrap();
         assert!(matches!(row.status, ShortcutStatus::Unavailable(_)));

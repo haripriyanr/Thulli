@@ -109,8 +109,8 @@ pub struct GlobalShortcuts {
 impl Default for GlobalShortcuts {
     fn default() -> Self {
         Self {
-            show_app: ShortcutBinding::new("Ctrl+Alt+Space"),
-            toggle_focus_mode: ShortcutBinding::new("Ctrl+Alt+M"),
+            show_app: ShortcutBinding::new("Ctrl+Alt+Shift+T"),
+            toggle_focus_mode: ShortcutBinding::new("Ctrl+Alt+Shift+M"),
             find_focus_timer: ShortcutBinding::new("Ctrl+Alt+J"),
             floating_notes: ShortcutBinding::new("Alt+."),
             quick_capture: ShortcutBinding::new("Alt+,"),
