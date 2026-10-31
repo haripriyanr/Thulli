@@ -1,0 +1,377 @@
+import { Theme } from "../theme.slint";
+import { IconCheck } from "../icons.slint";
+
+/// One block of a note as the editor shows it.
+///
+/// `kind` is one of "text", "h1", "h2", "h3", "bullet", "numbered", "todo",
+/// "code" or "link". `marker` is the bullet dot or list number text.
+export struct NoteBlockModel {
+    kind: string,
+    marker: string,
+    text: string,
+    url: string,
+    checked: bool,
+    indent: int,
+}
+
+/// A row in the slash command menu.
+export struct SlashItemModel {
+    id: string,
+    label: string,
+    hint: string,
+}
+
+/// ThulliNoteField: single-line text field with a placeholder.
+///
+/// Press Enter to submit. The text is cleared after submitting when
+/// `clear-on-submit` is true.
+export component ThulliNoteField inherits Rectangle {
+    in-out property <string> text <=> input.text;
+    in property <string> placeholder;
+    in property <bool> clear-on-submit: true;
+    in property <length> font-size: 13px;
+    callback submitted(string);
+    callback cancelled();
+
+    height: 34px;
+    background: Theme.bg-card;
+    border-radius: Theme.radius-sm;
+    border-width: 1px;
+    border-color: input.has-focus ? Theme.accent-cyan : Theme.border-subtle;
+
+    public function focus-field() {
+        input.focus();
+    }
+
+    Text {
+        x: 10px;
+        width: parent.width - 20px;
+        text: root.placeholder;
+        color: Theme.text-muted;
+        font-size: root.font-size;
+        vertical-alignment: center;
+        visible: input.text == "";
+    }
+
+    input := TextInput {
+        x: 10px;
+        width: parent.width - 20px;
+        height: parent.height;
+        single-line: true;
+        font-size: root.font-size;
+        color: Theme.text-primary;
+        vertical-alignment: center;
+        accepted => {
+            if (self.text != "") {
+                root.submitted(self.text);
+                if (root.clear-on-submit) {
+                    self.text = "";
+                }
+            }
+        }
+        key-pressed(event) => {
+            if (event.text == Key.Escape) {
+                root.cancelled();
+                return accept;
+            }
+            reject
+        }
+    }
+}
+
+/// ThulliGhostButton: outlined text button with optional hover tint. Never a
+/// solid colour block. Set `danger` for destructive actions.
+export component ThulliGhostButton inherits TouchArea {
+    in property <string> text;
+    in property <bool> danger: false;
+    in property <bool> active: false;
+    in property <length> font-size: 12px;
+
+    width: max(64px, label.preferred-width + 24px);
+    height: 28px;
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: Theme.radius-sm;
+        background: root.pressed ? Theme.bg-card-selected : (root.has-hover || root.active ? Theme.bg-card-hover : transparent);
+        border-width: 1px;
+        border-color: root.danger ? Theme.destructive : (root.active ? Theme.accent-cyan : Theme.border-light);
+
+        label := Text {
+            text: root.text;
+            font-size: root.font-size;
+            font-weight: 600;
+            color: root.danger ? Theme.destructive : Theme.text-primary;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+        }
+    }
+}
+
+/// ThulliNoteNavItem: a row in the notes sidebar: icon slot (child), label and count.
+export component ThulliNoteNavItem inherits TouchArea {
+    in property <string> label;
+    in property <int> count: -1;
+    in property <bool> selected: false;
+    callback remove();
+    in property <bool> removable: false;
+
+    height: 32px;
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: Theme.radius-sm;
+        background: root.selected ? Theme.bg-card-selected : (root.has-hover ? Theme.bg-card-hover : transparent);
+
+        HorizontalLayout {
+            padding-left: 10px;
+            padding-right: 8px;
+            spacing: 10px;
+            alignment: start;
+
+            HorizontalLayout {
+                width: 16px;
+                alignment: center;
+                @children
+            }
+
+            Text {
+                text: root.label;
+                font-size: 13px;
+                font-weight: root.selected ? 700 : 500;
+                color: root.selected ? Theme.text-primary : Theme.text-secondary;
+                vertical-alignment: center;
+                overflow: elide;
+            }
+        }
+
+        Text {
+            x: parent.width - self.width - (root.removable && root.has-hover ? 30px : 10px);
+            text: root.count >= 0 ? root.count : "";
+            font-size: 11px;
+            color: Theme.text-muted;
+            vertical-alignment: center;
+            height: parent.height;
+        }
+
+        if root.removable && root.has-hover: TouchArea {
+            x: parent.width - 24px;
+            y: 4px;
+            width: 24px;
+            height: 24px;
+            clicked => {
+                root.remove();
+            }
+            Text {
+                text: "\u{00D7}";
+                font-size: 16px;
+                color: Theme.text-muted;
+                horizontal-alignment: center;
+                vertical-alignment: center;
+            }
+        }
+    }
+}
+
+/// ThulliNoteBlockRow: one editable block of a note.
+///
+/// A single `TextInput` per block. The owner reacts to the callbacks and
+/// updates its block model. `is-target` plus a changed `focus-serial` asks the
+/// row to take the cursor; `focus-cursor` is the byte offset to place it at
+/// (-1 for the end).
+export component ThulliNoteBlockRow inherits Rectangle {
+    in property <NoteBlockModel> block;
+    in property <int> index;
+    in property <bool> is-target: false;
+    in property <int> focus-serial: 0;
+    in property <int> focus-cursor: -1;
+    in property <bool> read-only: false;
+    in property <bool> slash-open: false;
+
+    callback text-edited(string);
+    callback enter-pressed(int);
+    callback backspace-at-start() -> bool;
+    callback indent();
+    callback outdent();
+    callback toggle-todo();
+    callback checked-changed(bool);
+    callback task-from-selection(int, int);
+    callback add-link-requested(int, int);
+    callback slash-accept();
+    callback slash-dismiss();
+    callback url-edited(string);
+    callback remove-block();
+
+    property <bool> is-code: root.block.kind == "code";
+    property <bool> is-link: root.block.kind == "link";
+    property <length> font: root.block.kind == "h1" ? 24px : (root.block.kind == "h2" ? 19px : (root.block.kind == "h3" ? 16px : 14px));
+
+    background: transparent;
+    min-height: body.preferred-height + 6px;
+
+    function claim-focus() {
+        input.focus();
+        if (root.focus-cursor >= 0) {
+            input.set-selection-offsets(root.focus-cursor, root.focus-cursor);
+        } else {
+            input.set-selection-offsets(input.text.character-count, input.text.character-count);
+        }
+    }
+
+    init => {
+        if (root.is-target) {
+            root.claim-focus();
+        }
+    }
+    changed focus-serial => {
+        if (root.is-target) {
+            root.claim-focus();
+        }
+    }
+
+    body := HorizontalLayout {
+        padding-top: 3px;
+        padding-bottom: 3px;
+        spacing: 8px;
+
+        Rectangle {
+            width: root.block.indent * 22px;
+        }
+
+        // Marker column: bullet dot, number or checkbox
+        Rectangle {
+            width: root.block.kind == "bullet" || root.block.kind == "numbered" || root.block.kind == "todo" ? 22px : 0px;
+            if root.block.kind == "todo": TouchArea {
+                x: 2px;
+                y: 3px;
+                width: 18px;
+                height: 18px;
+                clicked => {
+                    root.checked-changed(!root.block.checked);
+                }
+                Rectangle {
+                    border-radius: 4px;
+                    border-width: 1.5px;
+                    border-color: root.block.checked ? Theme.accent-green : Theme.border-light;
+                    background: root.block.checked ? #00C28225 : transparent;
+                    if root.block.checked: IconCheck {
+                        width: 12px;
+                        height: 12px;
+                        x: 3px;
+                        y: 3px;
+                        stroke-color: Theme.accent-green;
+                    }
+                }
+            }
+            if root.block.kind == "bullet" || root.block.kind == "numbered": Text {
+                text: root.block.marker;
+                font-size: 14px;
+                color: Theme.text-secondary;
+                horizontal-alignment: right;
+                y: 3px;
+                width: 18px;
+            }
+        }
+
+        // Text area; code blocks sit on a panel, links on a card.
+        Rectangle {
+            background: root.is-code ? Theme.bg-panel : (root.is-link ? #6F98E812 : transparent);
+            border-radius: Theme.radius-sm;
+            border-width: root.is-code || root.is-link ? 1px : 0px;
+            border-color: root.is-link ? #6F98E855 : Theme.border-subtle;
+
+            VerticalLayout {
+                padding-left: root.is-code || root.is-link ? 10px : 0px;
+                padding-right: root.is-code || root.is-link ? 10px : 0px;
+                padding-top: root.is-code || root.is-link ? 6px : 0px;
+                padding-bottom: root.is-code || root.is-link ? 6px : 0px;
+                spacing: 2px;
+
+                Rectangle {
+                    min-height: input.preferred-height;
+                    Text {
+                        width: 100%;
+                        text: root.block.kind == "link" ? "Link title" : (root.block.kind == "text" ? "Type / for commands" : "");
+                        visible: input.text == "" && (root.block.kind == "text" ? root.is-target : true);
+                        color: Theme.text-muted;
+                        font-size: root.font;
+                    }
+                    input := TextInput {
+                        width: 100%;
+                        text: root.block.text;
+                        wrap: word-wrap;
+                        read-only: root.read-only;
+                        font-size: root.font;
+                        font-weight: root.block.kind == "h1" || root.block.kind == "h2" || root.block.kind == "h3" ? 700 : 400;
+                        font-family: root.is-code ? "Consolas, Cascadia Mono, monospace" : "Segoe UI, Inter, sans-serif";
+                        color: root.block.kind == "todo" && root.block.checked ? Theme.text-muted : (root.is-link ? Theme.accent-blue : Theme.text-primary);
+                        selection-background-color: #3CC9C455;
+                        edited => {
+                            root.text-edited(self.text);
+                        }
+                        key-pressed(event) => {
+                            if (event.text == Key.Escape && root.slash-open) {
+                                root.slash-dismiss();
+                                return accept;
+                            }
+                            if (event.text == Key.Return) {
+                                if (event.modifiers.control) {
+                                    root.toggle-todo();
+                                    return accept;
+                                }
+                                if (root.slash-open) {
+                                    root.slash-accept();
+                                    return accept;
+                                }
+                                if (!root.is-code) {
+                                    root.enter-pressed(self.cursor-position-byte-offset);
+                                    return accept;
+                                }
+                            }
+                            if (event.text == Key.Tab) {
+                                if (event.modifiers.shift) {
+                                    root.outdent();
+                                } else {
+                                    root.indent();
+                                }
+                                return accept;
+                            }
+                            if (event.text == Key.Backtab) {
+                                root.outdent();
+                                return accept;
+                            }
+                            if (event.text == Key.Backspace && self.cursor-position-byte-offset == 0 && self.anchor-position-byte-offset == 0) {
+                                if (root.backspace-at-start()) {
+                                    return accept;
+                                }
+                            }
+                            if (event.modifiers.control && event.modifiers.shift && event.text.to-lowercase() == "o") {
+                                root.task-from-selection(self.anchor-position-byte-offset, self.cursor-position-byte-offset);
+                                return accept;
+                            }
+                            if (event.modifiers.control && event.modifiers.alt && event.text.to-lowercase() == "k") {
+                                root.add-link-requested(self.anchor-position-byte-offset, self.cursor-position-byte-offset);
+                                return accept;
+                            }
+                            reject
+                        }
+                    }
+                }
+
+                if root.is-link: Rectangle {
+                    height: 20px;
+                    Text {
+                        width: 100%;
+                        text: root.block.url;
+                        font-size: 11px;
+                        color: Theme.text-muted;
+                        vertical-alignment: center;
+                        overflow: elide;
+                    }
+                }
+            }
+        }
+    }
+}
