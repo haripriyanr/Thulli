@@ -131,10 +131,14 @@ export component ThulliNoteNavItem inherits TouchArea {
             spacing: 10px;
             alignment: start;
 
-            HorizontalLayout {
+            // Icon column: centred on both axes so it sits beside the label.
+            VerticalLayout {
                 width: 16px;
                 alignment: center;
-                @children
+                HorizontalLayout {
+                    alignment: center;
+                    @children
+                }
             }
 
             Text {

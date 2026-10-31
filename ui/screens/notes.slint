@@ -109,6 +109,11 @@ component NoteEditorPane inherits Rectangle {
     border-width: 1px;
     border-color: Theme.border-subtle;
     clip: true;
+    // Take the leftover width and never ask the window to grow for long
+    // header text (task titles, stamps) or wide block rows.
+    horizontal-stretch: 1;
+    preferred-width: 0px;
+    min-width: 0px;
 
     property <bool> in-trash: NotesState.open-in-trash;
     property <bool> is-meeting: NotesState.open-kind == "meeting";

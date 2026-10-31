@@ -156,7 +156,10 @@ export component AssistantScreen inherits Rectangle {
 
         // ---- chat ---------------------------------------------------
         Rectangle {
+            // Takes all leftover width; its contents never widen the window.
             horizontal-stretch: 1;
+            preferred-width: 0px;
+            min-width: 0px;
             background: Theme.bg-panel;
             border-radius: Theme.radius-md;
             border-width: 1px;
@@ -289,9 +292,12 @@ export component AssistantScreen inherits Rectangle {
                     alignment: center;
                     vertical-stretch: 1;
                     spacing: 12px;
-                    IconChat {
-                        width: 40px;
-                        height: 40px;
+                    HorizontalLayout {
+                        alignment: center;
+                        IconChat {
+                            width: 40px;
+                            height: 40px;
+                        }
                     }
                     Text {
                         text: "Ask for a hand";
@@ -409,8 +415,9 @@ export component AssistantScreen inherits Rectangle {
                 HorizontalLayout {
                     spacing: 4px;
                     for kind-id in AssistantState.memory-kind-ids : TouchArea {
-                        width: 66px;
-                        height: 26px;
+                        horizontal-stretch: 1;
+                        min-width: 0px;
+                        height: 34px;
                         clicked => { AssistantState.new-memory-kind = kind-id; }
                         Rectangle {
                             width: 100%;
@@ -425,7 +432,7 @@ export component AssistantScreen inherits Rectangle {
                                 font-size: 9px;
                                 horizontal-alignment: center;
                                 vertical-alignment: center;
-                                overflow: elide;
+                                wrap: word-wrap;
                             }
                         }
                     }

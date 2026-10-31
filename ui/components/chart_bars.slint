@@ -6,7 +6,8 @@ import { BarModel } from "../types.slint";
 ///
 /// `BarModel.value` is 0 to 1 of the tallest bar. `goal-line` draws a thin
 /// horizontal marker at that fraction of the plot height (negative hides it).
-/// Value labels are shown only when each bar has room for them.
+/// Value labels are shown only when each bar has room for them. Day labels
+/// are thinned so that roughly one label per 28px of width is drawn.
 ///
 ///   ThulliBarChart { bars: days; bar-color: Theme.accent-blue; goal-line: 0.8; height: 160px; }
 export component ThulliBarChart inherits Rectangle {
@@ -20,6 +21,8 @@ export component ThulliBarChart inherits Rectangle {
 
     property <length> slot: root.bars.length > 0 ? root.width / root.bars.length : root.width;
     property <length> plot-height: max(1px, root.height - root.label-height - root.value-height);
+    // Show every Nth day label so neighbouring labels never overlap.
+    property <int> label-step: root.slot > 0px ? max(1, round(28px / root.slot)) : 1;
 
     min-height: 100px;
     background: transparent;
@@ -70,8 +73,9 @@ export component ThulliBarChart inherits Rectangle {
         }
 
         Text {
-            x: 0px;
-            width: root.slot;
+            visible: mod(i, root.label-step) == 0;
+            x: -(root.slot * (root.label-step - 1)) / 2;
+            width: root.slot * root.label-step;
             y: root.value-height + root.plot-height + 3px;
             height: root.label-height - 3px;
             text: bar.label;

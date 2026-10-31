@@ -32,7 +32,14 @@ export component ThulliActionButton inherits TouchArea {
             padding-left: 8px;
             padding-right: 8px;
 
-            @children
+            // Icon slot: centred on both axes so it sits beside the label.
+            VerticalLayout {
+                alignment: center;
+                horizontal-stretch: 0;
+                HorizontalLayout {
+                    @children
+                }
+            }
 
             Text {
                 text: root.text;

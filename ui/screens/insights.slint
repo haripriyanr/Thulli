@@ -231,20 +231,25 @@ export component InsightsScreen inherits Rectangle {
                         second: InsightsState.ratio-planning;
                         third: InsightsState.ratio-other;
                     }
-                    Text {
-                        text: "Focus  " + InsightsState.ratio-focus-label;
-                        font-size: 12px;
-                        color: Theme.accent-cyan;
-                    }
-                    Text {
-                        text: "Planning  " + InsightsState.ratio-planning-label;
-                        font-size: 12px;
-                        color: Theme.accent-blue;
-                    }
-                    Text {
-                        text: "Other  " + InsightsState.ratio-other-label;
-                        font-size: 12px;
-                        color: Theme.accent-pink;
+                    // Legend rows are grouped so the panel's spacing does not split them.
+                    VerticalLayout {
+                        spacing: 2px;
+                        vertical-stretch: 0;
+                        Text {
+                            text: "Focus  " + InsightsState.ratio-focus-label;
+                            font-size: 12px;
+                            color: Theme.accent-cyan;
+                        }
+                        Text {
+                            text: "Planning  " + InsightsState.ratio-planning-label;
+                            font-size: 12px;
+                            color: Theme.accent-blue;
+                        }
+                        Text {
+                            text: "Other  " + InsightsState.ratio-other-label;
+                            font-size: 12px;
+                            color: Theme.accent-pink;
+                        }
                     }
                 }
 
