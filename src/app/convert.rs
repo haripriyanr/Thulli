@@ -112,3 +112,8 @@ pub fn blocked_app_model(app: &BlockedApp) -> BlockedAppModel {
 pub fn blocked_site_model(site: &BlockedSite) -> BlockedSiteModel {
     BlockedSiteModel { id: site.id.clone().into(), domain: site.domain.clone().into(), active: site.active }
 }
+
+/// Wraps rows in a shared model for a Slint list property.
+pub fn model_of<T: Clone + 'static>(rows: Vec<T>) -> ModelRc<T> {
+    ModelRc::from(Rc::new(VecModel::from(rows)))
+}

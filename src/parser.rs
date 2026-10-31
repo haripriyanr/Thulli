@@ -22,15 +22,16 @@ static COLON_TIME: LazyLock<Regex> = LazyLock::new(|| {
 });
 
 static TAG_REGEX: LazyLock<Regex> = LazyLock::new(|| {
-    // Matches @today, @week, @this-week, @backlog
-    Regex::new(r"(?i)@(today|this-?week|week|backlog)\b").unwrap()
+    // Matches @today, @week, @this-week, @this_week, @backlog
+    Regex::new(r"(?i)@(today|this[-_]?week|week|backlog)\b").unwrap()
 });
 
 #[derive(Debug, PartialEq, Clone)]
 pub struct ParsedTaskTitle {
     pub cleaned_title: String,
     pub estimate_mins: u32,
-    pub target_board: String, // "today", "week", "backlog"
+    /// Section value: `"backlog"`, `"this_week"` or `"today"`.
+    pub target_board: String,
 }
 
 /// High performance natural language title parser with duration and tag extraction
@@ -44,7 +45,7 @@ pub fn parse_task_title(input: &str, default_board: &str) -> ParsedTaskTitle {
         let tag = caps.get(1).unwrap().as_str().to_lowercase();
         target_board = match tag.as_str() {
             "today" => "today".to_string(),
-            "week" | "this-week" | "thisweek" => "week".to_string(),
+            "week" | "this-week" | "this_week" | "thisweek" => "this_week".to_string(),
             "backlog" => "backlog".to_string(),
             _ => default_board.to_string(),
         };
@@ -119,11 +120,32 @@ mod tests {
         let p3 = parse_task_title("Refactor engine @week", "today");
         assert_eq!(p3.cleaned_title, "Refactor engine");
         assert_eq!(p3.estimate_mins, 25);
-        assert_eq!(p3.target_board, "week");
+        assert_eq!(p3.target_board, "this_week");
 
         let p4 = parse_task_title("Plain simple todo", "today");
         assert_eq!(p4.cleaned_title, "Plain simple todo");
         assert_eq!(p4.estimate_mins, 25);
         assert_eq!(p4.target_board, "today");
+    }
+
+    #[test]
+    fn section_tags_emit_stored_section_values() {
+        for (input, expected) in [
+            ("a @today", "today"),
+            ("a @week", "this_week"),
+            ("a @this-week", "this_week"),
+            ("a @this_week", "this_week"),
+            ("a @THISWEEK", "this_week"),
+            ("a @backlog", "backlog"),
+        ] {
+            let parsed = parse_task_title(input, "backlog");
+            assert_eq!(parsed.target_board, expected, "{input}");
+            assert_eq!(parsed.cleaned_title, "a", "{input}");
+        }
+    }
+
+    #[test]
+    fn default_section_is_kept_without_a_tag() {
+        assert_eq!(parse_task_title("plain", "this_week").target_board, "this_week");
     }
 }
