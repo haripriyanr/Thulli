@@ -1,0 +1,61 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliRing: a circular progress ring.
+///
+/// `progress` runs from 0 to 1. Elements placed inside fill the ring's
+/// square, so a Text or layout can be centred in it.
+///
+///   ThulliRing { width: 220px; height: 220px; progress: 0.4; Text { text: "40%"; } }
+export component ThulliRing inherits Rectangle {
+    in property <float> progress: 0;
+    in property <length> thickness: 10px;
+    in property <color> ring-color: Theme.accent-cyan;
+    in property <color> track-color: Theme.border-subtle;
+
+    width: 220px;
+    height: 220px;
+
+    property <float> size: min(root.width, root.height) / 1px;
+    property <float> r: (root.size - root.thickness / 1px) / 2;
+    property <float> c: root.size / 2;
+    property <float> p: max(0.0001, min(0.9999, root.progress));
+    property <angle> sweep: 360deg * root.p;
+    property <float> end-x: root.c + root.r * Math.sin(root.sweep);
+    property <float> end-y: root.c - root.r * Math.cos(root.sweep);
+
+    Path {
+        width: 100%;
+        height: 100%;
+        viewbox-x: 0;
+        viewbox-y: 0;
+        viewbox-width: root.size;
+        viewbox-height: root.size;
+        stroke: root.track-color;
+        stroke-width: root.thickness;
+        fill: transparent;
+        commands: "M " + root.c + " " + (root.c - root.r)
+            + " A " + root.r + " " + root.r + " 0 1 1 " + root.c + " " + (root.c + root.r)
+            + " A " + root.r + " " + root.r + " 0 1 1 " + root.c + " " + (root.c - root.r);
+    }
+
+    if root.progress > 0.001: Path {
+        width: 100%;
+        height: 100%;
+        viewbox-x: 0;
+        viewbox-y: 0;
+        viewbox-width: root.size;
+        viewbox-height: root.size;
+        stroke: root.ring-color;
+        stroke-width: root.thickness;
+        stroke-line-cap: round;
+        fill: transparent;
+        commands: "M " + root.c + " " + (root.c - root.r)
+            + " A " + root.r + " " + root.r + " 0 " + (root.p > 0.5 ? "1" : "0") + " 1 " + root.end-x + " " + root.end-y;
+    }
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        @children
+    }
+}

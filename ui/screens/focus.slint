@@ -1,7 +1,10 @@
 import { Theme } from "../theme.slint";
 import { ThulliEmptyState } from "../components/empty_state.slint";
-import { IconBolt } from "../icons.slint";
+import { ThulliActionButton } from "../components/action_button.slint";
+import { ThulliTaskRow } from "../components/task_row.slint";
+import { IconBolt, IconPause, IconPlay, IconCoffee, IconSkip, IconCheck, IconClose } from "../icons.slint";
 import { TaskModel, FocusQueueItemModel } from "../types.slint";
+import { ScrollView } from "std-widgets.slint";
 
 /// State and callbacks for the focus screen. The screen owner edits this
 /// global freely; the shell re-exports it, so app.slint does not change.
@@ -14,7 +17,7 @@ export global FocusState {
     /// Clock text, HH:MM:SS while counting up on a task.
     in-out property <string> clock: "00:00:00";
     in-out property <string> estimate-label: "";
-    /// 0 to 1 ring progress against the estimate.
+    /// 0 to 1 progress against the estimate.
     in-out property <float> progress: 0;
     in-out property <bool> overtime: false;
     in-out property <bool> on-break: false;
@@ -38,17 +41,136 @@ export global FocusState {
     callback pick-background-image();
 }
 
-/// FocusScreen: stub with an empty state. Replace the body with the real screen.
+/// Expanded focus view: the running clock against the estimate, the task's
+/// notes and steps, the day's queue, and the run controls.
 export component FocusScreen inherits Rectangle {
     background: transparent;
 
-    ThulliEmptyState {
+    if FocusState.task-id == "" && FocusState.clock == "00:00:00": ThulliEmptyState {
         title: "Ready when you are";
         subtitle: "Start a task to focus on it. Time counts up against your estimate.";
 
         IconBolt {
             width: 44px;
             height: 44px;
+        }
+    }
+
+    if !(FocusState.task-id == "" && FocusState.clock == "00:00:00"): VerticalLayout {
+        padding: 24px;
+        spacing: 16px;
+
+        HorizontalLayout {
+            spacing: 8px;
+            Text {
+                horizontal-stretch: 1;
+                text: FocusState.on-break ? "Break" : "Focus";
+                font-size: 13px;
+                font-weight: 700;
+                color: Theme.text-secondary;
+                vertical-alignment: center;
+            }
+            ThulliActionButton {
+                width: 130px;
+                height: 34px;
+                text: "Close session";
+                clicked => { FocusState.close-session(); }
+                IconClose { }
+            }
+        }
+
+        VerticalLayout {
+            spacing: 6px;
+            Text {
+                text: FocusState.task-title != "" ? FocusState.task-title : "Free focus";
+                font-size: 20px;
+                font-weight: 700;
+                color: Theme.text-primary;
+                overflow: elide;
+                horizontal-alignment: center;
+            }
+            Text {
+                text: FocusState.clock;
+                font-size: 56px;
+                font-weight: 700;
+                color: FocusState.overtime ? Theme.accent-amber : Theme.text-primary;
+                horizontal-alignment: center;
+            }
+            Text {
+                text: FocusState.estimate-label;
+                font-size: 13px;
+                color: FocusState.overtime ? Theme.accent-amber : Theme.text-secondary;
+                horizontal-alignment: center;
+            }
+            Rectangle {
+                height: 6px;
+                border-radius: 3px;
+                background: Theme.border-subtle;
+                Rectangle {
+                    x: 0;
+                    width: parent.width * FocusState.progress;
+                    height: parent.height;
+                    border-radius: 3px;
+                    background: FocusState.overtime ? Theme.accent-amber : Theme.accent-cyan;
+                }
+            }
+        }
+
+        HorizontalLayout {
+            alignment: center;
+            spacing: 10px;
+            ThulliActionButton {
+                width: 120px;
+                height: 38px;
+                text: FocusState.paused ? "Resume" : "Pause";
+                clicked => { FocusState.toggle-pause(); }
+                IconPause { }
+            }
+            ThulliActionButton {
+                width: 110px;
+                height: 38px;
+                text: "Break";
+                clicked => { FocusState.start-break(); }
+                IconCoffee { }
+            }
+            ThulliActionButton {
+                width: 110px;
+                height: 38px;
+                text: "Skip";
+                clicked => { FocusState.skip(); }
+                IconSkip { }
+            }
+            ThulliActionButton {
+                width: 110px;
+                height: 38px;
+                text: "Done";
+                clicked => { FocusState.done(); }
+                IconCheck { }
+            }
+        }
+
+        if FocusState.task-notes != "": Text {
+            text: FocusState.task-notes;
+            font-size: 13px;
+            color: Theme.text-secondary;
+            wrap: word-wrap;
+        }
+
+        ScrollView {
+            VerticalLayout {
+                spacing: 4px;
+                Text {
+                    text: "Today " + FocusState.queue-done + " of " + FocusState.queue-total + " done";
+                    font-size: 12px;
+                    color: Theme.text-muted;
+                }
+                for item in FocusState.queue: ThulliTaskRow {
+                    title: item.title;
+                    active: item.active;
+                    done: item.done;
+                    clicked => { FocusState.select-task(item.task-id); }
+                }
+            }
         }
     }
 }

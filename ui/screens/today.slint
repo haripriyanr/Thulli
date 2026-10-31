@@ -1,60 +1,1001 @@
 import { Theme } from "../theme.slint";
+import { ShellState } from "../shell_state.slint";
 import { ThulliEmptyState } from "../components/empty_state.slint";
-import { ThulliButton } from "../components/buttons.slint";
-import { IconSun } from "../icons.slint";
+import { ThulliActionButton } from "../components/action_button.slint";
+import { ThulliRing } from "../components/ring.slint";
+import { ThulliStepper } from "../components/stepper.slint";
+import { ThulliDayTimeline } from "../components/day_timeline.slint";
+import { ThulliTaskRow } from "../components/task_row.slint";
+import { ThulliSheet } from "../components/sheet.slint";
+import { IconSun, IconPlay, IconPause, IconCheck, IconCoffee, IconChevronLeft, IconChevronRight, IconBolt, IconClock, IconPlus } from "../icons.slint";
 import { TaskModel, TimeBlockModel } from "../types.slint";
+import { LineEdit, ListView, TextEdit } from "std-widgets.slint";
 
 /// State and callbacks for the today screen. The screen owner edits this
 /// global freely; the shell re-exports it, so app.slint does not change.
 export global TodayState {
     /// "empty" before planning, then "planning", "working" and "wrapped".
     in-out property <string> phase: "empty";
+    in-out property <string> date-label: "";
+
+    /// Today's open tasks in priority order.
     in-out property <[TaskModel]> tasks: [];
+    /// Open tasks that are not in Today yet (planning sidebar).
+    in-out property <[TaskModel]> candidates: [];
+    /// Every open task (task picker).
+    in-out property <[TaskModel]> picker: [];
     in-out property <[TimeBlockModel]> timeline: [];
+    /// Minutes since local midnight, for the now-line.
+    in-out property <int> now-mins: 0;
+
     in-out property <int> session-minutes: 90;
+    /// "idle", "task", "session", "sprint", "break" or "planning".
+    in-out property <string> run-mode: "idle";
+    in-out property <string> run-clock: "00:00";
+    in-out property <string> run-title: "";
+    in-out property <string> run-label: "";
+    in-out property <float> run-progress: 0;
+    in-out property <bool> run-paused: false;
+    in-out property <bool> run-overtime: false;
+    in-out property <string> chosen-task-title: "";
+    in-out property <string> planning-clock: "00:00";
+    in-out property <bool> can-start-now: false;
+    in-out property <bool> awaiting-next: false;
+    /// Message after a session ends, such as "Session finished: 1h 30m of focus".
+    in-out property <string> notice: "";
+    /// Shrinks the session card to one line.
+    in-out property <bool> compact: false;
+    /// Seconds of the session being finished while the short-session prompt is open; negative when closed.
+    in-out property <int> short-prompt-secs: -1;
+
+    // Daily goal
     in-out property <float> goal-progress: 0;
     in-out property <string> goal-label: "";
+    in-out property <int> goal-mins: 360;
+    in-out property <string> goal-worked: "0m";
+    in-out property <string> goal-left: "0m";
+    in-out property <string> goal-focus: "0m";
+    in-out property <string> goal-meetings: "0m";
+    in-out property <string> goal-other: "0m";
+
+    // Wrapped-up day
+    in-out property <string> wrapped-worked: "0m";
+    in-out property <string> wrapped-brain-dump: "";
+
     callback plan-day();
     callback skip-planning();
     callback finish-planning();
     callback start-session(int);
     callback toggle-session();
     callback finish-session();
-    callback wrap-up();
+    /// "save", "delete" or "cancel", from the short-session prompt.
+    callback short-session-choice(string);
+    callback wrap-up(string);
+    callback reopen-day();
+    callback start-task(string);
+    callback choose-task(string);
+    callback complete-task(string);
+    callback add-to-today(string);
+    callback remove-from-today(string);
+    callback add-task(string);
+    callback set-session-minutes(int);
+    callback set-goal(int);
+    callback start-break();
+    callback end-break();
+    callback start-now();
+    callback continue-next();
+    callback open-focus();
 }
 
-/// TodayScreen: stub with an empty state. Replace the body with the real screen.
-export component TodayScreen inherits Rectangle {
-    background: transparent;
+/// A titled card used for the session bar and the wrapped-up summary.
+component Card inherits Rectangle {
+    background: Theme.bg-card;
+    border-radius: Theme.radius-lg;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+}
 
-    ThulliEmptyState {
-        title: "Your day starts here";
-        subtitle: "Plan your day to choose what matters, or jump straight into a focus session.";
+/// A small label above a list.
+component SectionTitle inherits HorizontalLayout {
+    in property <string> text;
+    in property <string> trailing: "";
+    height: 24px;
+    Text {
+        text: root.text;
+        font-size: 12px;
+        font-weight: 700;
+        color: Theme.text-secondary;
+        vertical-alignment: center;
+        horizontal-stretch: 1;
+    }
+    Text {
+        text: root.trailing;
+        font-size: 11px;
+        color: Theme.text-muted;
+        vertical-alignment: center;
+    }
+}
 
-        IconSun {
-            width: 44px;
+/// An inline "add a task" field that clears itself after use.
+component AddTaskField inherits Rectangle {
+    in property <string> placeholder: "Add a task, for example Draft report 45m";
+    callback submitted(string);
+    height: 40px;
+    border-radius: Theme.radius-sm;
+    background: Theme.bg-card;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    HorizontalLayout {
+        padding-left: 12px;
+        padding-right: 6px;
+        spacing: 6px;
+        VerticalLayout {
+            alignment: center;
+            IconPlus { stroke-color: Theme.text-muted; }
+        }
+        field := LineEdit {
+            placeholder-text: root.placeholder;
+            horizontal-stretch: 1;
+            accepted(text) => {
+                if (text != "") {
+                    root.submitted(text);
+                    self.text = "";
+                }
+            }
+        }
+    }
+}
+
+/// Day goal ring with its percentage; click to open the popover.
+component GoalButton inherits TouchArea {
+    width: 190px;
+    height: 44px;
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: Theme.radius-md;
+        background: parent.has-hover ? Theme.bg-card-hover : Theme.bg-card;
+        border-width: 1px;
+        border-color: Theme.border-subtle;
+
+        HorizontalLayout {
+            padding-left: 8px;
+            padding-right: 12px;
+            spacing: 10px;
+            ThulliRing {
+                width: 30px;
+                height: 30px;
+                y: 7px;
+                thickness: 4px;
+                progress: TodayState.goal-progress;
+                ring-color: TodayState.goal-progress >= 1 ? Theme.accent-green : Theme.accent-cyan;
+            }
+            VerticalLayout {
+                alignment: center;
+                Text {
+                    text: "Daily goal";
+                    font-size: 10px;
+                    color: Theme.text-muted;
+                }
+                Text {
+                    text: TodayState.goal-label;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                }
+            }
+        }
+    }
+}
+
+/// The Plan step: choose what goes into Today. Planning time is tracked.
+component PlanningView inherits Rectangle {
+    VerticalLayout {
+        padding: 24px;
+        padding-bottom: ShellState.content-bottom-inset;
+        spacing: 14px;
+
+        HorizontalLayout {
             height: 44px;
+            spacing: 12px;
+            VerticalLayout {
+                alignment: center;
+                horizontal-stretch: 1;
+                Text {
+                    text: "Plan your day";
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                }
+                Text {
+                    text: "Choose what belongs in Today. Planning time is tracked: " + TodayState.planning-clock;
+                    font-size: 12px;
+                    color: Theme.text-secondary;
+                }
+            }
+            ThulliActionButton {
+                width: 140px;
+                height: 38px;
+                text: "Finish planning";
+                clicked => { TodayState.finish-planning(); }
+                IconCheck { }
+            }
+        }
+
+        HorizontalLayout {
+            spacing: 16px;
+            vertical-stretch: 1;
+
+            // Task sidebar
+            Rectangle {
+                width: 340px;
+                border-radius: Theme.radius-lg;
+                background: Theme.bg-panel;
+                border-width: 1px;
+                border-color: Theme.border-subtle;
+
+                VerticalLayout {
+                    padding: 14px;
+                    spacing: 8px;
+                    SectionTitle {
+                        text: "Your tasks";
+                        trailing: TodayState.candidates.length + " waiting";
+                    }
+                    if TodayState.candidates.length == 0: Text {
+                        text: "Everything open is already in Today.";
+                        font-size: 12px;
+                        color: Theme.text-muted;
+                        wrap: word-wrap;
+                    }
+                    ListView {
+                        vertical-stretch: 1;
+                        for task in TodayState.candidates: Rectangle {
+                            height: 54px;
+                            ThulliTaskRow {
+                                height: 48px;
+                                title: task.title;
+                                meta: (task.section == "this_week" ? "This Week" : "Backlog")
+                                    + (task.estimate-mins > 0 ? " · " + task.estimate-mins + "m" : "");
+                                accent: task.list-color;
+                                show-add: true;
+                                add => { TodayState.add-to-today(task.id); }
+                                clicked => { TodayState.add-to-today(task.id); }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Today
+            VerticalLayout {
+                spacing: 8px;
+                horizontal-stretch: 1;
+                SectionTitle {
+                    text: "Today";
+                    trailing: TodayState.tasks.length + " planned";
+                }
+                AddTaskField {
+                    submitted(text) => { TodayState.add-task(text); }
+                }
+                if TodayState.tasks.length == 0: Text {
+                    text: "Nothing planned yet. Pick tasks from the left or add a new one.";
+                    font-size: 12px;
+                    color: Theme.text-muted;
+                    wrap: word-wrap;
+                }
+                ListView {
+                    vertical-stretch: 1;
+                    for task in TodayState.tasks: Rectangle {
+                        height: 54px;
+                        ThulliTaskRow {
+                            height: 48px;
+                            title: task.title;
+                            meta: task.estimate-mins > 0 ? task.estimate-mins + "m estimate" : "";
+                            accent: task.list-color;
+                            show-remove: true;
+                            remove => { TodayState.remove-from-today(task.id); }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// The session bar: duration picker and start, or the running clock.
+component SessionCard inherits Card {
+    property <bool> busy: TodayState.run-mode != "idle" && TodayState.run-mode != "planning";
+    property <bool> countdown: TodayState.run-mode == "session" || TodayState.run-mode == "sprint";
+
+    callback pick-task();
+
+    height: !root.busy ? (TodayState.awaiting-next ? 96px : 132px)
+        : TodayState.compact ? 64px
+        : root.countdown ? 156px : 132px;
+
+    // Idle: pick a length and start
+    if !root.busy && !TodayState.awaiting-next: VerticalLayout {
+        padding: 16px;
+        spacing: 12px;
+        HorizontalLayout {
+            spacing: 12px;
+            VerticalLayout {
+                alignment: center;
+                horizontal-stretch: 1;
+                Text {
+                    text: "Focus session";
+                    font-size: 15px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                }
+                Text {
+                    text: "Pick a length, then start. Choose a task now or any time later.";
+                    font-size: 12px;
+                    color: Theme.text-secondary;
+                    wrap: word-wrap;
+                }
+            }
+            ThulliStepper {
+                value: TodayState.session-minutes;
+                changed(v) => { TodayState.set-session-minutes(v); }
+            }
+            ThulliActionButton {
+                width: 130px;
+                height: 38px;
+                text: "Start session";
+                clicked => { TodayState.start-session(TodayState.session-minutes); }
+                IconPlay { stroke-color: Theme.accent-cyan; fill-color: #3CC9C425; }
+            }
+        }
+        HorizontalLayout {
+            spacing: 10px;
+            Text {
+                text: TodayState.chosen-task-title != "" ? "Focus task: " + TodayState.chosen-task-title : "No task chosen yet";
+                font-size: 12px;
+                color: TodayState.chosen-task-title != "" ? Theme.text-primary : Theme.text-muted;
+                vertical-alignment: center;
+                overflow: elide;
+                horizontal-stretch: 1;
+            }
+            ThulliActionButton {
+                width: 120px;
+                height: 30px;
+                text: "Choose task";
+                accent: Theme.accent-blue;
+                clicked => { root.pick-task(); }
+            }
+            ThulliActionButton {
+                width: 100px;
+                height: 30px;
+                text: "Start now";
+                enabled: TodayState.can-start-now;
+                clicked => { TodayState.start-now(); }
+                IconBolt { }
+            }
         }
     }
 
-    HorizontalLayout {
-        y: parent.height / 2 + 90px;
-        width: parent.width;
-        alignment: center;
+    // A break just ended
+    if !root.busy && TodayState.awaiting-next: HorizontalLayout {
+        padding: 16px;
         spacing: 12px;
-        height: 36px;
-
-        ThulliButton {
-            text: "Plan your day";
-            variant: "secondary";
-            width: 130px;
-            clicked => { TodayState.plan-day(); }
+        VerticalLayout {
+            alignment: center;
+            horizontal-stretch: 1;
+            Text {
+                text: "Break is over";
+                font-size: 15px;
+                font-weight: 700;
+                color: Theme.text-primary;
+            }
+            Text {
+                text: "Ready to pick up where you left off?";
+                font-size: 12px;
+                color: Theme.text-secondary;
+            }
         }
-        ThulliButton {
-            text: "Skip planning";
-            variant: "secondary";
-            width: 130px;
-            clicked => { TodayState.skip-planning(); }
+        VerticalLayout {
+            alignment: center;
+            ThulliActionButton {
+                width: 150px;
+                height: 38px;
+                text: "Start next task";
+                clicked => { TodayState.continue-next(); }
+                IconPlay { stroke-color: Theme.accent-cyan; fill-color: #3CC9C425; }
+            }
+        }
+    }
+
+    // Compact running view
+    if root.busy && TodayState.compact: HorizontalLayout {
+        padding: 12px;
+        padding-left: 16px;
+        spacing: 12px;
+        Text {
+            text: TodayState.run-clock;
+            font-size: 24px;
+            font-weight: 700;
+            color: TodayState.run-overtime ? Theme.accent-amber : Theme.text-primary;
+            vertical-alignment: center;
+        }
+        Text {
+            text: TodayState.run-title != "" ? TodayState.run-title : TodayState.run-label;
+            font-size: 12px;
+            color: Theme.text-secondary;
+            vertical-alignment: center;
+            overflow: elide;
+            horizontal-stretch: 1;
+        }
+        VerticalLayout {
+            alignment: center;
+            ThulliActionButton {
+                width: 100px;
+                height: 32px;
+                text: TodayState.run-paused ? "Resume" : "Pause";
+                clicked => { TodayState.toggle-session(); }
+                if TodayState.run-paused: IconPlay { stroke-color: Theme.accent-cyan; fill-color: #3CC9C425; }
+                if !TodayState.run-paused: IconPause { }
+            }
+        }
+        collapse-area := TouchArea {
+            width: 32px;
+            height: 40px;
+            clicked => { TodayState.compact = false; }
+            IconChevronRight {
+                x: (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+            }
+        }
+    }
+
+    // Full running view
+    if root.busy && !TodayState.compact: VerticalLayout {
+        padding: 16px;
+        spacing: 10px;
+
+        HorizontalLayout {
+            spacing: 14px;
+            VerticalLayout {
+                alignment: center;
+                Text {
+                    text: TodayState.run-clock;
+                    font-size: 38px;
+                    font-weight: 700;
+                    color: TodayState.run-overtime ? Theme.accent-amber : Theme.text-primary;
+                }
+            }
+            VerticalLayout {
+                alignment: center;
+                horizontal-stretch: 1;
+                spacing: 2px;
+                Text {
+                    text: TodayState.run-mode == "break" ? "Break"
+                        : TodayState.run-title != "" ? TodayState.run-title : "Focus session";
+                    font-size: 14px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                    overflow: elide;
+                }
+                Text {
+                    text: TodayState.run-label;
+                    font-size: 12px;
+                    color: TodayState.run-overtime ? Theme.accent-amber : Theme.text-secondary;
+                    overflow: elide;
+                }
+            }
+            collapse-full := TouchArea {
+                width: 32px;
+                height: 32px;
+                clicked => { TodayState.compact = true; }
+                IconChevronLeft {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                }
+            }
+        }
+
+        Rectangle {
+            height: 4px;
+            border-radius: 2px;
+            background: Theme.border-subtle;
+            Rectangle {
+                width: parent.width * Math.min(1.0, Math.max(0.0, TodayState.run-progress));
+                height: 100%;
+                border-radius: 2px;
+                background: TodayState.run-overtime ? Theme.accent-amber : Theme.accent-cyan;
+            }
+        }
+
+        HorizontalLayout {
+            spacing: 8px;
+            alignment: start;
+            ThulliActionButton {
+                width: 104px;
+                height: 32px;
+                text: TodayState.run-paused ? "Resume" : "Pause";
+                clicked => { TodayState.toggle-session(); }
+                if TodayState.run-paused: IconPlay { stroke-color: Theme.accent-cyan; fill-color: #3CC9C425; }
+                if !TodayState.run-paused: IconPause { }
+            }
+            if TodayState.run-paused && TodayState.run-mode != "break": ThulliActionButton {
+                width: 128px;
+                height: 32px;
+                text: "Finish session";
+                accent: Theme.accent-green;
+                clicked => { TodayState.finish-session(); }
+            }
+            if TodayState.run-mode == "break": ThulliActionButton {
+                width: 104px;
+                height: 32px;
+                text: "End break";
+                accent: Theme.accent-amber;
+                clicked => { TodayState.end-break(); }
+            }
+            if TodayState.run-mode == "task": ThulliActionButton {
+                width: 90px;
+                height: 32px;
+                text: "Done";
+                accent: Theme.accent-green;
+                clicked => { TodayState.complete-task(""); }
+                IconCheck { }
+            }
+            if TodayState.run-mode != "break": ThulliActionButton {
+                width: 90px;
+                height: 32px;
+                text: "Break";
+                accent: Theme.accent-amber;
+                clicked => { TodayState.start-break(); }
+                IconCoffee { }
+            }
+            if root.countdown: ThulliActionButton {
+                width: 118px;
+                height: 32px;
+                text: "Switch task";
+                accent: Theme.accent-blue;
+                clicked => { root.pick-task(); }
+            }
+            ThulliActionButton {
+                width: 118px;
+                height: 32px;
+                text: "Focus view";
+                accent: Theme.accent-pink;
+                clicked => { TodayState.open-focus(); }
+            }
+        }
+    }
+}
+
+/// The Work step: session bar and priority list on the left, day timeline on the right.
+component WorkingView inherits Rectangle {
+    callback pick-task();
+    callback open-goal();
+    callback open-wrap();
+
+    property <bool> timeline-open: true;
+
+    HorizontalLayout {
+        VerticalLayout {
+            padding: 24px;
+            padding-bottom: ShellState.content-bottom-inset;
+            spacing: 12px;
+            horizontal-stretch: 1;
+
+            HorizontalLayout {
+                height: 46px;
+                spacing: 10px;
+                VerticalLayout {
+                    alignment: center;
+                    horizontal-stretch: 1;
+                    Text {
+                        text: "Today";
+                        font-size: 24px;
+                        font-weight: 700;
+                        color: Theme.text-primary;
+                    }
+                    Text {
+                        text: TodayState.date-label;
+                        font-size: 12px;
+                        color: Theme.text-secondary;
+                    }
+                }
+                GoalButton {
+                    clicked => { root.open-goal(); }
+                }
+                ThulliActionButton {
+                    y: 6px;
+                    width: 120px;
+                    height: 34px;
+                    text: "Wrap up early";
+                    accent: Theme.accent-amber;
+                    clicked => { root.open-wrap(); }
+                }
+                collapse := TouchArea {
+                    width: 30px;
+                    height: 46px;
+                    clicked => { root.timeline-open = !root.timeline-open; }
+                    if root.timeline-open: IconChevronRight {
+                        x: (parent.width - self.width) / 2;
+                        y: (parent.height - self.height) / 2;
+                    }
+                    if !root.timeline-open: IconClock {
+                        x: (parent.width - self.width) / 2;
+                        y: (parent.height - self.height) / 2;
+                    }
+                }
+            }
+
+            if TodayState.notice != "": Text {
+                text: TodayState.notice;
+                font-size: 12px;
+                color: Theme.accent-green;
+                wrap: word-wrap;
+            }
+
+            SessionCard {
+                pick-task => { root.pick-task(); }
+            }
+
+            SectionTitle {
+                text: "Priority list";
+                trailing: TodayState.tasks.length + " to do";
+            }
+
+            AddTaskField {
+                submitted(text) => { TodayState.add-task(text); }
+            }
+
+            if TodayState.tasks.length == 0: Text {
+                text: "Nothing left in Today. Add a task above, or wrap up when you are ready.";
+                font-size: 12px;
+                color: Theme.text-muted;
+                wrap: word-wrap;
+            }
+
+            ListView {
+                vertical-stretch: 1;
+                for task in TodayState.tasks: Rectangle {
+                    height: 54px;
+                    ThulliTaskRow {
+                        height: 48px;
+                        title: task.title;
+                        meta: (task.estimate-mins > 0 ? task.estimate-mins + "m estimate" : "")
+                            + (task.tracked-mins > 0 ? (task.estimate-mins > 0 ? " · " : "") + task.tracked-mins + "m tracked" : "");
+                        warn: task.over-estimate;
+                        accent: task.list-color;
+                        show-play: true;
+                        show-check: true;
+                        show-remove: true;
+                        play => { TodayState.start-task(task.id); }
+                        check => { TodayState.complete-task(task.id); }
+                        remove => { TodayState.remove-from-today(task.id); }
+                        clicked => { TodayState.choose-task(task.id); }
+                    }
+                }
+            }
+        }
+
+        if root.timeline-open: Rectangle {
+            width: 300px;
+            background: Theme.bg-panel;
+            VerticalLayout {
+                padding-top: 16px;
+                padding-bottom: ShellState.content-bottom-inset - 20px;
+                spacing: 8px;
+                Text {
+                    x: 16px;
+                    text: "Your day";
+                    font-size: 13px;
+                    font-weight: 700;
+                    color: Theme.text-secondary;
+                    height: 20px;
+                }
+                ThulliDayTimeline {
+                    vertical-stretch: 1;
+                    blocks: TodayState.timeline;
+                    now-mins: TodayState.now-mins;
+                }
+            }
+            Rectangle {
+                width: 1px;
+                height: 100%;
+                background: Theme.border-subtle;
+            }
+        }
+    }
+}
+
+/// The day has been wrapped up.
+component WrappedView inherits Rectangle {
+    VerticalLayout {
+        alignment: center;
+        padding: 24px;
+        padding-bottom: ShellState.content-bottom-inset;
+
+        HorizontalLayout {
+            alignment: center;
+            Card {
+                width: min(480px, parent.width - 48px);
+                height: 270px;
+                VerticalLayout {
+                    padding: 24px;
+                    spacing: 10px;
+                    alignment: center;
+                    Text {
+                        text: "Day wrapped up";
+                        font-size: 22px;
+                        font-weight: 700;
+                        color: Theme.text-primary;
+                        horizontal-alignment: center;
+                    }
+                    Text {
+                        text: TodayState.wrapped-worked + " worked today";
+                        font-size: 14px;
+                        color: Theme.accent-cyan;
+                        horizontal-alignment: center;
+                    }
+                    if TodayState.wrapped-brain-dump != "": Text {
+                        text: TodayState.wrapped-brain-dump;
+                        font-size: 12px;
+                        color: Theme.text-secondary;
+                        wrap: word-wrap;
+                        max-height: 80px;
+                        overflow: elide;
+                        horizontal-alignment: center;
+                    }
+                    HorizontalLayout {
+                        alignment: center;
+                        padding-top: 8px;
+                        ThulliActionButton {
+                            width: 130px;
+                            height: 36px;
+                            text: "Reopen day";
+                            clicked => { TodayState.reopen-day(); }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// TodayScreen: Plan, Work, Wrap up.
+export component TodayScreen inherits Rectangle {
+    background: transparent;
+
+    property <bool> goal-open: false;
+    property <bool> picker-open: false;
+    property <bool> wrap-open: false;
+
+    if TodayState.phase == "empty": Rectangle {
+        ThulliEmptyState {
+            title: "Your day starts here";
+            subtitle: "Plan your day to choose what matters, or jump straight into a focus session.";
+
+            IconSun {
+                width: 44px;
+                height: 44px;
+            }
+        }
+
+        HorizontalLayout {
+            y: parent.height / 2 + 90px;
+            width: parent.width;
+            alignment: center;
+            spacing: 12px;
+            height: 38px;
+
+            ThulliActionButton {
+                width: 140px;
+                height: 38px;
+                text: "Plan your day";
+                clicked => { TodayState.plan-day(); }
+            }
+            ThulliActionButton {
+                width: 140px;
+                height: 38px;
+                text: "Skip planning";
+                accent: Theme.accent-blue;
+                clicked => { TodayState.skip-planning(); }
+            }
+        }
+    }
+
+    if TodayState.phase == "planning": PlanningView { }
+
+    if TodayState.phase == "working": WorkingView {
+        pick-task => { root.picker-open = true; }
+        open-goal => { root.goal-open = true; }
+        open-wrap => { root.wrap-open = true; }
+    }
+
+    if TodayState.phase == "wrapped": WrappedView { }
+
+    // Daily goal popover
+    if root.goal-open: TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.goal-open = false; }
+    }
+    if root.goal-open: Rectangle {
+        width: 320px;
+        height: 300px;
+        x: root.width - self.width - 24px;
+        y: 76px;
+        border-radius: Theme.radius-lg;
+        background: Theme.bg-panel;
+        border-width: 1px;
+        border-color: Theme.border-light;
+
+        TouchArea { }
+
+        VerticalLayout {
+            padding: 16px;
+            spacing: 10px;
+            Text {
+                text: "Daily goal";
+                font-size: 15px;
+                font-weight: 700;
+                color: Theme.text-primary;
+            }
+            HorizontalLayout {
+                spacing: 10px;
+                Text {
+                    text: "Goal";
+                    font-size: 12px;
+                    color: Theme.text-secondary;
+                    vertical-alignment: center;
+                    horizontal-stretch: 1;
+                }
+                ThulliStepper {
+                    width: 170px;
+                    height: 34px;
+                    value: TodayState.goal-mins;
+                    min: 15;
+                    max: 1440;
+                    step: 15;
+                    changed(v) => { TodayState.set-goal(v); }
+                }
+            }
+            for row in [
+                { label: "Worked", value: TodayState.goal-worked },
+                { label: "Left", value: TodayState.goal-left },
+                { label: "Focused work", value: TodayState.goal-focus },
+                { label: "Meetings", value: TodayState.goal-meetings },
+                { label: "Other", value: TodayState.goal-other },
+            ]: HorizontalLayout {
+                height: 24px;
+                Text {
+                    text: row.label;
+                    font-size: 12px;
+                    color: Theme.text-secondary;
+                    vertical-alignment: center;
+                    horizontal-stretch: 1;
+                }
+                Text {
+                    text: row.value;
+                    font-size: 12px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                    vertical-alignment: center;
+                }
+            }
+        }
+    }
+
+    // Task picker
+    if root.picker-open: ThulliSheet {
+        width: 100%;
+        height: 100%;
+        title: "Choose a task to focus on";
+        panel-width: 480px;
+        panel-height: 460px;
+        dismissed => { root.picker-open = false; }
+
+        ListView {
+            vertical-stretch: 1;
+            for task in TodayState.picker: Rectangle {
+                height: 54px;
+                ThulliTaskRow {
+                    height: 48px;
+                    title: task.title;
+                    meta: (task.section == "today" ? "Today" : task.section == "this_week" ? "This Week" : "Backlog")
+                        + (task.estimate-mins > 0 ? " · " + task.estimate-mins + "m" : "");
+                    accent: task.list-color;
+                    clicked => {
+                        root.picker-open = false;
+                        TodayState.choose-task(task.id);
+                    }
+                }
+            }
+        }
+    }
+
+    // Wrap up early
+    if root.wrap-open: ThulliSheet {
+        width: 100%;
+        height: 100%;
+        title: "Wrap up your day";
+        panel-width: 480px;
+        panel-height: 340px;
+        dismissed => { root.wrap-open = false; }
+
+        Text {
+            text: "Before you close the day, write down anything still on your mind.";
+            font-size: 12px;
+            color: Theme.text-secondary;
+            wrap: word-wrap;
+        }
+        dump := TextEdit {
+            placeholder-text: "Loose ends, ideas, things to remember tomorrow";
+            vertical-stretch: 1;
+        }
+        HorizontalLayout {
+            spacing: 10px;
+            alignment: end;
+            height: 36px;
+            ThulliActionButton {
+                width: 100px;
+                height: 36px;
+                text: "Not yet";
+                accent: Theme.accent-blue;
+                clicked => { root.wrap-open = false; }
+            }
+            ThulliActionButton {
+                width: 120px;
+                height: 36px;
+                text: "Wrap up";
+                accent: Theme.accent-amber;
+                clicked => {
+                    root.wrap-open = false;
+                    TodayState.wrap-up(dump.text);
+                }
+            }
+        }
+    }
+
+    // Very short session: keep or delete
+    if TodayState.short-prompt-secs >= 0: ThulliSheet {
+        width: 100%;
+        height: 100%;
+        title: "That was a very short session";
+        closable: false;
+        panel-width: 440px;
+        panel-height: 200px;
+        dismissed => { TodayState.short-session-choice("cancel"); }
+
+        Text {
+            text: "It ran for " + TodayState.short-prompt-secs + " seconds. Keep it, delete it, or carry on?";
+            font-size: 13px;
+            color: Theme.text-secondary;
+            wrap: word-wrap;
+            vertical-stretch: 1;
+        }
+        HorizontalLayout {
+            spacing: 10px;
+            alignment: end;
+            height: 36px;
+            ThulliActionButton {
+                width: 110px;
+                height: 36px;
+                text: "Carry on";
+                accent: Theme.accent-blue;
+                clicked => { TodayState.short-session-choice("cancel"); }
+            }
+            ThulliActionButton {
+                width: 100px;
+                height: 36px;
+                text: "Delete";
+                accent: Theme.destructive;
+                clicked => { TodayState.short-session-choice("delete"); }
+            }
+            ThulliActionButton {
+                width: 100px;
+                height: 36px;
+                text: "Save";
+                accent: Theme.accent-green;
+                clicked => { TodayState.short-session-choice("save"); }
+            }
         }
     }
 }

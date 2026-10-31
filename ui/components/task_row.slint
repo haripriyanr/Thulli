@@ -1,0 +1,150 @@
+import { Theme } from "../theme.slint";
+import { IconPlay, IconCheck, IconClose, IconPlus } from "../icons.slint";
+
+/// ThulliTaskRow: one task in a list, with optional play, done, add and
+/// remove actions on the right.
+///
+/// `clicked()` fires for the row itself; the action buttons have their own
+/// callbacks. `active` highlights the task being focused on, and `done`
+/// dims it.
+export component ThulliTaskRow inherits Rectangle {
+    in property <string> title;
+    in property <string> meta;
+    in property <color> accent: Theme.accent-cyan;
+    in property <bool> active: false;
+    in property <bool> done: false;
+    in property <bool> warn: false;
+    in property <bool> show-play: false;
+    in property <bool> show-check: false;
+    in property <bool> show-add: false;
+    in property <bool> show-remove: false;
+    callback clicked();
+    callback play();
+    callback check();
+    callback add();
+    callback remove();
+
+    height: 48px;
+    border-radius: Theme.radius-md;
+    background: root.active ? Theme.bg-card-selected : row-area.has-hover ? Theme.bg-card-hover : Theme.bg-card;
+    border-width: 1px;
+    border-color: root.active ? root.accent.transparentize(0.5) : Theme.border-subtle;
+
+    row-area := TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.clicked(); }
+    }
+
+    HorizontalLayout {
+        padding-left: 14px;
+        padding-right: 8px;
+        spacing: 10px;
+
+        VerticalLayout {
+            alignment: center;
+            Rectangle {
+                width: 10px;
+                height: 10px;
+                border-radius: 5px;
+                border-width: 2px;
+                border-color: root.done ? Theme.text-muted : root.accent;
+                background: root.accent.transparentize(0.8);
+            }
+        }
+
+        VerticalLayout {
+            alignment: center;
+            horizontal-stretch: 1;
+            spacing: 1px;
+
+            Text {
+                text: root.title;
+                font-size: 13px;
+                font-weight: 600;
+                color: root.done ? Theme.text-muted : Theme.text-primary;
+                overflow: elide;
+            }
+            if root.meta != "": Text {
+                text: root.meta;
+                font-size: 11px;
+                color: root.warn ? Theme.accent-amber : Theme.text-muted;
+                overflow: elide;
+            }
+        }
+
+        if root.show-play: play-area := TouchArea {
+            width: 32px;
+            height: 48px;
+            clicked => { root.play(); }
+            Rectangle {
+                x: 0px;
+                y: 8px;
+                width: 32px;
+                height: 32px;
+                border-radius: Theme.radius-sm;
+                background: play-area.has-hover ? Theme.accent-cyan.transparentize(0.8) : transparent;
+                IconPlay {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                    stroke-color: Theme.accent-cyan;
+                    fill-color: #3CC9C425;
+                }
+            }
+        }
+
+        if root.show-check: check-area := TouchArea {
+            width: 32px;
+            height: 48px;
+            clicked => { root.check(); }
+            Rectangle {
+                x: 0px;
+                y: 8px;
+                width: 32px;
+                height: 32px;
+                border-radius: Theme.radius-sm;
+                background: check-area.has-hover ? Theme.accent-green.transparentize(0.8) : transparent;
+                IconCheck {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                }
+            }
+        }
+
+        if root.show-add: add-area := TouchArea {
+            width: 32px;
+            height: 48px;
+            clicked => { root.add(); }
+            Rectangle {
+                x: 0px;
+                y: 8px;
+                width: 32px;
+                height: 32px;
+                border-radius: Theme.radius-sm;
+                background: add-area.has-hover ? Theme.bg-card-selected : transparent;
+                IconPlus {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                }
+            }
+        }
+
+        if root.show-remove: remove-area := TouchArea {
+            width: 32px;
+            height: 48px;
+            clicked => { root.remove(); }
+            Rectangle {
+                x: 0px;
+                y: 8px;
+                width: 32px;
+                height: 32px;
+                border-radius: Theme.radius-sm;
+                background: remove-area.has-hover ? Theme.bg-card-selected : transparent;
+                IconClose {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                }
+            }
+        }
+    }
+}
