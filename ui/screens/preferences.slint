@@ -1,28 +1,29 @@
+import { ScrollView } from "std-widgets.slint";
 import { Theme } from "../theme.slint";
-import { ThulliEmptyState } from "../components/empty_state.slint";
 import { ThulliButton } from "../components/buttons.slint";
-import { IconSettings } from "../icons.slint";
-import { ShortcutModel, ChoiceModel, TagModel } from "../types.slint";
+import { ThulliPrefCard, ThulliPrefToggle, ThulliPrefChoice, ThulliPrefStepper, ThulliShortcutRow } from "../components/pref_rows.slint";
+import { ThulliCelebration } from "../components/celebration.slint";
+import { ShortcutModel, TagModel } from "../types.slint";
 
 /// State and callbacks for the preferences screen. The screen owner edits this
 /// global freely; the shell re-exports it, so app.slint does not change.
+///
+/// Choice rows show a label that Rust computes (`*-label`) and report a click
+/// through `cycle-choice(key)`; Rust picks the next value.
 export global PreferencesState {
     // Appearance and time
-    in-out property <string> language: "en";
-    in-out property <string> accent-theme: "teal";      // "teal", "blue", "violet", "amber", "rose"
-    in-out property <string> theme: "system";            // "system", "dark", "light"
-    in-out property <string> timezone-label: "";
-    in-out property <string> week-start: "monday";
+    in-out property <string> theme-label: "System";
+    in-out property <string> accent-label: "Teal";
+    in-out property <string> week-label: "Monday";
+    in-out property <string> language-label: "English";
+    in-out property <string> timezone-label: "System default";
+    in-out property <string> theme: "system";
     // General
     in-out property <bool> hide-estimates: false;
     in-out property <bool> auto-parse-estimates: true;
     in-out property <bool> open-at-login: false;
     in-out property <bool> open-on-wake: false;
     in-out property <bool> show-full-title: false;
-    // Daily goal
-    in-out property <int> daily-goal-mins: 360;
-    in-out property <bool> count-weekends: false;
-    in-out property <string> weekly-goal-label: "";
     // Sessions
     in-out property <int> default-session-mins: 90;
     in-out property <bool> sprint-enabled: false;
@@ -30,75 +31,443 @@ export global PreferencesState {
     in-out property <int> break-time-mins: 15;
     in-out property <int> default-break-mins: 10;
     in-out property <bool> pause-suggestions: false;
-    in-out property <bool> scrolling-title: true;
     in-out property <bool> start-next-after-early-break: false;
     // Focus run
-    in-out property <string> focus-display-mode: "expanded";   // "expanded", "tower", "pill"
-    in-out property <string> tower-side: "right";
+    in-out property <string> focus-mode-label: "Expanded";
+    in-out property <string> tower-side-label: "Right";
     in-out property <bool> move-freely: false;
     in-out property <bool> auto-hide: false;
-    in-out property <string> expanded-window-mode: "full_screen";   // "full_screen", "maximized"
-    in-out property <string> focus-background: "calm";
+    in-out property <string> window-mode-label: "Full screen";
+    in-out property <string> background-label: "Calm";
     // Alerts
     in-out property <bool> timed-alerts: true;
     in-out property <int> alert-interval-mins: 30;
-    in-out property <string> alert-sound: "basic-ding";
+    in-out property <string> alert-sound-label: "Basic ding";
     in-out property <bool> alert-flash: false;
-    in-out property <int> reminder-mins-before: 5;
     in-out property <bool> overtime-alert: true;
+    in-out property <string> overtime-sound-label: "Basic ding";
+    in-out property <int> reminder-mins-before: 5;
+    in-out property <string> reminder-sound-label: "Basic ding";
     in-out property <int> break-reminder-mins: 0;
+    in-out property <string> break-reminder-sound-label: "Soft chime";
+    in-out property <string> break-start-sound-label: "Soft chime";
+    in-out property <string> task-start-sound-label: "Soft chime";
+    in-out property <string> notification-sound-label: "Basic ding";
     in-out property <bool> pill-alert-animated: true;
-    in-out property <string> notification-sound: "basic-ding";
-    in-out property <string> break-start-sound: "soft-chime";
-    in-out property <string> task-start-sound: "soft-chime";
-    in-out property <string> overtime-sound: "basic-ding";
-    in-out property <string> reminder-sound: "basic-ding";
-    in-out property <string> break-reminder-sound: "soft-chime";
     // Celebration
     in-out property <bool> success-screen: true;
     in-out property <bool> success-animation: true;
     in-out property <bool> success-sound: true;
     in-out property <bool> success-animation-on-break-end: false;
-    in-out property <string> success-set-on-time: "sunrise";
-    in-out property <string> success-set-over-estimate: "steady";
+    in-out property <string> success-sound-label: "Soft chime";
+    in-out property <string> set-on-time-label: "Sunrise";
+    in-out property <string> set-over-label: "Steady";
+    in-out property <bool> celebrating: false;
+    in-out property <string> celebration-style: "confetti";
     // Compact panel
-    in-out property <string> compact-panel-side: "right";
+    in-out property <string> compact-side-label: "Right";
     // Assistant suggestions
     in-out property <bool> suggest-plan-my-day: true;
     in-out property <bool> suggest-welcome-back: true;
     in-out property <bool> suggest-take-a-break: true;
     in-out property <bool> suggest-wind-down: true;
     in-out property <bool> suggest-prioritize: true;
-    // Tags
-    in-out property <[TagModel]> tags: [];
-    // Assistant model file
-    in-out property <string> assistant-model-path: "";
     // Shortcuts
     in-out property <[ShortcutModel]> shortcuts: [];
-    in-out property <[ChoiceModel]> sound-choices: [];
-    // Generic change notifications: the key matches the property name above.
+    in-out property <string> capturing-id: "";
+    in-out property <string> message: "";
+
+    // Generic change notifications: the key matches the property name above
+    // (snake_case, as the preferences service reads it).
     callback set-bool(string, bool);
     callback set-int(string, int);
     callback set-text(string, string);
-    callback set-shortcut(string, string, bool);   // id, keys, enabled
+    callback cycle-choice(string);
     callback preview-sound(string);
-    callback pick-model-file();
-    callback add-tag(string, string, string);       // name, emoji, colour
-    callback edit-tag(string, string, string, string);
-    callback remove-tag(string);
+    callback set-shortcut(string, string, bool);            // id, keys, enabled
+    callback captured-shortcut(string, string, bool, bool, bool, bool); // id, key text, ctrl, alt, shift, meta
+    callback reset-shortcut(string);
+    callback preview-celebration();
 }
 
-/// PreferencesScreen: stub with an empty state. Replace the body with the real screen.
+/// PreferencesScreen: settings grouped into cards. Every control reports a
+/// change through PreferencesState callbacks; Rust writes it and refreshes.
 export component PreferencesScreen inherits Rectangle {
     background: transparent;
 
-    ThulliEmptyState {
-        title: "Preferences";
-        subtitle: "Appearance, sessions, alerts and shortcuts will be adjustable here.";
+    ScrollView {
+        width: 100%;
+        height: 100%;
 
-        IconSettings {
-            width: 44px;
-            height: 44px;
+        VerticalLayout {
+            padding: 16px;
+            spacing: 12px;
+
+            Text {
+                text: "Preferences";
+                color: Theme.text-primary;
+                font-size: 22px;
+                font-weight: 700;
+                height: 32px;
+            }
+
+            if PreferencesState.message != "": Text {
+                text: PreferencesState.message;
+                color: Theme.accent-amber;
+                font-size: 12px;
+                wrap: word-wrap;
+            }
+
+            ThulliPrefCard {
+                title: "APPEARANCE";
+                ThulliPrefChoice {
+                    label: "Colour mode";
+                    value-label: PreferencesState.theme-label;
+                    cycled => { PreferencesState.cycle-choice("theme"); }
+                }
+                ThulliPrefChoice {
+                    label: "Accent theme";
+                    value-label: PreferencesState.accent-label;
+                    cycled => { PreferencesState.cycle-choice("accent_theme"); }
+                }
+                ThulliPrefChoice {
+                    label: "Week starts on";
+                    value-label: PreferencesState.week-label;
+                    cycled => { PreferencesState.cycle-choice("week_start"); }
+                }
+                ThulliPrefChoice {
+                    label: "Language";
+                    value-label: PreferencesState.language-label;
+                    cycled => { PreferencesState.cycle-choice("language"); }
+                }
+                ThulliPrefChoice {
+                    label: "Time zone";
+                    value-label: PreferencesState.timezone-label;
+                    cycled => { PreferencesState.cycle-choice("timezone"); }
+                }
+            }
+
+            ThulliPrefCard {
+                title: "GENERAL";
+                ThulliPrefToggle {
+                    label: "Hide estimates";
+                    checked: PreferencesState.hide-estimates;
+                    toggled(v) => { PreferencesState.set-bool("hide_estimates", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Read estimates from titles";
+                    hint: "Type 'Write report 45m' and the time is picked up.";
+                    checked: PreferencesState.auto-parse-estimates;
+                    toggled(v) => { PreferencesState.set-bool("auto_parse_estimates", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Open at login";
+                    checked: PreferencesState.open-at-login;
+                    toggled(v) => { PreferencesState.set-bool("open_at_login", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Open on wake";
+                    checked: PreferencesState.open-on-wake;
+                    toggled(v) => { PreferencesState.set-bool("open_on_wake", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Show full task title";
+                    hint: "Wrap long titles instead of cutting them short.";
+                    checked: PreferencesState.show-full-title;
+                    toggled(v) => { PreferencesState.set-bool("show_full_title", v); }
+                }
+            }
+
+            ThulliPrefCard {
+                title: "SESSIONS";
+                ThulliPrefStepper {
+                    label: "Default session length";
+                    value: PreferencesState.default-session-mins;
+                    step: 15;
+                    minimum: 15;
+                    maximum: 240;
+                    changed(v) => { PreferencesState.set-int("default_session_mins", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Sprint mode";
+                    checked: PreferencesState.sprint-enabled;
+                    toggled(v) => { PreferencesState.set-bool("sprint_enabled", v); }
+                }
+                ThulliPrefStepper {
+                    label: "Sprint length";
+                    value: PreferencesState.work-sprint-mins;
+                    step: 5;
+                    minimum: 5;
+                    maximum: 120;
+                    changed(v) => { PreferencesState.set-int("work_sprint_mins", v); }
+                }
+                ThulliPrefStepper {
+                    label: "Break after a sprint";
+                    value: PreferencesState.break-time-mins;
+                    step: 5;
+                    minimum: 1;
+                    maximum: 60;
+                    changed(v) => { PreferencesState.set-int("break_time_mins", v); }
+                }
+                ThulliPrefStepper {
+                    label: "Default break length";
+                    value: PreferencesState.default-break-mins;
+                    step: 1;
+                    minimum: 1;
+                    maximum: 60;
+                    changed(v) => { PreferencesState.set-int("default_break_mins", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Pause suggestions";
+                    checked: PreferencesState.pause-suggestions;
+                    toggled(v) => { PreferencesState.set-bool("pause_suggestions", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Start next task after an early break";
+                    checked: PreferencesState.start-next-after-early-break;
+                    toggled(v) => { PreferencesState.set-bool("start_next_after_early_break", v); }
+                }
+            }
+
+            ThulliPrefCard {
+                title: "FOCUS RUN";
+                ThulliPrefChoice {
+                    label: "Focus view";
+                    value-label: PreferencesState.focus-mode-label;
+                    cycled => { PreferencesState.cycle-choice("focus_display_mode"); }
+                }
+                ThulliPrefChoice {
+                    label: "Tower side";
+                    value-label: PreferencesState.tower-side-label;
+                    cycled => { PreferencesState.cycle-choice("tower_side"); }
+                }
+                ThulliPrefToggle {
+                    label: "Move freely";
+                    hint: "Drag the tower or pill anywhere on screen.";
+                    checked: PreferencesState.move-freely;
+                    toggled(v) => { PreferencesState.set-bool("move_freely", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Auto-hide at the screen edge";
+                    checked: PreferencesState.auto-hide;
+                    toggled(v) => { PreferencesState.set-bool("auto_hide", v); }
+                }
+                ThulliPrefChoice {
+                    label: "Expanded window";
+                    value-label: PreferencesState.window-mode-label;
+                    cycled => { PreferencesState.cycle-choice("expanded_window_mode"); }
+                }
+                ThulliPrefChoice {
+                    label: "Background";
+                    value-label: PreferencesState.background-label;
+                    cycled => { PreferencesState.cycle-choice("focus_background"); }
+                }
+            }
+
+            ThulliPrefCard {
+                title: "ALERTS";
+                ThulliPrefToggle {
+                    label: "Check in while I work";
+                    checked: PreferencesState.timed-alerts;
+                    toggled(v) => { PreferencesState.set-bool("timed_alerts", v); }
+                }
+                ThulliPrefStepper {
+                    label: "Check-in every";
+                    value: PreferencesState.alert-interval-mins;
+                    step: 5;
+                    minimum: 1;
+                    maximum: 180;
+                    changed(v) => { PreferencesState.set-int("alert_interval_mins", v); }
+                }
+                ThulliPrefChoice {
+                    label: "Check-in sound";
+                    value-label: PreferencesState.alert-sound-label;
+                    cycled => { PreferencesState.cycle-choice("alert_sound"); }
+                }
+                ThulliPrefToggle {
+                    label: "Over-estimate alert";
+                    checked: PreferencesState.overtime-alert;
+                    toggled(v) => { PreferencesState.set-bool("overtime_alert", v); }
+                }
+                ThulliPrefChoice {
+                    label: "Over-estimate sound";
+                    value-label: PreferencesState.overtime-sound-label;
+                    cycled => { PreferencesState.cycle-choice("overtime_sound"); }
+                }
+                ThulliPrefStepper {
+                    label: "Schedule reminder";
+                    value: PreferencesState.reminder-mins-before;
+                    unit: "min before";
+                    step: 1;
+                    minimum: 0;
+                    maximum: 120;
+                    changed(v) => { PreferencesState.set-int("reminder_mins_before", v); }
+                }
+                ThulliPrefChoice {
+                    label: "Reminder sound";
+                    value-label: PreferencesState.reminder-sound-label;
+                    cycled => { PreferencesState.cycle-choice("reminder_sound"); }
+                }
+                ThulliPrefStepper {
+                    label: "Break reminder after";
+                    value: PreferencesState.break-reminder-mins;
+                    unit: "min (0 = off)";
+                    step: 15;
+                    minimum: 0;
+                    maximum: 240;
+                    changed(v) => { PreferencesState.set-int("break_reminder_mins", v); }
+                }
+                ThulliPrefChoice {
+                    label: "Break reminder sound";
+                    value-label: PreferencesState.break-reminder-sound-label;
+                    cycled => { PreferencesState.cycle-choice("break_reminder_sound"); }
+                }
+                ThulliPrefChoice {
+                    label: "Break start sound";
+                    value-label: PreferencesState.break-start-sound-label;
+                    cycled => { PreferencesState.cycle-choice("break_start_sound"); }
+                }
+                ThulliPrefChoice {
+                    label: "Task start sound";
+                    value-label: PreferencesState.task-start-sound-label;
+                    cycled => { PreferencesState.cycle-choice("task_start_sound"); }
+                }
+                ThulliPrefChoice {
+                    label: "Notification sound";
+                    value-label: PreferencesState.notification-sound-label;
+                    cycled => { PreferencesState.cycle-choice("notification_sound"); }
+                }
+                ThulliPrefToggle {
+                    label: "Flash the window on alerts";
+                    checked: PreferencesState.alert-flash;
+                    toggled(v) => { PreferencesState.set-bool("alert_flash", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Animate the timer pill on alerts";
+                    checked: PreferencesState.pill-alert-animated;
+                    toggled(v) => { PreferencesState.set-bool("pill_alert_animated", v); }
+                }
+                HorizontalLayout {
+                    alignment: end;
+                    ThulliButton {
+                        text: "Preview alert sound";
+                        variant: "secondary";
+                        width: 170px;
+                        clicked => { PreferencesState.preview-sound("alert_sound"); }
+                    }
+                }
+            }
+
+            ThulliPrefCard {
+                title: "CELEBRATION";
+                ThulliPrefToggle {
+                    label: "Success screen";
+                    checked: PreferencesState.success-screen;
+                    toggled(v) => { PreferencesState.set-bool("success_screen", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Animation on success";
+                    checked: PreferencesState.success-animation;
+                    toggled(v) => { PreferencesState.set-bool("success_animation", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Animation when a break ends";
+                    checked: PreferencesState.success-animation-on-break-end;
+                    toggled(v) => { PreferencesState.set-bool("success_animation_on_break_end", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Success sound";
+                    checked: PreferencesState.success-sound;
+                    toggled(v) => { PreferencesState.set-bool("success_sound", v); }
+                }
+                ThulliPrefChoice {
+                    label: "Success sound choice";
+                    value-label: PreferencesState.success-sound-label;
+                    cycled => { PreferencesState.cycle-choice("success_sound_id"); }
+                }
+                ThulliPrefChoice {
+                    label: "Artwork on time";
+                    value-label: PreferencesState.set-on-time-label;
+                    cycled => { PreferencesState.cycle-choice("success_set_on_time"); }
+                }
+                ThulliPrefChoice {
+                    label: "Artwork over estimate";
+                    value-label: PreferencesState.set-over-label;
+                    cycled => { PreferencesState.cycle-choice("success_set_over_estimate"); }
+                }
+                HorizontalLayout {
+                    alignment: end;
+                    spacing: 8px;
+                    ThulliButton {
+                        text: "Preview";
+                        variant: "secondary";
+                        width: 110px;
+                        clicked => { PreferencesState.preview-celebration(); }
+                    }
+                }
+                ThulliCelebration {
+                    height: 150px;
+                    playing: PreferencesState.celebrating;
+                    style: PreferencesState.celebration-style;
+                }
+            }
+
+            ThulliPrefCard {
+                title: "COMPACT PANEL";
+                ThulliPrefChoice {
+                    label: "Pill side";
+                    value-label: PreferencesState.compact-side-label;
+                    cycled => { PreferencesState.cycle-choice("compact_panel_side"); }
+                }
+            }
+
+            ThulliPrefCard {
+                title: "ASSISTANT SUGGESTIONS";
+                ThulliPrefToggle {
+                    label: "Plan my day";
+                    checked: PreferencesState.suggest-plan-my-day;
+                    toggled(v) => { PreferencesState.set-bool("suggest_plan_my_day", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Welcome back";
+                    checked: PreferencesState.suggest-welcome-back;
+                    toggled(v) => { PreferencesState.set-bool("suggest_welcome_back", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Take a break";
+                    checked: PreferencesState.suggest-take-a-break;
+                    toggled(v) => { PreferencesState.set-bool("suggest_take_a_break", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Wind down";
+                    checked: PreferencesState.suggest-wind-down;
+                    toggled(v) => { PreferencesState.set-bool("suggest_wind_down", v); }
+                }
+                ThulliPrefToggle {
+                    label: "Prioritize";
+                    checked: PreferencesState.suggest-prioritize;
+                    toggled(v) => { PreferencesState.set-bool("suggest_prioritize", v); }
+                }
+            }
+
+            ThulliPrefCard {
+                title: "SHORTCUTS";
+                for s in PreferencesState.shortcuts : ThulliShortcutRow {
+                    label: s.label;
+                    keys: s.keys;
+                    is-on: s.enabled;
+                    capturing: PreferencesState.capturing-id == s.id;
+                    status-text: s.is-global ? "Works everywhere" : "Works in Thulli";
+                    toggled(v) => { PreferencesState.set-shortcut(s.id, s.keys, v); }
+                    capture-requested => { PreferencesState.capturing-id = s.id; }
+                    captured(text, ctrl, alt, shift, meta) => {
+                        PreferencesState.captured-shortcut(s.id, text, ctrl, alt, shift, meta);
+                    }
+                    reset-requested => { PreferencesState.reset-shortcut(s.id); }
+                }
+            }
+
+            Rectangle { height: 8px; }
         }
     }
 }
