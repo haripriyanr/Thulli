@@ -19,10 +19,7 @@ use thulli_core::services::preferences::{
     system_prefers_dark, LoginItem, PreferencesService, RegistryLoginItem, ThemePalette, CELEBRATION_SETS,
     FOCUS_BACKGROUNDS, LANGUAGE_CHOICES, SOUND_CHOICES, SYSTEM_TIMEZONE_LABEL,
 };
-use thulli_core::services::shortcuts::{
-    combo_from_key_event, GlobalHotkeyBackend, HotkeyBackend, NoHotkeys, ShortcutRegistry, ShortcutScope,
-    ShortcutStatus,
-};
+use thulli_core::services::shortcuts::{combo_from_key_event, ShortcutRegistry, ShortcutScope, ShortcutStatus};
 use thulli_core::services::{TickOutcome, TimerSnapshot};
 
 use crate::app::context::AppContext;
@@ -61,7 +58,7 @@ struct PrefsWiring {
 
 /// Connects the preferences screen and starts the alert and shortcut timers.
 pub fn bind(window: &MainWindow, ctx: &AppContext) {
-    let shortcuts = Rc::new(ShortcutRegistry::new(ctx.handle.clone(), hotkey_backend()));
+    let shortcuts = ctx.shortcuts.clone();
     let wiring = PrefsWiring {
         ctx: ctx.clone(),
         window: window.as_weak(),
@@ -90,16 +87,6 @@ pub fn bind(window: &MainWindow, ctx: &AppContext) {
     wire_alerts(&wiring);
     wiring.refresh();
     start_timers(&wiring);
-}
-
-fn hotkey_backend() -> Box<dyn HotkeyBackend> {
-    match GlobalHotkeyBackend::new() {
-        Ok(backend) => Box::new(backend),
-        Err(e) => {
-            eprintln!("[Shortcuts] System-wide shortcuts are unavailable: {e}");
-            Box::new(NoHotkeys)
-        }
-    }
 }
 
 fn wire_callbacks(window: &MainWindow, p: &PrefsWiring) {
@@ -141,6 +128,10 @@ fn wire_callbacks(window: &MainWindow, p: &PrefsWiring) {
     {
         let p = p.clone();
         st.on_preview_celebration(move || p.preview_celebration());
+    }
+    {
+        let p = p.clone();
+        st.on_pick_model_file(move || p.pick_model_file());
     }
 }
 
@@ -238,6 +229,7 @@ impl PrefsWiring {
         st.set_suggest_prioritize(p.suggestions.prioritize);
 
         st.set_shortcuts(ModelRc::new(VecModel::from(self.shortcut_models())));
+        st.set_model_label(model_label(&p.assistant_model_path).into());
         apply_palette(&w, &self.ctx.preferences.palette(system_prefers_dark()));
     }
 
@@ -373,6 +365,19 @@ impl PrefsWiring {
     fn announce(&self, event: &AlertEvent, prefs: &Preferences) {
         let action = plan(event, prefs);
         perform(&action, self.sounds.as_ref(), self.notifier.as_ref());
+        self.ctx.notify_alert(&action);
+    }
+
+    /// Lets the person choose the local assistant model (a .gguf file).
+    fn pick_model_file(&self) {
+        let picked = rfd::FileDialog::new()
+            .set_title("Choose the assistant model")
+            .add_filter("Model file", &["gguf"])
+            .pick_file();
+        if let Some(path) = picked {
+            let text = path.to_string_lossy().into_owned();
+            self.finish(self.ctx.preferences.set_text("assistant_model_path", &text));
+        }
     }
 
     fn check_schedule(&self) {
@@ -522,4 +527,16 @@ fn apply_palette(w: &MainWindow, palette: &ThemePalette) {
     t.set_text_muted(rgb(palette.text_muted));
     t.set_accent_cyan(rgb(palette.accent_cyan));
     t.set_accent_lime(rgb(palette.accent_lime));
+}
+
+/// The model file's name for the preferences row, or a plain prompt.
+fn model_label(path: &str) -> String {
+    let trimmed = path.trim();
+    if trimmed.is_empty() {
+        return "Not chosen".to_string();
+    }
+    std::path::Path::new(trimmed)
+        .file_name()
+        .map(|n| n.to_string_lossy().into_owned())
+        .unwrap_or_else(|| trimmed.to_string())
 }

@@ -78,19 +78,16 @@ pub fn toggle_quick_capture() {
 }
 
 /// Thread-safe version of [`toggle_floating_notes`].
-#[allow(dead_code)] // entry point for the hotkey / tasks wiring, not yet bound in main.rs
 pub fn request_toggle_floating_notes() {
     let _ = slint::invoke_from_event_loop(toggle_floating_notes);
 }
 
 /// Thread-safe version of [`toggle_quick_capture`].
-#[allow(dead_code)] // entry point for the hotkey / tasks wiring, not yet bound in main.rs
 pub fn request_toggle_quick_capture() {
     let _ = slint::invoke_from_event_loop(toggle_quick_capture);
 }
 
 /// Opens the notes for a task on the Notes screen, creating a note if needed.
-#[allow(dead_code)] // entry point for the hotkey / tasks wiring, not yet bound in main.rs
 pub fn open_task_notes(task_id: &str) {
     with_inner(|i| {
         if let Some(w) = i.window.upgrade() {

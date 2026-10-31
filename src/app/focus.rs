@@ -40,7 +40,10 @@ fn wire_callbacks(window: &MainWindow, ctx: &AppContext, weak: Weak<MainWindow>)
 
     let (c, w) = (ctx.clone(), weak.clone());
     state.on_done(move || act(&w, &c, |c| {
-        c.focus.complete_task_at(now());
+        let outcome = c.focus.complete_task_at(now());
+        if outcome.completed_task.is_some() {
+            c.celebrate(!outcome.on_time, false);
+        }
     }));
 
     let (c, w) = (ctx.clone(), weak.clone());

@@ -15,7 +15,7 @@ use thulli_core::services::today::format_duration;
 
 use crate::app::context::AppContext;
 use crate::app::convert::task_model;
-use crate::{MainWindow, TaskModel, TimeBlockModel, TodayState};
+use crate::{MainWindow, ShellState, TaskModel, TimeBlockModel, TodayState};
 
 /// What the screen shows that the services do not hold: the notice line and
 /// the short-session prompt.
@@ -134,7 +134,10 @@ fn wire_callbacks(window: &MainWindow, binding: &Rc<Binding>) {
     state.on_start_break(move || act(&b, |b| b.ctx.focus.start_break_at(None, now())));
 
     let b = binding.clone();
-    state.on_end_break(move || act(&b, |b| b.ctx.focus.end_break_at(now())));
+    state.on_end_break(move || act(&b, |b| {
+        b.ctx.focus.end_break_at(now());
+        b.ctx.celebrate(false, true);
+    }));
 
     let b = binding.clone();
     state.on_continue_next(move || {
@@ -150,8 +153,14 @@ fn wire_callbacks(window: &MainWindow, binding: &Rc<Binding>) {
         });
     });
 
-    // The focus screen is reached through the shell's navigation.
-    state.on_open_focus(|| {});
+    {
+        let weak = window.as_weak();
+        state.on_open_focus(move || {
+            if let Some(w) = weak.upgrade() {
+                w.global::<ShellState>().invoke_navigate("focus".into());
+            }
+        });
+    }
 
     // ---- tasks ----
     let b = binding.clone();
@@ -168,9 +177,12 @@ fn wire_callbacks(window: &MainWindow, binding: &Rc<Binding>) {
     state.on_complete_task(move |id| act(&b, |b| {
         let active = b.ctx.focus.timer().snapshot().task_id;
         if active.as_deref() == Some(id.as_str()) {
-            b.ctx.focus.complete_task_at(now());
-        } else {
-            b.ctx.tasks.set_status(id.as_str(), TaskStatus::Completed);
+            let outcome = b.ctx.focus.complete_task_at(now());
+            if outcome.completed_task.is_some() {
+                b.ctx.celebrate(!outcome.on_time, false);
+            }
+        } else if b.ctx.tasks.set_status(id.as_str(), TaskStatus::Completed) {
+            b.ctx.celebrate(false, false);
         }
     }));
 

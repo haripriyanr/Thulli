@@ -41,6 +41,8 @@ export global AssistantState {
     callback dismiss-suggestion(string);
     callback quick-action(string);              // "wind_down_reflection" or "quick_prioritize"
     callback apply-proposals();
+    /// Fired each time the screen is shown, so the model notice is current.
+    callback shown();
     callback discard-proposals();
 
     /// Label for a memory kind id.

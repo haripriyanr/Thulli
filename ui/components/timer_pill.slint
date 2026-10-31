@@ -8,14 +8,16 @@ export component ThulliTimerPill inherits Rectangle {
     in property <string> display: "00:00";
     in property <string> label: "";
     in property <bool> running: false;
+    /// True while an alert is pulsing the pill.
+    in property <bool> alert: false;
     callback clicked();
     callback toggled();
 
     height: 30px;
     border-radius: Theme.radius-full;
     background: Theme.bg-card;
-    border-width: 1px;
-    border-color: root.running ? Theme.accent-cyan : Theme.border-light;
+    border-color: root.alert ? Theme.accent-amber : root.running ? Theme.accent-cyan : Theme.border-light;
+    border-width: root.alert ? 2px : 1px;
 
     open-area := TouchArea {
         width: 100%;

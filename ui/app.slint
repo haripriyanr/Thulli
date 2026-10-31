@@ -5,7 +5,8 @@
 
 import { Theme } from "theme.slint";
 import { WindowControls } from "window_controls.slint";
-import { IconMore, IconUser, IconClose } from "icons.slint";
+import { IconMore, IconUser, IconClose, IconChat } from "icons.slint";
+import { ThulliCelebration } from "components/celebration.slint";
 import { ThulliTabPill } from "components/tabs.slint";
 import { ThulliTimerPill } from "components/timer_pill.slint";
 import { ThulliAppMenu } from "components/app_menu.slint";
@@ -49,6 +50,22 @@ export component MainWindow inherits Window {
     default-font-family: "Segoe UI, Inter, sans-serif";
 
     property <bool> menu-open: false;
+
+    // Receives key presses that no text field took; the shell maps them to
+    // in-app shortcuts.
+    key-scope := FocusScope {
+        width: 100%;
+        height: 100%;
+        key-pressed(event) => {
+            if (ShellState.app-key-pressed(event.text, event.modifiers.control, event.modifiers.alt,
+                    event.modifiers.shift, event.modifiers.meta)) {
+                return accept;
+            }
+            return reject;
+        }
+    }
+
+    init => { key-scope.focus(); }
 
     // Frame with a subtle border
     Rectangle {
@@ -152,6 +169,7 @@ export component MainWindow inherits Window {
                     display: ShellState.timer-display;
                     label: ShellState.timer-label;
                     running: ShellState.timer-running;
+                    alert: ShellState.pill-alert;
                     clicked => { ShellState.timer-open(); }
                     toggled => { ShellState.timer-toggle(); }
                 }
@@ -232,7 +250,11 @@ export component MainWindow inherits Window {
                 if ShellState.current-screen == "notes": NotesScreen { width: 100%; height: 100%; }
                 if ShellState.current-screen == "lists": ListsScreen { width: 100%; height: 100%; }
                 if ShellState.current-screen == "shield": ShieldScreen { width: 100%; height: 100%; }
-                if ShellState.current-screen == "assistant": AssistantScreen { width: 100%; height: 100%; }
+                if ShellState.current-screen == "assistant": AssistantScreen {
+                    width: 100%;
+                    height: 100%;
+                    init => { AssistantState.shown(); }
+                }
                 if ShellState.current-screen == "preferences": PreferencesScreen { width: 100%; height: 100%; }
 
                 // Bottom tab pill, floating above the screen
@@ -244,6 +266,29 @@ export component MainWindow inherits Window {
                         : (ShellState.current-screen == "insights" || ShellState.current-screen == "reports") ? "insights"
                         : ShellState.current-screen == "focus" ? "today" : ShellState.current-screen;
                     selected(id) => { ShellState.navigate(id); }
+                }
+
+                // Floating assistant launcher, bottom right
+                if ShellState.current-screen != "assistant": assistant-launch := TouchArea {
+                    x: parent.width - self.width - 20px;
+                    y: parent.height - self.height - 16px;
+                    width: 52px;
+                    height: 52px;
+                    clicked => { ShellState.navigate("assistant"); }
+
+                    Rectangle {
+                        width: 100%;
+                        height: 100%;
+                        border-radius: 26px;
+                        background: assistant-launch.has-hover ? Theme.bg-card-hover : Theme.bg-card;
+                        border-width: 1px;
+                        border-color: Theme.border-light;
+
+                        IconChat {
+                            x: (parent.width - self.width) / 2;
+                            y: (parent.height - self.height) / 2;
+                        }
+                    }
                 }
             }
         }
@@ -261,6 +306,15 @@ export component MainWindow inherits Window {
                 root.menu-open = false;
                 ShellState.navigate(id);
             }
+        }
+
+        // Success moment: plays once over the top of the screen, then hides.
+        ThulliCelebration {
+            x: (parent.width - self.width) / 2;
+            y: 48px;
+            width: 360px;
+            playing: ShellState.celebration-playing;
+            style: ShellState.celebration-style;
         }
     }
 }

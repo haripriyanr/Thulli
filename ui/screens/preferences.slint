@@ -66,6 +66,8 @@ export global PreferencesState {
     in-out property <string> celebration-style: "confetti";
     // Compact panel
     in-out property <string> compact-side-label: "Right";
+    // Assistant model file (shown name only)
+    in-out property <string> model-label: "Not chosen";
     // Assistant suggestions
     in-out property <bool> suggest-plan-my-day: true;
     in-out property <bool> suggest-welcome-back: true;
@@ -88,6 +90,7 @@ export global PreferencesState {
     callback captured-shortcut(string, string, bool, bool, bool, bool); // id, key text, ctrl, alt, shift, meta
     callback reset-shortcut(string);
     callback preview-celebration();
+    callback pick-model-file();
 }
 
 /// PreferencesScreen: settings grouped into cards. Every control reports a
@@ -418,6 +421,15 @@ export component PreferencesScreen inherits Rectangle {
                     label: "Pill side";
                     value-label: PreferencesState.compact-side-label;
                     cycled => { PreferencesState.cycle-choice("compact_panel_side"); }
+                }
+            }
+
+            ThulliPrefCard {
+                title: "ASSISTANT MODEL";
+                ThulliPrefChoice {
+                    label: "Model file";
+                    value-label: PreferencesState.model-label;
+                    cycled => { PreferencesState.pick-model-file(); }
                 }
             }
 

@@ -1,22 +1,21 @@
 //! Shared state handed to every screen's `bind` function.
 
-// The services and `on_tick` are the seam for the screen bindings that are still
-// stubs; remove this once every field is used.
-#![allow(dead_code)]
-
 use std::cell::RefCell;
 use std::rc::Rc;
 use std::sync::{Arc, Mutex};
 
-use thulli_core::models::AppStateStore;
 use thulli_core::repository::{LoadReport, StorageRepository};
+use thulli_core::services::alerts::AlertAction;
+use thulli_core::services::shortcuts::{GlobalHotkeyBackend, HotkeyBackend, NoHotkeys, ShortcutRegistry};
+use thulli_core::services::timer::FocusRunService;
 use thulli_core::services::{
     ActionHistory, AssistantService, DayPlanService, InsightsService, ListService, NotesService, PreferencesService,
     ShieldService, StoreHandle, TaskService, TickOutcome, TimerService, TimerSnapshot,
 };
-use thulli_core::services::timer::FocusRunService;
 
 type TickListener = Box<dyn Fn(&TickOutcome, &TimerSnapshot)>;
+type AlertListener = Box<dyn Fn(&AlertAction)>;
+type CelebrationListener = Box<dyn Fn(bool, bool)>;
 
 /// Everything a screen binding needs: the state, one service per area, the
 /// focus timer, and the UI-thread timer that drives it.
@@ -24,8 +23,6 @@ type TickListener = Box<dyn Fn(&TickOutcome, &TimerSnapshot)>;
 /// Cheap to clone. It lives on the UI thread only (it holds `Rc`s).
 #[derive(Clone)]
 pub struct AppContext {
-    pub store: Arc<Mutex<AppStateStore>>,
-    pub repository: Arc<dyn StorageRepository>,
     pub handle: StoreHandle,
 
     pub tasks: Arc<TaskService>,
@@ -43,12 +40,16 @@ pub struct AppContext {
     pub timer: Arc<TimerService>,
     /// Focus runs: sessions, tasks, breaks and time entries, over `timer`.
     pub focus: Arc<FocusRunService>,
+    /// In-app and system-wide keyboard shortcuts.
+    pub shortcuts: Rc<ShortcutRegistry>,
     /// Message to show in the banner on launch (set after data recovery).
     pub startup_notice: Option<String>,
 
     /// Drives `timer.tick()`; started by `shell::bind`.
     pub(crate) tick_timer: Rc<slint::Timer>,
     tick_listeners: Rc<RefCell<Vec<TickListener>>>,
+    alert_listeners: Rc<RefCell<Vec<AlertListener>>>,
+    celebration_listeners: Rc<RefCell<Vec<CelebrationListener>>>,
 }
 
 impl AppContext {
@@ -70,12 +71,13 @@ impl AppContext {
             assistant: Arc::new(AssistantService::new(handle.clone())),
             history: Arc::new(ActionHistory::new(handle.clone())),
             focus: Arc::new(FocusRunService::new(handle.clone(), timer.clone())),
+            shortcuts: Rc::new(ShortcutRegistry::new(handle.clone(), hotkey_backend())),
             timer,
             startup_notice,
             tick_timer: Rc::new(slint::Timer::default()),
             tick_listeners: Rc::new(RefCell::new(Vec::new())),
-            store,
-            repository,
+            alert_listeners: Rc::new(RefCell::new(Vec::new())),
+            celebration_listeners: Rc::new(RefCell::new(Vec::new())),
             handle,
         }
     }
@@ -90,6 +92,42 @@ impl AppContext {
     pub(crate) fn notify_tick(&self, outcome: &TickOutcome, snapshot: &TimerSnapshot) {
         for listener in self.tick_listeners.borrow().iter() {
             listener(outcome, snapshot);
+        }
+    }
+
+    /// Registers a callback run whenever an alert is announced. The shell uses
+    /// it to flash the window and pulse the timer pill.
+    pub fn on_alert(&self, listener: impl Fn(&AlertAction) + 'static) {
+        self.alert_listeners.borrow_mut().push(Box::new(listener));
+    }
+
+    pub(crate) fn notify_alert(&self, action: &AlertAction) {
+        for listener in self.alert_listeners.borrow().iter() {
+            listener(action);
+        }
+    }
+
+    /// Registers a callback run when something worth celebrating finishes.
+    /// The arguments are `(over_estimate, from_break)`.
+    pub fn on_celebration(&self, listener: impl Fn(bool, bool) + 'static) {
+        self.celebration_listeners.borrow_mut().push(Box::new(listener));
+    }
+
+    /// Announces a finished task (`from_break` false) or a finished break.
+    pub fn celebrate(&self, over_estimate: bool, from_break: bool) {
+        for listener in self.celebration_listeners.borrow().iter() {
+            listener(over_estimate, from_break);
+        }
+    }
+}
+
+/// The system-wide hotkey backend, or a no-op one when the system refuses.
+fn hotkey_backend() -> Box<dyn HotkeyBackend> {
+    match GlobalHotkeyBackend::new() {
+        Ok(backend) => Box::new(backend),
+        Err(e) => {
+            eprintln!("[Shortcuts] System-wide shortcuts are unavailable: {e}");
+            Box::new(NoHotkeys)
         }
     }
 }

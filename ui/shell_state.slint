@@ -35,4 +35,15 @@ export global ShellState {
     // Timer pill actions
     callback timer-toggle();
     callback timer-open();
+
+    // Set by Rust while an alert pulses the pill.
+    in-out property <bool> pill-alert: false;
+
+    // Success overlay: plays once, then Rust clears `celebration-playing`.
+    in-out property <bool> celebration-playing: false;
+    in-out property <string> celebration-style: "confetti";
+
+    /// Key presses that did not go to a text field. Returns true when a
+    /// shortcut used the key. Arguments: text, ctrl, alt, shift, meta.
+    callback app-key-pressed(string, bool, bool, bool, bool) -> bool;
 }

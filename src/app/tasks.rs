@@ -116,7 +116,9 @@ pub fn bind(window: &MainWindow, ctx: &AppContext) {
     {
         let (ctx, r) = (ctx.clone(), refresh.clone());
         state.on_toggle_complete(move |id| {
-            ctx.tasks.toggle_complete(&ctx.history, &id);
+            if ctx.tasks.toggle_complete(&ctx.history, &id) == Some(true) {
+                ctx.celebrate(false, false);
+            }
             r();
         });
     }

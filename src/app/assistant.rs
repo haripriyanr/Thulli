@@ -28,6 +28,17 @@ pub fn bind(window: &MainWindow, ctx: &AppContext) {
     }
 
     {
+        // Re-read the model file each time the screen is shown.
+        let weak = window.as_weak();
+        let ctx = ctx.clone();
+        state.on_shown(move || {
+            if let Some(w) = weak.upgrade() {
+                refresh(&w, &ctx);
+            }
+        });
+    }
+
+    {
         let weak = window.as_weak();
         let ctx = ctx.clone();
         state.on_new_chat(move || {

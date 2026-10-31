@@ -2,8 +2,8 @@
 
 #[cfg(target_os = "windows")]
 use windows_sys::Win32::UI::WindowsAndMessaging::{
-    GetForegroundWindow, SendMessageW, WM_NCLBUTTONDOWN, HTCAPTION,
-    ShowWindow, IsZoomed, SW_MINIMIZE, SW_MAXIMIZE, SW_RESTORE,
+    FindWindowW, FlashWindowEx, GetForegroundWindow, SendMessageW, WM_NCLBUTTONDOWN, HTCAPTION,
+    ShowWindow, IsZoomed, FLASHWINFO, FLASHW_ALL, FLASHW_TIMERNOFG, SW_MINIMIZE, SW_MAXIMIZE, SW_RESTORE,
 };
 #[cfg(target_os = "windows")]
 use windows_sys::Win32::UI::Input::KeyboardAndMouse::ReleaseCapture;
@@ -46,6 +46,25 @@ impl WindowManager {
                 } else {
                     ShowWindow(hwnd, SW_MAXIMIZE);
                 }
+            }
+        }
+    }
+
+    /// Flashes the Thulli window in the taskbar to get the person's attention.
+    pub fn flash_attention() {
+        #[cfg(target_os = "windows")]
+        unsafe {
+            let title: Vec<u16> = "Thulli".encode_utf16().chain(std::iter::once(0)).collect();
+            let hwnd = FindWindowW(std::ptr::null(), title.as_ptr());
+            if !hwnd.is_null() {
+                let info = FLASHWINFO {
+                    cbSize: std::mem::size_of::<FLASHWINFO>() as u32,
+                    hwnd,
+                    dwFlags: FLASHW_ALL | FLASHW_TIMERNOFG,
+                    uCount: 3,
+                    dwTimeout: 0,
+                };
+                FlashWindowEx(&info);
             }
         }
     }
