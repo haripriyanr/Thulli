@@ -1,0 +1,72 @@
+import { Theme } from "../theme.slint";
+import { IconPlus, IconMinus } from "../icons.slint";
+
+/// ThulliStepper: a number with minus and plus buttons.
+///
+/// `value` is an input; the owner stores the new number when `changed(int)`
+/// fires. The result always stays within `min` and `max`, moving by `step`.
+export component ThulliStepper inherits Rectangle {
+    in property <int> value: 90;
+    in property <int> min: 10;
+    in property <int> max: 180;
+    in property <int> step: 5;
+    in property <string> suffix: "min";
+    callback changed(int);
+
+    width: 168px;
+    height: 38px;
+    border-radius: Theme.radius-sm;
+    background: Theme.bg-card;
+    border-width: 1px;
+    border-color: Theme.border-subtle;
+
+    HorizontalLayout {
+        minus := TouchArea {
+            width: 40px;
+            height: 38px;
+            enabled: root.value > root.min;
+            clicked => { root.changed(Math.max(root.min, root.value - root.step)); }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: minus.has-hover && minus.enabled ? Theme.bg-card-hover : transparent;
+                IconMinus {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                    stroke-color: minus.enabled ? Theme.text-primary : Theme.text-muted;
+                }
+            }
+        }
+
+        Text {
+            text: root.value + " " + root.suffix;
+            font-size: 13px;
+            font-weight: 700;
+            color: Theme.text-primary;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+            horizontal-stretch: 1;
+        }
+
+        plus := TouchArea {
+            width: 40px;
+            height: 38px;
+            enabled: root.value < root.max;
+            clicked => { root.changed(Math.min(root.max, root.value + root.step)); }
+
+            Rectangle {
+                width: 100%;
+                height: 100%;
+                border-radius: Theme.radius-sm;
+                background: plus.has-hover && plus.enabled ? Theme.bg-card-hover : transparent;
+                IconPlus {
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                    stroke-color: plus.enabled ? Theme.text-primary : Theme.text-muted;
+                }
+            }
+        }
+    }
+}

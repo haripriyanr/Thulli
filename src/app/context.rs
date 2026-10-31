@@ -14,6 +14,7 @@ use thulli_core::services::{
     ActionHistory, AssistantService, DayPlanService, InsightsService, ListService, NotesService, PreferencesService,
     ShieldService, StoreHandle, TaskService, TickOutcome, TimerService, TimerSnapshot,
 };
+use thulli_core::services::timer::FocusRunService;
 
 type TickListener = Box<dyn Fn(&TickOutcome, &TimerSnapshot)>;
 
@@ -40,6 +41,8 @@ pub struct AppContext {
 
     /// The single focus timer shared by every screen and the timer pill.
     pub timer: Arc<TimerService>,
+    /// Focus runs: sessions, tasks, breaks and time entries, over `timer`.
+    pub focus: Arc<FocusRunService>,
     /// Message to show in the banner on launch (set after data recovery).
     pub startup_notice: Option<String>,
 
@@ -54,6 +57,7 @@ impl AppContext {
         let default_session = report.store.preferences.default_session_mins;
         let store = Arc::new(Mutex::new(report.store));
         let handle = StoreHandle::new(store.clone(), repository.clone());
+        let timer = Arc::new(TimerService::new(default_session));
 
         Self {
             tasks: Arc::new(TaskService::new(store.clone(), repository.clone())),
@@ -65,7 +69,8 @@ impl AppContext {
             shield: Arc::new(ShieldService::new(handle.clone())),
             assistant: Arc::new(AssistantService::new(handle.clone())),
             history: Arc::new(ActionHistory::new(handle.clone())),
-            timer: Arc::new(TimerService::new(default_session)),
+            focus: Arc::new(FocusRunService::new(handle.clone(), timer.clone())),
+            timer,
             startup_notice,
             tick_timer: Rc::new(slint::Timer::default()),
             tick_listeners: Rc::new(RefCell::new(Vec::new())),

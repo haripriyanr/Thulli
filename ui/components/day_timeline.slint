@@ -1,0 +1,97 @@
+import { Theme } from "../theme.slint";
+import { TimeBlockModel } from "../types.slint";
+
+/// ThulliDayTimeline: hour rows for one day with tracked blocks and a live
+/// now-line. It scrolls, and starts near the current time.
+///
+/// `blocks` use minutes since local midnight (see `TimeBlockModel`); `now-mins`
+/// places the now-line. Planning, focus, break and other time have their own
+/// accent colours.
+export component ThulliDayTimeline inherits Rectangle {
+    in property <[TimeBlockModel]> blocks;
+    in property <int> now-mins: 0;
+    in property <length> hour-height: 48px;
+    in property <length> gutter: 48px;
+
+    clip: true;
+
+    pure function kind-color(kind: string) -> color {
+        return kind == "planning" ? Theme.accent-blue
+            : kind == "focus" ? Theme.accent-cyan
+            : kind == "break" ? Theme.accent-amber
+            : Theme.accent-pink;
+    }
+
+    Flickable {
+        width: 100%;
+        height: 100%;
+        content-width: root.width;
+        content-height: 24 * root.hour-height;
+        init => {
+            self.content-y = -max(0px, (root.now-mins / 60.0 - 2.0) * root.hour-height);
+        }
+
+        for hour in 24: Rectangle {
+            x: 0px;
+            y: hour * root.hour-height;
+            width: root.width;
+            height: root.hour-height;
+
+            Rectangle {
+                x: root.gutter;
+                width: parent.width - root.gutter;
+                height: 1px;
+                background: Theme.border-subtle;
+            }
+            Text {
+                x: 0px;
+                y: -7px;
+                width: root.gutter - 8px;
+                text: (hour < 10 ? "0" : "") + hour + ":00";
+                font-size: 10px;
+                color: Theme.text-muted;
+                horizontal-alignment: right;
+            }
+        }
+
+        for block in root.blocks: Rectangle {
+            x: root.gutter + 6px;
+            y: block.start-mins / 60.0 * root.hour-height;
+            width: root.width - root.gutter - 12px;
+            height: max(6px, block.length-mins / 60.0 * root.hour-height - 2px);
+            border-radius: 5px;
+            background: root.kind-color(block.kind).transparentize(0.8);
+            border-width: 1px;
+            border-color: root.kind-color(block.kind).transparentize(0.35);
+            clip: true;
+
+            if self.height > 18px: Text {
+                x: 8px;
+                y: 3px;
+                width: parent.width - 12px;
+                text: block.label;
+                font-size: 11px;
+                font-weight: 600;
+                color: Theme.text-primary;
+                overflow: elide;
+            }
+        }
+
+        Rectangle {
+            x: root.gutter - 4px;
+            y: root.now-mins / 60.0 * root.hour-height - 1px;
+            width: root.width - root.gutter + 4px;
+            height: 2px;
+            background: Theme.destructive;
+
+            Rectangle {
+                x: -2px;
+                y: -3px;
+                width: 8px;
+                height: 8px;
+                border-radius: 4px;
+                background: Theme.destructive;
+            }
+        }
+    }
+}

@@ -1,0 +1,47 @@
+import { Theme } from "../theme.slint";
+
+/// ThulliActionButton: outlined action with a soft translucent fill.
+///
+/// Never a solid block: the fill is the accent at low opacity with a thin
+/// accent border. Put an icon element inside it to show it before the text.
+///
+///   ThulliActionButton { text: "Start session"; clicked => { ... } IconPlay { } }
+export component ThulliActionButton inherits TouchArea {
+    in property <string> text: "Action";
+    in property <color> accent: Theme.accent-cyan;
+    in property <length> font-size: 12px;
+
+    width: 110px;
+    height: 34px;
+    mouse-cursor: root.enabled ? MouseCursor.pointer : MouseCursor.default;
+
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: Theme.radius-sm;
+        background: !root.enabled ? transparent
+            : root.pressed ? root.accent.transparentize(0.62)
+            : root.has-hover ? root.accent.transparentize(0.76)
+            : root.accent.transparentize(0.87);
+        border-width: 1px;
+        border-color: root.enabled ? root.accent.transparentize(0.45) : Theme.border-subtle;
+
+        HorizontalLayout {
+            alignment: center;
+            spacing: 6px;
+            padding-left: 8px;
+            padding-right: 8px;
+
+            @children
+
+            Text {
+                text: root.text;
+                font-size: root.font-size;
+                font-weight: 700;
+                color: root.enabled ? Theme.text-primary : Theme.text-muted;
+                vertical-alignment: center;
+                overflow: elide;
+            }
+        }
+    }
+}
