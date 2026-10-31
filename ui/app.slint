@@ -214,6 +214,12 @@ export component MainWindow inherits Window {
             // leave ShellState.content-bottom-inset free for the tab pill.
             Rectangle {
                 vertical-stretch: 1;
+                // Screens size to the window; they must never grow it.
+                min-width: 0px;
+                min-height: 0px;
+                preferred-width: 0px;
+                preferred-height: 0px;
+                clip: true;
                 background: Theme.bg-canvas;
 
                 if ShellState.current-screen == "today": TodayScreen { width: 100%; height: 100%; }
