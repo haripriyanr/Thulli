@@ -57,8 +57,8 @@ component TimerCard inherits GlassCard {
             ThulliRing {
                 width: AppData.immersive ? max(320px, min(root.width, root.height) - 120px) : 320px;
                 height: self.width;
-                // Grows into full screen with the same spring as the card.
-                animate width { duration: 800ms; easing: cubic-bezier(0.34, 1.56, 0.64, 1); }
+                // Grows into full screen smoothly, without overshoot.
+                animate width { duration: 700ms; easing: ease-in-out; }
                 thickness: 10px;
                 // Elapsed share of the phase. The timer ticks once a second,
                 // so the arc glides between ticks instead of stepping.
@@ -95,8 +95,19 @@ component TimerCard inherits GlassCard {
                         IconWave { width: 22px; height: 22px; stroke-color: root.accent; }
                     }
                     Text { text: root.phase-label; font-size: 14px; color: Theme.text-secondary; horizontal-alignment: center; }
-                    Text { text: AppData.pomodoro-time; font-size: AppData.immersive ? 96px : 64px; font-weight: 700; color: Theme.text-primary; horizontal-alignment: center;
-                        animate font-size { duration: 800ms; easing: cubic-bezier(0.34, 1.56, 0.64, 1); } }
+                    // While the timer runs the digits breathe: a slow 4 s swell
+                    // in size and brightness. Paused, they rest.
+                    Text {
+                        property <float> breath: AppData.pomodoro-running ? (1 - Math.cos(animation-tick() / 4s * 360deg)) / 2 : 0;
+                        text: AppData.pomodoro-time;
+                        font-size: AppData.immersive ? 96px : 64px;
+                        font-weight: 700;
+                        color: Theme.text-primary;
+                        horizontal-alignment: center;
+                        transform-scale: 1 + 0.035 * self.breath;
+                        opacity: 0.82 + 0.18 * self.breath;
+                        animate font-size { duration: 700ms; easing: ease-in-out; }
+                    }
                     Text { text: AppData.pomodoro-round; font-size: 13px; color: Theme.text-secondary; horizontal-alignment: center; }
                     HorizontalLayout {
                         alignment: center;
