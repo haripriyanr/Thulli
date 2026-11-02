@@ -351,6 +351,14 @@ export struct CalendarDay {
 }
 
 /// One choice in a settings dropdown.
+/// One row of the language list. `header` is the region name on the first
+/// language of each region, empty otherwise.
+export struct LanguageRow {
+    id: string,
+    name: string,
+    header: string,
+}
+
 export struct SelectOption {
     label: string,
     value: int,

@@ -8,6 +8,14 @@ export global DragState {
     in-out property <bool> active: false;
     in-out property <string> task-id;
     in-out property <string> title;
+    // What the floating copy shows: estimate line, space badge, card width
+    // and where in the card the pointer grabbed it.
+    in-out property <string> estimate;
+    in-out property <color> tint;
+    in-out property <string> letter;
+    in-out property <length> card-width: 300px;
+    in-out property <length> grab-x;
+    in-out property <length> grab-y;
     in-out property <string> view;
     in-out property <length> x;
     in-out property <length> y;
@@ -81,29 +89,60 @@ export component TipLayer inherits Rectangle {
     tip-text := Text { text: TipState.text; font-size: 11px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
 }
 
-/// DragGhost: the card that follows the pointer while dragging.
+/// DragGhost: a full-size copy of the dragged card that follows the
+/// pointer, held where it was grabbed and tilted slightly.
 export component DragGhost inherits Rectangle {
     visible: DragState.active;
-    x: DragState.x - 24px;
-    y: DragState.y - 22px;
-    width: min(320px, ghost-text.preferred-width + 48px);
-    height: 44px;
-    border-radius: 14px;
-    background: Theme.dark-mode ? #2A2440F0 : #FFFFFFF0;
+    x: DragState.x - DragState.grab-x;
+    y: DragState.y - DragState.grab-y;
+    width: DragState.card-width;
+    height: 92px;
+    border-radius: 16px;
+    background: Theme.dark-mode ? #2A2733F5 : #FFFFFFF5;
     border-width: 1px;
-    border-color: Theme.accent-violet;
-    drop-shadow-blur: 24px;
-    drop-shadow-color: #00000066;
-    transform-rotation: -2deg;
-    ghost-text := Text {
-        x: 24px;
-        width: parent.width - 36px;
-        height: 100%;
+    border-color: Theme.glass-border;
+    drop-shadow-blur: 28px;
+    drop-shadow-offset-y: 10px;
+    drop-shadow-color: #00000070;
+    transform-rotation: 2deg;
+
+    // Tick box outline
+    Rectangle {
+        x: 16px;
+        y: 18px;
+        width: 18px;
+        height: 18px;
+        border-radius: 6px;
+        border-width: 1.5px;
+        border-color: Theme.text-muted;
+    }
+    Text {
+        x: 46px;
+        y: 14px;
+        width: parent.width - 90px;
+        height: 26px;
         text: DragState.title;
-        font-size: 14px;
+        font-size: 15px;
         font-weight: 600;
         color: Theme.text-primary;
         vertical-alignment: center;
         overflow: elide;
+    }
+    // Space badge
+    Rectangle {
+        x: parent.width - 36px;
+        y: 17px;
+        width: 20px;
+        height: 20px;
+        border-radius: 6px;
+        background: DragState.tint;
+        Text { text: DragState.letter; font-size: 11px; font-weight: 700; color: #111111; horizontal-alignment: center; vertical-alignment: center; }
+    }
+    Text {
+        x: 46px;
+        y: 52px;
+        text: DragState.estimate;
+        font-size: 12px;
+        color: Theme.text-muted;
     }
 }

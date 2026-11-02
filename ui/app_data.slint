@@ -1,4 +1,4 @@
-import { TaskRow, NoteRow, DayBar, SessionRow, TaskOption, SpaceRow, SpaceTask, SpaceColumn, CalendarDay } from "types.slint";
+import { TaskRow, NoteRow, DayBar, SessionRow, TaskOption, SpaceRow, SpaceTask, SpaceColumn, CalendarDay, LanguageRow } from "types.slint";
 
 /// AppData: everything the screens show. Rust fills it from the saved data
 /// and handles the callbacks; the screens only display it and report taps.
@@ -201,4 +201,9 @@ export global AppData {
     // key, value: switches a yes/no setting.
     callback set-setting-flag(string, bool);
     callback set-language(string);
+    // Name of the saved language, and the language list filtered by the
+    // text typed into the picker.
+    in-out property <string> language-name: "English";
+    in-out property <[LanguageRow]> language-rows;
+    callback language-search(string);
 }

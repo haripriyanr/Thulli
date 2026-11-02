@@ -1,5 +1,6 @@
 import { Theme } from "../theme.slint";
 import { IconTimer, IconLanguage } from "../icons.slint";
+import { LanguagePicker } from "../components/language_picker.slint";
 import { GlassCard } from "../components/glass.slint";
 import { Switch, SelectBox, SettingRow } from "../components/settings_controls.slint";
 import { AppData } from "../app_data.slint";
@@ -66,13 +67,7 @@ export component SettingsScreen inherits Rectangle {
                         strong: true;
                         label: "App language";
                         hint: "Choice applies immediately and is saved on this device.";
-                        SelectBox {
-                            width: 280px;
-                            current: 0;
-                            label: "English";
-                            options: [{ label: "English", value: 0 }];
-                            selected(v) => { AppData.set-language("en"); }
-                        }
+                        LanguagePicker { width: 280px; }
                     }
                 }
             }

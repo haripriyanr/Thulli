@@ -346,7 +346,8 @@ export component TaskCard inherits Rectangle {
     property <length> press-y;
     property <bool> armed: false;
     property <bool> dragging: DragState.active && DragState.task-id == root.task.id;
-    opacity: root.dragging ? 0.35 : 1;
+    // The card leaves its place while its copy is carried.
+    opacity: root.dragging ? 0 : 1;
 
     // Drag logic, in window coordinates so subtask rows can feed it too.
     function press(event: PointerEvent, ax: length, ay: length) {
@@ -354,6 +355,8 @@ export component TaskCard inherits Rectangle {
             root.armed = root.drag-view != "" && !root.editing;
             root.press-x = ax;
             root.press-y = ay;
+            DragState.grab-x = ax - root.absolute-position.x;
+            DragState.grab-y = ay - root.absolute-position.y;
         } else if event.kind == PointerEventKind.up || event.kind == PointerEventKind.cancel {
             if root.dragging { DragState.finish(); }
             root.armed = false;
@@ -364,6 +367,10 @@ export component TaskCard inherits Rectangle {
             TipState.text = "";
             DragState.task-id = root.task.id;
             DragState.title = root.task.title;
+            DragState.estimate = root.task.estimate > 0 ? "\{root.task.estimate}min" : "0min  /  + EST";
+            DragState.tint = root.task.color;
+            DragState.letter = root.task.letter;
+            DragState.card-width = root.width;
             DragState.view = root.drag-view;
             DragState.target = "";
             DragState.active = true;

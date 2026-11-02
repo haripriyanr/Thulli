@@ -13,6 +13,7 @@ use thulli_core::repository::StorageRepository;
 use thulli_core::services::notes::NoteScope;
 use thulli_core::services::pomodoro::{PomodoroPhase, PomodoroSettings, PomodoroTimer};
 use thulli_core::models::MatrixQuadrant;
+use thulli_core::services::preferences::{language_name, LANGUAGE_CHOICES};
 use thulli_core::services::tasks::{parse_date_input, DateFilter, TaskEdit};
 use thulli_core::services::{ActionHistory, ListService, NotesService, PreferencesService, StoreHandle, TaskService};
 
@@ -25,7 +26,7 @@ use thulli_core::services::assistant::AssistantService;
 
 #[path = "data_hub_ai.rs"]
 mod ai;
-use crate::{AppData, MainWindow, NoteRow};
+use crate::{AppData, LanguageRow, MainWindow, NoteRow};
 
 /// Setting keys the Settings screen can step, with the step size for each.
 const STEPPED_SETTINGS: [(&str, i32); 5] = [
@@ -568,6 +569,8 @@ impl DataHub {
         data.set_setting_breaks(prefs.pomodoro_breaks);
         data.set_setting_start_next(prefs.start_next_after_early_break);
         data.set_setting_language(prefs.language.clone().into());
+        data.set_language_name(language_name(&prefs.language).into());
+        data.set_language_rows(model(language_rows("")));
     }
 
     /// Adds the elapsed time of a phase to the saved time entries.
@@ -959,6 +962,14 @@ impl DataHub {
             });
         }
         {
+            let weak = window.as_weak();
+            data.on_language_search(move |query| {
+                if let Some(w) = weak.upgrade() {
+                    w.global::<AppData>().set_language_rows(model(language_rows(&query)));
+                }
+            });
+        }
+        {
             let hub = self.clone();
             let weak = window.as_weak();
             data.on_set_language(move |id| {
@@ -969,6 +980,22 @@ impl DataHub {
             });
         }
     }
+}
+
+/// Languages whose name or id contains `query` (any case), with the region
+/// named on the first row of each region.
+fn language_rows(query: &str) -> Vec<LanguageRow> {
+    let q = query.trim().to_lowercase();
+    let mut last_region = "";
+    LANGUAGE_CHOICES
+        .iter()
+        .filter(|(id, name, _)| q.is_empty() || name.to_lowercase().contains(&q) || *id == q)
+        .map(|(id, name, region)| {
+            let header = if *region != last_region { *region } else { "" };
+            last_region = region;
+            LanguageRow { id: (*id).into(), name: (*name).into(), header: header.into() }
+        })
+        .collect()
 }
 
 /// Timer state shown to the user: Running, Paused, Completed or Ready.

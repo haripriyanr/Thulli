@@ -1,0 +1,156 @@
+import { Theme } from "../theme.slint";
+import { AppData } from "../app_data.slint";
+import { IconChevronDown, IconCheck, IconSearch } from "../icons.slint";
+
+/// LanguagePicker: shows the saved language; clicking opens a list grouped
+/// by region with a search field at the top. Typing filters by name or
+/// code; clicking a row saves it.
+export component LanguagePicker inherits Rectangle {
+    height: 44px;
+    border-radius: 12px;
+    background: touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill-strong;
+    border-width: 1px;
+    border-color: Theme.glass-border;
+    animate background { duration: 120ms; easing: ease-out; }
+
+    Text {
+        x: 16px;
+        width: parent.width - 48px;
+        height: 100%;
+        text: AppData.language-name;
+        font-size: 15px;
+        font-weight: 700;
+        color: Theme.text-primary;
+        vertical-alignment: center;
+        overflow: elide;
+    }
+    IconChevronDown {
+        x: parent.width - self.width - 16px;
+        y: (parent.height - self.height) / 2;
+        stroke-color: Theme.text-muted;
+    }
+    touch := TouchArea {
+        mouse-cursor: pointer;
+        clicked => {
+            AppData.language-search("");
+            list.show();
+        }
+    }
+
+    list := PopupWindow {
+        x: 0;
+        y: root.height + 6px;
+        width: root.width;
+        height: 340px;
+        close-policy: close-on-click-outside;
+        Rectangle {
+            border-radius: 12px;
+            background: Theme.dark-mode ? #221C3A : #FFFFFF;
+            border-width: 1px;
+            border-color: Theme.glass-border;
+            drop-shadow-blur: 20px;
+            drop-shadow-color: #00000059;
+            clip: true;
+
+            // Search
+            Rectangle {
+                x: 8px;
+                y: 8px;
+                width: parent.width - 16px;
+                height: 36px;
+                border-radius: 10px;
+                background: Theme.glass-fill;
+                border-width: 1px;
+                border-color: search.has-focus ? Theme.accent-violet.with-alpha(0.6) : Theme.glass-border;
+                IconSearch { x: 10px; y: (parent.height - self.height) / 2; width: 14px; height: 14px; stroke-color: Theme.text-muted; }
+                Text {
+                    x: 32px;
+                    height: 100%;
+                    text: "Type a language";
+                    visible: search.text == "";
+                    font-size: 13px;
+                    color: Theme.text-muted;
+                    vertical-alignment: center;
+                }
+                search := TextInput {
+                    x: 32px;
+                    width: parent.width - 42px;
+                    height: 100%;
+                    font-size: 13px;
+                    color: Theme.text-primary;
+                    vertical-alignment: center;
+                    init => { self.text = ""; self.focus(); }
+                    edited => { AppData.language-search(self.text); }
+                    key-pressed(event) => {
+                        if event.text == Key.Escape { list.close(); return accept; }
+                        return reject;
+                    }
+                    accepted => {
+                        // Enter picks the first match.
+                        if AppData.language-rows.length > 0 {
+                            AppData.set-language(AppData.language-rows[0].id);
+                            list.close();
+                        }
+                    }
+                }
+            }
+
+            if AppData.language-rows.length == 0: Text {
+                y: 56px;
+                width: parent.width;
+                text: "No language matches";
+                font-size: 13px;
+                color: Theme.text-muted;
+                horizontal-alignment: center;
+            }
+
+            Flickable {
+                y: 52px;
+                height: parent.height - 58px;
+                content-height: rows.preferred-height;
+                rows := VerticalLayout {
+                    width: parent.width;
+                    padding-left: 6px;
+                    padding-right: 6px;
+                    for row in AppData.language-rows: VerticalLayout {
+                        if row.header != "": Text {
+                            height: 28px;
+                            text: row.header;
+                            font-size: 11px;
+                            font-weight: 600;
+                            color: Theme.text-muted;
+                            vertical-alignment: bottom;
+                        }
+                        Rectangle {
+                            height: 36px;
+                            border-radius: 8px;
+                            background: row-touch.has-hover ? Theme.accent-violet.with-alpha(0.13) : transparent;
+                            Text {
+                                x: 12px;
+                                height: 100%;
+                                text: row.name;
+                                font-size: 14px;
+                                font-weight: row.id == AppData.setting-language ? 700 : 400;
+                                color: Theme.text-primary;
+                                vertical-alignment: center;
+                            }
+                            if row.id == AppData.setting-language: IconCheck {
+                                x: parent.width - self.width - 12px;
+                                y: (parent.height - self.height) / 2;
+                                width: 14px;
+                                height: 14px;
+                            }
+                            row-touch := TouchArea {
+                                mouse-cursor: pointer;
+                                clicked => {
+                                    AppData.set-language(row.id);
+                                    list.close();
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

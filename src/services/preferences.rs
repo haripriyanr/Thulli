@@ -76,18 +76,136 @@ pub fn is_sound_id(id: &str) -> bool {
     SOUND_CHOICES.iter().any(|(s, _)| *s == id)
 }
 
-/// Interface languages offered. The choice is stored only; the interface is
-/// currently English.
-pub const LANGUAGE_CHOICES: &[(&str, &str)] = &[
-    ("en", "English"),
-    ("es", "Espanol"),
-    ("fr", "Francais"),
-    ("de", "Deutsch"),
-    ("pt", "Portugues"),
-    ("it", "Italiano"),
-    ("hi", "Hindi"),
-    ("ja", "Japanese"),
+/// Interface languages offered, as (id, name, region). Ids are ISO 639
+/// codes. The choice is stored only; the interface is English until
+/// translations are added.
+pub const LANGUAGE_CHOICES: &[(&str, &str, &str)] = &[
+    // Indian languages
+    ("as", "Assamese", "Indian languages"),
+    ("bn", "Bengali", "Indian languages"),
+    ("bho", "Bhojpuri", "Indian languages"),
+    ("gu", "Gujarati", "Indian languages"),
+    ("hi", "Hindi", "Indian languages"),
+    ("kn", "Kannada", "Indian languages"),
+    ("ks", "Kashmiri", "Indian languages"),
+    ("ml", "Malayalam", "Indian languages"),
+    ("mai", "Maithili", "Indian languages"),
+    ("mni", "Meitei (Manipuri)", "Indian languages"),
+    ("mr", "Marathi", "Indian languages"),
+    ("ne", "Nepali", "Indian languages"),
+    ("or", "Odia", "Indian languages"),
+    ("pa", "Punjabi", "Indian languages"),
+    ("sd", "Sindhi", "Indian languages"),
+    ("si", "Sinhala", "Indian languages"),
+    ("ta", "Tamil", "Indian languages"),
+    ("te", "Telugu", "Indian languages"),
+    ("tcy", "Tulu", "Indian languages"),
+    ("ur", "Urdu", "Indian languages"),
+    // East, Southeast and Central Asian
+    ("zh", "Mandarin Chinese", "East, Southeast and Central Asian"),
+    ("yue", "Cantonese", "East, Southeast and Central Asian"),
+    ("ja", "Japanese", "East, Southeast and Central Asian"),
+    ("ko", "Korean", "East, Southeast and Central Asian"),
+    ("my", "Burmese", "East, Southeast and Central Asian"),
+    ("bo", "Standard Tibetan", "East, Southeast and Central Asian"),
+    ("id", "Indonesian", "East, Southeast and Central Asian"),
+    ("ms", "Malay", "East, Southeast and Central Asian"),
+    ("jv", "Javanese", "East, Southeast and Central Asian"),
+    ("bjn", "Banjar", "East, Southeast and Central Asian"),
+    ("bug", "Buginese", "East, Southeast and Central Asian"),
+    ("ceb", "Cebuano", "East, Southeast and Central Asian"),
+    ("th", "Thai", "East, Southeast and Central Asian"),
+    ("km", "Khmer", "East, Southeast and Central Asian"),
+    ("vi", "Vietnamese", "East, Southeast and Central Asian"),
+    ("kk", "Kazakh", "East, Southeast and Central Asian"),
+    ("ba", "Bashkir", "East, Southeast and Central Asian"),
+    ("tt", "Tatar", "East, Southeast and Central Asian"),
+    ("tr", "Turkish", "East, Southeast and Central Asian"),
+    ("tk", "Turkmen", "East, Southeast and Central Asian"),
+    ("uz", "Northern Uzbek", "East, Southeast and Central Asian"),
+    ("ug", "Uyghur", "East, Southeast and Central Asian"),
+    // Middle Eastern
+    ("fa", "Persian", "Middle Eastern"),
+    ("ar", "Standard Arabic", "Middle Eastern"),
+    ("arz", "Egyptian Arabic", "Middle Eastern"),
+    ("ary", "Moroccan Arabic", "Middle Eastern"),
+    ("ars", "Najdi Arabic", "Middle Eastern"),
+    ("apc", "Levantine Arabic", "Middle Eastern"),
+    ("acm", "Mesopotamian Arabic", "Middle Eastern"),
+    ("afb", "Gulf Arabic", "Middle Eastern"),
+    ("arq", "Algerian Arabic", "Middle Eastern"),
+    ("apd", "Sudanese Arabic", "Middle Eastern"),
+    ("aeb", "Tunisian Arabic", "Middle Eastern"),
+    ("ayl", "Libyan Arabic", "Middle Eastern"),
+    ("he", "Hebrew", "Middle Eastern"),
+    ("pbt", "Southern Pashto", "Middle Eastern"),
+    // European
+    ("en", "English", "European"),
+    ("fr", "French", "European"),
+    ("de", "German", "European"),
+    ("es", "Spanish", "European"),
+    ("pt", "Portuguese", "European"),
+    ("it", "Italian", "European"),
+    ("nl", "Dutch", "European"),
+    ("ru", "Russian", "European"),
+    ("uk", "Ukrainian", "European"),
+    ("pl", "Polish", "European"),
+    ("cs", "Czech", "European"),
+    ("sk", "Slovak", "European"),
+    ("hr", "Croatian", "European"),
+    ("sr", "Serbian", "European"),
+    ("bs", "Bosnian", "European"),
+    ("sl", "Slovenian", "European"),
+    ("bg", "Bulgarian", "European"),
+    ("ro", "Romanian", "European"),
+    ("el", "Greek", "European"),
+    ("sv", "Swedish", "European"),
+    ("da", "Danish", "European"),
+    ("nb", "Norwegian Bokmål", "European"),
+    ("fi", "Finnish", "European"),
+    ("et", "Estonian", "European"),
+    ("hu", "Hungarian", "European"),
+    ("is", "Icelandic", "European"),
+    ("lt", "Lithuanian", "European"),
+    ("lv", "Latvian", "European"),
+    ("cy", "Welsh", "European"),
+    ("ga", "Irish", "European"),
+    ("ca", "Catalan", "European"),
+    ("gl", "Galician", "European"),
+    ("oc", "Occitan", "European"),
+    ("eu", "Basque", "European"),
+    ("af", "Afrikaans", "European"),
+    ("be", "Belarusian", "European"),
+    ("mk", "Macedonian", "European"),
+    ("hy", "Armenian", "European"),
+    ("ka", "Georgian", "European"),
+    ("lb", "Luxembourgish", "European"),
+    ("mt", "Maltese", "European"),
+    // African
+    ("am", "Amharic", "African"),
+    ("ti", "Tigrinya", "African"),
+    ("so", "Somali", "African"),
+    ("ha", "Hausa", "African"),
+    ("yo", "Yoruba", "African"),
+    ("rw", "Kinyarwanda", "African"),
+    ("ln", "Lingala", "African"),
+    ("ny", "Nyanja (Chichewa)", "African"),
+    ("sn", "Shona", "African"),
+    ("tn", "Tswana", "African"),
+    ("xh", "Xhosa", "African"),
+    ("zu", "Zulu", "African"),
+    ("lg", "Luganda (Ganda)", "African"),
+    ("sw", "Swahili", "African"),
+    ("fuv", "Nigerian Fulfulde", "African"),
+    ("wo", "Wolof", "African"),
+    ("cjk", "Chokwe", "African"),
+    ("ig", "Igbo", "African"),
 ];
+
+/// Display name of a language id, or the id itself when unknown.
+pub fn language_name(id: &str) -> &str {
+    LANGUAGE_CHOICES.iter().find(|(i, ..)| *i == id).map_or(id, |(_, n, _)| n)
+}
 
 /// Timezone labels offered. An empty stored value means "system".
 pub const TIMEZONE_CHOICES: &[&str] = &[
@@ -522,7 +640,7 @@ impl PreferencesService {
                     }
                 }
                 "language" => {
-                    if !LANGUAGE_CHOICES.iter().any(|(id, _)| *id == value) {
+                    if !LANGUAGE_CHOICES.iter().any(|(id, ..)| *id == value) {
                         return Err(bad());
                     }
                     p.language = value.to_string();
@@ -874,6 +992,9 @@ mod tests {
         svc.set_text("language", "fr").unwrap();
         assert_eq!(svc.snapshot().language, "fr");
         assert!(svc.set_text("language", "xx").is_err());
+        svc.set_text("language", "tcy").unwrap();
+        assert_eq!(language_name("tcy"), "Tulu");
+        assert_eq!(LANGUAGE_CHOICES.len(), 115);
     }
 
     #[test]
