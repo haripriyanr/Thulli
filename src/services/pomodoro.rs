@@ -47,6 +47,8 @@ pub struct PomodoroSettings {
     pub rounds_before_long_break: u32,
     /// Start the next phase on its own when a phase finishes.
     pub auto_advance: bool,
+    /// Take breaks between focus rounds. Off goes from focus to focus.
+    pub breaks: bool,
 }
 
 impl PomodoroSettings {
@@ -58,6 +60,7 @@ impl PomodoroSettings {
             long_break_secs: u64::from(prefs.pomodoro_long_break_mins) * 60,
             rounds_before_long_break: prefs.pomodoro_rounds,
             auto_advance: prefs.pomodoro_auto_advance,
+            breaks: prefs.pomodoro_breaks,
         }
     }
 }
@@ -70,6 +73,7 @@ impl Default for PomodoroSettings {
             long_break_secs: 20 * 60,
             rounds_before_long_break: 4,
             auto_advance: false,
+            breaks: true,
         }
     }
 }
@@ -252,6 +256,7 @@ impl PomodoroTimer {
 
     fn advance(&mut self) {
         let next = match self.phase {
+            PomodoroPhase::Focus if !self.settings.breaks => PomodoroPhase::Focus,
             PomodoroPhase::Focus => {
                 let rounds = self.rounds_before_long_break();
                 if self.completed_rounds > 0 && self.completed_rounds % rounds == 0 {
@@ -290,6 +295,7 @@ mod tests {
             long_break_secs: 4,
             rounds_before_long_break: 2,
             auto_advance: false,
+            breaks: true,
         })
     }
 
@@ -430,6 +436,17 @@ mod tests {
     }
 
     #[test]
+    fn without_breaks_focus_follows_focus() {
+        let mut timer = PomodoroTimer::new(PomodoroSettings { breaks: false, ..quick_settings() });
+        timer.start();
+        tick_n(&mut timer, 3);
+        assert_eq!(timer.phase(), PomodoroPhase::Focus);
+        assert_eq!(timer.completed_rounds(), 1);
+        timer.next();
+        assert_eq!(timer.phase(), PomodoroPhase::Focus);
+    }
+
+    #[test]
     fn progress_tracks_elapsed_fraction() {
         let mut timer = quick();
         timer.start();
@@ -466,6 +483,7 @@ mod tests {
             long_break_secs: 4,
             rounds_before_long_break: 2,
             auto_advance: false,
+            breaks: true,
         }
     }
 

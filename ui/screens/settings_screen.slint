@@ -1,76 +1,237 @@
 import { Theme } from "../theme.slint";
-import { IconSettings, IconTimer } from "../icons.slint";
+import { IconTimer, IconLanguage } from "../icons.slint";
 import { GlassCard } from "../components/glass.slint";
-import { SectionTitle, StepperRow, ToggleRow } from "../components/rows.slint";
+import { Switch, SelectBox, SettingRow } from "../components/settings_controls.slint";
 import { AppData } from "../app_data.slint";
 
-/// SettingsScreen: the Pomodoro durations and cycle rule. Changes are saved
-/// straight away and the timer picks them up.
+/// A small text button.
+component PlainButton inherits Rectangle {
+    in property <string> label;
+    callback clicked();
+    width: label-text.preferred-width + 28px;
+    height: 40px;
+    border-radius: 10px;
+    background: touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill-strong;
+    border-width: 1px;
+    border-color: Theme.glass-border;
+    label-text := Text { text: root.label; font-size: 14px; font-weight: 600; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+    touch := TouchArea { mouse-cursor: pointer; clicked => { root.clicked(); } }
+}
+
+/// A titled group of settings.
+component SettingsSection inherits GlassCard {
+    in property <string> title;
+    in property <string> caption;
+    corner: 20px;
+    height: body.preferred-height;
+    body := VerticalLayout {
+        padding: 28px;
+        padding-top: 24px;
+        spacing: 8px;
+        Text { text: root.title; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+        if root.caption != "": Text { text: root.caption; font-size: 15px; color: Theme.text-muted; }
+        @children
+    }
+}
+
+/// SettingsScreen: timer settings and language. Every change is saved
+/// straight away and the timer picks it up.
 export component SettingsScreen inherits Rectangle {
     clip: true;
     background: transparent;
 
-    VerticalLayout {
-        padding-top: 24px;
-        padding-bottom: 24px;
-        padding-left: 28px;
-        padding-right: 28px;
-        spacing: 18px;
+    Flickable {
+        width: 100%;
+        height: 100%;
+        content-height: page.preferred-height;
+        page := VerticalLayout {
+            width: parent.width;
+            padding-top: 20px;
+            padding-bottom: 28px;
+            padding-right: 28px;
+            spacing: 18px;
+            alignment: start;
 
-        VerticalLayout {
-            spacing: 4px;
-            Text { text: "Settings"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
-            Text { text: "Tune how Thulli feels and behaves"; font-size: 13px; color: Theme.text-secondary; }
-        }
+            Text { text: "Settings"; font-size: 28px; font-weight: 700; color: Theme.text-primary; }
 
-        GlassCard {
-            VerticalLayout {
-                padding: 18px;
-                spacing: 6px;
+            SettingsSection {
+                title: "Language";
+                caption: "";
                 HorizontalLayout {
-                    spacing: 8px;
-                    alignment: start;
-                    IconTimer { width: 18px; height: 18px; stroke-color: Theme.accent-amber; }
-                    SectionTitle { text: "Pomodoro"; vertical-alignment: center; }
-                }
-                StepperRow {
-                    label: "Focus length";
-                    hint: "Minutes per focus round";
-                    value: AppData.setting-focus-mins;
-                    step(d) => { AppData.adjust-setting("default_session_mins", d); }
-                }
-                StepperRow {
-                    label: "Short break";
-                    hint: "Minutes between focus rounds";
-                    value: AppData.setting-short-mins;
-                    step(d) => { AppData.adjust-setting("default_break_mins", d); }
-                }
-                StepperRow {
-                    label: "Long break";
-                    hint: "Minutes after the last round";
-                    value: AppData.setting-long-mins;
-                    step(d) => { AppData.adjust-setting("pomodoro_long_break_mins", d); }
-                }
-                StepperRow {
-                    label: "Rounds before a long break";
-                    hint: "Focus rounds in one cycle";
-                    value: AppData.setting-rounds;
-                    step(d) => { AppData.adjust-setting("pomodoro_rounds", d); }
-                }
-                ToggleRow {
-                    label: "Start the next phase automatically";
-                    hint: "Keep the timer running between rounds";
-                    on: AppData.setting-auto-advance;
-                    changed(on) => { AppData.set-auto-advance(on); }
+                    spacing: 14px;
+                    padding-top: 6px;
+                    VerticalLayout { alignment: start; padding-top: 22px; IconLanguage { width: 22px; height: 22px; } }
+                    SettingRow {
+                        horizontal-stretch: 1;
+                        strong: true;
+                        label: "App language";
+                        hint: "Choice applies immediately and is saved on this device.";
+                        SelectBox {
+                            width: 280px;
+                            current: 0;
+                            label: "English";
+                            options: [{ label: "English", value: 0 }];
+                            selected(v) => { AppData.set-language("en"); }
+                        }
+                    }
                 }
             }
-        }
 
-        HorizontalLayout {
-            alignment: start;
-            spacing: 8px;
-            IconSettings { width: 14px; height: 14px; stroke-color: Theme.text-muted; }
-            Text { text: "Theme is set from the sun and moon button in the title bar."; font-size: 12px; color: Theme.text-muted; }
+            SettingsSection {
+                title: "AI";
+                caption: "OpenRouter API key. Kept in Windows Credential Manager, not in Thulli's data.";
+                SettingRow {
+                    label: AppData.ai-key-saved ? "API key saved" : "API key";
+                    HorizontalLayout {
+                        spacing: 8px;
+                        if !AppData.ai-key-saved: HorizontalLayout {
+                        spacing: 8px;
+                        Rectangle {
+                            width: 280px;
+                            height: 40px;
+                            border-radius: 10px;
+                            background: Theme.glass-fill-strong;
+                            border-width: 1px;
+                            border-color: Theme.glass-border;
+                            key-input := TextInput {
+                                x: 12px;
+                                width: parent.width - 24px;
+                                height: 100%;
+                                input-type: password;
+                                font-size: 14px;
+                                color: Theme.text-primary;
+                                vertical-alignment: center;
+                                accepted => { AppData.ai-key-save(self.text); self.text = ""; }
+                            }
+                        }
+                        PlainButton { label: "Save"; clicked => { AppData.ai-key-save(key-input.text); key-input.text = ""; } }
+                        }
+                        if AppData.ai-key-saved: PlainButton { label: "Test"; clicked => { AppData.ai-test(); } }
+                        if AppData.ai-key-saved: PlainButton { label: "Remove"; clicked => { AppData.ai-key-remove(); } }
+                    }
+                }
+                SettingRow {
+                    label: "Model";
+                    HorizontalLayout {
+                        spacing: 8px;
+                        Rectangle {
+                            width: 280px;
+                            height: 40px;
+                            border-radius: 10px;
+                            background: Theme.glass-fill-strong;
+                            border-width: 1px;
+                            border-color: Theme.glass-border;
+                            model-input := TextInput {
+                                x: 12px;
+                                width: parent.width - 24px;
+                                height: 100%;
+                                text: AppData.ai-model;
+                                font-size: 14px;
+                                color: Theme.text-primary;
+                                vertical-alignment: center;
+                                accepted => { AppData.ai-model-set(self.text); }
+                            }
+                        }
+                        PlainButton { label: "Save"; clicked => { AppData.ai-model-set(model-input.text); } }
+                    }
+                }
+                if AppData.ai-status != "": Text { text: AppData.ai-busy ? "Checking..." : AppData.ai-status; font-size: 13px; color: Theme.text-secondary; }
+            }
+
+            SettingsSection {
+                title: "Timer settings";
+                caption: "Manage the productivity timer.";
+
+                // Pomodoros: breaks on or off, with the cycle under it.
+                HorizontalLayout {
+                    spacing: 14px;
+                    padding-top: 10px;
+                    VerticalLayout { alignment: start; padding-top: 22px; IconTimer { width: 22px; height: 22px; stroke-color: Theme.text-secondary; } }
+                    SettingRow {
+                        horizontal-stretch: 1;
+                        strong: true;
+                        label: "Pomodoros";
+                        hint: "Alternate focused work sprints with timed breaks.";
+                        Switch { on: AppData.setting-breaks; toggled(on) => { AppData.set-setting-flag("pomodoro_breaks", on); } }
+                    }
+                }
+                HorizontalLayout {
+                    padding-left: 34px;
+                    spacing: 26px;
+                    // The line marks these rows as part of Pomodoros.
+                    Rectangle { width: 1px; background: Theme.glass-border; }
+                    VerticalLayout {
+                        horizontal-stretch: 1;
+                        SettingRow {
+                            label: "Work sprint";
+                            info: "Length of one focus round";
+                            SelectBox {
+                                current: AppData.setting-focus-mins;
+                                label: "\{AppData.setting-focus-mins}min";
+                                options: [
+                                    { label: "15min", value: 15 }, { label: "20min", value: 20 }, { label: "25min", value: 25 },
+                                    { label: "30min", value: 30 }, { label: "40min", value: 40 }, { label: "45min", value: 45 },
+                                    { label: "50min", value: 50 }, { label: "60min", value: 60 }, { label: "75min", value: 75 },
+                                    { label: "90min", value: 90 },
+                                ];
+                                selected(v) => { AppData.set-setting("default_session_mins", v); }
+                            }
+                        }
+                        if AppData.setting-breaks: SettingRow {
+                            label: "Short break";
+                            info: "Break after each focus round";
+                            SelectBox {
+                                current: AppData.setting-short-mins;
+                                label: "\{AppData.setting-short-mins}min";
+                                options: [
+                                    { label: "3min", value: 3 }, { label: "5min", value: 5 }, { label: "10min", value: 10 },
+                                    { label: "15min", value: 15 }, { label: "20min", value: 20 },
+                                ];
+                                selected(v) => { AppData.set-setting("default_break_mins", v); }
+                            }
+                        }
+                        if AppData.setting-breaks: SettingRow {
+                            label: "Long break";
+                            info: "Longer break at the end of a cycle";
+                            SelectBox {
+                                current: AppData.setting-long-mins;
+                                label: "\{AppData.setting-long-mins}min";
+                                options: [
+                                    { label: "10min", value: 10 }, { label: "15min", value: 15 }, { label: "20min", value: 20 },
+                                    { label: "25min", value: 25 }, { label: "30min", value: 30 },
+                                ];
+                                selected(v) => { AppData.set-setting("pomodoro_long_break_mins", v); }
+                            }
+                        }
+                        if AppData.setting-breaks: SettingRow {
+                            label: "Long break after";
+                            info: "Focus rounds before the long break";
+                            SelectBox {
+                                width: 230px;
+                                current: AppData.setting-rounds;
+                                label: "\{AppData.setting-rounds} work sprints";
+                                options: [
+                                    { label: "2 work sprints", value: 2 }, { label: "3 work sprints", value: 3 },
+                                    { label: "4 work sprints", value: 4 }, { label: "5 work sprints", value: 5 },
+                                    { label: "6 work sprints", value: 6 },
+                                ];
+                                selected(v) => { AppData.set-setting("pomodoro_rounds", v); }
+                            }
+                        }
+                    }
+                }
+                SettingRow {
+                    label: "Start next task when ending a break early";
+                    info: "Skipping a break links the next Today task and starts it";
+                    Switch { on: AppData.setting-start-next; toggled(on) => { AppData.set-setting-flag("start_next_after_early_break", on); } }
+                }
+                SettingRow {
+                    label: "Start the next phase automatically";
+                    info: "Keep the timer running when a phase ends";
+                    Switch { on: AppData.setting-auto-advance; toggled(on) => { AppData.set-auto-advance(on); } }
+                }
+            }
+
         }
     }
 }

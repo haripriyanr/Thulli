@@ -13,7 +13,9 @@ import { NavigationRail } from "components/navigation_rail.slint";
 import { AppBackground } from "components/ambient_background.slint";
 import { AppData } from "app_data.slint";
 import { PomodoroScreen } from "screens/pomodoro_screen.slint";
-import { TasksScreen } from "screens/tasks_screen.slint";
+import { SpacesScreen } from "screens/spaces_screen.slint";
+import { SortScreen } from "screens/ai_panels.slint";
+import { DragGhost } from "components/drag.slint";
 import { TodayScreen } from "screens/today_screen.slint";
 import { NotesScreen } from "screens/notes_screen.slint";
 import { InsightsScreen } from "screens/insights_screen.slint";
@@ -160,9 +162,10 @@ export component MainWindow inherits Window {
                 height: 100%;
             }
 
-            if navigation-rail.active-item == "tasks": TasksScreen {
+            if navigation-rail.active-item == "tasks": SpacesScreen {
                 width: 100%;
                 height: 100%;
+                open-pomodoro => { navigation-rail.active-item = "pomodoro"; }
             }
 
             if navigation-rail.active-item == "pomodoro": PomodoroScreen {
@@ -195,6 +198,17 @@ export component MainWindow inherits Window {
             compact-width: parent.width - 24px;
             desktop-height: parent.height - Theme.title-bar-height - 16px;
         }
+
+        // Sort screen: covers the whole window while open.
+        if AppData.triage-open: SortScreen {
+            x: 0px;
+            y: Theme.title-bar-height;
+            width: parent.width;
+            height: parent.height - Theme.title-bar-height;
+        }
+
+        // The card following the pointer while a task is dragged.
+        DragGhost {}
 
         // --- Frameless resize edges: transparent strips pinned to the ------
         // window frame, on top of everything, hidden while maximized.

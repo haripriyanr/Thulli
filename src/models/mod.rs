@@ -89,7 +89,8 @@ impl Default for AppStateStore {
     fn default() -> Self {
         Self {
             schema_version: CURRENT_SCHEMA_VERSION,
-            lists: vec![TaskList::new_personal()],
+            // No spaces until the person creates one.
+            lists: Vec::new(),
             list_folders: Vec::new(),
             tags: Vec::new(),
             tasks: Vec::new(),
@@ -112,6 +113,14 @@ impl Default for AppStateStore {
 }
 
 impl AppStateStore {
+    /// A fresh store with one space, for tests that add tasks.
+    #[cfg(test)]
+    pub fn with_space() -> Self {
+        let mut store = Self::default();
+        store.lists.push(TaskList::new_personal());
+        store
+    }
+
     /// Parses stored JSON and upgrades it to the current schema.
     pub fn from_json(bytes: &[u8]) -> Result<Self, serde_json::Error> {
         let mut store: AppStateStore = serde_json::from_slice(bytes)?;
@@ -130,9 +139,6 @@ impl AppStateStore {
             self.preferences.default_session_mins = 50;
             self.preferences.default_break_mins = 10;
             self.preferences.pomodoro_long_break_mins = 20;
-        }
-        if self.lists.is_empty() {
-            self.lists.push(TaskList::new_personal());
         }
         self.schema_version = CURRENT_SCHEMA_VERSION;
     }

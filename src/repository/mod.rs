@@ -211,11 +211,9 @@ mod tests {
     }
 
     #[test]
-    fn test_default_store_has_personal_list() {
+    fn test_default_store_starts_with_no_spaces() {
         let store = AppStateStore::default();
-        assert_eq!(store.lists.len(), 1);
-        assert_eq!(store.lists[0].name, "Personal");
-        assert!(!store.lists[0].id.is_empty());
+        assert!(store.lists.is_empty());
     }
 
     #[test]
@@ -225,7 +223,7 @@ mod tests {
         let repo = EncryptedStorageRepository::with_custom_path(sec, &file);
 
         let mut store = repo.load();
-        let list_id = store.lists[0].id.clone();
+        let list_id = store.add_list(crate::models::TaskList::new_personal());
         store.add_task(Task::new(list_id, "Ship Thulli Modular MVP", 45, TaskSection::Today));
         repo.save(&store).unwrap();
 
@@ -323,7 +321,7 @@ mod tests {
         assert_eq!(fs::read(&backup).unwrap(), garbage, "backup keeps the original bytes");
 
         // Fresh state was written, and it now loads cleanly.
-        assert_eq!(report.store.lists.len(), 1);
+        assert!(report.store.lists.is_empty());
         let second = repo.load_with_report();
         assert!(second.recovery.is_none());
         let _ = fs::remove_dir_all(&dir);

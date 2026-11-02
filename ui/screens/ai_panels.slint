@@ -1,0 +1,350 @@
+import { Theme } from "../theme.slint";
+import { IconStar, IconClose, IconCheck, IconChevronLeft, IconSkip } from "../icons.slint";
+import { GlassIconButton } from "../components/glass.slint";
+import { TaskCard, MicButton } from "../components/space_widgets.slint";
+import { AppData } from "../app_data.slint";
+
+/// A rounded text button. `primary` uses the violet fill.
+component PanelButton inherits Rectangle {
+    in property <string> label;
+    in property <bool> primary: false;
+    in property <bool> enabled: true;
+    callback clicked();
+    height: 40px;
+    width: button-text.preferred-width + 36px;
+    border-radius: 20px;
+    background: !root.enabled ? Theme.glass-fill
+        : root.primary ? (touch.has-hover ? Theme.accent-violet.with-alpha(0.55) : Theme.accent-violet.with-alpha(0.40))
+        : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill-strong);
+    animate background { duration: 200ms; easing: ease-out; }
+    button-text := Text {
+        text: root.label;
+        font-size: 14px;
+        font-weight: 600;
+        color: root.enabled ? Theme.text-primary : Theme.text-muted;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+    touch := TouchArea { mouse-cursor: pointer; clicked => { if root.enabled { root.clicked(); } } }
+}
+
+/// PlanPanel: describe what needs doing; the AI proposes tasks, steps,
+/// quadrants and a focus round, and nothing changes until Apply.
+export component PlanPanel inherits Rectangle {
+    callback closed();
+    callback focus-started();
+    property <string> request;
+    property <bool> start-now: false;
+
+    background: #00000080;
+    TouchArea { clicked => { root.closed(); } }
+
+    Rectangle {
+        width: min(640px, root.width - 48px);
+        height: min(card.preferred-height, root.height - 48px);
+        x: (root.width - self.width) / 2;
+        y: (root.height - self.height) / 2;
+        border-radius: 22px;
+        background: Theme.dark-mode ? #1D1830F7 : #FFFFFFF7;
+        border-width: 1px;
+        border-color: Theme.glass-border;
+        drop-shadow-blur: 40px;
+        drop-shadow-color: #00000080;
+        TouchArea {}
+        card := VerticalLayout {
+            padding: 24px;
+            spacing: 14px;
+            HorizontalLayout {
+                spacing: 10px;
+                VerticalLayout { alignment: center; IconStar { width: 20px; height: 20px; stroke-color: Theme.accent-violet; } }
+                Text { horizontal-stretch: 1; text: "Plan with AI"; font-size: 20px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; }
+                GlassIconButton { dia: 32px; clicked => { root.closed(); } IconClose { width: 11px; height: 11px; stroke-color: Theme.text-secondary; } }
+            }
+            Text {
+                text: "Say what you need to get done. You'll see every change before anything is saved.";
+                font-size: 13px;
+                color: Theme.text-muted;
+                wrap: word-wrap;
+            }
+            if !AppData.ai-key-saved: Text {
+                text: "Add an OpenRouter API key in Settings first.";
+                font-size: 13px;
+                color: Theme.accent-amber;
+            }
+            Rectangle {
+                height: 120px;
+                border-radius: 14px;
+                background: Theme.glass-fill;
+                border-width: 1px;
+                border-color: request-input.has-focus ? Theme.accent-violet.with-alpha(0.6) : Theme.glass-border;
+                Text {
+                    x: 14px; y: 12px;
+                    width: parent.width - 28px;
+                    text: "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now.";
+                    visible: root.request == "";
+                    font-size: 14px;
+                    color: Theme.text-muted;
+                    wrap: word-wrap;
+                }
+                request-input := TextInput {
+                    x: 14px; y: 12px;
+                    width: parent.width - 28px;
+                    height: parent.height - 24px;
+                    single-line: false;
+                    wrap: word-wrap;
+                    text <=> root.request;
+                    font-size: 14px;
+                    color: Theme.text-primary;
+                    init => { self.focus(); }
+                }
+                MicButton {
+                    x: parent.width - self.width - 8px;
+                    y: parent.height - self.height - 8px;
+                    about-to-listen => { request-input.focus(); }
+                }
+            }
+            HorizontalLayout {
+                spacing: 10px;
+                Rectangle {
+                    width: 20px;
+                    height: 20px;
+                    y: 10px;
+                    border-radius: 6px;
+                    border-width: root.start-now ? 0px : 1.5px;
+                    border-color: Theme.text-muted;
+                    background: root.start-now ? Theme.accent-violet : transparent;
+                    if root.start-now: IconCheck { x: 3px; y: 3px; width: 14px; height: 14px; stroke-color: #FFFFFF; }
+                    TouchArea { mouse-cursor: pointer; clicked => { root.start-now = !root.start-now; } }
+                }
+                Text { horizontal-stretch: 1; text: "Start the first task now"; font-size: 14px; color: Theme.text-secondary; vertical-alignment: center; }
+                PanelButton {
+                    label: AppData.ai-busy ? "Thinking..." : "Plan it";
+                    primary: true;
+                    enabled: !AppData.ai-busy && root.request != "" && AppData.ai-key-saved;
+                    clicked => { AppData.ai-plan(root.request, root.start-now); }
+                }
+            }
+            if AppData.ai-status != "": Text { text: AppData.ai-status; font-size: 13px; color: Theme.text-secondary; wrap: word-wrap; }
+            if AppData.ai-proposals.length > 0: VerticalLayout {
+                spacing: 8px;
+                Rectangle { height: 1px; background: Theme.glass-border; }
+                Text { text: "Proposed changes"; font-size: 14px; font-weight: 600; color: Theme.text-primary; }
+                for line in AppData.ai-proposals: HorizontalLayout {
+                    spacing: 10px;
+                    VerticalLayout { alignment: start; padding-top: 2px; IconCheck { width: 14px; height: 14px; stroke-color: Theme.accent-green; } }
+                    Text { horizontal-stretch: 1; text: line; font-size: 13px; color: Theme.text-secondary; wrap: word-wrap; }
+                }
+                HorizontalLayout {
+                    spacing: 10px;
+                    alignment: end;
+                    PanelButton { label: "Discard"; clicked => { AppData.ai-discard(); } }
+                    PanelButton {
+                        label: "Apply all";
+                        primary: true;
+                        clicked => {
+                            AppData.ai-apply();
+                            if AppData.ai-focus-started { root.focus-started(); }
+                            root.closed();
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+/// One quadrant target on the Sort screen.
+component SortTarget inherits Rectangle {
+    in property <string> title;
+    in property <string> caption;
+    in property <string> key;
+    in property <color> tint;
+    in property <bool> suggested: false;
+    callback picked();
+
+    border-radius: 20px;
+    background: touch.has-hover ? root.tint.with-alpha(0.22) : root.tint.with-alpha(root.suggested ? 0.18 : 0.08);
+    border-width: root.suggested ? 2px : 1px;
+    border-color: root.suggested ? root.tint : root.tint.with-alpha(0.35);
+    drop-shadow-blur: root.suggested ? 24px : 0px;
+    drop-shadow-color: root.tint.with-alpha(0.45);
+    animate background, border-color { duration: 200ms; easing: ease-out; }
+
+    VerticalLayout {
+        padding: 20px;
+        spacing: 6px;
+        HorizontalLayout {
+            Text { horizontal-stretch: 1; text: root.title; font-size: 19px; font-weight: 700; color: root.tint; }
+            Rectangle {
+                width: 28px;
+                height: 28px;
+                border-radius: 8px;
+                background: Theme.glass-fill-strong;
+                Text { text: root.key; font-size: 13px; font-weight: 700; color: Theme.text-secondary; horizontal-alignment: center; vertical-alignment: center; }
+            }
+        }
+        Text { text: root.caption; font-size: 13px; color: Theme.text-muted; wrap: word-wrap; }
+        Rectangle { vertical-stretch: 1; }
+        if root.suggested: HorizontalLayout {
+            spacing: 6px;
+            VerticalLayout { alignment: center; IconStar { width: 14px; height: 14px; stroke-color: root.tint; } }
+            Text { text: "AI pick"; font-size: 12px; font-weight: 600; color: root.tint; vertical-alignment: center; }
+        }
+    }
+    touch := TouchArea { mouse-cursor: pointer; clicked => { root.picked(); } }
+}
+
+/// SortScreen: unsorted tasks one at a time. The card sits above a 2 by 2
+/// grid laid out by urgency (columns) and importance (rows). Click a tile or
+/// press 1 to 4; S skips, Backspace goes back, Enter takes the AI pick.
+export component SortScreen inherits Rectangle {
+    background: Theme.dark-mode ? #0E0B1AF5 : #F4F1FBF7;
+
+    function decide(q: string) {
+        if AppData.triage-has-task { AppData.triage-decide(q); }
+    }
+
+    keys := FocusScope {
+        init => { self.focus(); }
+        key-pressed(event) => {
+            if event.text == Key.Escape { AppData.triage-close(); return accept; }
+            if event.text == "1" { root.decide("do_asap"); return accept; }
+            if event.text == "2" { root.decide("do_later_today"); return accept; }
+            if event.text == "3" { root.decide("do_mid_week"); return accept; }
+            if event.text == "4" { root.decide("leave_till_end"); return accept; }
+            if event.text == "s" || event.text == "S" { AppData.triage-skip(); return accept; }
+            if event.text == Key.Backspace { AppData.triage-back(); return accept; }
+            if event.text == Key.Return && AppData.triage-suggestion != "" { root.decide(AppData.triage-suggestion); return accept; }
+            return reject;
+        }
+    }
+    // Clicks on empty space keep keyboard focus here.
+    TouchArea { clicked => { keys.focus(); } }
+
+    VerticalLayout {
+        padding: 32px;
+        padding-top: 24px;
+        spacing: 18px;
+
+        HorizontalLayout {
+            spacing: 12px;
+            VerticalLayout {
+                horizontal-stretch: 1;
+                spacing: 4px;
+                Text { text: "Sort tasks"; font-size: 24px; font-weight: 700; color: Theme.text-primary; }
+                Text {
+                    text: AppData.triage-total == 0 ? "Nothing waiting to be sorted"
+                        : "Task \{AppData.triage-position} of \{AppData.triage-total}  ·  \{AppData.triage-decided} sorted";
+                    font-size: 14px;
+                    color: Theme.text-muted;
+                }
+            }
+            VerticalLayout {
+                alignment: center;
+                PanelButton {
+                    label: AppData.ai-busy ? "Asking AI..." : "Suggest with AI";
+                    enabled: !AppData.ai-busy && AppData.ai-key-saved && AppData.triage-total > 0;
+                    clicked => { AppData.triage-ask-ai(); keys.focus(); }
+                }
+            }
+            VerticalLayout { alignment: center; GlassIconButton { dia: 40px; clicked => { AppData.triage-close(); }
+                IconClose { width: 13px; height: 13px; stroke-color: Theme.text-secondary; } } }
+        }
+
+        // Progress: one segment per task.
+        HorizontalLayout {
+            spacing: 4px;
+            height: 6px;
+            Rectangle {
+                horizontal-stretch: 1;
+                border-radius: 3px;
+                background: Theme.glass-fill-hover;
+                Rectangle {
+                    x: 0;
+                    width: AppData.triage-total == 0 ? 0px : parent.width * AppData.triage-decided / AppData.triage-total;
+                    border-radius: 3px;
+                    background: @linear-gradient(90deg, #A78BFA 0%, #4CC36B 100%);
+                    animate width { duration: 300ms; easing: ease-out; }
+                }
+            }
+        }
+
+        // The task on show
+        HorizontalLayout {
+            alignment: center;
+            if AppData.triage-has-task: TaskCard {
+                width: min(620px, root.width - 64px);
+                task: AppData.triage-task;
+                can-launch: false;
+                toggled => { AppData.space-task-toggled(AppData.triage-task.id); AppData.triage-skip(); }
+                deleted => { AppData.space-task-deleted(AppData.triage-task.id); AppData.triage-skip(); }
+                saved(title, estimate, notes, do-date, deadline) => { AppData.space-task-edited(AppData.triage-task.id, title, estimate, notes, do-date, deadline); }
+                step-added(title) => { AppData.step-added(AppData.triage-task.id, title); }
+                step-toggled(id) => { AppData.space-task-toggled(id); }
+            }
+            if !AppData.triage-has-task: VerticalLayout {
+                spacing: 6px;
+                Text {
+                    text: AppData.triage-decided > 0 ? "All sorted" : "Nothing to sort";
+                    font-size: 22px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                    horizontal-alignment: center;
+                }
+                Text {
+                    text: AppData.triage-decided > 0 ? "Every task here has a quadrant now." : "Every open task already has a quadrant.";
+                    font-size: 14px;
+                    color: Theme.text-muted;
+                    horizontal-alignment: center;
+                }
+            }
+        }
+
+        // The grid: urgency across, importance down.
+        HorizontalLayout {
+            vertical-stretch: 1;
+            spacing: 14px;
+            VerticalLayout {
+                width: 24px;
+                Text { vertical-stretch: 1; text: "Matters more"; font-size: 12px; color: Theme.text-muted; transform-rotation: -90deg; horizontal-alignment: center; vertical-alignment: center; }
+                Text { vertical-stretch: 1; text: "Matters less"; font-size: 12px; color: Theme.text-muted; transform-rotation: -90deg; horizontal-alignment: center; vertical-alignment: center; }
+            }
+            VerticalLayout {
+                horizontal-stretch: 1;
+                spacing: 14px;
+                HorizontalLayout {
+                    Text { horizontal-stretch: 1; text: "Sooner"; font-size: 12px; color: Theme.text-muted; horizontal-alignment: center; }
+                    Text { horizontal-stretch: 1; text: "Later"; font-size: 12px; color: Theme.text-muted; horizontal-alignment: center; }
+                }
+                HorizontalLayout {
+                    vertical-stretch: 1;
+                    spacing: 14px;
+                    SortTarget { title: "Do ASAP"; caption: "Urgent and important. Today, first."; key: "1"; tint: #F43F5E; suggested: AppData.triage-suggestion == "do_asap"; picked => { root.decide("do_asap"); keys.focus(); } }
+                    SortTarget { title: "Do Mid Week"; caption: "Important, not urgent. This week."; key: "3"; tint: #F59E0B; suggested: AppData.triage-suggestion == "do_mid_week"; picked => { root.decide("do_mid_week"); keys.focus(); } }
+                }
+                HorizontalLayout {
+                    vertical-stretch: 1;
+                    spacing: 14px;
+                    SortTarget { title: "Do Later Today"; caption: "Needs doing today, after the first push."; key: "2"; tint: #22C55E; suggested: AppData.triage-suggestion == "do_later_today"; picked => { root.decide("do_later_today"); keys.focus(); } }
+                    SortTarget { title: "Leave Till End"; caption: "Low urgency or low value. Backlog."; key: "4"; tint: #94A3B8; suggested: AppData.triage-suggestion == "leave_till_end"; picked => { root.decide("leave_till_end"); keys.focus(); } }
+                }
+            }
+        }
+
+        // Footer
+        HorizontalLayout {
+            spacing: 10px;
+            PanelButton { label: "Back"; clicked => { AppData.triage-back(); keys.focus(); } }
+            PanelButton { label: "Skip"; clicked => { AppData.triage-skip(); keys.focus(); } }
+            Text {
+                horizontal-stretch: 1;
+                text: "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close";
+                font-size: 12px;
+                color: Theme.text-muted;
+                horizontal-alignment: right;
+                vertical-alignment: center;
+            }
+            if AppData.ai-status != "": Text { text: AppData.ai-status; font-size: 12px; color: Theme.text-secondary; vertical-alignment: center; }
+        }
+    }
+}

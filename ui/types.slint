@@ -289,3 +289,69 @@ export struct TaskOption {
     priority: string, // "high", "medium", "low" or empty
     header: string,
 }
+
+/// One space in the Spaces list. `count` is its open tasks.
+export struct SpaceRow {
+    id: string,
+    name: string,
+    color: color,
+    // The same colour as "#RRGGBB", for the edit form.
+    hex: string,
+    letter: string,
+    count: int,
+}
+
+/// One subtask under a task card.
+export struct SpaceStep {
+    id: string,
+    title: string,
+    done: bool,
+}
+
+/// One task card on the board, matrix or calendar. `section` is "backlog",
+/// "this_week" or "today"; `quadrant` is empty when unsorted.
+export struct SpaceTask {
+    id: string,
+    title: string,
+    meta: string,
+    done: bool,
+    section: string,
+    quadrant: string,
+    // The task's space, shown as a small letter badge.
+    color: color,
+    letter: string,
+    notes: string,
+    estimate: int,
+    // Dates as YYYY-MM-DD, empty when not set.
+    do-date: string,
+    deadline: string,
+    steps: [SpaceStep],
+    steps-done: int,
+    // Set on the first card of a group, such as a day in the Done column.
+    header: string,
+}
+
+/// A column of task cards: a board column, a matrix quadrant or an
+/// unsorted group. `done` and `total` drive the progress bar.
+export struct SpaceColumn {
+    id: string,
+    title: string,
+    caption: string,
+    done: int,
+    total: int,
+    tasks: [SpaceTask],
+}
+
+/// One day of the calendar week.
+export struct CalendarDay {
+    name: string,
+    number: string,
+    today: bool,
+    tasks: [SpaceTask],
+}
+
+/// One choice in a settings dropdown.
+export struct SelectOption {
+    label: string,
+    value: int,
+}

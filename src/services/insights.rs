@@ -1651,7 +1651,7 @@ mod tests {
     }
 
     fn service() -> (InsightsService, StoreHandle, String) {
-        let store = AppStateStore::default();
+        let store = AppStateStore::with_space();
         let list_id = store.lists[0].id.clone();
         let handle = StoreHandle::new(Arc::new(Mutex::new(store)), Arc::new(MemoryRepo));
         (InsightsService::new(handle.clone()), handle, list_id)

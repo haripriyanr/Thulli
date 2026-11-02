@@ -57,6 +57,8 @@ component TimerCard inherits GlassCard {
             ThulliRing {
                 width: AppData.immersive ? max(320px, min(root.width, root.height) - 120px) : 320px;
                 height: self.width;
+                // Grows into full screen with the same spring as the card.
+                animate width { duration: 800ms; easing: cubic-bezier(0.34, 1.56, 0.64, 1); }
                 thickness: 10px;
                 // Elapsed share of the phase. The timer ticks once a second,
                 // so the arc glides between ticks instead of stepping.
@@ -93,7 +95,8 @@ component TimerCard inherits GlassCard {
                         IconWave { width: 22px; height: 22px; stroke-color: root.accent; }
                     }
                     Text { text: root.phase-label; font-size: 14px; color: Theme.text-secondary; horizontal-alignment: center; }
-                    Text { text: AppData.pomodoro-time; font-size: AppData.immersive ? 96px : 64px; font-weight: 700; color: Theme.text-primary; horizontal-alignment: center; }
+                    Text { text: AppData.pomodoro-time; font-size: AppData.immersive ? 96px : 64px; font-weight: 700; color: Theme.text-primary; horizontal-alignment: center;
+                        animate font-size { duration: 800ms; easing: cubic-bezier(0.34, 1.56, 0.64, 1); } }
                     Text { text: AppData.pomodoro-round; font-size: 13px; color: Theme.text-secondary; horizontal-alignment: center; }
                     HorizontalLayout {
                         alignment: center;
@@ -105,10 +108,20 @@ component TimerCard inherits GlassCard {
                             background: i == AppData.pomodoro-rounds-done ? root.accent : (i < AppData.pomodoro-rounds-done ? root.accent.with-alpha(0.55) : Theme.glass-border);
                         }
                     }
-                    if AppData.immersive: HorizontalLayout {
+                    // Full screen controls: they open out and fade in while
+                    // the ring grows, and fold away when it shrinks back.
+                    Rectangle {
+                        height: AppData.immersive ? 62px : 0px;
+                        clip: true;
+                        opacity: AppData.immersive ? 1 : 0;
+                        visible: self.opacity > 0.01;
+                        animate height { duration: 500ms; easing: ease-out; }
+                        animate opacity { duration: 400ms; delay: AppData.immersive ? 300ms : 0ms; easing: ease-out; }
+                    HorizontalLayout {
                         alignment: center;
                         padding-top: 18px;
                         spacing: 12px;
+                        height: 62px;
                         GlassIconButton {
                             dia: 44px;
                             clicked => { AppData.pomodoro-toggle(); }
@@ -120,6 +133,7 @@ component TimerCard inherits GlassCard {
                             clicked => { AppData.immersive = false; }
                             IconExpand { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
                         }
+                    }
                     }
                 }
             }
@@ -265,58 +279,61 @@ component TimerCard inherits GlassCard {
             }
 
             // Rows, grouped by due date
+            // Rows, grouped by due date. Each row is placed by hand: a row
+            // that opens a group is taller and carries the group heading.
             Flickable {
                 vertical-stretch: 1;
-                content-height: max(rows-column.preferred-height, parent.height);
+                content-height: max(rows-column.preferred-height, self.height);
                 rows-column := VerticalLayout {
                     width: parent.width;
+                    alignment: start;
                     spacing: 2px;
-                    for option in AppData.task-options: VerticalLayout {
-                        spacing: 2px;
+                    for option in AppData.task-options: Rectangle {
+                        height: option.header != "" ? 72px : 44px;
                         if option.header != "": Text {
+                            x: 10px;
+                            y: 8px;
                             text: option.header;
                             font-size: 11px;
                             font-weight: 600;
                             color: Theme.text-muted;
-                            horizontal-alignment: left;
                         }
                         Rectangle {
+                            y: parent.height - 44px;
                             height: 44px;
                             border-radius: 10px;
                             background: option.id == AppData.session-task-id && option.id != "" ? Theme.accent-violet.with-alpha(0.22)
                                 : (row-touch.has-hover ? Theme.glass-fill-hover : transparent);
                             animate background { duration: 200ms; easing: ease-out; }
-                            HorizontalLayout {
-                                padding-left: 10px;
-                                padding-right: 10px;
-                                spacing: 10px;
-                                Rectangle {
-                                    width: 8px;
-                                    height: 8px;
-                                    border-radius: 4px;
-                                    y: (parent.height - self.height) / 2;
-                                    background: option.priority == "high" ? Theme.destructive
-                                        : (option.priority == "medium" ? Theme.accent-amber
-                                        : (option.priority == "low" ? Theme.accent-green : transparent));
-                                }
-                                Text {
-                                    text: option.title;
-                                    font-size: 14px;
-                                    color: Theme.text-primary;
-                                    overflow: elide;
-                                    vertical-alignment: center;
-                                    horizontal-stretch: 1;
-                                }
-                                Text {
-                                    text: option.meta;
-                                    font-size: 11px;
-                                    color: Theme.text-muted;
-                                    vertical-alignment: center;
-                                }
+                            Rectangle {
+                                x: 10px;
+                                y: (parent.height - self.height) / 2;
+                                width: 8px;
+                                height: 8px;
+                                border-radius: 4px;
+                                background: option.priority == "high" ? Theme.destructive
+                                    : (option.priority == "medium" ? Theme.accent-amber
+                                    : (option.priority == "low" ? Theme.accent-green : transparent));
+                            }
+                            Text {
+                                x: 28px;
+                                width: parent.width - 28px - meta-text.width - 20px;
+                                height: parent.height;
+                                text: option.title;
+                                font-size: 14px;
+                                color: Theme.text-primary;
+                                overflow: elide;
+                                vertical-alignment: center;
+                            }
+                            meta-text := Text {
+                                x: parent.width - self.width - 10px;
+                                height: parent.height;
+                                text: option.meta;
+                                font-size: 11px;
+                                color: Theme.text-muted;
+                                vertical-alignment: center;
                             }
                             row-touch := TouchArea {
-                                width: 100%;
-                                height: 100%;
                                 clicked => {
                                     AppData.task-picked(option.id);
                                     root.picker-open = false;
@@ -416,43 +433,65 @@ component AnalyticsCard inherits GlassCard {
         }
 
         // Chart: axis labels on the left, gridlines behind the bars.
-        HorizontalLayout {
-            height: 220px;
-            spacing: 8px;
-            VerticalLayout {
-                width: 22px;
-                alignment: space-between;
-                Text { text: "\{AppData.activity-axis-max}"; font-size: 11px; color: Theme.text-muted; horizontal-alignment: right; }
-                Text { text: "\{AppData.activity-axis-max * 3 / 4}"; font-size: 11px; color: Theme.text-muted; horizontal-alignment: right; }
-                Text { text: "\{AppData.activity-axis-max / 2}"; font-size: 11px; color: Theme.text-muted; horizontal-alignment: right; }
-                Text { text: "\{AppData.activity-axis-max / 4}"; font-size: 11px; color: Theme.text-muted; horizontal-alignment: right; }
-                Text { text: "0"; font-size: 11px; color: Theme.text-muted; horizontal-alignment: right; }
-            }
-            Rectangle {
-                horizontal-stretch: 1;
-                VerticalLayout {
-                    alignment: space-between;
-                    Rectangle { height: 1px; background: Theme.glass-border; }
-                    Rectangle { height: 1px; background: Theme.glass-border; }
-                    Rectangle { height: 1px; background: Theme.glass-border; }
-                    Rectangle { height: 1px; background: Theme.glass-border; }
-                    Rectangle { height: 1px; background: Theme.glass-border; }
+        // Every part is placed against one plot box, so the gridlines, their
+        // labels and the bar bases line up exactly.
+        chart := Rectangle {
+            property <length> top: 8px;
+            property <length> plot-x: 34px;
+            property <length> plot-h: 172px;
+            property <length> plot-w: self.width - self.plot-x;
+            height: self.top + self.plot-h + 28px;
+
+            for k in [0, 1, 2, 3, 4]: Rectangle {
+                property <length> line-y: parent.top + parent.plot-h * (1 - k / 4);
+                Text {
+                    x: 0px;
+                    y: parent.line-y - self.height / 2;
+                    width: 24px;
+                    text: "\{AppData.activity-axis-max * k / 4}";
+                    font-size: 11px;
+                    color: Theme.text-muted;
+                    horizontal-alignment: right;
                 }
-                HorizontalLayout {
-                    alignment: space-between;
-                    spacing: 4px;
-                    padding-bottom: 20px;
-                    for bar in AppData.activity-bars: VerticalLayout {
-                        alignment: end;
-                        spacing: 6px;
-                        Rectangle {
-                            height: max(4px, 180px * bar.value);
-                            width: 100%;
-                            border-radius: 6px;
-                            background: @linear-gradient(180deg, #C4B5FD 0%, #7C3AED 100%);
-                        }
-                        Text { text: bar.label; font-size: 10px; color: Theme.text-muted; horizontal-alignment: center; }
+                Rectangle {
+                    x: chart.plot-x;
+                    y: parent.line-y;
+                    width: chart.plot-w;
+                    height: 1px;
+                    background: k == 0 ? Theme.text-muted.with-alpha(0.5) : Theme.glass-border;
+                }
+            }
+
+            // Bars stand on the zero line. Each slot is the same width.
+            HorizontalLayout {
+                x: parent.plot-x;
+                y: parent.top;
+                width: parent.plot-w;
+                height: parent.plot-h;
+                for bar in AppData.activity-bars: Rectangle {
+                    horizontal-stretch: 1;
+                    Rectangle {
+                        width: min(26px, parent.width * 0.6);
+                        height: bar.value > 0 ? max(6px, parent.height * bar.value) : 4px;
+                        x: (parent.width - self.width) / 2;
+                        y: parent.height - self.height;
+                        border-radius: min(6px, self.height / 2);
+                        background: bar.value > 0
+                            ? @linear-gradient(180deg, #C4B5FD 0%, #7C3AED 100%)
+                            : Theme.accent-violet.with-alpha(0.35);
                     }
+                }
+            }
+            HorizontalLayout {
+                x: parent.plot-x;
+                y: parent.top + parent.plot-h + 8px;
+                width: parent.plot-w;
+                for bar in AppData.activity-bars: Text {
+                    horizontal-stretch: 1;
+                    text: bar.label;
+                    font-size: 11px;
+                    color: Theme.text-muted;
+                    horizontal-alignment: center;
                 }
             }
         }

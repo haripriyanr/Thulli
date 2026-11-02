@@ -176,7 +176,7 @@ export component NavigationRail inherits Rectangle {
         }
 
         NavigationRailItem { label: "Today"; item-id: "today"; icon-name: "today"; active: root.active-item == "today"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
-        NavigationRailItem { label: "Tasks"; item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: "Spaces"; item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: "Pomodoro"; item-id: "pomodoro"; icon-name: "pomodoro"; active: root.active-item == "pomodoro"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: "Notes"; item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: "Insights"; item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }

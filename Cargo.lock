@@ -9032,6 +9032,7 @@ dependencies = [
  "sysinfo 0.33.1",
  "tokio",
  "tray-icon",
+ "ureq",
  "uuid 1.29.0",
  "windows-sys 0.61.2",
  "winit",

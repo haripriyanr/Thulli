@@ -27,7 +27,7 @@ rand = "0.10.3"
 zeroize = "1.9.1"
 rusqlite = { version = "0.41.0", features = ["bundled"] }
 uuid = { version = "1.29.0", features = ["v4", "serde"] }
-windows-sys = { version = "0.61.2", features = ["Win32_System_Registry", "Win32_UI_WindowsAndMessaging", "Win32_Foundation", "Win32_UI_Input_KeyboardAndMouse", "Win32_System_Performance", "Win32_Graphics_Dwm", "Win32_Graphics_Gdi"] }
+windows-sys = { version = "0.61.2", features = ["Win32_System_Registry", "Win32_UI_WindowsAndMessaging", "Win32_Foundation", "Win32_UI_Input_KeyboardAndMouse", "Win32_System_Performance", "Win32_Graphics_Dwm", "Win32_Graphics_Gdi", "Win32_Security_Credentials"] }
 raw-window-handle = "0.6"
 regex = "1.12"
 mistralrs = { version = "0.8.1", optional = true }
@@ -35,6 +35,7 @@ rodio = { version = "0.23.0", default-features = false, features = ["playback", 
 global-hotkey = "0.7"
 notify-rust = { version = "4", default-features = false }
 rfd = "0.16"
+ureq = { version = "2", features = ["json"] }
 
 [build-dependencies]
 slint-build = "1.18.1"

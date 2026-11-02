@@ -12,18 +12,27 @@
 //!   {"type": "create_task", "title": "Write report", "section": "today", "estimate_mins": 30, "list": "Work"},
 //!   {"type": "add_subtask", "task": "Write report", "title": "Outline"},
 //!   {"type": "create_note", "title": "Ideas", "body": "..."},
-//!   {"type": "schedule_task", "task": "Write report", "at": "2026-05-04T09:30"}
+//!   {"type": "schedule_task", "task": "Write report", "at": "2026-05-04T09:30"},
+//!   {"type": "set_quadrant", "task": "a1b2c3", "quadrant": "do_asap"},
+//!   {"type": "start_focus", "task": "Write report"}
 //! ]}
+//!
+//! `create_task` may also carry `quadrant`, `do_date` (YYYY-MM-DD) and up to
+//! eight `steps`. A task is referred to by its short id or its exact title.
 //! ```
 
 use chrono::{DateTime, Local, NaiveDateTime, TimeZone, Utc};
 use serde::Deserialize;
 use serde_json::Value;
 
-use crate::models::TaskSection;
+use chrono::NaiveDate;
+
+use crate::models::{MatrixQuadrant, TaskSection};
 
 /// Most actions accepted from one reply.
-pub const MAX_ACTIONS: usize = 10;
+pub const MAX_ACTIONS: usize = 25;
+/// Most steps proposed under one new task.
+pub const MAX_STEPS: usize = 8;
 /// Longest task or note title, in characters.
 pub const MAX_TITLE_CHARS: usize = 200;
 /// Longest note body, in characters.
@@ -34,23 +43,53 @@ pub const MAX_ESTIMATE_MINS: u32 = 480;
 /// A change the model proposes. Applied only after the user agrees.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub enum ProposedAction {
-    CreateTask { title: String, section: TaskSection, estimate_mins: u32, list: Option<String> },
+    CreateTask {
+        title: String,
+        section: TaskSection,
+        estimate_mins: u32,
+        list: Option<String>,
+        quadrant: Option<MatrixQuadrant>,
+        do_date: Option<NaiveDate>,
+        steps: Vec<String>,
+    },
     AddSubtask { task: String, title: String },
     CreateNote { title: String, body: String },
     ScheduleTask { task: String, at: DateTime<Utc> },
+    SetQuadrant { task: String, quadrant: MatrixQuadrant },
+    /// Starts a focus round on the task once the changes are applied.
+    StartFocus { task: String },
+}
+
+/// Display name of a quadrant.
+pub fn quadrant_title(q: MatrixQuadrant) -> &'static str {
+    match q {
+        MatrixQuadrant::DoAsap => "Do ASAP",
+        MatrixQuadrant::DoLaterToday => "Do Later Today",
+        MatrixQuadrant::DoMidWeek => "Do Mid Week",
+        MatrixQuadrant::LeaveTillEnd => "Leave Till End",
+    }
 }
 
 impl ProposedAction {
     /// One line describing the change, in plain words.
     pub fn describe(&self) -> String {
         match self {
-            ProposedAction::CreateTask { title, section, estimate_mins, list } => {
+            ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps } => {
                 let mut s = format!("Add task \"{title}\" to {}", section.title());
                 if *estimate_mins > 0 {
                     s.push_str(&format!(" ({} min)", estimate_mins));
                 }
                 if let Some(list) = list {
                     s.push_str(&format!(" in {list}"));
+                }
+                if let Some(q) = quadrant {
+                    s.push_str(&format!(", {}", quadrant_title(*q)));
+                }
+                if let Some(d) = do_date {
+                    s.push_str(&format!(", on {}", d.format("%a %-d %b")));
+                }
+                if !steps.is_empty() {
+                    s.push_str(&format!(", {} {}", steps.len(), if steps.len() == 1 { "step" } else { "steps" }));
                 }
                 s
             }
@@ -59,6 +98,8 @@ impl ProposedAction {
             ProposedAction::ScheduleTask { task, at } => {
                 format!("Schedule \"{task}\" for {}", at.with_timezone(&Local).format("%a %d %b, %H:%M"))
             }
+            ProposedAction::SetQuadrant { task, quadrant } => format!("Sort \"{task}\" into {}", quadrant_title(*quadrant)),
+            ProposedAction::StartFocus { task } => format!("Start a focus round on \"{task}\""),
         }
     }
 }
@@ -83,8 +124,14 @@ enum RawAction {
         section: Option<String>,
         #[serde(default)]
         estimate_mins: Option<u32>,
-        #[serde(default)]
+        #[serde(default, alias = "space")]
         list: Option<String>,
+        #[serde(default)]
+        quadrant: Option<String>,
+        #[serde(default)]
+        do_date: Option<String>,
+        #[serde(default)]
+        steps: Option<Vec<String>>,
     },
     AddSubtask {
         task: String,
@@ -98,6 +145,13 @@ enum RawAction {
     ScheduleTask {
         task: String,
         at: String,
+    },
+    SetQuadrant {
+        task: String,
+        quadrant: String,
+    },
+    StartFocus {
+        task: String,
     },
 }
 
@@ -210,7 +264,7 @@ fn strip_empty_fences(text: &str) -> String {
 fn validate(value: Value) -> Result<ProposedAction, String> {
     let raw: RawAction = serde_json::from_value(value).map_err(|e| e.to_string())?;
     match raw {
-        RawAction::CreateTask { title, section, estimate_mins, list } => {
+        RawAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps } => {
             let title = clean_line(&title, MAX_TITLE_CHARS, "title")?;
             let section = match section.as_deref().map(str::trim) {
                 None | Some("") => TaskSection::Today,
@@ -224,7 +278,22 @@ fn validate(value: Value) -> Result<ProposedAction, String> {
                 Some(l) if !l.trim().is_empty() => Some(clean_line(&l, 80, "list")?),
                 _ => None,
             };
-            Ok(ProposedAction::CreateTask { title, section, estimate_mins, list })
+            let quadrant = match quadrant.as_deref().map(str::trim) {
+                None | Some("") => None,
+                Some(q) => Some(parse_quadrant(q)?),
+            };
+            let do_date = match do_date.as_deref().map(str::trim) {
+                None | Some("") => None,
+                Some(d) => Some(NaiveDate::parse_from_str(d, "%Y-%m-%d").map_err(|_| "do_date is not YYYY-MM-DD".to_string())?),
+            };
+            let steps = steps.unwrap_or_default();
+            if steps.len() > MAX_STEPS {
+                return Err("too many steps".into());
+            }
+            let steps = steps.iter().map(|st| clean_line(st, MAX_TITLE_CHARS, "step")).collect::<Result<Vec<_>, _>>()?;
+            // A quadrant decides the section, so the two always agree.
+            let section = quadrant.map(|q| q.section()).unwrap_or(section);
+            Ok(ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps })
         }
         RawAction::AddSubtask { task, title } => Ok(ProposedAction::AddSubtask {
             task: clean_line(&task, MAX_TITLE_CHARS, "task")?,
@@ -239,7 +308,16 @@ fn validate(value: Value) -> Result<ProposedAction, String> {
             task: clean_line(&task, MAX_TITLE_CHARS, "task")?,
             at: parse_time(&at)?,
         }),
+        RawAction::SetQuadrant { task, quadrant } => Ok(ProposedAction::SetQuadrant {
+            task: clean_line(&task, MAX_TITLE_CHARS, "task")?,
+            quadrant: parse_quadrant(quadrant.trim())?,
+        }),
+        RawAction::StartFocus { task } => Ok(ProposedAction::StartFocus { task: clean_line(&task, MAX_TITLE_CHARS, "task")? }),
     }
+}
+
+fn parse_quadrant(q: &str) -> Result<MatrixQuadrant, String> {
+    MatrixQuadrant::parse(q).ok_or_else(|| format!("unknown quadrant \"{}\"", truncate(q, 30)))
 }
 
 /// Single-line text: control characters are refused, ends trimmed.
@@ -328,7 +406,10 @@ mod tests {
                 title: "Write report".into(),
                 section: TaskSection::ThisWeek,
                 estimate_mins: 30,
-                list: Some("Work".into())
+                list: Some("Work".into()),
+                quadrant: None,
+                do_date: None,
+                steps: Vec::new(),
             }
         );
         assert!(matches!(p.actions[3], ProposedAction::ScheduleTask { .. }));
@@ -401,7 +482,7 @@ mod tests {
     #[test]
     fn action_count_is_capped_and_duplicates_collapse() {
         let one = "{\"type\":\"create_task\",\"title\":\"T\"}";
-        let many: Vec<String> = (0..15).map(|i| format!("{{\"type\":\"create_task\",\"title\":\"T{i}\"}}")).collect();
+        let many: Vec<String> = (0..MAX_ACTIONS + 5).map(|i| format!("{{\"type\":\"create_task\",\"title\":\"T{i}\"}}")).collect();
         let p = actions(&format!("{{\"actions\":[{}]}}", many.join(",")));
         assert_eq!(p.actions.len(), MAX_ACTIONS);
         assert_eq!(p.rejected.len(), 5);
@@ -428,6 +509,29 @@ mod tests {
     }
 
     #[test]
+    fn planning_fields_and_new_actions_parse() {
+        let p = actions(
+            "{\"actions\":[\
+            {\"type\":\"create_task\",\"title\":\"Report\",\"space\":\"Work\",\"quadrant\":\"do_mid_week\",\"do_date\":\"2026-05-04\",\"steps\":[\"Outline\",\"Draft\"]},\
+            {\"type\":\"set_quadrant\",\"task\":\"ab12cd\",\"quadrant\":\"do_asap\"},\
+            {\"type\":\"start_focus\",\"task\":\"Report\"},\
+            {\"type\":\"set_quadrant\",\"task\":\"x\",\"quadrant\":\"soon\"}]}",
+        );
+        assert_eq!(p.rejected.len(), 1);
+        match &p.actions[0] {
+            ProposedAction::CreateTask { section, list, quadrant, steps, do_date, .. } => {
+                assert_eq!(*section, TaskSection::ThisWeek);
+                assert_eq!(list.as_deref(), Some("Work"));
+                assert_eq!(*quadrant, Some(MatrixQuadrant::DoMidWeek));
+                assert_eq!(steps.len(), 2);
+                assert!(do_date.is_some());
+            }
+            other => panic!("unexpected {other:?}"),
+        }
+        assert!(matches!(p.actions[2], ProposedAction::StartFocus { .. }));
+    }
+
+    #[test]
     fn local_time_without_zone_is_accepted() {
         assert!(parse_time("2026-05-04T09:30").is_ok());
         assert!(parse_time("2026-05-04 09:30").is_ok());
@@ -441,6 +545,9 @@ mod tests {
             section: TaskSection::Today,
             estimate_mins: 25,
             list: None,
+            quadrant: None,
+            do_date: None,
+            steps: Vec::new(),
         };
         assert_eq!(a.describe(), "Add task \"Write\" to Today (25 min)");
     }

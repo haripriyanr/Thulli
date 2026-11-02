@@ -6,18 +6,25 @@ use std::cell::RefCell;
 use std::rc::Rc;
 use std::sync::{Arc, Mutex};
 
-use chrono::{Local, Utc};
+use chrono::{Local, NaiveDate, Utc};
 use slint::ComponentHandle;
-use thulli_core::models::{AppStateStore, TaskList, TaskSection, TimeEntry, TimeEntryKind};
+use thulli_core::models::{AppStateStore, TaskSection, TaskStatus, TimeEntry, TimeEntryKind};
 use thulli_core::repository::StorageRepository;
 use thulli_core::services::notes::NoteScope;
 use thulli_core::services::pomodoro::{PomodoroPhase, PomodoroSettings, PomodoroTimer};
-use thulli_core::services::{NotesService, PreferencesService, StoreHandle, TaskService};
+use thulli_core::models::MatrixQuadrant;
+use thulli_core::services::tasks::{parse_date_input, DateFilter, TaskEdit};
+use thulli_core::services::{ActionHistory, ListService, NotesService, PreferencesService, StoreHandle, TaskService};
 
 use crate::audio::{Ambient, AmbientPlayer};
 use chrono::Duration as ChronoDuration;
 use thulli_core::services::insights::format_duration;
 use crate::convert::{self, model};
+use crate::spaces;
+use thulli_core::services::assistant::AssistantService;
+
+#[path = "data_hub_ai.rs"]
+mod ai;
 use crate::{AppData, MainWindow, NoteRow};
 
 /// Setting keys the Settings screen can step, with the step size for each.
@@ -52,6 +59,18 @@ pub struct DataHub {
     task_choice: RefCell<Option<String>>,
     /// Search text in the task picker.
     task_search: RefCell<String>,
+    /// Spaces are saved task lists.
+    lists: ListService,
+    /// Undo and redo for changes made on the Spaces screen.
+    history: ActionHistory,
+    /// The space shown on the Spaces screen; empty means every space.
+    space: RefCell<String>,
+    /// A day inside the calendar week on show.
+    calendar_anchor: RefCell<NaiveDate>,
+    /// Plans and sorts with a model; its proposals wait for the user.
+    assistant: AssistantService,
+    /// The Sort screen's queue and AI suggestions.
+    triage: RefCell<ai::Triage>,
 }
 
 impl DataHub {
@@ -59,6 +78,12 @@ impl DataHub {
         let handle = StoreHandle::new(state.clone(), repository.clone());
         let settings = PomodoroSettings::from_preferences(&handle.read(|s| s.preferences.clone()));
         Rc::new(Self {
+            lists: ListService::new(state.clone(), repository.clone()),
+            history: ActionHistory::new(handle.clone()),
+            space: RefCell::new(String::new()),
+            calendar_anchor: RefCell::new(Local::now().date_naive()),
+            assistant: AssistantService::new(handle.clone()),
+            triage: RefCell::new(ai::Triage::default()),
             tasks: TaskService::new(state, repository),
             notes: NotesService::new(handle.clone()),
             prefs: PreferencesService::new(handle.clone()),
@@ -76,9 +101,13 @@ impl DataHub {
 
     /// Fills every screen from the saved state and registers the callbacks.
     pub fn attach(self: &Rc<Self>, window: &MainWindow) {
+        self.connect_ai();
         self.refresh_all(window);
+        self.refresh_ai(window);
+        self.wire_ai(window);
         self.wire_pomodoro(window);
         self.wire_tasks(window);
+        self.wire_spaces(window);
         self.wire_notes(window);
         self.wire_settings(window);
     }
@@ -105,6 +134,7 @@ impl DataHub {
     pub fn refresh_all(&self, window: &MainWindow) {
         self.refresh_pomodoro(window);
         self.refresh_tasks(window);
+        self.refresh_spaces(window);
         self.refresh_notes(window);
         self.refresh_insights(window);
         self.refresh_settings(window);
@@ -190,6 +220,303 @@ impl DataHub {
         data.set_today_tasks(model(today_rows));
     }
 
+    fn refresh_spaces(&self, window: &MainWindow) {
+        let data = window.global::<AppData>();
+        let today = Local::now().date_naive();
+        let rows = self.handle.read(spaces::space_rows);
+        // A deleted or archived space falls back to every space.
+        let mut space = self.space.borrow().clone();
+        if !space.is_empty() && !rows.iter().any(|r| r.id.as_str() == space) {
+            space.clear();
+            self.space.borrow_mut().clear();
+        }
+        match rows.iter().find(|r| r.id.as_str() == space) {
+            Some(row) => {
+                data.set_space_name(row.name.clone());
+                data.set_space_color(row.color);
+                data.set_space_letter(row.letter.clone());
+                data.set_space_open_count(row.count);
+            }
+            None => {
+                data.set_space_name("All spaces".into());
+                data.set_space_color(spaces::hex_color("#A78BFA"));
+                data.set_space_letter("A".into());
+                data.set_space_open_count(rows.iter().map(|r| r.count).sum());
+            }
+        }
+        data.set_all_open_count(rows.iter().map(|r| r.count).sum());
+        data.set_space_id(space.clone().into());
+        data.set_spaces(model(rows));
+
+        let board_view = self.tasks.board(&spaces::board_scope(&space), DateFilter::Any);
+        let anchor = *self.calendar_anchor.borrow();
+        let (board, (quadrants, unsorted, unsorted_count), (label, days, unscheduled)) = self.handle.read(|s| {
+            (
+                spaces::board(s, &board_view),
+                spaces::matrix_columns(s, &space),
+                spaces::calendar_week(s, &space, anchor, today),
+            )
+        });
+        data.set_board_columns(model(board));
+        data.set_matrix_quadrants(model(quadrants));
+        data.set_matrix_unsorted(model(unsorted));
+        data.set_matrix_unsorted_count(unsorted_count as i32);
+        data.set_calendar_label(label.into());
+        data.set_calendar_days(model(days));
+        data.set_calendar_unscheduled(model(unscheduled));
+        data.set_can_undo(self.history.can_undo());
+        data.set_can_redo(self.history.can_redo());
+    }
+
+    /// The space new tasks go into: the one on show, or the first space.
+    fn target_space(&self) -> String {
+        let space = self.space.borrow().clone();
+        if space.is_empty() { self.default_list_id() } else { space }
+    }
+
+    fn wire_spaces(self: &Rc<Self>, window: &MainWindow) {
+        let data = window.global::<AppData>();
+        // Each handler changes data through a service, then refreshes.
+        let on = |f: Box<dyn Fn(&Rc<Self>)>| {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            move || {
+                f(&hub);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            }
+        };
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_selected(move |id| {
+                *hub.space.borrow_mut() = id.to_string();
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_spaces(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_created(move |name, color| {
+                if let Ok(list) = hub.lists.create_list_with_icon(&name, &color, "") {
+                    *hub.space.borrow_mut() = list.id;
+                }
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_edited(move |id, name, color| {
+                let _ = hub.lists.edit_list(&id, &name, &color, thulli_core::services::lists::IconChange::Keep);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_deleted(move |id| {
+                hub.lists.delete_list(&id);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_task_added(move |section, text| {
+                let section = spaces::section(&section).unwrap_or(TaskSection::Today);
+                let space = hub.target_space();
+                hub.tasks.add_task_recorded(&hub.history, &text, &space, section);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_task_composed(move |section, title, estimate, space, do_date, notes| {
+                let section = spaces::section(&section).unwrap_or(TaskSection::Today);
+                let space = if space.is_empty() { hub.target_space() } else { space.to_string() };
+                if let Some(task) = hub.tasks.add_task_recorded(&hub.history, &title, &space, section) {
+                    let today = Local::now().date_naive();
+                    let edit = TaskEdit {
+                        title: task.title.clone(),
+                        notes: notes.to_string(),
+                        // A picked estimate wins over one typed in the title.
+                        estimate_mins: if estimate > 0 { estimate as u32 } else { task.estimate_mins },
+                        tag_ids: task.tags.clone(),
+                        do_date: parse_date_input(&do_date, today).unwrap_or(None),
+                        deadline: task.deadline,
+                    };
+                    hub.tasks.update_task(&hub.history, &task.id, edit);
+                }
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_task_moved(move |id, section| {
+                let done = hub.handle.read(|s| s.task(&id).is_some_and(|t| t.is_completed()));
+                if section.as_str() == "done" {
+                    // Dropped on Done: finish it.
+                    if !done {
+                        hub.tasks.set_status_recorded(&hub.history, &id, TaskStatus::Completed);
+                    }
+                } else if let Some(section) = spaces::section(&section) {
+                    // A finished task dragged back out is open again.
+                    if done {
+                        hub.tasks.set_status_recorded(&hub.history, &id, TaskStatus::Open);
+                    }
+                    hub.tasks.move_to_section_recorded(&hub.history, &id, section);
+                }
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_task_quadrant_set(move |id, quadrant| {
+                hub.tasks.set_quadrant(&hub.history, &id, MatrixQuadrant::parse(&quadrant));
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_task_day_set(move |id, index| {
+                let anchor = *hub.calendar_anchor.borrow();
+                let day = (index >= 0).then(|| hub.handle.read(|s| spaces::week_day(s, anchor, index)));
+                hub.tasks.set_do_date(&hub.history, &id, day);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_calendar_task_added(move |index, text| {
+                let anchor = *hub.calendar_anchor.borrow();
+                let day = hub.handle.read(|s| spaces::week_day(s, anchor, index));
+                let space = hub.target_space();
+                if let Some(task) = hub.tasks.add_task_recorded(&hub.history, &text, &space, TaskSection::ThisWeek) {
+                    hub.tasks.set_do_date(&hub.history, &task.id, Some(day));
+                }
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_calendar_shift(move |delta| {
+                let today = Local::now().date_naive();
+                let mut anchor = hub.calendar_anchor.borrow_mut();
+                *anchor = if delta == 0 { today } else { *anchor + ChronoDuration::days(7 * delta as i64) };
+                drop(anchor);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_spaces(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_task_edited(move |id, title, estimate, notes, do_date, deadline| {
+                let today = Local::now().date_naive();
+                let (current, tags) = match hub.handle.read(|s| s.task(&id).map(|t| (t.clone(), t.tags.clone()))) {
+                    Some(found) => found,
+                    None => return,
+                };
+                // A date that cannot be read keeps the saved one.
+                let date = |text: &str, saved| parse_date_input(text, today).unwrap_or(saved);
+                let edit = TaskEdit {
+                    title: title.to_string(),
+                    notes: notes.to_string(),
+                    estimate_mins: estimate.trim().parse().unwrap_or(current.estimate_mins),
+                    tag_ids: tags,
+                    do_date: date(&do_date, current.do_date),
+                    deadline: date(&deadline, current.deadline),
+                };
+                hub.tasks.update_task(&hub.history, &id, edit);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_task_toggled(move |id| {
+                hub.tasks.toggle_complete(&hub.history, &id);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_space_task_deleted(move |id| {
+                hub.tasks.delete_recorded(&hub.history, &id);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_step_added(move |parent, title| {
+                hub.tasks.add_step(&hub.history, &parent, &title);
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_task_launched(move |id| {
+                let Some(w) = weak.upgrade() else {
+                    return;
+                };
+                // The task moves to Today, the session links to it and a
+                // fresh focus round starts at once.
+                hub.tasks.start_focus(&id);
+                *hub.task_choice.borrow_mut() = Some(id.to_string());
+                *hub.mode.borrow_mut() = "focus".to_string();
+                hub.switch_phase(&w, PomodoroPhase::Focus);
+                hub.pomodoro.borrow_mut().start();
+                hub.refresh_all(&w);
+            });
+        }
+        data.on_space_undo(on(Box::new(|hub| {
+            hub.history.undo();
+        })));
+        data.on_space_redo(on(Box::new(|hub| {
+            hub.history.redo();
+        })));
+    }
+
     fn refresh_notes(&self, window: &MainWindow) {
         let data = window.global::<AppData>();
         // notes_in takes the store lock itself, so it must run outside any read.
@@ -238,6 +565,9 @@ impl DataHub {
         data.set_setting_long_mins(prefs.pomodoro_long_break_mins as i32);
         data.set_setting_rounds(prefs.pomodoro_rounds as i32);
         data.set_setting_auto_advance(prefs.pomodoro_auto_advance);
+        data.set_setting_breaks(prefs.pomodoro_breaks);
+        data.set_setting_start_next(prefs.start_next_after_early_break);
+        data.set_setting_language(prefs.language.clone().into());
     }
 
     /// Adds the elapsed time of a phase to the saved time entries.
@@ -363,6 +693,13 @@ impl DataHub {
                 };
                 hub.pomodoro.borrow_mut().next();
                 hub.record_time(phase, elapsed, false);
+                // Ending a break early can start the next Today task.
+                if phase != PomodoroPhase::Focus && hub.prefs.snapshot().start_next_after_early_break {
+                    if let Some(id) = hub.tasks.first_today_task() {
+                        *hub.task_choice.borrow_mut() = Some(id);
+                        hub.pomodoro.borrow_mut().start();
+                    }
+                }
                 if let Some(w) = weak.upgrade() {
                     hub.refresh_all(&w);
                 }
@@ -447,15 +784,11 @@ impl DataHub {
         }
     }
 
+    /// The first space, or "" when none has been created; tasks are then
+    /// not added.
     fn default_list_id(&self) -> String {
-        self.handle.mutate(|s| {
-            if let Some(list) = s.lists.iter().find(|list| !list.is_archived) {
-                return list.id.clone();
-            }
-            let list = TaskList::new_personal();
-            let id = list.id.clone();
-            s.lists.push(list);
-            id
+        self.handle.read(|s| {
+            s.lists.iter().find(|list| !list.is_archived).map(|list| list.id.clone()).unwrap_or_default()
         })
     }
 
@@ -591,6 +924,45 @@ impl DataHub {
             data.on_set_auto_advance(move |on| {
                 let _ = hub.prefs.set_bool("pomodoro_auto_advance", on);
                 hub.apply_pomodoro_settings();
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_settings(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_set_setting(move |key, value| {
+                let _ = hub.prefs.set_int(&key, value);
+                hub.apply_pomodoro_settings();
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_set_setting_flag(move |key, on| {
+                let _ = hub.prefs.set_bool(&key, on);
+                hub.apply_pomodoro_settings();
+                // With breaks off, a break on show gives way to focus.
+                let on_break = hub.pomodoro.borrow().phase() != PomodoroPhase::Focus;
+                if key.as_str() == "pomodoro_breaks" && !on && on_break {
+                    if let Some(w) = weak.upgrade() {
+                        hub.switch_phase(&w, PomodoroPhase::Focus);
+                    }
+                }
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_all(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_set_language(move |id| {
+                let _ = hub.prefs.set_text("language", &id);
                 if let Some(w) = weak.upgrade() {
                     hub.refresh_settings(&w);
                 }

@@ -1,4 +1,4 @@
-import { TaskRow, NoteRow, DayBar, SessionRow, TaskOption } from "types.slint";
+import { TaskRow, NoteRow, DayBar, SessionRow, TaskOption, SpaceRow, SpaceTask, SpaceColumn, CalendarDay } from "types.slint";
 
 /// AppData: everything the screens show. Rust fills it from the saved data
 /// and handles the callbacks; the screens only display it and report taps.
@@ -70,6 +70,102 @@ export global AppData {
     callback move-task(string, string);
     callback delete-task(string);
 
+    // Spaces: where tasks live. An empty space-id means every space.
+    in-out property <[SpaceRow]> spaces: [];
+    in-out property <string> space-id: "";
+    in-out property <string> space-name: "All spaces";
+    in-out property <color> space-color: #A78BFA;
+    in-out property <string> space-letter: "A";
+    in-out property <int> space-open-count: 0;
+    // Open tasks across every space.
+    in-out property <int> all-open-count: 0;
+    // "board", "matrix" or "calendar".
+    in-out property <string> space-view: "board";
+    in-out property <bool> can-undo: false;
+    in-out property <bool> can-redo: false;
+    in-out property <[SpaceColumn]> board-columns: [];
+    in-out property <[SpaceColumn]> matrix-quadrants: [];
+    in-out property <[SpaceColumn]> matrix-unsorted: [];
+    in-out property <int> matrix-unsorted-count: 0;
+    in-out property <[SpaceColumn]> calendar-unscheduled: [];
+    in-out property <[CalendarDay]> calendar-days: [];
+    in-out property <string> calendar-label: "";
+    callback space-selected(string);
+    // name, colour as "#RRGGBB"
+    callback space-created(string, string);
+    // id, name, colour
+    callback space-edited(string, string, string);
+    callback space-deleted(string);
+    // section ("backlog", "this_week", "today"), text
+    callback space-task-added(string, string);
+    // From the task composer: section, title, estimate minutes, space id,
+    // do date (YYYY-MM-DD, "today", "tomorrow" or empty), notes.
+    callback space-task-composed(string, string, int, string, string, string);
+    // task id, section
+    callback space-task-moved(string, string);
+    // task id, quadrant ("" clears)
+    callback task-quadrant-set(string, string);
+    // task id, day index in the calendar week (-1 takes it off the calendar)
+    callback task-day-set(string, int);
+    // day index, text: adds a task planned for that day
+    callback calendar-task-added(int, string);
+    // -1 or 1 moves a week; 0 returns to this week
+    callback calendar-shift(int);
+    callback space-undo();
+    callback space-redo();
+    // Task cards. Edits: id, title, estimate minutes, notes, do date,
+    // deadline. Dates are YYYY-MM-DD, "today", "tomorrow" or empty.
+    callback space-task-edited(string, string, string, string, string, string);
+    callback space-task-toggled(string);
+    callback space-task-deleted(string);
+    // parent id, title
+    callback step-added(string, string);
+    // Starts a focus round on this task. The screen then opens Pomodoro.
+    callback task-launched(string);
+
+    // AI assistant (OpenRouter for now, a bundled model later).
+    in-out property <bool> ai-key-saved: false;
+    in-out property <string> ai-model: "openai/gpt-4o-mini";
+    // One short line about the last AI call or key change.
+    in-out property <string> ai-status: "";
+    in-out property <bool> ai-busy: false;
+    // The Plan with AI panel: proposals waiting for a decision.
+    in-out property <bool> ai-panel-open: false;
+    in-out property <[string]> ai-proposals: [];
+    // Set by ai-apply when the plan started a focus round, so the screen
+    // can open Pomodoro.
+    in-out property <bool> ai-focus-started: false;
+    // Opens or closes Windows voice typing for the focused field.
+    callback mic-toggle();
+    callback ai-key-save(string);
+    callback ai-key-remove();
+    callback ai-model-set(string);
+    callback ai-test();
+    // request text, start the first task now
+    callback ai-plan(string, bool);
+    callback ai-apply();
+    callback ai-discard();
+    // Sent from a worker thread when a reply arrives: kind ("plan", "sort",
+    // "test"), success, text.
+    callback ai-reply(string, bool, string);
+
+    // Sort screen: one unsorted task at a time.
+    in-out property <bool> triage-open: false;
+    in-out property <SpaceTask> triage-task;
+    in-out property <bool> triage-has-task: false;
+    in-out property <int> triage-position: 0;
+    in-out property <int> triage-total: 0;
+    in-out property <int> triage-decided: 0;
+    // The AI's suggested quadrant for the task on show, or "".
+    in-out property <string> triage-suggestion: "";
+    callback triage-start();
+    // quadrant id
+    callback triage-decide(string);
+    callback triage-skip();
+    callback triage-back();
+    callback triage-close();
+    callback triage-ask-ai();
+
     // Notes
     in-out property <[NoteRow]> notes: [];
     in-out property <string> selected-note-id: "";
@@ -95,4 +191,14 @@ export global AppData {
     in-out property <bool> setting-auto-advance: false;
     callback adjust-setting(string, int);
     callback set-auto-advance(bool);
+    // Breaks between focus rounds; off runs focus after focus.
+    in-out property <bool> setting-breaks: true;
+    in-out property <bool> setting-start-next: false;
+    // Saved language id, such as "en".
+    in-out property <string> setting-language: "en";
+    // key, value: sets a number setting to exactly this value.
+    callback set-setting(string, int);
+    // key, value: switches a yes/no setting.
+    callback set-setting-flag(string, bool);
+    callback set-language(string);
 }

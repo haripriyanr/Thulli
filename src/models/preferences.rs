@@ -258,6 +258,8 @@ pub struct Preferences {
     pub pomodoro_long_break_mins: u32,
     pub pomodoro_rounds: u32,
     pub pomodoro_auto_advance: bool,
+    /// Breaks between focus rounds. Off runs focus round after focus round.
+    pub pomodoro_breaks: bool,
     /// Length of the Custom focus interval, in minutes.
     pub pomodoro_custom_mins: u32,
     /// Ambient sound while the timer runs: off, forest, lofi or rain.
@@ -265,6 +267,9 @@ pub struct Preferences {
 
     // Assistant: user-chosen model file; never downloaded automatically.
     pub assistant_model_path: String,
+    /// Hosted model id used with the OpenRouter key, such as
+    /// "openai/gpt-4o-mini". The key itself is never stored here.
+    pub ai_model: String,
 
     // Interface state
     pub quick_notes: String,
@@ -322,6 +327,7 @@ impl Default for Preferences {
             pomodoro_long_break_mins: 20,
             pomodoro_rounds: 4,
             pomodoro_auto_advance: false,
+            pomodoro_breaks: true,
             pomodoro_custom_mins: 40,
             pomodoro_ambient: "forest".to_string(),
             break_reminder_sound_id: "soft-chime".to_string(),
@@ -347,6 +353,7 @@ impl Default for Preferences {
             web_shield_active: false,
 
             assistant_model_path: String::new(),
+            ai_model: "openai/gpt-4o-mini".to_string(),
 
             quick_notes: String::new(),
             active_mode: "dashboard".to_string(),

@@ -11,6 +11,9 @@ use std::sync::{Arc, Mutex};
 
 #[cfg(feature = "local-model")]
 mod local;
+mod remote;
+
+pub use remote::{RemoteEngine, DEFAULT_MODEL, OPENROUTER_URL};
 
 /// Who wrote a message handed to the engine.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]

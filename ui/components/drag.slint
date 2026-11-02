@@ -1,0 +1,85 @@
+import { Theme } from "../theme.slint";
+import { AppData } from "../app_data.slint";
+
+/// DragState: the task being dragged on the Spaces screen and the drop zone
+/// under the pointer. Positions are window coordinates. `view` is "board",
+/// "matrix" or "calendar", so a zone only answers drags from its own view.
+export global DragState {
+    in-out property <bool> active: false;
+    in-out property <string> task-id;
+    in-out property <string> title;
+    in-out property <string> view;
+    in-out property <length> x;
+    in-out property <length> y;
+    // Zone under the pointer: a section, a quadrant, "unsorted", a day
+    // index "0" to "6", or "unscheduled". Empty when over nothing.
+    in-out property <string> target;
+
+    /// Drops the task on the zone under the pointer, then ends the drag.
+    public function finish() {
+        if self.active && self.target != "" {
+            if self.view == "board" {
+                AppData.space-task-moved(self.task-id, self.target);
+            } else if self.view == "matrix" {
+                AppData.task-quadrant-set(self.task-id, self.target == "unsorted" ? "" : self.target);
+            } else if self.view == "calendar" {
+                AppData.task-day-set(self.task-id, self.target == "unscheduled" ? -1 : self.target.to-float());
+            }
+        }
+        self.active = false;
+        self.target = "";
+    }
+}
+
+/// DropZone: lays over a column, quadrant or day and lights up while a task
+/// from the same view is dragged over it. It takes no clicks.
+export component DropZone inherits Rectangle {
+    in property <string> zone;
+    in property <string> view;
+    in property <length> corner: 20px;
+    in property <color> tint: Theme.accent-violet;
+
+    out property <bool> hot: DragState.active && DragState.view == root.view
+        && DragState.x >= self.absolute-position.x && DragState.x <= self.absolute-position.x + self.width
+        && DragState.y >= self.absolute-position.y && DragState.y <= self.absolute-position.y + self.height;
+
+    changed hot => {
+        if self.hot {
+            DragState.target = root.zone;
+        } else if DragState.target == root.zone {
+            DragState.target = "";
+        }
+    }
+
+    border-radius: root.corner;
+    border-width: root.hot ? 2px : 0px;
+    border-color: root.tint;
+    background: root.hot ? root.tint.with-alpha(0.10) : transparent;
+}
+
+/// DragGhost: the card that follows the pointer while dragging.
+export component DragGhost inherits Rectangle {
+    visible: DragState.active;
+    x: DragState.x - 24px;
+    y: DragState.y - 22px;
+    width: min(320px, ghost-text.preferred-width + 48px);
+    height: 44px;
+    border-radius: 14px;
+    background: Theme.dark-mode ? #2A2440F0 : #FFFFFFF0;
+    border-width: 1px;
+    border-color: Theme.accent-violet;
+    drop-shadow-blur: 24px;
+    drop-shadow-color: #00000066;
+    transform-rotation: -2deg;
+    ghost-text := Text {
+        x: 24px;
+        width: parent.width - 36px;
+        height: 100%;
+        text: DragState.title;
+        font-size: 14px;
+        font-weight: 600;
+        color: Theme.text-primary;
+        vertical-alignment: center;
+        overflow: elide;
+    }
+}

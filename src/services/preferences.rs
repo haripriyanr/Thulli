@@ -422,6 +422,7 @@ impl PreferencesService {
             match key.as_str() {
                 "hide_estimates" => p.hide_estimates = value,
                 "pomodoro_auto_advance" => p.pomodoro_auto_advance = value,
+                "pomodoro_breaks" => p.pomodoro_breaks = value,
                 "auto_parse_estimates" => p.auto_parse_estimates = value,
                 "open_at_login" => p.open_at_login = value,
                 "open_on_wake" => p.open_on_wake = value,
@@ -590,6 +591,13 @@ impl PreferencesService {
                     }
                 }
                 "assistant_model_path" => p.assistant_model_path = value.to_string(),
+                "ai_model" => {
+                    // Ids look like "vendor/model"; anything else is refused.
+                    if value.is_empty() || value.len() > 120 || value.chars().any(char::is_whitespace) {
+                        return Err(bad());
+                    }
+                    p.ai_model = value.to_string();
+                }
                 _ => return Err(PrefError::UnknownSetting(key.clone())),
             }
             Ok(())
@@ -800,7 +808,7 @@ mod tests {
     }
 
     fn service() -> PreferencesService {
-        let handle = StoreHandle::new(Arc::new(Mutex::new(AppStateStore::default())), Arc::new(MemoryRepo));
+        let handle = StoreHandle::new(Arc::new(Mutex::new(AppStateStore::with_space())), Arc::new(MemoryRepo));
         PreferencesService::new(handle)
     }
 

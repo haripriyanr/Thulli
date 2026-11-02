@@ -10,7 +10,7 @@ use std::sync::{Arc, Mutex};
 
 use chrono::{DateTime, Duration, Local, NaiveDate, Utc};
 
-use crate::models::{AppStateStore, MatrixQuadrant, Task, TaskList, TaskSection, TaskStatus};
+use crate::models::{AppStateStore, MatrixQuadrant, Task, TaskSection, TaskStatus};
 use crate::parser::parse_task_title;
 use crate::repository::StorageRepository;
 use crate::services::history::{ActionHistory, UndoableAction};
@@ -303,11 +303,9 @@ impl TaskService {
                 (cleaned.to_string(), 0, default_section)
             };
 
+            // A task needs a space. With none created yet, nothing is added.
             let effective_list_id = if list_id.is_empty() || !st.lists.iter().any(|l| l.id == list_id) {
-                match st.get_primary_list() {
-                    Some(first) => first.id.clone(),
-                    None => st.add_list(TaskList::new_personal()),
-                }
+                st.get_primary_list()?.id.clone()
             } else {
                 list_id.to_string()
             };
@@ -611,6 +609,28 @@ impl TaskService {
                                 t.move_to_section(TaskSection::Today);
                             }
                             t.record("Scheduled");
+                        }
+                        None => t.record("Unscheduled"),
+                    }
+                })
+                .is_some()
+        })
+    }
+
+    /// Plans a task for a whole day, or takes it off the calendar with `None`.
+    /// Any time of day is cleared; a task planned for today joins Today.
+    pub fn set_do_date(&self, history: &ActionHistory, task_id: &str, day: Option<NaiveDate>) -> bool {
+        self.tracked(history, "Plan task", &[task_id.to_string()], |st| {
+            st.task_mut(task_id)
+                .map(|t| {
+                    t.scheduled_at = None;
+                    t.do_date = day;
+                    match day {
+                        Some(day) => {
+                            if day == Local::now().date_naive() {
+                                t.move_to_section(TaskSection::Today);
+                            }
+                            t.record("Planned");
                         }
                         None => t.record("Unscheduled"),
                     }
@@ -1129,7 +1149,7 @@ pub mod search {
 #[cfg(test)]
 mod tests {
     use super::*;
-    use crate::models::{Tag, TimeEntry};
+    use crate::models::{Tag, TaskList, TimeEntry};
     use crate::repository::{LoadReport, StorageRepository};
 
     struct MemoryRepo;
@@ -1143,7 +1163,7 @@ mod tests {
     }
 
     fn setup() -> (TaskService, ActionHistory) {
-        let svc = TaskService::new(Arc::new(Mutex::new(AppStateStore::default())), Arc::new(MemoryRepo));
+        let svc = TaskService::new(Arc::new(Mutex::new(AppStateStore::with_space())), Arc::new(MemoryRepo));
         let history = ActionHistory::new(svc.handle().clone());
         (svc, history)
     }
@@ -1312,6 +1332,21 @@ mod tests {
         h.undo();
         assert_eq!(order(&svc), ["c", "b", "a"]);
         assert_eq!(get(&svc, &other.id).unwrap().section, TaskSection::Backlog);
+    }
+
+    #[test]
+    fn planning_a_day_clears_the_time_and_can_be_undone() {
+        let (svc, h) = setup();
+        let t = task(&svc, "x", TaskSection::Backlog);
+        let today = Local::now().date_naive();
+        svc.schedule_task(&h, &t.id, Some(calendar::slot_to_utc(today + Duration::days(2), 600)));
+        svc.set_do_date(&h, &t.id, Some(today));
+        let planned = get(&svc, &t.id).unwrap();
+        assert_eq!((planned.do_date, planned.scheduled_at, planned.section), (Some(today), None, TaskSection::Today));
+        svc.set_do_date(&h, &t.id, None);
+        assert_eq!(get(&svc, &t.id).unwrap().do_date, None);
+        h.undo();
+        assert_eq!(get(&svc, &t.id).unwrap().do_date, Some(today));
     }
 
     #[test]

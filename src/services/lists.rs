@@ -266,7 +266,7 @@ mod tests {
     }
 
     fn service() -> ListService {
-        ListService::new(Arc::new(Mutex::new(AppStateStore::default())), Arc::new(MemoryRepo))
+        ListService::new(Arc::new(Mutex::new(AppStateStore::with_space())), Arc::new(MemoryRepo))
     }
 
     #[test]

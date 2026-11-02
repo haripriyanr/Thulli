@@ -1,0 +1,967 @@
+import { Theme } from "../theme.slint";
+import { IconPlus, IconClose, IconCheck, IconTrash, IconChevronLeft, IconChevronRight, IconChevronDown, IconCollapse, IconExpand, IconRocket, IconNote, IconCalendar, IconMic } from "../icons.slint";
+import { AppData } from "../app_data.slint";
+import { DragState, DropZone } from "drag.slint";
+import { GlassCard, GlassIconButton } from "glass.slint";
+import { SpaceTask } from "../types.slint";
+
+/// SpaceBadge: a rounded square in a space's colour with its first letter.
+export component SpaceBadge inherits Rectangle {
+    in property <color> tint: #A78BFA;
+    in property <string> letter: "";
+    in property <length> size: 28px;
+
+    width: root.size;
+    height: root.size;
+    border-radius: root.size * 0.28;
+    background: root.tint;
+    Text {
+        text: root.letter;
+        font-size: root.size * 0.45;
+        font-weight: 700;
+        color: #1C1917;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+}
+
+/// ColorDots: the colour choices for a space. `value` is "#RRGGBB".
+export component ColorDots inherits HorizontalLayout {
+    in-out property <string> value: "#E879F9";
+    spacing: 10px;
+    alignment: start;
+
+    for choice in [
+        { hex: "#FF4D5E", tint: #FF4D5E },
+        { hex: "#B5C94A", tint: #B5C94A },
+        { hex: "#5B8DEF", tint: #5B8DEF },
+        { hex: "#67D3F5", tint: #67D3F5 },
+        { hex: "#4CC36B", tint: #4CC36B },
+        { hex: "#E879F9", tint: #E879F9 },
+    ]: Rectangle {
+        width: 22px;
+        height: 22px;
+        border-radius: 11px;
+        background: choice.tint;
+        border-width: root.value == choice.hex ? 2px : 0px;
+        border-color: Theme.text-primary;
+        TouchArea {
+            mouse-cursor: pointer;
+            clicked => { root.value = choice.hex; }
+        }
+    }
+}
+
+/// SpaceForm: name and colour for a new or edited space. Enter saves.
+export component SpaceForm inherits GlassCard {
+    in-out property <string> name;
+    in-out property <string> hex: "#E879F9";
+    in property <string> action: "Save";
+    // Shown in the badge: the space's letter, or "+" for a new space.
+    in property <string> letter: "+";
+    callback saved(string, string);
+    callback cancelled();
+
+    corner: 18px;
+    width: 340px;
+    height: 132px;
+    background: Theme.dark-mode ? #221C3AF5 : #FFFFFFF5;
+    drop-shadow-blur: 30px;
+    drop-shadow-color: #00000059;
+
+    function save() {
+        if root.name != "" { root.saved(root.name, root.hex); }
+    }
+
+    VerticalLayout {
+        padding: 14px;
+        spacing: 12px;
+        HorizontalLayout {
+            spacing: 12px;
+            SpaceBadge {
+                size: 40px;
+                tint: root.hex == "#FF4D5E" ? #FF4D5E : root.hex == "#B5C94A" ? #B5C94A : root.hex == "#5B8DEF" ? #5B8DEF
+                    : root.hex == "#67D3F5" ? #67D3F5 : root.hex == "#4CC36B" ? #4CC36B : #E879F9;
+                letter: root.letter;
+            }
+            Rectangle {
+                horizontal-stretch: 1;
+                Text {
+                    width: 100%;
+                    height: 100%;
+                    text: "Space name";
+                    visible: root.name == "";
+                    font-size: 18px;
+                    color: Theme.text-muted;
+                    vertical-alignment: center;
+                }
+                name-input := TextInput {
+                    width: 100%;
+                    height: 100%;
+                    font-size: 18px;
+                    color: Theme.text-primary;
+                    vertical-alignment: center;
+                    text <=> root.name;
+                    accepted => { root.save(); }
+                    key-pressed(event) => {
+                        if event.text == Key.Escape { root.cancelled(); return accept; }
+                        return reject;
+                    }
+                }
+            }
+        }
+        Rectangle { height: 1px; background: Theme.glass-border; }
+        HorizontalLayout {
+            spacing: 10px;
+            ColorDots { value <=> root.hex; }
+            Rectangle { horizontal-stretch: 1; }
+            Rectangle {
+                width: 84px;
+                height: 32px;
+                border-radius: 16px;
+                background: save-touch.has-hover ? Theme.accent-violet.with-alpha(0.35) : Theme.glass-fill-strong;
+                animate background { duration: 200ms; easing: ease-out; }
+                Text {
+                    text: root.action;
+                    font-size: 13px;
+                    font-weight: 600;
+                    color: root.name == "" ? Theme.text-muted : Theme.text-primary;
+                    horizontal-alignment: center;
+                    vertical-alignment: center;
+                }
+                save-touch := TouchArea { clicked => { root.save(); } }
+            }
+        }
+    }
+
+    init => { name-input.focus(); }
+}
+
+/// AddTaskField: a "+ Add task" pill that turns into a text field.
+export component AddTaskField inherits Rectangle {
+    in property <string> label: "Add task";
+    callback added(string);
+    property <bool> editing: false;
+    property <string> text: "";
+
+    height: 38px;
+    border-radius: 19px;
+    background: root.editing ? Theme.glass-fill-strong : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
+    border-width: root.editing ? 1px : 0px;
+    border-color: Theme.accent-violet.with-alpha(0.6);
+    animate background { duration: 200ms; easing: ease-out; }
+
+    touch := TouchArea {
+        mouse-cursor: pointer;
+        clicked => {
+            root.editing = true;
+            input.focus();
+        }
+    }
+    if !root.editing: HorizontalLayout {
+        padding-left: 14px;
+        spacing: 8px;
+        alignment: start;
+        VerticalLayout { alignment: center; IconPlus { width: 12px; height: 12px; stroke-color: Theme.text-secondary; } }
+        Text { text: root.label; font-size: 13px; font-weight: 600; color: Theme.text-secondary; vertical-alignment: center; }
+    }
+    input := TextInput {
+        x: 14px;
+        width: parent.width - 28px;
+        height: parent.height;
+        visible: root.editing;
+        font-size: 13px;
+        color: Theme.text-primary;
+        vertical-alignment: center;
+        text <=> root.text;
+        accepted => {
+            if root.text != "" { root.added(root.text); }
+            root.text = "";
+        }
+        key-pressed(event) => {
+            if event.text == Key.Escape {
+                root.text = "";
+                root.editing = false;
+                return accept;
+            }
+            return reject;
+        }
+        changed has-focus => {
+            if !self.has-focus && root.text == "" { root.editing = false; }
+        }
+    }
+}
+
+/// CardAction: one small icon button in a task card's action strip. The icon
+/// goes in as a child; `tip` appears above it on hover.
+export component CardAction inherits Rectangle {
+    in property <string> tip;
+    callback clicked();
+    width: 26px;
+    height: 26px;
+    border-radius: 8px;
+    background: touch.has-hover ? Theme.glass-fill-hover : transparent;
+    animate background { duration: 200ms; easing: ease-out; }
+    VerticalLayout {
+        alignment: center;
+        HorizontalLayout { alignment: center; @children }
+    }
+    touch := TouchArea { mouse-cursor: pointer; clicked => { root.clicked(); } }
+    if touch.has-hover && root.tip != "": Rectangle {
+        y: -30px;
+        x: (parent.width - self.width) / 2;
+        width: tip-text.preferred-width + 16px;
+        height: 24px;
+        border-radius: 8px;
+        background: Theme.dark-mode ? #2A2440 : #FFFFFF;
+        drop-shadow-blur: 8px;
+        drop-shadow-color: #00000040;
+        tip-text := Text { text: root.tip; font-size: 11px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+    }
+}
+
+/// TickBox: a rounded tick box.
+export component TickBox inherits Rectangle {
+    in property <bool> checked;
+    in property <length> size: 18px;
+    callback toggled();
+    width: root.size;
+    height: root.size;
+    border-radius: root.size / 3;
+    border-width: root.checked ? 0px : 1.5px;
+    border-color: Theme.text-muted;
+    background: root.checked ? @linear-gradient(135deg, #6EE7B7 0%, #A3E635 100%) : transparent;
+    if root.checked: IconCheck {
+        x: (parent.width - self.width) / 2;
+        y: (parent.height - self.height) / 2;
+        width: root.size * 0.75;
+        height: root.size * 0.75;
+        stroke-color: #14532D;
+    }
+    TouchArea { mouse-cursor: pointer; clicked => { root.toggled(); } }
+}
+
+/// QuickDate: a small chip that fills a date field.
+component QuickDate inherits Rectangle {
+    in property <string> label;
+    callback clicked();
+    height: 24px;
+    width: chip-text.preferred-width + 16px;
+    border-radius: 12px;
+    background: touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill;
+    chip-text := Text { text: root.label; font-size: 11px; color: Theme.text-secondary; horizontal-alignment: center; vertical-alignment: center; }
+    touch := TouchArea { mouse-cursor: pointer; clicked => { root.clicked(); } }
+}
+
+/// DateField: a labelled date entry with Today, Tomorrow and Clear chips.
+component DateField inherits HorizontalLayout {
+    in property <string> label;
+    in-out property <string> value;
+    spacing: 8px;
+    Text { width: 64px; text: root.label; font-size: 12px; color: Theme.text-secondary; vertical-alignment: center; }
+    Rectangle {
+        horizontal-stretch: 1;
+        height: 28px;
+        border-radius: 8px;
+        background: Theme.glass-fill;
+        Text { x: 8px; height: 100%; text: "YYYY-MM-DD"; visible: root.value == ""; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
+        TextInput { x: 8px; width: parent.width - 16px; height: 100%; text <=> root.value; font-size: 12px; color: Theme.text-primary; vertical-alignment: center; }
+    }
+    QuickDate { label: "Today"; clicked => { root.value = "today"; } }
+    QuickDate { label: "Tomorrow"; clicked => { root.value = "tomorrow"; } }
+    QuickDate { label: "Clear"; clicked => { root.value = ""; } }
+}
+
+/// TaskCard: one task with its tick box, estimate, subtasks and actions.
+/// Hovering shows Back, Forward, Launch, Edit and Delete. Edit opens the
+/// title, estimate, notes and dates in place; Enter saves and Esc cancels.
+/// `compact` is the slim finished-task style used in Done.
+export component TaskCard inherits Rectangle {
+    in property <SpaceTask> task;
+    in property <bool> can-back: false;
+    in property <bool> can-forward: false;
+    in property <bool> can-launch: true;
+    in property <bool> compact: false;
+    // The view this card is dragged in: "board", "matrix", "calendar", or
+    // "" for a card that cannot be dragged.
+    in property <string> drag-view: "";
+    callback toggled();
+    callback back();
+    callback forward();
+    callback launched();
+    callback deleted();
+    // title, estimate minutes, notes, do date, deadline
+    callback saved(string, string, string, string, string);
+    callback step-added(string);
+    callback step-toggled(string);
+
+    property <bool> editing: false;
+    property <bool> steps-open: true;
+    property <bool> adding-step: false;
+    property <string> step-text;
+    property <string> e-title;
+    property <string> e-estimate;
+    property <string> e-notes;
+    property <string> e-do;
+    property <string> e-deadline;
+
+    function begin-edit() {
+        root.e-title = root.task.title;
+        root.e-estimate = root.task.estimate > 0 ? "\{root.task.estimate}" : "";
+        root.e-notes = root.task.notes;
+        root.e-do = root.task.do-date;
+        root.e-deadline = root.task.deadline;
+        root.editing = true;
+    }
+    function save() {
+        root.saved(root.e-title, root.e-estimate, root.e-notes, root.e-do, root.e-deadline);
+        root.editing = false;
+    }
+
+    height: layout.preferred-height;
+    border-radius: 16px;
+    background: root.editing ? Theme.glass-fill-hover : (hover.has-hover ? Theme.glass-fill-hover : Theme.glass-fill-strong);
+    border-width: 1px;
+    border-color: root.editing ? Theme.accent-violet.with-alpha(0.6)
+        : (hover.has-hover ? Theme.accent-violet.with-alpha(0.35) : Theme.glass-border);
+    animate background, border-color { duration: 200ms; easing: ease-out; }
+
+    // The content sits inside the hover area, so pointing at a button in
+    // the card still counts as hovering the card.
+    property <length> press-x;
+    property <length> press-y;
+    property <bool> armed: false;
+    property <bool> dragging: DragState.active && DragState.task-id == root.task.id;
+    opacity: root.dragging ? 0.35 : 1;
+
+    hover := TouchArea {
+    // Holding the card and moving a few pixels starts a drag.
+    pointer-event(event) => {
+        if event.kind == PointerEventKind.down && event.button == PointerEventButton.left {
+            root.armed = root.drag-view != "" && !root.editing;
+            root.press-x = self.mouse-x;
+            root.press-y = self.mouse-y;
+        } else if event.kind == PointerEventKind.up || event.kind == PointerEventKind.cancel {
+            if root.dragging { DragState.finish(); }
+            root.armed = false;
+        }
+    }
+    moved => {
+        if root.armed && !root.dragging && (abs(self.mouse-x - root.press-x) > 6px || abs(self.mouse-y - root.press-y) > 6px) {
+            DragState.task-id = root.task.id;
+            DragState.title = root.task.title;
+            DragState.view = root.drag-view;
+            DragState.target = "";
+            DragState.active = true;
+        }
+        if root.dragging {
+            DragState.x = self.absolute-position.x + self.mouse-x;
+            DragState.y = self.absolute-position.y + self.mouse-y;
+        }
+    }
+    layout := VerticalLayout {
+        padding: root.compact ? 10px : 14px;
+        spacing: 10px;
+
+        // Title row: tick box, title, then actions on hover or the space badge.
+        HorizontalLayout {
+            spacing: 10px;
+            if !root.editing: VerticalLayout {
+                alignment: start;
+                padding-top: 1px;
+                TickBox { checked: root.task.done; toggled => { root.toggled(); } }
+            }
+            if !root.editing: Text {
+                horizontal-stretch: 1;
+                text: root.task.title;
+                font-size: root.compact ? 14px : 15px;
+                font-weight: 600;
+                color: root.task.done ? Theme.text-muted : Theme.text-primary;
+                wrap: word-wrap;
+                vertical-alignment: center;
+            }
+            if root.editing: TextInput {
+                horizontal-stretch: 1;
+                text <=> root.e-title;
+                font-size: 15px;
+                font-weight: 600;
+                color: Theme.text-primary;
+                accepted => { root.save(); }
+                key-pressed(event) => {
+                    if event.text == Key.Escape { root.editing = false; return accept; }
+                    return reject;
+                }
+                init => { self.focus(); }
+            }
+            if root.compact && !root.editing: Text {
+                text: root.task.estimate > 0 ? "\{root.task.estimate}min" : "";
+                font-size: 12px;
+                color: Theme.text-muted;
+                vertical-alignment: center;
+            }
+            if hover.has-hover && !root.editing: Rectangle {
+                width: actions.preferred-width + 8px;
+                height: 32px;
+                border-radius: 10px;
+                background: Theme.glass-fill;
+                actions := HorizontalLayout {
+                    x: 4px;
+                    alignment: center;
+                    spacing: 2px;
+                    if root.can-back: CardAction { tip: "Back"; clicked => { root.back(); }
+                        IconChevronLeft { width: 13px; height: 13px; stroke-color: Theme.text-secondary; } }
+                    if root.can-forward: CardAction { tip: "Forward"; clicked => { root.forward(); }
+                        IconChevronRight { width: 13px; height: 13px; stroke-color: Theme.text-secondary; } }
+                    if root.can-launch && !root.task.done: CardAction { tip: "Launch"; clicked => { root.launched(); }
+                        IconRocket { width: 15px; height: 15px; stroke-color: Theme.text-secondary; } }
+                    CardAction { tip: "Edit"; clicked => { root.begin-edit(); }
+                        IconNote { width: 14px; height: 14px; stroke-color: Theme.text-secondary; } }
+                    CardAction { tip: "Delete"; clicked => { root.deleted(); }
+                        IconTrash { width: 14px; height: 14px; stroke-color: Theme.destructive; } }
+                }
+            }
+            if !hover.has-hover || root.editing: VerticalLayout {
+                alignment: start;
+                SpaceBadge { size: 20px; tint: root.task.color; letter: root.task.letter; }
+            }
+        }
+
+        // Estimate and dates
+        if !root.compact && !root.editing: HorizontalLayout {
+            spacing: 6px;
+            padding-left: 28px;
+            Text {
+                text: root.task.estimate > 0 ? "\{root.task.estimate}min" : "0min  /  + EST";
+                font-size: 12px;
+                color: Theme.text-muted;
+            }
+            if root.task.meta != "": Text {
+                horizontal-stretch: 1;
+                text: "·  " + root.task.meta;
+                font-size: 12px;
+                color: Theme.text-muted;
+                overflow: elide;
+            }
+        }
+        if !root.compact && !root.editing && root.task.notes != "": Text {
+            x: 28px;
+            text: root.task.notes;
+            font-size: 12px;
+            color: Theme.text-secondary;
+            wrap: word-wrap;
+        }
+
+        // Editor
+        if root.editing: VerticalLayout {
+            spacing: 10px;
+            HorizontalLayout {
+                spacing: 8px;
+                Text { width: 64px; text: "Estimate"; font-size: 12px; color: Theme.text-secondary; vertical-alignment: center; }
+                Rectangle {
+                    width: 70px;
+                    height: 28px;
+                    border-radius: 8px;
+                    background: Theme.glass-fill;
+                    TextInput { x: 8px; width: parent.width - 16px; height: 100%; text <=> root.e-estimate; font-size: 12px; color: Theme.text-primary; vertical-alignment: center; input-type: number; }
+                }
+                Text { text: "min"; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
+            }
+            DateField { label: "Do date"; value <=> root.e-do; }
+            DateField { label: "Deadline"; value <=> root.e-deadline; }
+            Rectangle {
+                height: 84px;
+                border-radius: 10px;
+                background: Theme.glass-fill;
+                Text { x: 10px; y: 8px; text: "Add notes..."; visible: root.e-notes == ""; font-size: 13px; color: Theme.text-muted; }
+                TextInput {
+                    x: 10px;
+                    y: 8px;
+                    width: parent.width - 20px;
+                    height: parent.height - 16px;
+                    single-line: false;
+                    wrap: word-wrap;
+                    text <=> root.e-notes;
+                    font-size: 13px;
+                    color: Theme.text-primary;
+                }
+            }
+            HorizontalLayout {
+                spacing: 8px;
+                alignment: end;
+                Rectangle {
+                    width: 64px;
+                    height: 32px;
+                    border-radius: 16px;
+                    background: cancel-touch.has-hover ? Theme.glass-fill-hover : transparent;
+                    Text { text: "Esc"; font-size: 13px; color: Theme.text-muted; horizontal-alignment: center; vertical-alignment: center; }
+                    cancel-touch := TouchArea { clicked => { root.editing = false; } }
+                }
+                Rectangle {
+                    width: 76px;
+                    height: 32px;
+                    border-radius: 16px;
+                    background: save-touch.has-hover ? Theme.accent-violet.with-alpha(0.4) : Theme.accent-violet.with-alpha(0.25);
+                    Text { text: "Save"; font-size: 13px; font-weight: 600; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+                    save-touch := TouchArea { clicked => { root.save(); } }
+                }
+            }
+        }
+
+        // Subtasks
+        if !root.compact && !root.editing && (root.task.steps.length > 0 || root.adding-step || hover.has-hover): Rectangle {
+            height: steps-layout.preferred-height;
+            border-radius: 12px;
+            background: root.task.steps.length > 0 || root.adding-step ? Theme.glass-fill : transparent;
+            steps-layout := VerticalLayout {
+                padding: root.task.steps.length > 0 || root.adding-step ? 10px : 0px;
+                padding-left: root.task.steps.length > 0 || root.adding-step ? 12px : 28px;
+                spacing: 8px;
+                HorizontalLayout {
+                    spacing: 8px;
+                    if root.task.steps.length > 0: Text {
+                        text: "Subtasks: \{root.task.steps-done}/\{root.task.steps.length}";
+                        font-size: 12px;
+                        color: Theme.text-secondary;
+                        vertical-alignment: center;
+                    }
+                    CardAction {
+                        tip: "Add subtask";
+                        width: root.task.steps.length > 0 ? 22px : 96px;
+                        height: 22px;
+                        clicked => { root.adding-step = true; root.steps-open = true; }
+                        HorizontalLayout {
+                            spacing: 4px;
+                            VerticalLayout { alignment: center; IconPlus { width: 11px; height: 11px; stroke-color: Theme.text-muted; } }
+                            if root.task.steps.length == 0: Text { text: "Subtask"; font-size: 11px; color: Theme.text-muted; vertical-alignment: center; }
+                        }
+                    }
+                    Rectangle { horizontal-stretch: 1; }
+                    if root.task.steps.length > 0: CardAction {
+                        tip: root.steps-open ? "Hide" : "Show";
+                        width: 22px;
+                        height: 22px;
+                        clicked => { root.steps-open = !root.steps-open; }
+                        IconChevronDown {
+                            width: 12px; height: 12px; stroke-color: Theme.text-muted;
+                            transform-rotation: root.steps-open ? 180deg : 0deg;
+                        }
+                    }
+                }
+                if root.steps-open: VerticalLayout {
+                    spacing: 6px;
+                    for step in root.task.steps: HorizontalLayout {
+                        spacing: 10px;
+                        VerticalLayout { alignment: center; TickBox { size: 16px; checked: step.done; toggled => { root.step-toggled(step.id); } } }
+                        Text {
+                            horizontal-stretch: 1;
+                            text: step.title;
+                            font-size: 13px;
+                            color: step.done ? Theme.text-muted : Theme.text-secondary;
+                            wrap: word-wrap;
+                        }
+                    }
+                }
+                if root.adding-step: Rectangle {
+                    height: 28px;
+                    border-radius: 8px;
+                    background: Theme.glass-fill-strong;
+                    Text { x: 8px; height: 100%; text: "Subtask name"; visible: root.step-text == ""; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
+                    TextInput {
+                        x: 8px;
+                        width: parent.width - 16px;
+                        height: 100%;
+                        text <=> root.step-text;
+                        font-size: 12px;
+                        color: Theme.text-primary;
+                        vertical-alignment: center;
+                        init => { self.focus(); }
+                        accepted => {
+                            if root.step-text != "" { root.step-added(root.step-text); }
+                            root.step-text = "";
+                        }
+                        key-pressed(event) => {
+                            if event.text == Key.Escape { root.step-text = ""; root.adding-step = false; return accept; }
+                            return reject;
+                        }
+                    }
+                }
+            }
+        }
+
+        // Extra controls for a view, such as the matrix or day choosers.
+        @children
+    }
+    }
+}
+
+/// ColumnShell: a board column. It folds to a narrow strip with its title
+/// written sideways; the content goes in as children when open.
+export component ColumnShell inherits Rectangle {
+    in property <string> title;
+    in property <int> done: 0;
+    in property <int> total: 0;
+    in property <bool> show-progress: true;
+    in property <bool> highlight: false;
+    in property <bool> can-add: false;
+    // Kept by the screen, so a column stays folded when its tasks change.
+    in property <bool> collapsed: false;
+    callback add-clicked();
+    callback collapse-toggled();
+    // Drop zone id and view; empty view means no dropping here.
+    in property <string> zone;
+    in property <string> drop-view;
+
+    border-radius: 20px;
+    background: Theme.glass-fill;
+    border-width: 1px;
+    border-color: root.highlight ? Theme.accent-violet.with-alpha(0.7) : Theme.glass-border;
+    clip: true;
+
+    // Folded: an expand button and the title running down the strip.
+    if root.collapsed: Rectangle {
+        GlassIconButton {
+            x: (parent.width - self.width) / 2;
+            y: 14px;
+            dia: 30px;
+            fill: transparent;
+            clicked => { root.collapse-toggled(); }
+            IconExpand { width: 13px; height: 13px; stroke-color: Theme.text-muted; }
+        }
+        Text {
+            x: (parent.width - self.width) / 2;
+            y: 60px + self.width / 2 - self.height / 2 + 10px;
+            text: root.title;
+            font-size: 14px;
+            color: Theme.text-secondary;
+            transform-rotation: 90deg;
+        }
+        TouchArea { y: 50px; height: parent.height - 50px; clicked => { root.collapse-toggled(); } }
+    }
+
+    VerticalLayout {
+        visible: !root.collapsed;
+        padding: 16px;
+        spacing: 12px;
+        HorizontalLayout {
+            spacing: 6px;
+            Text { text: root.title; font-size: 17px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; horizontal-stretch: 1; }
+            if root.can-add: GlassIconButton {
+                dia: 28px;
+                fill: transparent;
+                clicked => { root.add-clicked(); }
+                IconPlus { width: 12px; height: 12px; stroke-color: Theme.text-muted; }
+            }
+            GlassIconButton {
+                dia: 28px;
+                fill: transparent;
+                clicked => { root.collapse-toggled(); }
+                IconCollapse { width: 13px; height: 13px; }
+            }
+        }
+        if root.show-progress: HorizontalLayout {
+            spacing: 8px;
+            Rectangle {
+                horizontal-stretch: 1;
+                height: 6px;
+                y: 6px;
+                border-radius: 3px;
+                background: Theme.glass-fill-hover;
+                Rectangle {
+                    x: 0;
+                    width: root.total == 0 ? 0px : parent.width * root.done / root.total;
+                    height: 100%;
+                    border-radius: 3px;
+                    background: @linear-gradient(90deg, #A78BFA 0%, #4CC36B 100%);
+                    animate width { duration: 300ms; easing: ease-out; }
+                }
+            }
+            Text { text: "\{root.done}/\{root.total} done"; font-size: 11px; color: Theme.text-muted; }
+        }
+        Flickable {
+            vertical-stretch: 1;
+            content-height: body.preferred-height;
+            body := VerticalLayout {
+                width: parent.width;
+                spacing: 10px;
+                alignment: start;
+                @children
+            }
+        }
+    }
+    if root.drop-view != "": DropZone { width: 100%; height: 100%; zone: root.zone; view: root.drop-view; }
+}
+
+/// MicButton: a toggle for Windows voice typing. The caller focuses its text
+/// field first (`about-to-listen`), so the words land there.
+export component MicButton inherits Rectangle {
+    in-out property <bool> listening: false;
+    callback about-to-listen();
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    background: root.listening ? #F43F5E33 : (touch.has-hover ? Theme.glass-fill-hover : transparent);
+    border-width: root.listening ? 1px : 0px;
+    border-color: #F43F5E;
+    animate background { duration: 200ms; easing: ease-out; }
+    IconMic {
+        x: (parent.width - self.width) / 2;
+        y: (parent.height - self.height) / 2;
+        stroke-color: root.listening ? #F43F5E : Theme.text-secondary;
+        fill-color: root.listening ? #F43F5E40 : Theme.glass-fill-hover;
+    }
+    touch := TouchArea {
+        mouse-cursor: pointer;
+        clicked => {
+            if !root.listening { root.about-to-listen(); }
+            root.listening = !root.listening;
+            AppData.mic-toggle();
+        }
+    }
+}
+
+/// A small rounded option chip in the composer.
+component ComposerChip inherits Rectangle {
+    in property <string> label;
+    in property <bool> current: false;
+    callback clicked();
+    height: 30px;
+    width: chip-text.preferred-width + 18px;
+    border-radius: 8px;
+    background: root.current ? Theme.accent-violet.with-alpha(0.30) : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
+    animate background { duration: 200ms; easing: ease-out; }
+    chip-text := Text { text: root.label; font-size: 14px; color: root.current ? Theme.text-primary : Theme.text-secondary; horizontal-alignment: center; vertical-alignment: center; }
+    touch := TouchArea { mouse-cursor: pointer; clicked => { root.clicked(); } }
+}
+
+/// A round icon button in the composer's tool row.
+component ComposerTool inherits Rectangle {
+    in property <bool> active: false;
+    callback clicked();
+    width: 44px;
+    height: 44px;
+    border-radius: 22px;
+    background: root.active ? Theme.accent-green.with-alpha(0.25) : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
+    border-width: root.active ? 1px : 0px;
+    border-color: Theme.accent-green;
+    VerticalLayout { alignment: center; HorizontalLayout { alignment: center; @children } }
+    touch := TouchArea { mouse-cursor: pointer; clicked => { root.clicked(); } }
+}
+
+/// TaskComposer: "+ Add task" opens a card to write a new task: its name,
+/// space, estimate, do date and notes. Enter or "Add task" saves it and
+/// keeps the card open for the next one; Cancel or Esc closes it.
+export component TaskComposer inherits VerticalLayout {
+    // Space the task goes into first; the picker changes it.
+    in property <string> default-space;
+    callback added(string, int, string, string, string);
+
+    property <bool> open: false;
+    property <string> title;
+    property <int> estimate: 0;
+    property <string> space-id;
+    property <string> do-date;
+    property <string> notes;
+    property <bool> show-date: false;
+    property <bool> show-notes: false;
+
+    function reset() {
+        root.title = "";
+        root.estimate = 0;
+        root.do-date = "";
+        root.notes = "";
+        root.show-date = false;
+        root.show-notes = false;
+    }
+    function submit() {
+        if root.title != "" {
+            root.added(root.title, root.estimate, root.space-id, root.do-date, root.notes);
+            root.reset();
+        }
+    }
+
+    spacing: 12px;
+    alignment: start;
+
+    // The pill: "+ Add task" when closed, "Cancel" when open.
+    HorizontalLayout {
+        alignment: start;
+        Rectangle {
+            width: pill-row.preferred-width + 32px;
+            height: 44px;
+            border-radius: 22px;
+            background: pill-touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill-strong;
+            animate background { duration: 200ms; easing: ease-out; }
+            pill-row := HorizontalLayout {
+                x: 16px;
+                spacing: 10px;
+                VerticalLayout {
+                    alignment: center;
+                    if !root.open: IconPlus { width: 14px; height: 14px; stroke-color: Theme.text-primary; }
+                    if root.open: IconClose { width: 12px; height: 12px; stroke-color: Theme.text-primary; }
+                }
+                Text { text: root.open ? "Cancel" : "Add task"; font-size: 15px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; }
+            }
+            pill-touch := TouchArea {
+                mouse-cursor: pointer;
+                clicked => {
+                    if !root.open { root.space-id = root.default-space; }
+                    root.reset();
+                    root.open = !root.open;
+                }
+            }
+        }
+    }
+
+    if root.open: Rectangle {
+        height: card.preferred-height;
+        border-radius: 16px;
+        background: Theme.glass-fill-strong;
+        border-width: 1px;
+        border-color: Theme.glass-border;
+        card := VerticalLayout {
+            padding: 16px;
+            spacing: 14px;
+
+            // Name and space
+            HorizontalLayout {
+                spacing: 10px;
+                Rectangle {
+                    horizontal-stretch: 1;
+                    height: 40px;
+                    Text { width: 100%; height: 100%; text: "Enter your task name"; visible: root.title == ""; font-size: 17px; color: Theme.text-muted; vertical-alignment: center; }
+                    title-input := TextInput {
+                        width: 100%;
+                        height: 100%;
+                        text <=> root.title;
+                        font-size: 17px;
+                        color: Theme.text-primary;
+                        vertical-alignment: center;
+                        init => { self.focus(); }
+                        accepted => { root.submit(); }
+                        key-pressed(event) => {
+                            if event.text == Key.Escape { root.reset(); root.open = false; return accept; }
+                            return reject;
+                        }
+                    }
+                }
+                VerticalLayout { alignment: center; MicButton { about-to-listen => { title-input.focus(); } } }
+                Rectangle {
+                    width: 70px;
+                    height: 40px;
+                    border-radius: 10px;
+                    background: space-touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill;
+                    border-width: 1px;
+                    border-color: Theme.glass-border;
+                    for space in AppData.spaces: SpaceBadge {
+                        visible: space.id == root.space-id;
+                        x: 9px;
+                        y: (parent.height - self.height) / 2;
+                        size: 24px;
+                        tint: space.color;
+                        letter: space.letter;
+                    }
+                    IconChevronDown { x: parent.width - self.width - 10px; y: (parent.height - self.height) / 2; stroke-color: Theme.text-muted; }
+                    space-touch := TouchArea { mouse-cursor: pointer; clicked => { space-list.show(); } }
+                    space-list := PopupWindow {
+                        x: parent.width - 220px;
+                        y: parent.height + 6px;
+                        width: 220px;
+                        height: min(AppData.spaces.length * 40px + 12px, 260px);
+                        Rectangle {
+                            border-radius: 12px;
+                            background: Theme.dark-mode ? #221C3A : #FFFFFF;
+                            border-width: 1px;
+                            border-color: Theme.glass-border;
+                            drop-shadow-blur: 20px;
+                            drop-shadow-color: #00000059;
+                            VerticalLayout {
+                                padding: 6px;
+                                for space in AppData.spaces: Rectangle {
+                                    height: 40px;
+                                    border-radius: 8px;
+                                    background: pick-touch.has-hover ? Theme.glass-fill-hover : transparent;
+                                    HorizontalLayout {
+                                        padding-left: 10px;
+                                        spacing: 10px;
+                                        VerticalLayout { alignment: center; SpaceBadge { size: 22px; tint: space.color; letter: space.letter; } }
+                                        Text { text: space.name; font-size: 14px; color: Theme.text-primary; vertical-alignment: center; }
+                                    }
+                                    pick-touch := TouchArea { mouse-cursor: pointer; clicked => { root.space-id = space.id; } }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Estimate
+            HorizontalLayout {
+                spacing: 6px;
+                Text {
+                    horizontal-stretch: 1;
+                    text: root.estimate > 0 ? "\{root.estimate}min" : "+EST";
+                    font-size: 15px;
+                    color: root.estimate > 0 ? Theme.text-primary : Theme.text-muted;
+                    vertical-alignment: center;
+                }
+                for choice in [{ label: "15m", mins: 15 }, { label: "30m", mins: 30 }, { label: "60m", mins: 60 }, { label: "90m", mins: 90 }, { label: "2h", mins: 120 }]: ComposerChip {
+                    label: choice.label;
+                    current: root.estimate == choice.mins;
+                    clicked => { root.estimate = root.estimate == choice.mins ? 0 : choice.mins; }
+                }
+            }
+
+            if root.show-date: HorizontalLayout {
+                spacing: 6px;
+                Text { text: "Do date"; font-size: 13px; color: Theme.text-secondary; vertical-alignment: center; width: 64px; }
+                ComposerChip { label: "Today"; current: root.do-date == "today"; clicked => { root.do-date = root.do-date == "today" ? "" : "today"; } }
+                ComposerChip { label: "Tomorrow"; current: root.do-date == "tomorrow"; clicked => { root.do-date = root.do-date == "tomorrow" ? "" : "tomorrow"; } }
+                Rectangle {
+                    horizontal-stretch: 1;
+                    height: 30px;
+                    border-radius: 8px;
+                    background: Theme.glass-fill;
+                    Text { x: 8px; height: 100%; text: "YYYY-MM-DD"; visible: root.do-date == ""; font-size: 13px; color: Theme.text-muted; vertical-alignment: center; }
+                    TextInput { x: 8px; width: parent.width - 16px; height: 100%; text <=> root.do-date; font-size: 13px; color: Theme.text-primary; vertical-alignment: center; }
+                }
+            }
+            if root.show-notes: Rectangle {
+                height: 80px;
+                border-radius: 10px;
+                background: Theme.glass-fill;
+                Text { x: 10px; y: 8px; text: "Add notes..."; visible: root.notes == ""; font-size: 13px; color: Theme.text-muted; }
+                TextInput {
+                    x: 10px;
+                    y: 8px;
+                    width: parent.width - 20px;
+                    height: parent.height - 16px;
+                    single-line: false;
+                    wrap: word-wrap;
+                    text <=> root.notes;
+                    font-size: 13px;
+                    color: Theme.text-primary;
+                }
+            }
+
+            // Tools and save
+            HorizontalLayout {
+                spacing: 10px;
+                ComposerTool { active: root.show-date; clicked => { root.show-date = !root.show-date; }
+                    IconCalendar { width: 18px; height: 18px; stroke-color: Theme.text-secondary; } }
+                ComposerTool { active: root.show-notes; clicked => { root.show-notes = !root.show-notes; }
+                    IconNote { width: 18px; height: 18px; stroke-color: Theme.text-secondary; } }
+                Rectangle { horizontal-stretch: 1; }
+                Rectangle {
+                    width: 130px;
+                    height: 44px;
+                    border-radius: 22px;
+                    background: root.title == "" ? Theme.glass-fill : (save-touch.has-hover ? Theme.accent-violet.with-alpha(0.45) : Theme.accent-violet.with-alpha(0.30));
+                    animate background { duration: 200ms; easing: ease-out; }
+                    Text { text: "Add task"; font-size: 15px; font-weight: 700; color: root.title == "" ? Theme.text-muted : Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+                    save-touch := TouchArea { mouse-cursor: pointer; clicked => { root.submit(); } }
+                }
+            }
+        }
+    }
+}
+

@@ -260,7 +260,8 @@ export component IconPause inherits IconBase {
     height: 18px;
     stroke: stroke-color;
     fill: fill-color;
-    commands: "M 7 5 L 10.5 5 L 10.5 19 L 7 19 Z M 13.5 5 L 17 5 L 17 19 L 13.5 19 Z";
+    // Two tall bars with a clear gap, so it reads as pause even when filled.
+    commands: "M 6.5 4.5 L 9.5 4.5 L 9.5 19.5 L 6.5 19.5 Z M 14.5 4.5 L 17.5 4.5 L 17.5 19.5 L 14.5 19.5 Z";
 }
 
 /// Next phase: a triangle running into a bar.
@@ -502,4 +503,83 @@ export component IconChevronDown inherits IconBase {
     stroke-width: 2px;
     fill: transparent;
     commands: "M 6 9 L 12 15 L 18 9";
+}
+
+export component IconUndo inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    width: 16px;
+    height: 16px;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 9 14 L 4 9 L 9 4 M 4 9 L 15 9 A 5.5 5.5 0 0 1 15 20 L 11 20";
+}
+
+export component IconRedo inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    width: 16px;
+    height: 16px;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 15 14 L 20 9 L 15 4 M 20 9 L 9 9 A 5.5 5.5 0 0 0 9 20 L 13 20";
+}
+
+export component IconGrid inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: Theme.glass-fill-hover;
+    width: 16px;
+    height: 16px;
+    stroke: stroke-color;
+    fill: fill-color;
+    commands: "M 4 4 L 10 4 L 10 10 L 4 10 Z M 14 4 L 20 4 L 20 10 L 14 10 Z M 4 14 L 10 14 L 10 20 L 4 20 Z M 14 14 L 20 14 L 20 20 L 14 20 Z";
+}
+
+export component IconBoard inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    width: 16px;
+    height: 16px;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 4 6 L 6 8 L 9.5 4.5 M 12 6 L 20 6 M 4 13 L 6 15 L 9.5 11.5 M 12 13 L 20 13 M 12 19 L 20 19 M 5 19 L 8 19";
+}
+
+// Two arrows pointing inward: folds a column away.
+export component IconCollapse inherits IconBase {
+    in property <color> stroke-color: Theme.text-muted;
+    width: 14px;
+    height: 14px;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 20 4 L 14 10 M 14 5 L 14 10 L 19 10 M 4 20 L 10 14 M 10 19 L 10 14 L 5 14";
+}
+
+export component IconInfo inherits IconBase {
+    in property <color> stroke-color: Theme.text-muted;
+    width: 16px;
+    height: 16px;
+    stroke: stroke-color;
+    fill: transparent;
+    commands: "M 3 12 A 9 9 0 0 1 21 12 A 9 9 0 0 1 3 12 Z M 12 11 L 12 16.5 M 12 7.5 L 12 7.6";
+}
+
+export component IconLanguage inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    width: 18px;
+    height: 18px;
+    stroke: stroke-color;
+    fill: transparent;
+    commands: "M 3 5 L 12 5 M 7.5 3 L 7.5 5 M 10.5 5 C 10 9 7 12 3.5 13.5 M 5 8 C 6.5 10.5 8.5 12 11 13 M 12.5 21 L 16.5 11 L 20.5 21 M 14 17.5 L 19 17.5";
+}
+
+export component IconMic inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: Theme.glass-fill-hover;
+    width: 18px;
+    height: 18px;
+    stroke: stroke-color;
+    fill: fill-color;
+    commands: "M 9 6 A 3 3 0 0 1 15 6 L 15 12 A 3 3 0 0 1 9 12 Z M 5.5 11 A 6.5 6.5 0 0 0 18.5 11 M 12 17.5 L 12 21 M 8.5 21 L 15.5 21";
 }

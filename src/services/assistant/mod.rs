@@ -16,7 +16,7 @@ use chrono::{DateTime, Local, NaiveDate, Utc};
 pub use actions::{parse_reply, ParsedReply, ProposedAction};
 pub use engine::{
     load_local_engine, local_model_supported, model_status, ChatEngine, EngineError, EngineMessage, EngineRole,
-    MockEngine, ModelStatus,
+    MockEngine, ModelStatus, RemoteEngine, DEFAULT_MODEL, OPENROUTER_URL,
 };
 pub use suggestions::Suggestion;
 
@@ -53,6 +53,8 @@ pub struct TurnOutcome {
 pub struct ApplyReport {
     pub applied: Vec<String>,
     pub skipped: Vec<String>,
+    /// The task a `start_focus` action asked for, once it exists.
+    pub focus_task: Option<String>,
 }
 
 impl ApplyReport {
@@ -94,9 +96,15 @@ impl AssistantService {
         &self.handle
     }
 
-    /// Uses `engine` instead of loading the model file (tests).
+    /// Uses `engine` instead of loading the model file: a hosted model, or
+    /// a scripted one in tests.
     pub fn set_engine(&self, engine: Arc<dyn ChatEngine>) {
         self.engine.lock().unwrap().forced = Some(engine);
+    }
+
+    /// Goes back to the model file from preferences, if any.
+    pub fn clear_engine(&self) {
+        self.engine.lock().unwrap().forced = None;
     }
 
     // ---- model --------------------------------------------------------
@@ -264,6 +272,17 @@ impl AssistantService {
         }
         self.handle.mutate(|store| {
             for action in actions {
+                if let ProposedAction::StartFocus { task } = action {
+                    // Started by the shell once the changes are saved.
+                    match resolve_task(store, task) {
+                        Ok(id) => {
+                            report.focus_task = Some(id);
+                            report.applied.push(action.describe());
+                        }
+                        Err(why) => report.skipped.push(why),
+                    }
+                    continue;
+                }
                 match apply_one(store, action) {
                     Ok(()) => report.applied.push(action.describe()),
                     Err(why) => report.skipped.push(why),
@@ -271,6 +290,56 @@ impl AssistantService {
             }
         });
         report
+    }
+
+    // ---- one-shot planning ---------------------------------------------
+
+    /// The engine to send a request to. Blocks while a local model loads,
+    /// so call it from a worker thread.
+    pub fn engine_for_request(&self) -> Result<Arc<dyn ChatEngine>, EngineError> {
+        self.engine()
+    }
+
+    /// The prompt that turns a plain request ("plan my afternoon: ...") into
+    /// actions. One call, JSON only, so small local models handle it too.
+    pub fn plan_prompt(&self, request: &str, now: DateTime<Local>) -> Result<Vec<EngineMessage>, String> {
+        let request = request.trim();
+        if request.is_empty() {
+            return Err("Type what you want to get done first.".into());
+        }
+        if request.chars().count() > MAX_USER_CHARS {
+            return Err("That request is too long.".into());
+        }
+        Ok(self.handle.read(|s| prompt::plan_prompt(s, request, now)))
+    }
+
+    /// The prompt that sorts every unsorted open task into a quadrant.
+    pub fn sort_prompt(&self, now: DateTime<Local>) -> Vec<EngineMessage> {
+        self.handle.read(|s| prompt::sort_prompt(s, now))
+    }
+
+    /// Reads a reply to a plan or sort prompt and holds its valid actions
+    /// for the user's decision. Returns the plain-language lines.
+    pub fn accept_reply(&self, raw: &str) -> Vec<String> {
+        let parsed = parse_reply(raw);
+        let lines = parsed.actions.iter().map(ProposedAction::describe).collect();
+        *self.pending.lock().unwrap() = parsed.actions;
+        lines
+    }
+
+    /// The quadrants the waiting actions propose for existing tasks, as
+    /// (task id, quadrant). References that match no task are left out.
+    pub fn pending_quadrants(&self) -> Vec<(String, crate::models::MatrixQuadrant)> {
+        let pending = self.pending.lock().unwrap().clone();
+        self.handle.read(|s| {
+            pending
+                .iter()
+                .filter_map(|a| match a {
+                    ProposedAction::SetQuadrant { task, quadrant } => resolve_task(s, task).ok().map(|id| (id, *quadrant)),
+                    _ => None,
+                })
+                .collect()
+        })
     }
 
     // ---- summary and quick actions -----------------------------------
@@ -414,10 +483,18 @@ fn display_title(t: &ChatThread) -> String {
     if t.title.is_empty() { "New chat".to_string() } else { t.title.clone() }
 }
 
-/// Finds a task by id, or by exact title (ignoring case) among tasks still to do.
+/// Finds a task by id, by the short id shown to the model (the start of its
+/// id), or by exact title (ignoring case) among tasks still to do.
 fn resolve_task(store: &crate::models::AppStateStore, reference: &str) -> Result<String, String> {
     if let Some(t) = store.task(reference) {
         return Ok(t.id.clone());
+    }
+    let short = reference.trim().trim_start_matches('#');
+    if short.len() >= prompt::SHORT_ID_LEN && short.chars().all(|c| c.is_ascii_hexdigit()) {
+        let hits: Vec<&Task> = store.tasks.iter().filter(|t| t.is_pending() && t.id.starts_with(short)).collect();
+        if let [one] = hits.as_slice() {
+            return Ok(one.id.clone());
+        }
     }
     let wanted = reference.trim().to_lowercase();
     let matches: Vec<&Task> =
@@ -431,7 +508,7 @@ fn resolve_task(store: &crate::models::AppStateStore, reference: &str) -> Result
 
 fn apply_one(store: &mut crate::models::AppStateStore, action: &ProposedAction) -> Result<(), String> {
     match action {
-        ProposedAction::CreateTask { title, section, estimate_mins, list } => {
+        ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps } => {
             let list_id = list
                 .as_ref()
                 .and_then(|name| {
@@ -442,7 +519,14 @@ fn apply_one(store: &mut crate::models::AppStateStore, action: &ProposedAction) 
                 .ok_or_else(|| "there is no list to add the task to".to_string())?;
             let mut task = Task::new(list_id, title.clone(), *estimate_mins, *section);
             task.sort_order = store.tasks.iter().map(|t| t.sort_order).max().map_or(0, |m| m + 1);
-            store.add_task(task);
+            task.matrix_quadrant = *quadrant;
+            task.do_date = *do_date;
+            let task = store.add_task(task);
+            for (i, step_title) in steps.iter().enumerate() {
+                let mut step = Task::new_step(&task, step_title.clone());
+                step.sort_order = i as i32;
+                store.add_task(step);
+            }
             Ok(())
         }
         ProposedAction::AddSubtask { task, title } => {
@@ -466,6 +550,15 @@ fn apply_one(store: &mut crate::models::AppStateStore, action: &ProposedAction) 
             t.record("Scheduled by the assistant");
             Ok(())
         }
+        ProposedAction::SetQuadrant { task, quadrant } => {
+            let id = resolve_task(store, task)?;
+            let t = store.task_mut(&id).ok_or_else(|| format!("no task called \"{task}\""))?;
+            t.matrix_quadrant = Some(*quadrant);
+            t.move_to_section(quadrant.section());
+            Ok(())
+        }
+        // Handled in apply_actions; it changes no data.
+        ProposedAction::StartFocus { .. } => Ok(()),
     }
 }
 
@@ -487,12 +580,40 @@ mod tests {
     }
 
     fn service() -> AssistantService {
-        let store = Arc::new(Mutex::new(AppStateStore::default()));
+        let store = Arc::new(Mutex::new(AppStateStore::with_space()));
         AssistantService::new(StoreHandle::new(store, Arc::new(NullRepo)))
     }
 
     fn now() -> DateTime<Local> {
         Local.with_ymd_and_hms(2026, 5, 4, 9, 0, 0).unwrap()
+    }
+
+    #[test]
+    fn plan_reply_applies_steps_quadrants_and_names_the_focus_task() {
+        let svc = service();
+        let existing = svc.handle().mutate(|s| {
+            let list = s.lists[0].id.clone();
+            s.add_task(Task::new(list, "Old task", 0, TaskSection::Backlog)).id
+        });
+        let short = &existing[..prompt::SHORT_ID_LEN];
+        let reply = format!(
+            "{{\"actions\":[\
+             {{\"type\":\"create_task\",\"title\":\"Report\",\"quadrant\":\"do_asap\",\"steps\":[\"Outline\",\"Draft\"]}},\
+             {{\"type\":\"set_quadrant\",\"task\":\"{short}\",\"quadrant\":\"do_mid_week\"}},\
+             {{\"type\":\"start_focus\",\"task\":\"Report\"}}]}}"
+        );
+        assert_eq!(svc.accept_reply(&reply).len(), 3);
+        assert_eq!(svc.pending_quadrants().len(), 1);
+        let report = svc.apply_pending(None);
+        assert!(report.skipped.is_empty(), "{:?}", report.skipped);
+        svc.handle().read(|s| {
+            let report_task = s.tasks.iter().find(|t| t.title == "Report").unwrap();
+            assert_eq!(report_task.section, TaskSection::Today);
+            assert_eq!(s.steps_of(&report_task.id).len(), 2);
+            assert_eq!(report.focus_task.as_deref(), Some(report_task.id.as_str()));
+            let old = s.task(&existing).unwrap();
+            assert_eq!(old.section, TaskSection::ThisWeek);
+        });
     }
 
     fn ask(svc: &AssistantService, thread: Option<&str>, text: &str) -> (String, Result<TurnOutcome, EngineError>) {
@@ -585,7 +706,7 @@ mod tests {
         let svc = service();
         let at = Utc.with_ymd_and_hms(2026, 5, 4, 9, 30, 0).unwrap();
         let actions = vec![
-            ProposedAction::CreateTask { title: "Write report".into(), section: TaskSection::Today, estimate_mins: 30, list: None },
+            ProposedAction::CreateTask { title: "Write report".into(), section: TaskSection::Today, estimate_mins: 30, list: None, quadrant: None, do_date: None, steps: Vec::new() },
             ProposedAction::AddSubtask { task: "write REPORT".into(), title: "Outline".into() },
             ProposedAction::ScheduleTask { task: "Write report".into(), at },
             ProposedAction::AddSubtask { task: "Ghost task".into(), title: "x".into() },
@@ -607,8 +728,8 @@ mod tests {
     fn ambiguous_titles_are_skipped_not_guessed() {
         let svc = service();
         svc.apply_actions(&[
-            ProposedAction::CreateTask { title: "Dup".into(), section: TaskSection::Today, estimate_mins: 0, list: None },
-            ProposedAction::CreateTask { title: "Dup".into(), section: TaskSection::Backlog, estimate_mins: 0, list: None },
+            ProposedAction::CreateTask { title: "Dup".into(), section: TaskSection::Today, estimate_mins: 0, list: None, quadrant: None, do_date: None, steps: Vec::new() },
+            ProposedAction::CreateTask { title: "Dup".into(), section: TaskSection::Backlog, estimate_mins: 0, list: None, quadrant: None, do_date: None, steps: Vec::new() },
         ]);
         let r = svc.apply_actions(&[ProposedAction::AddSubtask { task: "Dup".into(), title: "x".into() }]);
         assert_eq!(r.applied.len(), 0);
@@ -620,8 +741,8 @@ mod tests {
         let svc = service();
         let list_id = svc.handle().mutate(|s| s.add_list(crate::models::TaskList::new("Work", "#3CC9C4")));
         svc.apply_actions(&[
-            ProposedAction::CreateTask { title: "In work".into(), section: TaskSection::Today, estimate_mins: 0, list: Some("work".into()) },
-            ProposedAction::CreateTask { title: "Fallback".into(), section: TaskSection::Today, estimate_mins: 0, list: Some("Nope".into()) },
+            ProposedAction::CreateTask { title: "In work".into(), section: TaskSection::Today, estimate_mins: 0, list: Some("work".into()), quadrant: None, do_date: None, steps: Vec::new() },
+            ProposedAction::CreateTask { title: "Fallback".into(), section: TaskSection::Today, estimate_mins: 0, list: Some("Nope".into()), quadrant: None, do_date: None, steps: Vec::new() },
         ]);
         svc.handle().read(|s| {
             assert_eq!(s.tasks.iter().find(|t| t.title == "In work").unwrap().list_id, list_id);
