@@ -30,7 +30,7 @@ export component NavigationRailItem inherits Rectangle {
 
             if icon-name == "today": IconCalendar {
                 width: 22px; height: 22px;
-                x: expanded ? 14px : (parent.width - self.width) / 2;
+                x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
                 fill-color: active ? #36C9C533 : transparent;
@@ -38,7 +38,7 @@ export component NavigationRailItem inherits Rectangle {
             }
             if icon-name == "tasks": IconTasks {
                 width: 22px; height: 22px;
-                x: expanded ? 14px : (parent.width - self.width) / 2;
+                x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
                 fill-color: active ? #36C9C533 : transparent;
@@ -46,7 +46,7 @@ export component NavigationRailItem inherits Rectangle {
             }
             if icon-name == "focus": IconClock {
                 width: 22px; height: 22px;
-                x: expanded ? 14px : (parent.width - self.width) / 2;
+                x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
                 fill-color: active ? #36C9C533 : transparent;
@@ -54,7 +54,7 @@ export component NavigationRailItem inherits Rectangle {
             }
             if icon-name == "notes": IconNote {
                 width: 22px; height: 22px;
-                x: expanded ? 14px : (parent.width - self.width) / 2;
+                x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
                 fill-color: active ? #36C9C533 : transparent;
@@ -62,7 +62,7 @@ export component NavigationRailItem inherits Rectangle {
             }
             if icon-name == "insights": IconChart {
                 width: 22px; height: 22px;
-                x: expanded ? 14px : (parent.width - self.width) / 2;
+                x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
                 fill-color: active ? #36C9C533 : transparent;
@@ -70,20 +70,22 @@ export component NavigationRailItem inherits Rectangle {
             }
             if icon-name == "settings": IconSettings {
                 width: 22px; height: 22px;
-                x: expanded ? 14px : (parent.width - self.width) / 2;
+                x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
                 fill-color: active ? #36C9C533 : transparent;
                 filled: active;
             }
 
-            if expanded && !compact: Text {
+            if !compact: Text {
                 text: label;
                 x: 50px;
                 y: (parent.height - self.height) / 2;
                 color: active ? Theme.text-primary : Theme.text-secondary;
                 font-size: 14px;
                 vertical-alignment: center;
+                opacity: expanded ? 1 : 0;
+                animate opacity { duration: 120ms; easing: ease-out; }
             }
         }
     }
