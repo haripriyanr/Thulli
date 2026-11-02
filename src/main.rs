@@ -34,9 +34,6 @@ const MORPH_MS: f32 = 220.0;
 #[cfg(target_os = "windows")]
 const MORPH_TICK: Duration = Duration::from_millis(16);
 
-// Ambient orb drift: one toggle every 16s; each orb eases for 16s in .slint.
-const ORB_DRIFT_TICK: Duration = Duration::from_millis(16_000);
-
 #[derive(Clone, Copy)]
 struct Rect {
     x: f32,
@@ -380,20 +377,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 }
             },
         );
-    }
-
-    // Ambient orb drift: flip the toggle every 16s; each orb eases between
-    // its two offsets in .slint (16s ease-in-out, ~2-3px/s — alive, never
-    // attention-grabbing).
-    let _orb_timer = slint::Timer::default();
-    {
-        let weak = window.as_weak();
-        _orb_timer.start(slint::TimerMode::Repeated, ORB_DRIFT_TICK, move || {
-            if let Some(w) = weak.upgrade() {
-                let shell = w.global::<ShellState>();
-                shell.set_orb_drift(!shell.get_orb_drift());
-            }
-        });
     }
 
     Ok(window.run()?)
