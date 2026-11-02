@@ -17,10 +17,9 @@ Create a coherent, reusable Slint UI system for Thulli that works across compact
 - Keep window controls and theme control reachable and separated from the drag area.
 
 ## Background and motion
-- Replace fixed-position oversized glows with responsive, low-contrast color fields that scale and reposition from the available window dimensions.
-- Allow only slow ambient orb drift (16-second ease-in-out loop, low travel). No idle pulsing, shimmer, or floating decoration.
-- Use short 120–180ms ease-out transitions for hover, active navigation, theme changes, and sidebar expansion. Respect reduced-motion preferences where Slint/platform support permits.
-- Keep content contrast and readability above all background effects.
+- Use solid theme-aware canvas, panel, and navigation surfaces. Avoid background gradients, glow layers, and idle motion.
+- Keep hover feedback and rail/panel resizing immediate; reserve the existing native maximize/restore morph for window state changes.
+- Keep content contrast and readability above decorative effects.
 
 ## Component library
 Organize existing components into reusable families without creating one monolithic file:

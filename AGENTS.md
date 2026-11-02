@@ -192,14 +192,12 @@ cargo build --release
 
 ---
 
-## 9. Ambient Motion Policy
+## 9. Motion Policy
 
-Motion in Thulli must feel alive but never distracting. Follow these rules when adding or reviewing animations:
-
-- **Orb drift** is the only ambient motion allowed: a slow 16s ease-in-out loop moving under 3px/s. Nothing else drifts, pulses, or floats while the user is idle.
-- **Hover fills** use 120ms ease-out. Instant snaps feel broken; anything slower than ~150ms feels laggy on a desktop tool.
-- All transitions, entrances, and gesture-driven motion must meet the quality bar of the `review-animations` skill — easing curves, durations, interruption behavior, and reduced-motion fallbacks are all in scope.
-- When in doubt, animate less. Motion exists to explain state changes, not to decorate the interface.
+- The shell background uses static, solid theme surfaces. Do not add ambient drift, glow layers, or gradient effects.
+- Hover feedback and navigation rail/panel size changes are immediate; do not animate them.
+- Keep the interruptible 220ms native maximize/restore morph as the only shell transition.
+- For future screen-level transitions, animate only when motion clarifies feedback or spatial change. Respect reduced-motion preferences where supported.
 
 ## 10. Telemetry & Crash Logging (dev phase)
 

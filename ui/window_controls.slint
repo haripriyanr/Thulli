@@ -1,7 +1,7 @@
 import { Theme } from "theme.slint";
 
 // Compact glass window controls for the frameless shell.
-// Hover feedback only: 120ms ease-out, no ambient motion.
+// Immediate hover feedback; no UI transitions or ambient motion.
 export component WindowControls {
     in property <bool> is-maximized: false;
 
@@ -24,7 +24,6 @@ export component WindowControls {
                 height: 100%;
                 border-radius: 9px;
                 background: min-touch.has-hover ? Theme.glass-fill-hover : transparent;
-                animate background { duration: 120ms; easing: ease-out; }
 
                 Rectangle {
                     width: 11px;
@@ -47,7 +46,6 @@ export component WindowControls {
                 height: 100%;
                 border-radius: 9px;
                 background: max-touch.has-hover ? Theme.glass-fill-hover : transparent;
-                animate background { duration: 120ms; easing: ease-out; }
 
                 if !root.is-maximized: Rectangle {
                     width: 10px;
@@ -92,7 +90,6 @@ export component WindowControls {
                 height: 100%;
                 border-radius: 9px;
                 background: close-touch.has-hover ? #E5484D : transparent;
-                animate background { duration: 120ms; easing: ease-out; }
 
                 Path {
                     width: 10px;
