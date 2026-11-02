@@ -20,7 +20,7 @@ pub use engine::{
 };
 pub use suggestions::Suggestion;
 
-use crate::models::{
+use crate::models::{TaskList, 
     AssistantMemory, ChatRole, ChatThread, MemoryKind, Note, SuggestionKind, SuggestionState, Task,
 };
 use crate::services::store_handle::StoreHandle;
@@ -55,6 +55,8 @@ pub struct ApplyReport {
     pub skipped: Vec<String>,
     /// The task a `start_focus` action asked for, once it exists.
     pub focus_task: Option<String>,
+    /// A `stop_focus` action asked to stop the timer.
+    pub stop_focus: bool,
 }
 
 impl ApplyReport {
@@ -283,6 +285,12 @@ impl AssistantService {
                     }
                     continue;
                 }
+                if let ProposedAction::StopFocus = action {
+                    // Also done by the shell, which owns the timer.
+                    report.stop_focus = true;
+                    report.applied.push(action.describe());
+                    continue;
+                }
                 match apply_one(store, action) {
                     Ok(()) => report.applied.push(action.describe()),
                     Err(why) => report.skipped.push(why),
@@ -321,10 +329,15 @@ impl AssistantService {
     /// Reads a reply to a plan or sort prompt and holds its valid actions
     /// for the user's decision. Returns the plain-language lines.
     pub fn accept_reply(&self, raw: &str) -> Vec<String> {
+        self.accept_reply_with_reasons(raw).0
+    }
+
+    /// Like [`accept_reply`], also returning why any proposal was refused.
+    pub fn accept_reply_with_reasons(&self, raw: &str) -> (Vec<String>, Vec<String>) {
         let parsed = parse_reply(raw);
         let lines = parsed.actions.iter().map(ProposedAction::describe).collect();
         *self.pending.lock().unwrap() = parsed.actions;
-        lines
+        (lines, parsed.rejected)
     }
 
     /// The quadrants the waiting actions propose for existing tasks, as
@@ -491,14 +504,17 @@ fn resolve_task(store: &crate::models::AppStateStore, reference: &str) -> Result
     }
     let short = reference.trim().trim_start_matches('#');
     if short.len() >= prompt::SHORT_ID_LEN && short.chars().all(|c| c.is_ascii_hexdigit()) {
-        let hits: Vec<&Task> = store.tasks.iter().filter(|t| t.is_pending() && t.id.starts_with(short)).collect();
+        let hits: Vec<&Task> = store.tasks.iter().filter(|t| t.id.starts_with(short)).collect();
         if let [one] = hits.as_slice() {
             return Ok(one.id.clone());
         }
     }
     let wanted = reference.trim().to_lowercase();
-    let matches: Vec<&Task> =
-        store.tasks.iter().filter(|t| t.is_pending() && t.title.trim().to_lowercase() == wanted).collect();
+    let named = |t: &&Task| t.title.trim().to_lowercase() == wanted;
+    let mut matches: Vec<&Task> = store.tasks.iter().filter(|t| t.is_pending()).filter(named).collect();
+    if matches.is_empty() {
+        matches = store.tasks.iter().filter(named).collect();
+    }
     match matches.as_slice() {
         [one] => Ok(one.id.clone()),
         [] => Err(format!("no task called \"{reference}\"")),
@@ -506,17 +522,39 @@ fn resolve_task(store: &crate::models::AppStateStore, reference: &str) -> Result
     }
 }
 
+/// A space by name (any case), or by id.
+fn resolve_space(store: &crate::models::AppStateStore, reference: &str) -> Result<String, String> {
+    let wanted = reference.trim().to_lowercase();
+    store
+        .lists
+        .iter()
+        .find(|l| !l.is_archived && (l.id == reference || l.name.trim().to_lowercase() == wanted))
+        .map(|l| l.id.clone())
+        .ok_or_else(|| format!("no space called \"{reference}\""))
+}
+
+/// The space to put a new task in: the named one, created if missing, or the
+/// first space, or a new "Tasks" space when there are none yet.
+fn space_for_new_task(store: &mut crate::models::AppStateStore, name: Option<&String>) -> String {
+    if let Some(name) = name {
+        if let Ok(id) = resolve_space(store, name) {
+            return id;
+        }
+        return store.add_list(TaskList::new(name.trim(), SPACE_COLOR));
+    }
+    if let Some(l) = store.get_primary_list() {
+        return l.id.clone();
+    }
+    store.add_list(TaskList::new("Tasks", SPACE_COLOR))
+}
+
+/// Colour for spaces the assistant creates without one.
+const SPACE_COLOR: &str = "#8B5CF6";
+
 fn apply_one(store: &mut crate::models::AppStateStore, action: &ProposedAction) -> Result<(), String> {
     match action {
         ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps } => {
-            let list_id = list
-                .as_ref()
-                .and_then(|name| {
-                    let n = name.to_lowercase();
-                    store.lists.iter().find(|l| !l.is_archived && l.name.to_lowercase() == n).map(|l| l.id.clone())
-                })
-                .or_else(|| store.get_primary_list().map(|l| l.id.clone()))
-                .ok_or_else(|| "there is no list to add the task to".to_string())?;
+            let list_id = space_for_new_task(store, list.as_ref());
             let mut task = Task::new(list_id, title.clone(), *estimate_mins, *section);
             task.sort_order = store.tasks.iter().map(|t| t.sort_order).max().map_or(0, |m| m + 1);
             task.matrix_quadrant = *quadrant;
@@ -557,8 +595,72 @@ fn apply_one(store: &mut crate::models::AppStateStore, action: &ProposedAction) 
             t.move_to_section(quadrant.section());
             Ok(())
         }
-        // Handled in apply_actions; it changes no data.
-        ProposedAction::StartFocus { .. } => Ok(()),
+        ProposedAction::UpdateTask { task, title, estimate_mins, section, notes, do_date, deadline, list } => {
+            let id = resolve_task(store, task)?;
+            let list_id = match list {
+                Some(name) => Some(resolve_space(store, name)?),
+                None => None,
+            };
+            let t = store.task_mut(&id).ok_or_else(|| format!("no task called \"{task}\""))?;
+            if let Some(v) = title {
+                t.title = v.clone();
+            }
+            if let Some(v) = estimate_mins {
+                t.estimate_mins = *v;
+            }
+            if let Some(v) = section {
+                t.move_to_section(*v);
+            }
+            if let Some(v) = notes {
+                t.notes = v.clone();
+            }
+            if let Some(v) = do_date {
+                t.do_date = *v;
+            }
+            if let Some(v) = deadline {
+                t.deadline = *v;
+            }
+            if let Some(v) = list_id {
+                t.list_id = v;
+            }
+            t.record("Edited by the assistant");
+            Ok(())
+        }
+        ProposedAction::CompleteTask { task, done } => {
+            let id = resolve_task(store, task)?;
+            let t = store.task_mut(&id).ok_or_else(|| format!("no task called \"{task}\""))?;
+            if *done {
+                t.complete();
+            } else {
+                t.reopen();
+            }
+            Ok(())
+        }
+        ProposedAction::DeleteTask { task } => {
+            let id = resolve_task(store, task)?;
+            if store.remove_task(&id) { Ok(()) } else { Err(format!("no task called \"{task}\"")) }
+        }
+        ProposedAction::CreateSpace { name, color } => {
+            if resolve_space(store, name).is_ok() {
+                return Err(format!("a space called \"{name}\" already exists"));
+            }
+            store.add_list(TaskList::new(name.clone(), color.as_deref().unwrap_or(SPACE_COLOR)));
+            Ok(())
+        }
+        ProposedAction::RenameSpace { space, name } => {
+            let id = resolve_space(store, space)?;
+            if let Some(l) = store.lists.iter_mut().find(|l| l.id == id) {
+                l.name = name.clone();
+            }
+            Ok(())
+        }
+        ProposedAction::DeleteSpace { space } => {
+            let id = resolve_space(store, space)?;
+            store.remove_list_cascade(&id);
+            Ok(())
+        }
+        // Handled in apply_actions; they change no data.
+        ProposedAction::StartFocus { .. } | ProposedAction::StopFocus => Ok(()),
     }
 }
 
@@ -586,6 +688,51 @@ mod tests {
 
     fn now() -> DateTime<Local> {
         Local.with_ymd_and_hms(2026, 5, 4, 9, 0, 0).unwrap()
+    }
+
+    #[test]
+    fn assistant_manages_tasks_subtasks_spaces_and_the_timer() {
+        let svc = service();
+        let (task, step) = svc.handle().mutate(|s| {
+            let list = s.lists[0].id.clone();
+            let t = s.add_task(Task::new(list, "Read notes", 0, TaskSection::Backlog));
+            let st = s.add_task(Task::new_step(&t, "Chapter 1"));
+            (t.id, st.id)
+        });
+        let reply = format!(
+            "{{\"actions\":[\
+            {{\"type\":\"create_task\",\"title\":\"Revise\",\"space\":\"Exams\",\"steps\":[\"A\"]}},\
+            {{\"type\":\"update_task\",\"task\":\"{t}\",\"title\":\"Read all notes\",\"estimate_mins\":50}},\
+            {{\"type\":\"complete_task\",\"task\":\"{st}\"}},\
+            {{\"type\":\"rename_space\",\"space\":\"Exams\",\"name\":\"Finals\"}},\
+            {{\"type\":\"stop_focus\"}}]}}",
+            t = &task[..prompt::SHORT_ID_LEN],
+            st = &step[..prompt::SHORT_ID_LEN],
+        );
+        assert_eq!(svc.accept_reply(&reply).len(), 5);
+        let report = svc.apply_pending(None);
+        assert!(report.skipped.is_empty(), "{:?}", report.skipped);
+        assert!(report.stop_focus);
+        svc.handle().read(|s| {
+            let t = s.task(&task).unwrap();
+            assert_eq!((t.title.as_str(), t.estimate_mins), ("Read all notes", 50));
+            assert!(s.task(&step).unwrap().is_completed());
+            let finals = s.lists.iter().find(|l| l.name == "Finals").expect("space created then renamed");
+            assert!(s.tasks.iter().any(|t| t.title == "Revise" && t.list_id == finals.id));
+        });
+
+        // Deleting a subtask and a space.
+        let reply = format!(
+            "{{\"actions\":[{{\"type\":\"delete_task\",\"task\":\"{}\"}},{{\"type\":\"delete_space\",\"space\":\"finals\"}}]}}",
+            &step[..prompt::SHORT_ID_LEN]
+        );
+        svc.accept_reply(&reply);
+        assert!(svc.apply_pending(None).skipped.is_empty());
+        svc.handle().read(|s| {
+            assert!(s.task(&step).is_none());
+            assert!(!s.lists.iter().any(|l| l.name == "Finals"));
+            assert!(!s.tasks.iter().any(|t| t.title == "Revise"));
+        });
     }
 
     #[test]

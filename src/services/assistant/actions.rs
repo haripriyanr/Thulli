@@ -14,11 +14,20 @@
 //!   {"type": "create_note", "title": "Ideas", "body": "..."},
 //!   {"type": "schedule_task", "task": "Write report", "at": "2026-05-04T09:30"},
 //!   {"type": "set_quadrant", "task": "a1b2c3", "quadrant": "do_asap"},
-//!   {"type": "start_focus", "task": "Write report"}
+//!   {"type": "start_focus", "task": "Write report"},
+//!   {"type": "update_task", "task": "a1b2c3", "title": "...", "estimate_mins": 45, "deadline": "2026-05-09"},
+//!   {"type": "complete_task", "task": "a1b2c3", "done": true},
+//!   {"type": "delete_task", "task": "a1b2c3"},
+//!   {"type": "create_space", "name": "Exams", "color": "#8B5CF6"},
+//!   {"type": "rename_space", "space": "Exams", "name": "Finals"},
+//!   {"type": "delete_space", "space": "Finals"},
+//!   {"type": "stop_focus"}
 //! ]}
 //!
-//! `create_task` may also carry `quadrant`, `do_date` (YYYY-MM-DD) and up to
-//! eight `steps`. A task is referred to by its short id or its exact title.
+//! `create_task` may also carry `quadrant`, `do_date` (YYYY-MM-DD) and
+//! `steps`. A task or subtask is referred to by its short id or exact title.
+//! Oversized estimates are capped and extra steps dropped, so one long plan
+//! is trimmed rather than lost.
 //! ```
 
 use chrono::{DateTime, Local, NaiveDateTime, TimeZone, Utc};
@@ -32,7 +41,7 @@ use crate::models::{MatrixQuadrant, TaskSection};
 /// Most actions accepted from one reply.
 pub const MAX_ACTIONS: usize = 25;
 /// Most steps proposed under one new task.
-pub const MAX_STEPS: usize = 8;
+pub const MAX_STEPS: usize = 20;
 /// Longest task or note title, in characters.
 pub const MAX_TITLE_CHARS: usize = 200;
 /// Longest note body, in characters.
@@ -58,6 +67,23 @@ pub enum ProposedAction {
     SetQuadrant { task: String, quadrant: MatrixQuadrant },
     /// Starts a focus round on the task once the changes are applied.
     StartFocus { task: String },
+    /// Stops the running timer and logs the time to its task.
+    StopFocus,
+    UpdateTask {
+        task: String,
+        title: Option<String>,
+        estimate_mins: Option<u32>,
+        section: Option<TaskSection>,
+        notes: Option<String>,
+        do_date: Option<Option<NaiveDate>>,
+        deadline: Option<Option<NaiveDate>>,
+        list: Option<String>,
+    },
+    CompleteTask { task: String, done: bool },
+    DeleteTask { task: String },
+    CreateSpace { name: String, color: Option<String> },
+    RenameSpace { space: String, name: String },
+    DeleteSpace { space: String },
 }
 
 /// Display name of a quadrant.
@@ -100,6 +126,17 @@ impl ProposedAction {
             }
             ProposedAction::SetQuadrant { task, quadrant } => format!("Sort \"{task}\" into {}", quadrant_title(*quadrant)),
             ProposedAction::StartFocus { task } => format!("Start a focus round on \"{task}\""),
+            ProposedAction::StopFocus => "Stop the timer".to_string(),
+            ProposedAction::UpdateTask { task, title, .. } => match title {
+                Some(t) => format!("Edit \"{task}\" (now \"{t}\")"),
+                None => format!("Edit \"{task}\""),
+            },
+            ProposedAction::CompleteTask { task, done: true } => format!("Mark \"{task}\" done"),
+            ProposedAction::CompleteTask { task, done: false } => format!("Reopen \"{task}\""),
+            ProposedAction::DeleteTask { task } => format!("Delete \"{task}\""),
+            ProposedAction::CreateSpace { name, .. } => format!("Create space \"{name}\""),
+            ProposedAction::RenameSpace { space, name } => format!("Rename space \"{space}\" to \"{name}\""),
+            ProposedAction::DeleteSpace { space } => format!("Delete space \"{space}\" and its tasks"),
         }
     }
 }
@@ -152,6 +189,44 @@ enum RawAction {
     },
     StartFocus {
         task: String,
+    },
+    StopFocus {},
+    UpdateTask {
+        task: String,
+        #[serde(default)]
+        title: Option<String>,
+        #[serde(default)]
+        estimate_mins: Option<u32>,
+        #[serde(default)]
+        section: Option<String>,
+        #[serde(default)]
+        notes: Option<String>,
+        #[serde(default)]
+        do_date: Option<String>,
+        #[serde(default)]
+        deadline: Option<String>,
+        #[serde(default, alias = "list")]
+        space: Option<String>,
+    },
+    CompleteTask {
+        task: String,
+        #[serde(default)]
+        done: Option<bool>,
+    },
+    DeleteTask {
+        task: String,
+    },
+    CreateSpace {
+        name: String,
+        #[serde(default)]
+        color: Option<String>,
+    },
+    RenameSpace {
+        space: String,
+        name: String,
+    },
+    DeleteSpace {
+        space: String,
     },
 }
 
@@ -270,10 +345,7 @@ fn validate(value: Value) -> Result<ProposedAction, String> {
                 None | Some("") => TaskSection::Today,
                 Some(s) => TaskSection::parse(s).ok_or_else(|| format!("unknown section \"{}\"", truncate(s, 30)))?,
             };
-            let estimate_mins = estimate_mins.unwrap_or(0);
-            if estimate_mins > MAX_ESTIMATE_MINS {
-                return Err("estimate is too long".into());
-            }
+            let estimate_mins = estimate_mins.unwrap_or(0).min(MAX_ESTIMATE_MINS);
             let list = match list {
                 Some(l) if !l.trim().is_empty() => Some(clean_line(&l, 80, "list")?),
                 _ => None,
@@ -286,11 +358,8 @@ fn validate(value: Value) -> Result<ProposedAction, String> {
                 None | Some("") => None,
                 Some(d) => Some(NaiveDate::parse_from_str(d, "%Y-%m-%d").map_err(|_| "do_date is not YYYY-MM-DD".to_string())?),
             };
-            let steps = steps.unwrap_or_default();
-            if steps.len() > MAX_STEPS {
-                return Err("too many steps".into());
-            }
-            let steps = steps.iter().map(|st| clean_line(st, MAX_TITLE_CHARS, "step")).collect::<Result<Vec<_>, _>>()?;
+            let steps: Vec<String> =
+                steps.unwrap_or_default().iter().filter_map(|st| clean_line(st, MAX_TITLE_CHARS, "step").ok()).take(MAX_STEPS).collect();
             // A quadrant decides the section, so the two always agree.
             let section = quadrant.map(|q| q.section()).unwrap_or(section);
             Ok(ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps })
@@ -313,7 +382,55 @@ fn validate(value: Value) -> Result<ProposedAction, String> {
             quadrant: parse_quadrant(quadrant.trim())?,
         }),
         RawAction::StartFocus { task } => Ok(ProposedAction::StartFocus { task: clean_line(&task, MAX_TITLE_CHARS, "task")? }),
+        RawAction::StopFocus {} => Ok(ProposedAction::StopFocus),
+        RawAction::UpdateTask { task, title, estimate_mins, section, notes, do_date, deadline, space } => {
+            let opt_line = |v: Option<String>, field: &str| -> Result<Option<String>, String> {
+                match v {
+                    Some(t) if !t.trim().is_empty() => clean_line(&t, MAX_TITLE_CHARS, field).map(Some),
+                    _ => Ok(None),
+                }
+            };
+            let section = match section.as_deref().map(str::trim) {
+                None | Some("") => None,
+                Some(s) => Some(TaskSection::parse(s).ok_or_else(|| format!("unknown section \"{}\"", truncate(s, 30)))?),
+            };
+            Ok(ProposedAction::UpdateTask {
+                task: clean_line(&task, MAX_TITLE_CHARS, "task")?,
+                title: opt_line(title, "title")?,
+                estimate_mins: estimate_mins.map(|m| m.min(MAX_ESTIMATE_MINS)),
+                section,
+                notes: notes.map(|n| clean_text(&n, MAX_BODY_CHARS, "notes")).transpose()?,
+                do_date: do_date.map(|d| opt_date(&d, "do_date")).transpose()?,
+                deadline: deadline.map(|d| opt_date(&d, "deadline")).transpose()?,
+                list: opt_line(space, "space")?,
+            })
+        }
+        RawAction::CompleteTask { task, done } => {
+            Ok(ProposedAction::CompleteTask { task: clean_line(&task, MAX_TITLE_CHARS, "task")?, done: done.unwrap_or(true) })
+        }
+        RawAction::DeleteTask { task } => Ok(ProposedAction::DeleteTask { task: clean_line(&task, MAX_TITLE_CHARS, "task")? }),
+        RawAction::CreateSpace { name, color } => Ok(ProposedAction::CreateSpace {
+            name: clean_line(&name, 80, "name")?,
+            color: color.filter(|c| is_hex_color(c.trim())).map(|c| c.trim().to_string()),
+        }),
+        RawAction::RenameSpace { space, name } => Ok(ProposedAction::RenameSpace {
+            space: clean_line(&space, 80, "space")?,
+            name: clean_line(&name, 80, "name")?,
+        }),
+        RawAction::DeleteSpace { space } => Ok(ProposedAction::DeleteSpace { space: clean_line(&space, 80, "space")? }),
     }
+}
+
+/// A date, or "" / "none" to clear it.
+fn opt_date(d: &str, field: &str) -> Result<Option<NaiveDate>, String> {
+    match d.trim() {
+        "" | "none" | "null" => Ok(None),
+        d => NaiveDate::parse_from_str(d, "%Y-%m-%d").map(Some).map_err(|_| format!("{field} is not YYYY-MM-DD")),
+    }
+}
+
+fn is_hex_color(c: &str) -> bool {
+    c.len() == 7 && c.starts_with('#') && c[1..].chars().all(|ch| ch.is_ascii_hexdigit())
 }
 
 fn parse_quadrant(q: &str) -> Result<MatrixQuadrant, String> {
@@ -445,7 +562,7 @@ mod tests {
         let p = actions(
             "{\"actions\":[\
             {\"type\":\"create_task\",\"title\":\"ok\",\"delete_everything\":true},\
-            {\"type\":\"delete_task\",\"task\":\"x\"},\
+            {\"type\":\"wipe_disk\",\"task\":\"x\"},\
             {\"type\":\"create_task\"},\
             {\"type\":\"create_task\",\"title\":\"fine\"}]}",
         );
@@ -459,14 +576,45 @@ mod tests {
             "{\"actions\":[\
             {\"type\":\"create_task\",\"title\":\"   \"},\
             {\"type\":\"create_task\",\"title\":\"x\",\"section\":\"someday\"},\
-            {\"type\":\"create_task\",\"title\":\"x\",\"estimate_mins\":99999},\
             {\"type\":\"create_task\",\"title\":\"x\",\"estimate_mins\":-5},\
             {\"type\":\"create_task\",\"title\":\"bell\\u0007\"},\
             {\"type\":\"schedule_task\",\"task\":\"x\",\"at\":\"next tuesday\"},\
             {\"type\":\"schedule_task\",\"task\":\"x\",\"at\":\"1850-01-01T00:00:00Z\"}]}",
         );
         assert!(p.actions.is_empty(), "{:?}", p.actions);
-        assert_eq!(p.rejected.len(), 7);
+        assert_eq!(p.rejected.len(), 6);
+    }
+
+    #[test]
+    fn long_plans_are_trimmed_not_dropped() {
+        let steps: Vec<String> = (1..=30).map(|i| format!("\"Module {i}\"")).collect();
+        let raw = format!(
+            "{{\"actions\":[{{\"type\":\"create_task\",\"title\":\"Study\",\"estimate_mins\":720,\"steps\":[{}]}}]}}",
+            steps.join(",")
+        );
+        match &actions(&raw).actions[..] {
+            [ProposedAction::CreateTask { estimate_mins, steps, .. }] => {
+                assert_eq!(*estimate_mins, MAX_ESTIMATE_MINS);
+                assert_eq!(steps.len(), MAX_STEPS);
+            }
+            other => panic!("{other:?}"),
+        }
+    }
+
+    #[test]
+    fn management_actions_parse() {
+        let p = actions(
+            "{\"actions\":[\
+            {\"type\":\"update_task\",\"task\":\"abc123\",\"title\":\"New\",\"deadline\":\"2026-05-09\"},\
+            {\"type\":\"complete_task\",\"task\":\"abc123\"},\
+            {\"type\":\"delete_task\",\"task\":\"abc123\"},\
+            {\"type\":\"create_space\",\"name\":\"Exams\",\"color\":\"#22C55E\"},\
+            {\"type\":\"rename_space\",\"space\":\"Exams\",\"name\":\"Finals\"},\
+            {\"type\":\"delete_space\",\"space\":\"Finals\"},\
+            {\"type\":\"stop_focus\"}]}",
+        );
+        assert_eq!(p.actions.len(), 7, "{:?}", p.rejected);
+        assert_eq!(p.actions[6], ProposedAction::StopFocus);
     }
 
     #[test]

@@ -107,6 +107,17 @@ impl DataHub {
         self.refresh_all(window);
     }
 
+    /// Stops the timer and logs the time so far to the chosen task.
+    pub(super) fn stop_focus(&self, window: &MainWindow) {
+        let (phase, elapsed) = {
+            let timer = self.pomodoro.borrow();
+            (timer.phase(), timer.elapsed_in_phase())
+        };
+        self.pomodoro.borrow_mut().reset();
+        self.record_time(phase, elapsed, false);
+        self.refresh_all(window);
+    }
+
     fn handle_reply(&self, window: &MainWindow, kind: &str, ok: bool, text: &str) {
         let data = window.global::<AppData>();
         data.set_ai_busy(false);
@@ -117,9 +128,18 @@ impl DataHub {
         match kind {
             "test" => data.set_ai_status("Connected. The model answered.".into()),
             "plan" => {
-                let lines = self.assistant.accept_reply(text);
+                let (lines, rejected) = self.assistant.accept_reply_with_reasons(text);
                 if lines.is_empty() {
-                    data.set_ai_status("The AI had no changes to suggest. Try saying more.".into());
+                    // Say why, so a refused reply is not mistaken for an empty one.
+                    let status = match rejected.first() {
+                        Some(why) => format!("The AI's changes could not be used ({why}). Try again or rephrase."),
+                        None => "The AI had no changes to suggest. Try saying more.".to_string(),
+                    };
+                    data.set_ai_status(status.into());
+                } else if !rejected.is_empty() {
+                    data.set_ai_status(format!("{} suggested change(s) were left out because they were invalid.", rejected.len()).into());
+                } else {
+                    data.set_ai_status("".into());
                 }
                 data.set_ai_proposals(model(lines.into_iter().map(Into::into).collect()));
             }
@@ -235,6 +255,9 @@ impl DataHub {
                 data.set_ai_proposals(model(Vec::new()));
                 data.set_ai_status(report.summary().into());
                 data.set_ai_focus_started(report.focus_task.is_some());
+                if report.stop_focus {
+                    hub.stop_focus(&w);
+                }
                 match report.focus_task {
                     Some(id) => hub.launch_focus(&w, &id),
                     None => hub.refresh_all(&w),

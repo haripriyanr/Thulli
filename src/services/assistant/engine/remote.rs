@@ -15,8 +15,8 @@ use super::{ChatEngine, EngineError, EngineMessage, EngineRole};
 pub const OPENROUTER_URL: &str = "https://openrouter.ai/api/v1/chat/completions";
 /// Model used until the user picks another.
 pub const DEFAULT_MODEL: &str = "openai/gpt-4o-mini";
-/// Replies are short action lists, so a small cap keeps cost and latency low.
-const MAX_REPLY_TOKENS: u32 = 900;
+/// Replies are action lists; 2500 tokens fits a full 25-action plan without cutting the JSON.
+const MAX_REPLY_TOKENS: u32 = 2500;
 const TIMEOUT: Duration = Duration::from_secs(60);
 
 /// An engine that sends the prompt to a hosted model.
