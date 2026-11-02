@@ -754,17 +754,24 @@ export component ColumnShell inherits Rectangle {
     if root.drop-view != "": DropZone { width: 100%; height: 100%; zone: root.zone; view: root.drop-view; }
 }
 
-/// MicButton: a toggle for Windows voice typing. The caller focuses its text
-/// field first (`about-to-listen`), so the words land there.
+/// MicButton: press to record, press again to stop. The words are
+/// recognised on this device and handed back through `heard`. `owner` names
+/// the field, so only that field receives them.
 export component MicButton inherits Rectangle {
-    in-out property <bool> listening: false;
-    callback about-to-listen();
+    in property <string> owner;
+    callback heard(string);
+    property <bool> listening: AppData.mic-listening == root.owner && root.owner != "";
+    property <int> seq: AppData.mic-seq;
+    changed seq => {
+        if AppData.mic-owner == root.owner { root.heard(AppData.mic-text); }
+    }
     width: 36px;
     height: 36px;
     border-radius: 18px;
     background: root.listening ? #F43F5E33 : (touch.has-hover ? Theme.glass-fill-hover : transparent);
     border-width: root.listening ? 1px : 0px;
     border-color: #F43F5E;
+    opacity: AppData.mic-busy && !root.listening ? 0.5 : 1;
     animate background { duration: 200ms; easing: ease-out; }
     IconMic {
         x: (parent.width - self.width) / 2;
@@ -774,11 +781,7 @@ export component MicButton inherits Rectangle {
     }
     touch := TouchArea {
         mouse-cursor: pointer;
-        clicked => {
-            if !root.listening { root.about-to-listen(); }
-            root.listening = !root.listening;
-            AppData.mic-toggle();
-        }
+        clicked => { AppData.mic-toggle(root.owner); }
     }
 }
 
@@ -907,7 +910,7 @@ export component TaskComposer inherits VerticalLayout {
                         }
                     }
                 }
-                VerticalLayout { alignment: center; MicButton { about-to-listen => { title-input.focus(); } } }
+                VerticalLayout { alignment: center; MicButton { owner: "composer"; heard(t) => { root.title = root.title == "" ? t : root.title + " " + t; title-input.focus(); } } }
                 Rectangle {
                     width: 70px;
                     height: 40px;

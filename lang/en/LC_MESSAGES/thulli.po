@@ -202,7 +202,7 @@ msgstr "Estimate"
 
 #: ui\components\space_widgets.slint
 msgid "Do date"
-msgstr "Do date"
+msgstr "Scheduled date"
 
 #: ui\components\space_widgets.slint
 msgid "Deadline"

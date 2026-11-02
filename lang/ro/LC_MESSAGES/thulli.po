@@ -318,7 +318,7 @@ msgstr "Urgent și important. Azi, primul."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Mid Week"
-msgstr "Fă la mijlocul săptămânii"
+msgstr "Fă pe parcursul săptămânii"
 
 #: ui\screens\ai_panels.slint
 msgid "Important, not urgent. This week."

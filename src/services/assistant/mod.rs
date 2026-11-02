@@ -5,7 +5,7 @@
 //! user must approve before [`AssistantService::apply_pending`] changes data.
 
 mod actions;
-mod engine;
+pub mod engine;
 mod prompt;
 mod suggestions;
 
@@ -16,9 +16,14 @@ use chrono::{DateTime, Local, NaiveDate, Utc};
 pub use actions::{parse_reply, ParsedReply, ProposedAction};
 pub use engine::{
     load_local_engine, local_model_supported, model_status, ChatEngine, EngineError, EngineMessage, EngineRole,
-    MockEngine, ModelStatus, RemoteEngine, DEFAULT_MODEL, OPENROUTER_URL,
+    MockEngine, ModelStatus,
 };
 pub use suggestions::Suggestion;
+
+/// The planning prompt for `request` against `store`, as the Plan panel builds it.
+pub fn plan_messages(store: &crate::models::AppStateStore, request: &str) -> Vec<EngineMessage> {
+    prompt::plan_prompt(store, request, Local::now())
+}
 
 use crate::models::{TaskList, 
     AssistantMemory, ChatRole, ChatThread, MemoryKind, Note, SuggestionKind, SuggestionState, Task,
@@ -221,7 +226,7 @@ impl AssistantService {
         let prompt = self.handle.read(|s| prompt::build_prompt(s, thread_id, now));
         let raw = engine.generate(&prompt, on_token)?;
 
-        let mut parsed = parse_reply(&raw);
+        let mut parsed = parse_reply(crate::ai::llm::strip_thinking(&raw));
         if parsed.text.is_empty() {
             parsed.text = if parsed.actions.is_empty() {
                 "I do not have an answer for that.".to_string()
@@ -334,7 +339,7 @@ impl AssistantService {
 
     /// Like [`accept_reply`], also returning why any proposal was refused.
     pub fn accept_reply_with_reasons(&self, raw: &str) -> (Vec<String>, Vec<String>) {
-        let parsed = parse_reply(raw);
+        let parsed = parse_reply(crate::ai::llm::strip_thinking(raw));
         let lines = parsed.actions.iter().map(ProposedAction::describe).collect();
         *self.pending.lock().unwrap() = parsed.actions;
         (lines, parsed.rejected)

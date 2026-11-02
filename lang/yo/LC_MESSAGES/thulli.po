@@ -306,7 +306,7 @@ msgstr "Láìpẹ́"
 
 #: ui\screens\ai_panels.slint
 msgid "Later"
-msgstr "Nígbà míràn"
+msgstr "Lẹ́yìn náà"
 
 #: ui\screens\ai_panels.slint
 msgid "Do ASAP"
@@ -326,7 +326,7 @@ msgstr "Pàtàkì, ṣùgbọ́n kìí ṣe kíákíá. Ọ̀sẹ̀ yìí."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Later Today"
-msgstr "Ṣe lẹ́yìn ọ̀sán lónìí"
+msgstr "Ṣe é nígbà tó bá yá lónìí"
 
 #: ui\screens\ai_panels.slint
 msgid "Needs doing today, after the first push."
@@ -454,7 +454,7 @@ msgstr "Ìmújáde"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Your focus at a glance"
-msgstr "Ìdojúkọ rẹ ní ìwòkùnkùn"
+msgstr "Àkótán ìdojúkọ rẹ"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Day"

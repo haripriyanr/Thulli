@@ -66,10 +66,11 @@ export component PlanPanel inherits Rectangle {
                 color: Theme.text-muted;
                 wrap: word-wrap;
             }
-            if !AppData.ai-key-saved: Text {
-                text: @tr("Add an OpenRouter API key in Settings first.");
+            if !AppData.ai-models-ready: Text {
+                text: @tr("The first plan downloads the on-device AI models (about 2.3 GB).");
                 font-size: 13px;
                 color: Theme.accent-amber;
+                wrap: word-wrap;
             }
             Rectangle {
                 height: 120px;
@@ -100,7 +101,8 @@ export component PlanPanel inherits Rectangle {
                 MicButton {
                     x: parent.width - self.width - 8px;
                     y: parent.height - self.height - 8px;
-                    about-to-listen => { request-input.focus(); }
+                    owner: "plan";
+                    heard(t) => { root.request = root.request == "" ? t : root.request + " " + t; request-input.focus(); }
                 }
             }
             HorizontalLayout {
@@ -120,7 +122,7 @@ export component PlanPanel inherits Rectangle {
                 PanelButton {
                     label: AppData.ai-busy ? "Thinking..." : "Plan it";
                     primary: true;
-                    enabled: !AppData.ai-busy && root.request != "" && AppData.ai-key-saved;
+                    enabled: !AppData.ai-busy && root.request != "";
                     clicked => { AppData.ai-plan(root.request, root.start-now); }
                 }
             }
@@ -138,6 +140,7 @@ export component PlanPanel inherits Rectangle {
                     spacing: 10px;
                     alignment: end;
                     PanelButton { label: @tr("Discard"); clicked => { AppData.ai-discard(); } }
+                    PanelButton { label: @tr("Read aloud"); clicked => { AppData.ai-speak(""); } }
                     PanelButton {
                         label: @tr("Apply all");
                         primary: true;
@@ -243,7 +246,7 @@ export component SortScreen inherits Rectangle {
                 alignment: center;
                 PanelButton {
                     label: AppData.ai-busy ? "Asking AI..." : "Suggest with AI";
-                    enabled: !AppData.ai-busy && AppData.ai-key-saved && AppData.triage-total > 0;
+                    enabled: !AppData.ai-busy && AppData.triage-total > 0;
                     clicked => { AppData.triage-ask-ai(); keys.focus(); }
                 }
             }

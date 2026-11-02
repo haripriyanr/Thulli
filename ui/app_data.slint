@@ -124,8 +124,15 @@ export global AppData {
     callback task-launched(string);
 
     // AI assistant (OpenRouter for now, a bundled model later).
-    in-out property <bool> ai-key-saved: false;
-    in-out property <string> ai-model: "openai/gpt-4o-mini";
+    // True once the on-device AI models are downloaded and unpacked.
+    in-out property <bool> ai-models-ready: false;
+    // Mic: the field listening now ("" when idle), and each finished
+    // transcript with the field it belongs to. `mic-seq` counts results.
+    in-out property <string> mic-listening: "";
+    in-out property <bool> mic-busy: false;
+    in-out property <string> mic-owner: "";
+    in-out property <string> mic-text: "";
+    in-out property <int> mic-seq: 0;
     // One short line about the last AI call or key change.
     in-out property <string> ai-status: "";
     in-out property <bool> ai-busy: false;
@@ -136,11 +143,12 @@ export global AppData {
     // can open Pomodoro.
     in-out property <bool> ai-focus-started: false;
     // Opens or closes Windows voice typing for the focused field.
-    callback mic-toggle();
-    callback ai-key-save(string);
-    callback ai-key-remove();
-    callback ai-model-set(string);
-    callback ai-test();
+    callback mic-toggle(string);
+    callback ai-models-download();
+    callback ai-models-remove();
+    // Checks the models folder again.
+    callback ai-models-refresh();
+    callback ai-speak(string);
     // request text, start the first task now
     callback ai-plan(string, bool);
     callback ai-apply();

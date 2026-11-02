@@ -1,5 +1,5 @@
 import { Theme } from "../theme.slint";
-import { IconTimer, IconLanguage } from "../icons.slint";
+import { IconTimer, IconLanguage, IconCheck } from "../icons.slint";
 import { LanguagePicker } from "../components/language_picker.slint";
 import { GlassCard } from "../components/glass.slint";
 import { Switch, SelectBox, SettingRow } from "../components/settings_controls.slint";
@@ -73,64 +73,35 @@ export component SettingsScreen inherits Rectangle {
             }
 
             SettingsSection {
-                title: "AI";
-                caption: "OpenRouter API key. Kept in Windows Credential Manager, not in Thulli's data.";
+                title: @tr("AI");
+                caption: @tr("Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it.");
                 SettingRow {
-                    label: AppData.ai-key-saved ? "API key saved" : "API key";
+                    label: AppData.ai-models-ready ? @tr("AI models installed") : @tr("AI models (about 2.3 GB)");
+                    hint: AppData.ai-models-ready ? @tr("Remove them to free the space; they download again when needed.") : @tr("They download the first time you use AI, or now.");
                     HorizontalLayout {
                         spacing: 8px;
-                        if !AppData.ai-key-saved: HorizontalLayout {
-                        spacing: 8px;
-                        Rectangle {
-                            width: 280px;
+                        // Installed: a green Ready badge.
+                        if AppData.ai-models-ready: Rectangle {
+                            width: ready-row.preferred-width + 24px;
                             height: 40px;
-                            border-radius: 10px;
-                            background: Theme.glass-fill-strong;
+                            border-radius: 20px;
+                            background: Theme.accent-green.with-alpha(0.16);
                             border-width: 1px;
-                            border-color: Theme.glass-border;
-                            key-input := TextInput {
+                            border-color: Theme.accent-green.with-alpha(0.55);
+                            ready-row := HorizontalLayout {
                                 x: 12px;
-                                width: parent.width - 24px;
-                                height: 100%;
-                                input-type: password;
-                                font-size: 14px;
-                                color: Theme.text-primary;
-                                vertical-alignment: center;
-                                accepted => { AppData.ai-key-save(self.text); self.text = ""; }
+                                spacing: 6px;
+                                alignment: center;
+                                VerticalLayout { alignment: center; IconCheck { width: 14px; height: 14px; stroke-color: Theme.accent-green; } }
+                                Text { text: @tr("Ready"); font-size: 14px; font-weight: 600; color: Theme.accent-green; vertical-alignment: center; }
                             }
                         }
-                        PlainButton { label: "Save"; clicked => { AppData.ai-key-save(key-input.text); key-input.text = ""; } }
-                        }
-                        if AppData.ai-key-saved: PlainButton { label: "Test"; clicked => { AppData.ai-test(); } }
-                        if AppData.ai-key-saved: PlainButton { label: "Remove"; clicked => { AppData.ai-key-remove(); } }
+                        PlainButton { label: @tr("Refresh"); clicked => { AppData.ai-models-refresh(); } }
+                        if !AppData.ai-models-ready: PlainButton { label: AppData.ai-busy ? @tr("Downloading...") : @tr("Download now"); clicked => { if !AppData.ai-busy { AppData.ai-models-download(); } } }
+                        if AppData.ai-models-ready: PlainButton { label: @tr("Remove"); clicked => { AppData.ai-models-remove(); } }
                     }
                 }
-                SettingRow {
-                    label: "Model";
-                    HorizontalLayout {
-                        spacing: 8px;
-                        Rectangle {
-                            width: 280px;
-                            height: 40px;
-                            border-radius: 10px;
-                            background: Theme.glass-fill-strong;
-                            border-width: 1px;
-                            border-color: Theme.glass-border;
-                            model-input := TextInput {
-                                x: 12px;
-                                width: parent.width - 24px;
-                                height: 100%;
-                                text: AppData.ai-model;
-                                font-size: 14px;
-                                color: Theme.text-primary;
-                                vertical-alignment: center;
-                                accepted => { AppData.ai-model-set(self.text); }
-                            }
-                        }
-                        PlainButton { label: "Save"; clicked => { AppData.ai-model-set(model-input.text); } }
-                    }
-                }
-                if AppData.ai-status != "": Text { text: AppData.ai-busy ? "Checking..." : AppData.ai-status; font-size: 13px; color: Theme.text-secondary; }
+                if AppData.ai-status != "": Text { text: AppData.ai-status; font-size: 13px; color: Theme.text-secondary; wrap: word-wrap; }
             }
 
             SettingsSection {

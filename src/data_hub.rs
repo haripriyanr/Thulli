@@ -72,6 +72,10 @@ pub struct DataHub {
     assistant: AssistantService,
     /// The Sort screen's queue and AI suggestions.
     triage: RefCell<ai::Triage>,
+    /// On-device models, loaded on first use and shared with worker threads.
+    models: Arc<thulli_core::ai::Models>,
+    /// The microphone while a mic button is on, with the field it serves.
+    recorder: RefCell<Option<(String, crate::voice::Recorder)>>,
 }
 
 impl DataHub {
@@ -85,6 +89,8 @@ impl DataHub {
             calendar_anchor: RefCell::new(Local::now().date_naive()),
             assistant: AssistantService::new(handle.clone()),
             triage: RefCell::new(ai::Triage::default()),
+            models: Arc::new(thulli_core::ai::Models::default()),
+            recorder: RefCell::new(None),
             tasks: TaskService::new(state, repository),
             notes: NotesService::new(handle.clone()),
             prefs: PreferencesService::new(handle.clone()),
@@ -102,7 +108,6 @@ impl DataHub {
 
     /// Fills every screen from the saved state and registers the callbacks.
     pub fn attach(self: &Rc<Self>, window: &MainWindow) {
-        self.connect_ai();
         self.refresh_all(window);
         self.refresh_ai(window);
         self.wire_ai(window);

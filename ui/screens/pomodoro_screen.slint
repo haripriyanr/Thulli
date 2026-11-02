@@ -637,6 +637,16 @@ export component PomodoroScreen inherits Rectangle {
     property <length> analytics-width: root.wide ? root.width - root.analytics-x - root.side : root.width - 2 * root.side;
     property <length> analytics-height: root.wide ? root.height - root.side : analytics.preferred-height;
 
+    // True for the moment the card moves into or out of full screen.
+    property <bool> morphing: false;
+    property <bool> immersive: AppData.immersive;
+    changed immersive => { root.morphing = true; }
+    Timer {
+        interval: 650ms;
+        running: root.morphing;
+        triggered => { root.morphing = false; }
+    }
+
     // Narrow windows stack the timer above the analytics, so the page scrolls.
     page := Flickable {
         width: 100%;
@@ -652,7 +662,9 @@ export component PomodoroScreen inherits Rectangle {
         y: AppData.immersive ? (root.height - self.height) / 2 - page.content-y : 0px;
         width: root.timer-width;
         height: root.timer-height;
-        animate x, y, width, height { duration: 800ms; easing: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        // Only the switch into or out of full screen glides; a window resize
+        // follows the window at once, like every other panel.
+        animate x, y, width, height { duration: root.morphing ? 600ms : 0ms; easing: ease-in-out; }
         content-height: timer.height;
         interactive: root.wide && !AppData.immersive;
 

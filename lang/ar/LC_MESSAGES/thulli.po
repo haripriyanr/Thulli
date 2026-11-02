@@ -22,7 +22,7 @@ msgstr "قوائمك"
 
 #: ui\components\app_menu.slint
 msgid "Distraction shield"
-msgstr "درع التشتيت"
+msgstr "درع الحماية من التشتيت"
 
 #: ui\components\app_menu.slint
 msgid "Assistant"
@@ -338,7 +338,7 @@ msgstr "اتركها للنهاية"
 
 #: ui\screens\ai_panels.slint
 msgid "Low urgency or low value. Backlog."
-msgstr "عاجلة أو قيمتها منخفضة. قائمة الانتظار."
+msgstr "قليلة العجلة أو منخفضة القيمة. قائمة الانتظار."
 
 #: ui\screens\ai_panels.slint
 msgid "Back"

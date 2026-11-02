@@ -15,7 +15,6 @@ mod telemetry;
 mod convert;
 mod data_hub;
 mod spaces;
-mod secrets;
 mod voice;
 use data_hub::DataHub;
 

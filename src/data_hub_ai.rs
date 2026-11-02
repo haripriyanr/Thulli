@@ -1,22 +1,22 @@
-//! The AI side of [`DataHub`]: the API key, the Plan with AI panel and the
-//! Sort screen. Model calls run on a worker thread; the reply comes back to
-//! the UI thread through `AppData.ai-reply`. Nothing the model proposes is
-//! applied until the user agrees.
+//! The AI side of [`DataHub`]: the on-device models, the mic, reading aloud,
+//! the Plan with AI panel and the Sort screen. Model calls run on worker
+//! threads; results come back to the UI thread through `AppData.ai-reply` or
+//! `upgrade_in_event_loop`. Nothing the model proposes is applied until the
+//! user agrees.
 
 use std::collections::HashMap;
 use std::rc::Rc;
-use std::sync::Arc;
 
 use chrono::Local;
 use slint::ComponentHandle;
 use thulli_core::models::MatrixQuadrant;
-use thulli_core::services::assistant::{EngineMessage, EngineRole, RemoteEngine};
+use thulli_core::ai::{asr, pack, tts};
+use thulli_core::services::assistant::{ChatEngine, EngineMessage};
 use thulli_core::services::pomodoro::PomodoroPhase;
 use thulli_core::services::tasks::matrix;
 
 use super::DataHub;
 use crate::convert::model;
-use crate::secrets;
 use crate::spaces;
 use crate::{AppData, MainWindow};
 
@@ -31,21 +31,8 @@ pub struct Triage {
 }
 
 impl DataHub {
-    /// Points the assistant at OpenRouter when a key is saved.
-    pub(super) fn connect_ai(&self) {
-        match secrets::load(secrets::AI_KEY) {
-            Some(key) => {
-                let model = self.prefs.snapshot().ai_model;
-                self.assistant.set_engine(Arc::new(RemoteEngine::openrouter(key, model)));
-            }
-            None => self.assistant.clear_engine(),
-        }
-    }
-
     pub(super) fn refresh_ai(&self, window: &MainWindow) {
-        let data = window.global::<AppData>();
-        data.set_ai_key_saved(secrets::load(secrets::AI_KEY).is_some());
-        data.set_ai_model(self.prefs.snapshot().ai_model.into());
+        window.global::<AppData>().set_ai_models_ready(pack::is_ready());
         self.refresh_triage(window);
     }
 
@@ -72,28 +59,109 @@ impl DataHub {
         data.set_triage_suggestion(suggestion.into());
     }
 
-    /// Sends `prompt` on a worker thread. The reply arrives as `ai-reply`.
+    /// Sends `prompt` to the planner on a worker thread, downloading the
+    /// models first when needed. The reply arrives as `ai-reply`.
     fn run_ai(&self, window: &MainWindow, kind: &str, prompt: Vec<EngineMessage>) {
         let data = window.global::<AppData>();
-        let engine = match self.assistant.engine_for_request() {
-            Ok(engine) => engine,
-            Err(_) => {
-                data.set_ai_status("Add an OpenRouter API key in Settings to use AI.".into());
-                return;
-            }
-        };
         data.set_ai_busy(true);
         data.set_ai_status("".into());
         let weak = window.as_weak();
         let kind = kind.to_string();
+        let models = self.models.clone();
         std::thread::spawn(move || {
-            let (ok, text) = match engine.generate(&prompt, &mut |_| true) {
-                Ok(text) => (true, text),
-                Err(e) => (false, e.user_message()),
+            let status = |text: String| {
+                let _ = weak.upgrade_in_event_loop(move |w| w.global::<AppData>().set_ai_status(text.into()));
+            };
+            let llm = models.llm(&mut |p| status(p.describe()));
+            let (ok, text) = match llm {
+                Err(why) => (false, format!("The AI could not start: {why}")),
+                Ok(llm) => {
+                    status("Thinking...".into());
+                    let mut thinking = true;
+                    let reply = llm.generate(&prompt, &mut |piece| {
+                        // Show when the model has finished thinking.
+                        if thinking && piece.contains("</think>") {
+                            thinking = false;
+                            status("Writing the plan...".into());
+                        }
+                        true
+                    });
+                    match reply {
+                        Ok(text) => (true, text),
+                        Err(e) => (false, e.user_message()),
+                    }
+                }
             };
             let _ = weak.upgrade_in_event_loop(move |w| {
+                w.global::<AppData>().set_ai_models_ready(pack::is_ready());
                 w.global::<AppData>().invoke_ai_reply(kind.into(), ok, text.into());
             });
+        });
+    }
+
+    /// Turns the mic for `owner` on, or off and transcribes what was said.
+    fn toggle_mic(&self, window: &MainWindow, owner: &str) {
+        let data = window.global::<AppData>();
+        let open = self.recorder.borrow_mut().take();
+        if let Some((was, recorder)) = open {
+            data.set_mic_listening("".into());
+            let samples = recorder.finish(asr::SAMPLE_RATE);
+            if was != owner {
+                // Another field's mic was on; switch to this one.
+                return self.toggle_mic(window, owner);
+            }
+            data.set_mic_busy(true);
+            let weak = window.as_weak();
+            let models = self.models.clone();
+            std::thread::spawn(move || {
+                let status = |text: String| {
+                    let _ = weak.upgrade_in_event_loop(move |w| w.global::<AppData>().set_ai_status(text.into()));
+                };
+                let text = models
+                    .asr(&mut |p| status(p.describe()))
+                    .and_then(|m| m.transcribe(&samples));
+                let _ = weak.upgrade_in_event_loop(move |w| {
+                    let data = w.global::<AppData>();
+                    data.set_mic_busy(false);
+                    data.set_ai_models_ready(pack::is_ready());
+                    match text {
+                        Ok(t) if !t.is_empty() => {
+                            data.set_ai_status("".into());
+                            data.set_mic_owner(was.into());
+                            data.set_mic_text(t.into());
+                            data.set_mic_seq(data.get_mic_seq() + 1);
+                        }
+                        Ok(_) => data.set_ai_status("Nothing was heard. Try again a little closer to the mic.".into()),
+                        Err(why) => data.set_ai_status(format!("Speech recognition failed: {why}").into()),
+                    }
+                });
+            });
+            return;
+        }
+        match crate::voice::Recorder::start() {
+            Ok(rec) => {
+                *self.recorder.borrow_mut() = Some((owner.to_string(), rec));
+                data.set_mic_listening(owner.into());
+            }
+            Err(why) => data.set_ai_status(why.into()),
+        }
+    }
+
+    /// Reads `text` aloud on a worker thread.
+    fn speak(&self, window: &MainWindow, text: String) {
+        let weak = window.as_weak();
+        let models = self.models.clone();
+        std::thread::spawn(move || {
+            let status = |text: String| {
+                let _ = weak.upgrade_in_event_loop(move |w| w.global::<AppData>().set_ai_status(text.into()));
+            };
+            let result = models
+                .tts(&mut |p| status(p.describe()))
+                .and_then(|m| m.speak(&text))
+                .and_then(|wave| crate::voice::play(wave, tts::SAMPLE_RATE));
+            if let Err(why) = result {
+                status(format!("Reading aloud failed: {why}"));
+            }
         });
     }
 
@@ -126,7 +194,6 @@ impl DataHub {
             return;
         }
         match kind {
-            "test" => data.set_ai_status("Connected. The model answered.".into()),
             "plan" => {
                 let (lines, rejected) = self.assistant.accept_reply_with_reasons(text);
                 if lines.is_empty() {
@@ -162,7 +229,15 @@ impl DataHub {
 
     pub(super) fn wire_ai(self: &Rc<Self>, window: &MainWindow) {
         let data = window.global::<AppData>();
-        data.on_mic_toggle(crate::voice::toggle_voice_typing);
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_mic_toggle(move |owner| {
+                if let Some(w) = weak.upgrade() {
+                    hub.toggle_mic(&w, &owner);
+                }
+            });
+        }
         {
             let hub = self.clone();
             let weak = window.as_weak();
@@ -175,56 +250,69 @@ impl DataHub {
         {
             let hub = self.clone();
             let weak = window.as_weak();
-            data.on_ai_key_save(move |key| {
+            data.on_ai_models_download(move || {
                 let Some(w) = weak.upgrade() else { return };
-                let key = key.trim();
-                let status = if key.is_empty() {
-                    "Paste a key first."
-                } else if secrets::save(secrets::AI_KEY, key) {
-                    hub.connect_ai();
-                    "Key saved in Windows Credential Manager."
+                w.global::<AppData>().set_ai_busy(true);
+                let weak = w.as_weak();
+                let models = hub.models.clone();
+                std::thread::spawn(move || {
+                    let status = |text: String| {
+                        let _ = weak.upgrade_in_event_loop(move |w| w.global::<AppData>().set_ai_status(text.into()));
+                    };
+                    let done = pack::ensure(&mut |p| status(p.describe()));
+                    let _ = models; // kept so a later load reuses this download
+                    let _ = weak.upgrade_in_event_loop(move |w| {
+                        let data = w.global::<AppData>();
+                        data.set_ai_busy(false);
+                        data.set_ai_models_ready(pack::is_ready());
+                        data.set_ai_status(match done {
+                            Ok(_) => "AI models are ready.".into(),
+                            Err(why) => format!("The download did not finish: {why}").into(),
+                        });
+                    });
+                });
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_ai_models_refresh(move || {
+                let Some(w) = weak.upgrade() else { return };
+                hub.refresh_ai(&w);
+                let ready = pack::is_ready();
+                w.global::<AppData>().set_ai_status(
+                    if ready { "AI models are installed and ready." } else { "AI models are not downloaded yet." }.into(),
+                );
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_ai_models_remove(move || {
+                let Some(w) = weak.upgrade() else { return };
+                hub.models.unload();
+                let status = match pack::remove() {
+                    Ok(()) => "AI models removed.".to_string(),
+                    Err(why) => why,
+                };
+                w.global::<AppData>().set_ai_status(status.into());
+                hub.refresh_ai(&w);
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_ai_speak(move |text| {
+                let Some(w) = weak.upgrade() else { return };
+                // Empty text reads the proposed changes.
+                let text = if text.is_empty() {
+                    let data = w.global::<AppData>();
+                    use slint::Model;
+                    data.get_ai_proposals().iter().map(|l| l.to_string()).collect::<Vec<_>>().join(". ")
                 } else {
-                    "The key could not be saved on this device."
+                    text.to_string()
                 };
-                w.global::<AppData>().set_ai_status(status.into());
-                hub.refresh_ai(&w);
-            });
-        }
-        {
-            let hub = self.clone();
-            let weak = window.as_weak();
-            data.on_ai_key_remove(move || {
-                let Some(w) = weak.upgrade() else { return };
-                secrets::remove(secrets::AI_KEY);
-                hub.connect_ai();
-                w.global::<AppData>().set_ai_status("Key removed.".into());
-                hub.refresh_ai(&w);
-            });
-        }
-        {
-            let hub = self.clone();
-            let weak = window.as_weak();
-            data.on_ai_model_set(move |id| {
-                let Some(w) = weak.upgrade() else { return };
-                let status = match hub.prefs.set_text("ai_model", &id) {
-                    Ok(()) => "Model saved.",
-                    Err(_) => "Use a model id such as openai/gpt-4o-mini.",
-                };
-                hub.connect_ai();
-                w.global::<AppData>().set_ai_status(status.into());
-                hub.refresh_ai(&w);
-            });
-        }
-        {
-            let hub = self.clone();
-            let weak = window.as_weak();
-            data.on_ai_test(move || {
-                let Some(w) = weak.upgrade() else { return };
-                let prompt = vec![
-                    EngineMessage::new(EngineRole::System, "Reply with the single word OK."),
-                    EngineMessage::new(EngineRole::User, "ping"),
-                ];
-                hub.run_ai(&w, "test", prompt);
+                hub.speak(&w, text);
             });
         }
         {

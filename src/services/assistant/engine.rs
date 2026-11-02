@@ -1,19 +1,14 @@
 //! Chat engine abstraction for the on-device assistant.
 //!
-//! The assistant talks to a [`ChatEngine`]. The real engine (behind the
-//! `local-model` feature) runs a GGUF file chosen by the user, entirely on this
-//! machine. [`MockEngine`] serves scripted replies for tests.
+//! The assistant talks to a [`ChatEngine`]. The real engine is the on-device
+//! planner in [`crate::ai::llm`], run with ONNX Runtime. [`MockEngine`] serves
+//! scripted replies for tests.
 
 use std::collections::VecDeque;
 use std::fmt;
 use std::path::Path;
 use std::sync::{Arc, Mutex};
 
-#[cfg(feature = "local-model")]
-mod local;
-mod remote;
-
-pub use remote::{RemoteEngine, DEFAULT_MODEL, OPENROUTER_URL};
 
 /// Who wrote a message handed to the engine.
 #[derive(Debug, Clone, Copy, PartialEq, Eq)]
@@ -113,7 +108,7 @@ impl ModelStatus {
             ModelStatus::Missing => {
                 "The model file you chose could not be found. Pick it again in Preferences."
             }
-            ModelStatus::NotGguf => "The chosen file is not a model file. Pick a file ending in .gguf in Preferences.",
+            ModelStatus::NotGguf => "The AI model files are incomplete. Remove them in Settings and download again.",
             ModelStatus::Unsupported => {
                 "This version of Thulli was built without on-device assistant support."
             }
@@ -124,7 +119,7 @@ impl ModelStatus {
 
 /// True when this build can run a real model.
 pub const fn local_model_supported() -> bool {
-    cfg!(feature = "local-model")
+    true
 }
 
 /// Checks the model path from preferences without loading it.
@@ -134,11 +129,10 @@ pub fn model_status(path: &str) -> ModelStatus {
         return ModelStatus::NotChosen;
     }
     let p = Path::new(path);
-    if !p.is_file() {
+    if !p.is_dir() {
         return ModelStatus::Missing;
     }
-    let is_gguf = p.extension().is_some_and(|e| e.eq_ignore_ascii_case("gguf"));
-    if !is_gguf {
+    if !p.join("decoder_model_merged_q4.onnx").is_file() {
         return ModelStatus::NotGguf;
     }
     if !local_model_supported() {
@@ -152,20 +146,14 @@ pub fn load_local_engine(path: &str) -> Result<Arc<dyn ChatEngine>, EngineError>
     match model_status(path) {
         ModelStatus::NotChosen => Err(EngineError::NotChosen),
         ModelStatus::Missing => Err(EngineError::BadModelFile("the file was not found".into())),
-        ModelStatus::NotGguf => Err(EngineError::BadModelFile("it is not a .gguf file".into())),
+        ModelStatus::NotGguf => Err(EngineError::BadModelFile("the planner model is missing from the folder".into())),
         ModelStatus::Unsupported => Err(EngineError::Unsupported),
         ModelStatus::Ready => load_ready(path),
     }
 }
 
-#[cfg(feature = "local-model")]
 fn load_ready(path: &str) -> Result<Arc<dyn ChatEngine>, EngineError> {
-    Ok(Arc::new(local::LocalGgufEngine::load(Path::new(path.trim()))?))
-}
-
-#[cfg(not(feature = "local-model"))]
-fn load_ready(_path: &str) -> Result<Arc<dyn ChatEngine>, EngineError> {
-    Err(EngineError::Unsupported)
+    Ok(Arc::new(crate::ai::llm::Llm::load(Path::new(path.trim()))?))
 }
 
 /// Test engine returning scripted replies, one per call, streamed in small
@@ -227,19 +215,14 @@ mod tests {
     use super::*;
 
     #[test]
-    fn status_reflects_the_chosen_path() {
+    fn status_reflects_the_chosen_folder() {
         assert_eq!(model_status(""), ModelStatus::NotChosen);
-        assert_eq!(model_status("   "), ModelStatus::NotChosen);
-        assert_eq!(model_status("Z:/definitely/not/here.gguf"), ModelStatus::Missing);
+        assert_eq!(model_status("Z:/definitely/not/here"), ModelStatus::Missing);
         let dir = std::env::temp_dir().join("thulli_engine_status_test");
         std::fs::create_dir_all(&dir).unwrap();
-        let txt = dir.join("model.txt");
-        std::fs::write(&txt, b"x").unwrap();
-        assert_eq!(model_status(txt.to_str().unwrap()), ModelStatus::NotGguf);
-        let gguf = dir.join("model.gguf");
-        std::fs::write(&gguf, b"x").unwrap();
-        let expected = if local_model_supported() { ModelStatus::Ready } else { ModelStatus::Unsupported };
-        assert_eq!(model_status(gguf.to_str().unwrap()), expected);
+        assert_eq!(model_status(dir.to_str().unwrap()), ModelStatus::NotGguf);
+        std::fs::write(dir.join("decoder_model_merged_q4.onnx"), b"x").unwrap();
+        assert_eq!(model_status(dir.to_str().unwrap()), ModelStatus::Ready);
         let _ = std::fs::remove_dir_all(&dir);
     }
 

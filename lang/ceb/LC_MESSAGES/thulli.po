@@ -106,11 +106,11 @@ msgstr "Mga setting sa focus sprint"
 
 #: ui\components\modals.slint
 msgid "Timed Sprints"
-msgstr "Timed Sprints"
+msgstr "Mga sprint nga adunay gitakdang oras"
 
 #: ui\components\modals.slint
 msgid "Work sprint duration"
-msgstr "Gidugayon sa work sprint"
+msgstr "Gidugayon sa sprint sa trabaho"
 
 #: ui\components\modals.slint
 msgid "60 mins ▾"
@@ -206,7 +206,7 @@ msgstr "Petsa sa pagsugod"
 
 #: ui\components\space_widgets.slint
 msgid "Deadline"
-msgstr "Deadline"
+msgstr "Takdang petsa"
 
 #: ui\components\space_widgets.slint
 msgid "Add notes..."
@@ -326,7 +326,7 @@ msgstr "Importante, dili dinalian. Niining semanaha."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Later Today"
-msgstr "Buhata sa hapon karon"
+msgstr "Buhata unya karong adlawa"
 
 #: ui\screens\ai_panels.slint
 msgid "Needs doing today, after the first push."
@@ -366,7 +366,7 @@ msgstr "Mga session niining semanaha"
 
 #: ui\screens\insights_screen.slint
 msgid "Streak"
-msgstr "Streak"
+msgstr "Sunod-sunod nga mga adlaw"
 
 #: ui\screens\insights_screen.slint
 msgid "Weekly activity"
@@ -402,7 +402,7 @@ msgstr "Pili ang usa ka nota, o paghimo ug usa, aron magsugod sa pagsulat."
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus"
-msgstr "Focus"
+msgstr "Pagpokus"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Short Break"
@@ -490,7 +490,7 @@ msgstr "{} ka session nahuman"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Average focus: {}"
-msgstr "Average focus: {}"
+msgstr "Kasagarang oras sa pag-focus: {}"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Recent sessions"
@@ -518,7 +518,7 @@ msgstr "Mga setting sa timer"
 
 #: ui\screens\settings_screen.slint
 msgid "Manage the productivity timer."
-msgstr "Dumalaga sa productivity timer."
+msgstr "Pagdumala sa timer para sa produktibidad."
 
 #: ui\screens\settings_screen.slint
 msgid "Pomodoros"
@@ -526,11 +526,11 @@ msgstr "Pomodoro"
 
 #: ui\screens\settings_screen.slint
 msgid "Alternate focused work sprints with timed breaks."
-msgstr "Ilisdan ang focus work sprint ug timed nga pahulay."
+msgstr "Pag-ilis-ilisi ang mga yugto sa nakapokus nga trabaho ug mga pahulay nga gitakdan og oras."
 
 #: ui\screens\settings_screen.slint
 msgid "Work sprint"
-msgstr "Work sprint"
+msgstr "Sprint sa trabaho"
 
 #: ui\screens\settings_screen.slint
 msgid "{}min"
@@ -550,27 +550,27 @@ msgstr "Taas nga pahulay human sa"
 
 #: ui\screens\settings_screen.slint
 msgid "{} work sprints"
-msgstr "{} ka work sprint"
+msgstr "{} ka sprint sa trabaho"
 
 #: ui\screens\settings_screen.slint
 msgid "2 work sprints"
-msgstr "2 ka work sprint"
+msgstr "2 ka sprint sa trabaho"
 
 #: ui\screens\settings_screen.slint
 msgid "3 work sprints"
-msgstr "3 ka work sprint"
+msgstr "3 ka sprint sa trabaho"
 
 #: ui\screens\settings_screen.slint
 msgid "4 work sprints"
-msgstr "4 ka work sprint"
+msgstr "4 ka sprint sa trabaho"
 
 #: ui\screens\settings_screen.slint
 msgid "5 work sprints"
-msgstr "5 ka work sprint"
+msgstr "5 ka sprint sa trabaho"
 
 #: ui\screens\settings_screen.slint
 msgid "6 work sprints"
-msgstr "6 ka work sprint"
+msgstr "6 ka sprint sa trabaho"
 
 #: ui\screens\settings_screen.slint
 msgid "Start next task when ending a break early"

@@ -4,6 +4,7 @@
 //! Provides domain entities, encrypted storage, smart task parsing,
 //! focus timers, and native window management.
 
+pub mod ai;
 pub mod models;
 pub mod parser;
 pub mod repository;
