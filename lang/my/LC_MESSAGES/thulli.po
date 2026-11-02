@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "လုပ်ဆောင်ချက်"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "မှတ်စု"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "အစီရင်ခံစာများ"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "ကျွန်ုပ်၏စာရင်းများ"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "အာရုံပြတ်စေမှု ကာကွယ်ချက်"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "လက်ထောက်"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "နှစ်သက်စရာများ"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "စာရင်းအသစ် ဖန်တီးရန်"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "အလုပ်"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "ရှာရန်"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "အလုပ် သို့မဟုတ် မှတ်စု ရှာရန်..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "အလုပ်ထည့်ရန် (ဥပမာ 'Build auth 45m @today')..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "ဘာသာစကား ရိုက်ထည့်ပါ"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "ကိုက်ညီသော ဘာသာစကား မရှိပါ"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "စာရင်းအသစ် ဖန်တီးရန်"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "သင်္ကေတ တင်ရန်"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "ရွေးချယ်နိုင် (jpg၊ png၊ svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "စာရင်းအရောင် ရွေးရန်"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "စာရင်းအမည် (ဥပမာ အလုပ်၊ ကိုယ်ရေး)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "ပယ်ဖျက်ရန်"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "ဖန်တီးရန်"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "သင့်အလုပ်စဉ်ကို ကိုယ်ပိုင်ပြင်ဆင်ပါ"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "အချိန်"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "အချိန်ဇုန်"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "အာရုံစိုက်ချိန် ဆက်တင်များ"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "အချိန်ကန့်သတ် ကြိမ်ဆက်များ"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "အလုပ်ကာလ ကြာချိန်"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "60 မိနစ် ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "အနားယူချိန်"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "15 မိနစ် ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "ယနေ့"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "နေရာများ"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "ပိုမိုဒိုရို"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "အသိဉာဏ်"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "ဆက်တင်များ"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "ပြန်သတ်မှတ်ရန်"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "အလုပ်များ ရှာရန်"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "စာရင်းအသစ် ဖန်တီးရန်"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "ကျွန်ုပ်၏စာရင်းအားလုံး"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "သိမ်းထားသော စာရင်းများ"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "အာရုံစိုက်မှု & ကာကွယ်ချက်"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "အက်ပ်ကာကွယ်ချက်"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "မှတ်စုစာအုပ်"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "နေရာအမည်"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "အလုပ်ထည့်ရန်"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "မနက်ဖြန်"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "ရှင်းရန်"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "ခန့်မှန်းချိန်"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "စတင်ရက်"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "နောက်ဆုံးရက်"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "မှတ်စု ထည့်ရန်..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "သိမ်းရန်"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "ခွဲအလုပ်များ: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "ခွဲအလုပ်"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "ခွဲအလုပ်အမည်"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "{}/{} ပြီးပြီ"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "အလုပ်အမည် ရိုက်ထည့်ပါ"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "အလုပ်များ"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "ဒက်ရှ်ဘုတ်"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "အာရုံစိုက်မျှော်တိုင်"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "Pill HUD"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "AI ဖြင့် စီစဉ်ရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "ပြီးစေလိုသည်ကို ပြောပါ။ သိမ်းမီ ပြောင်းလဲမှုတိုင်းကို တွေ့ရပါမည်။"
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "ဆက်တင်တွင် OpenRouter API key ကို အရင်ထည့်ပါ။"
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "ဥပမာ- ယနေ့ အစီရင်ခံစာ ပြီးအောင်လုပ် (၂ နာရီ၊ ခွဲလုပ်)၊ မနက်ဖြန် ဘဏ်ကို ဖုန်းဆက်၊ ယခု အစီရင်ခံစာ စတင်ပါ။"
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "ပထမအလုပ်ကို ယခု စတင်ပါ"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "အဆိုပြုထားသော ပြောင်းလဲမှုများ"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "ပယ်ရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "အားလုံး သုံးရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "AI ရွေးချယ်မှု"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "အလုပ်များ စီရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "ပိုအရေးကြီး"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "ပိုအရေးနည်း"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "ပိုစောစော"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "ပိုနောက်ကျ"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "အမြန်ဆုံး လုပ်ရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "အရေးပေါ်ပြီး အရေးကြီး။ ယနေ့ ပထမ။"
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "အလယ်အပတ် လုပ်ရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "အရေးကြီးသော်လည်း အရေးပေါ်မဟုတ်။ ဤအပတ်။"
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "ယနေ့ နောက်ပိုင်း လုပ်ရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "ပထမတွန်းအား ပြီးနောက် ယနေ့ လုပ်ရန် လိုသည်။"
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "အဆုံးထိ ထားရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "အရေးပေါ်မှု သို့မဟုတ် တန်ဖိုးနည်းသည်။ နောက်ကျန်စာရင်း။"
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "နောက်သို့"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "ကျော်ရန်"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "1-4 စီရန် · S ကျော်ရန် · Backspace နောက်သို့ · Enter AI ရွေးချယ်မှု ယူရန် · Esc ပိတ်ရန်"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "ပြီးဆုံးသော အာရုံစိုက်ချိန်များ၊ ပြီးခဲ့သည့် ခုနစ်ရက်"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "ဤအပတ် အာရုံစိုက်ချိန်"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "ဤအပတ် အချိန်ဆက်များ"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "ဆက်တိုက်ရက်"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "အပတ်စဉ် လှုပ်ရှားမှု"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "အာရုံစိုက်ချိန် မှတ်တမ်း မရှိသေးပါ။"
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "အချိန်ဆက် မှတ်တမ်း"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "ပြီးဆုံးသော အာရုံစိုက်ချိန်များ ဤနေရာတွင် ပေါ်ပါမည်။"
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "အမြန်အတွေး နှင့် ရှည်သော ရေးသားချက်များ"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "မှတ်စုအသစ်"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "မှတ်စု မရှိသေးပါ။ ရေးစတင်ရန် တစ်ခု ဖန်တီးပါ။"
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "မှတ်စုတစ်ခု ရွေးပါ သို့မဟုတ် အသစ်ဖန်တီးပြီး ရေးစတင်ပါ။"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "အာရုံစိုက်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "တိုတောင်းသော အနားယူချိန်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "ရှည်သော အနားယူချိန်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "စိတ်ကြိုက်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "အချိန်ဆက် အမည်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "ယေဘုယျ အာရုံစိုက်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "မရှိ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "ပတ်ဝန်းကျင် အသံ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "Lo-fi"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "တောအုပ်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "မိုးသံ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "အလုပ်အားလုံး ကြည့်ရန်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "ထုတ်လုပ်နိုင်မှု"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "သင့်အာရုံစိုက်မှုကို တစ်ချက်ကြည့်ပါ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "နေ့"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "အပတ်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "လ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "နှစ်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "အချိန်ဆက်များ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "အာရုံစိုက်ချိန်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "အနှစ်ချုပ်"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "ပြီးဆုံးသော အချိန်ဆက် {} ခု"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "ပျမ်းမျှ အာရုံစိုက်မှု: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "မကြာသေးမီ အချိန်ဆက်များ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "ပြီးဆုံးသော အာရုံစိုက်ချိန်များ ဤနေရာတွင် ပေါ်ပါမည်။"
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "ဘာသာစကား"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "အက်ပ် ဘာသာစကား"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "ရွေးချယ်မှုသည် ချက်ချင်း အသက်ဝင်ပြီး ဤစက်တွင် သိမ်းထားသည်။"
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "တိုင်မာ ဆက်တင်များ"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "ထုတ်လုပ်မှု တိုင်မာကို စီမံရန်။"
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "ပိုမိုဒိုရို"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "အာရုံစိုက်လုပ်ငန်း ကာလများနှင့် အချိန်ကန့်သတ်အနားယူမှုများ။"
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "အလုပ်ကာလ"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} မိနစ်"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "တိုတောင်းသော အနားယူချိန်"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "ရှည်သော အနားယူချိန်"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "ရှည်သော အနားယူချိန် နောက်မှ"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "အလုပ်ကာလ {} ခု"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "အလုပ်ကာလ ၂ ခု"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "အလုပ်ကာလ ၃ ခု"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "အလုပ်ကာလ ၄ ခု"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "အလုပ်ကာလ ၅ ခု"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "အလုပ်ကာလ ၆ ခု"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "အနားယူချိန် စောစောပြီးလျှင် နောက်အလုပ်ကို စတင်ရန်"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "နောက်အဆင့်ကို အလိုအလျောက် စတင်ရန်"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "အလုပ်များ: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "ပြီးဆုံးသော အလုပ်များ ဤနေရာသို့ ရောက်မည်။"
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "အလုပ်မရှိသေးပါ။ Matrix Review မှ တစ်ခုထည့်ပါ။"
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "ဤနေရာတွင် စောင့်ဆိုင်းနေသည် မရှိပါ"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "Matrix Review"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "အရောင်အစက်များဖြင့် အလုပ်တစ်ခုချင်းစီကို စီပါ၊ သို့မဟုတ် တစ်ခုချင်း စီပါ။"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "တစ်ခုချင်း စီရန် · {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "မစီထားသော"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "အချိန်မသတ်မှတ်ရသေး"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "အလုပ်အောက်ရှိ ရက်တစ်ရက်ကို ရွေး၍ စီစဉ်ပါ။"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{} {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "အားလုံး စီစဉ်ပြီးပါပြီ။"
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "အပတ်စဉ် အချိန်ဇယား"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "စီစဉ်မှု ဖြုတ်ရန်"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "ထည့်ရန်"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "နေရာများ"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "ဘုတ်"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "Matrix"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "ပြက္ခဒိန်"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "ပထမနေရာ ဖန်တီးပါ"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "နေရာများသည် သင့်အလုပ်များအတွက် အိမ်ဖြစ်စေပါသည်။ ရွေ့လျားစေလိုသော ပရောဂျက်၊ ပန်းတိုင် သို့မဟုတ် နယ်ပယ်တစ်ခုဖြင့် စတင်ပါ။"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "နေရာ ဖန်တီးရန်"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "တည်းဖြတ်ရန်"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "ယနေ့ အာရုံစိုက်မှု: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "ယနေ့ စီစဉ်ထားသော အရာများ"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "ယနေ့ စီစဉ်ထားခြင်း မရှိပါ။ နေရာများ စခရင်တွင် အလုပ်ထည့်ပါ။"
+

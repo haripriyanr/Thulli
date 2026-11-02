@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "Toiming"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "Märkmed"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "Aruanded"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "Sinu loendid"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "Häirekaitse"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "Assistent"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "Eelistused"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "LOO LOEND"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "Ülesanne"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "Otsi"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "Otsi ülesandeid või märkmeid..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "Lisa ülesanne (nt 'Koosta autentimine 45m @today')..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "Sisesta keel"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "Ükski keel ei sobi"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "Loo uus loend"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "LAADI IKOON ÜLES"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "Valikuline (jpg, png, svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "Vali loendi värv"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "Loendi nimi (nt Töö, Isiklik)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "Tühista"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "Loo"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "Kohanda oma töövoogu isiklikuks kogemuseks"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "Aeg"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "Ajavöönd"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "Fookusseansi seaded"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "Ajastatud seansid"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "Töösessiooni kestus"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "60 min ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "Pausi kestus"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "15 min ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "Täna"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "Alad"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "Pomodoro"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "Ülevaated"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "Seaded"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "Lähtesta"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "Otsi ülesandeid"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "Loo uus loend"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "Kõik minu loendid"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "Arhiveeritud loendid"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "FOKUS JA KAITSE"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "Rakenduse kaitse"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "Visandusala"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "Ala nimi"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "Lisa ülesanne"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "Homme"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "Tühjenda"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "Hinnang"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "Alguskuupäev"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "Tähtaeg"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "Lisa märkmeid..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "Salvesta"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "Alamülesanded: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "Alamülesanne"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "Alamülesande nimi"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "{}/{} tehtud"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "Sisesta ülesande nimi"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "Ülesanded"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "Töölaud"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "Fookustorn"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "Pill HUD"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "Planeeri tehisintellektiga"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "Ütle, mida pead tegema. Enne salvestamist näed iga muudatust."
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "Lisa esmalt seadetes OpenRouteri API-võti."
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "Nt Valmista aruanne täna valmis (2 h, jaga osadeks), helista homme pangale ja alusta kohe aruandega."
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "Alusta esimese ülesandega kohe"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "Pakutud muudatused"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "Loobu"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "Rakenda kõik"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "Tehisintellekti valik"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "Sorteeri ülesanded"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "Olulisem"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "Vähem oluline"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "Varem"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "Hiljem"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "Tee kohe"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "Kiire ja oluline. Täna, esimesena."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "Tee nädala keskel"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "Oluline, kuid mitte kiire. Sel nädalal."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "Tee täna hiljem"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "Tuleb täna teha esimese järel."
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "Jäta lõppu"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "Väike kiireloomulisus või väärtus. Ootel."
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "Tagasi"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "Jäta vahele"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "1-4 sorteeri  ·  S jäta vahele  ·  Backspace tagasi  ·  Enter võtab tehisintellekti valiku  ·  Esc sulge"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "Lõpetatud fookusseansid viimase seitsme päeva jooksul"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "Fookus sel nädalal"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "Seansid sel nädalal"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "Järjestikused päevad"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "Nädala tegevus"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "Fookusaega pole veel salvestatud."
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "Seansside ajalugu"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "Lõpetatud fookusseansid ilmuvad siia."
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "Kiired mõtted ja pikemad kirjutised"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "Uus märge"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "Märkmeid pole veel. Loo üks, et alustada kirjutamist."
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "Vali märge või loo uus, et alustada kirjutamist."
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "Fookus"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "Lühike paus"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "Pikk paus"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "Kohandatud"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "Seansi nimi"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "Üldine fookus"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "Puudub"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "Taustahelid"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "Lo-fi"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "Mets"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "Vihm"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "Vaata kõiki ülesandeid"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "Tootlikkus"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "Fookus ühes vaates"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "Päev"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "Nädal"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "Kuu"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "Aasta"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "Seansid"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "Fookusaeg"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "Kokkuvõte"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "{} seanssi lõpetatud"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "Keskmine fookus: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "Hiljutised seansid"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "Lõpetatud fookusseansid ilmuvad siia."
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "Keel"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "Rakenduse keel"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "Valik rakendub kohe ja salvestatakse sellesse seadmesse."
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "Taimeri seaded"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "Halda tootlikkuse taimerit."
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "Pomodorod"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "Vaheldumisi keskendunud töösessioonid ja ajastatud pausid."
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "Töösessioon"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} min"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "Lühike paus"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "Pikk paus"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "Pikk paus pärast"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "{} töösessiooni"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "2 töösessiooni"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "3 töösessiooni"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "4 töösessiooni"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "5 töösessiooni"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "6 töösessiooni"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "Alusta järgmist ülesannet, kui paus lõpetatakse enne aega"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "Alusta järgmist etappi automaatselt"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "Ülesandeid: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "Lõpetatud ülesanded jõuavad siia."
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "Ülesandeid pole veel. Lisa üks Maatriksi ülevaatest."
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "Siin ootamas pole midagi"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "Maatriksi ülevaade"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "Sorteeri iga ülesanne värviliste täppide abil või ükshaaval."
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "Sorteeri ükshaaval  ·  {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "Sorteerimata"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "Ajastamata"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "Planeerimiseks vali ülesande all päev."
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{}  {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "Kõik on planeeritud."
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "Nädala ajakava"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "Eemalda plaanist"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "Lisa"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "ALAD"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "Tahvel"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "Maatriks"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "Kalender"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "Loo esimene ala"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "Alad annavad ülesannetele kindla koha. Alusta ühe projekti, eesmärgi või valdkonnaga, mida soovid edendada."
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "Loo ala"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "Muuda"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "Täna fookuses: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "Täna planeeritud"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "Täna pole midagi planeeritud. Lisa ülesandeid alade ekraanil."
+

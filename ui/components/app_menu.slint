@@ -57,11 +57,11 @@ export component ThulliAppMenu inherits Rectangle {
         padding: 6px;
         spacing: 0px;
 
-        ThulliMenuRow { text: "Notes"; icon-kind: "notes"; clicked => { root.chosen("notes"); } }
-        ThulliMenuRow { text: "Reports"; icon-kind: "reports"; clicked => { root.chosen("reports"); } }
-        ThulliMenuRow { text: "Your lists"; icon-kind: "lists"; clicked => { root.chosen("lists"); } }
-        ThulliMenuRow { text: "Distraction shield"; icon-kind: "shield"; clicked => { root.chosen("shield"); } }
-        ThulliMenuRow { text: "Assistant"; icon-kind: "assistant"; clicked => { root.chosen("assistant"); } }
-        ThulliMenuRow { text: "Preferences"; icon-kind: "preferences"; clicked => { root.chosen("preferences"); } }
+        ThulliMenuRow { text: @tr("Notes"); icon-kind: "notes"; clicked => { root.chosen("notes"); } }
+        ThulliMenuRow { text: @tr("Reports"); icon-kind: "reports"; clicked => { root.chosen("reports"); } }
+        ThulliMenuRow { text: @tr("Your lists"); icon-kind: "lists"; clicked => { root.chosen("lists"); } }
+        ThulliMenuRow { text: @tr("Distraction shield"); icon-kind: "shield"; clicked => { root.chosen("shield"); } }
+        ThulliMenuRow { text: @tr("Assistant"); icon-kind: "assistant"; clicked => { root.chosen("assistant"); } }
+        ThulliMenuRow { text: @tr("Preferences"); icon-kind: "preferences"; clicked => { root.chosen("preferences"); } }
     }
 }

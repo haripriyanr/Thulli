@@ -26,7 +26,7 @@ export component ThulliSearchBar inherits Rectangle {
                 y: 12px;
             }
             Text {
-                text: "Search tasks or notes...";
+                text: @tr("Search tasks or notes...");
                 font-size: 13px;
                 color: Theme.text-muted;
                 vertical-alignment: center;
@@ -56,7 +56,7 @@ export component ThulliSearchBar inherits Rectangle {
 /// ThulliTaskInput — Reusable smart task composer with integrated submit button
 export component ThulliTaskInput inherits HorizontalLayout {
     in-out property <string> text <=> input.text;
-    in property <string> placeholder: "Add task (e.g. 'Build auth 45m @today')...";
+    in property <string> placeholder: @tr("Add task (e.g. 'Build auth 45m @today')...");
     callback submitted(string);
 
     spacing: 8px;

@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "الإجراء"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "ملاحظات"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "التقارير"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "قوائمك"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "درع التشتيت"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "المساعد"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "التفضيلات"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "إنشاء قائمة"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "مهمة"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "بحث"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "ابحث عن المهام أو الملاحظات..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "أضف مهمة (مثال: 'بناء المصادقة 45m @today')..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "اكتب اسم لغة"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "لا توجد لغة مطابقة"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "إنشاء قائمة جديدة"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "رفع أيقونة"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "اختياري (jpg، png، svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "اختر لون القائمة"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "اسم القائمة (مثل: العمل، شخصي)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "إلغاء"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "إنشاء"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "خصّص سير عملك لتجربة مخصصة"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "الوقت"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "المنطقة الزمنية"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "إعدادات جلسة التركيز"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "الجلسات الموقوتة"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "مدة جلسة العمل"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "٦٠ دقيقة ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "مدة الاستراحة"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "١٥ دقيقة ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "اليوم"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "المساحات"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "بومودورو"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "الرؤى"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "الإعدادات"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "إعادة تعيين"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "ابحث عن المهام"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "إنشاء قائمة جديدة"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "جميع قوائمي"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "القوائم المؤرشفة"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "التركيز والدرع"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "درع التطبيقات"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "ورقة الملاحظات"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "اسم المساحة"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "أضف مهمة"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "غدًا"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "مسح"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "التقدير"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "تاريخ التنفيذ"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "الموعد النهائي"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "أضف ملاحظات..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "حفظ"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "المهام الفرعية: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "مهمة فرعية"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "اسم المهمة الفرعية"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "{}/{} منجز"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "أدخل اسم المهمة"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "المهام"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "لوحة المعلومات"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "برج التركيز"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "شريط الحالة العائم"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "خطّط بالذكاء الاصطناعي"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "قل ما تحتاج إنجازه. سترى كل تغيير قبل حفظ أي شيء."
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "أضف مفتاح واجهة OpenRouter في الإعدادات أولًا."
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "مثال: أنجز التقرير اليوم (ساعتان، قسّمها)، واتصل بالبنك غدًا، وابدأ التقرير الآن."
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "ابدأ المهمة الأولى الآن"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "التغييرات المقترحة"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "تجاهل"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "تطبيق الكل"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "اختيار الذكاء الاصطناعي"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "ترتيب المهام"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "أكثر أهمية"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "أقل أهمية"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "أبكر"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "لاحقًا"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "أنجزها فورًا"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "عاجلة ومهمة. اليوم، أولًا."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "أنجزها منتصف الأسبوع"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "مهمة، وغير عاجلة. هذا الأسبوع."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "أنجزها لاحقًا اليوم"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "تحتاج إنجازًا اليوم، بعد الدفعة الأولى."
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "اتركها للنهاية"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "عاجلة أو قيمتها منخفضة. قائمة الانتظار."
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "رجوع"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "تخطٍّ"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "١-٤ للترتيب  ·  S للتخطي  ·  Backspace للرجوع  ·  Enter لاختيار الذكاء الاصطناعي  ·  Esc للإغلاق"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "جلسات التركيز المكتملة، آخر سبعة أيام"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "تركيز هذا الأسبوع"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "جلسات هذا الأسبوع"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "سلسلة الأيام"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "النشاط الأسبوعي"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "لم يُسجَّل وقت تركيز بعد."
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "سجل الجلسات"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "تظهر هنا جلسات التركيز المنتهية."
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "أفكار سريعة وكتابات أطول"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "ملاحظة جديدة"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "لا توجد ملاحظات بعد. أنشئ واحدة لبدء الكتابة."
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "اختر ملاحظة أو أنشئ واحدة لبدء الكتابة."
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "التركيز"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "استراحة قصيرة"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "استراحة طويلة"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "مخصص"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "اسم الجلسة"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "تركيز عام"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "لا شيء"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "صوت محيطي"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "لو-فاي"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "غابة"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "مطر"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "عرض كل المهام"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "الإنتاجية"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "تركيزك في لمحة"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "يوم"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "أسبوع"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "شهر"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "سنة"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "الجلسات"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "وقت التركيز"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "الملخص"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "اكتملت {} جلسة"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "متوسط التركيز: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "الجلسات الأخيرة"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "تظهر هنا جلسات التركيز المنتهية."
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "اللغة"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "لغة التطبيق"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "يُطبَّق الاختيار فورًا ويُحفظ على هذا الجهاز."
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "إعدادات المؤقت"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "أدر مؤقت الإنتاجية."
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "جلسات بومودورو"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "تناوب بين جلسات العمل المركزة والاستراحات الموقوتة."
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "جلسة عمل"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} دقيقة"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "استراحة قصيرة"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "استراحة طويلة"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "استراحة طويلة بعد"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "{} جلسات عمل"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "٢ جلسات عمل"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "٣ جلسات عمل"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "٤ جلسات عمل"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "٥ جلسات عمل"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "٦ جلسات عمل"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "ابدأ المهمة التالية عند إنهاء الاستراحة مبكرًا"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "ابدأ المرحلة التالية تلقائيًا"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "المهام: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "تظهر هنا المهام المنجزة."
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "لا توجد مهام بعد. أضف واحدة من مراجعة المصفوفة."
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "لا شيء ينتظر هنا"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "مراجعة المصفوفة"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "رتّب كل مهمة بالنقاط الملونة، أو واحدة تلو الأخرى."
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "رتّب واحدة تلو الأخرى  ·  {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "غير مرتبة"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "غير مجدولة"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "اختر يومًا تحت المهمة لتخطيطها."
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{}  {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "تمت كل الخطط."
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "الجدول الأسبوعي"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "إلغاء الجدولة"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "إضافة"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "المساحات"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "لوحة"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "المصفوفة"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "التقويم"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "أنشئ مساحتك الأولى"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "تمنح المساحات مهامك مكانًا حقيقيًا. ابدأ بمشروع أو هدف أو مجال تريد المضي فيه."
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "إنشاء مساحة"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "تعديل"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "التركيز اليوم: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "مخطط لليوم"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "لا شيء مخطط لليوم. أضف المهام من شاشة المساحات."
+

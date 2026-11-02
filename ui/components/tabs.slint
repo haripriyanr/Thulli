@@ -60,19 +60,19 @@ export component ThulliTabPill inherits Rectangle {
         alignment: center;
 
         ThulliTab {
-            text: "Today";
+            text: @tr("Today");
             icon-kind: "today";
             selected: root.current == "today";
             clicked => { root.selected("today"); }
         }
         ThulliTab {
-            text: "Tasks";
+            text: @tr("Tasks");
             icon-kind: "tasks";
             selected: root.current == "tasks";
             clicked => { root.selected("tasks"); }
         }
         ThulliTab {
-            text: "Insights";
+            text: @tr("Insights");
             icon-kind: "insights";
             selected: root.current == "insights";
             clicked => { root.selected("insights"); }

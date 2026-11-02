@@ -15,7 +15,7 @@ export struct SearchHitModel {
 /// bound. `changed` fires on every edit so the owner can refresh results.
 export component ThulliSearchField inherits Rectangle {
     in-out property <string> text;
-    in property <string> placeholder: "Search tasks";
+    in property <string> placeholder: @tr("Search tasks");
     callback changed(string);
 
     height: 34px;

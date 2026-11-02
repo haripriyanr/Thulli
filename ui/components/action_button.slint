@@ -7,7 +7,7 @@ import { Theme } from "../theme.slint";
 ///
 ///   ThulliActionButton { text: "Start session"; clicked => { ... } IconPlay { } }
 export component ThulliActionButton inherits TouchArea {
-    in property <string> text: "Action";
+    in property <string> text: @tr("Action");
     in property <color> accent: Theme.accent-cyan;
     in property <length> font-size: 12px;
 

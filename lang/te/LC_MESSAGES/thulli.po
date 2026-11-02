@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "పని"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "గమనికలు"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "నివేదికలు"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "మీ జాబితాలు"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "దృష్టి మళ్లింపుల నుంచి రక్షణ"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "సహాయకుడు"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "ప్రాధాన్యతలు"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "జాబితాను సృష్టించు"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "పని"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "వెతుకు"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "పనులు లేదా గమనికల కోసం వెతుకు..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "పని జోడించు (ఉదా. 'లాగిన్ తయారు చేయి 45m @today')..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "ఒక భాష టైప్ చేయండి"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "ఏ భాషా సరిపోలలేదు"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "కొత్త జాబితాను సృష్టించు"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "చిహ్నాన్ని అప్‌లోడ్ చేయి"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "ఐచ్ఛికం (jpg, png, svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "జాబితా రంగును ఎంచుకోండి"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "జాబితా పేరు (ఉదా. పని, వ్యక్తిగతం)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "రద్దు చేయి"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "సృష్టించు"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "మీ అనుభవానికి తగ్గట్టుగా పని తీరును అమర్చుకోండి"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "సమయం"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "టైమ్‌జోన్"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "ఫోకస్ సెషన్ సెట్టింగ్‌లు"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "సమయ పరిమిత సెషన్లు"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "పని సెషన్ వ్యవధి"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "60 నిమిషాలు ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "విరామ వ్యవధి"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "15 నిమిషాలు ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "ఈరోజు"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "స్పేస్‌లు"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "పోమోడోరో"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "ఇన్‌సైట్స్"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "సెట్టింగ్‌లు"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "రీసెట్"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "పనులను వెతుకు"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "కొత్త జాబితాను సృష్టించు"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "నా అన్ని జాబితాలు"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "ఆర్కైవ్ చేసిన జాబితాలు"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "ఫోకస్ & షీల్డ్"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "యాప్ షీల్డ్"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "స్క్రాచ్‌ప్యాడ్"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "స్పేస్ పేరు"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "పని జోడించు"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "రేపు"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "క్లియర్ చేయి"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "అంచనా"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "చేయవలసిన తేదీ"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "గడువు"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "నోట్స్ జోడించు..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "సేవ్ చేయి"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "ఉప-పనులు: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "ఉప-పని"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "ఉప-పని పేరు"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "{}/{} పూర్తయ్యాయి"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "మీ పని పేరును నమోదు చేయండి"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "పనులు"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "డాష్‌బోర్డ్"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "ఫోకస్ టవర్"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "పిల్ HUD"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "AIతో ప్లాన్ చేయి"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "మీరు పూర్తి చేయాల్సినవి చెప్పండి. ఏదైనా సేవ్ అయ్యే ముందు ప్రతి మార్పును మీరు చూస్తారు."
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "ముందుగా సెట్టింగ్‌లలో OpenRouter API కీని జోడించండి."
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "ఉదా. ఈరోజు నివేదిక పూర్తి చేయండి (2 గంటలు, భాగాలుగా చేయండి), రేపు బ్యాంకుకు ఫోన్ చేయండి, ఇప్పుడే నివేదిక మొదలుపెట్టండి."
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "మొదటి పనిని ఇప్పుడే ప్రారంభించు"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "ప్రతిపాదించిన మార్పులు"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "తీసివేయి"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "అన్నీ వర్తింపజేయి"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "AI ఎంపిక"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "పనులను క్రమబద్ధీకరించు"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "ఎక్కువ ముఖ్యం"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "తక్కువ ముఖ్యం"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "త్వరగా"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "తర్వాత"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "వెంటనే చేయి"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "అత్యవసరం, ముఖ్యం. ఈరోజు, ముందుగా."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "వారం మధ్యలో చేయి"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "ముఖ్యం, కానీ అత్యవసరం కాదు. ఈ వారం."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "ఈరోజు తర్వాత చేయి"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "ఈరోజే చేయాలి, మొదటి పుష్ తర్వాత."
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "చివరి వరకు వదిలేయి"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "తక్కువ అత్యవసరం లేదా తక్కువ విలువ. బ్యాక్‌లాగ్."
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "వెనక్కి"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "దాటవేయి"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "1-4 క్రమబద్ధీకరించు · S దాటవేయి · Backspace వెనక్కి · Enter AI ఎంపిక తీసుకో · Esc మూసివేయి"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "గత ఏడు రోజుల్లో పూర్తైన ఫోకస్ సెషన్లు"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "ఈ వారం ఫోకస్"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "ఈ వారం సెషన్లు"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "వరుస రోజులు"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "వారపు కార్యకలాపం"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "ఇంకా ఫోకస్ సమయం నమోదు కాలేదు."
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "సెషన్ చరిత్ర"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "పూర్తైన ఫోకస్ సెషన్లు ఇక్కడ కనిపిస్తాయి."
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "త్వరిత ఆలోచనలు, పొడవైన రచనలు"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "కొత్త నోట్"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "ఇంకా నోట్స్ లేవు. రాయడం మొదలుపెట్టడానికి ఒకటి సృష్టించండి."
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "రాయడం మొదలుపెట్టడానికి ఒక నోట్‌ను ఎంచుకోండి లేదా సృష్టించండి."
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "ఫోకస్"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "చిన్న విరామం"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "పెద్ద విరామం"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "అనుకూలం"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "సెషన్ పేరు"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "సాధారణ ఫోకస్"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "ఏదీ కాదు"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "పరిసర ధ్వని"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "లో-ఫై"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "అడవి"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "వర్షం"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "అన్ని పనులు చూడు"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "ఉత్పాదకత"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "ఒక చూపులో మీ ఫోకస్"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "రోజు"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "వారం"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "నెల"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "సంవత్సరం"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "సెషన్లు"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "ఫోకస్ సమయం"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "సారాంశం"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "{} సెషన్లు పూర్తయ్యాయి"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "సగటు ఫోకస్: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "ఇటీవలి సెషన్లు"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "పూర్తైన ఫోకస్ సెషన్లు ఇక్కడ చూపబడతాయి."
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "భాష"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "యాప్ భాష"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "ఎంపిక వెంటనే వర్తిస్తుంది మరియు ఈ పరికరంలో సేవ్ అవుతుంది."
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "టైమర్ సెట్టింగ్‌లు"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "ఉత్పాదకత టైమర్‌ను నిర్వహించండి."
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "పోమోడోరో"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "సమయ పరిమిత విరామాలతో ఫోకస్డ్ పని సెషన్లను మార్చి మార్చి చేయండి."
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "పని సెషన్"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} నిమి"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "చిన్న విరామం"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "పెద్ద విరామం"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "దీని తర్వాత పెద్ద విరామం"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "{} పని సెషన్లు"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "2 పని సెషన్లు"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "3 పని సెషన్లు"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "4 పని సెషన్లు"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "5 పని సెషన్లు"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "6 పని సెషన్లు"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "విరామాన్ని ముందుగా ముగించినప్పుడు తదుపరి పనిని ప్రారంభించు"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "తదుపరి దశను స్వయంచాలకంగా ప్రారంభించు"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "పనులు: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "పూర్తైన పనులు ఇక్కడికి వస్తాయి."
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "ఇంకా పనులు లేవు. మ్యాట్రిక్స్ సమీక్ష నుంచి ఒకటి క్రమబద్ధీకరించండి."
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "ఇక్కడ ఏదీ వేచి ఉండటం లేదు"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "మ్యాట్రిక్స్ సమీక్ష"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "రంగు చుక్కలతో ప్రతి పనిని క్రమబద్ధీకరించండి, లేదా ఒక్కొక్కటిగా."
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "ఒక్కొక్కటిగా క్రమబద్ధీకరించు · {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "క్రమబద్ధీకరించనివి"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "షెడ్యూల్ చేయలేదు"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "ప్లాన్ చేయడానికి పని కింద ఒక రోజును ఎంచుకోండి."
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{} {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "అన్నీ ప్లాన్ చేయబడ్డాయి."
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "వారపు షెడ్యూల్"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "ప్లాన్ తీసివేయి"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "జోడించు"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "స్పేస్‌లు"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "బోర్డ్"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "మ్యాట్రిక్స్"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "క్యాలెండర్"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "మీ మొదటి స్పేస్‌ను సృష్టించండి"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "స్పేస్‌లు మీ పనులకు నిజమైన నివాసాన్ని ఇస్తాయి. మీరు ముందుకు తీసుకెళ్లాలనుకునే ఒక ప్రాజెక్ట్, లక్ష్యం లేదా ప్రాంతంతో ప్రారంభించండి."
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "ఒక స్పేస్‌ను సృష్టించండి"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "సవరించు"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "ఈరోజు ఫోకస్: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "ఈరోజు ప్లాన్"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "ఈరోజుకు ప్లాన్ చేసినది ఏదీ లేదు. స్పేస్‌ల స్క్రీన్‌లో పనులను జోడించండి."
+

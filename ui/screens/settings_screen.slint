@@ -53,10 +53,10 @@ export component SettingsScreen inherits Rectangle {
             spacing: 18px;
             alignment: start;
 
-            Text { text: "Settings"; font-size: 28px; font-weight: 700; color: Theme.text-primary; }
+            Text { text: @tr("Settings"); font-size: 28px; font-weight: 700; color: Theme.text-primary; }
 
             SettingsSection {
-                title: "Language";
+                title: @tr("Language");
                 caption: "";
                 HorizontalLayout {
                     spacing: 14px;
@@ -65,8 +65,8 @@ export component SettingsScreen inherits Rectangle {
                     SettingRow {
                         horizontal-stretch: 1;
                         strong: true;
-                        label: "App language";
-                        hint: "Choice applies immediately and is saved on this device.";
+                        label: @tr("App language");
+                        hint: @tr("Choice applies immediately and is saved on this device.");
                         LanguagePicker { width: 280px; }
                     }
                 }
@@ -134,8 +134,8 @@ export component SettingsScreen inherits Rectangle {
             }
 
             SettingsSection {
-                title: "Timer settings";
-                caption: "Manage the productivity timer.";
+                title: @tr("Timer settings");
+                caption: @tr("Manage the productivity timer.");
 
                 // Pomodoros: breaks on or off, with the cycle under it.
                 HorizontalLayout {
@@ -145,8 +145,8 @@ export component SettingsScreen inherits Rectangle {
                     SettingRow {
                         horizontal-stretch: 1;
                         strong: true;
-                        label: "Pomodoros";
-                        hint: "Alternate focused work sprints with timed breaks.";
+                        label: @tr("Pomodoros");
+                        hint: @tr("Alternate focused work sprints with timed breaks.");
                         Switch { on: AppData.setting-breaks; toggled(on) => { AppData.set-setting-flag("pomodoro_breaks", on); } }
                     }
                 }
@@ -158,11 +158,11 @@ export component SettingsScreen inherits Rectangle {
                     VerticalLayout {
                         horizontal-stretch: 1;
                         SettingRow {
-                            label: "Work sprint";
+                            label: @tr("Work sprint");
                             info: "Length of one focus round";
                             SelectBox {
                                 current: AppData.setting-focus-mins;
-                                label: "\{AppData.setting-focus-mins}min";
+                                label: @tr("{}min", AppData.setting-focus-mins);
                                 options: [
                                     { label: "15min", value: 15 }, { label: "20min", value: 20 }, { label: "25min", value: 25 },
                                     { label: "30min", value: 30 }, { label: "40min", value: 40 }, { label: "45min", value: 45 },
@@ -173,11 +173,11 @@ export component SettingsScreen inherits Rectangle {
                             }
                         }
                         if AppData.setting-breaks: SettingRow {
-                            label: "Short break";
+                            label: @tr("Short break");
                             info: "Break after each focus round";
                             SelectBox {
                                 current: AppData.setting-short-mins;
-                                label: "\{AppData.setting-short-mins}min";
+                                label: @tr("{}min", AppData.setting-short-mins);
                                 options: [
                                     { label: "3min", value: 3 }, { label: "5min", value: 5 }, { label: "10min", value: 10 },
                                     { label: "15min", value: 15 }, { label: "20min", value: 20 },
@@ -186,11 +186,11 @@ export component SettingsScreen inherits Rectangle {
                             }
                         }
                         if AppData.setting-breaks: SettingRow {
-                            label: "Long break";
+                            label: @tr("Long break");
                             info: "Longer break at the end of a cycle";
                             SelectBox {
                                 current: AppData.setting-long-mins;
-                                label: "\{AppData.setting-long-mins}min";
+                                label: @tr("{}min", AppData.setting-long-mins);
                                 options: [
                                     { label: "10min", value: 10 }, { label: "15min", value: 15 }, { label: "20min", value: 20 },
                                     { label: "25min", value: 25 }, { label: "30min", value: 30 },
@@ -199,16 +199,16 @@ export component SettingsScreen inherits Rectangle {
                             }
                         }
                         if AppData.setting-breaks: SettingRow {
-                            label: "Long break after";
+                            label: @tr("Long break after");
                             info: "Focus rounds before the long break";
                             SelectBox {
                                 width: 230px;
                                 current: AppData.setting-rounds;
-                                label: "\{AppData.setting-rounds} work sprints";
+                                label: @tr("{} work sprints", AppData.setting-rounds);
                                 options: [
-                                    { label: "2 work sprints", value: 2 }, { label: "3 work sprints", value: 3 },
-                                    { label: "4 work sprints", value: 4 }, { label: "5 work sprints", value: 5 },
-                                    { label: "6 work sprints", value: 6 },
+                                    { label: @tr("2 work sprints"), value: 2 }, { label: @tr("3 work sprints"), value: 3 },
+                                    { label: @tr("4 work sprints"), value: 4 }, { label: @tr("5 work sprints"), value: 5 },
+                                    { label: @tr("6 work sprints"), value: 6 },
                                 ];
                                 selected(v) => { AppData.set-setting("pomodoro_rounds", v); }
                             }
@@ -216,12 +216,12 @@ export component SettingsScreen inherits Rectangle {
                     }
                 }
                 SettingRow {
-                    label: "Start next task when ending a break early";
+                    label: @tr("Start next task when ending a break early");
                     info: "Skipping a break links the next Today task and starts it";
                     Switch { on: AppData.setting-start-next; toggled(on) => { AppData.set-setting-flag("start_next_after_early_break", on); } }
                 }
                 SettingRow {
-                    label: "Start the next phase automatically";
+                    label: @tr("Start the next phase automatically");
                     info: "Keep the timer running when a phase ends";
                     Switch { on: AppData.setting-auto-advance; toggled(on) => { AppData.set-auto-advance(on); } }
                 }

@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "Әрекет"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "Жазбалар"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "Есептер"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "Менің тізімдерім"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "Назар аудару қорғанысы"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "Көмекші"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "Баптаулар"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "ТІЗІМ ҚҰРУ"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "Тапсырма"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "Іздеу"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "Тапсырмалар немесе жазбаларды іздеу..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "Тапсырма қосу (мысалы, 'Auth жасау 45m @today')..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "Тіл атауын теріңіз"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "Сәйкес тіл жоқ"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "Жаңа тізім құру"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "БЕЛГІШЕ ЖҮКТЕУ"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "Міндетті емес (jpg, png, svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "Тізім түсін таңдау"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "Тізім атауы (мысалы, Жұмыс, Жеке)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "Бас тарту"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "Құру"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "Жұмыс ағымын өзіңізге ыңғайлы етіп баптаңыз"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "Уақыт"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "Уақыт белдеуі"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "Фокус сессиясының баптаулары"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "Уақытпен сессиялар"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "Жұмыс сессиясының ұзақтығы"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "60 минут ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "Үзіліс ұзақтығы"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "15 минут ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "Бүгін"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "Кеңістіктер"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "Помодоро"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "Талдау"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "Баптаулар"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "Қалпына келтіру"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "Тапсырмаларды іздеу"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "Жаңа тізім құру"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "Менің барлық тізімдерім"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "Мұрағатталған тізімдер"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "ФОКУС ЖӘНЕ ҚОРҒАНЫС"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "Қолданба қорғанысы"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "Жазба тақтасы"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "Кеңістік атауы"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "Тапсырма қосу"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "Ертең"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "Тазарту"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "Болжам"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "Бастау күні"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "Мерзімі"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "Жазба қосу..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "Сақтау"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "Ішкі тапсырмалар: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "Ішкі тапсырма"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "Ішкі тапсырма атауы"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "{}/{} орындалды"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "Тапсырма атауын енгізіңіз"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "Тапсырмалар"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "Басқару тақтасы"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "Фокус мұнарасы"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "Pill HUD"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "AI көмегімен жоспарлау"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "Не орындау керек екенін айтыңыз. Сақтамас бұрын әр өзгерісті көресіз."
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "Алдымен Баптаулардан OpenRouter API кілтін қосыңыз."
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "Мысалы: бүгін есепті аяқтау (2 сағат, бөлу), ертең банкке қоңырау шалу, және есепті қазір бастау."
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "Бірінші тапсырманы қазір бастау"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "Ұсынылған өзгерістер"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "Болдырмау"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "Барлығын қолдану"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "AI таңдауы"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "Тапсырмаларды сұрыптау"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "Маңыздырақ"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "Маңыздылығы төмен"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "Ертерек"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "Кешірек"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "Қазір жасау"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "Шұғыл әрі маңызды. Бүгін, алдымен."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "Апта ортасында жасау"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "Маңызды, бірақ шұғыл емес. Осы аптада."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "Бүгін кейінірек жасау"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "Бүгін, бірінші итерациядан кейін орындалуы керек."
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "Соңына қалдыру"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "Шұғылдығы немесе құндылығы төмен. Кейінге қалдыру тізімі."
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "Артқа"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "Өткізу"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "1-4 сұрыптау · S өткізу · Backspace артқа · Enter AI таңдауын алу · Esc жабу"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "Соңғы жеті күндегі аяқталған фокус сессиялары"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "Осы аптадағы фокус"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "Осы аптадағы сессиялар"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "Қатарынан күндер"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "Апталық белсенділік"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "Фокус уақыты әлі жазылмаған."
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "Сессиялар тарихы"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "Аяқталған фокус сессиялары осында көрсетіледі."
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "Жылдам ойлар мен ұзақ мәтіндер"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "Жаңа жазба"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "Жазбалар әлі жоқ. Жазуды бастау үшін бірін жасаңыз."
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "Жазуды бастау үшін жазбаны таңдаңыз немесе жаңасын жасаңыз."
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "Фокус"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "Қысқа үзіліс"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "Ұзақ үзіліс"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "Теңшелетін"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "Сессия атауы"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "Жалпы фокус"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "Жоқ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "Қоршаған дыбыс"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "Lo-fi"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "Орман"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "Жаңбыр"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "Барлық тапсырмаларды көру"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "Өнімділік"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "Фокусыңыз бір қарағанда"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "Күн"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "Апта"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "Ай"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "Жыл"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "Сессиялар"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "Фокус уақыты"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "Қорытынды"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "Аяқталған сессиялар: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "Орташа фокус: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "Соңғы сессиялар"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "Аяқталған фокус сессиялары осында көрсетіледі."
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "Тіл"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "Қолданба тілі"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "Таңдау бірден қолданылып, осы құрылғыда сақталады."
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "Таймер баптаулары"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "Өнімділік таймерін басқару."
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "Помодоро"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "Фокус жұмыс сессияларын уақыттық үзілістермен алмастыру."
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "Жұмыс сессиясы"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} минут"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "Қысқа үзіліс"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "Ұзақ үзіліс"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "Ұзақ үзіліс кейін"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "{} жұмыс сессиясы"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "2 жұмыс сессиясы"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "3 жұмыс сессиясы"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "4 жұмыс сессиясы"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "5 жұмыс сессиясы"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "6 жұмыс сессиясы"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "Үзілісті мерзімінен бұрын аяқтағанда келесі тапсырманы бастау"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "Келесі кезеңді автоматты түрде бастау"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "Тапсырмалар: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "Орындалған тапсырмалар осында шығады."
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "Тапсырмалар әлі жоқ. Матрицаны қарау бөлімінен таңдаңыз."
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "Мұнда күтіп тұрған ештеңе жоқ"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "Матрицаны қарау"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "Әр тапсырманы түсті нүктелермен немесе біртіндеп сұрыптаңыз."
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "Біртіндеп сұрыптау · {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "Әлі сұрыпталмаған"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "Жоспарланбаған"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "Жоспарлау үшін тапсырманың астынан күнді таңдаңыз."
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{} {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "Барлығы жоспарланған."
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "Апталық кесте"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "Жоспарды алып тастау"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "Қосу"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "КЕҢІСТІКТЕР"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "Тақта"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "Матрица"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "Күнтізбе"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "Алғашқы кеңістікті құрыңыз"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "Кеңістіктер тапсырмаларыңызға нақты орын береді. Алға жылжытқыңыз келетін бір жобадан, мақсаттан немесе саладан бастаңыз."
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "Кеңістік құру"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "Өңдеу"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "Бүгінгі фокус: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "Бүгінге жоспарланған"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "Бүгінге жоспар жоқ. Кеңістіктер экранына тапсырма қосыңыз."
+

@@ -32,13 +32,13 @@ component TimerCard inherits GlassCard {
         if !AppData.immersive: HorizontalLayout {
             alignment: center;
             spacing: 8px;
-            IconTab { label: "Focus"; selected: AppData.pomodoro-mode == "focus"; clicked => { AppData.pomodoro-select("focus"); }
+            IconTab { label: @tr("Focus"); selected: AppData.pomodoro-mode == "focus"; clicked => { AppData.pomodoro-select("focus"); }
                 IconTimer { width: 16px; height: 16px; stroke-color: AppData.pomodoro-mode == "focus" ? Theme.accent-violet : Theme.text-secondary; } }
-            IconTab { label: "Short Break"; selected: AppData.pomodoro-mode == "short_break"; clicked => { AppData.pomodoro-select("short_break"); }
+            IconTab { label: @tr("Short Break"); selected: AppData.pomodoro-mode == "short_break"; clicked => { AppData.pomodoro-select("short_break"); }
                 IconCoffee { width: 16px; height: 16px; stroke-color: AppData.pomodoro-mode == "short_break" ? Theme.accent-violet : Theme.text-secondary; } }
-            IconTab { label: "Long Break"; selected: AppData.pomodoro-mode == "long_break"; clicked => { AppData.pomodoro-select("long_break"); }
+            IconTab { label: @tr("Long Break"); selected: AppData.pomodoro-mode == "long_break"; clicked => { AppData.pomodoro-select("long_break"); }
                 IconPill { width: 16px; height: 16px; stroke-color: AppData.pomodoro-mode == "long_break" ? Theme.accent-violet : Theme.text-secondary; } }
-            IconTab { label: "Custom"; selected: AppData.pomodoro-mode == "custom"; clicked => { AppData.pomodoro-select("custom"); }
+            IconTab { label: @tr("Custom"); selected: AppData.pomodoro-mode == "custom"; clicked => { AppData.pomodoro-select("custom"); }
                 IconSettings { width: 16px; height: 16px; stroke-color: AppData.pomodoro-mode == "custom" ? Theme.accent-violet : Theme.text-secondary; } }
         }
 
@@ -199,8 +199,8 @@ component TimerCard inherits GlassCard {
             spacing: 12px;
             FieldCard {
                 horizontal-stretch: 3;
-                label: "Session name";
-                placeholder: "General Focus";
+                label: @tr("Session name");
+                placeholder: @tr("General Focus");
                 editable: true;
                 trailing: "clear";
                 text <=> AppData.session-name;
@@ -213,8 +213,8 @@ component TimerCard inherits GlassCard {
             }
             FieldCard {
                 horizontal-stretch: 2;
-                label: "Task";
-                placeholder: "None";
+                label: @tr("Task");
+                placeholder: @tr("None");
                 text: AppData.session-task-title;
                 trailing: "chevron";
                 open: root.picker-open;
@@ -235,15 +235,15 @@ component TimerCard inherits GlassCard {
                     width: 140px;
                     spacing: 10px;
                     VerticalLayout { alignment: center; IconHeadphones { width: 20px; height: 20px; stroke-color: Theme.text-primary; } }
-                    Text { text: "Ambient Sound"; font-size: 14px; color: Theme.text-primary; vertical-alignment: center; }
+                    Text { text: @tr("Ambient Sound"); font-size: 14px; color: Theme.text-primary; vertical-alignment: center; }
                 }
-                SceneTile { label: "None"; scene: @image-url("../../assets/scenes/none.svg"); selected: AppData.ambient-choice == "off"; clicked => { AppData.ambient-selected("off"); }
+                SceneTile { label: @tr("None"); scene: @image-url("../../assets/scenes/none.svg"); selected: AppData.ambient-choice == "off"; clicked => { AppData.ambient-selected("off"); }
                     IconSoundOff { width: 18px; height: 18px; stroke-color: AppData.ambient-choice == "off" ? #FFFFFF : Theme.text-secondary; } }
-                SceneTile { label: "Lo-fi"; scene: @image-url("../../assets/scenes/lofi.svg"); selected: AppData.ambient-choice == "lofi"; clicked => { AppData.ambient-selected("lofi"); }
+                SceneTile { label: @tr("Lo-fi"); scene: @image-url("../../assets/scenes/lofi.svg"); selected: AppData.ambient-choice == "lofi"; clicked => { AppData.ambient-selected("lofi"); }
                     IconWave { width: 18px; height: 18px; stroke-color: AppData.ambient-choice == "lofi" ? #FFFFFF : Theme.text-secondary; } }
-                SceneTile { label: "Forest"; scene: @image-url("../../assets/scenes/forest.svg"); selected: AppData.ambient-choice == "forest"; clicked => { AppData.ambient-selected("forest"); }
+                SceneTile { label: @tr("Forest"); scene: @image-url("../../assets/scenes/forest.svg"); selected: AppData.ambient-choice == "forest"; clicked => { AppData.ambient-selected("forest"); }
                     IconTree { width: 18px; height: 18px; stroke-color: AppData.ambient-choice == "forest" ? #86EFAC : Theme.text-secondary; fill-color: AppData.ambient-choice == "forest" ? #86EFAC40 : transparent; } }
-                SceneTile { label: "Rain"; scene: @image-url("../../assets/scenes/rain.svg"); selected: AppData.ambient-choice == "rain"; clicked => { AppData.ambient-selected("rain"); }
+                SceneTile { label: @tr("Rain"); scene: @image-url("../../assets/scenes/rain.svg"); selected: AppData.ambient-choice == "rain"; clicked => { AppData.ambient-selected("rain"); }
                     IconCloudRain { width: 18px; height: 18px; stroke-color: AppData.ambient-choice == "rain" ? #FFFFFF : Theme.text-secondary; } }
             }
         }
@@ -284,7 +284,7 @@ component TimerCard inherits GlassCard {
             spacing: 8px;
 
             SearchField {
-                placeholder: "Search tasks";
+                placeholder: @tr("Search tasks");
                 text <=> AppData.task-search;
                 edited(q) => { AppData.task-search-changed(q); }
             }
@@ -378,7 +378,7 @@ component TimerCard inherits GlassCard {
                 Text {
                     width: 100%;
                     height: 100%;
-                    text: "View all tasks";
+                    text: @tr("View all tasks");
                     font-size: 13px;
                     color: Theme.accent-violet;
                     horizontal-alignment: center;
@@ -427,8 +427,8 @@ component AnalyticsCard inherits GlassCard {
                 alignment: center;
                 spacing: 2px;
                 horizontal-stretch: 1;
-                Text { text: "Productivity"; font-size: 18px; font-weight: 700; color: Theme.text-primary; }
-                Text { text: "Your focus at a glance"; font-size: 12px; color: Theme.text-muted; }
+                Text { text: @tr("Productivity"); font-size: 18px; font-weight: 700; color: Theme.text-primary; }
+                Text { text: @tr("Your focus at a glance"); font-size: 12px; color: Theme.text-muted; }
             }
             // Scrolls sideways when the panel is too narrow for all four.
             range-strip := Flickable {
@@ -442,19 +442,19 @@ component AnalyticsCard inherits GlassCard {
                     width: self.preferred-width;
                     height: 38px;
                     spacing: 4px;
-                    IconTab { label: "Day"; selected: AppData.activity-range == "day"; clicked => { AppData.activity-range-selected("day"); } }
-                    IconTab { label: "Week"; selected: AppData.activity-range == "week"; clicked => { AppData.activity-range-selected("week"); } }
-                    IconTab { label: "Month"; selected: AppData.activity-range == "month"; clicked => { AppData.activity-range-selected("month"); } }
-                    IconTab { label: "Year"; selected: AppData.activity-range == "year"; clicked => { AppData.activity-range-selected("year"); } }
+                    IconTab { label: @tr("Day"); selected: AppData.activity-range == "day"; clicked => { AppData.activity-range-selected("day"); } }
+                    IconTab { label: @tr("Week"); selected: AppData.activity-range == "week"; clicked => { AppData.activity-range-selected("week"); } }
+                    IconTab { label: @tr("Month"); selected: AppData.activity-range == "month"; clicked => { AppData.activity-range-selected("month"); } }
+                    IconTab { label: @tr("Year"); selected: AppData.activity-range == "year"; clicked => { AppData.activity-range-selected("year"); } }
                 }
             }
         }
 
         HorizontalLayout {
             spacing: 10px;
-            StatCard { title: "Sessions"; value: AppData.activity-sessions; change: AppData.activity-sessions-change; }
-            StatCard { title: "Focus time"; value: AppData.activity-focus; change: AppData.activity-focus-change; }
-            StatCard { title: "Streak"; value: AppData.activity-streak; change: ""; }
+            StatCard { title: @tr("Sessions"); value: AppData.activity-sessions; change: AppData.activity-sessions-change; }
+            StatCard { title: @tr("Focus time"); value: AppData.activity-focus; change: AppData.activity-focus-change; }
+            StatCard { title: @tr("Streak"); value: AppData.activity-streak; change: ""; }
         }
 
         // Chart: axis labels on the left, gridlines behind the bars.
@@ -473,7 +473,7 @@ component AnalyticsCard inherits GlassCard {
                     x: 0px;
                     y: parent.line-y - self.height / 2;
                     width: 24px;
-                    text: "\{AppData.activity-axis-max * k / 4}";
+                    text: @tr("{}", AppData.activity-axis-max * k / 4);
                     font-size: 11px;
                     color: Theme.text-muted;
                     horizontal-alignment: right;
@@ -540,17 +540,17 @@ component AnalyticsCard inherits GlassCard {
                 HorizontalLayout {
                     spacing: 8px;
                     IconStar { width: 16px; height: 16px; stroke-color: Theme.accent-violet; }
-                    Text { text: "Summary"; font-size: 14px; font-weight: 600; color: Theme.text-primary; }
+                    Text { text: @tr("Summary"); font-size: 14px; font-weight: 600; color: Theme.text-primary; }
                 }
                 HorizontalLayout {
                     spacing: 10px;
                     IconCheck { width: 14px; height: 14px; stroke-color: Theme.accent-green; }
-                    Text { text: "\{AppData.activity-sessions} sessions completed"; font-size: 13px; color: Theme.text-secondary; }
+                    Text { text: @tr("{} sessions completed", AppData.activity-sessions); font-size: 13px; color: Theme.text-secondary; }
                 }
                 HorizontalLayout {
                     spacing: 10px;
                     IconClock { width: 14px; height: 14px; stroke-color: Theme.text-secondary; }
-                    Text { text: "Average focus: \{AppData.activity-average}"; font-size: 13px; color: Theme.text-secondary; }
+                    Text { text: @tr("Average focus: {}", AppData.activity-average); font-size: 13px; color: Theme.text-secondary; }
                 }
                 HorizontalLayout {
                     spacing: 10px;
@@ -573,10 +573,10 @@ component AnalyticsCard inherits GlassCard {
                 HorizontalLayout {
                     spacing: 8px;
                     VerticalLayout { alignment: center; IconClock { width: 16px; height: 16px; stroke-color: Theme.accent-violet; } }
-                    Text { text: "Recent sessions"; font-size: 14px; font-weight: 600; color: Theme.text-primary; }
+                    Text { text: @tr("Recent sessions"); font-size: 14px; font-weight: 600; color: Theme.text-primary; }
                 }
                 if AppData.session-history.length == 0: Text {
-                    text: "Finished focus sessions show up here.";
+                    text: @tr("Finished focus sessions show up here.");
                     font-size: 13px;
                     color: Theme.text-muted;
                 }

@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "Hereket"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "Bellikler"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "Hasabatlar"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "Siziň sanawlaryňyz"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "Ünsi dagytmadan goraýyş"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "Kömekçi"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "Saýlamalar"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "SANAW DÖRET"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "Iş"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "Gözle"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "Işleri ýa-da bellikleri gözle..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "Iş goş (mysal üçin 'Auth ýasa 45m @today')..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "Dili ýazyň"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "Laýyk dil ýok"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "Täze sanaw döret"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "NYŞANY ÝÜKLE"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "Islege bagly (jpg, png, svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "Sanawyň reňkini saýlaň"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "Sanawyň ady (mysal üçin Iş, Şahsy)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "Ýatyr"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "Döret"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "Iş ýörelgäňizi özüňize görä sazlaň"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "Wagt"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "Wagt zolagy"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "Jemlenme sprint sazlamalary"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "Wagtly sprintler"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "Iş sprintiniň dowamlylygy"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "60 min ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "Dynç alyşyň dowamlylygy"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "15 min ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "Şu gün"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "Giňişlikler"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "Pomodoro"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "Derňewler"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "Sazlamalar"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "Täzeden goý"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "Işleri gözle"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "Täze sanaw döret"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "Ähli sanawlarym"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "Arhiwlenen sanawlar"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "JEMLENME WE GORAG"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "Programma goragy"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "Ýazgy depder"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "Giňişligiň ady"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "Iş goş"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "Ertir"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "Arassala"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "Çaklama"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "Ýerine ýetirmeli senesi"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "Möhleti"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "Bellik goş..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "Ýatda sakla"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "Kiçi işler: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "Kiçi iş"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "Kiçi işiň ady"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "{}/{} tamamlandy"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "Işiňiziň adyny giriziň"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "Işler"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "Dolanyşyk paneli"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "Jemlenme diňi"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "Hap HUD"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "AI bilen meýilnama düz"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "Ýerine ýetirmeli zatlaryňyzy ýazyň. Ýatda saklamazdan ozal her üýtgeşiklige görersiňiz."
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "Ilki Sazlamalarda OpenRouter API açaryny goşuň."
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "Mysal: bu gün hasabaty tamamla (2 sagat, böl), ertir banka jaň et we hasabaty häzir başla."
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "Birinji işi häzir başla"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "Teklif edilen üýtgeşmeler"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "Taşla"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "Hemmesini ulan"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "AI saýlamasy"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "Işleri tertipleşdir"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "Has möhüm"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "Az möhüm"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "Has irki"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "Soňra"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "Mümkin boldugyça çalt et"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "Çalt we möhüm. Şu gün, ilki."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "Hepdäniň ortasynda et"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "Möhüm, ýöne çalt däl. Bu hepde."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "Şu gün soňrak et"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "Birinji ädimden soň şu gün edilmeli."
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "Ahyra goý"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "Çalt däl ýa-da baha pes. Ýygnak."
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "Yza"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "Geç"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "1-4 tertipleşdir · S geç · Backspace yza · Enter AI saýlamasyny al · Esc ýap"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "Soňky ýedi günde tamamlanan jemlenme sessiýalary"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "Bu hepdäki jemlenme"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "Bu hepdäki sessiýalar"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "Yzygiderlilik"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "Hepdelik işjeňlik"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "Entek jemlenme wagty ýazylmady."
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "Sessiýalaryň taryhy"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "Tamamlanan jemlenme sessiýalary şu ýerde peýda bolar."
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "Çalt pikirler we uzyn ýazgylar"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "Täze bellik"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "Entek bellik ýok. Ýazmaga başlamak üçin bir bellik dörediň."
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "Ýazmaga başlamak üçin bellik saýlaň ýa-da täzesini dörediň."
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "Jemlenme"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "Gysga dynç"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "Uzyn dynç"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "Özüňiz"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "Sessiýanyň ady"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "Umumy jemlenme"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "Ýok"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "Töwerek sesi"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "Lo-fi"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "Tokaý"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "Ýagyş"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "Ähli işleri gör"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "Önümlilik"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "Jemlenmäňiz bir serpikde"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "Gün"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "Hepde"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "Aý"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "Ýyl"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "Sessiýalar"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "Jemlenme wagty"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "Jemi"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "{} sessiýa tamamlandy"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "Ortaça jemlenme: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "Soňky sessiýalar"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "Tamamlanan jemlenme sessiýalary şu ýerde görkezilýär."
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "Dil"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "Programmanyň dili"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "Saýlaw derrew ulanylýar we bu enjamda saklanýar."
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "Taýmer sazlamalary"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "Önümlilik taýmerini dolandyryň."
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "Pomodorolar"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "Jemlenme iş sprintlerini wagtly dynç alyşlar bilen çalşyrmak."
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "Iş sprinti"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} min"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "Gysga dynç"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "Uzyn dynç"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "Uzyn dynçdan soň"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "{} iş sprinti"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "2 iş sprinti"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "3 iş sprinti"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "4 iş sprinti"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "5 iş sprinti"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "6 iş sprinti"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "Dynç alyşy wagtyndan öň gutaranda indiki işi başla"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "Indiki basgançagy awtomatiki başla"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "Işler: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "Tamamlanan işler şu ýerde peýda bolar."
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "Entek iş ýok. Matrisa barlagyndan birini goşuň."
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "Bu ýerde garaşylýan zat ýok"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "Matrisa barlagy"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "Her işi reňkli nokatlar bilen ýa-da birin-birin tertipleşdiriň."
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "Birin-birin tertipleşdir · {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "Tertipleşdirilmedik"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "Meýilnamasyz"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "Meýilnamalaşdyrmak üçin işiň aşagynda bir gün saýlaň."
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{} {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "Hemmesi meýilnamalaşdyryldy."
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "Hepdelik tertip"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "Meýilnamany aýyr"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "Goş"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "GIŇIŞLIKLER"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "Tagta"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "Matrisa"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "Senenama"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "Ilkinji giňişligiňizi dörediň"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "Giňişlikler işleriňize hakyky öý berýär. Ilerletmek isleýän bir taslama, maksat ýa-da ugur bilen başlaň."
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "Giňişlik döret"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "Üýtget"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "Şu gün jemlenen: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "Şu gün üçin meýilnamalaşdyrylan"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "Şu gün üçin meýilnama ýok. Giňişlikler ekranyndan iş goşuň."
+

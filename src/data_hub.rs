@@ -974,6 +974,7 @@ impl DataHub {
             let weak = window.as_weak();
             data.on_set_language(move |id| {
                 let _ = hub.prefs.set_text("language", &id);
+                let _ = slint::select_bundled_translation(&id);
                 if let Some(w) = weak.upgrade() {
                     hub.refresh_settings(&w);
                 }

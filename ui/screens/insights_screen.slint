@@ -19,8 +19,8 @@ export component InsightsScreen inherits Rectangle {
 
         VerticalLayout {
             spacing: 4px;
-            Text { text: "Insights"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
-            Text { text: "Completed focus sessions, the last seven days"; font-size: 13px; color: Theme.text-secondary; }
+            Text { text: @tr("Insights"); font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+            Text { text: @tr("Completed focus sessions, the last seven days"); font-size: 13px; color: Theme.text-secondary; }
         }
 
         HorizontalLayout {
@@ -36,7 +36,7 @@ export component InsightsScreen inherits Rectangle {
                         spacing: 6px;
                         alignment: start;
                         IconClock { width: 14px; height: 14px; stroke-color: Theme.accent-amber; }
-                        Text { text: "Focus this week"; font-size: 12px; color: Theme.text-secondary; }
+                        Text { text: @tr("Focus this week"); font-size: 12px; color: Theme.text-secondary; }
                     }
                     Text { text: AppData.insight-focus-week; font-size: 24px; font-weight: 700; color: Theme.text-primary; }
                 }
@@ -51,7 +51,7 @@ export component InsightsScreen inherits Rectangle {
                         spacing: 6px;
                         alignment: start;
                         IconCheck { width: 14px; height: 14px; stroke-color: Theme.accent-green; }
-                        Text { text: "Sessions this week"; font-size: 12px; color: Theme.text-secondary; }
+                        Text { text: @tr("Sessions this week"); font-size: 12px; color: Theme.text-secondary; }
                     }
                     Text { text: AppData.insight-sessions; font-size: 24px; font-weight: 700; color: Theme.text-primary; }
                 }
@@ -66,7 +66,7 @@ export component InsightsScreen inherits Rectangle {
                         spacing: 6px;
                         alignment: start;
                         IconBolt { width: 14px; height: 14px; stroke-color: Theme.accent-cyan; }
-                        Text { text: "Streak"; font-size: 12px; color: Theme.text-secondary; }
+                        Text { text: @tr("Streak"); font-size: 12px; color: Theme.text-secondary; }
                     }
                     Text { text: AppData.insight-streak; font-size: 24px; font-weight: 700; color: Theme.text-primary; }
                 }
@@ -81,10 +81,10 @@ export component InsightsScreen inherits Rectangle {
                     spacing: 8px;
                     alignment: start;
                     IconChart { width: 18px; height: 18px; stroke-color: Theme.accent-violet; }
-                    SectionTitle { text: "Weekly activity"; vertical-alignment: center; }
+                    SectionTitle { text: @tr("Weekly activity"); vertical-alignment: center; }
                 }
 
-                if AppData.insight-bars.length == 0: Text { text: "No focus time recorded yet."; font-size: 13px; color: Theme.text-muted; }
+                if AppData.insight-bars.length == 0: Text { text: @tr("No focus time recorded yet."); font-size: 13px; color: Theme.text-muted; }
                 HorizontalLayout {
                     height: 190px;
                     spacing: 12px;
@@ -121,9 +121,9 @@ export component InsightsScreen inherits Rectangle {
                 padding: 18px;
                 spacing: 12px;
                 alignment: start;
-                SectionTitle { text: "Session history"; }
+                SectionTitle { text: @tr("Session history"); }
                 if AppData.session-history.length == 0: Text {
-                    text: "Finished focus sessions appear here.";
+                    text: @tr("Finished focus sessions appear here.");
                     font-size: 13px;
                     color: Theme.text-muted;
                 }

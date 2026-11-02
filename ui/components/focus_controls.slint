@@ -299,7 +299,7 @@ export component FieldCard inherits GlassCard {
 /// SearchField: a rounded search box with a placeholder label.
 export component SearchField inherits Rectangle {
     in-out property <string> text;
-    in property <string> placeholder: "Search";
+    in property <string> placeholder: @tr("Search");
     callback edited(string);
 
     height: 40px;

@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "Действие"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "Заметки"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "Отчёты"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "Ваши списки"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "Защита от отвлечений"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "Ассистент"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "Настройки"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "СОЗДАТЬ СПИСОК"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "Задача"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "Поиск"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "Искать задачи или заметки..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "Добавить задачу (например, «Сделать auth 45m @today»)..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "Введите язык"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "Языки не найдены"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "Создать новый список"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "ЗАГРУЗИТЬ ЗНАЧОК"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "Необязательно (jpg, png, svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "Выберите цвет списка"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "Название списка (например, Работа, Личное)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "Отмена"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "Создать"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "Настройте рабочий процесс под себя"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "Время"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "Часовой пояс"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "Настройки фокус-сессий"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "Таймированные сессии"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "Длительность рабочей сессии"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "60 мин ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "Длительность перерыва"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "15 мин ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "Сегодня"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "Пространства"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "Pomodoro"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "Аналитика"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "Настройки"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "Сбросить"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "Поиск задач"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "Новый список"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "Все мои списки"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "Архивные списки"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "ФОКУС И ЗАЩИТА"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "Защита приложений"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "Блокнот"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "Название пространства"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "Добавить задачу"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "Завтра"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "Очистить"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "Оценка"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "Дата начала"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "Срок"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "Добавить заметки..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "Сохранить"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "Подзадачи: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "Подзадача"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "Название подзадачи"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "Выполнено: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "Введите название задачи"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "Задачи"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "Панель"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "Башня фокуса"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "Компактный вид"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "Планировать с ИИ"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "Опишите, что нужно сделать. Вы увидите каждое изменение до сохранения."
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "Сначала добавьте ключ API OpenRouter в настройках."
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "Например: закончить отчёт сегодня (2 ч, разбить), позвонить в банк завтра и начать отчёт сейчас."
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "Начать первую задачу сейчас"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "Предлагаемые изменения"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "Отменить"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "Применить все"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "Выбор ИИ"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "Сортировать задачи"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "Важнее"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "Менее важно"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "Раньше"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "Позже"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "Сделать срочно"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "Срочно и важно. Сегодня, в первую очередь."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "Сделать в середине недели"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "Важно, но не срочно. На этой неделе."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "Сделать сегодня позже"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "Нужно сделать сегодня, после первого рывка."
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "Оставить на конец"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "Низкая срочность или ценность. В бэклог."
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "Назад"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "Пропустить"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "1-4 сортировать  ·  S пропустить  ·  Backspace назад  ·  Enter выбрать ИИ  ·  Esc закрыть"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "Завершённые фокус-сессии за последние семь дней"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "Фокус на этой неделе"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "Сессии на этой неделе"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "Серия"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "Активность за неделю"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "Время фокуса пока не записано."
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "История сессий"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "Завершённые фокус-сессии появятся здесь."
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "Быстрые мысли и длинные тексты"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "Новая заметка"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "Заметок пока нет. Создайте первую, чтобы начать писать."
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "Выберите заметку или создайте новую, чтобы начать писать."
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "Фокус"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "Короткий перерыв"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "Длинный перерыв"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "Своё"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "Название сессии"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "Общий фокус"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "Нет"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "Фоновый звук"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "Lo-fi"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "Лес"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "Дождь"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "Все задачи"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "Продуктивность"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "Ваш фокус в одном взгляде"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "День"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "Неделя"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "Месяц"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "Год"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "Сессии"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "Время фокуса"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "Сводка"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "Завершено сессий: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "Средний фокус: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "Последние сессии"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "Завершённые фокус-сессии появятся здесь."
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "Язык"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "Язык приложения"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "Выбор применяется сразу и сохраняется на этом устройстве."
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "Настройки таймера"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "Управление таймером продуктивности."
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "Pomodoros"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "Чередуйте фокусированную работу с таймированными перерывами."
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "Рабочая сессия"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} мин"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "Короткий перерыв"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "Длинный перерыв"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "Длинный перерыв после"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "{} рабочих сессий"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "2 рабочих сессии"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "3 рабочих сессии"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "4 рабочих сессии"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "5 рабочих сессий"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "6 рабочих сессий"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "Начинать следующую задачу при досрочном завершении перерыва"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "Автоматически запускать следующий этап"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "Задач: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "Завершённые задачи появятся здесь."
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "Задач пока нет. Добавьте одну через обзор матрицы."
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "Здесь пока ничего не ждёт"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "Обзор матрицы"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "Распределите каждую задачу по цветным точкам или по одной."
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "По одной  ·  {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "Не распределено"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "Не запланировано"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "Выберите день под задачей, чтобы запланировать её."
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{}  {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "Всё запланировано."
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "Недельное расписание"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "Снять с плана"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "Добавить"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "ПРОСТРАНСТВА"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "Доска"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "Матрица"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "Календарь"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "Создайте первое пространство"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "Пространства дают задачам настоящий дом. Начните с проекта, цели или направления, которое хотите продвигать."
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "Создать пространство"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "Изменить"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "Фокус сегодня: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "Запланировано на сегодня"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "На сегодня ничего не запланировано. Добавьте задачи на экране «Пространства»."
+

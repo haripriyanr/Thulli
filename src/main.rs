@@ -164,6 +164,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let handle = StoreHandle::new(state.clone(), repository.clone());
     let preferences = Arc::new(PreferencesService::new(handle.clone()));
     let window = MainWindow::new()?;
+    // Apply the saved app language. Unknown ids keep the English source text.
+    let _ = slint::select_bundled_translation(&preferences.snapshot().language);
     let shell = window.global::<ShellState>();
 
     // Restore the saved theme before the first frame. The system option stays

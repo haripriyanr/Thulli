@@ -24,12 +24,12 @@ export component TodayScreen inherits Rectangle {
 
         VerticalLayout {
             spacing: 4px;
-            Text { text: "Today"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+            Text { text: @tr("Today"); font-size: 20px; font-weight: 700; color: Theme.text-primary; }
             HorizontalLayout {
                 alignment: start;
                 spacing: 6px;
                 IconCalendar { width: 14px; height: 14px; stroke-color: Theme.text-secondary; }
-                Text { text: "Focused today: \{AppData.today-focus}"; font-size: 13px; color: Theme.text-secondary; }
+                Text { text: @tr("Focused today: {}", AppData.today-focus); font-size: 13px; color: Theme.text-secondary; }
             }
         }
 
@@ -38,10 +38,10 @@ export component TodayScreen inherits Rectangle {
                 padding: 18px;
                 spacing: 12px;
                 alignment: start;
-                SectionTitle { text: "Planned for today"; }
+                SectionTitle { text: @tr("Planned for today"); }
 
                 if AppData.today-tasks.length == 0: Text {
-                    text: "Nothing planned for today. Add tasks on the Spaces screen.";
+                    text: @tr("Nothing planned for today. Add tasks on the Spaces screen.");
                     font-size: 13px;
                     color: Theme.text-muted;
                     wrap: word-wrap;

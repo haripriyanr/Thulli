@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "ടാസ്‌ക്"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "കുറിപ്പുകൾ"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "റിപ്പോർട്ടുകൾ"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "നിങ്ങളുടെ ലിസ്റ്റുകൾ"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "ശ്രദ്ധ തിരിക്കുന്നവയിൽ നിന്നുള്ള സംരക്ഷണം"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "സഹായി"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "മുൻഗണനകൾ"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "ലിസ്റ്റ് ഉണ്ടാക്കുക"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "ടാസ്‌ക്"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "തിരയുക"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "ടാസ്‌ക്കുകളോ കുറിപ്പുകളോ തിരയുക..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "ടാസ്‌ക് ചേർക്കുക (ഉദാ. 'ലോഗിൻ ഉണ്ടാക്കുക 45m @today')..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "ഒരു ഭാഷ ടൈപ്പ് ചെയ്യുക"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "ഭാഷ കണ്ടെത്തിയില്ല"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "പുതിയ ലിസ്റ്റ് ഉണ്ടാക്കുക"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "ഐക്കൺ അപ്‌ലോഡ് ചെയ്യുക"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "ഐച്ഛികം (jpg, png, svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "ലിസ്റ്റിന്റെ നിറം തിരഞ്ഞെടുക്കുക"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "ലിസ്റ്റിന്റെ പേര് (ഉദാ. ജോലി, വ്യക്തിപരം)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "റദ്ദാക്കുക"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "ഉണ്ടാക്കുക"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "നിങ്ങളുടെ അനുഭവത്തിനായി ജോലിരീതി ക്രമീകരിക്കുക"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "സമയം"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "സമയ മേഖല"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "ഫോക്കസ് സെഷൻ ക്രമീകരണങ്ങൾ"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "സമയബന്ധിത സെഷനുകൾ"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "ജോലി സെഷന്റെ ദൈർഘ്യം"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "60 മിനിറ്റ് ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "ഇടവേളയുടെ ദൈർഘ്യം"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "15 മിനിറ്റ് ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "ഇന്ന്"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "സ്പേസുകൾ"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "പോമോഡോറോ"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "ഇൻസൈറ്റുകൾ"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "ക്രമീകരണങ്ങൾ"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "പുനഃക്രമീകരിക്കുക"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "ടാസ്‌ക് തിരയുക"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "പുതിയ ലിസ്റ്റ് ഉണ്ടാക്കുക"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "എന്റെ എല്ലാ ലിസ്റ്റുകളും"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "ആർക്കൈവ് ചെയ്ത ലിസ്റ്റുകൾ"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "ഫോക്കസും സംരക്ഷണവും"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "ആപ്പ് സംരക്ഷണം"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "സ്ക്രാച്ച്പാഡ്"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "സ്പേസിന്റെ പേര്"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "ടാസ്‌ക് ചേർക്കുക"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "നാളെ"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "മായ്ക്കുക"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "കണക്ക്"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "ചെയ്യേണ്ട തീയതി"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "അവസാന തീയതി"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "കുറിപ്പുകൾ ചേർക്കുക..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "സംരക്ഷിക്കുക"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "ഉപടാസ്‌ക്കുകൾ: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "ഉപടാസ്‌ക്"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "ഉപടാസ്‌ക്കിന്റെ പേര്"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "{}/{} പൂർത്തിയായി"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "നിങ്ങളുടെ ടാസ്‌ക്കിന്റെ പേര് നൽകുക"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "ടാസ്‌ക്കുകൾ"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "ഡാഷ്‌ബോർഡ്"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "ഫോക്കസ് ടവർ"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "പിൽ HUD"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "AI ഉപയോഗിച്ച് ആസൂത്രണം ചെയ്യുക"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "പൂർത്തിയാക്കേണ്ടത് പറയൂ. എന്തെങ്കിലും സേവ് ചെയ്യുന്നതിന് മുമ്പ് ഓരോ മാറ്റവും നിങ്ങൾ കാണും."
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "ആദ്യം ക്രമീകരണങ്ങളിൽ OpenRouter API കീ ചേർക്കുക."
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "ഉദാ. ഇന്ന് റിപ്പോർട്ട് തീർക്കുക (2 മണിക്കൂർ, ഭാഗങ്ങളാക്കുക), നാളെ ബാങ്കിനെ വിളിക്കുക, ഇപ്പോൾ തന്നെ റിപ്പോർട്ട് തുടങ്ങുക."
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "ആദ്യ ടാസ്‌ക് ഇപ്പോൾ തുടങ്ങുക"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "നിർദ്ദേശിച്ച മാറ്റങ്ങൾ"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "ഒഴിവാക്കുക"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "എല്ലാം പ്രയോഗിക്കുക"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "AI തിരഞ്ഞെടുപ്പ്"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "ടാസ്‌ക്കുകൾ ക്രമീകരിക്കുക"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "കൂടുതൽ പ്രധാനം"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "കുറച്ച് പ്രധാനം"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "നേരത്തേ"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "പിന്നീട്"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "ഉടൻ ചെയ്യുക"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "അടിയന്തരവും പ്രധാനവും. ഇന്ന്, ആദ്യം."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "ആഴ്ചയുടെ മധ്യത്തിൽ ചെയ്യുക"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "പ്രധാനം, പക്ഷേ അടിയന്തരമല്ല. ഈ ആഴ്ച."
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "ഇന്ന് പിന്നീട് ചെയ്യുക"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "ഇന്ന് ചെയ്യണം, ആദ്യത്തെ തള്ളലിന് ശേഷം."
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "അവസാനം വരെ വിടുക"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "അടിയന്തരത കുറഞ്ഞതോ മൂല്യം കുറഞ്ഞതോ. ബാക്ക്‌ലോഗ്."
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "പിന്നോട്ട്"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "ഒഴിവാക്കുക"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "1-4 ക്രമീകരിക്കുക · S ഒഴിവാക്കുക · Backspace പിന്നോട്ട് · Enter AI തിരഞ്ഞെടുപ്പ് എടുക്കുക · Esc അടയ്ക്കുക"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "കഴിഞ്ഞ ഏഴ് ദിവസത്തെ പൂർത്തിയായ ഫോക്കസ് സെഷനുകൾ"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "ഈ ആഴ്ചയിലെ ഫോക്കസ്"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "ഈ ആഴ്ചയിലെ സെഷനുകൾ"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "തുടർച്ച"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "പ്രതിവാര പ്രവർത്തനം"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "ഇതുവരെ ഫോക്കസ് സമയം രേഖപ്പെടുത്തിയിട്ടില്ല."
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "സെഷൻ ചരിത്രം"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "പൂർത്തിയായ ഫോക്കസ് സെഷനുകൾ ഇവിടെ കാണാം."
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "ചെറിയ ചിന്തകളും നീണ്ട എഴുത്തുകളും"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "പുതിയ കുറിപ്പ്"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "ഇതുവരെ കുറിപ്പുകളില്ല. എഴുതാൻ തുടങ്ങാൻ ഒന്ന് ഉണ്ടാക്കുക."
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "എഴുതാൻ തുടങ്ങാൻ ഒരു കുറിപ്പ് തിരഞ്ഞെടുക്കുക അല്ലെങ്കിൽ ഉണ്ടാക്കുക."
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "ഫോക്കസ്"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "ചെറിയ ഇടവേള"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "നീണ്ട ഇടവേള"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "ഇഷ്ടാനുസൃതം"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "സെഷന്റെ പേര്"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "പൊതു ഫോക്കസ്"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "ഒന്നുമില്ല"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "ചുറ്റുപാടിലെ ശബ്ദം"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "ലോ-ഫൈ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "വനം"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "മഴ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "എല്ലാ ടാസ്‌ക്കുകളും കാണുക"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "ഉൽപാദനക്ഷമത"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "ഒറ്റനോട്ടത്തിൽ നിങ്ങളുടെ ഫോക്കസ്"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "ദിവസം"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "ആഴ്ച"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "മാസം"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "വർഷം"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "സെഷനുകൾ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "ഫോക്കസ് സമയം"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "സംഗ്രഹം"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "{} സെഷനുകൾ പൂർത്തിയായി"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "ശരാശരി ഫോക്കസ്: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "അടുത്തിടെയുള്ള സെഷനുകൾ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "പൂർത്തിയായ ഫോക്കസ് സെഷനുകൾ ഇവിടെ കാണിക്കും."
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "ഭാഷ"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "ആപ്പിന്റെ ഭാഷ"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "തിരഞ്ഞെടുപ്പ് ഉടൻ പ്രാബല്യത്തിൽ വരും, ഈ ഉപകരണത്തിൽ സേവ് ചെയ്യപ്പെടും."
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "ടൈമർ ക്രമീകരണങ്ങൾ"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "ഉൽപാദനക്ഷമത ടൈമർ നിയന്ത്രിക്കുക."
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "പോമോഡോറോ"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "സമയബന്ധിത ഇടവേളകളോടെ ഫോക്കസ് ചെയ്ത ജോലി സെഷനുകൾ മാറി മാറി ചെയ്യുക."
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "ജോലി സെഷൻ"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} മിനിറ്റ്"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "ചെറിയ ഇടവേള"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "നീണ്ട ഇടവേള"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "ഇതിന് ശേഷം നീണ്ട ഇടവേള"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "{} ജോലി സെഷനുകൾ"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "2 ജോലി സെഷനുകൾ"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "3 ജോലി സെഷനുകൾ"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "4 ജോലി സെഷനുകൾ"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "5 ജോലി സെഷനുകൾ"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "6 ജോലി സെഷനുകൾ"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "ഇടവേള നേരത്തേ അവസാനിപ്പിക്കുമ്പോൾ അടുത്ത ടാസ്‌ക് തുടങ്ങുക"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "അടുത്ത ഘട്ടം സ്വയമേവ തുടങ്ങുക"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "ടാസ്‌ക്കുകൾ: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "പൂർത്തിയായ ടാസ്‌ക്കുകൾ ഇവിടെ എത്തും."
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "ഇതുവരെ ടാസ്‌ക്കുകളില്ല. മാട്രിക്സ് റിവ്യൂവിൽ നിന്ന് ഒന്ന് ക്രമീകരിക്കുക."
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "ഇവിടെ ഒന്നും കാത്തിരിക്കുന്നില്ല"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "മാട്രിക്സ് റിവ്യൂ"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "നിറമുള്ള പുള്ളികൾ ഉപയോഗിച്ച് ഓരോ ടാസ്‌ക്കും ക്രമീകരിക്കുക, അല്ലെങ്കിൽ ഒന്നൊന്നായി."
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "ഒന്നൊന്നായി ക്രമീകരിക്കുക · {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "ക്രമീകരിക്കാത്തവ"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "ഷെഡ്യൂൾ ചെയ്തിട്ടില്ല"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "ആസൂത്രണം ചെയ്യാൻ ടാസ്‌ക്കിന് താഴെയുള്ള ഒരു ദിവസം തിരഞ്ഞെടുക്കുക."
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{} {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "എല്ലാം ആസൂത്രണം ചെയ്തു."
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "പ്രതിവാര ഷെഡ്യൂൾ"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "ആസൂത്രണം നീക്കുക"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "ചേർക്കുക"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "സ്പേസുകൾ"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "ബോർഡ്"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "മാട്രിക്സ്"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "കലണ്ടർ"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "നിങ്ങളുടെ ആദ്യ സ്പേസ് ഉണ്ടാക്കുക"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "സ്പേസുകൾ നിങ്ങളുടെ ടാസ്‌ക്കുകൾക്ക് ഒരു സ്ഥാനം നൽകുന്നു. നിങ്ങൾ മുന്നോട്ട് കൊണ്ടുപോകാൻ ആഗ്രഹിക്കുന്ന ഒരു പ്രോജക്റ്റോ ലക്ഷ്യമോ മേഖലയോ തിരഞ്ഞെടുത്ത് തുടങ്ങുക."
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "ഒരു സ്പേസ് ഉണ്ടാക്കുക"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "തിരുത്തുക"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "ഇന്നത്തെ ഫോക്കസ്: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "ഇന്നത്തെ പ്ലാൻ"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "ഇന്നേക്ക് ആസൂത്രണം ചെയ്തതൊന്നുമില്ല. സ്പേസ് സ്‌ക്രീനിൽ ടാസ്‌ക്കുകൾ ചേർക്കുക."
+

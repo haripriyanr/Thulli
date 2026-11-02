@@ -1,0 +1,690 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: thulli\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: ui\components\action_button.slint
+msgid "Action"
+msgstr "কাম"
+
+#: ui\components\app_menu.slint
+msgid "Notes"
+msgstr "নোট"
+
+#: ui\components\app_menu.slint
+msgid "Reports"
+msgstr "রিপোর্ট"
+
+#: ui\components\app_menu.slint
+msgid "Your lists"
+msgstr "নহাক্কী লিস্ট"
+
+#: ui\components\app_menu.slint
+msgid "Distraction shield"
+msgstr "ধ্যান হটানা শিল্লগী ক্ষেত্রকী"
+
+#: ui\components\app_menu.slint
+msgid "Assistant"
+msgstr "সহায়ক"
+
+#: ui\components\app_menu.slint
+msgid "Preferences"
+msgstr "পসন্দ"
+
+#: ui\components\cards.slint
+msgid "CREATE LIST"
+msgstr "লিস্ট মাকখ্রে"
+
+#: ui\components\cards.slint
+msgid "Task"
+msgstr "কাম"
+
+#: ui\components\focus_controls.slint
+msgid "Search"
+msgstr "থাগখ্রে"
+
+#: ui\components\inputs.slint
+msgid "Search tasks or notes..."
+msgstr "কাম ময়া নোট থাগখ্রে..."
+
+#: ui\components\inputs.slint
+msgid "Add task (e.g. 'Build auth 45m @today')..."
+msgstr "কাম ষেপ্খ্রে (অমসুং 'লগইন মাক 45m @today')..."
+
+#: ui\components\language_picker.slint
+msgid "Type a language"
+msgstr "লোন ইখ্রে"
+
+#: ui\components\language_picker.slint
+msgid "No language matches"
+msgstr "ইসুং লোন অমসুং ঐবা অমা"
+
+#: ui\components\modals.slint
+msgid "Create a new list"
+msgstr "নৈ লিস্ট মাকখ্রে"
+
+#: ui\components\modals.slint
+msgid "UPLOAD AN ICON"
+msgstr "আইকন অপলোড মাখ্রে"
+
+#: ui\components\modals.slint
+msgid "Optional (jpg, png, svg)"
+msgstr "ঐচ্ছিক (jpg, png, svg)"
+
+#: ui\components\modals.slint
+msgid "Pick a list color"
+msgstr "লিস্টগী রং থাংনবা"
+
+#: ui\components\modals.slint
+msgid "List name (e.g. Work, Personal)..."
+msgstr "লিস্টগী মিং (অমসুং কাম, নিজী)..."
+
+#: ui\components\modals.slint
+msgid "Cancel"
+msgstr "ময়ু মাখ্রে"
+
+#: ui\components\modals.slint
+msgid "Create"
+msgstr "মাক্খ্রে"
+
+#: ui\components\modals.slint
+msgid "Customize your workflow for a personalized experience"
+msgstr "নহাক্কী অভিজ্ঞতাগী শৌনা কামগী ধারা থাঙ্ক্রে"
+
+#: ui\components\modals.slint
+msgid "Time"
+msgstr "ওইবা"
+
+#: ui\components\modals.slint
+msgid "Timezone"
+msgstr "টাইমঝোন"
+
+#: ui\components\modals.slint
+msgid "Focus sprint settings"
+msgstr "ফোকাস সেশন সেটিংস"
+
+#: ui\components\modals.slint
+msgid "Timed Sprints"
+msgstr "ওইবা অনুসারে সেশন"
+
+#: ui\components\modals.slint
+msgid "Work sprint duration"
+msgstr "কাম সেশনগী ওইবা"
+
+#: ui\components\modals.slint
+msgid "60 mins ▾"
+msgstr "৬০ মিনিট ▾"
+
+#: ui\components\modals.slint
+msgid "Break duration"
+msgstr "ইচ্ছঙ্গী ওইবা"
+
+#: ui\components\modals.slint
+msgid "15 mins ▾"
+msgstr "১৫ মিনিট ▾"
+
+#: ui\components\navigation_rail.slint
+msgid "Today"
+msgstr "অসিবা"
+
+#: ui\components\navigation_rail.slint
+msgid "Spaces"
+msgstr "স্পেস"
+
+#: ui\components\navigation_rail.slint
+msgid "Pomodoro"
+msgstr "পোমোডোরো"
+
+#: ui\components\navigation_rail.slint
+msgid "Insights"
+msgstr "ইনসাইটস"
+
+#: ui\components\navigation_rail.slint
+msgid "Settings"
+msgstr "সেটিংস"
+
+#: ui\components\pref_rows.slint
+msgid "Reset"
+msgstr "রিসেট"
+
+#: ui\components\rows.slint
+msgid "{}"
+msgstr "{}"
+
+#: ui\components\search.slint
+msgid "Search tasks"
+msgstr "কাম থাগখ্রে"
+
+#: ui\components\sidebar.slint
+msgid "Create new list"
+msgstr "নৈ লিস্ট মাকখ্রে"
+
+#: ui\components\sidebar.slint
+msgid "All my lists"
+msgstr "নহাক্কী সকল লিস্ট"
+
+#: ui\components\sidebar.slint
+msgid "Archived lists"
+msgstr "আর্কাইভ্ মাঙ্গবা লিস্ট"
+
+#: ui\components\sidebar.slint
+msgid "FOCUS & SHIELD"
+msgstr "ফোকাস আরু শীল্ড"
+
+#: ui\components\sidebar.slint
+msgid "App Shield"
+msgstr "এপ শীল্ড"
+
+#: ui\components\sidebar.slint
+msgid "Scratchpad"
+msgstr "স্ক্র্যাচপ্যাড"
+
+#: ui\components\space_widgets.slint
+msgid "Space name"
+msgstr "স্পেসগী মিং"
+
+#: ui\components\space_widgets.slint
+msgid "Add task"
+msgstr "কাম ষেপ্খ্রে"
+
+#: ui\components\space_widgets.slint
+msgid "Tomorrow"
+msgstr "অশিবা"
+
+#: ui\components\space_widgets.slint
+msgid "Clear"
+msgstr "ময়াম থমখ্রে"
+
+#: ui\components\space_widgets.slint
+msgid "Estimate"
+msgstr "অনুমান"
+
+#: ui\components\space_widgets.slint
+msgid "Do date"
+msgstr "কাম ময়াম ওইবা"
+
+#: ui\components\space_widgets.slint
+msgid "Deadline"
+msgstr "শেষ ওইবা"
+
+#: ui\components\space_widgets.slint
+msgid "Add notes..."
+msgstr "নোট ষেপ্খ্রে..."
+
+#: ui\components\space_widgets.slint
+msgid "Save"
+msgstr "সেভ মাখ্রে"
+
+#: ui\components\space_widgets.slint
+msgid "Subtasks: {}/{}"
+msgstr "সাব-কাম: {}/{}"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask"
+msgstr "সাব-কাম"
+
+#: ui\components\space_widgets.slint
+msgid "Subtask name"
+msgstr "সাব-কামগী মিং"
+
+#: ui\components\space_widgets.slint
+msgid "{}/{} done"
+msgstr "{}/{} খয়গদমবা"
+
+#: ui\components\space_widgets.slint
+msgid "Enter your task name"
+msgstr "নহাক্কী কামগী মিং ষেপ্খ্রে"
+
+#: ui\components\tabs.slint
+msgid "Tasks"
+msgstr "কামসিং"
+
+#: ui\components\topbar.slint
+msgid "Dashboard"
+msgstr "ড্যাশবোর্ড"
+
+#: ui\components\topbar.slint
+msgid "Focus Tower"
+msgstr "ফোকাস টাওয়ার"
+
+#: ui\components\topbar.slint
+msgid "Pill HUD"
+msgstr "পিল HUD"
+
+#: ui\screens\ai_panels.slint
+msgid "Plan with AI"
+msgstr "AI নাদা প্ল্যান মাখ্রে"
+
+#: ui\screens\ai_panels.slint
+msgid "Say what you need to get done. You'll see every change before anything is saved."
+msgstr "নহাক্কী খোইবা কাম ওইবা লৌরে। কোন্না ভী সেভ্ মশিন্না নহাক্কী হনবা চেঞ্জ খুদি হেনবা।"
+
+#: ui\screens\ai_panels.slint
+msgid "Add an OpenRouter API key in Settings first."
+msgstr "মহাবগী OpenRouter API কী সেটিংসনা ষেপ্খ্রে।"
+
+#: ui\screens\ai_panels.slint
+msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
+msgstr "যেনা অসি রিপোর্ট খতম মাখ্রে (২ ঘণ্টা, ভাগ মাখ্রে), অসেক ব্যাংক ফোন মাখ্রে, আরু অসিবদি রিপোর্ট খুল্লে।"
+
+#: ui\screens\ai_panels.slint
+msgid "Start the first task now"
+msgstr "মসিগী কাম অসিবদি খুল্লে"
+
+#: ui\screens\ai_panels.slint
+msgid "Proposed changes"
+msgstr "প্রস্তাবিত চেঞ্জ"
+
+#: ui\screens\ai_panels.slint
+msgid "Discard"
+msgstr "বাদ দিয়ক"
+
+#: ui\screens\ai_panels.slint
+msgid "Apply all"
+msgstr "সবু লাগু মাখ্রে"
+
+#: ui\screens\ai_panels.slint
+msgid "AI pick"
+msgstr "AI পসন্দ"
+
+#: ui\screens\ai_panels.slint
+msgid "Sort tasks"
+msgstr "কামসিং সর্ট মাখ্রে"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters more"
+msgstr "অধিক জরুরী"
+
+#: ui\screens\ai_panels.slint
+msgid "Matters less"
+msgstr "কম জরুরী"
+
+#: ui\screens\ai_panels.slint
+msgid "Sooner"
+msgstr "ময়াম"
+
+#: ui\screens\ai_panels.slint
+msgid "Later"
+msgstr "পিনা"
+
+#: ui\screens\ai_panels.slint
+msgid "Do ASAP"
+msgstr "অসিবদি মাখ্রে"
+
+#: ui\screens\ai_panels.slint
+msgid "Urgent and important. Today, first."
+msgstr "জরুরী আরু অতি জরুরী। অসি, মসিগী খুদি।"
+
+#: ui\screens\ai_panels.slint
+msgid "Do Mid Week"
+msgstr "সপ্তাহগী ময়াম মাখ্রে"
+
+#: ui\screens\ai_panels.slint
+msgid "Important, not urgent. This week."
+msgstr "জরুরী, হুকনা জরুরী মদা। ঐ সপ্তাহ।"
+
+#: ui\screens\ai_panels.slint
+msgid "Do Later Today"
+msgstr "অসি পিনা মাখ্রে"
+
+#: ui\screens\ai_panels.slint
+msgid "Needs doing today, after the first push."
+msgstr "অসি মাখ্রে লাগবা, মসিগী ধক্কা পিনা।"
+
+#: ui\screens\ai_panels.slint
+msgid "Leave Till End"
+msgstr "অখির তক্তা থোইবা"
+
+#: ui\screens\ai_panels.slint
+msgid "Low urgency or low value. Backlog."
+msgstr "কম জরুরী ন্যা কম মূল্যগী। ব্যাকলগ।"
+
+#: ui\screens\ai_panels.slint
+msgid "Back"
+msgstr "পিছা"
+
+#: ui\screens\ai_panels.slint
+msgid "Skip"
+msgstr "স্কিপ মাখ্রে"
+
+#: ui\screens\ai_panels.slint
+msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
+msgstr "১-৪ সর্ট · S স্কিপ · Backspace পিছা · Enter AI পসন্দ লো · Esc ক্লোজ"
+
+#: ui\screens\insights_screen.slint
+msgid "Completed focus sessions, the last seven days"
+msgstr "মসিগী সাত নিন্গী খতম খয়গদমবা ফোকাস সেশন"
+
+#: ui\screens\insights_screen.slint
+msgid "Focus this week"
+msgstr "অসি সপ্তাহগী ফোকাস"
+
+#: ui\screens\insights_screen.slint
+msgid "Sessions this week"
+msgstr "অসি সপ্তাহগী সেশন"
+
+#: ui\screens\insights_screen.slint
+msgid "Streak"
+msgstr "লগাতার নিন"
+
+#: ui\screens\insights_screen.slint
+msgid "Weekly activity"
+msgstr "সাপ্তাহিক অ্যাক্টিভিটি"
+
+#: ui\screens\insights_screen.slint
+msgid "No focus time recorded yet."
+msgstr "অমসুং ফোকাস ওইবা রেকর্ড মদা।"
+
+#: ui\screens\insights_screen.slint
+msgid "Session history"
+msgstr "সেশন ইতিহাস"
+
+#: ui\screens\insights_screen.slint
+msgid "Finished focus sessions appear here."
+msgstr "খতম খয়গদমবা ফোকাস সেশন অসি খুবু।"
+
+#: ui\screens\notes_screen.slint
+msgid "Quick thoughts and longer write-ups"
+msgstr "দ্রুত চিন্তা আরু লম্বা লেখা"
+
+#: ui\screens\notes_screen.slint
+msgid "New note"
+msgstr "নহাক্কী নোট"
+
+#: ui\screens\notes_screen.slint
+msgid "No notes yet. Create one to start writing."
+msgstr "অমসুং নোট মদা। লেখা শুরু মাখ্রে এক মাক্খ্রে।"
+
+#: ui\screens\notes_screen.slint
+msgid "Pick a note, or create one, to start writing."
+msgstr "লেখা শুরু মাখ্রে নোট খাংখ্রে ন্যা মাক্খ্রে।"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus"
+msgstr "ফোকাস"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Short Break"
+msgstr "ছোটা বিরাম"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Long Break"
+msgstr "লম্বা বিরাম"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Custom"
+msgstr "কাস্টম"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Session name"
+msgstr "সেশনগী মিং"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "General Focus"
+msgstr "সাধারণ ফোকাস"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "None"
+msgstr "কোন্না মদা"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Ambient Sound"
+msgstr "চারদিকগী শব্দ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Lo-fi"
+msgstr "লো-ফাই"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Forest"
+msgstr "অরণ্য"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Rain"
+msgstr "বৃষ্টি"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "View all tasks"
+msgstr "সকল কাম খুবু"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Productivity"
+msgstr "উৎপাদনশীলতা"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Your focus at a glance"
+msgstr "নহাক্কী ফোকাস এক নজরদা"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Day"
+msgstr "দিন"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Week"
+msgstr "সপ্তাহ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Month"
+msgstr "মহিনা"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Year"
+msgstr "বছর"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Sessions"
+msgstr "সেশন"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Focus time"
+msgstr "ফোকাস ওইবা"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Summary"
+msgstr "সারাংশ"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "{} sessions completed"
+msgstr "{} সেশন খতম"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Average focus: {}"
+msgstr "গড় ফোকাস: {}"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Recent sessions"
+msgstr "অসি-মসিগী সেশন"
+
+#: ui\screens\pomodoro_screen.slint
+msgid "Finished focus sessions show up here."
+msgstr "খতম খয়গদমবা ফোকাস সেশন অসি খুবু।"
+
+#: ui\screens\settings_screen.slint
+msgid "Language"
+msgstr "ভাষা"
+
+#: ui\screens\settings_screen.slint
+msgid "App language"
+msgstr "এপগী ভাষা"
+
+#: ui\screens\settings_screen.slint
+msgid "Choice applies immediately and is saved on this device."
+msgstr "খাংখ্রে অসিবদি লাগু অদু আরু ই ডিভাইসদা সেভ অদু।"
+
+#: ui\screens\settings_screen.slint
+msgid "Timer settings"
+msgstr "টাইমারগী সেটিংস"
+
+#: ui\screens\settings_screen.slint
+msgid "Manage the productivity timer."
+msgstr "উৎপাদনশীলতা টাইমার মানেজ মাখ্রে।"
+
+#: ui\screens\settings_screen.slint
+msgid "Pomodoros"
+msgstr "পোমোডোরো"
+
+#: ui\screens\settings_screen.slint
+msgid "Alternate focused work sprints with timed breaks."
+msgstr "ওইবা অনুসারে বিরামনা ফোকাস কাম সেশন পালাক্রমে মাখ্রে।"
+
+#: ui\screens\settings_screen.slint
+msgid "Work sprint"
+msgstr "কাম সেশন"
+
+#: ui\screens\settings_screen.slint
+msgid "{}min"
+msgstr "{} মিনিট"
+
+#: ui\screens\settings_screen.slint
+msgid "Short break"
+msgstr "ছোটা বিরাম"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break"
+msgstr "লম্বা বিরাম"
+
+#: ui\screens\settings_screen.slint
+msgid "Long break after"
+msgstr "ইয়ানা পিনা লম্বা বিরাম"
+
+#: ui\screens\settings_screen.slint
+msgid "{} work sprints"
+msgstr "{} কাম সেশন"
+
+#: ui\screens\settings_screen.slint
+msgid "2 work sprints"
+msgstr "২ কাম সেশন"
+
+#: ui\screens\settings_screen.slint
+msgid "3 work sprints"
+msgstr "৩ কাম সেশন"
+
+#: ui\screens\settings_screen.slint
+msgid "4 work sprints"
+msgstr "৪ কাম সেশন"
+
+#: ui\screens\settings_screen.slint
+msgid "5 work sprints"
+msgstr "৫ কাম সেশন"
+
+#: ui\screens\settings_screen.slint
+msgid "6 work sprints"
+msgstr "৬ কাম সেশন"
+
+#: ui\screens\settings_screen.slint
+msgid "Start next task when ending a break early"
+msgstr "বিরাম আগাউ খতম মাখ্রে অমা পরবর্তী কাম খুল্লে"
+
+#: ui\screens\settings_screen.slint
+msgid "Start the next phase automatically"
+msgstr "পরবর্তী ধাপ নিজে নিজে খুল্লে"
+
+#: ui\screens\spaces_screen.slint
+msgid "Tasks: {}"
+msgstr "কাম: {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Finished tasks land here."
+msgstr "খতম খয়গদমবা কাম অসি লাবা।"
+
+#: ui\screens\spaces_screen.slint
+msgid "No tasks yet. Sort one in from Matrix Review."
+msgstr "অমসুং কাম মদা। মেট্রিক্স রিভিউদা মসিক সর্ট মাখ্রে।"
+
+#: ui\screens\spaces_screen.slint
+msgid "Nothing waiting here"
+msgstr "অসিদা কোন্না ভী অপেক্ষা মদা"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix Review"
+msgstr "মেট্রিক্স রিভিউ"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}/{}"
+msgstr "{}/{}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort each task with the coloured dots, or one by one."
+msgstr "রঙগী বিন্দু ওইবা কাম সর্ট মাখ্রে, নত্তা এক এক মাখ্রে।"
+
+#: ui\screens\spaces_screen.slint
+msgid "Sort one by one  ·  {}"
+msgstr "এক এক মাখ্রে সর্ট মাখ্রে · {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unsorted"
+msgstr "সর্ট মদা"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unscheduled"
+msgstr "শিডিউল মদা"
+
+#: ui\screens\spaces_screen.slint
+msgid "Pick a day under a task to plan it."
+msgstr "প্ল্যান মাখ্রে কামগী তল্লে এক দিন খাংখ্রে।"
+
+#: ui\screens\spaces_screen.slint
+msgid "{}  {}"
+msgstr "{} {}"
+
+#: ui\screens\spaces_screen.slint
+msgid "All planned."
+msgstr "সবু প্ল্যান খয়গদমবা।"
+
+#: ui\screens\spaces_screen.slint
+msgid "Weekly schedule"
+msgstr "সাপ্তাহিক শিডিউল"
+
+#: ui\screens\spaces_screen.slint
+msgid "Unplan"
+msgstr "প্ল্যান ঔবা"
+
+#: ui\screens\spaces_screen.slint
+msgid "Add"
+msgstr "ষেপ্খ্রে"
+
+#: ui\screens\spaces_screen.slint
+msgid "SPACES"
+msgstr "স্পেস"
+
+#: ui\screens\spaces_screen.slint
+msgid "Board"
+msgstr "বোর্ড"
+
+#: ui\screens\spaces_screen.slint
+msgid "Matrix"
+msgstr "মেট্রিক্স"
+
+#: ui\screens\spaces_screen.slint
+msgid "Calendar"
+msgstr "ক্যালেন্ডার"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create your first space"
+msgstr "নহাক্কী মসিগী স্পেস মাক্খ্রে"
+
+#: ui\screens\spaces_screen.slint
+msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
+msgstr "স্পেসশিং নহাক্কী কামশিংগী অসল ঘর পিবা। নহাক্কী আগে ভেখ্রে ইয়ানা কোন্না প্রজেক্ট, লক্ষ্য নত্তা ক্ষেত্র অমগী দা শুরু মাখ্রে।"
+
+#: ui\screens\spaces_screen.slint
+msgid "Create a space"
+msgstr "একটা স্পেস মাক্খ্রে"
+
+#: ui\screens\spaces_screen.slint
+msgid "Edit"
+msgstr "এডিট মাখ্রে"
+
+#: ui\screens\today_screen.slint
+msgid "Focused today: {}"
+msgstr "অসিগী ফোকাস: {}"
+
+#: ui\screens\today_screen.slint
+msgid "Planned for today"
+msgstr "অসিগী প্ল্যান"
+
+#: ui\screens\today_screen.slint
+msgid "Nothing planned for today. Add tasks on the Spaces screen."
+msgstr "অসিগী শৌনা প্ল্যান মদা। স্পেস স্ক্রীনা কাম ষেপ্খ্রে।"
+
