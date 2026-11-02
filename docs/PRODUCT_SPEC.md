@@ -1,5 +1,10 @@
 # Thulli Product Spec
 
+> **Historical specification:** the product screens and navigation described
+> below were removed from the application at the user's direction on 2026-11-02.
+> The current build is a screen-free shell; this file records the former target
+> behavior only and must not be treated as the current UI.
+
 Target behaviour for Thulli, written from hands-on use of comparable desktop
 focus apps. This file describes *behaviour only*. Layout, icons, colours and all
 user-facing wording are Thulli's own and follow `AGENTS.md`.

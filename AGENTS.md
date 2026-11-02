@@ -8,7 +8,7 @@ Welcome to **Thulli**! This document provides authoritative architectural guidel
 
 - **Application Name**: Thulli
 - **Repository**: `E:\repos\Thuli`
-- **Core Purpose**: A 100% native Rust desktop productivity suite merging structured Kanban task management, smart natural language task entry, focus sprint timers, distraction shields (process and web blocking), and scratchpad notes.
+- **Core Purpose**: A 100% native Rust desktop shell with local encrypted storage and reusable Slint UI components. Product screens and navigation are currently removed at the user's direction; the productivity domain services remain in `thulli_core`.
 - **Tech Stack**:
   - **Language**: 100% pure Rust (Slint UI 1.18 + Tokio).
   - **Crate Structure**: Dual-target package providing `thulli_core` library crate (`src/lib.rs`) and `thulli` desktop application binary (`src/main.rs`).
@@ -81,28 +81,25 @@ All code in Thulli must follow clean Object-Oriented and SOLID design principles
 ### 4.4. Platform Abstraction (`src/window/mod.rs`)
 - Low-level Win32 unsafe calls are encapsulated behind the safe, modular `WindowManager` interface (`begin_native_drag()`, `minimize()`, `toggle_maximize()`, `exit_cleanly()`).
 
-### 4.5. UI Wiring (`src/app/`)
-- Lives in the binary crate (needs the Slint-generated types). One file per screen, each exposing `pub fn bind(window, ctx)`, plus `shell.rs`, `context.rs` (`AppContext`) and `convert.rs`. `main.rs` only builds the context and calls each `bind`.
+### 4.5. UI Wiring
+- Product screen bindings are currently removed at the user's direction. Keep the native shell in `ui/app.slint` small, and do not reintroduce screen routes or screen bindings unless the user asks.
 
 ---
 
 ## 5. Reusable UI Library Component Standard (`ui/components/`)
 
-The user interface must never be implemented as a monolithic file. `app.slint` is a thin shell; each screen is its own file in `ui/screens/` and owns a `<Name>State` global (properties and callbacks) that Rust binds to. Reusable widgets live in `ui/components/` with docstrings and configurable public properties.
+The user interface must never be implemented as a monolithic file. The current `app.slint` is a screen-free native shell; reusable widgets remain in `ui/components/` with configurable public properties. Product screens are intentionally absent unless the user asks to restore them.
 
 ```
 ui/
-├── app.slint                 # Thin shell: title bar, notice, screen host, tab pill, menu
-├── shell_state.slint         # ShellState global: navigation, window controls, timer pill
+├── app.slint                 # Screen-free shell: title bar, theme control, background
+├── shell_state.slint         # ShellState global: window controls and ambient motion
 ├── theme.slint               # Theme palette, spacing, border radii
 ├── types.slint               # Shared structs for every screen
 ├── icons.slint               # Duotone vector icon library
 ├── window_controls.slint     # Frameless window action buttons
-├── screens/                  # One stub-or-real screen per file, each with its own State global
-│   ├── today.slint  tasks.slint (the Board)  matrix.slint  calendar.slint
-│   ├── focus.slint  insights.slint  reports.slint  notes.slint
-│   └── lists.slint  shield.slint  assistant.slint  preferences.slint
 └── components/
+    ├── navigation_rail.slint  # Responsive left rail and compact touch navigation
     ├── buttons.slint  inputs.slint  cards.slint  topbar.slint  sidebar.slint  modals.slint
     ├── tabs.slint            # ThulliTabPill (Today, Tasks, Insights)
     ├── timer_pill.slint      # ThulliTimerPill (global running timer)
@@ -126,15 +123,14 @@ E:\repos\Thuli\
 ├── docs/PRODUCT_SPEC.md      # Target behaviour
 ├── src/
 │   ├── lib.rs                # Library root exporting reusable modules
-│   ├── main.rs               # Entry point: build AppContext, create window, call each bind
+│   ├── main.rs               # Entry point: load saved theme, create shell, manage native window
 │   ├── parser.rs             # Natural language task parser (single file)
 │   ├── security.rs           # SecurityManager: Argon2id + AES-256-GCM (single file)
 │   ├── models/               # task, list, notes, focus, shield, chat, tag, preferences + mod.rs aggregate
 │   ├── repository/mod.rs     # StorageRepository trait, encrypted atomic storage, backup on failure
 │   ├── services/             # One file per area, StoreHandle, timer, undo history
 │   ├── window/mod.rs         # WindowManager (Win32 frameless window management)
-│   └── app/                  # UI wiring (binary crate): one bind file per screen, shell, context, convert
-└── ui/                       # See section 5
+└── ui/                       # Screen-free shell and reusable component library (see section 5)
 ```
 
 ## 7. Natural Language Task Parser
@@ -193,3 +189,25 @@ No compile errors or compiler warnings:
 cargo check
 cargo build --release
 ```
+
+---
+
+## 9. Ambient Motion Policy
+
+Motion in Thulli must feel alive but never distracting. Follow these rules when adding or reviewing animations:
+
+- **Orb drift** is the only ambient motion allowed: a slow 16s ease-in-out loop moving under 3px/s. Nothing else drifts, pulses, or floats while the user is idle.
+- **Hover fills** use 120ms ease-out. Instant snaps feel broken; anything slower than ~150ms feels laggy on a desktop tool.
+- All transitions, entrances, and gesture-driven motion must meet the quality bar of the `review-animations` skill — easing curves, durations, interruption behavior, and reduced-motion fallbacks are all in scope.
+- When in doubt, animate less. Motion exists to explain state changes, not to decorate the interface.
+
+## 10. Telemetry & Crash Logging (dev phase)
+
+Dev builds ship lightweight local telemetry to make performance work and crash triage possible:
+
+- **Location**: `src/telemetry.rs` (binary-crate module, wired from `main.rs`). All output goes to `logs/` relative to the current working directory — created lazily, never committed (`.gitignore` covers `logs/`).
+- **Sampling**: `Sampler::log()` appends one line to `logs/telemetry.log` every 5 seconds: timestamp, FPS, process CPU%, process RAM, system RAM%, and GPU utilisation.
+- **GPU counter**: read via PDH `\GPU Engine(*)\Utilization Percentage` (English counter path), filtered to this process's instances. If PDH setup or sampling fails for any reason, the line falls back to `gpu=n/a` — never panic, never block the UI thread.
+- **Crash hook**: `install_crash_hook()` captures panics with a backtrace, writes `logs/crash-<timestamp>.log`, marks the event in `telemetry.log`, then chains the original hook so default panic behavior is preserved.
+- **Off switch**: set `THULLI_TELEMETRY=0` to disable logging (crash files are still written). Telemetry is ON by default in dev.
+- **Rules**: telemetry code must never panic, never block the UI, and never surface technical jargon in the UI. File/FFI failures are silent by design.

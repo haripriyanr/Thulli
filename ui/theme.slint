@@ -1,16 +1,22 @@
-export global Theme {
-    in-out property <color> bg-canvas: #0D0F12;
-    in-out property <color> bg-sidebar: #14171D;
-    in-out property <color> bg-panel: #14171D;
-    in-out property <color> bg-card: #181C24;
-    in-out property <color> bg-card-hover: #222733;
-    in-out property <color> bg-card-selected: #252D3D;
-    in-out property <color> border-subtle: #262D3D;
-    in-out property <color> border-light: #343E54;
+import { Palette } from "std-widgets.slint";
 
-    in-out property <color> text-primary: #FFFFFF;
-    in-out property <color> text-secondary: #9EABBE;
-    in-out property <color> text-muted: #5E697C;
+export global Theme {
+    in-out property <string> theme-choice: "system";
+    out property <bool> system-dark: Palette.color-scheme == ColorScheme.dark;
+    out property <bool> dark-mode: theme-choice == "system" ? system-dark : theme-choice == "dark";
+    out property <bool> light-mode: !dark-mode;
+    in-out property <color> bg-canvas: dark-mode ? #0D0F12 : #F7F5F0;
+    in-out property <color> bg-sidebar: dark-mode ? #14171D : #EFEEE8;
+    in-out property <color> bg-panel: dark-mode ? #14171D : #FBFAF6;
+    in-out property <color> bg-card: dark-mode ? #181C24 : #FFFFFF;
+    in-out property <color> bg-card-hover: dark-mode ? #222733 : #EAE9E2;
+    in-out property <color> bg-card-selected: dark-mode ? #252D3D : #DCEBE7;
+    in-out property <color> border-subtle: dark-mode ? #262D3D : #DDDCD4;
+    in-out property <color> border-light: dark-mode ? #343E54 : #C8C9C0;
+
+    in-out property <color> text-primary: dark-mode ? #FFFFFF : #242B2A;
+    in-out property <color> text-secondary: dark-mode ? #9EABBE : #586765;
+    in-out property <color> text-muted: dark-mode ? #5E697C : #7D8985;
 
     in-out property <color> accent-cyan: #3CC9C4;
     in-out property <color> accent-lime: #B3C065;
@@ -24,4 +30,25 @@ export global Theme {
     out property <length> radius-md: 10px;
     out property <length> radius-lg: 14px;
     out property <length> radius-full: 9999px;
+
+    // Liquid glass surfaces. Fills stay low-alpha; the aurora below shows
+    // through them, and a light rim sells the pane of glass.
+    out property <color> glass-fill: dark-mode ? #FFFFFF0A : #4056500A;
+    out property <color> glass-fill-strong: dark-mode ? #FFFFFF12 : #40565012;
+    out property <color> glass-fill-hover: dark-mode ? #FFFFFF1E : #40565018;
+    out property <color> glass-border: dark-mode ? #FFFFFF26 : #40565024;
+    out property <color> glass-highlight: dark-mode ? #FFFFFF4D : #FFFFFFAA;
+    out property <color> glass-shadow: #00000059;
+
+    out property <length> title-bar-height: 44px;
+    out property <length> radius-pill: 30px;
+
+    // Dock (values lifted verbatim from the glass-dock spec: surface 55%,
+    // top sheen +7% white, hairline 14%, shadow 35% blur 24 offset 6).
+    out property <color> dock-fill: dark-mode ? #16161C8C : #FDFCF8E8;
+    out property <color> dock-fill-top: dark-mode ? #1F1F2AA4 : #FFFFFFF2;
+    out property <color> dock-hairline: dark-mode ? #FFFFFF24 : #40565024;
+    out property <color> dock-indicator: dark-mode ? #1D383A : #DCEBE7;
+    out property <color> dock-icon-active: #36C9C5;
+    out property <color> dock-icon-passive: dark-mode ? #9AA7BA : #647672;
 }

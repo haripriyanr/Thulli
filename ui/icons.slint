@@ -32,6 +32,28 @@ export component IconPlus inherits Path {
     commands: "M 12 5 L 12 19 M 5 12 L 19 12";
 }
 
+// Check-list: three rows, leading tick + trailing line.
+export component IconTasks inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: transparent;
+    // Filled variant: solid ticks + solid bars matching the outline rows.
+    // Geometry mirrors the outline (same rows, same x extents); the stroke
+    // drops away so the glyph reads as one filled mass, not a bold outline.
+    in property <bool> filled: false;
+    width: 22px;
+    height: 22px;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    stroke: filled ? transparent : stroke-color;
+    stroke-width: 2px;
+    fill: fill-color;
+    commands: filled
+        ? "M 3.4 6.1 L 5.7 8.4 L 9.2 4.8 L 8 3.6 L 5.7 6 L 4.6 4.9 Z M 10.8 5 L 20 5 L 20 7 L 10.8 7 Z M 3.4 12.1 L 5.7 14.4 L 9.2 10.8 L 8 9.6 L 5.7 12 L 4.6 10.9 Z M 10.8 11 L 20 11 L 20 13 L 10.8 13 Z M 3.4 18.1 L 5.7 20.4 L 9.2 16.8 L 8 15.6 L 5.7 18 L 4.6 16.9 Z M 10.8 17 L 20 17 L 20 19 L 10.8 19 Z"
+        : "M 4 5.5 L 5.7 7.2 L 8.6 4.2 M 10.8 6 L 20 6 M 4 11.5 L 5.7 13.2 L 8.6 10.2 M 10.8 12 L 20 12 M 4 17.5 L 5.7 19.2 L 8.6 16.2 M 10.8 18 L 20 18";
+}
+
 export component IconClose inherits Path {
     in property <color> stroke-color: Theme.text-muted;
     width: 12px;
@@ -124,16 +146,21 @@ export component IconScratchpad inherits Path {
 export component IconSettings inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
     in property <color> fill-color: #88888825;
+    // Filled variant: solid gear body with the center circle knocked out
+    // (evenodd hole) — silhouette and tooth pattern identical to outline.
+    in property <bool> filled: false;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
     viewbox-y: 0;
     viewbox-width: 24;
     viewbox-height: 24;
-    stroke: stroke-color;
-    stroke-width: 1.5px;
+    stroke: filled ? transparent : stroke-color;
+    stroke-width: 2px;
     fill: fill-color;
-    commands: "M 12 15 C 13.66 15 15 13.66 15 12 C 15 10.34 13.66 9 12 9 C 10.34 9 9 10.34 9 12 C 9 13.66 10.34 15 12 15 Z M 19.4 15 C 19.49 14.53 19.55 14.05 19.55 13.55 L 21.54 11.96 C 21.72 11.82 21.77 11.56 21.66 11.36 L 19.78 8.11 C 19.66 7.91 19.41 7.84 19.21 7.92 L 16.87 8.87 C 16.38 8.49 15.86 8.18 15.29 7.94 L 14.93 5.45 C 14.9 5.23 14.71 5.06 14.49 5.06 L 10.73 5.06 C 10.51 5.06 10.32 5.23 10.29 5.45 L 9.93 7.94 C 9.36 8.18 8.84 8.49 8.35 8.87 L 6.01 7.92 C 5.81 7.84 5.56 7.91 5.44 8.11 L 3.56 11.36 C 3.45 11.56 3.5 11.82 3.68 11.96 L 5.67 13.55 C 5.67 14.05 5.73 14.53 5.82 15 L 3.83 16.59 C 3.65 16.73 3.6 16.99 3.71 17.19 L 5.59 20.44 C 5.71 20.64 5.96 20.71 6.16 20.63 L 8.5 19.68 C 8.99 20.06 9.51 20.37 10.08 20.61 L 10.44 23.1 C 10.47 23.32 10.66 23.49 10.88 23.49 L 14.64 23.49 C 14.86 23.49 15.05 23.32 15.08 23.1 L 15.44 20.61 C 16.01 20.37 16.53 20.06 17.02 19.68 L 19.36 20.63 C 19.56 20.71 19.81 20.64 19.93 20.44 L 21.81 17.19 C 21.92 16.99 21.87 16.73 21.69 16.59 Z";
+    commands: filled
+        ? "M 12 15 C 13.66 15 15 13.66 15 12 C 15 10.34 13.66 9 12 9 C 10.34 9 9 10.34 9 12 C 9 13.66 10.34 15 12 15 Z M 19.4 15 C 19.49 14.53 19.55 14.05 19.55 13.55 L 21.54 11.96 C 21.72 11.82 21.77 11.56 21.66 11.36 L 19.78 8.11 C 19.66 7.91 19.41 7.84 19.21 7.92 L 16.87 8.87 C 16.38 8.49 15.86 8.18 15.29 7.94 L 14.93 5.45 C 14.9 5.23 14.71 5.06 14.49 5.06 L 10.73 5.06 C 10.51 5.06 10.32 5.23 10.29 5.45 L 9.93 7.94 C 9.36 8.18 8.84 8.49 8.35 8.87 L 6.01 7.92 C 5.81 7.84 5.56 7.91 5.44 8.11 L 3.56 11.36 C 3.45 11.56 3.5 11.82 3.68 11.96 L 5.67 13.55 C 5.67 14.05 5.73 14.53 5.82 15 L 3.83 16.59 C 3.65 16.73 3.6 16.99 3.71 17.19 L 5.59 20.44 C 5.71 20.64 5.96 20.71 6.16 20.63 L 8.5 19.68 C 8.99 20.06 9.51 20.37 10.08 20.61 L 10.44 23.1 C 10.47 23.32 10.66 23.49 10.88 23.49 L 14.64 23.49 C 14.86 23.49 15.05 23.32 15.08 23.1 L 15.44 20.61 C 16.01 20.37 16.53 20.06 17.02 19.68 L 19.36 20.63 C 19.56 20.71 19.81 20.64 19.93 20.44 L 21.81 17.19 C 21.92 16.99 21.87 16.73 21.69 16.59"
+        : "M 12 8 A 4 4 0 1 0 12 16 A 4 4 0 1 0 12 8 Z M 19.4 15 A 7.9 7.9 0 0 0 19.55 13.55 L 21.54 11.96 L 19.78 8.11 L 16.87 8.87 A 7.9 7.9 0 0 0 15.29 7.94 L 14.93 5.45 L 10.73 5.45 L 9.93 7.94 A 7.9 7.9 0 0 0 8.35 8.87 L 5.44 8.11 L 3.56 11.36 L 5.67 13.55 A 7.9 7.9 0 0 0 5.82 15 L 3.83 16.59 L 5.59 20.44 L 8.5 19.68 A 7.9 7.9 0 0 0 10.08 20.61 L 10.44 23.1 L 14.64 23.1 L 15.44 20.61 A 7.9 7.9 0 0 0 17.02 19.68 L 19.93 20.44 L 21.81 17.19 Z";
 }
 
 export component IconTrash inherits Path {
@@ -181,19 +208,33 @@ export component IconSun inherits Path {
     commands: "M 12 17 A 5 5 0 1 0 12 7 A 5 5 0 1 0 12 17 Z M 12 1 L 12 3 M 12 21 L 12 23 M 4.22 4.22 L 5.64 5.64 M 18.36 18.36 L 19.78 19.78 M 1 12 L 3 12 M 21 12 L 23 12 M 4.22 19.78 L 5.64 18.36 M 18.36 5.64 L 19.78 4.22";
 }
 
+export component IconMoon inherits Path {
+    in property <color> stroke-color: Theme.text-secondary;
+    width: 16px;
+    height: 16px;
+    viewbox-x: 0; viewbox-y: 0; viewbox-width: 24; viewbox-height: 24;
+    stroke: stroke-color; stroke-width: 1.8px; fill: transparent;
+    commands: "M 20.5 15.2 A 8.5 8.5 0 0 1 8.8 3.5 A 8.8 8.8 0 1 0 20.5 15.2 Z";
+}
+
 export component IconCalendar inherits Path {
     in property <color> stroke-color: #38BDF8;
     in property <color> fill-color: #38BDF825;
+    // Filled variant: solid body, header rule knocked out, rings as nubs
+    // that abut the top edge (evenodd-safe: touching, never overlapping).
+    in property <bool> filled: false;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
     viewbox-y: 0;
     viewbox-width: 24;
     viewbox-height: 24;
-    stroke: stroke-color;
-    stroke-width: 1.5px;
+    stroke: filled ? transparent : stroke-color;
+    stroke-width: 2px;
     fill: fill-color;
-    commands: "M 19 4 L 5 4 C 3.9 4 3 4.9 3 6 L 3 20 C 3 21.1 3.9 22 5 22 L 19 22 C 20.1 22 21 21.1 21 20 L 21 6 C 21 4.9 20.1 4 19 4 Z M 16 2 L 16 6 M 8 2 L 8 6 M 3 10 L 21 10";
+    commands: filled
+        ? "M 19 4 L 5 4 C 3.9 4 3 4.9 3 6 L 3 20 C 3 21.1 3.9 22 5 22 L 19 22 C 20.1 22 21 21.1 21 20 L 21 6 C 21 4.9 20.1 4 19 4 Z M 3.6 9.3 L 20.4 9.3 L 20.4 10.7 L 3.6 10.7 Z M 15.3 1.9 L 16.7 1.9 L 16.7 4 L 15.3 4 Z M 7.3 1.9 L 8.7 1.9 L 8.7 4 L 7.3 4 Z"
+        : "M 19 4 L 5 4 C 3.9 4 3 4.9 3 6 L 3 20 C 3 21.1 3.9 22 5 22 L 19 22 C 20.1 22 21 21.1 21 20 L 21 6 C 21 4.9 20.1 4 19 4 Z M 16 2 L 16 6 M 8 2 L 8 6 M 3 10 L 21 10";
 }
 
 export component IconInbox inherits Path {
@@ -243,16 +284,21 @@ export component IconArrowRight inherits Path {
 export component IconClock inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
     in property <color> fill-color: #88888820;
+    // Filled variant: solid disc with the hands knocked out (evenodd holes),
+    // no outline — hands read as background-colored gaps.
+    in property <bool> filled: false;
     width: 14px;
     height: 14px;
     viewbox-x: 0;
     viewbox-y: 0;
     viewbox-width: 24;
     viewbox-height: 24;
-    stroke: stroke-color;
-    stroke-width: 1.5px;
+    stroke: filled ? transparent : stroke-color;
+    stroke-width: 2px;
     fill: fill-color;
-    commands: "M 12 22 A 10 10 0 1 0 12 2 A 10 10 0 1 0 12 22 Z M 12 6 L 12 12 L 16 14";
+    commands: filled
+        ? "M 12 22 A 10 10 0 1 0 12 2 A 10 10 0 1 0 12 22 Z M 11 6 L 13 6 L 13 12.4 L 11 12.4 Z M 12.46 11.11 L 16.86 13.41 L 15.94 15.19 L 11.54 12.89 Z"
+        : "M 12 22 A 10 10 0 1 0 12 2 A 10 10 0 1 0 12 22 Z M 12 6 L 12 12 L 16 14";
 }
 
 export component IconPlay inherits Path {
@@ -303,16 +349,21 @@ export component IconSkip inherits Path {
 export component IconChart inherits Path {
     in property <color> stroke-color: Theme.accent-cyan;
     in property <color> fill-color: #3CC9C425;
+    // Filled variant: axis becomes a solid L-band, bars fill solid — same
+    // coordinates as the outline so the silhouette never shifts.
+    in property <bool> filled: false;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
     viewbox-y: 0;
     viewbox-width: 24;
     viewbox-height: 24;
-    stroke: stroke-color;
-    stroke-width: 1.5px;
+    stroke: filled ? transparent : stroke-color;
+    stroke-width: 2px;
     fill: fill-color;
-    commands: "M 3 3 L 3 21 L 21 21 M 7 17 L 7 11 L 11 11 L 11 17 Z M 13 17 L 13 6 L 17 6 L 17 17 Z";
+    commands: filled
+        ? "M 3 3 L 4.9 3 L 4.9 19.1 L 21 19.1 L 21 21 L 3 21 Z M 7 17 L 7 11 L 11 11 L 11 17 Z M 13 17 L 13 6 L 17 6 L 17 17 Z"
+        : "M 3 3 L 3 21 L 21 21 M 7 17 L 7 11 L 11 11 L 11 17 Z M 13 17 L 13 6 L 17 6 L 17 17 Z";
 }
 
 export component IconMore inherits Path {
@@ -393,16 +444,21 @@ export component IconChevronRight inherits Path {
 export component IconNote inherits Path {
     in property <color> stroke-color: Theme.accent-pink;
     in property <color> fill-color: #EF82EF25;
+    // Filled variant: solid page, text rows knocked out. The diagonal cut
+    // already reads as the fold, so no fold stroke is kept.
+    in property <bool> filled: false;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
     viewbox-y: 0;
     viewbox-width: 24;
     viewbox-height: 24;
-    stroke: stroke-color;
-    stroke-width: 1.5px;
+    stroke: filled ? transparent : stroke-color;
+    stroke-width: 2px;
     fill: fill-color;
-    commands: "M 14 3 L 6 3 C 4.9 3 4 3.9 4 5 L 4 19 C 4 20.1 4.9 21 6 21 L 18 21 C 19.1 21 20 20.1 20 19 L 20 9 Z M 14 3 L 14 9 L 20 9 M 8 13 L 16 13 M 8 17 L 14 17";
+    commands: filled
+        ? "M 14 3 L 6 3 C 4.9 3 4 3.9 4 5 L 4 19 C 4 20.1 4.9 21 6 21 L 18 21 C 19.1 21 20 20.1 20 19 L 20 9 Z M 7.9 12.4 L 16.1 12.4 L 16.1 13.6 L 7.9 13.6 Z M 7.9 16.4 L 14.1 16.4 L 14.1 17.6 L 7.9 17.6 Z"
+        : "M 14 3 L 6 3 C 4.9 3 4 3.9 4 5 L 4 19 C 4 20.1 4.9 21 6 21 L 18 21 C 19.1 21 20 20.1 20 19 L 20 9 Z M 14 3 L 14 9 L 20 9 M 8 13 L 16 13 M 8 17 L 14 17";
 }
 
 export component IconStar inherits Path {

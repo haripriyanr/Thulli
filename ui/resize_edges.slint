@@ -1,0 +1,31 @@
+// Invisible resize strips pinned to the window frame edges. Each strip
+// reports window-relative pointer coordinates to ShellState so Rust can
+// drive native frameless resizing. No visible content by design.
+
+import { ShellState } from "shell_state.slint";
+
+export component EdgeResize inherits Rectangle {
+    in property <string> edge;
+    background: transparent;
+
+    touch := TouchArea {
+        width: 100%;
+        height: 100%;
+
+        // Window-relative pointer position = strip origin in window coords
+        // (`absolute-position`, injected on every element) + pointer offset
+        // within the TouchArea (`mouse-x/y`, raw and still valid when the
+        // drag leaves the 6px strip). PointerEvent carries no position field
+        // in Slint 1.18, so these two are the sanctioned sources.
+        // Divide lengths by 1px: Slint has no implicit length-to-float.
+        pointer-event(ev) => {
+            if (ev.kind == PointerEventKind.down) {
+                ShellState.window-resize-start(root.edge, (touch.absolute-position.x + touch.mouse-x) / 1px, (touch.absolute-position.y + touch.mouse-y) / 1px);
+            } else if (ev.kind == PointerEventKind.move && touch.pressed) {
+                ShellState.window-resize-move((touch.absolute-position.x + touch.mouse-x) / 1px, (touch.absolute-position.y + touch.mouse-y) / 1px);
+            } else if (ev.kind == PointerEventKind.up) {
+                ShellState.window-resize-end();
+            }
+        }
+    }
+}

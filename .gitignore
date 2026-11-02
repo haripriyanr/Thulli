@@ -11,3 +11,6 @@ inspect*.js
 # already existing elements were commented out
 
 #/target
+
+# Dev telemetry & crash logs (never commit)
+logs/

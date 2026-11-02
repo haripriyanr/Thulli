@@ -1,78 +1,104 @@
 import { Theme } from "theme.slint";
 
+// Compact glass window controls for the frameless shell.
+// Hover feedback only: 120ms ease-out, no ambient motion.
 export component WindowControls {
     in property <bool> is-maximized: false;
+
     callback minimize();
     callback maximize();
     callback close();
 
     HorizontalLayout {
-        spacing: 8px;
+        spacing: 4px;
         alignment: end;
 
         // Minimize
         min-touch := TouchArea {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             clicked => { root.minimize(); }
 
             Rectangle {
                 width: 100%;
                 height: 100%;
-                border-radius: Theme.radius-sm;
-                background: min-touch.has-hover ? #222938 : transparent;
+                border-radius: 9px;
+                background: min-touch.has-hover ? Theme.glass-fill-hover : transparent;
+                animate background { duration: 120ms; easing: ease-out; }
 
                 Rectangle {
-                    width: 12px;
-                    height: 2px;
-                    background: Theme.text-secondary;
-                    y: 13px;
-                    x: 8px;
+                    width: 11px;
+                    height: 1.5px;
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                    background: min-touch.has-hover ? Theme.text-primary : Theme.text-secondary;
                 }
             }
         }
 
-        // Maximize
+        // Maximize / restore
         max-touch := TouchArea {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             clicked => { root.maximize(); }
 
             Rectangle {
                 width: 100%;
                 height: 100%;
-                border-radius: Theme.radius-sm;
-                background: max-touch.has-hover ? #222938 : transparent;
+                border-radius: 9px;
+                background: max-touch.has-hover ? Theme.glass-fill-hover : transparent;
+                animate background { duration: 120ms; easing: ease-out; }
 
-                Rectangle {
+                if !root.is-maximized: Rectangle {
                     width: 10px;
                     height: 10px;
-                    border-width: 1.5px;
-                    border-color: Theme.text-secondary;
-                    border-radius: 1px;
-                    y: 9px;
-                    x: 9px;
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
+                    border-width: 1.4px;
+                    border-color: max-touch.has-hover ? Theme.text-primary : Theme.text-secondary;
+                    border-radius: 2.5px;
+                }
+
+                if root.is-maximized: Rectangle {
+                    width: 9px;
+                    height: 9px;
+                    x: (parent.width - self.width) / 2 - 1.5px;
+                    y: (parent.height - self.height) / 2 + 1.5px;
+                    border-width: 1.4px;
+                    border-color: max-touch.has-hover ? Theme.text-primary : Theme.text-secondary;
+                    border-radius: 2.5px;
+
+                    Rectangle {
+                        x: 2.5px;
+                        y: -2.5px;
+                        width: parent.width;
+                        height: parent.height;
+                        border-width: 1.4px;
+                        border-color: max-touch.has-hover ? Theme.text-primary : Theme.text-secondary;
+                        border-radius: 2.5px;
+                    }
                 }
             }
         }
 
         // Close
         close-touch := TouchArea {
-            width: 28px;
-            height: 28px;
+            width: 30px;
+            height: 30px;
             clicked => { root.close(); }
 
             Rectangle {
                 width: 100%;
                 height: 100%;
-                border-radius: Theme.radius-sm;
-                background: close-touch.has-hover ? #E81123 : transparent;
+                border-radius: 9px;
+                background: close-touch.has-hover ? #E5484D : transparent;
+                animate background { duration: 120ms; easing: ease-out; }
 
                 Path {
                     width: 10px;
                     height: 10px;
-                    y: 9px;
-                    x: 9px;
+                    x: (parent.width - self.width) / 2;
+                    y: (parent.height - self.height) / 2;
                     stroke: close-touch.has-hover ? #FFFFFF : Theme.text-secondary;
                     stroke-width: 1.5px;
                     commands: "M 0 0 L 10 10 M 10 0 L 0 10";

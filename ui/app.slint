@@ -1,324 +1,313 @@
-// Application shell. Composes the title bar, notice banner, screen host, tab
-// pill and menus. All screen content lives in ui/screens/*.slint; each screen
-// owns a `<Name>State` global that Rust binds to, re-exported below so this
-// file stays unchanged when screens grow.
+// Thulli shell — frameless, warm neutral surfaces with muted teal accents.
+// A slow orb field sits behind a softly layered panel and an adaptive dock.
+//
+// Motion policy: hover feedback 120ms ease-out + ambient orb drift (slow,
+// sub-3px/s, ease-in-out) — nothing else.
 
 import { Theme } from "theme.slint";
 import { WindowControls } from "window_controls.slint";
-import { IconMore, IconUser, IconClose, IconChat } from "icons.slint";
-import { ThulliCelebration } from "components/celebration.slint";
-import { ThulliTabPill } from "components/tabs.slint";
-import { ThulliTimerPill } from "components/timer_pill.slint";
-import { ThulliAppMenu } from "components/app_menu.slint";
+import { IconSun, IconMoon } from "icons.slint";
+import { EdgeResize } from "resize_edges.slint";
 import { ShellState } from "shell_state.slint";
-import { TodayScreen, TodayState } from "screens/today.slint";
-import { TasksScreen, TasksState } from "screens/tasks.slint";
-import { NotesScreen, NotesState } from "screens/notes.slint";
-import { InsightsScreen, InsightsState } from "screens/insights.slint";
-import { PreferencesScreen, PreferencesState } from "screens/preferences.slint";
-import { ListsScreen, ListsState } from "screens/lists.slint";
-import { ShieldScreen, ShieldState } from "screens/shield.slint";
-import { AssistantScreen, AssistantState } from "screens/assistant.slint";
-import { MatrixScreen, MatrixState } from "screens/matrix.slint";
-import { CalendarScreen, CalendarState } from "screens/calendar.slint";
-import { ReportsScreen, ReportsState } from "screens/reports.slint";
-import { FocusScreen, FocusState } from "screens/focus.slint";
+import { NavigationRail } from "components/navigation_rail.slint";
 
 export { ShellState }
-export {
-    TodayState, TasksState, NotesState, InsightsState, PreferencesState, ListsState, ShieldState, AssistantState,
-    MatrixState, CalendarState, ReportsState, FocusState
-}
-export {
-    TaskModel, ListModel, NoteModel, NoteFolderModel, QuickCaptureModel, BragModel, MeetingNoteModel,
-    TimeBlockModel, ChartPointModel, BarModel, HeatCellModel, StatTileModel, ActivityEntryModel,
-    BlockedAppModel, BlockedSiteModel, ChatThreadModel, ChatMessageModel, ShortcutModel, ChoiceModel,
-    TagModel, ListFolderModel, BoardColumnModel, HistoryEntryModel, MemoryModel, SuggestionModel,
-    SessionRowModel, CalendarItemModel, DonutSliceModel, FocusQueueItemModel
-} from "types.slint";
-
-export { SearchHitModel } from "components/search.slint";
+export { Theme }
 
 export component MainWindow inherits Window {
     title: "Thulli";
     no-frame: true;
-    preferred-width: 1240px;
-    preferred-height: 780px;
-    min-width: 800px;
-    min-height: 500px;
+    preferred-width: 1180px;
+    preferred-height: 760px;
+    min-width: 360px;
+    min-height: 480px;
     background: Theme.bg-canvas;
-    default-font-family: "Segoe UI, Inter, sans-serif";
 
-    property <bool> menu-open: false;
-
-    // Receives key presses that no text field took; the shell maps them to
-    // in-app shortcuts.
-    key-scope := FocusScope {
-        width: 100%;
-        height: 100%;
-        key-pressed(event) => {
-            if (ShellState.app-key-pressed(event.text, event.modifiers.control, event.modifiers.alt,
-                    event.modifiers.shift, event.modifiers.meta)) {
-                return accept;
-            }
-            return reject;
-        }
-    }
-
-    init => { key-scope.focus(); }
-
-    // Frame with a subtle border
+    // Outer frame: 1px gradient edge so the window has a defined silhouette
+    // against any wallpaper. Everything else lives inside.
     Rectangle {
         width: 100%;
         height: 100%;
-        background: Theme.bg-canvas;
-        border-width: 1px;
-        border-color: Theme.border-subtle;
         clip: true;
 
-        VerticalLayout {
-            padding: 0px;
-            spacing: 0px;
+        border-width: 1px;
+        border-color: @linear-gradient(140deg,
+            rgba(255, 255, 255, 0.28) 0%,
+            rgba(255, 255, 255, 0.06) 40%,
+            rgba(255, 255, 255, 0.10) 100%);
 
-            // Title bar: menu, workspace name, running timer, profile, window controls
-            Rectangle {
-                height: 40px;
-                background: Theme.bg-canvas;
+        background: Theme.dark-mode
+            ? @linear-gradient(195deg, #111820 0%, #0D1118 48%, #0B0E13 100%)
+            : @linear-gradient(195deg, #F8F7F2 0%, #F2F0E9 52%, #EAEDE7 100%);
+
+        // --- Orb field: bright, soft, silver with two color accents --------
+        // Each orb is a multi-stop radial circle faking a gaussian falloff.
+
+        // Large bright silver orb, upper right. Mostly horizontal drift.
+        orb1 := Rectangle {
+            x: parent.width - 500px + (ShellState.orb-drift ? 44px : -16px);
+            y: -240px + (ShellState.orb-drift ? 8px : -6px);
+            width: 720px;
+            height: 720px;
+            border-radius: 360px;
+            animate x { duration: 16s; easing: ease-in-out; }
+            animate y { duration: 16s; easing: ease-in-out; }
+            background: @radial-gradient(circle,
+                rgba(236, 241, 248, 0.22) 0%,
+                rgba(216, 226, 240, 0.12) 28%,
+                rgba(190, 204, 228, 0.05) 55%,
+                rgba(190, 204, 228, 0.00) 80%);
+        }
+
+        // Large dim silver orb, lower left. Mostly vertical drift.
+        orb2 := Rectangle {
+            x: -300px + (ShellState.orb-drift ? -10px : 8px);
+            y: parent.height - 560px + (ShellState.orb-drift ? 40px : -12px);
+            width: 760px;
+            height: 760px;
+            border-radius: 380px;
+            animate x { duration: 16s; easing: ease-in-out; }
+            animate y { duration: 16s; easing: ease-in-out; }
+            background: @radial-gradient(circle,
+                rgba(224, 230, 242, 0.13) 0%,
+                rgba(196, 206, 226, 0.06) 38%,
+                rgba(196, 206, 226, 0.00) 76%);
+        }
+
+        // Small cyan accent glow, mid left. Mostly horizontal drift.
+        orb3 := Rectangle {
+            x: -40px + (ShellState.orb-drift ? 36px : -12px);
+            y: parent.height * 0.42 + (ShellState.orb-drift ? 14px : -10px);
+            width: 360px;
+            height: 360px;
+            border-radius: 180px;
+            animate x { duration: 16s; easing: ease-in-out; }
+            animate y { duration: 16s; easing: ease-in-out; }
+            background: @radial-gradient(circle,
+                rgba(60, 201, 196, 0.22) 0%,
+                rgba(60, 201, 196, 0.07) 42%,
+                rgba(60, 201, 196, 0.00) 78%);
+        }
+
+        // Faint pink accent, top left. Mostly vertical drift.
+        orb4 := Rectangle {
+            x: -60px + (ShellState.orb-drift ? -8px : 12px);
+            y: -100px + (ShellState.orb-drift ? 34px : -14px);
+            width: 420px;
+            height: 420px;
+            border-radius: 210px;
+            animate x { duration: 16s; easing: ease-in-out; }
+            animate y { duration: 16s; easing: ease-in-out; }
+            background: @radial-gradient(circle,
+                rgba(239, 130, 239, 0.11) 0%,
+                rgba(239, 130, 239, 0.04) 40%,
+                rgba(239, 130, 239, 0.00) 76%);
+        }
+
+        // --- Title strip: drag area + window controls, nothing else -------
+        // x/y must be pinned: elements without a position binding default to
+        // being centered in their parent, which shoved this strip mid-window.
+        Rectangle {
+            x: 0px;
+            y: 0px;
+            width: 100%;
+            height: Theme.title-bar-height;
+
+            // Declared first so the controls stay on top of the drag region.
+            // Plain clicks and drag still reach the move area; a double-click
+            // on the strip toggles maximize.
+            WindowMoveArea {
+                width: 100%;
+                height: 100%;
 
                 TouchArea {
                     width: 100%;
                     height: 100%;
-                    pointer-event(event) => {
-                        if (event.kind == PointerEventKind.down && event.button == PointerEventButton.left) {
-                            ShellState.window-drag-start();
-                        }
-                    }
-                }
-
-                HorizontalLayout {
-                    padding-left: 10px;
-                    padding-right: 12px;
-                    spacing: 8px;
-                    alignment: space-between;
-
-                    HorizontalLayout {
-                        alignment: start;
-                        spacing: 8px;
-
-                        menu-button := TouchArea {
-                            width: 28px;
-                            height: 28px;
-                            y: 6px;
-                            clicked => { root.menu-open = !root.menu-open; }
-
-                            Rectangle {
-                                width: 100%;
-                                height: 100%;
-                                border-radius: Theme.radius-sm;
-                                background: menu-button.has-hover || root.menu-open ? Theme.bg-card-hover : transparent;
-                                IconMore {
-                                    x: (parent.width - self.width) / 2;
-                                    y: (parent.height - self.height) / 2;
-                                }
-                            }
-                        }
-
-                        Text {
-                            text: ShellState.workspace-name;
-                            font-size: 12px;
-                            font-weight: 600;
-                            color: Theme.text-secondary;
-                            vertical-alignment: center;
-                        }
-                    }
-
-                    HorizontalLayout {
-                        alignment: end;
-                        spacing: 8px;
-
-                        profile-button := TouchArea {
-                            width: 28px;
-                            height: 28px;
-                            y: 6px;
-                            clicked => { ShellState.navigate("preferences"); }
-
-                            Rectangle {
-                                width: 100%;
-                                height: 100%;
-                                border-radius: Theme.radius-sm;
-                                background: profile-button.has-hover ? Theme.bg-card-hover : transparent;
-                                IconUser {
-                                    x: (parent.width - self.width) / 2;
-                                    y: (parent.height - self.height) / 2;
-                                }
-                            }
-                        }
-
-                        WindowControls {
-                            minimize => { ShellState.window-minimize(); }
-                            maximize => { ShellState.window-maximize(); }
-                            close => { ShellState.window-close(); }
-                        }
-                    }
-                }
-
-                // Running timer, centred, visible on every screen
-                if ShellState.timer-visible: ThulliTimerPill {
-                    x: (parent.width - self.width) / 2;
-                    y: 5px;
-                    display: ShellState.timer-display;
-                    label: ShellState.timer-label;
-                    running: ShellState.timer-running;
-                    alert: ShellState.pill-alert;
-                    clicked => { ShellState.timer-open(); }
-                    toggled => { ShellState.timer-toggle(); }
-                }
-
-                Rectangle {
-                    y: parent.height - 1px;
-                    width: 100%;
-                    height: 1px;
-                    background: Theme.border-subtle;
+                    double-clicked => { ShellState.window-maximize(); }
                 }
             }
 
-            // Notice banner (for example after recovering unreadable data)
-            if ShellState.notice != "": Rectangle {
-                height: 40px;
-                background: Theme.bg-card;
-
-                HorizontalLayout {
-                    padding-left: 16px;
-                    padding-right: 12px;
-                    spacing: 12px;
-
-                    Text {
-                        text: ShellState.notice;
-                        font-size: 12px;
-                        color: Theme.text-primary;
-                        vertical-alignment: center;
-                        overflow: elide;
-                        horizontal-stretch: 1;
-                    }
-
-                    dismiss := TouchArea {
-                        width: 28px;
-                        height: 28px;
-                        y: 6px;
-                        clicked => { ShellState.notice = ""; }
-
-                        Rectangle {
-                            width: 100%;
-                            height: 100%;
-                            border-radius: Theme.radius-sm;
-                            background: dismiss.has-hover ? Theme.bg-card-hover : transparent;
-                            IconClose {
-                                x: (parent.width - self.width) / 2;
-                                y: (parent.height - self.height) / 2;
-                            }
-                        }
-                    }
-                }
-
-                Rectangle {
-                    y: parent.height - 1px;
-                    width: 100%;
-                    height: 1px;
-                    background: Theme.border-subtle;
-                }
+            Image {
+                source: @image-url("../assets/Thulli-Mark.png");
+                image-fit: contain;
+                x: 20px;
+                y: (parent.height - 24px) / 2;
+                width: 24px;
+                height: 24px;
             }
 
-            // Screen host: exactly one screen is alive at a time. Screens should
-            // leave ShellState.content-bottom-inset free for the tab pill.
             Rectangle {
-                vertical-stretch: 1;
-                // Screens size to the window; they must never grow it.
-                min-width: 0px;
-                min-height: 0px;
-                preferred-width: 0px;
-                preferred-height: 0px;
-                clip: true;
-                background: Theme.bg-canvas;
-
-                if ShellState.current-screen == "today": TodayScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "tasks": TasksScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "matrix": MatrixScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "calendar": CalendarScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "focus": FocusScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "reports": ReportsScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "insights": InsightsScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "notes": NotesScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "lists": ListsScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "shield": ShieldScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-                if ShellState.current-screen == "assistant": AssistantScreen {
-                    y: 0px;
+                width: 30px;
+                height: 30px;
+                x: parent.width - 98px - 10px - 38px;
+                y: (parent.height - 30px) / 2;
+                theme-touch := TouchArea {
                     width: 100%;
-                    height: parent.height - 84px;
-                    init => { AssistantState.shown(); }
-                }
-                if ShellState.current-screen == "preferences": PreferencesScreen { y: 0px; width: 100%; height: parent.height - 84px; }
-
-                // Bottom tab pill, floating above the screen
-                ThulliTabPill {
-                    x: (parent.width - self.width) / 2;
-                    y: parent.height - self.height - 16px;
-                    // Related screens keep their tab lit.
-                    current: (ShellState.current-screen == "tasks" || ShellState.current-screen == "matrix" || ShellState.current-screen == "calendar") ? "tasks"
-                        : (ShellState.current-screen == "insights" || ShellState.current-screen == "reports") ? "insights"
-                        : ShellState.current-screen == "focus" ? "today" : ShellState.current-screen;
-                    selected(id) => { ShellState.navigate(id); }
-                }
-
-                // Floating assistant launcher, bottom right
-                if ShellState.current-screen != "assistant": assistant-launch := TouchArea {
-                    x: parent.width - self.width - 20px;
-                    y: parent.height - self.height - 16px;
-                    width: 52px;
-                    height: 52px;
-                    clicked => { ShellState.navigate("assistant"); }
-
+                    height: 100%;
+                    clicked => {
+                        Theme.theme-choice = Theme.dark-mode ? "light" : "dark";
+                        ShellState.theme-choice = Theme.theme-choice;
+                        ShellState.theme-choice-changed(Theme.theme-choice);
+                    }
                     Rectangle {
-                        width: 100%;
-                        height: 100%;
-                        border-radius: 26px;
-                        background: assistant-launch.has-hover ? Theme.bg-card-hover : Theme.bg-card;
-                        border-width: 1px;
-                        border-color: Theme.border-light;
-
-                        IconChat {
-                            x: (parent.width - self.width) / 2;
-                            y: (parent.height - self.height) / 2;
-                        }
+                        width: 100%; height: 100%; border-radius: 9px;
+                        background: theme-touch.has-hover ? Theme.glass-fill-hover : transparent;
+                        animate background { duration: 120ms; easing: ease-out; }
+                        if Theme.light-mode: IconMoon { width: 16px; height: 16px; x: 7px; y: 7px; stroke-color: Theme.text-secondary; }
+                        if !Theme.light-mode: IconSun { width: 16px; height: 16px; x: 7px; y: 7px; stroke-color: Theme.text-secondary; }
                     }
                 }
             }
-        }
-
-        // App menu: click-away layer plus the menu itself
-        if root.menu-open: TouchArea {
-            width: 100%;
-            height: 100%;
-            clicked => { root.menu-open = false; }
-        }
-        if root.menu-open: ThulliAppMenu {
-            x: 10px;
-            y: 44px;
-            chosen(id) => {
-                root.menu-open = false;
-                ShellState.navigate(id);
+            WindowControls {
+                width: 98px;
+                height: 30px;
+                x: parent.width - 98px - 10px;
+                y: (parent.height - 30px) / 2;
+                is-maximized: ShellState.is-maximized;
+                minimize => { ShellState.window-minimize(); }
+                maximize => { ShellState.window-maximize(); }
+                close => { ShellState.window-close(); }
             }
         }
 
-        // Success moment: plays once over the top of the screen, then hides.
-        ThulliCelebration {
-            x: (parent.width - self.width) / 2;
-            y: 48px;
-            width: 360px;
-            playing: ShellState.celebration-playing;
-            style: ShellState.celebration-style;
+        // --- Frosted glass panel -------------------------------------------
+        Rectangle {
+            x: 24px;
+            y: Theme.title-bar-height + 2px;
+            width: parent.width - 38px;
+            height: parent.height - Theme.title-bar-height - 16px;
+            border-radius: 26px;
+
+            // Body: a diagonal light sweep — brighter top-left, mild dark
+            // falloff bottom-right, like light raking across dark glass.
+            background: Theme.dark-mode
+                ? @linear-gradient(150deg,
+                    rgba(255, 255, 255, 0.085) 0%,
+                    rgba(255, 255, 255, 0.030) 36%,
+                    rgba(255, 255, 255, 0.020) 58%,
+                    rgba(0, 0, 0, 0.05) 100%)
+                : @linear-gradient(150deg,
+                    rgba(255, 255, 255, 0.92) 0%,
+                    rgba(255, 255, 255, 0.74) 36%,
+                    rgba(255, 255, 255, 0.60) 58%,
+                    rgba(220, 235, 231, 0.70) 100%);
+
+            border-width: 1px;
+            border-color: Theme.dark-mode
+                ? @linear-gradient(140deg,
+                    rgba(255, 255, 255, 0.26) 0%,
+                    rgba(255, 255, 255, 0.05) 34%,
+                    rgba(255, 255, 255, 0.04) 60%,
+                    rgba(255, 255, 255, 0.12) 100%)
+                : @linear-gradient(140deg,
+                    rgba(64, 86, 80, 0.24) 0%,
+                    rgba(64, 86, 80, 0.08) 40%,
+                    rgba(64, 86, 80, 0.10) 100%);
+
+            drop-shadow-blur: 34px;
+            drop-shadow-color: rgba(0, 0, 0, 0.38);
+            drop-shadow-offset-y: 12px;
+
+            // Specular top rim.
+            Rectangle {
+                x: 1px;
+                y: 0px;
+                width: parent.width - 2px;
+                height: 1px;
+                background: @linear-gradient(90deg,
+                    transparent 0%,
+                    rgba(255, 255, 255, 0.36) 18%,
+                    rgba(255, 255, 255, 0.10) 55%,
+                    rgba(255, 255, 255, 0.16) 85%,
+                    transparent 100%);
+            }
+
+            // Corner glow where the silver orb sits behind the glass.
+            Rectangle {
+                x: parent.width - 340px;
+                y: -160px;
+                width: 400px;
+                height: 400px;
+                border-radius: 200px;
+                background: @radial-gradient(circle,
+                    rgba(255, 255, 255, 0.10) 0%,
+                    rgba(255, 255, 255, 0.04) 40%,
+                    rgba(255, 255, 255, 0.00) 75%);
+            }
+        }
+
+        navigation-rail := NavigationRail {
+            x: parent.width < 640px ? 12px : 24px;
+            y: parent.width < 640px ? parent.height - self.height - 14px : (parent.height - self.height) / 2;
+            compact: parent.width < 640px;
+            compact-width: parent.width - 24px;
+        }
+
+        // --- Frameless resize edges: transparent strips pinned to the ------
+        // window frame, on top of everything, hidden while maximized.
+        // Corners come last so they win over the edge strips.
+        if !ShellState.is-maximized: EdgeResize {
+            edge: "left";
+            x: 0px;
+            y: 0px;
+            width: 6px;
+            height: 100%;
+        }
+
+        if !ShellState.is-maximized: EdgeResize {
+            edge: "right";
+            x: parent.width - 6px;
+            y: 0px;
+            width: 6px;
+            height: 100%;
+        }
+
+        if !ShellState.is-maximized: EdgeResize {
+            edge: "top";
+            x: 0px;
+            y: 0px;
+            width: 100%;
+            height: 6px;
+        }
+
+        if !ShellState.is-maximized: EdgeResize {
+            edge: "bottom";
+            x: 0px;
+            y: parent.height - 6px;
+            width: 100%;
+            height: 6px;
+        }
+
+        if !ShellState.is-maximized: EdgeResize {
+            edge: "top-left";
+            x: 0px;
+            y: 0px;
+            width: 16px;
+            height: 16px;
+        }
+
+        if !ShellState.is-maximized: EdgeResize {
+            edge: "top-right";
+            x: parent.width - 16px;
+            y: 0px;
+            width: 16px;
+            height: 16px;
+        }
+
+        if !ShellState.is-maximized: EdgeResize {
+            edge: "bottom-left";
+            x: 0px;
+            y: parent.height - 16px;
+            width: 16px;
+            height: 16px;
+        }
+
+        if !ShellState.is-maximized: EdgeResize {
+            edge: "bottom-right";
+            x: parent.width - 16px;
+            y: parent.height - 16px;
+            width: 16px;
+            height: 16px;
         }
     }
 }
-
-export { FloatingNotesWindow } from "screens/notes.slint";
-export { Theme }

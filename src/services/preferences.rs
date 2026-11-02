@@ -164,31 +164,31 @@ impl ThemePalette {
         text_primary: 0xFFFFFF,
         text_secondary: 0x9EABBE,
         text_muted: 0x5E697C,
-        accent_cyan: 0x3CC9C4,
+        accent_cyan: 0x36C9C5,
         accent_lime: 0xB3C065,
     };
 
     const LIGHT: ThemePalette = ThemePalette {
         dark: false,
-        bg_canvas: 0xF3F5F8,
-        bg_sidebar: 0xFFFFFF,
-        bg_panel: 0xFFFFFF,
+        bg_canvas: 0xF7F5F0,
+        bg_sidebar: 0xEFEEE8,
+        bg_panel: 0xFBFAF6,
         bg_card: 0xFFFFFF,
-        bg_card_hover: 0xEBEFF5,
-        bg_card_selected: 0xDFE6F2,
-        border_subtle: 0xDDE3EC,
-        border_light: 0xC4CDDB,
-        text_primary: 0x14171D,
-        text_secondary: 0x4A5568,
-        text_muted: 0x8391A6,
-        accent_cyan: 0x3CC9C4,
+        bg_card_hover: 0xEAE9E2,
+        bg_card_selected: 0xDCEBE7,
+        border_subtle: 0xDDDCD4,
+        border_light: 0xC8C9C0,
+        text_primary: 0x242B2A,
+        text_secondary: 0x586765,
+        text_muted: 0x7D8985,
+        accent_cyan: 0x36C9C5,
         accent_lime: 0xB3C065,
     };
 
     /// The gradient pair for an accent theme, as (primary, secondary).
     pub fn accent_pair(accent: AccentTheme) -> (u32, u32) {
         match accent {
-            AccentTheme::Teal => (0x3CC9C4, 0xB3C065),
+            AccentTheme::Teal => (0x36C9C5, 0xB3C065),
             AccentTheme::Blue => (0x6F98E8, 0x7FD3F0),
             AccentTheme::Violet => (0x9B7BEF, 0xEF82EF),
             AccentTheme::Amber => (0xDB9D20, 0xF0D26A),

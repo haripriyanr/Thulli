@@ -1,0 +1,165 @@
+import { Theme } from "../theme.slint";
+import { IconCalendar, IconTasks, IconClock, IconNote, IconChart, IconSettings, IconChevronLeft } from "../icons.slint";
+
+export component NavigationRailItem inherits Rectangle {
+    in property <string> label: "";
+    in property <string> item-id: "";
+    in property <string> icon-name: "";
+    in property <bool> active: false;
+    in property <bool> expanded: false;
+    in property <bool> compact: false;
+    in property <length> wide-width: 52px;
+    callback selected(string);
+
+    width: compact ? 42px : wide-width;
+    height: compact ? 44px : 46px;
+
+    item-touch := TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.selected(root.item-id); }
+
+        Rectangle {
+            width: compact ? 40px : parent.width - 12px;
+            height: 40px;
+            x: (parent.width - self.width) / 2;
+            y: (parent.height - self.height) / 2;
+            border-radius: active ? 12px : 10px;
+            background: active ? Theme.dock-indicator : (item-touch.has-hover ? Theme.glass-fill-hover : transparent);
+            animate background { duration: 120ms; easing: ease-out; }
+
+            if icon-name == "today": IconCalendar {
+                width: 22px; height: 22px;
+                x: expanded ? 14px : (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
+                fill-color: active ? #36C9C533 : transparent;
+                filled: active;
+            }
+            if icon-name == "tasks": IconTasks {
+                width: 22px; height: 22px;
+                x: expanded ? 14px : (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
+                fill-color: active ? #36C9C533 : transparent;
+                filled: active;
+            }
+            if icon-name == "focus": IconClock {
+                width: 22px; height: 22px;
+                x: expanded ? 14px : (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
+                fill-color: active ? #36C9C533 : transparent;
+                filled: active;
+            }
+            if icon-name == "notes": IconNote {
+                width: 22px; height: 22px;
+                x: expanded ? 14px : (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
+                fill-color: active ? #36C9C533 : transparent;
+                filled: active;
+            }
+            if icon-name == "insights": IconChart {
+                width: 22px; height: 22px;
+                x: expanded ? 14px : (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
+                fill-color: active ? #36C9C533 : transparent;
+                filled: active;
+            }
+            if icon-name == "settings": IconSettings {
+                width: 22px; height: 22px;
+                x: expanded ? 14px : (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
+                fill-color: active ? #36C9C533 : transparent;
+                filled: active;
+            }
+
+            if expanded && !compact: Text {
+                text: label;
+                x: 50px;
+                y: (parent.height - self.height) / 2;
+                color: active ? Theme.text-primary : Theme.text-secondary;
+                font-size: 14px;
+                vertical-alignment: center;
+            }
+        }
+    }
+}
+
+/// Responsive left navigation: a hover-expandable rail on desktop and a
+/// touch-sized bottom row in compact windows.
+export component NavigationRail inherits Rectangle {
+    in property <bool> compact: false;
+    in property <length> compact-width: 336px;
+    in-out property <string> active-item: "today";
+    in-out property <bool> touch-pinned: false;
+    out property <bool> expanded: !compact && (touch-pinned || rail-hover.has-hover);
+    callback item-selected(string);
+
+    width: compact ? compact-width : (expanded ? 250px : 76px);
+    height: compact ? 62px : (expanded ? 392px : 336px);
+    border-radius: Theme.radius-pill;
+    background: @linear-gradient(180deg, Theme.dock-fill-top 0%, Theme.dock-fill 100%);
+    border-width: 1px;
+    border-color: Theme.dock-hairline;
+    drop-shadow-blur: 24px;
+    drop-shadow-color: Theme.glass-shadow;
+    drop-shadow-offset-y: 6px;
+    animate width { duration: 180ms; easing: ease-out; }
+    animate height { duration: 180ms; easing: ease-out; }
+
+    rail-hover := TouchArea { width: 100%; height: 100%; }
+
+    if !compact: VerticalLayout {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        padding-left: 6px;
+        padding-right: 6px;
+
+        Rectangle {
+            width: 100%;
+            height: 50px;
+            Image {
+                source: @image-url("../../assets/Thulli-Mark.png");
+                image-fit: contain;
+                width: 28px;
+                height: 28px;
+                x: expanded ? 12px : (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+            }
+            if expanded: TouchArea {
+                width: 32px; height: 32px;
+                x: parent.width - 40px;
+                y: (parent.height - self.height) / 2;
+                clicked => { root.touch-pinned = false; }
+                IconChevronLeft { width: 17px; height: 17px; x: 7.5px; y: 7.5px; stroke-color: Theme.dock-icon-passive; }
+            }
+        }
+
+        NavigationRailItem { label: "Today"; item-id: "today"; icon-name: "today"; active: root.active-item == "today"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: "Tasks"; item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: "Focus"; item-id: "focus"; icon-name: "focus"; active: root.active-item == "focus"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: "Notes"; item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: "Insights"; item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: "Settings"; item-id: "settings"; icon-name: "settings"; active: root.active-item == "settings"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+    }
+
+    if compact: HorizontalLayout {
+        alignment: space-evenly;
+        padding-left: 8px;
+        padding-right: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        spacing: 2px;
+
+        NavigationRailItem { compact: true; item-id: "today"; icon-name: "today"; active: root.active-item == "today"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; item-id: "focus"; icon-name: "focus"; active: root.active-item == "focus"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; item-id: "settings"; icon-name: "settings"; active: root.active-item == "settings"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+    }
+}

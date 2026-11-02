@@ -85,10 +85,9 @@ pub struct EncryptedStorageRepository {
 }
 
 impl EncryptedStorageRepository {
-    /// Factory constructor discovering %APPDATA%/thulli/thulli_data.enc
+    /// Factory constructor discovering the platform's application-data folder.
     pub fn new_default(security: Arc<SecurityManager>) -> Result<Self, Box<dyn std::error::Error>> {
-        let app_data = std::env::var("APPDATA").unwrap_or_else(|_| ".".to_string());
-        let mut dir = PathBuf::from(app_data);
+        let mut dir = application_data_dir();
         dir.push("thulli");
         fs::create_dir_all(&dir)?;
 
@@ -125,6 +124,37 @@ impl EncryptedStorageRepository {
             None
         }
     }
+}
+
+/// Returns the user's private application-data root on each desktop platform.
+/// Mobile targets use HOME when supplied by the sandbox, then fall back to a
+/// local directory so the app remains usable in restricted environments.
+fn application_data_dir() -> PathBuf {
+    #[cfg(target_os = "windows")]
+    {
+        if let Some(path) = std::env::var_os("APPDATA") {
+            return PathBuf::from(path);
+        }
+    }
+    #[cfg(target_os = "macos")]
+    {
+        if let Some(home) = std::env::var_os("HOME") {
+            return PathBuf::from(home).join("Library").join("Application Support");
+        }
+    }
+    #[cfg(target_os = "linux")]
+    {
+        if let Some(path) = std::env::var_os("XDG_DATA_HOME") {
+            return PathBuf::from(path);
+        }
+        if let Some(home) = std::env::var_os("HOME") {
+            return PathBuf::from(home).join(".local").join("share");
+        }
+    }
+    if let Some(home) = std::env::var_os("HOME") {
+        return PathBuf::from(home).join(".local").join("share");
+    }
+    PathBuf::from(".")
 }
 
 impl StorageRepository for EncryptedStorageRepository {
