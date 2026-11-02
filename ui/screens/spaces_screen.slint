@@ -54,7 +54,7 @@ component SpaceItem inherits Rectangle {
             CardAction { tip: ""; clicked => { root.menu(); }
                 IconMore { width: 14px; height: 14px; stroke-color: Theme.text-secondary; } }
         }
-        if !root.has-menu || !touch.has-hover: Text { text: "\{root.count}"; font-size: 13px; color: Theme.text-muted; vertical-alignment: center; }
+        if !root.has-menu || !touch.has-hover: Text { text: @tr("{}", root.count); font-size: 13px; color: Theme.text-muted; vertical-alignment: center; }
     }
     }
 }
@@ -132,7 +132,7 @@ component BoardView inherits Rectangle {
                 horizontal-stretch: root.folded(column.id) ? 0 : 1;
 
                 if column.id == "done" && column.tasks.length > 0: Text {
-                    text: "Tasks: \{column.total}";
+                    text: @tr("Tasks: {}", column.total);
                     font-size: 12px;
                     color: Theme.text-muted;
                 }
@@ -167,7 +167,7 @@ component BoardView inherits Rectangle {
                     added(title, estimate, space, do-date, notes) => { AppData.space-task-composed(column.id, title, estimate, space, do-date, notes); }
                 }
                 if column.id == "done" && column.tasks.length == 0: Text {
-                    text: "Finished tasks land here.";
+                    text: @tr("Finished tasks land here.");
                     font-size: 13px;
                     color: Theme.text-muted;
                 }
@@ -233,7 +233,7 @@ component QuadrantPanel inherits Rectangle {
                     height: 28px;
                     border-radius: 14px;
                     background: Theme.glass-fill-strong;
-                    Text { text: "\{root.quadrant.total}"; font-size: 13px; font-weight: 600; color: Theme.text-secondary; horizontal-alignment: center; vertical-alignment: center; }
+                    Text { text: @tr("{}", root.quadrant.total); font-size: 13px; font-weight: 600; color: Theme.text-secondary; horizontal-alignment: center; vertical-alignment: center; }
                 }
             }
         }
@@ -243,7 +243,7 @@ component QuadrantPanel inherits Rectangle {
             if root.quadrant.tasks.length == 0: Text {
                 width: 100%;
                 height: 100%;
-                text: "No tasks yet. Sort one in from Matrix Review.";
+                text: @tr("No tasks yet. Sort one in from Matrix Review.");
                 font-size: 14px;
                 font-italic: true;
                 color: Theme.text-muted;
@@ -299,12 +299,12 @@ component UnsortedGroup inherits VerticalLayout {
                 }
             }
             Text { text: root.group.title.to-uppercase(); font-size: 15px; color: Theme.text-secondary; vertical-alignment: center; }
-            Text { text: "\{root.group.total}"; font-size: 14px; color: Theme.text-muted; vertical-alignment: center; }
+            Text { text: @tr("{}", root.group.total); font-size: 14px; color: Theme.text-muted; vertical-alignment: center; }
         }
         TouchArea { mouse-cursor: pointer; clicked => { root.open = !root.open; } }
     }
     if root.open && root.group.tasks.length == 0: Text {
-        text: "Nothing waiting here";
+        text: @tr("Nothing waiting here");
         font-size: 14px;
         font-italic: true;
         color: Theme.text-muted;
@@ -347,10 +347,10 @@ component MatrixView inherits Rectangle {
                     padding: 22px;
                     spacing: 10px;
                     HorizontalLayout {
-                        Text { horizontal-stretch: 1; text: "Matrix Review"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
-                        Text { text: "\{root.sorted}/\{root.all}"; font-size: 14px; color: Theme.text-muted; vertical-alignment: center; }
+                        Text { horizontal-stretch: 1; text: @tr("Matrix Review"); font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+                        Text { text: @tr("{}/{}", root.sorted, root.all); font-size: 14px; color: Theme.text-muted; vertical-alignment: center; }
                     }
-                    Text { text: "Sort each task with the coloured dots, or one by one."; font-size: 14px; color: Theme.text-muted; wrap: word-wrap; }
+                    Text { text: @tr("Sort each task with the coloured dots, or one by one."); font-size: 14px; color: Theme.text-muted; wrap: word-wrap; }
                     Rectangle {
                         height: 6px;
                         border-radius: 3px;
@@ -369,7 +369,7 @@ component MatrixView inherits Rectangle {
                         background: sort-touch.has-hover ? Theme.accent-violet.with-alpha(0.45) : Theme.accent-violet.with-alpha(0.30);
                         animate background { duration: 200ms; easing: ease-out; }
                         Text {
-                            text: "Sort one by one  ·  \{AppData.matrix-unsorted-count}";
+                            text: @tr("Sort one by one  ·  {}", AppData.matrix-unsorted-count);
                             font-size: 15px;
                             font-weight: 600;
                             color: Theme.text-primary;
@@ -392,8 +392,8 @@ component MatrixView inherits Rectangle {
                         spacing: 14px;
                         alignment: start;
                         HorizontalLayout {
-                            Text { horizontal-stretch: 1; text: "Unsorted"; font-size: 16px; color: Theme.text-secondary; }
-                            Text { text: "\{AppData.matrix-unsorted-count}"; font-size: 15px; color: Theme.text-secondary; }
+                            Text { horizontal-stretch: 1; text: @tr("Unsorted"); font-size: 16px; color: Theme.text-secondary; }
+                            Text { text: @tr("{}", AppData.matrix-unsorted-count); font-size: 15px; color: Theme.text-secondary; }
                         }
                         for group in AppData.matrix-unsorted: UnsortedGroup { group: group; launched => { root.launched(); } }
                     }
@@ -432,8 +432,8 @@ component CalendarView inherits Rectangle {
             VerticalLayout {
                 padding: 16px;
                 spacing: 10px;
-                Text { text: "Unscheduled"; font-size: 17px; font-weight: 700; color: Theme.text-primary; }
-                Text { text: "Pick a day under a task to plan it."; font-size: 12px; color: Theme.text-muted; wrap: word-wrap; }
+                Text { text: @tr("Unscheduled"); font-size: 17px; font-weight: 700; color: Theme.text-primary; }
+                Text { text: @tr("Pick a day under a task to plan it."); font-size: 12px; color: Theme.text-muted; wrap: word-wrap; }
                 Flickable {
                     // Pointer drags belong to the task cards; the wheel still scrolls.
                     interactive: false;
@@ -445,8 +445,8 @@ component CalendarView inherits Rectangle {
                         alignment: start;
                         for group in AppData.calendar-unscheduled: VerticalLayout {
                             spacing: 8px;
-                            Text { text: "\{group.title.to-uppercase()}  \{group.total}"; font-size: 12px; font-weight: 600; color: group.id == "today" ? Theme.accent-green : Theme.text-muted; }
-                            if group.tasks.length == 0: Text { text: "All planned."; font-size: 12px; color: Theme.text-muted; font-italic: true; }
+                            Text { text: @tr("{}  {}", group.title.to-uppercase(), group.total); font-size: 12px; font-weight: 600; color: group.id == "today" ? Theme.accent-green : Theme.text-muted; }
+                            if group.tasks.length == 0: Text { text: @tr("All planned."); font-size: 12px; color: Theme.text-muted; font-italic: true; }
                             for task in group.tasks: TaskCard {
                                 drag-view: "calendar";
                                 task: task;
@@ -483,11 +483,11 @@ component CalendarView inherits Rectangle {
                     VerticalLayout {
                         horizontal-stretch: 1;
                         Text { text: AppData.calendar-label; font-size: 17px; font-weight: 700; color: Theme.text-primary; }
-                        Text { text: "Weekly schedule"; font-size: 12px; color: Theme.text-muted; }
+                        Text { text: @tr("Weekly schedule"); font-size: 12px; color: Theme.text-muted; }
                     }
                     VerticalLayout { alignment: center; GlassIconButton { dia: 32px; clicked => { AppData.calendar-shift(-1); }
                         IconChevronLeft { width: 12px; height: 12px; stroke-color: Theme.text-secondary; } } }
-                    VerticalLayout { alignment: center; Chip { label: "Today"; clicked => { AppData.calendar-shift(0); } } }
+                    VerticalLayout { alignment: center; Chip { label: @tr("Today"); clicked => { AppData.calendar-shift(0); } } }
                     VerticalLayout { alignment: center; GlassIconButton { dia: 32px; clicked => { AppData.calendar-shift(1); }
                         IconChevronRight { width: 12px; height: 12px; stroke-color: Theme.text-secondary; } } }
                 }
@@ -531,10 +531,10 @@ component CalendarView inherits Rectangle {
                                             launched => { AppData.task-launched(task.id); root.launched(); }
                                             deleted => { AppData.space-task-deleted(task.id); }
                                             saved(title, estimate, notes, do-date, deadline) => { AppData.space-task-edited(task.id, title, estimate, notes, do-date, deadline); }
-                                            Chip { label: "Unplan"; tint: Theme.text-muted; clicked => { AppData.task-day-set(task.id, -1); } }
+                                            Chip { label: @tr("Unplan"); tint: Theme.text-muted; clicked => { AppData.task-day-set(task.id, -1); } }
                                         }
                                         AddTaskField {
-                                            label: "Add";
+                                            label: @tr("Add");
                                             added(text) => { AppData.calendar-task-added(i, text); }
                                         }
                                     }
@@ -585,7 +585,7 @@ export component SpacesScreen inherits Rectangle {
                 HorizontalLayout {
                     padding-left: 8px;
                     padding-bottom: 6px;
-                    Text { horizontal-stretch: 1; text: "SPACES"; font-size: 12px; font-weight: 600; color: Theme.text-muted; vertical-alignment: center; }
+                    Text { horizontal-stretch: 1; text: @tr("SPACES"); font-size: 12px; font-weight: 600; color: Theme.text-muted; vertical-alignment: center; }
                     GlassIconButton {
                         dia: 32px;
                         clicked => { root.creating = true; root.menu-id = ""; root.edit-id = ""; }
@@ -639,18 +639,18 @@ export component SpacesScreen inherits Rectangle {
                 Rectangle { horizontal-stretch: 1; }
                 VerticalLayout {
                     alignment: center;
-                    IconTab { label: "Plan with AI"; clicked => { root.plan-open = true; }
+                    IconTab { label: @tr("Plan with AI"); clicked => { root.plan-open = true; }
                         IconStar { width: 16px; height: 16px; stroke-color: Theme.accent-violet; } }
                 }
                 VerticalLayout {
                     alignment: center;
                     HorizontalLayout {
                         spacing: 6px;
-                        IconTab { label: "Board"; selected: AppData.space-view == "board"; clicked => { AppData.space-view = "board"; }
+                        IconTab { label: @tr("Board"); selected: AppData.space-view == "board"; clicked => { AppData.space-view = "board"; }
                             IconBoard { stroke-color: AppData.space-view == "board" ? Theme.accent-violet : Theme.text-secondary; } }
-                        IconTab { label: "Matrix"; selected: AppData.space-view == "matrix"; clicked => { AppData.space-view = "matrix"; }
+                        IconTab { label: @tr("Matrix"); selected: AppData.space-view == "matrix"; clicked => { AppData.space-view = "matrix"; }
                             IconGrid { stroke-color: AppData.space-view == "matrix" ? Theme.accent-violet : Theme.text-secondary; } }
-                        IconTab { label: "Calendar"; selected: AppData.space-view == "calendar"; clicked => { AppData.space-view = "calendar"; }
+                        IconTab { label: @tr("Calendar"); selected: AppData.space-view == "calendar"; clicked => { AppData.space-view = "calendar"; }
                             IconCalendar { width: 16px; height: 16px; stroke-color: AppData.space-view == "calendar" ? Theme.accent-violet : Theme.text-secondary; } }
                     }
                 }
@@ -660,9 +660,9 @@ export component SpacesScreen inherits Rectangle {
                 if AppData.spaces.length == 0: VerticalLayout {
                     alignment: center;
                     spacing: 14px;
-                    Text { text: "Create your first space"; font-size: 26px; font-weight: 700; color: Theme.text-primary; horizontal-alignment: center; }
+                    Text { text: @tr("Create your first space"); font-size: 26px; font-weight: 700; color: Theme.text-primary; horizontal-alignment: center; }
                     Text {
-                        text: "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward.";
+                        text: @tr("Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward.");
                         font-size: 15px;
                         color: Theme.text-secondary;
                         horizontal-alignment: center;
@@ -675,7 +675,7 @@ export component SpacesScreen inherits Rectangle {
                             height: 44px;
                             border-radius: 22px;
                             background: @linear-gradient(90deg, #5EEAD4 0%, #A78BFA 100%);
-                            Text { text: "Create a space"; font-size: 15px; font-weight: 600; color: #1C1917; horizontal-alignment: center; vertical-alignment: center; }
+                            Text { text: @tr("Create a space"); font-size: 15px; font-weight: 600; color: #1C1917; horizontal-alignment: center; vertical-alignment: center; }
                             TouchArea { mouse-cursor: pointer; clicked => { root.creating = true; } }
                         }
                     }
@@ -706,7 +706,7 @@ export component SpacesScreen inherits Rectangle {
             padding: 8px;
             spacing: 0px;
             MenuRow {
-                label: "Edit";
+                label: @tr("Edit");
                 clicked => { root.edit-id = root.menu-id; root.menu-id = ""; }
                 IconNote { width: 15px; height: 15px; stroke-color: Theme.text-secondary; }
             }

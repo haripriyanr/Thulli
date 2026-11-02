@@ -57,17 +57,17 @@ export component PlanPanel inherits Rectangle {
             HorizontalLayout {
                 spacing: 10px;
                 VerticalLayout { alignment: center; IconStar { width: 20px; height: 20px; stroke-color: Theme.accent-violet; } }
-                Text { horizontal-stretch: 1; text: "Plan with AI"; font-size: 20px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; }
+                Text { horizontal-stretch: 1; text: @tr("Plan with AI"); font-size: 20px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; }
                 GlassIconButton { dia: 32px; clicked => { root.closed(); } IconClose { width: 11px; height: 11px; stroke-color: Theme.text-secondary; } }
             }
             Text {
-                text: "Say what you need to get done. You'll see every change before anything is saved.";
+                text: @tr("Say what you need to get done. You'll see every change before anything is saved.");
                 font-size: 13px;
                 color: Theme.text-muted;
                 wrap: word-wrap;
             }
             if !AppData.ai-key-saved: Text {
-                text: "Add an OpenRouter API key in Settings first.";
+                text: @tr("Add an OpenRouter API key in Settings first.");
                 font-size: 13px;
                 color: Theme.accent-amber;
             }
@@ -80,7 +80,7 @@ export component PlanPanel inherits Rectangle {
                 Text {
                     x: 14px; y: 12px;
                     width: parent.width - 28px;
-                    text: "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now.";
+                    text: @tr("e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now.");
                     visible: root.request == "";
                     font-size: 14px;
                     color: Theme.text-muted;
@@ -116,7 +116,7 @@ export component PlanPanel inherits Rectangle {
                     if root.start-now: IconCheck { x: 3px; y: 3px; width: 14px; height: 14px; stroke-color: #FFFFFF; }
                     TouchArea { mouse-cursor: pointer; clicked => { root.start-now = !root.start-now; } }
                 }
-                Text { horizontal-stretch: 1; text: "Start the first task now"; font-size: 14px; color: Theme.text-secondary; vertical-alignment: center; }
+                Text { horizontal-stretch: 1; text: @tr("Start the first task now"); font-size: 14px; color: Theme.text-secondary; vertical-alignment: center; }
                 PanelButton {
                     label: AppData.ai-busy ? "Thinking..." : "Plan it";
                     primary: true;
@@ -128,7 +128,7 @@ export component PlanPanel inherits Rectangle {
             if AppData.ai-proposals.length > 0: VerticalLayout {
                 spacing: 8px;
                 Rectangle { height: 1px; background: Theme.glass-border; }
-                Text { text: "Proposed changes"; font-size: 14px; font-weight: 600; color: Theme.text-primary; }
+                Text { text: @tr("Proposed changes"); font-size: 14px; font-weight: 600; color: Theme.text-primary; }
                 for line in AppData.ai-proposals: HorizontalLayout {
                     spacing: 10px;
                     VerticalLayout { alignment: start; padding-top: 2px; IconCheck { width: 14px; height: 14px; stroke-color: Theme.accent-green; } }
@@ -137,9 +137,9 @@ export component PlanPanel inherits Rectangle {
                 HorizontalLayout {
                     spacing: 10px;
                     alignment: end;
-                    PanelButton { label: "Discard"; clicked => { AppData.ai-discard(); } }
+                    PanelButton { label: @tr("Discard"); clicked => { AppData.ai-discard(); } }
                     PanelButton {
-                        label: "Apply all";
+                        label: @tr("Apply all");
                         primary: true;
                         clicked => {
                             AppData.ai-apply();
@@ -188,7 +188,7 @@ component SortTarget inherits Rectangle {
         if root.suggested: HorizontalLayout {
             spacing: 6px;
             VerticalLayout { alignment: center; IconStar { width: 14px; height: 14px; stroke-color: root.tint; } }
-            Text { text: "AI pick"; font-size: 12px; font-weight: 600; color: root.tint; vertical-alignment: center; }
+            Text { text: @tr("AI pick"); font-size: 12px; font-weight: 600; color: root.tint; vertical-alignment: center; }
         }
     }
     touch := TouchArea { mouse-cursor: pointer; clicked => { root.picked(); } }
@@ -231,7 +231,7 @@ export component SortScreen inherits Rectangle {
             VerticalLayout {
                 horizontal-stretch: 1;
                 spacing: 4px;
-                Text { text: "Sort tasks"; font-size: 24px; font-weight: 700; color: Theme.text-primary; }
+                Text { text: @tr("Sort tasks"); font-size: 24px; font-weight: 700; color: Theme.text-primary; }
                 Text {
                     text: AppData.triage-total == 0 ? "Nothing waiting to be sorted"
                         : "Task \{AppData.triage-position} of \{AppData.triage-total}  ·  \{AppData.triage-decided} sorted";
@@ -306,27 +306,27 @@ export component SortScreen inherits Rectangle {
             spacing: 14px;
             VerticalLayout {
                 width: 24px;
-                Text { vertical-stretch: 1; text: "Matters more"; font-size: 12px; color: Theme.text-muted; transform-rotation: -90deg; horizontal-alignment: center; vertical-alignment: center; }
-                Text { vertical-stretch: 1; text: "Matters less"; font-size: 12px; color: Theme.text-muted; transform-rotation: -90deg; horizontal-alignment: center; vertical-alignment: center; }
+                Text { vertical-stretch: 1; text: @tr("Matters more"); font-size: 12px; color: Theme.text-muted; transform-rotation: -90deg; horizontal-alignment: center; vertical-alignment: center; }
+                Text { vertical-stretch: 1; text: @tr("Matters less"); font-size: 12px; color: Theme.text-muted; transform-rotation: -90deg; horizontal-alignment: center; vertical-alignment: center; }
             }
             VerticalLayout {
                 horizontal-stretch: 1;
                 spacing: 14px;
                 HorizontalLayout {
-                    Text { horizontal-stretch: 1; text: "Sooner"; font-size: 12px; color: Theme.text-muted; horizontal-alignment: center; }
-                    Text { horizontal-stretch: 1; text: "Later"; font-size: 12px; color: Theme.text-muted; horizontal-alignment: center; }
+                    Text { horizontal-stretch: 1; text: @tr("Sooner"); font-size: 12px; color: Theme.text-muted; horizontal-alignment: center; }
+                    Text { horizontal-stretch: 1; text: @tr("Later"); font-size: 12px; color: Theme.text-muted; horizontal-alignment: center; }
                 }
                 HorizontalLayout {
                     vertical-stretch: 1;
                     spacing: 14px;
-                    SortTarget { title: "Do ASAP"; caption: "Urgent and important. Today, first."; key: "1"; tint: #F43F5E; suggested: AppData.triage-suggestion == "do_asap"; picked => { root.decide("do_asap"); keys.focus(); } }
-                    SortTarget { title: "Do Mid Week"; caption: "Important, not urgent. This week."; key: "3"; tint: #F59E0B; suggested: AppData.triage-suggestion == "do_mid_week"; picked => { root.decide("do_mid_week"); keys.focus(); } }
+                    SortTarget { title: @tr("Do ASAP"); caption: @tr("Urgent and important. Today, first."); key: "1"; tint: #F43F5E; suggested: AppData.triage-suggestion == "do_asap"; picked => { root.decide("do_asap"); keys.focus(); } }
+                    SortTarget { title: @tr("Do Mid Week"); caption: @tr("Important, not urgent. This week."); key: "3"; tint: #F59E0B; suggested: AppData.triage-suggestion == "do_mid_week"; picked => { root.decide("do_mid_week"); keys.focus(); } }
                 }
                 HorizontalLayout {
                     vertical-stretch: 1;
                     spacing: 14px;
-                    SortTarget { title: "Do Later Today"; caption: "Needs doing today, after the first push."; key: "2"; tint: #22C55E; suggested: AppData.triage-suggestion == "do_later_today"; picked => { root.decide("do_later_today"); keys.focus(); } }
-                    SortTarget { title: "Leave Till End"; caption: "Low urgency or low value. Backlog."; key: "4"; tint: #94A3B8; suggested: AppData.triage-suggestion == "leave_till_end"; picked => { root.decide("leave_till_end"); keys.focus(); } }
+                    SortTarget { title: @tr("Do Later Today"); caption: @tr("Needs doing today, after the first push."); key: "2"; tint: #22C55E; suggested: AppData.triage-suggestion == "do_later_today"; picked => { root.decide("do_later_today"); keys.focus(); } }
+                    SortTarget { title: @tr("Leave Till End"); caption: @tr("Low urgency or low value. Backlog."); key: "4"; tint: #94A3B8; suggested: AppData.triage-suggestion == "leave_till_end"; picked => { root.decide("leave_till_end"); keys.focus(); } }
                 }
             }
         }
@@ -334,11 +334,11 @@ export component SortScreen inherits Rectangle {
         // Footer
         HorizontalLayout {
             spacing: 10px;
-            PanelButton { label: "Back"; clicked => { AppData.triage-back(); keys.focus(); } }
-            PanelButton { label: "Skip"; clicked => { AppData.triage-skip(); keys.focus(); } }
+            PanelButton { label: @tr("Back"); clicked => { AppData.triage-back(); keys.focus(); } }
+            PanelButton { label: @tr("Skip"); clicked => { AppData.triage-skip(); keys.focus(); } }
             Text {
                 horizontal-stretch: 1;
-                text: "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close";
+                text: @tr("1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close");
                 font-size: 12px;
                 color: Theme.text-muted;
                 horizontal-alignment: right;

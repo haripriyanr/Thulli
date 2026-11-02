@@ -7,7 +7,7 @@ import { Theme } from "../theme.slint";
 /// - Dynamic visual feedback (hover, active/pressed)
 /// - Configurable variant: "primary" (accent gradient) | "secondary" (card background) | "danger"
 export component ThulliButton inherits TouchArea {
-    in property <string> text: "Action";
+    in property <string> text: @tr("Action");
     in property <string> variant: "primary"; // "primary", "secondary", "danger"
     in property <length> font-size: 12px;
     in property <length> border-radius: Theme.radius-sm;

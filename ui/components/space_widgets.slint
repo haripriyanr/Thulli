@@ -89,7 +89,7 @@ export component SpaceForm inherits GlassCard {
                 Text {
                     width: 100%;
                     height: 100%;
-                    text: "Space name";
+                    text: @tr("Space name");
                     visible: root.name == "";
                     font-size: 18px;
                     color: Theme.text-muted;
@@ -139,7 +139,7 @@ export component SpaceForm inherits GlassCard {
 
 /// AddTaskField: a "+ Add task" pill that turns into a text field.
 export component AddTaskField inherits Rectangle {
-    in property <string> label: "Add task";
+    in property <string> label: @tr("Add task");
     callback added(string);
     property <bool> editing: false;
     property <string> text: "";
@@ -277,9 +277,9 @@ component DateField inherits VerticalLayout {
         spacing: 6px;
         padding-left: 72px;
         alignment: start;
-        QuickDate { label: "Today"; clicked => { root.value = "today"; } }
-        QuickDate { label: "Tomorrow"; clicked => { root.value = "tomorrow"; } }
-        QuickDate { label: "Clear"; clicked => { root.value = ""; } }
+        QuickDate { label: @tr("Today"); clicked => { root.value = "today"; } }
+        QuickDate { label: @tr("Tomorrow"); clicked => { root.value = "tomorrow"; } }
+        QuickDate { label: @tr("Clear"); clicked => { root.value = ""; } }
     }
 }
 
@@ -461,7 +461,7 @@ export component TaskCard inherits Rectangle {
             spacing: 10px;
             HorizontalLayout {
                 spacing: 8px;
-                Text { width: 64px; text: "Estimate"; font-size: 12px; color: Theme.text-secondary; vertical-alignment: center; }
+                Text { width: 64px; text: @tr("Estimate"); font-size: 12px; color: Theme.text-secondary; vertical-alignment: center; }
                 Rectangle {
                     width: 70px;
                     height: 28px;
@@ -471,13 +471,13 @@ export component TaskCard inherits Rectangle {
                 }
                 Text { text: "min"; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
             }
-            DateField { label: "Do date"; value <=> root.e-do; }
-            DateField { label: "Deadline"; value <=> root.e-deadline; }
+            DateField { label: @tr("Do date"); value <=> root.e-do; }
+            DateField { label: @tr("Deadline"); value <=> root.e-deadline; }
             Rectangle {
                 height: 84px;
                 border-radius: 10px;
                 background: Theme.glass-fill;
-                Text { x: 10px; y: 8px; text: "Add notes..."; visible: root.e-notes == ""; font-size: 13px; color: Theme.text-muted; }
+                Text { x: 10px; y: 8px; text: @tr("Add notes..."); visible: root.e-notes == ""; font-size: 13px; color: Theme.text-muted; }
                 TextInput {
                     x: 10px;
                     y: 8px;
@@ -513,7 +513,7 @@ export component TaskCard inherits Rectangle {
                     height: 32px;
                     border-radius: 16px;
                     background: save-touch.has-hover ? Theme.accent-violet.with-alpha(0.4) : Theme.accent-violet.with-alpha(0.25);
-                    Text { text: "Save"; font-size: 13px; font-weight: 600; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+                    Text { text: @tr("Save"); font-size: 13px; font-weight: 600; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
                     save-touch := TouchArea { clicked => { root.save(); } }
                 }
             }
@@ -531,7 +531,7 @@ export component TaskCard inherits Rectangle {
                 HorizontalLayout {
                     spacing: 8px;
                     if root.task.steps.length > 0: Text {
-                        text: "Subtasks: \{root.task.steps-done}/\{root.task.steps.length}";
+                        text: @tr("Subtasks: {}/{}", root.task.steps-done, root.task.steps.length);
                         font-size: 12px;
                         color: Theme.text-secondary;
                         vertical-alignment: center;
@@ -544,7 +544,7 @@ export component TaskCard inherits Rectangle {
                         HorizontalLayout {
                             spacing: 4px;
                             VerticalLayout { alignment: center; IconPlus { width: 11px; height: 11px; stroke-color: Theme.text-muted; } }
-                            if root.task.steps.length == 0: Text { text: "Subtask"; font-size: 11px; color: Theme.text-muted; vertical-alignment: center; }
+                            if root.task.steps.length == 0: Text { text: @tr("Subtask"); font-size: 11px; color: Theme.text-muted; vertical-alignment: center; }
                         }
                     }
                     Rectangle { horizontal-stretch: 1; }
@@ -593,7 +593,7 @@ export component TaskCard inherits Rectangle {
                     height: 28px;
                     border-radius: 8px;
                     background: Theme.glass-fill-strong;
-                    Text { x: 8px; height: 100%; text: "Subtask name"; visible: root.step-text == ""; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
+                    Text { x: 8px; height: 100%; text: @tr("Subtask name"); visible: root.step-text == ""; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
                     TextInput {
                         x: 8px;
                         width: parent.width - 16px;
@@ -736,7 +736,7 @@ export component ColumnShell inherits Rectangle {
                     animate width { duration: 300ms; easing: ease-out; }
                 }
             }
-            Text { text: "\{root.done}/\{root.total} done"; font-size: 11px; color: Theme.text-muted; }
+            Text { text: @tr("{}/{} done", root.done, root.total); font-size: 11px; color: Theme.text-muted; }
         }
         Flickable {
             // Pointer drags belong to the task cards; the wheel still scrolls.
@@ -891,7 +891,7 @@ export component TaskComposer inherits VerticalLayout {
                 Rectangle {
                     horizontal-stretch: 1;
                     height: 40px;
-                    Text { width: 100%; height: 100%; text: "Enter your task name"; visible: root.title == ""; font-size: 17px; color: Theme.text-muted; vertical-alignment: center; }
+                    Text { width: 100%; height: 100%; text: @tr("Enter your task name"); visible: root.title == ""; font-size: 17px; color: Theme.text-muted; vertical-alignment: center; }
                     title-input := TextInput {
                         width: 100%;
                         height: 100%;
@@ -976,9 +976,9 @@ export component TaskComposer inherits VerticalLayout {
 
             if root.show-date: HorizontalLayout {
                 spacing: 6px;
-                Text { text: "Do date"; font-size: 13px; color: Theme.text-secondary; vertical-alignment: center; width: 64px; }
-                ComposerChip { label: "Today"; current: root.do-date == "today"; clicked => { root.do-date = root.do-date == "today" ? "" : "today"; } }
-                ComposerChip { label: "Tomorrow"; current: root.do-date == "tomorrow"; clicked => { root.do-date = root.do-date == "tomorrow" ? "" : "tomorrow"; } }
+                Text { text: @tr("Do date"); font-size: 13px; color: Theme.text-secondary; vertical-alignment: center; width: 64px; }
+                ComposerChip { label: @tr("Today"); current: root.do-date == "today"; clicked => { root.do-date = root.do-date == "today" ? "" : "today"; } }
+                ComposerChip { label: @tr("Tomorrow"); current: root.do-date == "tomorrow"; clicked => { root.do-date = root.do-date == "tomorrow" ? "" : "tomorrow"; } }
                 Rectangle {
                     horizontal-stretch: 1;
                     height: 30px;
@@ -992,7 +992,7 @@ export component TaskComposer inherits VerticalLayout {
                 height: 80px;
                 border-radius: 10px;
                 background: Theme.glass-fill;
-                Text { x: 10px; y: 8px; text: "Add notes..."; visible: root.notes == ""; font-size: 13px; color: Theme.text-muted; }
+                Text { x: 10px; y: 8px; text: @tr("Add notes..."); visible: root.notes == ""; font-size: 13px; color: Theme.text-muted; }
                 TextInput {
                     x: 10px;
                     y: 8px;
@@ -1020,7 +1020,7 @@ export component TaskComposer inherits VerticalLayout {
                     border-radius: 22px;
                     background: root.title == "" ? Theme.glass-fill : (save-touch.has-hover ? Theme.accent-violet.with-alpha(0.45) : Theme.accent-violet.with-alpha(0.30));
                     animate background { duration: 200ms; easing: ease-out; }
-                    Text { text: "Add task"; font-size: 15px; font-weight: 700; color: root.title == "" ? Theme.text-muted : Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+                    Text { text: @tr("Add task"); font-size: 15px; font-weight: 700; color: root.title == "" ? Theme.text-muted : Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
                     save-touch := TouchArea { mouse-cursor: pointer; clicked => { root.submit(); } }
                 }
             }

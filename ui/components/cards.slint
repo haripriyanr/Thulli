@@ -144,7 +144,7 @@ export component ThulliCreateListCard inherits TouchArea {
             }
 
             Text {
-                text: "CREATE LIST";
+                text: @tr("CREATE LIST");
                 font-size: 13px;
                 font-weight: 700;
                 color: Theme.text-primary;
@@ -157,7 +157,7 @@ export component ThulliCreateListCard inherits TouchArea {
 
 /// ThulliTaskCard — Reusable task card inside Kanban columns
 export component ThulliTaskCard inherits Rectangle {
-    in property <string> title: "Task";
+    in property <string> title: @tr("Task");
     in property <int> estimate-mins: 25;
     in property <bool> completed: false;
     callback toggled();

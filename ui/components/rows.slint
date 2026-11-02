@@ -132,7 +132,7 @@ export component StepperRow inherits Rectangle {
             VerticalLayout {
                 alignment: center;
                 Text {
-                    text: "\{root.value}";
+                    text: @tr("{}", root.value);
                     width: 44px;
                     font-size: 15px;
                     font-weight: 600;

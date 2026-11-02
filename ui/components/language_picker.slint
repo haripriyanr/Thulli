@@ -66,7 +66,7 @@ export component LanguagePicker inherits Rectangle {
                 Text {
                     x: 32px;
                     height: 100%;
-                    text: "Type a language";
+                    text: @tr("Type a language");
                     visible: search.text == "";
                     font-size: 13px;
                     color: Theme.text-muted;
@@ -98,7 +98,7 @@ export component LanguagePicker inherits Rectangle {
             if AppData.language-rows.length == 0: Text {
                 y: 56px;
                 width: parent.width;
-                text: "No language matches";
+                text: @tr("No language matches");
                 font-size: 13px;
                 color: Theme.text-muted;
                 horizontal-alignment: center;

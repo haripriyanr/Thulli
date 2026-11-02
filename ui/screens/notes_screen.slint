@@ -19,10 +19,10 @@ export component NotesScreen inherits Rectangle {
             alignment: space-between;
             VerticalLayout {
                 spacing: 4px;
-                Text { text: "Notes"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
-                Text { text: "Quick thoughts and longer write-ups"; font-size: 13px; color: Theme.text-secondary; }
+                Text { text: @tr("Notes"); font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+                Text { text: @tr("Quick thoughts and longer write-ups"); font-size: 13px; color: Theme.text-secondary; }
             }
-            GlassPill { width: 96px; label: "New note"; selected: true; accent: Theme.accent-amber; clicked => { AppData.new-note(); } }
+            GlassPill { width: 96px; label: @tr("New note"); selected: true; accent: Theme.accent-amber; clicked => { AppData.new-note(); } }
         }
 
         HorizontalLayout {
@@ -36,7 +36,7 @@ export component NotesScreen inherits Rectangle {
                     spacing: 6px;
                     alignment: start;
                     if AppData.notes.length == 0: Text {
-                        text: "No notes yet. Create one to start writing.";
+                        text: @tr("No notes yet. Create one to start writing.");
                         font-size: 13px;
                         color: Theme.text-muted;
                         wrap: word-wrap;
@@ -73,7 +73,7 @@ export component NotesScreen inherits Rectangle {
                     alignment: start;
 
                     if AppData.selected-note-id == "": Text {
-                        text: "Pick a note, or create one, to start writing.";
+                        text: @tr("Pick a note, or create one, to start writing.");
                         font-size: 13px;
                         color: Theme.text-muted;
                     }
