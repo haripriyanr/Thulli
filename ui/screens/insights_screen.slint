@@ -20,7 +20,7 @@ export component InsightsScreen inherits Rectangle {
         VerticalLayout {
             spacing: 4px;
             Text { text: "Insights"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
-            Text { text: "How your focus has gone"; font-size: 13px; color: Theme.text-secondary; }
+            Text { text: "Completed focus sessions, the last seven days"; font-size: 13px; color: Theme.text-secondary; }
         }
 
         HorizontalLayout {
@@ -81,7 +81,7 @@ export component InsightsScreen inherits Rectangle {
                     spacing: 8px;
                     alignment: start;
                     IconChart { width: 18px; height: 18px; stroke-color: Theme.accent-violet; }
-                    SectionTitle { text: "Focus by day"; vertical-alignment: center; }
+                    SectionTitle { text: "Weekly activity"; vertical-alignment: center; }
                 }
 
                 if AppData.insight-bars.length == 0: Text { text: "No focus time recorded yet."; font-size: 13px; color: Theme.text-muted; }
@@ -112,6 +112,25 @@ export component InsightsScreen inherits Rectangle {
                             horizontal-alignment: center;
                         }
                     }
+                }
+            }
+        }
+
+        GlassCard {
+            VerticalLayout {
+                padding: 18px;
+                spacing: 12px;
+                alignment: start;
+                SectionTitle { text: "Session history"; }
+                if AppData.session-history.length == 0: Text {
+                    text: "Finished focus sessions appear here.";
+                    font-size: 13px;
+                    color: Theme.text-muted;
+                }
+                for session in AppData.session-history: HorizontalLayout {
+                    spacing: 12px;
+                    Text { text: session.title; font-size: 14px; color: Theme.text-primary; overflow: elide; horizontal-stretch: 1; }
+                    Text { text: session.detail; font-size: 12px; color: Theme.text-muted; }
                 }
             }
         }

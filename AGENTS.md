@@ -212,3 +212,18 @@ Dev builds ship lightweight local telemetry to make performance work and crash t
 - **Crash hook**: `install_crash_hook()` captures panics with a backtrace, writes `logs/crash-<timestamp>.log`, marks the event in `telemetry.log`, then chains the original hook so default panic behavior is preserved.
 - **Off switch**: set `THULLI_TELEMETRY=0` to disable logging (crash files are still written). Telemetry is ON by default in dev.
 - **Rules**: telemetry code must never panic, never block the UI, and never surface technical jargon in the UI. File/FFI failures are silent by design.
+
+## 11. Product Direction (Proposed Features)
+
+Three features that would make Flow stand out:
+
+1. **Immersive Focus Mode**
+   Hide the entire dashboard. Show only the timer, task name, progress ring and ambient background.
+
+2. **Flow Intelligence**
+   Analyze when you're most productive, your average focus duration and task completion trends.
+
+3. **Task-Aware Pomodoro**
+   Select a task, estimate the required sessions, track time spent and automatically update task progress.
+
+Recommendation: make Flow more than a Pomodoro timer. Make it a complete productivity system with Focus, Tasks, Analytics and Timesheets working together.

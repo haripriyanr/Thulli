@@ -471,10 +471,26 @@ impl PreferencesService {
                 "zoom_percent" => p.zoom_percent = v.clamp(50, 200),
                 "pomodoro_long_break_mins" => p.pomodoro_long_break_mins = v.clamp(1, 60),
                 "pomodoro_rounds" => p.pomodoro_rounds = v.clamp(1, 8),
+                "pomodoro_custom_mins" => p.pomodoro_custom_mins = v.clamp(5, 180),
                 _ => return Err(PrefError::UnknownSetting(key.clone())),
             }
             Ok(())
         })
+    }
+
+    /// Saves the name of the current Pomodoro session. The length is capped
+    /// to keep the title row readable.
+    pub fn set_pomodoro_session_name(&self, name: &str) {
+        let name: String = name.trim().chars().take(60).collect();
+        self.handle.mutate(|s| s.preferences.pomodoro_session_name = name);
+    }
+
+    /// Saves the ambient sound choice. Unknown choices are ignored.
+    pub fn set_pomodoro_ambient(&self, id: &str) {
+        if matches!(id, "off" | "forest" | "lofi" | "rain") {
+            let id = id.to_string();
+            self.handle.mutate(|s| s.preferences.pomodoro_ambient = id);
+        }
     }
 
     /// Changes a choice or text setting. Unknown choices are refused.

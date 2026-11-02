@@ -83,6 +83,8 @@ pub struct PomodoroTimer {
     running: bool,
     /// Focus rounds finished in the current cycle.
     completed_rounds: u32,
+    /// Set when a phase runs out; cleared by the next action on the timer.
+    finished: bool,
 }
 
 impl Default for PomodoroTimer {
@@ -100,7 +102,19 @@ impl PomodoroTimer {
             remaining_secs,
             running: false,
             completed_rounds: 0,
+            finished: false,
         }
+    }
+
+    /// True once a phase has run out and nothing has been started since.
+    pub fn is_finished(&self) -> bool {
+        self.finished
+    }
+
+    /// Goes back to the focus round: from a break this selects the focus phase,
+    /// and from a focus round it restarts that round at full length.
+    pub fn previous(&mut self) {
+        self.select(PomodoroPhase::Focus);
     }
 
     pub fn phase(&self) -> PomodoroPhase {
@@ -173,6 +187,7 @@ impl PomodoroTimer {
     pub fn start(&mut self) {
         if self.remaining_secs > 0 {
             self.running = true;
+            self.finished = false;
         }
     }
 
@@ -194,6 +209,7 @@ impl PomodoroTimer {
     /// Completed rounds are kept.
     pub fn reset(&mut self) {
         self.running = false;
+        self.finished = false;
         self.remaining_secs = self.phase_total_secs();
     }
 
@@ -201,6 +217,7 @@ impl PomodoroTimer {
     pub fn select(&mut self, phase: PomodoroPhase) {
         self.phase = phase;
         self.running = false;
+        self.finished = false;
         self.remaining_secs = self.phase_total_secs();
     }
 
@@ -208,6 +225,7 @@ impl PomodoroTimer {
     /// focus round is not counted. The running state carries over, so
     /// skipping while running keeps the clock going into the next phase.
     pub fn next(&mut self) {
+        self.finished = false;
         self.advance();
     }
 
@@ -228,6 +246,7 @@ impl PomodoroTimer {
         }
         self.advance();
         self.running = self.settings.auto_advance;
+        self.finished = true;
         Some(finished)
     }
 
@@ -448,6 +467,26 @@ mod tests {
             rounds_before_long_break: 2,
             auto_advance: false,
         }
+    }
+
+    #[test]
+    fn finished_flag_is_set_on_phase_end_and_cleared_by_start() {
+        let mut timer = quick();
+        timer.start();
+        tick_n(&mut timer, 3);
+        assert!(timer.is_finished());
+        timer.start();
+        assert!(!timer.is_finished());
+    }
+
+    #[test]
+    fn previous_goes_back_to_full_focus_round() {
+        let mut timer = quick();
+        timer.select(PomodoroPhase::ShortBreak);
+        timer.previous();
+        assert_eq!(timer.phase(), PomodoroPhase::Focus);
+        assert_eq!(timer.remaining_secs(), 3);
+        assert!(!timer.is_running());
     }
 
     #[test]

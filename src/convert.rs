@@ -1,13 +1,13 @@
 //! Converts saved domain data into the row and bar models the screens show.
 //! Nothing here writes; it only reads the state it is given.
 
-use chrono::{Duration as ChronoDuration, Local, NaiveDate};
+use chrono::{Datelike, Duration as ChronoDuration, Local, NaiveDate, NaiveDateTime, Timelike};
 use slint::{ModelRc, VecModel};
-use thulli_core::models::{AppStateStore, Note, Task, TaskSection, TimeEntryKind};
+use thulli_core::models::{AppStateStore, Note, Task, TaskSection, TimeEntry, TimeEntryKind};
 use thulli_core::services::insights::{self, format_duration};
 use thulli_core::services::notes::preview_of;
 
-use crate::{DayBar, NoteRow, TaskRow};
+use crate::{DayBar, NoteRow, SessionRow, TaskRow};
 
 /// Wraps rows in the model type Slint expects.
 pub fn model<T: Clone + 'static>(items: Vec<T>) -> ModelRc<T> {
@@ -83,18 +83,50 @@ pub fn note_row(note: &Note) -> NoteRow {
     }
 }
 
-/// Focus seconds per day for the seven days ending on `today`.
+/// Completed focus sessions per day for the seven days ending on `today`.
 pub fn week_bars(store: &AppStateStore, today: NaiveDate) -> Vec<DayBar> {
-    let spans = insights::collect_spans(store);
     let from = today - ChronoDuration::days(6);
-    let totals = insights::daily_totals(&spans, from, today);
-    let peak = totals.iter().map(|day| day.focus).max().unwrap_or(0).max(1);
-    totals
+    let mut counts = [0u32; 7];
+    for entry in store.time_entries.iter().filter(|e| e.kind == TimeEntryKind::Focus) {
+        let day = entry.ended_at.with_timezone(&Local).date_naive();
+        if day >= from && day <= today {
+            counts[(day - from).num_days() as usize] += 1;
+        }
+    }
+    let peak = counts.iter().copied().max().unwrap_or(0).max(1);
+    counts
         .iter()
-        .map(|day| DayBar {
-            label: day.date.format("%a").to_string().into(),
-            value: day.focus as f32 / peak as f32,
-            value_label: format_duration(day.focus).into(),
+        .enumerate()
+        .map(|(i, &count)| DayBar {
+            label: (from + ChronoDuration::days(i as i64)).format("%a").to_string().into(),
+            value: count as f32 / peak as f32,
+            value_label: count.to_string().into(),
+        })
+        .collect()
+}
+
+/// The most recent focus sessions, newest first, with their saved names.
+pub fn recent_sessions(store: &AppStateStore, limit: usize) -> Vec<SessionRow> {
+    let mut focus: Vec<&TimeEntry> = store
+        .time_entries
+        .iter()
+        .filter(|e| e.kind == TimeEntryKind::Focus)
+        .collect();
+    focus.sort_by(|a, b| b.ended_at.cmp(&a.ended_at));
+    focus
+        .into_iter()
+        .take(limit)
+        .map(|entry| {
+            let title = if entry.label.trim().is_empty() {
+                "Focus session".to_string()
+            } else {
+                entry.label.clone()
+            };
+            let when = entry.ended_at.with_timezone(&Local).format("%a %d %b, %H:%M");
+            SessionRow {
+                title: title.into(),
+                detail: format!("{when}  ·  {}", format_duration(entry.duration_secs())).into(),
+            }
         })
         .collect()
 }
@@ -135,4 +167,135 @@ pub fn focus_streak(store: &AppStateStore, today: NaiveDate) -> u32 {
     let from = today - ChronoDuration::days(59);
     let totals = insights::daily_totals(&spans, from, today);
     insights::streak(&totals, today, store.preferences.count_weekends)
+}
+
+/// Focus activity for one range of the Pomodoro analytics panel.
+pub struct Activity {
+    pub bars: Vec<DayBar>,
+    pub sessions: usize,
+    pub focus_secs: u64,
+    pub insight: String,
+}
+
+/// Counts focus sessions into slots. `slot` maps a session's local end time to
+/// a slot index, or `None` when it falls outside the range.
+fn tally(
+    focus: &[(NaiveDateTime, u64)],
+    slots: usize,
+    slot: impl Fn(NaiveDateTime) -> Option<usize>,
+) -> (Vec<u32>, u64) {
+    let mut counts = vec![0u32; slots];
+    let mut secs = 0;
+    for (ended, duration) in focus {
+        if let Some(i) = slot(*ended) {
+            if i < slots {
+                counts[i] += 1;
+                secs += duration;
+            }
+        }
+    }
+    (counts, secs)
+}
+
+fn activity_from(labels: Vec<(String, String)>, counts: Vec<u32>, secs: u64) -> Activity {
+    let peak = counts.iter().copied().max().unwrap_or(0).max(1);
+    let bars = labels
+        .iter()
+        .zip(&counts)
+        .map(|((short, _), &count)| DayBar {
+            label: short.clone().into(),
+            value: count as f32 / peak as f32,
+            value_label: count.to_string().into(),
+        })
+        .collect();
+    let sessions = counts.iter().sum::<u32>() as usize;
+    let insight = if sessions == 0 {
+        "No focus sessions in this range yet.".to_string()
+    } else {
+        let (best, _) = counts
+            .iter()
+            .enumerate()
+            .fold((0, 0), |acc, (i, &c)| if c > acc.1 { (i, c) } else { acc });
+        format!(
+            "{sessions} sessions  ·  average {}  ·  most active {}",
+            format_duration(secs / sessions as u64),
+            labels[best].1
+        )
+    };
+    Activity { bars, sessions, focus_secs: secs, insight }
+}
+
+/// Focus sessions for the chosen range: "day" (two-hour blocks today),
+/// "week" (last seven days), "month" (last thirty days) or "year" (last twelve
+/// months). Any other value is treated as "week".
+pub fn activity(store: &AppStateStore, today: NaiveDate, range: &str) -> Activity {
+    let focus: Vec<(NaiveDateTime, u64)> = store
+        .time_entries
+        .iter()
+        .filter(|e| e.kind == TimeEntryKind::Focus)
+        .map(|e| (e.ended_at.with_timezone(&Local).naive_local(), e.duration_secs()))
+        .collect();
+
+    match range {
+        "day" => {
+            let labels = (0..12)
+                .map(|i| {
+                    let h = i * 2;
+                    (format!("{h:02}"), format!("{h:02}:00 to {:02}:00", h + 2))
+                })
+                .collect();
+            let (counts, secs) = tally(&focus, 12, |dt| {
+                (dt.date() == today).then(|| (dt.hour() / 2) as usize)
+            });
+            activity_from(labels, counts, secs)
+        }
+        "month" => {
+            let from = today - ChronoDuration::days(29);
+            let labels = (0..30)
+                .map(|i| {
+                    let day = from + ChronoDuration::days(i as i64);
+                    let short = if i % 5 == 0 { day.format("%d").to_string() } else { String::new() };
+                    (short, day.format("%d %b").to_string())
+                })
+                .collect();
+            let (counts, secs) = tally(&focus, 30, |dt| {
+                let d = dt.date();
+                (d >= from && d <= today).then(|| (d - from).num_days() as usize)
+            });
+            activity_from(labels, counts, secs)
+        }
+        "year" => {
+            let now_total = today.year() * 12 + today.month0() as i32;
+            let first_of = |total: i32| NaiveDate::from_ymd_opt(total / 12, (total % 12) as u32 + 1, 1);
+            let labels = (0..12)
+                .map(|i| {
+                    let total = now_total - (11 - i);
+                    match first_of(total) {
+                        Some(day) => (day.format("%b").to_string(), day.format("%B %Y").to_string()),
+                        None => (String::new(), String::new()),
+                    }
+                })
+                .collect();
+            let (counts, secs) = tally(&focus, 12, |dt| {
+                let d = dt.date();
+                let back = now_total - (d.year() * 12 + d.month0() as i32);
+                (0..12).contains(&back).then(|| (11 - back) as usize)
+            });
+            activity_from(labels, counts, secs)
+        }
+        _ => {
+            let from = today - ChronoDuration::days(6);
+            let labels = (0..7)
+                .map(|i| {
+                    let day = from + ChronoDuration::days(i as i64);
+                    (day.format("%a").to_string(), day.format("%A %d %b").to_string())
+                })
+                .collect();
+            let (counts, secs) = tally(&focus, 7, |dt| {
+                let d = dt.date();
+                (d >= from && d <= today).then(|| (d - from).num_days() as usize)
+            });
+            activity_from(labels, counts, secs)
+        }
+    }
 }

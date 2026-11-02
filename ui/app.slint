@@ -32,6 +32,8 @@ export component MainWindow inherits Window {
     min-height: 480px;
     background: transparent;
 
+    init => { focus-scope.focus(); }
+
     // Outer frame: smoothly rounded silhouette with crisp 1px border.
     // Clips all children to the border radius so the window never feels like a harsh rectangle.
     Rectangle {
@@ -50,6 +52,22 @@ export component MainWindow inherits Window {
             height: 100%;
             phase: AppData.background-phase;
             corner: ShellState.is-maximized ? 0px : 16px;
+        }
+
+        // Full screen: F11 toggles the immersive timer on the Pomodoro screen,
+        // and Escape leaves it from anywhere.
+        focus-scope := FocusScope {
+            key-pressed(event) => {
+                if event.text == Key.F11 && navigation-rail.active-item == "pomodoro" {
+                    AppData.immersive = !AppData.immersive;
+                    return accept;
+                }
+                if event.text == Key.Escape && AppData.immersive {
+                    AppData.immersive = false;
+                    return accept;
+                }
+                return reject;
+            }
         }
 
         // --- Title strip: drag area + window controls ----------------------
@@ -127,11 +145,13 @@ export component MainWindow inherits Window {
 
         // --- Screens sit directly on the shared background ----------------
         Rectangle {
-            x: parent.width < 640px ? 14px : (navigation-rail.expanded ? 286px : 116px);
+            x: AppData.immersive ? 24px : (parent.width < 640px ? 14px : (navigation-rail.expanded ? 286px : 116px));
             y: Theme.title-bar-height + 2px;
-            width: parent.width < 640px
-                ? parent.width - 28px
-                : parent.width - (navigation-rail.expanded ? 300px : 130px);
+            width: AppData.immersive
+                ? parent.width - 48px
+                : (parent.width < 640px
+                    ? parent.width - 28px
+                    : parent.width - (navigation-rail.expanded ? 300px : 130px));
             height: parent.height - Theme.title-bar-height - (parent.width < 640px ? 96px : 16px);
             clip: true;
 
@@ -167,6 +187,7 @@ export component MainWindow inherits Window {
         }
 
         navigation-rail := NavigationRail {
+            visible: !AppData.immersive;
             x: parent.width < 640px ? 12px : 24px;
             y: parent.width < 640px ? parent.height - self.height - 14px : Theme.title-bar-height + 2px;
             compact: parent.width < 640px;

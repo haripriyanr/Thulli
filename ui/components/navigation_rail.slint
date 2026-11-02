@@ -103,12 +103,32 @@ export component NavigationRail inherits Rectangle {
     width: compact ? compact-width : (expanded ? 250px : 76px);
     height: compact ? 62px : desktop-height;
     border-radius: compact ? Theme.radius-pill : 24px;
-    background: @linear-gradient(170deg, Theme.glass-highlight 0%, Theme.glass-fill-strong 40%, Theme.glass-fill 100%);
+    // One continuous surface from top to bottom, so the artwork blends into it.
+    background: Theme.dark-mode
+        ? @linear-gradient(180deg, #2A1852 0%, #1C1245 55%, #100C2E 100%)
+        : @linear-gradient(180deg, #EEE8FC 0%, #F6F3FD 100%);
     border-width: 1px;
     border-color: Theme.glass-border;
     drop-shadow-blur: 24px;
     drop-shadow-color: Theme.glass-shadow;
     drop-shadow-offset-y: 6px;
+
+    // Mountain artwork across the bottom of the expanded rail in dark mode. A
+    // gradient fades its sky into the rail colour, so no edge shows.
+    if !root.compact && Theme.dark-mode: Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: root.border-radius;
+        clip: true;
+        Image {
+            source: @image-url("../../assets/rail-mountain.png");
+            image-fit: cover;
+            width: 100%;
+            height: 300px;
+            y: parent.height - self.height;
+            opacity: 0.9;
+        }
+    }
 
     if !root.compact: VerticalLayout {
         padding-top: 12px;
@@ -172,5 +192,15 @@ export component NavigationRail inherits Rectangle {
         NavigationRailItem { compact: true; item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { compact: true; item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { compact: true; item-id: "settings"; icon-name: "settings"; active: root.active-item == "settings"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+    }
+
+    // Drawn last so the edge stays visible above the artwork at every side.
+    border-overlay := Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: root.border-radius;
+        border-width: 1px;
+        border-color: Theme.glass-border;
+        background: transparent;
     }
 }

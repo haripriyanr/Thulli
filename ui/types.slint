@@ -267,6 +267,12 @@ export struct NoteRow {
     updated: string,
 }
 
+/// One saved focus session in the history list.
+export struct SessionRow {
+    title: string,
+    detail: string,
+}
+
 /// One day of the focus chart; `value` is 0 to 1 of the busiest day.
 export struct DayBar {
     label: string,

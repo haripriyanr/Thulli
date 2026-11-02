@@ -258,6 +258,12 @@ pub struct Preferences {
     pub pomodoro_long_break_mins: u32,
     pub pomodoro_rounds: u32,
     pub pomodoro_auto_advance: bool,
+    /// Name typed for the current session; shown again when the app reopens.
+    pub pomodoro_session_name: String,
+    /// Length of the Custom focus interval, in minutes.
+    pub pomodoro_custom_mins: u32,
+    /// Ambient sound while the timer runs: off, forest, lofi or rain.
+    pub pomodoro_ambient: String,
 
     // Assistant: user-chosen model file; never downloaded automatically.
     pub assistant_model_path: String,
@@ -318,6 +324,9 @@ impl Default for Preferences {
             pomodoro_long_break_mins: 15,
             pomodoro_rounds: 4,
             pomodoro_auto_advance: false,
+            pomodoro_session_name: String::new(),
+            pomodoro_custom_mins: 40,
+            pomodoro_ambient: "forest".to_string(),
             break_reminder_sound_id: "soft-chime".to_string(),
             pill_alert_animated: true,
 

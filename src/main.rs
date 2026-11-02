@@ -10,6 +10,7 @@
 slint::include_modules!();
 
 #[allow(dead_code)]
+mod audio;
 mod telemetry;
 mod convert;
 mod data_hub;

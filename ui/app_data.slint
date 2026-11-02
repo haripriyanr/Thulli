@@ -1,4 +1,4 @@
-import { TaskRow, NoteRow, DayBar } from "types.slint";
+import { TaskRow, NoteRow, DayBar, SessionRow } from "types.slint";
 
 /// AppData: everything the screens show. Rust fills it from the saved data
 /// and handles the callbacks; the screens only display it and report taps.
@@ -6,18 +6,40 @@ export global AppData {
     // Background motion, 0 to 1 and looping.
     in-out property <float> background-phase: 0.0;
 
+    // Immersive focus: hides the navigation rail and the analytics panel.
+    in-out property <bool> immersive: false;
+
     // Pomodoro
     in-out property <string> pomodoro-time: "25:00";
     in-out property <float> pomodoro-progress: 0.0;
     in-out property <bool> pomodoro-running: false;
     in-out property <string> pomodoro-phase: "focus";
+    // "focus", "custom", "short_break" or "long_break": the tab to highlight.
+    in-out property <string> pomodoro-mode: "focus";
     in-out property <string> pomodoro-round: "Round 1 of 4";
-    in-out property <string> pomodoro-status: "Ready to focus";
+    // "Ready", "Running", "Paused" or "Completed".
+    in-out property <string> pomodoro-status: "Ready";
     in-out property <string> pomodoro-durations: "";
+    in-out property <int> pomodoro-custom-mins: 40;
+    in-out property <string> session-name: "";
+    // "off", "lofi", "forest" or "rain".
+    in-out property <string> ambient-choice: "forest";
+    callback ambient-selected(string);
+    callback session-name-edited(string);
     callback pomodoro-toggle();
     callback pomodoro-next();
+    callback pomodoro-previous();
     callback pomodoro-reset();
     callback pomodoro-select(string);
+
+    // Analytics for the Pomodoro panel
+    in-out property <string> activity-range: "week";
+    in-out property <string> activity-sessions: "0";
+    in-out property <string> activity-focus: "0m";
+    in-out property <string> activity-streak: "0 days";
+    in-out property <string> activity-insight: "";
+    in-out property <[DayBar]> activity-bars: [];
+    callback activity-range-selected(string);
 
     // Today
     in-out property <string> today-focus: "0m";
@@ -49,6 +71,7 @@ export global AppData {
     in-out property <string> insight-sessions: "0";
     in-out property <string> insight-streak: "0 days";
     in-out property <[DayBar]> insight-bars: [];
+    in-out property <[SessionRow]> session-history: [];
 
     // Settings
     in-out property <int> setting-focus-mins: 25;
