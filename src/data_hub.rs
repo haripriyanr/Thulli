@@ -732,12 +732,9 @@ impl DataHub {
             let hub = self.clone();
             let weak = window.as_weak();
             data.on_pomodoro_reset(move || {
-                let (phase, elapsed) = {
-                    let timer = hub.pomodoro.borrow();
-                    (timer.phase(), timer.elapsed_in_phase())
-                };
+                // Reset discards the round: nothing is logged as a session
+                // or counted toward the task. Skip is the way to keep it.
                 hub.pomodoro.borrow_mut().reset();
-                hub.record_time(phase, elapsed, false);
                 if let Some(w) = weak.upgrade() {
                     hub.refresh_all(&w);
                 }
