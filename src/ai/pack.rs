@@ -49,7 +49,11 @@ impl PackProgress {
 pub fn models_dir() -> PathBuf {
     let var = |k: &str| std::env::var_os(k).filter(|v| !v.is_empty()).map(PathBuf::from);
     let base = if cfg!(target_os = "windows") {
-        var("LOCALAPPDATA").or_else(|| var("APPDATA"))
+        // Ask Windows itself: a terminal started without LOCALAPPDATA must
+        // still find the same folder as every other launch.
+        local_app_data()
+            .or_else(|| var("LOCALAPPDATA"))
+            .or_else(|| var("USERPROFILE").map(|h| h.join("AppData").join("Local")))
     } else if cfg!(target_os = "macos") {
         var("HOME").map(|h| h.join("Library").join("Application Support"))
     } else {
@@ -57,6 +61,35 @@ pub fn models_dir() -> PathBuf {
     };
     // Never the temp folder: the system may clear it and lose 2 GB of models.
     base.unwrap_or_else(|| PathBuf::from(".")).join("thulli").join("models")
+}
+
+/// The user's Local AppData folder from the Windows shell.
+#[cfg(target_os = "windows")]
+fn local_app_data() -> Option<PathBuf> {
+    use windows_sys::Win32::System::Com::CoTaskMemFree;
+    use windows_sys::Win32::UI::Shell::{FOLDERID_LocalAppData, SHGetKnownFolderPath};
+    let mut raw: windows_sys::core::PWSTR = std::ptr::null_mut();
+    // SAFETY: on success the shell returns a NUL-terminated wide string that
+    // must be freed with CoTaskMemFree, which happens below on every path.
+    unsafe {
+        let ok = SHGetKnownFolderPath(&FOLDERID_LocalAppData, 0, std::ptr::null_mut(), &mut raw) == 0;
+        let path = if ok && !raw.is_null() {
+            let len = (0..).take_while(|&i| *raw.add(i) != 0).count();
+            let wide = std::slice::from_raw_parts(raw, len);
+            Some(PathBuf::from(String::from_utf16_lossy(wide)))
+        } else {
+            None
+        };
+        if !raw.is_null() {
+            CoTaskMemFree(raw as *const core::ffi::c_void);
+        }
+        path
+    }
+}
+
+#[cfg(not(target_os = "windows"))]
+fn local_app_data() -> Option<PathBuf> {
+    None
 }
 
 /// True when the pack is unpacked and ready to load.

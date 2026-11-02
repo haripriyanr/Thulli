@@ -27,7 +27,7 @@ rand = "0.10.3"
 zeroize = "1.9.1"
 rusqlite = { version = "0.41.0", features = ["bundled"] }
 uuid = { version = "1.29.0", features = ["v4", "serde"] }
-windows-sys = { version = "0.61.2", features = ["Win32_System_Registry", "Win32_UI_WindowsAndMessaging", "Win32_Foundation", "Win32_UI_Input_KeyboardAndMouse", "Win32_System_Performance", "Win32_Graphics_Dwm", "Win32_Graphics_Gdi", "Win32_Security_Credentials"] }
+windows-sys = { version = "0.61.2", features = ["Win32_System_Registry", "Win32_UI_WindowsAndMessaging", "Win32_Foundation", "Win32_UI_Input_KeyboardAndMouse", "Win32_System_Performance", "Win32_Graphics_Dwm", "Win32_Graphics_Gdi", "Win32_Security_Credentials", "Win32_UI_Shell", "Win32_System_Com"] }
 raw-window-handle = "0.6"
 regex = "1.12"
 rodio = { version = "0.23.0", default-features = false, features = ["playback", "mp3"] }
