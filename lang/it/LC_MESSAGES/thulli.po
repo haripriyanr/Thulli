@@ -6,685 +6,685 @@ msgstr ""
 
 #: ui\components\action_button.slint
 msgid "Action"
-msgstr ""
+msgstr "Azione"
 
 #: ui\components\app_menu.slint
 msgid "Notes"
-msgstr ""
+msgstr "Note"
 
 #: ui\components\app_menu.slint
 msgid "Reports"
-msgstr ""
+msgstr "Report"
 
 #: ui\components\app_menu.slint
 msgid "Your lists"
-msgstr ""
+msgstr "Le tue liste"
 
 #: ui\components\app_menu.slint
 msgid "Distraction shield"
-msgstr ""
+msgstr "Scudo distrazioni"
 
 #: ui\components\app_menu.slint
 msgid "Assistant"
-msgstr ""
+msgstr "Assistente"
 
 #: ui\components\app_menu.slint
 msgid "Preferences"
-msgstr ""
+msgstr "Preferenze"
 
 #: ui\components\cards.slint
 msgid "CREATE LIST"
-msgstr ""
+msgstr "CREA LISTA"
 
 #: ui\components\cards.slint
 msgid "Task"
-msgstr ""
+msgstr "Attività"
 
 #: ui\components\focus_controls.slint
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: ui\components\inputs.slint
 msgid "Search tasks or notes..."
-msgstr ""
+msgstr "Cerca attività o note..."
 
 #: ui\components\inputs.slint
 msgid "Add task (e.g. 'Build auth 45m @today')..."
-msgstr ""
+msgstr "Aggiungi attività (es. «Crea auth 45m @today»)..."
 
 #: ui\components\language_picker.slint
 msgid "Type a language"
-msgstr ""
+msgstr "Digita una lingua"
 
 #: ui\components\language_picker.slint
 msgid "No language matches"
-msgstr ""
+msgstr "Nessuna lingua corrisponde"
 
 #: ui\components\modals.slint
 msgid "Create a new list"
-msgstr ""
+msgstr "Crea una nuova lista"
 
 #: ui\components\modals.slint
 msgid "UPLOAD AN ICON"
-msgstr ""
+msgstr "CARICA UN'ICONA"
 
 #: ui\components\modals.slint
 msgid "Optional (jpg, png, svg)"
-msgstr ""
+msgstr "Facoltativo (jpg, png, svg)"
 
 #: ui\components\modals.slint
 msgid "Pick a list color"
-msgstr ""
+msgstr "Scegli un colore per la lista"
 
 #: ui\components\modals.slint
 msgid "List name (e.g. Work, Personal)..."
-msgstr ""
+msgstr "Nome lista (es. Lavoro, Personale)..."
 
 #: ui\components\modals.slint
 msgid "Cancel"
-msgstr ""
+msgstr "Annulla"
 
 #: ui\components\modals.slint
 msgid "Create"
-msgstr ""
+msgstr "Crea"
 
 #: ui\components\modals.slint
 msgid "Customize your workflow for a personalized experience"
-msgstr ""
+msgstr "Personalizza il tuo flusso di lavoro"
 
 #: ui\components\modals.slint
 msgid "Time"
-msgstr ""
+msgstr "Ora"
 
 #: ui\components\modals.slint
 msgid "Timezone"
-msgstr ""
+msgstr "Fuso orario"
 
 #: ui\components\modals.slint
 msgid "Focus sprint settings"
-msgstr ""
+msgstr "Impostazioni delle sessioni di concentrazione"
 
 #: ui\components\modals.slint
 msgid "Timed Sprints"
-msgstr ""
+msgstr "Sessioni a tempo"
 
 #: ui\components\modals.slint
 msgid "Work sprint duration"
-msgstr ""
+msgstr "Durata della sessione di lavoro"
 
 #: ui\components\modals.slint
 msgid "60 mins ▾"
-msgstr ""
+msgstr "60 min ▾"
 
 #: ui\components\modals.slint
 msgid "Break duration"
-msgstr ""
+msgstr "Durata della pausa"
 
 #: ui\components\modals.slint
 msgid "15 mins ▾"
-msgstr ""
+msgstr "15 min ▾"
 
 #: ui\components\navigation_rail.slint
 msgid "Today"
-msgstr ""
+msgstr "Oggi"
 
 #: ui\components\navigation_rail.slint
 msgid "Spaces"
-msgstr ""
+msgstr "Spazi"
 
 #: ui\components\navigation_rail.slint
 msgid "Pomodoro"
-msgstr ""
+msgstr "Pomodoro"
 
 #: ui\components\navigation_rail.slint
 msgid "Insights"
-msgstr ""
+msgstr "Statistiche"
 
 #: ui\components\navigation_rail.slint
 msgid "Settings"
-msgstr ""
+msgstr "Impostazioni"
 
 #: ui\components\pref_rows.slint
 msgid "Reset"
-msgstr ""
+msgstr "Ripristina"
 
 #: ui\components\rows.slint
 msgid "{}"
-msgstr ""
+msgstr "{}"
 
 #: ui\components\search.slint
 msgid "Search tasks"
-msgstr ""
+msgstr "Cerca attività"
 
 #: ui\components\sidebar.slint
 msgid "Create new list"
-msgstr ""
+msgstr "Crea nuova lista"
 
 #: ui\components\sidebar.slint
 msgid "All my lists"
-msgstr ""
+msgstr "Tutte le mie liste"
 
 #: ui\components\sidebar.slint
 msgid "Archived lists"
-msgstr ""
+msgstr "Liste archiviate"
 
 #: ui\components\sidebar.slint
 msgid "FOCUS & SHIELD"
-msgstr ""
+msgstr "CONCENTRAZIONE E SCUDO"
 
 #: ui\components\sidebar.slint
 msgid "App Shield"
-msgstr ""
+msgstr "Scudo app"
 
 #: ui\components\sidebar.slint
 msgid "Scratchpad"
-msgstr ""
+msgstr "Blocco note"
 
 #: ui\components\space_widgets.slint
 msgid "Space name"
-msgstr ""
+msgstr "Nome dello spazio"
 
 #: ui\components\space_widgets.slint
 msgid "Add task"
-msgstr ""
+msgstr "Aggiungi attività"
 
 #: ui\components\space_widgets.slint
 msgid "Tomorrow"
-msgstr ""
+msgstr "Domani"
 
 #: ui\components\space_widgets.slint
 msgid "Clear"
-msgstr ""
+msgstr "Cancella"
 
 #: ui\components\space_widgets.slint
 msgid "Estimate"
-msgstr ""
+msgstr "Stima"
 
 #: ui\components\space_widgets.slint
 msgid "Do date"
-msgstr ""
+msgstr "Data di inizio"
 
 #: ui\components\space_widgets.slint
 msgid "Deadline"
-msgstr ""
+msgstr "Scadenza"
 
 #: ui\components\space_widgets.slint
 msgid "Add notes..."
-msgstr ""
+msgstr "Aggiungi note..."
 
 #: ui\components\space_widgets.slint
 msgid "Save"
-msgstr ""
+msgstr "Salva"
 
 #: ui\components\space_widgets.slint
 msgid "Subtasks: {}/{}"
-msgstr ""
+msgstr "Sottoattività: {}/{}"
 
 #: ui\components\space_widgets.slint
 msgid "Subtask"
-msgstr ""
+msgstr "Sottoattività"
 
 #: ui\components\space_widgets.slint
 msgid "Subtask name"
-msgstr ""
+msgstr "Nome sottoattività"
 
 #: ui\components\space_widgets.slint
 msgid "{}/{} done"
-msgstr ""
+msgstr "{}/{} completate"
 
 #: ui\components\space_widgets.slint
 msgid "Enter your task name"
-msgstr ""
+msgstr "Inserisci il nome dell'attività"
 
 #: ui\components\tabs.slint
 msgid "Tasks"
-msgstr ""
+msgstr "Attività"
 
 #: ui\components\topbar.slint
 msgid "Dashboard"
-msgstr ""
+msgstr "Pannello"
 
 #: ui\components\topbar.slint
 msgid "Focus Tower"
-msgstr ""
+msgstr "Torre di concentrazione"
 
 #: ui\components\topbar.slint
 msgid "Pill HUD"
-msgstr ""
+msgstr "Vista compatta"
 
 #: ui\screens\ai_panels.slint
 msgid "Plan with AI"
-msgstr ""
+msgstr "Pianifica con l'IA"
 
 #: ui\screens\ai_panels.slint
 msgid "Say what you need to get done. You'll see every change before anything is saved."
-msgstr ""
+msgstr "Scrivi cosa devi fare. Vedrai ogni modifica prima che venga salvata."
 
 #: ui\screens\ai_panels.slint
 msgid "Add an OpenRouter API key in Settings first."
-msgstr ""
+msgstr "Aggiungi prima una chiave API di OpenRouter nelle impostazioni."
 
 #: ui\screens\ai_panels.slint
 msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
-msgstr ""
+msgstr "es. Finire il report oggi (2h, dividilo), chiamare la banca domani e iniziare subito il report."
 
 #: ui\screens\ai_panels.slint
 msgid "Start the first task now"
-msgstr ""
+msgstr "Inizia subito la prima attività"
 
 #: ui\screens\ai_panels.slint
 msgid "Proposed changes"
-msgstr ""
+msgstr "Modifiche proposte"
 
 #: ui\screens\ai_panels.slint
 msgid "Discard"
-msgstr ""
+msgstr "Scarta"
 
 #: ui\screens\ai_panels.slint
 msgid "Apply all"
-msgstr ""
+msgstr "Applica tutto"
 
 #: ui\screens\ai_panels.slint
 msgid "AI pick"
-msgstr ""
+msgstr "Scelta dell'IA"
 
 #: ui\screens\ai_panels.slint
 msgid "Sort tasks"
-msgstr ""
+msgstr "Ordina attività"
 
 #: ui\screens\ai_panels.slint
 msgid "Matters more"
-msgstr ""
+msgstr "Più importante"
 
 #: ui\screens\ai_panels.slint
 msgid "Matters less"
-msgstr ""
+msgstr "Meno importante"
 
 #: ui\screens\ai_panels.slint
 msgid "Sooner"
-msgstr ""
+msgstr "Prima"
 
 #: ui\screens\ai_panels.slint
 msgid "Later"
-msgstr ""
+msgstr "Dopo"
 
 #: ui\screens\ai_panels.slint
 msgid "Do ASAP"
-msgstr ""
+msgstr "Fai subito"
 
 #: ui\screens\ai_panels.slint
 msgid "Urgent and important. Today, first."
-msgstr ""
+msgstr "Urgente e importante. Oggi, per primo."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Mid Week"
-msgstr ""
+msgstr "Fai a metà settimana"
 
 #: ui\screens\ai_panels.slint
 msgid "Important, not urgent. This week."
-msgstr ""
+msgstr "Importante, non urgente. Questa settimana."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Later Today"
-msgstr ""
+msgstr "Fai oggi più tardi"
 
 #: ui\screens\ai_panels.slint
 msgid "Needs doing today, after the first push."
-msgstr ""
+msgstr "Da fare oggi, dopo la prima spinta."
 
 #: ui\screens\ai_panels.slint
 msgid "Leave Till End"
-msgstr ""
+msgstr "Lascia alla fine"
 
 #: ui\screens\ai_panels.slint
 msgid "Low urgency or low value. Backlog."
-msgstr ""
+msgstr "Bassa urgenza o basso valore. Da fare."
 
 #: ui\screens\ai_panels.slint
 msgid "Back"
-msgstr ""
+msgstr "Indietro"
 
 #: ui\screens\ai_panels.slint
 msgid "Skip"
-msgstr ""
+msgstr "Salta"
 
 #: ui\screens\ai_panels.slint
 msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
-msgstr ""
+msgstr "1-4 ordina  ·  S salta  ·  Backspace indietro  ·  Invio sceglie l'IA  ·  Esc chiudi"
 
 #: ui\screens\insights_screen.slint
 msgid "Completed focus sessions, the last seven days"
-msgstr ""
+msgstr "Sessioni di concentrazione completate, ultimi sette giorni"
 
 #: ui\screens\insights_screen.slint
 msgid "Focus this week"
-msgstr ""
+msgstr "Concentrazione questa settimana"
 
 #: ui\screens\insights_screen.slint
 msgid "Sessions this week"
-msgstr ""
+msgstr "Sessioni questa settimana"
 
 #: ui\screens\insights_screen.slint
 msgid "Streak"
-msgstr ""
+msgstr "Serie"
 
 #: ui\screens\insights_screen.slint
 msgid "Weekly activity"
-msgstr ""
+msgstr "Attività settimanale"
 
 #: ui\screens\insights_screen.slint
 msgid "No focus time recorded yet."
-msgstr ""
+msgstr "Nessun tempo di concentrazione registrato."
 
 #: ui\screens\insights_screen.slint
 msgid "Session history"
-msgstr ""
+msgstr "Cronologia sessioni"
 
 #: ui\screens\insights_screen.slint
 msgid "Finished focus sessions appear here."
-msgstr ""
+msgstr "Le sessioni completate appaiono qui."
 
 #: ui\screens\notes_screen.slint
 msgid "Quick thoughts and longer write-ups"
-msgstr ""
+msgstr "Idee rapide e testi più lunghi"
 
 #: ui\screens\notes_screen.slint
 msgid "New note"
-msgstr ""
+msgstr "Nuova nota"
 
 #: ui\screens\notes_screen.slint
 msgid "No notes yet. Create one to start writing."
-msgstr ""
+msgstr "Nessuna nota. Creane una per iniziare a scrivere."
 
 #: ui\screens\notes_screen.slint
 msgid "Pick a note, or create one, to start writing."
-msgstr ""
+msgstr "Scegli o crea una nota per iniziare a scrivere."
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus"
-msgstr ""
+msgstr "Concentrazione"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Short Break"
-msgstr ""
+msgstr "Pausa breve"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Long Break"
-msgstr ""
+msgstr "Pausa lunga"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Custom"
-msgstr ""
+msgstr "Personalizzato"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Session name"
-msgstr ""
+msgstr "Nome sessione"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "General Focus"
-msgstr ""
+msgstr "Concentrazione generale"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "None"
-msgstr ""
+msgstr "Nessuno"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Ambient Sound"
-msgstr ""
+msgstr "Suono ambiente"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Lo-fi"
-msgstr ""
+msgstr "Lo-fi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Forest"
-msgstr ""
+msgstr "Foresta"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Rain"
-msgstr ""
+msgstr "Pioggia"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "View all tasks"
-msgstr ""
+msgstr "Vedi tutte le attività"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Productivity"
-msgstr ""
+msgstr "Produttività"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Your focus at a glance"
-msgstr ""
+msgstr "La tua concentrazione in sintesi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Day"
-msgstr ""
+msgstr "Giorno"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Week"
-msgstr ""
+msgstr "Settimana"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Month"
-msgstr ""
+msgstr "Mese"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Year"
-msgstr ""
+msgstr "Anno"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Sessions"
-msgstr ""
+msgstr "Sessioni"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus time"
-msgstr ""
+msgstr "Tempo di concentrazione"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Summary"
-msgstr ""
+msgstr "Riepilogo"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "{} sessions completed"
-msgstr ""
+msgstr "{} sessioni completate"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Average focus: {}"
-msgstr ""
+msgstr "Concentrazione media: {}"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Recent sessions"
-msgstr ""
+msgstr "Sessioni recenti"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Finished focus sessions show up here."
-msgstr ""
+msgstr "Le sessioni completate appaiono qui."
 
 #: ui\screens\settings_screen.slint
 msgid "Language"
-msgstr ""
+msgstr "Lingua"
 
 #: ui\screens\settings_screen.slint
 msgid "App language"
-msgstr ""
+msgstr "Lingua dell'app"
 
 #: ui\screens\settings_screen.slint
 msgid "Choice applies immediately and is saved on this device."
-msgstr ""
+msgstr "La scelta si applica subito e viene salvata su questo dispositivo."
 
 #: ui\screens\settings_screen.slint
 msgid "Timer settings"
-msgstr ""
+msgstr "Impostazioni timer"
 
 #: ui\screens\settings_screen.slint
 msgid "Manage the productivity timer."
-msgstr ""
+msgstr "Gestisci il timer di produttività."
 
 #: ui\screens\settings_screen.slint
 msgid "Pomodoros"
-msgstr ""
+msgstr "Pomodori"
 
 #: ui\screens\settings_screen.slint
 msgid "Alternate focused work sprints with timed breaks."
-msgstr ""
+msgstr "Alterna sessioni di lavoro concentrato a pause a tempo."
 
 #: ui\screens\settings_screen.slint
 msgid "Work sprint"
-msgstr ""
+msgstr "Sessione di lavoro"
 
 #: ui\screens\settings_screen.slint
 msgid "{}min"
-msgstr ""
+msgstr "{} min"
 
 #: ui\screens\settings_screen.slint
 msgid "Short break"
-msgstr ""
+msgstr "Pausa breve"
 
 #: ui\screens\settings_screen.slint
 msgid "Long break"
-msgstr ""
+msgstr "Pausa lunga"
 
 #: ui\screens\settings_screen.slint
 msgid "Long break after"
-msgstr ""
+msgstr "Pausa lunga dopo"
 
 #: ui\screens\settings_screen.slint
 msgid "{} work sprints"
-msgstr ""
+msgstr "{} sessioni di lavoro"
 
 #: ui\screens\settings_screen.slint
 msgid "2 work sprints"
-msgstr ""
+msgstr "2 sessioni di lavoro"
 
 #: ui\screens\settings_screen.slint
 msgid "3 work sprints"
-msgstr ""
+msgstr "3 sessioni di lavoro"
 
 #: ui\screens\settings_screen.slint
 msgid "4 work sprints"
-msgstr ""
+msgstr "4 sessioni di lavoro"
 
 #: ui\screens\settings_screen.slint
 msgid "5 work sprints"
-msgstr ""
+msgstr "5 sessioni di lavoro"
 
 #: ui\screens\settings_screen.slint
 msgid "6 work sprints"
-msgstr ""
+msgstr "6 sessioni di lavoro"
 
 #: ui\screens\settings_screen.slint
 msgid "Start next task when ending a break early"
-msgstr ""
+msgstr "Avvia la prossima attività se la pausa finisce prima"
 
 #: ui\screens\settings_screen.slint
 msgid "Start the next phase automatically"
-msgstr ""
+msgstr "Avvia automaticamente la fase successiva"
 
 #: ui\screens\spaces_screen.slint
 msgid "Tasks: {}"
-msgstr ""
+msgstr "Attività: {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Finished tasks land here."
-msgstr ""
+msgstr "Le attività completate finiscono qui."
 
 #: ui\screens\spaces_screen.slint
 msgid "No tasks yet. Sort one in from Matrix Review."
-msgstr ""
+msgstr "Nessuna attività. Ordinane una dalla Revisione matrice."
 
 #: ui\screens\spaces_screen.slint
 msgid "Nothing waiting here"
-msgstr ""
+msgstr "Niente in attesa qui"
 
 #: ui\screens\spaces_screen.slint
 msgid "Matrix Review"
-msgstr ""
+msgstr "Revisione matrice"
 
 #: ui\screens\spaces_screen.slint
 msgid "{}/{}"
-msgstr ""
+msgstr "{}/{}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Sort each task with the coloured dots, or one by one."
-msgstr ""
+msgstr "Ordina ogni attività con i punti colorati, o una alla volta."
 
 #: ui\screens\spaces_screen.slint
 msgid "Sort one by one  ·  {}"
-msgstr ""
+msgstr "Ordina una alla volta  ·  {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unsorted"
-msgstr ""
+msgstr "Non ordinate"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unscheduled"
-msgstr ""
+msgstr "Non pianificate"
 
 #: ui\screens\spaces_screen.slint
 msgid "Pick a day under a task to plan it."
-msgstr ""
+msgstr "Scegli un giorno sotto un'attività per pianificarla."
 
 #: ui\screens\spaces_screen.slint
 msgid "{}  {}"
-msgstr ""
+msgstr "{}  {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "All planned."
-msgstr ""
+msgstr "Tutto pianificato."
 
 #: ui\screens\spaces_screen.slint
 msgid "Weekly schedule"
-msgstr ""
+msgstr "Pianificazione settimanale"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unplan"
-msgstr ""
+msgstr "Rimuovi pianificazione"
 
 #: ui\screens\spaces_screen.slint
 msgid "Add"
-msgstr ""
+msgstr "Aggiungi"
 
 #: ui\screens\spaces_screen.slint
 msgid "SPACES"
-msgstr ""
+msgstr "SPAZI"
 
 #: ui\screens\spaces_screen.slint
 msgid "Board"
-msgstr ""
+msgstr "Bacheca"
 
 #: ui\screens\spaces_screen.slint
 msgid "Matrix"
-msgstr ""
+msgstr "Matrice"
 
 #: ui\screens\spaces_screen.slint
 msgid "Calendar"
-msgstr ""
+msgstr "Calendario"
 
 #: ui\screens\spaces_screen.slint
 msgid "Create your first space"
-msgstr ""
+msgstr "Crea il tuo primo spazio"
 
 #: ui\screens\spaces_screen.slint
 msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
-msgstr ""
+msgstr "Gli spazi danno alle tue attività una casa vera. Inizia con un progetto, un obiettivo o un'area da far avanzare."
 
 #: ui\screens\spaces_screen.slint
 msgid "Create a space"
-msgstr ""
+msgstr "Crea uno spazio"
 
 #: ui\screens\spaces_screen.slint
 msgid "Edit"
-msgstr ""
+msgstr "Modifica"
 
 #: ui\screens\today_screen.slint
 msgid "Focused today: {}"
-msgstr ""
+msgstr "Concentrazione oggi: {}"
 
 #: ui\screens\today_screen.slint
 msgid "Planned for today"
-msgstr ""
+msgstr "Pianificato per oggi"
 
 #: ui\screens\today_screen.slint
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
-msgstr ""
+msgstr "Nulla pianificato per oggi. Aggiungi attività nella schermata Spazi."
 

@@ -6,685 +6,685 @@ msgstr ""
 
 #: ui\components\action_button.slint
 msgid "Action"
-msgstr ""
+msgstr "Tindakan"
 
 #: ui\components\app_menu.slint
 msgid "Notes"
-msgstr ""
+msgstr "Cathetan"
 
 #: ui\components\app_menu.slint
 msgid "Reports"
-msgstr ""
+msgstr "Laporan"
 
 #: ui\components\app_menu.slint
 msgid "Your lists"
-msgstr ""
+msgstr "Dhaftarku"
 
 #: ui\components\app_menu.slint
 msgid "Distraction shield"
-msgstr ""
+msgstr "Tameng gangguan"
 
 #: ui\components\app_menu.slint
 msgid "Assistant"
-msgstr ""
+msgstr "Asisten"
 
 #: ui\components\app_menu.slint
 msgid "Preferences"
-msgstr ""
+msgstr "Pilihan"
 
 #: ui\components\cards.slint
 msgid "CREATE LIST"
-msgstr ""
+msgstr "GAWE DHAFTAR"
 
 #: ui\components\cards.slint
 msgid "Task"
-msgstr ""
+msgstr "Tugas"
 
 #: ui\components\focus_controls.slint
 msgid "Search"
-msgstr ""
+msgstr "Golek"
 
 #: ui\components\inputs.slint
 msgid "Search tasks or notes..."
-msgstr ""
+msgstr "Golek tugas utawa cathetan..."
 
 #: ui\components\inputs.slint
 msgid "Add task (e.g. 'Build auth 45m @today')..."
-msgstr ""
+msgstr "Tambah tugas (conto 'Gawe auth 45m @today')..."
 
 #: ui\components\language_picker.slint
 msgid "Type a language"
-msgstr ""
+msgstr "Ketik jeneng basa"
 
 #: ui\components\language_picker.slint
 msgid "No language matches"
-msgstr ""
+msgstr "Ora ana basa sing cocog"
 
 #: ui\components\modals.slint
 msgid "Create a new list"
-msgstr ""
+msgstr "Gawe dhaftar anyar"
 
 #: ui\components\modals.slint
 msgid "UPLOAD AN ICON"
-msgstr ""
+msgstr "UNGGAH IKON"
 
 #: ui\components\modals.slint
 msgid "Optional (jpg, png, svg)"
-msgstr ""
+msgstr "Opsional (jpg, png, svg)"
 
 #: ui\components\modals.slint
 msgid "Pick a list color"
-msgstr ""
+msgstr "Pilih warna dhaftar"
 
 #: ui\components\modals.slint
 msgid "List name (e.g. Work, Personal)..."
-msgstr ""
+msgstr "Jeneng dhaftar (conto Kerja, Pribadi)..."
 
 #: ui\components\modals.slint
 msgid "Cancel"
-msgstr ""
+msgstr "Batal"
 
 #: ui\components\modals.slint
 msgid "Create"
-msgstr ""
+msgstr "Gawe"
 
 #: ui\components\modals.slint
 msgid "Customize your workflow for a personalized experience"
-msgstr ""
+msgstr "Atur alur kerjamu supaya pas karo kebutuhanmu"
 
 #: ui\components\modals.slint
 msgid "Time"
-msgstr ""
+msgstr "Wektu"
 
 #: ui\components\modals.slint
 msgid "Timezone"
-msgstr ""
+msgstr "Zona wektu"
 
 #: ui\components\modals.slint
 msgid "Focus sprint settings"
-msgstr ""
+msgstr "Setelan sesi fokus"
 
 #: ui\components\modals.slint
 msgid "Timed Sprints"
-msgstr ""
+msgstr "Sesi Wektu"
 
 #: ui\components\modals.slint
 msgid "Work sprint duration"
-msgstr ""
+msgstr "Dawa sesi kerja"
 
 #: ui\components\modals.slint
 msgid "60 mins ▾"
-msgstr ""
+msgstr "60 menit ▾"
 
 #: ui\components\modals.slint
 msgid "Break duration"
-msgstr ""
+msgstr "Dawa istirahat"
 
 #: ui\components\modals.slint
 msgid "15 mins ▾"
-msgstr ""
+msgstr "15 menit ▾"
 
 #: ui\components\navigation_rail.slint
 msgid "Today"
-msgstr ""
+msgstr "Dina iki"
 
 #: ui\components\navigation_rail.slint
 msgid "Spaces"
-msgstr ""
+msgstr "Papan"
 
 #: ui\components\navigation_rail.slint
 msgid "Pomodoro"
-msgstr ""
+msgstr "Pomodoro"
 
 #: ui\components\navigation_rail.slint
 msgid "Insights"
-msgstr ""
+msgstr "Wawasan"
 
 #: ui\components\navigation_rail.slint
 msgid "Settings"
-msgstr ""
+msgstr "Setelan"
 
 #: ui\components\pref_rows.slint
 msgid "Reset"
-msgstr ""
+msgstr "Setel ulang"
 
 #: ui\components\rows.slint
 msgid "{}"
-msgstr ""
+msgstr "{}"
 
 #: ui\components\search.slint
 msgid "Search tasks"
-msgstr ""
+msgstr "Golek tugas"
 
 #: ui\components\sidebar.slint
 msgid "Create new list"
-msgstr ""
+msgstr "Gawe dhaftar anyar"
 
 #: ui\components\sidebar.slint
 msgid "All my lists"
-msgstr ""
+msgstr "Kabeh dhaftarku"
 
 #: ui\components\sidebar.slint
 msgid "Archived lists"
-msgstr ""
+msgstr "Dhaftar sing diarsipake"
 
 #: ui\components\sidebar.slint
 msgid "FOCUS & SHIELD"
-msgstr ""
+msgstr "FOKUS & TAMENG"
 
 #: ui\components\sidebar.slint
 msgid "App Shield"
-msgstr ""
+msgstr "Tameng Aplikasi"
 
 #: ui\components\sidebar.slint
 msgid "Scratchpad"
-msgstr ""
+msgstr "Coretan"
 
 #: ui\components\space_widgets.slint
 msgid "Space name"
-msgstr ""
+msgstr "Jeneng papan"
 
 #: ui\components\space_widgets.slint
 msgid "Add task"
-msgstr ""
+msgstr "Tambah tugas"
 
 #: ui\components\space_widgets.slint
 msgid "Tomorrow"
-msgstr ""
+msgstr "Sesuk"
 
 #: ui\components\space_widgets.slint
 msgid "Clear"
-msgstr ""
+msgstr "Resiki"
 
 #: ui\components\space_widgets.slint
 msgid "Estimate"
-msgstr ""
+msgstr "Perkiraan"
 
 #: ui\components\space_widgets.slint
 msgid "Do date"
-msgstr ""
+msgstr "Tanggal wiwit"
 
 #: ui\components\space_widgets.slint
 msgid "Deadline"
-msgstr ""
+msgstr "Tenggat"
 
 #: ui\components\space_widgets.slint
 msgid "Add notes..."
-msgstr ""
+msgstr "Tambah cathetan..."
 
 #: ui\components\space_widgets.slint
 msgid "Save"
-msgstr ""
+msgstr "Simpen"
 
 #: ui\components\space_widgets.slint
 msgid "Subtasks: {}/{}"
-msgstr ""
+msgstr "Subtugas: {}/{}"
 
 #: ui\components\space_widgets.slint
 msgid "Subtask"
-msgstr ""
+msgstr "Subtugas"
 
 #: ui\components\space_widgets.slint
 msgid "Subtask name"
-msgstr ""
+msgstr "Jeneng subtugas"
 
 #: ui\components\space_widgets.slint
 msgid "{}/{} done"
-msgstr ""
+msgstr "{}/{} rampung"
 
 #: ui\components\space_widgets.slint
 msgid "Enter your task name"
-msgstr ""
+msgstr "Ketik jeneng tugasmu"
 
 #: ui\components\tabs.slint
 msgid "Tasks"
-msgstr ""
+msgstr "Tugas"
 
 #: ui\components\topbar.slint
 msgid "Dashboard"
-msgstr ""
+msgstr "Dasbor"
 
 #: ui\components\topbar.slint
 msgid "Focus Tower"
-msgstr ""
+msgstr "Menara Fokus"
 
 #: ui\components\topbar.slint
 msgid "Pill HUD"
-msgstr ""
+msgstr "Pill HUD"
 
 #: ui\screens\ai_panels.slint
 msgid "Plan with AI"
-msgstr ""
+msgstr "Rencanakna karo AI"
 
 #: ui\screens\ai_panels.slint
 msgid "Say what you need to get done. You'll see every change before anything is saved."
-msgstr ""
+msgstr "Critakna apa sing kudu rampung. Kabeh owah-owahan bakal katon sadurunge disimpen."
 
 #: ui\screens\ai_panels.slint
 msgid "Add an OpenRouter API key in Settings first."
-msgstr ""
+msgstr "Tambahna dhisik kunci API OpenRouter ing Setelan."
 
 #: ui\screens\ai_panels.slint
 msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
-msgstr ""
+msgstr "Conto: Rampungna laporan dina iki (2 jam, dipecah), telpon bank sesuk, lan wiwiti laporan saiki."
 
 #: ui\screens\ai_panels.slint
 msgid "Start the first task now"
-msgstr ""
+msgstr "Wiwiti tugas pertama saiki"
 
 #: ui\screens\ai_panels.slint
 msgid "Proposed changes"
-msgstr ""
+msgstr "Owah-owahan sing diusulake"
 
 #: ui\screens\ai_panels.slint
 msgid "Discard"
-msgstr ""
+msgstr "Buang"
 
 #: ui\screens\ai_panels.slint
 msgid "Apply all"
-msgstr ""
+msgstr "Terapake kabeh"
 
 #: ui\screens\ai_panels.slint
 msgid "AI pick"
-msgstr ""
+msgstr "Pilihan AI"
 
 #: ui\screens\ai_panels.slint
 msgid "Sort tasks"
-msgstr ""
+msgstr "Urutake tugas"
 
 #: ui\screens\ai_panels.slint
 msgid "Matters more"
-msgstr ""
+msgstr "Luwih penting"
 
 #: ui\screens\ai_panels.slint
 msgid "Matters less"
-msgstr ""
+msgstr "Kurang penting"
 
 #: ui\screens\ai_panels.slint
 msgid "Sooner"
-msgstr ""
+msgstr "Luwih cepet"
 
 #: ui\screens\ai_panels.slint
 msgid "Later"
-msgstr ""
+msgstr "Luwih suwe"
 
 #: ui\screens\ai_panels.slint
 msgid "Do ASAP"
-msgstr ""
+msgstr "Lakokna saiki"
 
 #: ui\screens\ai_panels.slint
 msgid "Urgent and important. Today, first."
-msgstr ""
+msgstr "Mendesak lan penting. Dina iki, dhisik."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Mid Week"
-msgstr ""
+msgstr "Lakokna tengah minggu"
 
 #: ui\screens\ai_panels.slint
 msgid "Important, not urgent. This week."
-msgstr ""
+msgstr "Penting, ora mendesak. Minggu iki."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Later Today"
-msgstr ""
+msgstr "Lakokna sore dina iki"
 
 #: ui\screens\ai_panels.slint
 msgid "Needs doing today, after the first push."
-msgstr ""
+msgstr "Perlu dirampungake dina iki, sawise dorongan pertama."
 
 #: ui\screens\ai_panels.slint
 msgid "Leave Till End"
-msgstr ""
+msgstr "Tinggalna tekan pungkasan"
 
 #: ui\screens\ai_panels.slint
 msgid "Low urgency or low value. Backlog."
-msgstr ""
+msgstr "Mendesak utawa nilai sithik. Dhaftar ngarep."
 
 #: ui\screens\ai_panels.slint
 msgid "Back"
-msgstr ""
+msgstr "Bali"
 
 #: ui\screens\ai_panels.slint
 msgid "Skip"
-msgstr ""
+msgstr "Lewati"
 
 #: ui\screens\ai_panels.slint
 msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
-msgstr ""
+msgstr "1-4 urutake · S lewati · Backspace bali · Enter pilih saran AI · Esc tutup"
 
 #: ui\screens\insights_screen.slint
 msgid "Completed focus sessions, the last seven days"
-msgstr ""
+msgstr "Sesi fokus sing rampung, pitung dina kepungkur"
 
 #: ui\screens\insights_screen.slint
 msgid "Focus this week"
-msgstr ""
+msgstr "Fokus minggu iki"
 
 #: ui\screens\insights_screen.slint
 msgid "Sessions this week"
-msgstr ""
+msgstr "Sesi minggu iki"
 
 #: ui\screens\insights_screen.slint
 msgid "Streak"
-msgstr ""
+msgstr "Rentetan"
 
 #: ui\screens\insights_screen.slint
 msgid "Weekly activity"
-msgstr ""
+msgstr "Aktivitas mingguan"
 
 #: ui\screens\insights_screen.slint
 msgid "No focus time recorded yet."
-msgstr ""
+msgstr "Durung ana wektu fokus sing dicathet."
 
 #: ui\screens\insights_screen.slint
 msgid "Session history"
-msgstr ""
+msgstr "Riwayat sesi"
 
 #: ui\screens\insights_screen.slint
 msgid "Finished focus sessions appear here."
-msgstr ""
+msgstr "Sesi fokus sing rampung bakal katon ing kene."
 
 #: ui\screens\notes_screen.slint
 msgid "Quick thoughts and longer write-ups"
-msgstr ""
+msgstr "Pikiran cepet lan tulisan dawa"
 
 #: ui\screens\notes_screen.slint
 msgid "New note"
-msgstr ""
+msgstr "Cathetan anyar"
 
 #: ui\screens\notes_screen.slint
 msgid "No notes yet. Create one to start writing."
-msgstr ""
+msgstr "Durung ana cathetan. Gawe siji kanggo wiwiti nulis."
 
 #: ui\screens\notes_screen.slint
 msgid "Pick a note, or create one, to start writing."
-msgstr ""
+msgstr "Pilih cathetan utawa gawe siji kanggo wiwiti nulis."
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus"
-msgstr ""
+msgstr "Fokus"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Short Break"
-msgstr ""
+msgstr "Istirahat Cendhak"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Long Break"
-msgstr ""
+msgstr "Istirahat Dawa"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Custom"
-msgstr ""
+msgstr "Kustom"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Session name"
-msgstr ""
+msgstr "Jeneng sesi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "General Focus"
-msgstr ""
+msgstr "Fokus Umum"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "None"
-msgstr ""
+msgstr "Ora ana"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Ambient Sound"
-msgstr ""
+msgstr "Swara Ambien"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Lo-fi"
-msgstr ""
+msgstr "Lo-fi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Forest"
-msgstr ""
+msgstr "Alas"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Rain"
-msgstr ""
+msgstr "Udan"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "View all tasks"
-msgstr ""
+msgstr "Deleng kabeh tugas"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Productivity"
-msgstr ""
+msgstr "Produktivitas"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Your focus at a glance"
-msgstr ""
+msgstr "Fokusmu sekilas"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Day"
-msgstr ""
+msgstr "Dina"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Week"
-msgstr ""
+msgstr "Minggu"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Month"
-msgstr ""
+msgstr "Sasi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Year"
-msgstr ""
+msgstr "Taun"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Sessions"
-msgstr ""
+msgstr "Sesi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus time"
-msgstr ""
+msgstr "Wektu fokus"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Summary"
-msgstr ""
+msgstr "Ringkasan"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "{} sessions completed"
-msgstr ""
+msgstr "{} sesi rampung"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Average focus: {}"
-msgstr ""
+msgstr "Rata-rata fokus: {}"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Recent sessions"
-msgstr ""
+msgstr "Sesi paling anyar"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Finished focus sessions show up here."
-msgstr ""
+msgstr "Sesi fokus sing rampung bakal katon ing kene."
 
 #: ui\screens\settings_screen.slint
 msgid "Language"
-msgstr ""
+msgstr "Basa"
 
 #: ui\screens\settings_screen.slint
 msgid "App language"
-msgstr ""
+msgstr "Basa aplikasi"
 
 #: ui\screens\settings_screen.slint
 msgid "Choice applies immediately and is saved on this device."
-msgstr ""
+msgstr "Pilihan langsung ditrapake lan disimpen ing piranti iki."
 
 #: ui\screens\settings_screen.slint
 msgid "Timer settings"
-msgstr ""
+msgstr "Setelan timer"
 
 #: ui\screens\settings_screen.slint
 msgid "Manage the productivity timer."
-msgstr ""
+msgstr "Atur timer produktivitas."
 
 #: ui\screens\settings_screen.slint
 msgid "Pomodoros"
-msgstr ""
+msgstr "Pomodoro"
 
 #: ui\screens\settings_screen.slint
 msgid "Alternate focused work sprints with timed breaks."
-msgstr ""
+msgstr "Gantenan sesi kerja fokus karo istirahat wektu."
 
 #: ui\screens\settings_screen.slint
 msgid "Work sprint"
-msgstr ""
+msgstr "Sesi kerja"
 
 #: ui\screens\settings_screen.slint
 msgid "{}min"
-msgstr ""
+msgstr "{} menit"
 
 #: ui\screens\settings_screen.slint
 msgid "Short break"
-msgstr ""
+msgstr "Istirahat cendhak"
 
 #: ui\screens\settings_screen.slint
 msgid "Long break"
-msgstr ""
+msgstr "Istirahat dawa"
 
 #: ui\screens\settings_screen.slint
 msgid "Long break after"
-msgstr ""
+msgstr "Istirahat dawa sawise"
 
 #: ui\screens\settings_screen.slint
 msgid "{} work sprints"
-msgstr ""
+msgstr "{} sesi kerja"
 
 #: ui\screens\settings_screen.slint
 msgid "2 work sprints"
-msgstr ""
+msgstr "2 sesi kerja"
 
 #: ui\screens\settings_screen.slint
 msgid "3 work sprints"
-msgstr ""
+msgstr "3 sesi kerja"
 
 #: ui\screens\settings_screen.slint
 msgid "4 work sprints"
-msgstr ""
+msgstr "4 sesi kerja"
 
 #: ui\screens\settings_screen.slint
 msgid "5 work sprints"
-msgstr ""
+msgstr "5 sesi kerja"
 
 #: ui\screens\settings_screen.slint
 msgid "6 work sprints"
-msgstr ""
+msgstr "6 sesi kerja"
 
 #: ui\screens\settings_screen.slint
 msgid "Start next task when ending a break early"
-msgstr ""
+msgstr "Wiwiti tugas sabanjure nalika ngrampungake istirahat luwih awal"
 
 #: ui\screens\settings_screen.slint
 msgid "Start the next phase automatically"
-msgstr ""
+msgstr "Wiwiti fase sabanjure kanthi otomatis"
 
 #: ui\screens\spaces_screen.slint
 msgid "Tasks: {}"
-msgstr ""
+msgstr "Tugas: {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Finished tasks land here."
-msgstr ""
+msgstr "Tugas sing rampung bakal katon ing kene."
 
 #: ui\screens\spaces_screen.slint
 msgid "No tasks yet. Sort one in from Matrix Review."
-msgstr ""
+msgstr "Durung ana tugas. Urutake siji saka Tinjauan Matriks."
 
 #: ui\screens\spaces_screen.slint
 msgid "Nothing waiting here"
-msgstr ""
+msgstr "Ora ana sing ngenteni ing kene"
 
 #: ui\screens\spaces_screen.slint
 msgid "Matrix Review"
-msgstr ""
+msgstr "Tinjauan Matriks"
 
 #: ui\screens\spaces_screen.slint
 msgid "{}/{}"
-msgstr ""
+msgstr "{}/{}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Sort each task with the coloured dots, or one by one."
-msgstr ""
+msgstr "Urutake saben tugas nganggo titik warna, utawa siji-siji."
 
 #: ui\screens\spaces_screen.slint
 msgid "Sort one by one  ·  {}"
-msgstr ""
+msgstr "Siji-siji · {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unsorted"
-msgstr ""
+msgstr "Durung diurutake"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unscheduled"
-msgstr ""
+msgstr "Durung dijadwal"
 
 #: ui\screens\spaces_screen.slint
 msgid "Pick a day under a task to plan it."
-msgstr ""
+msgstr "Pilih dina ing ngisor tugas kanggo ngrencanakake."
 
 #: ui\screens\spaces_screen.slint
 msgid "{}  {}"
-msgstr ""
+msgstr "{} {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "All planned."
-msgstr ""
+msgstr "Kabeh wis direncanakake."
 
 #: ui\screens\spaces_screen.slint
 msgid "Weekly schedule"
-msgstr ""
+msgstr "Jadwal mingguan"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unplan"
-msgstr ""
+msgstr "Batal rencana"
 
 #: ui\screens\spaces_screen.slint
 msgid "Add"
-msgstr ""
+msgstr "Tambah"
 
 #: ui\screens\spaces_screen.slint
 msgid "SPACES"
-msgstr ""
+msgstr "PAPAN"
 
 #: ui\screens\spaces_screen.slint
 msgid "Board"
-msgstr ""
+msgstr "Papan tulis"
 
 #: ui\screens\spaces_screen.slint
 msgid "Matrix"
-msgstr ""
+msgstr "Matriks"
 
 #: ui\screens\spaces_screen.slint
 msgid "Calendar"
-msgstr ""
+msgstr "Kalender"
 
 #: ui\screens\spaces_screen.slint
 msgid "Create your first space"
-msgstr ""
+msgstr "Gawe papan pertamamu"
 
 #: ui\screens\spaces_screen.slint
 msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
-msgstr ""
+msgstr "Papan menehi tugasmu omah sing nyata. Wiwiti karo siji proyek, tujuan, utawa wilayah sing arep kok majokake."
 
 #: ui\screens\spaces_screen.slint
 msgid "Create a space"
-msgstr ""
+msgstr "Gawe papan"
 
 #: ui\screens\spaces_screen.slint
 msgid "Edit"
-msgstr ""
+msgstr "Sunting"
 
 #: ui\screens\today_screen.slint
 msgid "Focused today: {}"
-msgstr ""
+msgstr "Fokus dina iki: {}"
 
 #: ui\screens\today_screen.slint
 msgid "Planned for today"
-msgstr ""
+msgstr "Direncanakake kanggo dina iki"
 
 #: ui\screens\today_screen.slint
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
-msgstr ""
+msgstr "Durung ana sing direncanakake kanggo dina iki. Tambah tugas ing layar Papan."
 

@@ -6,685 +6,685 @@ msgstr ""
 
 #: ui\components\action_button.slint
 msgid "Action"
-msgstr ""
+msgstr "Chiito"
 
 #: ui\components\app_menu.slint
 msgid "Notes"
-msgstr ""
+msgstr "Zvinyorwa"
 
 #: ui\components\app_menu.slint
 msgid "Reports"
-msgstr ""
+msgstr "Mishumo"
 
 #: ui\components\app_menu.slint
 msgid "Your lists"
-msgstr ""
+msgstr "Mareki ako"
 
 #: ui\components\app_menu.slint
 msgid "Distraction shield"
-msgstr ""
+msgstr "Chidziro chekuvhiringidzwa"
 
 #: ui\components\app_menu.slint
 msgid "Assistant"
-msgstr ""
+msgstr "Mubatsiri"
 
 #: ui\components\app_menu.slint
 msgid "Preferences"
-msgstr ""
+msgstr "Zvazvinodiwa"
 
 #: ui\components\cards.slint
 msgid "CREATE LIST"
-msgstr ""
+msgstr "GADZIRA REKODHI"
 
 #: ui\components\cards.slint
 msgid "Task"
-msgstr ""
+msgstr "Basa"
 
 #: ui\components\focus_controls.slint
 msgid "Search"
-msgstr ""
+msgstr "Tsvaga"
 
 #: ui\components\inputs.slint
 msgid "Search tasks or notes..."
-msgstr ""
+msgstr "Tsvaga mabasa kana zvinyorwa..."
 
 #: ui\components\inputs.slint
 msgid "Add task (e.g. 'Build auth 45m @today')..."
-msgstr ""
+msgstr "Wedzera basa (semuenzaniso 'Vaka auth 45m @today')..."
 
 #: ui\components\language_picker.slint
 msgid "Type a language"
-msgstr ""
+msgstr "Nyora mutauro"
 
 #: ui\components\language_picker.slint
 msgid "No language matches"
-msgstr ""
+msgstr "Hapana mutauro unoenderana"
 
 #: ui\components\modals.slint
 msgid "Create a new list"
-msgstr ""
+msgstr "Gadzira rekodhi itsva"
 
 #: ui\components\modals.slint
 msgid "UPLOAD AN ICON"
-msgstr ""
+msgstr "ISA CHIFANANIDZO"
 
 #: ui\components\modals.slint
 msgid "Optional (jpg, png, svg)"
-msgstr ""
+msgstr "Zvinhu zvinodiwa (jpg, png, svg)"
 
 #: ui\components\modals.slint
 msgid "Pick a list color"
-msgstr ""
+msgstr "Sarudza ruvara rwerekodhi"
 
 #: ui\components\modals.slint
 msgid "List name (e.g. Work, Personal)..."
-msgstr ""
+msgstr "Zita rerekodhi (semuenzaniso Basa, Yega)..."
 
 #: ui\components\modals.slint
 msgid "Cancel"
-msgstr ""
+msgstr "Kanzura"
 
 #: ui\components\modals.slint
 msgid "Create"
-msgstr ""
+msgstr "Gadzira"
 
 #: ui\components\modals.slint
 msgid "Customize your workflow for a personalized experience"
-msgstr ""
+msgstr "Gadzirisa nzira yako yekushanda"
 
 #: ui\components\modals.slint
 msgid "Time"
-msgstr ""
+msgstr "Nguva"
 
 #: ui\components\modals.slint
 msgid "Timezone"
-msgstr ""
+msgstr "Nharaunda yenguva"
 
 #: ui\components\modals.slint
 msgid "Focus sprint settings"
-msgstr ""
+msgstr "Zvigadziriso zvechido"
 
 #: ui\components\modals.slint
 msgid "Timed Sprints"
-msgstr ""
+msgstr "Nguva dzakagadziriswa"
 
 #: ui\components\modals.slint
 msgid "Work sprint duration"
-msgstr ""
+msgstr "Nguva yekushanda"
 
 #: ui\components\modals.slint
 msgid "60 mins ▾"
-msgstr ""
+msgstr "Maminitsi 60 ▾"
 
 #: ui\components\modals.slint
 msgid "Break duration"
-msgstr ""
+msgstr "Nguva yekuzorora"
 
 #: ui\components\modals.slint
 msgid "15 mins ▾"
-msgstr ""
+msgstr "Maminitsi 15 ▾"
 
 #: ui\components\navigation_rail.slint
 msgid "Today"
-msgstr ""
+msgstr "Nhasi"
 
 #: ui\components\navigation_rail.slint
 msgid "Spaces"
-msgstr ""
+msgstr "Nzvimbo"
 
 #: ui\components\navigation_rail.slint
 msgid "Pomodoro"
-msgstr ""
+msgstr "Pomodoro"
 
 #: ui\components\navigation_rail.slint
 msgid "Insights"
-msgstr ""
+msgstr "Zvinonzwisisika"
 
 #: ui\components\navigation_rail.slint
 msgid "Settings"
-msgstr ""
+msgstr "Zvigadziriso"
 
 #: ui\components\pref_rows.slint
 msgid "Reset"
-msgstr ""
+msgstr "Dzorera"
 
 #: ui\components\rows.slint
 msgid "{}"
-msgstr ""
+msgstr "{}"
 
 #: ui\components\search.slint
 msgid "Search tasks"
-msgstr ""
+msgstr "Tsvaga mabasa"
 
 #: ui\components\sidebar.slint
 msgid "Create new list"
-msgstr ""
+msgstr "Gadzira rekodhi itsva"
 
 #: ui\components\sidebar.slint
 msgid "All my lists"
-msgstr ""
+msgstr "Mareki angu ese"
 
 #: ui\components\sidebar.slint
 msgid "Archived lists"
-msgstr ""
+msgstr "Mareki akachengetwa"
 
 #: ui\components\sidebar.slint
 msgid "FOCUS & SHIELD"
-msgstr ""
+msgstr "KUCHENGETEDZA & CHIDZIRO"
 
 #: ui\components\sidebar.slint
 msgid "App Shield"
-msgstr ""
+msgstr "Chidziro cheapp"
 
 #: ui\components\sidebar.slint
 msgid "Scratchpad"
-msgstr ""
+msgstr "Pepa rekunyora"
 
 #: ui\components\space_widgets.slint
 msgid "Space name"
-msgstr ""
+msgstr "Zita renzvimbo"
 
 #: ui\components\space_widgets.slint
 msgid "Add task"
-msgstr ""
+msgstr "Wedzera basa"
 
 #: ui\components\space_widgets.slint
 msgid "Tomorrow"
-msgstr ""
+msgstr "Mangwana"
 
 #: ui\components\space_widgets.slint
 msgid "Clear"
-msgstr ""
+msgstr "Bvisa"
 
 #: ui\components\space_widgets.slint
 msgid "Estimate"
-msgstr ""
+msgstr "Fungidzira"
 
 #: ui\components\space_widgets.slint
 msgid "Do date"
-msgstr ""
+msgstr "Zuva rekuita"
 
 #: ui\components\space_widgets.slint
 msgid "Deadline"
-msgstr ""
+msgstr "Zuva rekupedzisira"
 
 #: ui\components\space_widgets.slint
 msgid "Add notes..."
-msgstr ""
+msgstr "Wedzera zvinyorwa..."
 
 #: ui\components\space_widgets.slint
 msgid "Save"
-msgstr ""
+msgstr "Chengeta"
 
 #: ui\components\space_widgets.slint
 msgid "Subtasks: {}/{}"
-msgstr ""
+msgstr "Mabasa madiki: {}/{}"
 
 #: ui\components\space_widgets.slint
 msgid "Subtask"
-msgstr ""
+msgstr "Basa diki"
 
 #: ui\components\space_widgets.slint
 msgid "Subtask name"
-msgstr ""
+msgstr "Zita rebasa diki"
 
 #: ui\components\space_widgets.slint
 msgid "{}/{} done"
-msgstr ""
+msgstr "{}/{} zvapera"
 
 #: ui\components\space_widgets.slint
 msgid "Enter your task name"
-msgstr ""
+msgstr "Nyora zita rebasa rako"
 
 #: ui\components\tabs.slint
 msgid "Tasks"
-msgstr ""
+msgstr "Mabasa"
 
 #: ui\components\topbar.slint
 msgid "Dashboard"
-msgstr ""
+msgstr "Dashboard"
 
 #: ui\components\topbar.slint
 msgid "Focus Tower"
-msgstr ""
+msgstr "Tsime rekuchenjerera"
 
 #: ui\components\topbar.slint
 msgid "Pill HUD"
-msgstr ""
+msgstr "Pill HUD"
 
 #: ui\screens\ai_panels.slint
 msgid "Plan with AI"
-msgstr ""
+msgstr "Ronga neAI"
 
 #: ui\screens\ai_panels.slint
 msgid "Say what you need to get done. You'll see every change before anything is saved."
-msgstr ""
+msgstr "Taura zvaunoda kupedzisa. Unozoona shanduko dzese usati wachengeta chinhu."
 
 #: ui\screens\ai_panels.slint
 msgid "Add an OpenRouter API key in Settings first."
-msgstr ""
+msgstr "Tanga wawedzera kiyi yeOpenRouter API mu Zvigadziriso."
 
 #: ui\screens\ai_panels.slint
 msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
-msgstr ""
+msgstr "Semuenzaniso: Pedzisa mushumo nhasi (2h, uiparadzanise), dana bhanga mangwana, uye tanga mushumo ikozvino."
 
 #: ui\screens\ai_panels.slint
 msgid "Start the first task now"
-msgstr ""
+msgstr "Tanga basa rekutanga ikozvino"
 
 #: ui\screens\ai_panels.slint
 msgid "Proposed changes"
-msgstr ""
+msgstr "Shanduko dzakarongwa"
 
 #: ui\screens\ai_panels.slint
 msgid "Discard"
-msgstr ""
+msgstr "Rasa"
 
 #: ui\screens\ai_panels.slint
 msgid "Apply all"
-msgstr ""
+msgstr "Shandisa zvese"
 
 #: ui\screens\ai_panels.slint
 msgid "AI pick"
-msgstr ""
+msgstr "Sarudzo yeAI"
 
 #: ui\screens\ai_panels.slint
 msgid "Sort tasks"
-msgstr ""
+msgstr "Rongedza mabasa"
 
 #: ui\screens\ai_panels.slint
 msgid "Matters more"
-msgstr ""
+msgstr "Zvinokosha zvikuru"
 
 #: ui\screens\ai_panels.slint
 msgid "Matters less"
-msgstr ""
+msgstr "Hazvina kukosha zvakanyanya"
 
 #: ui\screens\ai_panels.slint
 msgid "Sooner"
-msgstr ""
+msgstr "Kukurumidza"
 
 #: ui\screens\ai_panels.slint
 msgid "Later"
-msgstr ""
+msgstr "Gare gare"
 
 #: ui\screens\ai_panels.slint
 msgid "Do ASAP"
-msgstr ""
+msgstr "Ita nekukurumidza"
 
 #: ui\screens\ai_panels.slint
 msgid "Urgent and important. Today, first."
-msgstr ""
+msgstr "Zvinokosha uye zvinokurumidza. Nhasi, pakutanga."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Mid Week"
-msgstr ""
+msgstr "Ita pakati peveki"
 
 #: ui\screens\ai_panels.slint
 msgid "Important, not urgent. This week."
-msgstr ""
+msgstr "Zvinokosha, asi hazvikurumidzi. Vhiki ino."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Later Today"
-msgstr ""
+msgstr "Ita manheru ano"
 
 #: ui\screens\ai_panels.slint
 msgid "Needs doing today, after the first push."
-msgstr ""
+msgstr "Zvinoda kuitwa nhasi, mushure mekutanga."
 
 #: ui\screens\ai_panels.slint
 msgid "Leave Till End"
-msgstr ""
+msgstr "Siya kusvika kumagumo"
 
 #: ui\screens\ai_panels.slint
 msgid "Low urgency or low value. Backlog."
-msgstr ""
+msgstr "Kukurumidza kushoma kana kukosha kushoma. Shoko rekumashure."
 
 #: ui\screens\ai_panels.slint
 msgid "Back"
-msgstr ""
+msgstr "Dzokera shure"
 
 #: ui\screens\ai_panels.slint
 msgid "Skip"
-msgstr ""
+msgstr "Panza"
 
 #: ui\screens\ai_panels.slint
 msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
-msgstr ""
+msgstr "1-4 rongedza · S panza · Backspace dzokera shure · Enter tora sarudzo yeAI · Esc vhara"
 
 #: ui\screens\insights_screen.slint
 msgid "Completed focus sessions, the last seven days"
-msgstr ""
+msgstr "Magawo echido akapedzwa, mazuva manomwe apfuura"
 
 #: ui\screens\insights_screen.slint
 msgid "Focus this week"
-msgstr ""
+msgstr "Chido yevhiki ino"
 
 #: ui\screens\insights_screen.slint
 msgid "Sessions this week"
-msgstr ""
+msgstr "Magawo evhiki ino"
 
 #: ui\screens\insights_screen.slint
 msgid "Streak"
-msgstr ""
+msgstr "Kuenderera mberi"
 
 #: ui\screens\insights_screen.slint
 msgid "Weekly activity"
-msgstr ""
+msgstr "Zvaitwa vhiki ino"
 
 #: ui\screens\insights_screen.slint
 msgid "No focus time recorded yet."
-msgstr ""
+msgstr "Hapana nguva yechido yakanyorwa zvino."
 
 #: ui\screens\insights_screen.slint
 msgid "Session history"
-msgstr ""
+msgstr "Nhoroondo yemagawo"
 
 #: ui\screens\insights_screen.slint
 msgid "Finished focus sessions appear here."
-msgstr ""
+msgstr "Magawo echido akapedzwa anoonekwa pano."
 
 #: ui\screens\notes_screen.slint
 msgid "Quick thoughts and longer write-ups"
-msgstr ""
+msgstr "Mafungiro akasvika nekukurumidza uye manyoro marefu"
 
 #: ui\screens\notes_screen.slint
 msgid "New note"
-msgstr ""
+msgstr "Chinyorwa chitsva"
 
 #: ui\screens\notes_screen.slint
 msgid "No notes yet. Create one to start writing."
-msgstr ""
+msgstr "Hapana zvinyorwa zvino. Gadzira rimwe kuti utange kunyora."
 
 #: ui\screens\notes_screen.slint
 msgid "Pick a note, or create one, to start writing."
-msgstr ""
+msgstr "Sarudza chinyorwa, kana gadzira rimwe, kuti utange kunyora."
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus"
-msgstr ""
+msgstr "Chido"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Short Break"
-msgstr ""
+msgstr "Kuzorora pfupi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Long Break"
-msgstr ""
+msgstr "Kuzorora kwakareba"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Custom"
-msgstr ""
+msgstr "Chakasarudzwa"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Session name"
-msgstr ""
+msgstr "Zita regawo"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "General Focus"
-msgstr ""
+msgstr "Chido yakajairika"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "None"
-msgstr ""
+msgstr "Hapana"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Ambient Sound"
-msgstr ""
+msgstr "Muriidzo wenharaunda"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Lo-fi"
-msgstr ""
+msgstr "Lo-fi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Forest"
-msgstr ""
+msgstr "Gwenga"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Rain"
-msgstr ""
+msgstr "Mvura"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "View all tasks"
-msgstr ""
+msgstr "Ona mabasa ese"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Productivity"
-msgstr ""
+msgstr "Kubudirira"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Your focus at a glance"
-msgstr ""
+msgstr "Chido yako pakarepo"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Day"
-msgstr ""
+msgstr "Zuva"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Week"
-msgstr ""
+msgstr "Vhiki"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Month"
-msgstr ""
+msgstr "Mwedzi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Year"
-msgstr ""
+msgstr "Gore"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Sessions"
-msgstr ""
+msgstr "Magawo"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus time"
-msgstr ""
+msgstr "Nguva yechido"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Summary"
-msgstr ""
+msgstr "Muchidimbu"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "{} sessions completed"
-msgstr ""
+msgstr "Magawo {} apedzwa"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Average focus: {}"
-msgstr ""
+msgstr "Chido yepakati: {}"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Recent sessions"
-msgstr ""
+msgstr "Magawo ekupedzisira"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Finished focus sessions show up here."
-msgstr ""
+msgstr "Magawo echido akapedzwa anoonekwa pano."
 
 #: ui\screens\settings_screen.slint
 msgid "Language"
-msgstr ""
+msgstr "Mutauro"
 
 #: ui\screens\settings_screen.slint
 msgid "App language"
-msgstr ""
+msgstr "Mutauro weapp"
 
 #: ui\screens\settings_screen.slint
 msgid "Choice applies immediately and is saved on this device."
-msgstr ""
+msgstr "Sarudzo inoshanda nokukasika uye inochengetwa pamudziyo uyu."
 
 #: ui\screens\settings_screen.slint
 msgid "Timer settings"
-msgstr ""
+msgstr "Zvigadziriso zvewachi"
 
 #: ui\screens\settings_screen.slint
 msgid "Manage the productivity timer."
-msgstr ""
+msgstr "Tonga wachi yekubudirira."
 
 #: ui\screens\settings_screen.slint
 msgid "Pomodoros"
-msgstr ""
+msgstr "Pomodoros"
 
 #: ui\screens\settings_screen.slint
 msgid "Alternate focused work sprints with timed breaks."
-msgstr ""
+msgstr "Shandura magawo ebasa rechido nekuzorora kwenguva."
 
 #: ui\screens\settings_screen.slint
 msgid "Work sprint"
-msgstr ""
+msgstr "Basa rekushanda"
 
 #: ui\screens\settings_screen.slint
 msgid "{}min"
-msgstr ""
+msgstr "{} maminitsi"
 
 #: ui\screens\settings_screen.slint
 msgid "Short break"
-msgstr ""
+msgstr "Kuzorora pfupi"
 
 #: ui\screens\settings_screen.slint
 msgid "Long break"
-msgstr ""
+msgstr "Kuzorora kwakareba"
 
 #: ui\screens\settings_screen.slint
 msgid "Long break after"
-msgstr ""
+msgstr "Kuzorora kwakareba mushure me"
 
 #: ui\screens\settings_screen.slint
 msgid "{} work sprints"
-msgstr ""
+msgstr "Magawo {} ebasa"
 
 #: ui\screens\settings_screen.slint
 msgid "2 work sprints"
-msgstr ""
+msgstr "Magawo 2 ebasa"
 
 #: ui\screens\settings_screen.slint
 msgid "3 work sprints"
-msgstr ""
+msgstr "Magawo 3 ebasa"
 
 #: ui\screens\settings_screen.slint
 msgid "4 work sprints"
-msgstr ""
+msgstr "Magawo 4 ebasa"
 
 #: ui\screens\settings_screen.slint
 msgid "5 work sprints"
-msgstr ""
+msgstr "Magawo 5 ebasa"
 
 #: ui\screens\settings_screen.slint
 msgid "6 work sprints"
-msgstr ""
+msgstr "Magawo 6 ebasa"
 
 #: ui\screens\settings_screen.slint
 msgid "Start next task when ending a break early"
-msgstr ""
+msgstr "Tanga basa rinotevera kana wapedzisa kuzorora kusati kwasvika"
 
 #: ui\screens\settings_screen.slint
 msgid "Start the next phase automatically"
-msgstr ""
+msgstr "Tanga chikamu chinotevera otomatiki"
 
 #: ui\screens\spaces_screen.slint
 msgid "Tasks: {}"
-msgstr ""
+msgstr "Mabasa: {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Finished tasks land here."
-msgstr ""
+msgstr "Mabasa akapedzwa anosvika pano."
 
 #: ui\screens\spaces_screen.slint
 msgid "No tasks yet. Sort one in from Matrix Review."
-msgstr ""
+msgstr "Hapana mabasa parizvino. Rongedza rimwe kubva kuMatrix Review."
 
 #: ui\screens\spaces_screen.slint
 msgid "Nothing waiting here"
-msgstr ""
+msgstr "Hapana chiri kumirira pano"
 
 #: ui\screens\spaces_screen.slint
 msgid "Matrix Review"
-msgstr ""
+msgstr "Matrix Review"
 
 #: ui\screens\spaces_screen.slint
 msgid "{}/{}"
-msgstr ""
+msgstr "{}/{}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Sort each task with the coloured dots, or one by one."
-msgstr ""
+msgstr "Rongedza basa rega rega nemadotsi emavara, kana rimwe nerimwe."
 
 #: ui\screens\spaces_screen.slint
 msgid "Sort one by one  ·  {}"
-msgstr ""
+msgstr "Rongedza rimwe nerimwe  ·  {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unsorted"
-msgstr ""
+msgstr "Hazvina kurongedzwa"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unscheduled"
-msgstr ""
+msgstr "Hazvina kurongwa nenguva"
 
 #: ui\screens\spaces_screen.slint
 msgid "Pick a day under a task to plan it."
-msgstr ""
+msgstr "Sarudza zuva pasi pebasa kuti uri ronge."
 
 #: ui\screens\spaces_screen.slint
 msgid "{}  {}"
-msgstr ""
+msgstr "{}  {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "All planned."
-msgstr ""
+msgstr "Zvese zvarongwa."
 
 #: ui\screens\spaces_screen.slint
 msgid "Weekly schedule"
-msgstr ""
+msgstr "Chirongwa chevhiki"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unplan"
-msgstr ""
+msgstr "Bvisa chirongwa"
 
 #: ui\screens\spaces_screen.slint
 msgid "Add"
-msgstr ""
+msgstr "Wedzera"
 
 #: ui\screens\spaces_screen.slint
 msgid "SPACES"
-msgstr ""
+msgstr "NZVIMBO"
 
 #: ui\screens\spaces_screen.slint
 msgid "Board"
-msgstr ""
+msgstr "Bhodhi"
 
 #: ui\screens\spaces_screen.slint
 msgid "Matrix"
-msgstr ""
+msgstr "Matrix"
 
 #: ui\screens\spaces_screen.slint
 msgid "Calendar"
-msgstr ""
+msgstr "Kalendari"
 
 #: ui\screens\spaces_screen.slint
 msgid "Create your first space"
-msgstr ""
+msgstr "Gadzira nzvimbo yako yekutanga"
 
 #: ui\screens\spaces_screen.slint
 msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
-msgstr ""
+msgstr "Nzvimbo dzinopa mabasa ako imba chaiyo. Tanga neprojekiti, chinangwa, kana nharaunda imwe chete yaunoda kufambisa mberi."
 
 #: ui\screens\spaces_screen.slint
 msgid "Create a space"
-msgstr ""
+msgstr "Gadzira nzvimbo"
 
 #: ui\screens\spaces_screen.slint
 msgid "Edit"
-msgstr ""
+msgstr "Gadzirisa"
 
 #: ui\screens\today_screen.slint
 msgid "Focused today: {}"
-msgstr ""
+msgstr "Chido nhasi: {}"
 
 #: ui\screens\today_screen.slint
 msgid "Planned for today"
-msgstr ""
+msgstr "Zvakarongwa nhasi"
 
 #: ui\screens\today_screen.slint
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
-msgstr ""
+msgstr "Hapana chakarongwa nhasi. Wedzera mabasa papeji reNzvimbo."
 

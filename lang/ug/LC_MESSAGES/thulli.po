@@ -6,685 +6,685 @@ msgstr ""
 
 #: ui\components\action_button.slint
 msgid "Action"
-msgstr ""
+msgstr "مەشغۇلات"
 
 #: ui\components\app_menu.slint
 msgid "Notes"
-msgstr ""
+msgstr "خاتىرىلەر"
 
 #: ui\components\app_menu.slint
 msgid "Reports"
-msgstr ""
+msgstr "دوكلاتلار"
 
 #: ui\components\app_menu.slint
 msgid "Your lists"
-msgstr ""
+msgstr "سىزنىڭ تىزىملىكىڭىز"
 
 #: ui\components\app_menu.slint
 msgid "Distraction shield"
-msgstr ""
+msgstr "دىققەت بۆلۈنۈشتىن قوغداش"
 
 #: ui\components\app_menu.slint
 msgid "Assistant"
-msgstr ""
+msgstr "ياردەمچى"
 
 #: ui\components\app_menu.slint
 msgid "Preferences"
-msgstr ""
+msgstr "تەڭشەكلەر"
 
 #: ui\components\cards.slint
 msgid "CREATE LIST"
-msgstr ""
+msgstr "تىزىملىك قۇر"
 
 #: ui\components\cards.slint
 msgid "Task"
-msgstr ""
+msgstr "ۋەزىپە"
 
 #: ui\components\focus_controls.slint
 msgid "Search"
-msgstr ""
+msgstr "ئىزدەش"
 
 #: ui\components\inputs.slint
 msgid "Search tasks or notes..."
-msgstr ""
+msgstr "ۋەزىپە ياكى خاتىرىنى ئىزدەش..."
 
 #: ui\components\inputs.slint
 msgid "Add task (e.g. 'Build auth 45m @today')..."
-msgstr ""
+msgstr "ۋەزىپە قوشۇش (مەسىلەن 'Auth قۇر 45m @today')..."
 
 #: ui\components\language_picker.slint
 msgid "Type a language"
-msgstr ""
+msgstr "تىل كىرگۈزۈڭ"
 
 #: ui\components\language_picker.slint
 msgid "No language matches"
-msgstr ""
+msgstr "ماس كېلىدىغان تىل يوق"
 
 #: ui\components\modals.slint
 msgid "Create a new list"
-msgstr ""
+msgstr "يېڭى تىزىملىك قۇر"
 
 #: ui\components\modals.slint
 msgid "UPLOAD AN ICON"
-msgstr ""
+msgstr "سىنبەلگە يۈكلەش"
 
 #: ui\components\modals.slint
 msgid "Optional (jpg, png, svg)"
-msgstr ""
+msgstr "ئىختىيارىي (jpg, png, svg)"
 
 #: ui\components\modals.slint
 msgid "Pick a list color"
-msgstr ""
+msgstr "تىزىملىك رەڭگىنى تاللاڭ"
 
 #: ui\components\modals.slint
 msgid "List name (e.g. Work, Personal)..."
-msgstr ""
+msgstr "تىزىملىك نامى (مەسىلەن خىزمەت، شەخسىي)..."
 
 #: ui\components\modals.slint
 msgid "Cancel"
-msgstr ""
+msgstr "بىكار قىلىش"
 
 #: ui\components\modals.slint
 msgid "Create"
-msgstr ""
+msgstr "قۇر"
 
 #: ui\components\modals.slint
 msgid "Customize your workflow for a personalized experience"
-msgstr ""
+msgstr "خىزمەت ئېقىمىڭىزنى ئۆزىڭىزگە لايىھەلەڭ"
 
 #: ui\components\modals.slint
 msgid "Time"
-msgstr ""
+msgstr "ۋاقىت"
 
 #: ui\components\modals.slint
 msgid "Timezone"
-msgstr ""
+msgstr "ۋاقىت رايونى"
 
 #: ui\components\modals.slint
 msgid "Focus sprint settings"
-msgstr ""
+msgstr "دىققەت سپرىنت تەڭشەكلىرى"
 
 #: ui\components\modals.slint
 msgid "Timed Sprints"
-msgstr ""
+msgstr "ۋاقىتلىق سپرىنتلار"
 
 #: ui\components\modals.slint
 msgid "Work sprint duration"
-msgstr ""
+msgstr "خىزمەت سپرىنت داۋاملىقى"
 
 #: ui\components\modals.slint
 msgid "60 mins ▾"
-msgstr ""
+msgstr "60 مىنۇت ▾"
 
 #: ui\components\modals.slint
 msgid "Break duration"
-msgstr ""
+msgstr "ئارام ئېلىش داۋاملىقى"
 
 #: ui\components\modals.slint
 msgid "15 mins ▾"
-msgstr ""
+msgstr "15 مىنۇت ▾"
 
 #: ui\components\navigation_rail.slint
 msgid "Today"
-msgstr ""
+msgstr "بۈگۈن"
 
 #: ui\components\navigation_rail.slint
 msgid "Spaces"
-msgstr ""
+msgstr "بوشلۇقلار"
 
 #: ui\components\navigation_rail.slint
 msgid "Pomodoro"
-msgstr ""
+msgstr "پومودورو"
 
 #: ui\components\navigation_rail.slint
 msgid "Insights"
-msgstr ""
+msgstr "تەھلىل"
 
 #: ui\components\navigation_rail.slint
 msgid "Settings"
-msgstr ""
+msgstr "تەڭشەكلەر"
 
 #: ui\components\pref_rows.slint
 msgid "Reset"
-msgstr ""
+msgstr "قايتا تەڭشەش"
 
 #: ui\components\rows.slint
 msgid "{}"
-msgstr ""
+msgstr "{}"
 
 #: ui\components\search.slint
 msgid "Search tasks"
-msgstr ""
+msgstr "ۋەزىپىلەرنى ئىزدەش"
 
 #: ui\components\sidebar.slint
 msgid "Create new list"
-msgstr ""
+msgstr "يېڭى تىزىملىك قۇر"
 
 #: ui\components\sidebar.slint
 msgid "All my lists"
-msgstr ""
+msgstr "بارلىق تىزىملىكىم"
 
 #: ui\components\sidebar.slint
 msgid "Archived lists"
-msgstr ""
+msgstr "ئارخىپلانغان تىزىملىكلەر"
 
 #: ui\components\sidebar.slint
 msgid "FOCUS & SHIELD"
-msgstr ""
+msgstr "دىققەت ۋە قوغداش"
 
 #: ui\components\sidebar.slint
 msgid "App Shield"
-msgstr ""
+msgstr "ئەپ قوغدىغۇچ"
 
 #: ui\components\sidebar.slint
 msgid "Scratchpad"
-msgstr ""
+msgstr "قورال خاتىرە"
 
 #: ui\components\space_widgets.slint
 msgid "Space name"
-msgstr ""
+msgstr "بوشلۇق نامى"
 
 #: ui\components\space_widgets.slint
 msgid "Add task"
-msgstr ""
+msgstr "ۋەزىپە قوش"
 
 #: ui\components\space_widgets.slint
 msgid "Tomorrow"
-msgstr ""
+msgstr "ئەتە"
 
 #: ui\components\space_widgets.slint
 msgid "Clear"
-msgstr ""
+msgstr "تازىلا"
 
 #: ui\components\space_widgets.slint
 msgid "Estimate"
-msgstr ""
+msgstr "مۆلچەر"
 
 #: ui\components\space_widgets.slint
 msgid "Do date"
-msgstr ""
+msgstr "ئىجرا قىلىش كۈنى"
 
 #: ui\components\space_widgets.slint
 msgid "Deadline"
-msgstr ""
+msgstr "ۋاقتى"
 
 #: ui\components\space_widgets.slint
 msgid "Add notes..."
-msgstr ""
+msgstr "خاتىرە قوش..."
 
 #: ui\components\space_widgets.slint
 msgid "Save"
-msgstr ""
+msgstr "ساقلا"
 
 #: ui\components\space_widgets.slint
 msgid "Subtasks: {}/{}"
-msgstr ""
+msgstr "كىچىك ۋەزىپىلەر: {}/{}"
 
 #: ui\components\space_widgets.slint
 msgid "Subtask"
-msgstr ""
+msgstr "كىچىك ۋەزىپە"
 
 #: ui\components\space_widgets.slint
 msgid "Subtask name"
-msgstr ""
+msgstr "كىچىك ۋەزىپە نامى"
 
 #: ui\components\space_widgets.slint
 msgid "{}/{} done"
-msgstr ""
+msgstr "{}/{} ئورۇنلاندى"
 
 #: ui\components\space_widgets.slint
 msgid "Enter your task name"
-msgstr ""
+msgstr "ۋەزىپە نامىنى كىرگۈزۈڭ"
 
 #: ui\components\tabs.slint
 msgid "Tasks"
-msgstr ""
+msgstr "ۋەزىپىلەر"
 
 #: ui\components\topbar.slint
 msgid "Dashboard"
-msgstr ""
+msgstr "باشقۇرۇش تاختىسى"
 
 #: ui\components\topbar.slint
 msgid "Focus Tower"
-msgstr ""
+msgstr "دىققەت بۈرجىكى"
 
 #: ui\components\topbar.slint
 msgid "Pill HUD"
-msgstr ""
+msgstr "Pill HUD"
 
 #: ui\screens\ai_panels.slint
 msgid "Plan with AI"
-msgstr ""
+msgstr "AI بىلەن پىلانلا"
 
 #: ui\screens\ai_panels.slint
 msgid "Say what you need to get done. You'll see every change before anything is saved."
-msgstr ""
+msgstr "نېمە ئورۇنلاش كېرەكلىكىنى يېزىڭ. ساقلاشتىن بۇرۇن ھەممە ئۆزگىرىشنى كۆرىسىز."
 
 #: ui\screens\ai_panels.slint
 msgid "Add an OpenRouter API key in Settings first."
-msgstr ""
+msgstr "ئاۋال تەڭشەكتە OpenRouter API ئاچقۇچىنى قوشۇڭ."
 
 #: ui\screens\ai_panels.slint
 msgid "e.g. Finish the report today (2h, split it up), call the bank tomorrow, and start on the report now."
-msgstr ""
+msgstr "مەسىلەن: بۈگۈن دوكلاتنى تامام قىلىش (2 سائەت، بۆلۈش)، ئەتە بانكىغا تېلېفون قىلىش ۋە دوكلاتنى ھازىر باشلاش."
 
 #: ui\screens\ai_panels.slint
 msgid "Start the first task now"
-msgstr ""
+msgstr "بىرىنچى ۋەزىپىنى ھازىر باشلا"
 
 #: ui\screens\ai_panels.slint
 msgid "Proposed changes"
-msgstr ""
+msgstr "تەكلىپ قىلىنغان ئۆزگىرىشلەر"
 
 #: ui\screens\ai_panels.slint
 msgid "Discard"
-msgstr ""
+msgstr "تاشلا"
 
 #: ui\screens\ai_panels.slint
 msgid "Apply all"
-msgstr ""
+msgstr "ھەممىنى قوللان"
 
 #: ui\screens\ai_panels.slint
 msgid "AI pick"
-msgstr ""
+msgstr "AI تاللىشى"
 
 #: ui\screens\ai_panels.slint
 msgid "Sort tasks"
-msgstr ""
+msgstr "ۋەزىپىلەرنى تەرتىپلە"
 
 #: ui\screens\ai_panels.slint
 msgid "Matters more"
-msgstr ""
+msgstr "تېخىمۇ مۇھىم"
 
 #: ui\screens\ai_panels.slint
 msgid "Matters less"
-msgstr ""
+msgstr "ئازراق مۇھىم"
 
 #: ui\screens\ai_panels.slint
 msgid "Sooner"
-msgstr ""
+msgstr "تېزراق"
 
 #: ui\screens\ai_panels.slint
 msgid "Later"
-msgstr ""
+msgstr "كېيىنرەك"
 
 #: ui\screens\ai_panels.slint
 msgid "Do ASAP"
-msgstr ""
+msgstr "مۇمكىن قەدەر تېزراق قىلىش"
 
 #: ui\screens\ai_panels.slint
 msgid "Urgent and important. Today, first."
-msgstr ""
+msgstr "شىددەتلىك ۋە مۇھىم. بۈگۈن، بىرىنچى."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Mid Week"
-msgstr ""
+msgstr "ھەپتە ئوتتۇرىسىدا قىلىش"
 
 #: ui\screens\ai_panels.slint
 msgid "Important, not urgent. This week."
-msgstr ""
+msgstr "مۇھىم، لېكىن شىددەتلىك ئەمەس. بۇ ھەپتە."
 
 #: ui\screens\ai_panels.slint
 msgid "Do Later Today"
-msgstr ""
+msgstr "بۈگۈن كېيىنرەك قىلىش"
 
 #: ui\screens\ai_panels.slint
 msgid "Needs doing today, after the first push."
-msgstr ""
+msgstr "بىرىنچى قەدەمدىن كېيىن بۈگۈن قىلىش كېرەك."
 
 #: ui\screens\ai_panels.slint
 msgid "Leave Till End"
-msgstr ""
+msgstr "ئاخىرىغا قويۇش"
 
 #: ui\screens\ai_panels.slint
 msgid "Low urgency or low value. Backlog."
-msgstr ""
+msgstr "شىددىتى ياكى قىممىتى تۆۋەن. كۈتۈش تىزىمى."
 
 #: ui\screens\ai_panels.slint
 msgid "Back"
-msgstr ""
+msgstr "قايتىش"
 
 #: ui\screens\ai_panels.slint
 msgid "Skip"
-msgstr ""
+msgstr "ئاتلاش"
 
 #: ui\screens\ai_panels.slint
 msgid "1-4 sort  ·  S skip  ·  Backspace back  ·  Enter takes the AI pick  ·  Esc close"
-msgstr ""
+msgstr "1-4 تەرتىپلە · S ئاتلا · Backspace قايت · Enter AI تاللىشىنى ئال · Esc ياپ"
 
 #: ui\screens\insights_screen.slint
 msgid "Completed focus sessions, the last seven days"
-msgstr ""
+msgstr "ئاخىرقى يەتتە كۈندە تامام بولغان دىققەت سېسسىيەلىرى"
 
 #: ui\screens\insights_screen.slint
 msgid "Focus this week"
-msgstr ""
+msgstr "بۇ ھەپتىلىك دىققەت"
 
 #: ui\screens\insights_screen.slint
 msgid "Sessions this week"
-msgstr ""
+msgstr "بۇ ھەپتىلىك سېسسىيەلەر"
 
 #: ui\screens\insights_screen.slint
 msgid "Streak"
-msgstr ""
+msgstr "ئۈزلۈكسىز كۈنلەر"
 
 #: ui\screens\insights_screen.slint
 msgid "Weekly activity"
-msgstr ""
+msgstr "ھەپتىلىك پائالىيەت"
 
 #: ui\screens\insights_screen.slint
 msgid "No focus time recorded yet."
-msgstr ""
+msgstr "تېخى دىققەت ۋاقتى خاتىرىلەنمىدى."
 
 #: ui\screens\insights_screen.slint
 msgid "Session history"
-msgstr ""
+msgstr "سېسسىيە تارىخى"
 
 #: ui\screens\insights_screen.slint
 msgid "Finished focus sessions appear here."
-msgstr ""
+msgstr "تامام بولغان دىققەت سېسسىيەلىرى بۇ يەردە كۆرۈنىدۇ."
 
 #: ui\screens\notes_screen.slint
 msgid "Quick thoughts and longer write-ups"
-msgstr ""
+msgstr "تېز پىكىرلەر ۋە ئۇزۇن يازمىلار"
 
 #: ui\screens\notes_screen.slint
 msgid "New note"
-msgstr ""
+msgstr "يېڭى خاتىرە"
 
 #: ui\screens\notes_screen.slint
 msgid "No notes yet. Create one to start writing."
-msgstr ""
+msgstr "تېخى خاتىرە يوق. يېزىشنى باشلاش ئۈچۈن بىرنى قۇرۇڭ."
 
 #: ui\screens\notes_screen.slint
 msgid "Pick a note, or create one, to start writing."
-msgstr ""
+msgstr "يېزىشنى باشلاش ئۈچۈن خاتىرە تاللاڭ ياكى يېڭىسىنى قۇرۇڭ."
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus"
-msgstr ""
+msgstr "دىققەت"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Short Break"
-msgstr ""
+msgstr "قىسقا ئارام"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Long Break"
-msgstr ""
+msgstr "ئۇزۇن ئارام"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Custom"
-msgstr ""
+msgstr "خاس"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Session name"
-msgstr ""
+msgstr "سېسسىيە نامى"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "General Focus"
-msgstr ""
+msgstr "ئومۇمىي دىققەت"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "None"
-msgstr ""
+msgstr "يوق"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Ambient Sound"
-msgstr ""
+msgstr "مۇھىت ساداسى"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Lo-fi"
-msgstr ""
+msgstr "Lo-fi"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Forest"
-msgstr ""
+msgstr "ئورمان"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Rain"
-msgstr ""
+msgstr "يامغۇر"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "View all tasks"
-msgstr ""
+msgstr "بارلىق ۋەزىپىلەرنى كۆرۈش"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Productivity"
-msgstr ""
+msgstr "ئۈنۈم"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Your focus at a glance"
-msgstr ""
+msgstr "دىققىتىڭىز بىر قاراشتا"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Day"
-msgstr ""
+msgstr "كۈن"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Week"
-msgstr ""
+msgstr "ھەپتە"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Month"
-msgstr ""
+msgstr "ئاي"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Year"
-msgstr ""
+msgstr "يىل"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Sessions"
-msgstr ""
+msgstr "سېسسىيەلەر"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Focus time"
-msgstr ""
+msgstr "دىققەت ۋاقتى"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Summary"
-msgstr ""
+msgstr "خۇلاسە"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "{} sessions completed"
-msgstr ""
+msgstr "{} سېسسىيە تامام بولدى"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Average focus: {}"
-msgstr ""
+msgstr "ئوتتۇرىچە دىققەت: {}"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Recent sessions"
-msgstr ""
+msgstr "ئەڭ يېقىنقى سېسسىيەلەر"
 
 #: ui\screens\pomodoro_screen.slint
 msgid "Finished focus sessions show up here."
-msgstr ""
+msgstr "تامام بولغان دىققەت سېسسىيەلىرى بۇ يەردە كۆرۈنىدۇ."
 
 #: ui\screens\settings_screen.slint
 msgid "Language"
-msgstr ""
+msgstr "تىل"
 
 #: ui\screens\settings_screen.slint
 msgid "App language"
-msgstr ""
+msgstr "ئەپ تىلى"
 
 #: ui\screens\settings_screen.slint
 msgid "Choice applies immediately and is saved on this device."
-msgstr ""
+msgstr "تاللاش دەرھال ئىشلىتىلىدۇ ۋە بۇ ئۈسكۈنىدە ساقلىنىدۇ."
 
 #: ui\screens\settings_screen.slint
 msgid "Timer settings"
-msgstr ""
+msgstr "تايمېر تەڭشەكلىرى"
 
 #: ui\screens\settings_screen.slint
 msgid "Manage the productivity timer."
-msgstr ""
+msgstr "ئۈنۈم تايمېرىنى باشقۇرۇش."
 
 #: ui\screens\settings_screen.slint
 msgid "Pomodoros"
-msgstr ""
+msgstr "پومودورولار"
 
 #: ui\screens\settings_screen.slint
 msgid "Alternate focused work sprints with timed breaks."
-msgstr ""
+msgstr "دىققەت خىزمەت سپرىنتلىرىنى ۋاقىتلىق ئارام بىلەن ئالماشتۇرۇش."
 
 #: ui\screens\settings_screen.slint
 msgid "Work sprint"
-msgstr ""
+msgstr "خىزمەت سپرىنتى"
 
 #: ui\screens\settings_screen.slint
 msgid "{}min"
-msgstr ""
+msgstr "{} مىن"
 
 #: ui\screens\settings_screen.slint
 msgid "Short break"
-msgstr ""
+msgstr "قىسقا ئارام"
 
 #: ui\screens\settings_screen.slint
 msgid "Long break"
-msgstr ""
+msgstr "ئۇزۇن ئارام"
 
 #: ui\screens\settings_screen.slint
 msgid "Long break after"
-msgstr ""
+msgstr "ئۇزۇن ئارامدىن كېيىن"
 
 #: ui\screens\settings_screen.slint
 msgid "{} work sprints"
-msgstr ""
+msgstr "{} خىزمەت سپرىنتى"
 
 #: ui\screens\settings_screen.slint
 msgid "2 work sprints"
-msgstr ""
+msgstr "2 خىزمەت سپرىنتى"
 
 #: ui\screens\settings_screen.slint
 msgid "3 work sprints"
-msgstr ""
+msgstr "3 خىزمەت سپرىنتى"
 
 #: ui\screens\settings_screen.slint
 msgid "4 work sprints"
-msgstr ""
+msgstr "4 خىزمەت سپرىنتى"
 
 #: ui\screens\settings_screen.slint
 msgid "5 work sprints"
-msgstr ""
+msgstr "5 خىزمەت سپرىنتى"
 
 #: ui\screens\settings_screen.slint
 msgid "6 work sprints"
-msgstr ""
+msgstr "6 خىزمەت سپرىنتى"
 
 #: ui\screens\settings_screen.slint
 msgid "Start next task when ending a break early"
-msgstr ""
+msgstr "ئارامنى ۋاقتىدىن بۇرۇن ئاخىرلاشتۇرغاندا كېيىنكى ۋەزىپىنى باشلا"
 
 #: ui\screens\settings_screen.slint
 msgid "Start the next phase automatically"
-msgstr ""
+msgstr "كېيىنكى باسقۇچنى ئاپتوماتىك باشلا"
 
 #: ui\screens\spaces_screen.slint
 msgid "Tasks: {}"
-msgstr ""
+msgstr "ۋەزىپىلەر: {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Finished tasks land here."
-msgstr ""
+msgstr "تامام بولغان ۋەزىپىلەر بۇ يەردە كۆرۈنىدۇ."
 
 #: ui\screens\spaces_screen.slint
 msgid "No tasks yet. Sort one in from Matrix Review."
-msgstr ""
+msgstr "تېخى ۋەزىپە يوق. ماترىسا تەكشۈرۈشىدىن بىرىنى تەرتىپلەڭ."
 
 #: ui\screens\spaces_screen.slint
 msgid "Nothing waiting here"
-msgstr ""
+msgstr "بۇ يەردە كۈتۈۋاتقان نەرسە يوق"
 
 #: ui\screens\spaces_screen.slint
 msgid "Matrix Review"
-msgstr ""
+msgstr "ماترىسا تەكشۈرۈش"
 
 #: ui\screens\spaces_screen.slint
 msgid "{}/{}"
-msgstr ""
+msgstr "{}/{}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Sort each task with the coloured dots, or one by one."
-msgstr ""
+msgstr "ھەر بىر ۋەزىپىنى رەڭلىك نۇقتا بىلەن ياكى بىرمۇبىر تەرتىپلەڭ."
 
 #: ui\screens\spaces_screen.slint
 msgid "Sort one by one  ·  {}"
-msgstr ""
+msgstr "بىرمۇبىر تەرتىپلە · {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unsorted"
-msgstr ""
+msgstr "تەرتىپلەنمىگەن"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unscheduled"
-msgstr ""
+msgstr "پىلانلانمىغان"
 
 #: ui\screens\spaces_screen.slint
 msgid "Pick a day under a task to plan it."
-msgstr ""
+msgstr "پىلانلاش ئۈچۈن ۋەزىپە ئاستىدىن بىر كۈن تاللاڭ."
 
 #: ui\screens\spaces_screen.slint
 msgid "{}  {}"
-msgstr ""
+msgstr "{} {}"
 
 #: ui\screens\spaces_screen.slint
 msgid "All planned."
-msgstr ""
+msgstr "ھەممىسى پىلانلانغان."
 
 #: ui\screens\spaces_screen.slint
 msgid "Weekly schedule"
-msgstr ""
+msgstr "ھەپتىلىك جەدۋەل"
 
 #: ui\screens\spaces_screen.slint
 msgid "Unplan"
-msgstr ""
+msgstr "پىلاندىن چىقىرىش"
 
 #: ui\screens\spaces_screen.slint
 msgid "Add"
-msgstr ""
+msgstr "قوش"
 
 #: ui\screens\spaces_screen.slint
 msgid "SPACES"
-msgstr ""
+msgstr "بوشلۇقلار"
 
 #: ui\screens\spaces_screen.slint
 msgid "Board"
-msgstr ""
+msgstr "تاختا"
 
 #: ui\screens\spaces_screen.slint
 msgid "Matrix"
-msgstr ""
+msgstr "ماترىسا"
 
 #: ui\screens\spaces_screen.slint
 msgid "Calendar"
-msgstr ""
+msgstr "كالېندار"
 
 #: ui\screens\spaces_screen.slint
 msgid "Create your first space"
-msgstr ""
+msgstr "بىرىنچى بوشلۇقىڭىزنى قۇرۇڭ"
 
 #: ui\screens\spaces_screen.slint
 msgid "Spaces give your tasks a real home. Start with one project, goal, or area you want to move forward."
-msgstr ""
+msgstr "بوشلۇقلار ۋەزىپىلىرىڭىزگە ھەقىقىي ئۆي بېرىدۇ. ئىلگىرىلەتمەكچى بولغان بىر لايىھە، نىشان ياكى ساھە بىلەن باشلاڭ."
 
 #: ui\screens\spaces_screen.slint
 msgid "Create a space"
-msgstr ""
+msgstr "بوشلۇق قۇر"
 
 #: ui\screens\spaces_screen.slint
 msgid "Edit"
-msgstr ""
+msgstr "تەھرىرلە"
 
 #: ui\screens\today_screen.slint
 msgid "Focused today: {}"
-msgstr ""
+msgstr "بۈگۈنكى دىققەت: {}"
 
 #: ui\screens\today_screen.slint
 msgid "Planned for today"
-msgstr ""
+msgstr "بۈگۈنگە پىلانلانغان"
 
 #: ui\screens\today_screen.slint
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
-msgstr ""
+msgstr "بۈگۈنگە پىلان يوق. بوشلۇقلار ئېكرانىدا ۋەزىپە قوشۇڭ."
 
