@@ -1,4 +1,4 @@
-import { TaskRow, NoteRow, DayBar, SessionRow } from "types.slint";
+import { TaskRow, NoteRow, DayBar, SessionRow, TaskOption } from "types.slint";
 
 /// AppData: everything the screens show. Rust fills it from the saved data
 /// and handles the callbacks; the screens only display it and report taps.
@@ -10,13 +10,15 @@ export global AppData {
     in-out property <bool> immersive: false;
 
     // Pomodoro
-    in-out property <string> pomodoro-time: "25:00";
+    in-out property <string> pomodoro-time: "50:00";
     in-out property <float> pomodoro-progress: 0.0;
     in-out property <bool> pomodoro-running: false;
     in-out property <string> pomodoro-phase: "focus";
     // "focus", "custom", "short_break" or "long_break": the tab to highlight.
     in-out property <string> pomodoro-mode: "focus";
     in-out property <string> pomodoro-round: "Round 1 of 4";
+    // Completed rounds in the current cycle, 0 to 4.
+    in-out property <int> pomodoro-rounds-done: 0;
     // "Ready", "Running", "Paused" or "Completed".
     in-out property <string> pomodoro-status: "Ready";
     in-out property <string> pomodoro-durations: "";
@@ -32,12 +34,24 @@ export global AppData {
     callback pomodoro-reset();
     callback pomodoro-select(string);
 
+    // Task linked to the current session. Empty id means a freeform session.
+    in-out property <string> session-task-id: "";
+    in-out property <string> session-task-title: "";
+    in-out property <[TaskOption]> task-options: [];
+    in-out property <string> task-search: "";
+    callback task-picked(string);
+    callback task-search-changed(string);
+
     // Analytics for the Pomodoro panel
     in-out property <string> activity-range: "week";
     in-out property <string> activity-sessions: "0";
+    in-out property <string> activity-sessions-change: "";
     in-out property <string> activity-focus: "0m";
+    in-out property <string> activity-focus-change: "";
+    in-out property <string> activity-average: "0m";
+    in-out property <string> activity-best: "";
     in-out property <string> activity-streak: "0 days";
-    in-out property <string> activity-insight: "";
+    in-out property <int> activity-axis-max: 1;
     in-out property <[DayBar]> activity-bars: [];
     callback activity-range-selected(string);
 

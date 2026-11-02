@@ -279,3 +279,13 @@ export struct DayBar {
     value: float,
     value-label: string,
 }
+
+/// One row of the Pomodoro task picker. `header` is set on the first row of
+/// each group (Today, Upcoming, Overdue, No due date).
+export struct TaskOption {
+    id: string,
+    title: string,
+    meta: string,
+    priority: string, // "high", "medium", "low" or empty
+    header: string,
+}

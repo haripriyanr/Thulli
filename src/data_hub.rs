@@ -15,6 +15,8 @@ use thulli_core::services::pomodoro::{PomodoroPhase, PomodoroSettings, PomodoroT
 use thulli_core::services::{NotesService, PreferencesService, StoreHandle, TaskService};
 
 use crate::audio::{Ambient, AmbientPlayer};
+use chrono::Duration as ChronoDuration;
+use thulli_core::services::insights::format_duration;
 use crate::convert::{self, model};
 use crate::{AppData, MainWindow, NoteRow};
 
@@ -26,6 +28,9 @@ const STEPPED_SETTINGS: [(&str, i32); 5] = [
     ("pomodoro_rounds", 1),
     ("pomodoro_custom_mins", 5),
 ];
+
+/// Label for focus with no task and no typed name.
+const GENERAL_FOCUS: &str = "General Focus";
 
 pub struct DataHub {
     handle: StoreHandle,
@@ -43,6 +48,10 @@ pub struct DataHub {
     /// The name typed for the current focus round. Not saved; cleared on
     /// reopen and when a focus round finishes.
     session_name: RefCell<String>,
+    /// The task the session is linked to. None means a freeform session.
+    task_choice: RefCell<Option<String>>,
+    /// Search text in the task picker.
+    task_search: RefCell<String>,
 }
 
 impl DataHub {
@@ -60,6 +69,8 @@ impl DataHub {
             activity_range: RefCell::new("week".to_string()),
             audio: RefCell::new(AmbientPlayer::default()),
             session_name: RefCell::new(String::new()),
+            task_choice: RefCell::new(None),
+            task_search: RefCell::new(String::new()),
         })
     }
 
@@ -79,7 +90,7 @@ impl DataHub {
         let phase = timer.phase();
         if timer.tick().is_some() {
             drop(timer);
-            self.record_time(phase, before + 1);
+            self.record_time(phase, before + 1, true);
             if phase == PomodoroPhase::Focus {
                 self.session_name.borrow_mut().clear();
                 window.global::<AppData>().set_session_name("".into());
@@ -98,6 +109,7 @@ impl DataHub {
         self.refresh_insights(window);
         self.refresh_settings(window);
         self.refresh_activity(window);
+        self.refresh_task_picker(window);
     }
 
     fn refresh_pomodoro(&self, window: &MainWindow) {
@@ -114,6 +126,7 @@ impl DataHub {
         data.set_pomodoro_status(pomodoro_status(&timer).into());
         let prefs = self.prefs.snapshot();
         data.set_pomodoro_custom_mins(prefs.pomodoro_custom_mins as i32);
+        data.set_pomodoro_rounds_done(timer.completed_rounds() as i32);
         data.set_ambient_choice(prefs.pomodoro_ambient.clone().into());
         let choice = Ambient::from_id(&prefs.pomodoro_ambient).unwrap_or(Ambient::Forest);
         self.audio.borrow_mut().sync(choice, timer.is_running());
@@ -129,16 +142,32 @@ impl DataHub {
     fn refresh_activity(&self, window: &MainWindow) {
         let today = Local::now().date_naive();
         let range = self.activity_range.borrow().clone();
-        let (activity, streak) = self.handle.read(|s| {
-            (convert::activity(s, today, &range), convert::focus_streak(s, today))
+        // The previous period is the same window shifted back by its own length.
+        let shift = match range.as_str() {
+            "day" => ChronoDuration::days(1),
+            "month" => ChronoDuration::days(30),
+            "year" => ChronoDuration::days(365),
+            _ => ChronoDuration::days(7),
+        };
+        let (activity, previous, streak) = self.handle.read(|s| {
+            (
+                convert::activity(s, today, &range),
+                convert::activity(s, today - shift, &range),
+                convert::focus_streak(s, today),
+            )
         });
         let data = window.global::<AppData>();
         data.set_activity_range(range.into());
         data.set_activity_sessions(activity.sessions.to_string().into());
-        data.set_activity_focus(thulli_core::services::insights::format_duration(activity.focus_secs).into());
+        data.set_activity_sessions_change(change(activity.sessions as u64, previous.sessions as u64).into());
+        data.set_activity_focus(format_duration(activity.focus_secs).into());
+        data.set_activity_focus_change(change(activity.focus_secs, previous.focus_secs).into());
+        let average = if activity.sessions == 0 { 0 } else { activity.focus_secs / activity.sessions as u64 };
+        data.set_activity_average(format_duration(average).into());
+        data.set_activity_best(activity.best.into());
+        data.set_activity_axis_max(activity.axis_max as i32);
         data.set_activity_streak(format!("{streak} days").into());
         data.set_activity_bars(model(activity.bars));
-        data.set_activity_insight(activity.insight.into());
     }
 
     fn refresh_tasks(&self, window: &MainWindow) {
@@ -212,7 +241,10 @@ impl DataHub {
     }
 
     /// Adds the elapsed time of a phase to the saved time entries.
-    fn record_time(&self, phase: PomodoroPhase, secs: u64) {
+    /// Saves `secs` of a phase as a time entry. A focus session linked to a
+    /// task is labelled with the task's title and carries its id. Otherwise it
+    /// takes the typed name, or General Focus when nothing was typed.
+    fn record_time(&self, phase: PomodoroPhase, secs: u64, completed: bool) {
         if secs == 0 {
             return;
         }
@@ -223,11 +255,52 @@ impl DataHub {
         let ended = Utc::now();
         let started = ended - chrono::Duration::seconds(secs as i64);
         let mut entry = TimeEntry::new(kind, started, ended);
+        entry.completed = completed;
         if kind == TimeEntryKind::Focus {
+            let task = self.task_choice.borrow().clone().and_then(|id| {
+                self.handle.read(|s| {
+                    s.tasks.iter().find(|t| t.id == id).map(|t| (t.id.clone(), t.title.clone()))
+                })
+            });
             let typed = self.session_name.borrow().trim().to_string();
-            entry.label = if typed.is_empty() { "Focus".to_string() } else { typed };
+            match task {
+                Some((id, title)) => {
+                    entry.task_id = Some(id);
+                    entry.label = title;
+                }
+                None => {
+                    entry.label = if typed.is_empty() { GENERAL_FOCUS.to_string() } else { typed };
+                }
+            }
         }
         self.handle.mutate(|s| s.time_entries.push(entry));
+    }
+
+    /// Fills the task picker and the task shown on the timer card.
+    fn refresh_task_picker(&self, window: &MainWindow) {
+        let today = Local::now().date_naive();
+        let search = self.task_search.borrow().clone();
+        let focus_mins = self.prefs.snapshot().default_session_mins;
+        let choice = self.task_choice.borrow().clone();
+        let (options, chosen) = self.handle.read(|s| {
+            let chosen = choice.and_then(|id| {
+                s.tasks.iter().find(|t| t.id == id).map(|t| (t.id.clone(), t.title.clone()))
+            });
+            (convert::task_options(s, today, &search, focus_mins), chosen)
+        });
+        let data = window.global::<AppData>();
+        data.set_task_options(model(options));
+        match chosen {
+            Some((id, title)) => {
+                data.set_session_task_id(id.into());
+                data.set_session_task_title(title.into());
+            }
+            None => {
+                *self.task_choice.borrow_mut() = None;
+                data.set_session_task_id("".into());
+                data.set_session_task_title("".into());
+            }
+        }
     }
 
     fn apply_pomodoro_settings(&self) {
@@ -246,7 +319,7 @@ impl DataHub {
             let timer = self.pomodoro.borrow();
             (timer.phase(), timer.elapsed_in_phase())
         };
-        self.record_time(phase, elapsed);
+        self.record_time(phase, elapsed, false);
         self.apply_pomodoro_settings();
         self.pomodoro.borrow_mut().select(target);
         self.refresh_all(window);
@@ -289,7 +362,7 @@ impl DataHub {
                     (timer.phase(), timer.elapsed_in_phase())
                 };
                 hub.pomodoro.borrow_mut().next();
-                hub.record_time(phase, elapsed);
+                hub.record_time(phase, elapsed, false);
                 if let Some(w) = weak.upgrade() {
                     hub.refresh_all(&w);
                 }
@@ -304,7 +377,7 @@ impl DataHub {
                     (timer.phase(), timer.elapsed_in_phase())
                 };
                 hub.pomodoro.borrow_mut().previous();
-                hub.record_time(phase, elapsed);
+                hub.record_time(phase, elapsed, false);
                 if let Some(w) = weak.upgrade() {
                     hub.refresh_all(&w);
                 }
@@ -319,7 +392,7 @@ impl DataHub {
                     (timer.phase(), timer.elapsed_in_phase())
                 };
                 hub.pomodoro.borrow_mut().reset();
-                hub.record_time(phase, elapsed);
+                hub.record_time(phase, elapsed, false);
                 if let Some(w) = weak.upgrade() {
                     hub.refresh_all(&w);
                 }
@@ -338,6 +411,27 @@ impl DataHub {
                     hub.switch_phase(&w, PomodoroPhase::Focus);
                 } else if let Some(target) = PomodoroPhase::from_str_id(&id) {
                     hub.switch_phase(&w, target);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_task_picked(move |id| {
+                let id = id.to_string();
+                *hub.task_choice.borrow_mut() = if id.is_empty() { None } else { Some(id) };
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_task_picker(&w);
+                }
+            });
+        }
+        {
+            let hub = self.clone();
+            let weak = window.as_weak();
+            data.on_task_search_changed(move |text| {
+                *hub.task_search.borrow_mut() = text.to_string();
+                if let Some(w) = weak.upgrade() {
+                    hub.refresh_task_picker(&w);
                 }
             });
         }
@@ -526,4 +620,13 @@ fn display_mode(phase: PomodoroPhase, mode: &str) -> &'static str {
         PomodoroPhase::ShortBreak => "short_break",
         PomodoroPhase::LongBreak => "long_break",
     }
+}
+
+/// Percentage change from `before` to `now`, as text such as "+33%".
+fn change(now: u64, before: u64) -> String {
+    if before == 0 {
+        return if now == 0 { String::new() } else { "New".to_string() };
+    }
+    let pct = (now as i64 - before as i64) * 100 / before as i64;
+    if pct >= 0 { format!("+{pct}%") } else { format!("{pct}%") }
 }

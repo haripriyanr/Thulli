@@ -7,7 +7,8 @@ use thulli_core::models::{AppStateStore, Note, Task, TaskSection, TimeEntry, Tim
 use thulli_core::services::insights::{self, format_duration};
 use thulli_core::services::notes::preview_of;
 
-use crate::{DayBar, NoteRow, SessionRow, TaskRow};
+use crate::{DayBar, NoteRow, SessionRow, TaskOption, TaskRow};
+use thulli_core::models::{MatrixQuadrant, TaskStatus};
 
 /// Wraps rows in the model type Slint expects.
 pub fn model<T: Clone + 'static>(items: Vec<T>) -> ModelRc<T> {
@@ -174,7 +175,10 @@ pub struct Activity {
     pub bars: Vec<DayBar>,
     pub sessions: usize,
     pub focus_secs: u64,
-    pub insight: String,
+    /// Label of the busiest slot, or empty when there are no sessions.
+    pub best: String,
+    /// Count of the busiest slot, used as the top of the chart axis.
+    pub axis_max: u32,
 }
 
 /// Counts focus sessions into slots. `slot` maps a session's local end time to
@@ -209,20 +213,12 @@ fn activity_from(labels: Vec<(String, String)>, counts: Vec<u32>, secs: u64) -> 
         })
         .collect();
     let sessions = counts.iter().sum::<u32>() as usize;
-    let insight = if sessions == 0 {
-        "No focus sessions in this range yet.".to_string()
-    } else {
-        let (best, _) = counts
-            .iter()
-            .enumerate()
-            .fold((0, 0), |acc, (i, &c)| if c > acc.1 { (i, c) } else { acc });
-        format!(
-            "{sessions} sessions  ·  average {}  ·  most active {}",
-            format_duration(secs / sessions as u64),
-            labels[best].1
-        )
-    };
-    Activity { bars, sessions, focus_secs: secs, insight }
+    let (best_index, best_count) = counts
+        .iter()
+        .enumerate()
+        .fold((0, 0), |acc, (i, &c)| if c > acc.1 { (i, c) } else { acc });
+    let best = if best_count == 0 { String::new() } else { labels[best_index].1.clone() };
+    Activity { bars, sessions, focus_secs: secs, best, axis_max: peak }
 }
 
 /// Focus sessions for the chosen range: "day" (two-hour blocks today),
@@ -298,4 +294,83 @@ pub fn activity(store: &AppStateStore, today: NaiveDate, range: &str) -> Activit
             activity_from(labels, counts, secs)
         }
     }
+}
+
+/// The task picker's rows: "None" first, then open tasks grouped as Today,
+/// Upcoming, Overdue and No due date. Each group is sorted by saved order.
+pub fn task_options(
+    store: &AppStateStore,
+    today: NaiveDate,
+    search: &str,
+    focus_mins: u32,
+) -> Vec<TaskOption> {
+    let needle = search.trim().to_lowercase();
+    let headers = ["Today", "Upcoming", "Overdue", "No due date"];
+    let group_of = |due: Option<NaiveDate>| match due {
+        Some(day) if day == today => 0,
+        Some(day) if day > today => 1,
+        Some(_) => 2,
+        None => 3,
+    };
+
+    let mut rows: Vec<(usize, i32, String, TaskOption)> = store
+        .tasks
+        .iter()
+        .filter(|task| task.parent_id.is_none())
+        .filter(|task| matches!(task.status, TaskStatus::Open | TaskStatus::Waiting))
+        .filter(|task| needle.is_empty() || task.title.to_lowercase().contains(&needle))
+        .map(|task| {
+            let due = task.deadline.or(task.do_date);
+            let group = group_of(due);
+            let done = store
+                .time_entries
+                .iter()
+                .filter(|e| {
+                    e.kind == TimeEntryKind::Focus && e.completed && e.task_id.as_deref() == Some(task.id.as_str())
+                })
+                .count();
+            let estimate = if task.estimate_mins > 0 {
+                task.estimate_mins.div_ceil(focus_mins.max(1))
+            } else {
+                0
+            };
+            let sessions = if estimate > 0 {
+                format!("{done} of {estimate} sessions")
+            } else {
+                format!("{done} sessions")
+            };
+            let priority = match task.matrix_quadrant {
+                Some(MatrixQuadrant::DoAsap) => "high",
+                Some(MatrixQuadrant::DoLaterToday) | Some(MatrixQuadrant::DoMidWeek) => "medium",
+                Some(MatrixQuadrant::LeaveTillEnd) => "low",
+                None => "",
+            };
+            let option = TaskOption {
+                id: task.id.clone().into(),
+                title: task.title.clone().into(),
+                meta: sessions.into(),
+                priority: priority.into(),
+                header: "".into(),
+            };
+            (group, task.sort_order, task.title.to_lowercase(), option)
+        })
+        .collect();
+    rows.sort_by(|a, b| (a.0, a.1, &a.2).cmp(&(b.0, b.1, &b.2)));
+
+    let mut options = vec![TaskOption {
+        id: "".into(),
+        title: "None".into(),
+        meta: "Focus only".into(),
+        priority: "".into(),
+        header: "".into(),
+    }];
+    let mut previous_group = None;
+    for (group, _, _, mut option) in rows {
+        if previous_group != Some(group) {
+            option.header = headers[group].into();
+            previous_group = Some(group);
+        }
+        options.push(option);
+    }
+    options
 }

@@ -124,7 +124,7 @@ export component MainWindow inherits Window {
                         width: 100%; height: 100%; border-radius: 9px;
                         background: theme-touch.has-hover ? Theme.glass-fill-hover : transparent;
                         if Theme.light-mode: IconMoon { width: 16px; height: 16px; x: 7px; y: 7px; stroke-color: Theme.text-secondary; }
-                        if !Theme.light-mode: IconSun { width: 16px; height: 16px; x: 7px; y: 7px; stroke-color: Theme.text-secondary; }
+                        if !Theme.light-mode: IconSun { width: 18px; height: 18px; x: 6px; y: 6px; stroke-color: Theme.text-secondary; }
                     }
                 }
             }
@@ -168,6 +168,7 @@ export component MainWindow inherits Window {
             if navigation-rail.active-item == "pomodoro": PomodoroScreen {
                 width: 100%;
                 height: 100%;
+                view-all-tasks => { navigation-rail.active-item = "tasks"; }
             }
 
             if navigation-rail.active-item == "notes": NotesScreen {

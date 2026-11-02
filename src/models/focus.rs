@@ -77,6 +77,9 @@ pub struct TimeEntry {
     pub session_id: Option<String>,
     #[serde(default)]
     pub label: String,
+    /// True when the round ran to its full length.
+    #[serde(default)]
+    pub completed: bool,
     pub started_at: DateTime<Utc>,
     pub ended_at: DateTime<Utc>,
 }
@@ -89,6 +92,7 @@ impl TimeEntry {
             task_id: None,
             session_id: None,
             label: String::new(),
+            completed: false,
             started_at,
             ended_at,
         }
