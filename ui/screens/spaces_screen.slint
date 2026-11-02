@@ -108,6 +108,8 @@ component BoardView inherits Rectangle {
     }
 
     board-scroll := Flickable {
+        // Pointer drags belong to the task cards; the wheel still scrolls.
+        interactive: false;
         width: 100%;
         height: 100%;
         content-width: max(self.width, row.preferred-width);
@@ -249,6 +251,8 @@ component QuadrantPanel inherits Rectangle {
                 vertical-alignment: center;
             }
             Flickable {
+                // Pointer drags belong to the task cards; the wheel still scrolls.
+                interactive: false;
                 content-height: cards.preferred-height;
                 cards := VerticalLayout {
                     width: parent.width;
@@ -377,6 +381,8 @@ component MatrixView inherits Rectangle {
                 }
                 Rectangle { height: 1px; background: Theme.glass-border; }
                 Flickable {
+                    // Pointer drags belong to the task cards; the wheel still scrolls.
+                    interactive: false;
                     vertical-stretch: 1;
                     content-height: unsorted.preferred-height;
                     unsorted := VerticalLayout {
@@ -429,6 +435,8 @@ component CalendarView inherits Rectangle {
                 Text { text: "Unscheduled"; font-size: 17px; font-weight: 700; color: Theme.text-primary; }
                 Text { text: "Pick a day under a task to plan it."; font-size: 12px; color: Theme.text-muted; wrap: word-wrap; }
                 Flickable {
+                    // Pointer drags belong to the task cards; the wheel still scrolls.
+                    interactive: false;
                     vertical-stretch: 1;
                     content-height: rail.preferred-height;
                     rail := VerticalLayout {
@@ -484,6 +492,8 @@ component CalendarView inherits Rectangle {
                         IconChevronRight { width: 12px; height: 12px; stroke-color: Theme.text-secondary; } } }
                 }
                 week-scroll := Flickable {
+                    // Pointer drags belong to the task cards; the wheel still scrolls.
+                    interactive: false;
                     vertical-stretch: 1;
                     content-width: max(self.width, 7 * 150px);
                     HorizontalLayout {
@@ -503,6 +513,8 @@ component CalendarView inherits Rectangle {
                                 Text { text: day.name; font-size: 12px; font-weight: 600; color: day.today ? Theme.accent-green : Theme.text-muted; horizontal-alignment: center; }
                                 Text { text: day.number; font-size: 20px; font-weight: 700; color: day.today ? Theme.accent-green : Theme.text-primary; horizontal-alignment: center; }
                                 Flickable {
+                                    // Pointer drags belong to the task cards; the wheel still scrolls.
+                                    interactive: false;
                                     vertical-stretch: 1;
                                     content-height: day-cards.preferred-height;
                                     day-cards := VerticalLayout {

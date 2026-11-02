@@ -348,20 +348,20 @@ export component TaskCard inherits Rectangle {
     property <bool> dragging: DragState.active && DragState.task-id == root.task.id;
     opacity: root.dragging ? 0.35 : 1;
 
-    hover := TouchArea {
-    // Holding the card and moving a few pixels starts a drag.
-    pointer-event(event) => {
+    // Drag logic, in window coordinates so subtask rows can feed it too.
+    function press(event: PointerEvent, ax: length, ay: length) {
         if event.kind == PointerEventKind.down && event.button == PointerEventButton.left {
             root.armed = root.drag-view != "" && !root.editing;
-            root.press-x = self.mouse-x;
-            root.press-y = self.mouse-y;
+            root.press-x = ax;
+            root.press-y = ay;
         } else if event.kind == PointerEventKind.up || event.kind == PointerEventKind.cancel {
             if root.dragging { DragState.finish(); }
             root.armed = false;
         }
     }
-    moved => {
-        if root.armed && !root.dragging && (abs(self.mouse-x - root.press-x) > 6px || abs(self.mouse-y - root.press-y) > 6px) {
+    function drag-to(ax: length, ay: length) {
+        if root.armed && !root.dragging && (abs(ax - root.press-x) > 6px || abs(ay - root.press-y) > 6px) {
+            TipState.text = "";
             DragState.task-id = root.task.id;
             DragState.title = root.task.title;
             DragState.view = root.drag-view;
@@ -369,10 +369,15 @@ export component TaskCard inherits Rectangle {
             DragState.active = true;
         }
         if root.dragging {
-            DragState.x = self.absolute-position.x + self.mouse-x;
-            DragState.y = self.absolute-position.y + self.mouse-y;
+            DragState.x = ax;
+            DragState.y = ay;
         }
     }
+
+    hover := TouchArea {
+    // Holding the card and moving a few pixels starts a drag.
+    pointer-event(event) => { root.press(event, self.absolute-position.x + self.mouse-x, self.absolute-position.y + self.mouse-y); }
+    moved => { root.drag-to(self.absolute-position.x + self.mouse-x, self.absolute-position.y + self.mouse-y); }
     layout := VerticalLayout {
         padding: root.compact ? 10px : 14px;
         spacing: 10px;
@@ -551,6 +556,9 @@ export component TaskCard inherits Rectangle {
                     spacing: 6px;
                     for step in root.task.steps: step-touch := TouchArea {
                         height: max(22px, step-row.preferred-height);
+                        // Presses here still drag the whole card.
+                        pointer-event(event) => { root.press(event, self.absolute-position.x + self.mouse-x, self.absolute-position.y + self.mouse-y); }
+                        moved => { root.drag-to(self.absolute-position.x + self.mouse-x, self.absolute-position.y + self.mouse-y); }
                         step-row := HorizontalLayout {
                             spacing: 10px;
                             VerticalLayout { alignment: center; TickBox { size: 16px; checked: step.done; toggled => { root.step-toggled(step.id); } } }
@@ -724,6 +732,8 @@ export component ColumnShell inherits Rectangle {
             Text { text: "\{root.done}/\{root.total} done"; font-size: 11px; color: Theme.text-muted; }
         }
         Flickable {
+            // Pointer drags belong to the task cards; the wheel still scrolls.
+            interactive: false;
             vertical-stretch: 1;
             content-height: body.preferred-height;
             body := VerticalLayout {

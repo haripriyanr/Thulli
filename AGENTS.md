@@ -304,8 +304,8 @@ Behaviour rules observed in a third-party reference app (read-only study of its 
 - **Window**: frameless with native resize (`begin_native_resize` in `src/main.rs`; Slint gets PointerReleased/Exited before SC_SIZE so input is not stuck).
 
 ### b. Open issues (not yet verified in the running app)
-- Task drag and drop and card hover are reported glitchy. Suspects: the 1 s Pomodoro tick calls `refresh_pomodoro` (and `refresh_all` on phase change), and any model reset recreates TaskCards mid-drag; subtask rows have their own TouchArea that swallows drag presses. Reproduce in the app before changing anything.
-- The latest TaskCard changes (floating hover bar, subtask delete, two-row DateField, add subtask in editor) compile but were not checked visually.
+- Drag and hover glitch: fixed in code, not yet confirmed in the app. Cause: the Spaces Flickables were interactive, so they took over pointer drags and sent the card a cancel. All Spaces Flickables now have `interactive: false` (the wheel still scrolls); keep it that way for any new scroll area that holds cards. The 1 s Pomodoro tick only sets timer values, never card models, so it was not the cause. TaskCard drag logic is in `press()`/`drag-to()` (window coordinates); subtask rows forward their pointer events to it, so a drag can start from a subtask.
+- TaskCard changes (floating hover bar, subtask delete, two-row DateField, add subtask in editor) compile but were not checked visually.
 - Pomodoro task picker "No due date" rows fix not confirmed visually.
 
 ### c. Pending work
