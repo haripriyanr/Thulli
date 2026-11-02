@@ -170,6 +170,8 @@ export component MainWindow inherits Window {
                 : parent.width - (navigation-rail.expanded ? 300px : 130px);
             height: parent.height - Theme.title-bar-height - (parent.width < 640px ? 96px : 16px);
             border-radius: 26px;
+            animate x { duration: 180ms; easing: ease-out; }
+            animate width { duration: 180ms; easing: ease-out; }
 
             // Body: a diagonal light sweep — brighter top-left, mild dark
             // falloff bottom-right, like light raking across dark glass.
