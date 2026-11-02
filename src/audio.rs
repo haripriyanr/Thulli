@@ -74,7 +74,11 @@ impl AmbientPlayer {
             return;
         }
         if self.sink.is_none() {
-            self.sink = DeviceSinkBuilder::open_default_sink().ok();
+            self.sink = DeviceSinkBuilder::open_default_sink().ok().map(|mut sink| {
+                // Closing the app drops the sink; that is expected, not worth a message.
+                sink.log_on_drop(false);
+                sink
+            });
         }
         let Some(sink) = &self.sink else {
             return;

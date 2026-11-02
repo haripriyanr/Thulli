@@ -1,0 +1,304 @@
+import { Theme } from "../theme.slint";
+import { IconPlay, IconPause, IconClose, IconChevronDown, IconSearch } from "../icons.slint";
+import { GlassCard, GlassIconButton } from "glass.slint";
+
+/// IconTab: a tab or pill with an icon in front of its label. Selected tabs
+/// take a violet tint. The icon goes in as a child.
+export component IconTab inherits Rectangle {
+    in property <string> label;
+    in property <bool> selected: false;
+    callback clicked();
+
+    height: 38px;
+    border-radius: 19px;
+    background: root.selected ? Theme.accent-violet.with-alpha(0.30) : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
+    border-width: 1px;
+    border-color: root.selected ? Theme.accent-violet.with-alpha(0.70) : Theme.glass-border;
+    animate background, border-color { duration: 200ms; easing: ease-out; }
+
+    HorizontalLayout {
+        padding-left: 14px;
+        padding-right: 14px;
+        spacing: 8px;
+        alignment: center;
+        // Keeps the fixed-size icon centred on the label line.
+        VerticalLayout {
+            alignment: center;
+            @children
+        }
+        Text {
+            text: root.label;
+            font-size: 13px;
+            font-weight: root.selected ? 600 : 400;
+            color: root.selected ? Theme.text-primary : Theme.text-secondary;
+            vertical-alignment: center;
+        }
+    }
+
+    touch := TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.clicked(); }
+    }
+}
+
+/// PlayButton: the purple play and pause button with a soft glow.
+export component PlayButton inherits Rectangle {
+    in property <bool> running: false;
+    callback clicked();
+
+    width: 84px;
+    height: 84px;
+    border-radius: 42px;
+    background: @linear-gradient(135deg, #C4B5FD 0%, #7C3AED 100%);
+    drop-shadow-blur: 28px;
+    drop-shadow-color: #A78BFA99;
+    drop-shadow-offset-y: 6px;
+
+    if !root.running: IconPlay {
+        width: 26px; height: 26px;
+        x: (parent.width - self.width) / 2 + 2px;
+        y: (parent.height - self.height) / 2;
+        stroke-color: #FFFFFF; fill-color: #FFFFFF38;
+    }
+    if root.running: IconPause {
+        width: 26px; height: 26px;
+        x: (parent.width - self.width) / 2;
+        y: (parent.height - self.height) / 2;
+        stroke-color: #FFFFFF; fill-color: #FFFFFF38;
+    }
+
+    touch := TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.clicked(); }
+    }
+}
+
+/// SceneTile: one choice drawn over a small picture, with its icon above its
+/// name. Used for the ambient sounds. The icon goes in as a child.
+export component SceneTile inherits Rectangle {
+    in property <string> label;
+    in property <image> scene;
+    in property <bool> selected: false;
+    callback clicked();
+
+    horizontal-stretch: 1;
+    min-width: 72px;
+    height: 64px;
+    border-radius: 14px;
+    clip: true;
+    background: #1E1B2E;
+    border-width: root.selected ? 2px : 1px;
+    border-color: root.selected ? #C4B5FD : Theme.glass-border;
+    drop-shadow-blur: root.selected ? 16px : 0px;
+    drop-shadow-color: #A78BFA66;
+    animate border-color { duration: 200ms; easing: ease-out; }
+
+    Image {
+        width: 100%;
+        height: 100%;
+        source: root.scene;
+        image-fit: cover;
+        opacity: root.selected ? 1.0 : (touch.has-hover ? 0.85 : 0.6);
+        animate opacity { duration: 200ms; easing: ease-out; }
+    }
+    // Darkens the lower half so the name stays readable on any picture.
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        background: @linear-gradient(180deg, #00000000 30%, #00000073 100%);
+    }
+
+    VerticalLayout {
+        alignment: center;
+        spacing: 4px;
+        HorizontalLayout {
+            alignment: center;
+            @children
+        }
+        Text {
+            text: root.label;
+            font-size: 12px;
+            font-weight: root.selected ? 600 : 500;
+            color: #FFFFFF;
+            horizontal-alignment: center;
+        }
+    }
+
+    touch := TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.clicked(); }
+    }
+}
+
+/// FieldCard: a glass card with an icon, a small label and a value. It is
+/// either an editable field (`editable`) or a button that opens a dropdown.
+/// `trailing` is "clear" (shown while there is text), "chevron" or "".
+/// The icon goes in as a child.
+export component FieldCard inherits GlassCard {
+    in property <string> label;
+    in-out property <string> text;
+    in property <string> placeholder;
+    in property <bool> editable: false;
+    in property <string> trailing: "";
+    in property <bool> open: false;
+    callback edited(string);
+    callback cleared();
+    callback clicked();
+
+    corner: 18px;
+    height: 68px;
+
+    if !root.editable: TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.clicked(); }
+    }
+
+    // Icon, centred on the left.
+    Rectangle {
+        x: 16px;
+        y: (parent.height - self.height) / 2;
+        width: 24px;
+        height: 24px;
+        VerticalLayout {
+            alignment: center;
+            HorizontalLayout {
+                alignment: center;
+                @children
+            }
+        }
+    }
+
+    // Label and value
+    Rectangle {
+        x: 56px;
+        width: parent.width - self.x - 52px;
+        height: parent.height;
+        VerticalLayout {
+            alignment: center;
+            spacing: 2px;
+            Text { text: root.label; font-size: 12px; color: Theme.text-muted; }
+            Rectangle {
+                height: 22px;
+                // Shown while the value is empty. It is a label, not text.
+                Text {
+                    width: 100%;
+                    height: 100%;
+                    text: root.placeholder;
+                    visible: root.text == "";
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: Theme.text-muted;
+                    vertical-alignment: center;
+                    overflow: elide;
+                }
+                if root.editable: TextInput {
+                    width: 100%;
+                    height: 100%;
+                    vertical-alignment: center;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: Theme.text-primary;
+                    text <=> root.text;
+                    edited => { root.edited(root.text); }
+                }
+                if !root.editable: Text {
+                    width: 100%;
+                    height: 100%;
+                    text: root.text;
+                    font-size: 16px;
+                    font-weight: 600;
+                    color: Theme.text-primary;
+                    vertical-alignment: center;
+                    overflow: elide;
+                }
+            }
+        }
+    }
+
+    if root.trailing == "clear" && root.text != "": GlassIconButton {
+        dia: 28px;
+        x: parent.width - self.width - 16px;
+        y: (parent.height - self.height) / 2;
+        clicked => { root.cleared(); }
+        IconClose { width: 10px; height: 10px; stroke-color: Theme.text-secondary; }
+    }
+    if root.trailing == "chevron": IconChevronDown {
+        x: parent.width - self.width - 20px;
+        y: (parent.height - self.height) / 2;
+        width: 16px;
+        height: 16px;
+        stroke-color: Theme.text-secondary;
+        transform-rotation: root.open ? 180deg : 0deg;
+        animate transform-rotation { duration: 200ms; easing: ease-out; }
+    }
+}
+
+/// SearchField: a rounded search box with a placeholder label.
+export component SearchField inherits Rectangle {
+    in-out property <string> text;
+    in property <string> placeholder: "Search";
+    callback edited(string);
+
+    height: 40px;
+    border-radius: 12px;
+    background: Theme.glass-fill-strong;
+    border-width: 1px;
+    border-color: input.has-focus ? Theme.accent-violet.with-alpha(0.6) : Theme.glass-border;
+    animate border-color { duration: 200ms; easing: ease-out; }
+
+    IconSearch {
+        x: 12px;
+        y: (parent.height - self.height) / 2;
+        width: 16px;
+        height: 16px;
+        stroke-color: Theme.text-muted;
+    }
+    Rectangle {
+        x: 36px;
+        width: parent.width - self.x - 12px;
+        Text {
+            width: 100%;
+            height: 100%;
+            text: root.placeholder;
+            visible: root.text == "";
+            font-size: 14px;
+            color: Theme.text-muted;
+            vertical-alignment: center;
+        }
+        input := TextInput {
+            width: 100%;
+            height: 100%;
+            vertical-alignment: center;
+            font-size: 14px;
+            color: Theme.text-primary;
+            text <=> root.text;
+            edited => { root.edited(root.text); }
+        }
+    }
+}
+
+/// StatCard: one figure with its change since the last period.
+export component StatCard inherits GlassCard {
+    in property <string> title;
+    in property <string> value;
+    in property <string> change;
+    corner: 16px;
+    height: 96px;
+
+    VerticalLayout {
+        padding: 14px;
+        spacing: 4px;
+        alignment: center;
+        Text { text: root.title; font-size: 12px; color: Theme.text-secondary; }
+        Text { text: root.value; font-size: 22px; font-weight: 700; color: Theme.text-primary; overflow: elide; }
+        if root.change != "": Text {
+            text: root.change;
+            font-size: 11px;
+            color: root.change.starts-with("-") ? Theme.destructive : Theme.accent-green;
+        }
+    }
+}

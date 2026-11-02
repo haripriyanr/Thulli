@@ -61,7 +61,8 @@ export component IconSearch inherits IconBase {
     height: 18px;
     stroke: stroke-color;
     fill: fill-color;
-    commands: "M 11 4 A 7 7 0 1 1 10.99 4 Z M 16 16 L 20.5 20.5";
+    stroke-width: 2px;
+    commands: "M 4 11 A 7 7 0 0 1 18 11 A 7 7 0 0 1 4 11 Z M 16 16 L 20.5 20.5";
 }
 
 export component IconFolder inherits IconBase {
@@ -135,15 +136,28 @@ export component IconCheck inherits IconBase {
     commands: "M 5 12.5 L 10 17.5 L 19 7";
 }
 
-export component IconSun inherits IconBase {
+// The disc and the rays are separate paths so the rays are never filled.
+export component IconSun {
     in property <color> stroke-color: Theme.accent-amber;
     in property <color> fill-color: Theme.accent-amber-soft;
     width: 18px;
     height: 18px;
-    stroke: stroke-color;
-    stroke-width: 2px;
-    fill: fill-color;
-    commands: "M 16.5 12 A 4.5 4.5 0 1 1 16.49 12 Z M 12 4.5 L 12 1.5 M 12 19.5 L 12 22.5 M 4.5 12 L 1.5 12 M 19.5 12 L 22.5 12 M 6.7 6.7 L 4.58 4.58 M 17.3 6.7 L 19.42 4.58 M 6.7 17.3 L 4.58 19.42 M 17.3 17.3 L 19.42 19.42";
+    IconBase {
+        width: 100%;
+        height: 100%;
+        stroke: root.stroke-color;
+        stroke-width: 1.8px;
+        fill: root.fill-color;
+        commands: "M 7.5 12 A 4.5 4.5 0 0 1 16.5 12 A 4.5 4.5 0 0 1 7.5 12 Z";
+    }
+    IconBase {
+        width: 100%;
+        height: 100%;
+        stroke: root.stroke-color;
+        stroke-width: 1.8px;
+        fill: transparent;
+        commands: "M 12 2 L 12 4 M 12 20 L 12 22 M 2 12 L 4 12 M 20 12 L 22 12 M 4.93 4.93 L 6.34 6.34 M 17.66 17.66 L 19.07 19.07 M 4.93 19.07 L 6.34 17.66 M 17.66 6.34 L 19.07 4.93";
+    }
 }
 
 export component IconMoon inherits IconBase {
@@ -418,4 +432,74 @@ export component IconImage inherits IconBase {
     stroke: stroke-color;
     fill: fill-color;
     commands: "M 3 5 L 21 5 L 21 19 L 3 19 Z M 3 16 L 9 11 L 13 15 L 16 12 L 21 17";
+}
+
+export component IconHeadphones inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: Theme.glass-fill-hover;
+    width: 20px;
+    height: 20px;
+    stroke: stroke-color;
+    fill: fill-color;
+    commands: "M 4 17 L 4 12 A 8 8 0 0 1 20 12 L 20 17 M 4 14 L 7 14 L 7 20 L 5.5 20 A 1.5 1.5 0 0 1 4 18.5 Z M 20 14 L 17 14 L 17 20 L 18.5 20 A 1.5 1.5 0 0 0 20 18.5 Z";
+}
+
+export component IconWave inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    width: 20px;
+    height: 20px;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 3 12 L 3.01 12 M 7 9 L 7 15 M 10 5 L 10 19 M 14 7 L 14 17 M 17 10 L 17 14 M 21 12 L 21.01 12";
+}
+
+export component IconTree inherits IconBase {
+    in property <color> stroke-color: Theme.accent-green;
+    in property <color> fill-color: Theme.accent-green-soft;
+    width: 20px;
+    height: 20px;
+    stroke: stroke-color;
+    fill: fill-color;
+    commands: "M 12 2.5 L 16.5 9 L 14.5 9 L 18.5 14.5 L 15.5 14.5 L 19.5 19 L 4.5 19 L 8.5 14.5 L 5.5 14.5 L 9.5 9 L 7.5 9 Z M 12 19 L 12 22";
+}
+
+export component IconCloudRain inherits IconBase {
+    in property <color> stroke-color: Theme.accent-blue;
+    in property <color> fill-color: Theme.accent-blue-soft;
+    width: 20px;
+    height: 20px;
+    stroke: stroke-color;
+    fill: fill-color;
+    commands: "M 7 15 A 4 4 0 0 1 6.5 7 A 5.5 5.5 0 0 1 17 6.5 A 4.25 4.25 0 0 1 17 15 Z M 8 18 L 7 21 M 12 18 L 11 21 M 16 18 L 15 21";
+}
+
+export component IconSoundOff inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: Theme.glass-fill-hover;
+    width: 20px;
+    height: 20px;
+    stroke: stroke-color;
+    fill: fill-color;
+    commands: "M 4 9.5 L 7.5 9.5 L 12 5.5 L 12 18.5 L 7.5 14.5 L 4 14.5 Z M 16 9.5 L 21 14.5 M 21 9.5 L 16 14.5";
+}
+
+export component IconDiamond inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    in property <color> fill-color: Theme.glass-fill-hover;
+    width: 20px;
+    height: 20px;
+    stroke: stroke-color;
+    fill: fill-color;
+    commands: "M 12 3 L 21 12 L 12 21 L 3 12 Z";
+}
+
+export component IconChevronDown inherits IconBase {
+    in property <color> stroke-color: Theme.text-secondary;
+    width: 14px;
+    height: 14px;
+    stroke: stroke-color;
+    stroke-width: 2px;
+    fill: transparent;
+    commands: "M 6 9 L 12 15 L 18 9";
 }

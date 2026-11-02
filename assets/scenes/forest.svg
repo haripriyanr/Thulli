@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 80" width="160" height="80">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#1F3B3A"/><stop offset="0.55" stop-color="#3F6B57"/><stop offset="1" stop-color="#1B2E26"/>
+    </linearGradient>
+    <linearGradient id="mist" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#CDE8D5" stop-opacity="0"/><stop offset="1" stop-color="#CDE8D5" stop-opacity="0.35"/>
+    </linearGradient>
+  </defs>
+  <rect width="160" height="80" fill="url(#sky)"/>
+  <path d="M 0 52 L 30 34 L 58 48 L 92 28 L 124 46 L 160 32 L 160 80 L 0 80 Z" fill="#4E7F66" fill-opacity="0.55"/>
+  <rect y="40" width="160" height="22" fill="url(#mist)"/>
+  <g fill="#244536">
+    <path d="M 10 80 L 18 46 L 26 80 Z"/><path d="M 24 80 L 34 38 L 44 80 Z"/><path d="M 44 80 L 50 54 L 56 80 Z"/>
+    <path d="M 104 80 L 112 48 L 120 80 Z"/><path d="M 118 80 L 128 36 L 138 80 Z"/><path d="M 138 80 L 146 50 L 154 80 Z"/>
+  </g>
+  <g fill="#132A20">
+    <path d="M 0 80 L 6 58 L 12 80 Z"/><path d="M 60 80 L 68 60 L 76 80 Z"/><path d="M 86 80 L 94 56 L 102 80 Z"/><path d="M 150 80 L 156 60 L 162 80 Z"/>
+  </g>
+</svg>

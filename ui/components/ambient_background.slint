@@ -15,7 +15,7 @@ export component AppBackground inherits Rectangle {
     border-radius: root.corner;
     background: Theme.dark-mode
         ? @linear-gradient(160deg, #1F1A3D 0%, #0A071E 60%, #161523 100%)
-        : @linear-gradient(160deg, #EDE9FE 0%, #FAFAF9 60%, #E0F2FE 100%);
+        : @linear-gradient(160deg, #D9CCFB 0%, #EEE8FD 45%, #F6F1FF 65%, #D3E9FA 100%);
 
     // Violet orb, large, drifting across the upper left.
     Rectangle {
@@ -26,7 +26,7 @@ export component AppBackground inherits Rectangle {
         y: root.height * (0.30 + 0.12 * Math.cos(root.phase * 360deg)) - self.height / 2;
         border-radius: self.width / 2;
         background: @radial-gradient(circle,
-            (Theme.dark-mode ? #7C3AED80 : #A78BFA70) 0%,
+            (Theme.dark-mode ? #7C3AED80 : #8B5CF68C) 0%,
             transparent 70%);
     }
 
@@ -39,7 +39,7 @@ export component AppBackground inherits Rectangle {
         y: root.height * (0.70 + 0.10 * Math.sin(root.phase * 360deg)) - self.height / 2;
         border-radius: self.width / 2;
         background: @radial-gradient(circle,
-            (Theme.dark-mode ? #14B8A65C : #5EEAD45C) 0%,
+            (Theme.dark-mode ? #14B8A65C : #2DD4BF80) 0%,
             transparent 70%);
     }
 
@@ -52,7 +52,7 @@ export component AppBackground inherits Rectangle {
         y: root.height * (0.15 + 0.10 * Math.cos(root.phase * 720deg)) - self.height / 2;
         border-radius: self.width / 2;
         background: @radial-gradient(circle,
-            (Theme.dark-mode ? #EC489952 : #F9A8D452) 0%,
+            (Theme.dark-mode ? #EC489952 : #F472B675) 0%,
             transparent 70%);
     }
 }

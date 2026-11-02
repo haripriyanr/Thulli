@@ -13,8 +13,12 @@ export component NavigationRailItem inherits Rectangle {
     in property <length> wide-width: 52px;
     callback selected(string);
 
-    property <color> icon-color: root.active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-    property <color> icon-fill: root.active ? Theme.dock-icon-active-fill : transparent;
+    // The rail is violet in both themes, so icons are light: lavender when
+    // idle, white on a frosted pill when active.
+    property <color> icon-color: root.active ? #FFFFFF : (Theme.dark-mode ? #C4B5FDB3 : #FFFFFFD9);
+    property <color> icon-fill: root.active ? #FFFFFF33 : transparent;
+    property <color> pill-fill: Theme.dark-mode ? #A78BFA38 : #FFFFFF47;
+    property <color> pill-border: Theme.dark-mode ? #C4B5FD66 : #FFFFFF99;
 
     width: compact ? 42px : wide-width;
     height: compact ? 44px : 46px;
@@ -30,10 +34,10 @@ export component NavigationRailItem inherits Rectangle {
             x: (parent.width - self.width) / 2;
             y: (parent.height - self.height) / 2;
             border-radius: root.active ? 12px : 10px;
-            background: root.active ? Theme.dock-indicator : (item-touch.has-hover ? Theme.glass-fill-hover : transparent);
+            background: root.active ? root.pill-fill : (item-touch.has-hover ? #FFFFFF1F : transparent);
             animate background { duration: 200ms; easing: ease-out; }
             border-width: root.active ? 1px : 0px;
-            border-color: root.active ? Theme.dock-indicator-border : transparent;
+            border-color: root.active ? root.pill-border : transparent;
 
             if root.icon-name == "today": IconCalendar {
                 width: 22px; height: 22px;
@@ -81,7 +85,7 @@ export component NavigationRailItem inherits Rectangle {
                 text: root.label;
                 x: 50px;
                 y: (parent.height - self.height) / 2;
-                color: root.active ? Theme.text-primary : Theme.text-secondary;
+                color: root.icon-color;
                 font-size: 14px;
                 vertical-alignment: center;
                 visible: root.expanded;
@@ -107,16 +111,16 @@ export component NavigationRail inherits Rectangle {
     // One continuous surface from top to bottom, so the artwork blends into it.
     background: Theme.dark-mode
         ? @linear-gradient(180deg, #2A1852 0%, #1C1245 55%, #100C2E 100%)
-        : @linear-gradient(180deg, #A98EE6 0%, #CDBDF3 50%, #EEE8FC 100%);
+        : @linear-gradient(180deg, #7E5BD6 0%, #9F82E6 40%, #C6B3F2 75%, #E2D8FA 100%);
     border-width: 1px;
     border-color: Theme.glass-border;
     drop-shadow-blur: 24px;
     drop-shadow-color: Theme.glass-shadow;
     drop-shadow-offset-y: 6px;
 
-    // Mountain artwork across the bottom of the expanded rail in dark mode. A
-    // gradient fades its sky into the rail colour, so no edge shows.
-    if !root.compact && Theme.dark-mode: Rectangle {
+    // Mountain artwork across the bottom of the expanded rail. A gradient
+    // fades its sky into the rail colour, so no edge shows.
+    if !root.compact: Rectangle {
         width: 100%;
         height: 100%;
         border-radius: root.border-radius;
@@ -127,7 +131,7 @@ export component NavigationRail inherits Rectangle {
             width: 100%;
             height: 300px;
             y: parent.height - self.height;
-            opacity: 0.9;
+            opacity: Theme.dark-mode ? 0.9 : 0.55;
         }
     }
 

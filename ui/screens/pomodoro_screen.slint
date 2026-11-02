@@ -1,107 +1,9 @@
 import { Theme } from "../theme.slint";
-import { IconRefresh, IconPlay, IconPause, IconSkip, IconChevronLeft, IconChevronRight, IconTimer, IconCoffee, IconPill, IconSettings, IconBolt, IconNote, IconClose, IconTasks, IconChart, IconCheck, IconClock, IconStar, IconMinus, IconTower, IconChat, IconExpand } from "../icons.slint";
+import { IconRefresh, IconPlay, IconPause, IconSkip, IconChevronLeft, IconChevronRight, IconTimer, IconCoffee, IconPill, IconSettings, IconBolt, IconNote, IconClose, IconTasks, IconChart, IconCheck, IconClock, IconStar, IconMinus, IconTower, IconChat, IconExpand, IconHeadphones, IconWave, IconTree, IconCloudRain, IconSoundOff, IconDiamond } from "../icons.slint";
 import { ThulliRing } from "../components/ring.slint";
 import { GlassCard, GlassIconButton } from "../components/glass.slint";
+import { IconTab, PlayButton, SceneTile, FieldCard, SearchField, StatCard } from "../components/focus_controls.slint";
 import { AppData } from "../app_data.slint";
-
-/// A tab or pill with an icon in front of its label. Selected tabs take a
-/// violet tint. The icon is the first child.
-component IconTab inherits Rectangle {
-    in property <string> label;
-    in property <bool> selected: false;
-    callback clicked();
-
-    height: 38px;
-    border-radius: 19px;
-    background: root.selected ? Theme.accent-violet.with-alpha(0.30) : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
-    border-width: 1px;
-    border-color: root.selected ? Theme.accent-violet.with-alpha(0.70) : Theme.glass-border;
-    animate background, border-color { duration: 200ms; easing: ease-out; }
-
-    HorizontalLayout {
-        padding-left: 14px;
-        padding-right: 14px;
-        spacing: 8px;
-        alignment: center;
-        @children
-        Text {
-            text: root.label;
-            font-size: 13px;
-            font-weight: root.selected ? 600 : 400;
-            color: root.selected ? Theme.text-primary : Theme.text-secondary;
-            vertical-alignment: center;
-        }
-    }
-
-    touch := TouchArea {
-        width: 100%;
-        height: 100%;
-        clicked => { root.clicked(); }
-    }
-}
-
-/// The purple play and pause button with a soft glow.
-component PlayButton inherits Rectangle {
-    in property <bool> running: false;
-    callback clicked();
-
-    width: 84px;
-    height: 84px;
-    border-radius: 42px;
-    background: @linear-gradient(135deg, #C4B5FD 0%, #7C3AED 100%);
-    drop-shadow-blur: 28px;
-    drop-shadow-color: #A78BFA99;
-    drop-shadow-offset-y: 6px;
-
-    VerticalLayout {
-        alignment: center;
-        HorizontalLayout {
-            alignment: center;
-            if !root.running: IconPlay { width: 26px; height: 26px; stroke-color: #FFFFFF; fill-color: #FFFFFF38; }
-            if root.running: IconPause { width: 26px; height: 26px; stroke-color: #FFFFFF; fill-color: #FFFFFF38; }
-        }
-    }
-
-    touch := TouchArea {
-        width: 100%;
-        height: 100%;
-        clicked => { root.clicked(); }
-    }
-}
-
-/// One ambient sound option, with its icon above its name.
-component AmbientChip inherits Rectangle {
-    in property <string> label;
-    in property <bool> selected: false;
-    callback clicked();
-
-    horizontal-stretch: 1;
-    height: 52px;
-    border-radius: 14px;
-    background: root.selected ? Theme.accent-violet.with-alpha(0.28) : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
-    border-width: 1px;
-    border-color: root.selected ? Theme.accent-violet.with-alpha(0.70) : Theme.glass-border;
-    animate background, border-color { duration: 200ms; easing: ease-out; }
-
-    VerticalLayout {
-        alignment: center;
-        spacing: 3px;
-        @children
-        Text {
-            text: root.label;
-            font-size: 12px;
-            font-weight: root.selected ? 600 : 400;
-            color: root.selected ? Theme.text-primary : Theme.text-secondary;
-            horizontal-alignment: center;
-        }
-    }
-
-    touch := TouchArea {
-        width: 100%;
-        height: 100%;
-        clicked => { root.clicked(); }
-    }
-}
 
 /// The timer card: mode tabs, the ring with previous and next, the transport
 /// controls, the session name and task row, the ambient chips and the footer.
@@ -121,8 +23,8 @@ component TimerCard inherits GlassCard {
         spacing: 16px;
         alignment: center;
 
-        // Mode tabs
-        HorizontalLayout {
+        // Mode tabs. Full screen shows only the ring and the full screen toggle.
+        if !AppData.immersive: HorizontalLayout {
             alignment: center;
             spacing: 8px;
             IconTab { label: "Focus"; selected: AppData.pomodoro-mode == "focus"; clicked => { AppData.pomodoro-select("focus"); }
@@ -139,14 +41,14 @@ component TimerCard inherits GlassCard {
         HorizontalLayout {
             alignment: center;
             spacing: 18px;
-            GlassIconButton {
+            if !AppData.immersive: GlassIconButton {
                 dia: 44px;
                 clicked => { AppData.pomodoro-previous(); }
                 IconChevronLeft { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
             }
             ThulliRing {
-                width: 320px;
-                height: 320px;
+                width: AppData.immersive ? 420px : 320px;
+                height: self.width;
                 thickness: 10px;
                 progress: AppData.pomodoro-progress;
                 ring-color: root.accent;
@@ -192,211 +94,136 @@ component TimerCard inherits GlassCard {
                     }
                 }
             }
-            GlassIconButton {
+            if !AppData.immersive: GlassIconButton {
                 dia: 44px;
                 clicked => { AppData.pomodoro-next(); }
                 IconChevronRight { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
             }
         }
 
-        // Transport controls
-        HorizontalLayout {
-            alignment: center;
-            spacing: 22px;
-            GlassIconButton {
-                dia: 52px;
-                clicked => { AppData.pomodoro-reset(); }
-                IconRefresh { width: 18px; height: 18px; stroke-color: Theme.text-secondary; }
+        // Transport controls, with full screen at the right edge above the task card
+        Rectangle {
+            height: AppData.immersive ? 52px : 96px;
+            if !AppData.immersive: HorizontalLayout {
+                alignment: center;
+                spacing: 22px;
+                VerticalLayout {
+                    alignment: center;
+                    GlassIconButton {
+                        dia: 52px;
+                        clicked => { AppData.pomodoro-reset(); }
+                        IconRefresh { width: 18px; height: 18px; stroke-color: Theme.text-secondary; }
+                    }
+                }
+                PlayButton {
+                    running: AppData.pomodoro-running;
+                    clicked => { AppData.pomodoro-toggle(); }
+                }
+                VerticalLayout {
+                    alignment: center;
+                    GlassIconButton {
+                        dia: 52px;
+                        clicked => { AppData.pomodoro-next(); }
+                        IconSkip { width: 18px; height: 18px; stroke-color: Theme.text-secondary; }
+                    }
+                }
             }
-            PlayButton {
-                running: AppData.pomodoro-running;
-                clicked => { AppData.pomodoro-toggle(); }
-            }
             GlassIconButton {
-                dia: 52px;
-                clicked => { AppData.pomodoro-next(); }
-                IconSkip { width: 18px; height: 18px; stroke-color: Theme.text-secondary; }
+                dia: 44px;
+                // Centred under the ring in full screen, at the right edge otherwise.
+                x: AppData.immersive ? (parent.width - self.width) / 2 : parent.width - self.width;
+                y: (parent.height - self.height) / 2;
+                clicked => { AppData.immersive = !AppData.immersive; }
+                IconExpand { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
             }
         }
 
         // Session name and task
-        HorizontalLayout {
+        if !AppData.immersive: HorizontalLayout {
             spacing: 12px;
-            GlassCard {
+            FieldCard {
                 horizontal-stretch: 3;
-                height: 62px;
-                corner: 16px;
-                HorizontalLayout {
-                    padding-left: 16px;
-                    padding-right: 10px;
-                    spacing: 12px;
-                    IconNote { width: 18px; height: 18px; stroke-color: Theme.accent-violet; }
-                    VerticalLayout {
-                        alignment: center;
-                        spacing: 2px;
-                        horizontal-stretch: 1;
-                        Text { text: "Session name"; font-size: 11px; color: Theme.text-muted; }
-                        Rectangle {
-                            height: 22px;
-                            // Shown only while the field is empty. It is a label, not text.
-                            Text {
-                                width: 100%;
-                                height: 100%;
-                                text: "General Focus";
-                                visible: AppData.session-name == "";
-                                font-size: 15px;
-                                color: Theme.text-muted;
-                                vertical-alignment: center;
-                            }
-                            TextInput {
-                                width: 100%;
-                                height: 100%;
-                                vertical-alignment: center;
-                                font-size: 15px;
-                                color: Theme.text-primary;
-                                text <=> AppData.session-name;
-                                edited => { AppData.session-name-edited(AppData.session-name); }
-                            }
-                        }
-                    }
-                    if AppData.session-name != "": GlassIconButton {
-                        dia: 26px;
-                        clicked => {
-                            AppData.session-name = "";
-                            AppData.session-name-edited("");
-                        }
-                        IconClose { width: 10px; height: 10px; stroke-color: Theme.text-secondary; }
-                    }
+                label: "Session name";
+                placeholder: "General Focus";
+                editable: true;
+                trailing: "clear";
+                text <=> AppData.session-name;
+                edited(name) => { AppData.session-name-edited(name); }
+                cleared => {
+                    AppData.session-name = "";
+                    AppData.session-name-edited("");
                 }
+                IconDiamond { width: 20px; height: 20px; stroke-color: Theme.text-primary; }
             }
-            GlassCard {
+            FieldCard {
                 horizontal-stretch: 2;
-                height: 62px;
-                corner: 16px;
-                task-touch := TouchArea {
-                    width: 100%;
-                    height: 100%;
-                    clicked => { root.picker-open = !root.picker-open; }
-                }
-                HorizontalLayout {
-                    padding-left: 16px;
-                    padding-right: 14px;
-                    spacing: 12px;
-                    IconTasks { width: 18px; height: 18px; stroke-color: Theme.accent-violet; }
-                    VerticalLayout {
-                        alignment: center;
-                        spacing: 2px;
-                        horizontal-stretch: 1;
-                        Text { text: "Task"; font-size: 11px; color: Theme.text-muted; }
-                        Text {
-                            text: AppData.session-task-title == "" ? "None" : AppData.session-task-title;
-                            font-size: 15px;
-                            color: AppData.session-task-title == "" ? Theme.text-muted : Theme.text-primary;
-                            overflow: elide;
-                        }
-                    }
-                    IconChevronRight { width: 14px; height: 14px; stroke-color: Theme.text-muted; }
-                }
+                label: "Task";
+                placeholder: "None";
+                text: AppData.session-task-title;
+                trailing: "chevron";
+                open: root.picker-open;
+                clicked => { root.picker-open = !root.picker-open; }
+                IconNote { width: 20px; height: 20px; stroke-color: Theme.text-primary; }
             }
         }
 
         // Ambient sound
-        GlassCard {
-            height: 80px;
-            corner: 16px;
+        if !AppData.immersive: GlassCard {
+            height: 88px;
+            corner: 18px;
             HorizontalLayout {
-                padding-left: 16px;
-                padding-right: 12px;
-                padding-top: 10px;
-                padding-bottom: 10px;
+                padding: 12px;
+                padding-left: 18px;
                 spacing: 10px;
-                VerticalLayout {
-                    alignment: center;
-                    spacing: 4px;
-                    width: 110px;
-                    HorizontalLayout {
-                        alignment: start;
-                        spacing: 8px;
-                        IconChat { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
-                        Text { text: "Ambient Sound"; font-size: 13px; color: Theme.text-secondary; vertical-alignment: center; }
-                    }
+                HorizontalLayout {
+                    width: 140px;
+                    spacing: 10px;
+                    VerticalLayout { alignment: center; IconHeadphones { width: 20px; height: 20px; stroke-color: Theme.text-primary; } }
+                    Text { text: "Ambient Sound"; font-size: 14px; color: Theme.text-primary; vertical-alignment: center; }
                 }
-                AmbientChip { label: "None"; selected: AppData.ambient-choice == "off"; clicked => { AppData.ambient-selected("off"); }
-                    IconMinus { width: 16px; height: 16px; stroke-color: AppData.ambient-choice == "off" ? Theme.accent-violet : Theme.text-secondary; } }
-                AmbientChip { label: "Lo-fi"; selected: AppData.ambient-choice == "lofi"; clicked => { AppData.ambient-selected("lofi"); }
-                    IconStar { width: 16px; height: 16px; stroke-color: AppData.ambient-choice == "lofi" ? Theme.accent-violet : Theme.text-secondary; } }
-                AmbientChip { label: "Forest"; selected: AppData.ambient-choice == "forest"; clicked => { AppData.ambient-selected("forest"); }
-                    IconTower { width: 16px; height: 16px; stroke-color: AppData.ambient-choice == "forest" ? Theme.accent-violet : Theme.text-secondary; } }
-                AmbientChip { label: "Rain"; selected: AppData.ambient-choice == "rain"; clicked => { AppData.ambient-selected("rain"); }
-                    IconClock { width: 16px; height: 16px; stroke-color: AppData.ambient-choice == "rain" ? Theme.accent-violet : Theme.text-secondary; } }
+                SceneTile { label: "None"; scene: @image-url("../../assets/scenes/none.svg"); selected: AppData.ambient-choice == "off"; clicked => { AppData.ambient-selected("off"); }
+                    IconSoundOff { width: 18px; height: 18px; stroke-color: #FFFFFF; fill-color: #FFFFFF26; } }
+                SceneTile { label: "Lo-fi"; scene: @image-url("../../assets/scenes/lofi.svg"); selected: AppData.ambient-choice == "lofi"; clicked => { AppData.ambient-selected("lofi"); }
+                    IconWave { width: 18px; height: 18px; stroke-color: #FFFFFF; } }
+                SceneTile { label: "Forest"; scene: @image-url("../../assets/scenes/forest.svg"); selected: AppData.ambient-choice == "forest"; clicked => { AppData.ambient-selected("forest"); }
+                    IconTree { width: 18px; height: 18px; stroke-color: #86EFAC; fill-color: #86EFAC40; } }
+                SceneTile { label: "Rain"; scene: @image-url("../../assets/scenes/rain.svg"); selected: AppData.ambient-choice == "rain"; clicked => { AppData.ambient-selected("rain"); }
+                    IconCloudRain { width: 18px; height: 18px; stroke-color: #FFFFFF; fill-color: #FFFFFF26; } }
             }
         }
 
-        // Footer: durations and full screen
-        HorizontalLayout {
-            alignment: space-between;
-            spacing: 10px;
-            HorizontalLayout {
-                spacing: 8px;
-                IconTimer { width: 14px; height: 14px; stroke-color: Theme.text-muted; }
-                Text { text: AppData.pomodoro-durations; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
-            }
-            IconTab { label: "Full Screen (F11)"; clicked => { AppData.immersive = true; }
-                IconExpand { width: 14px; height: 14px; stroke-color: Theme.text-secondary; } }
+        // Footer: durations
+        if !AppData.immersive: HorizontalLayout {
+            alignment: start;
+            spacing: 8px;
+            VerticalLayout { alignment: center; IconTimer { width: 14px; height: 14px; stroke-color: Theme.text-muted; } }
+            Text { text: AppData.pomodoro-durations; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
         }
     }
 
-    // Task picker: opens over the lower part of the card.
+    // Task dropdown: opens above the task field, aligned to its right edge.
     if root.picker-open: Rectangle {
-        x: 22px;
-        width: root.width - 44px;
-        height: min(root.height - 240px, 340px);
-        y: root.height - self.height - 110px;
+        width: min(root.width - 44px, 420px);
+        x: root.width - self.width - 22px;
+        height: min(root.height - 200px, 380px);
+        y: root.height - self.height - 196px;
         border-radius: 18px;
-        background: Theme.bg-panel;
+        background: Theme.dark-mode ? #221C3AF2 : #FFFFFFF2;
         border-width: 1px;
         border-color: Theme.glass-border;
-        drop-shadow-blur: 24px;
-        drop-shadow-color: Theme.glass-shadow;
+        drop-shadow-blur: 32px;
+        drop-shadow-color: #00000059;
+        drop-shadow-offset-y: 10px;
         clip: true;
 
         VerticalLayout {
             padding: 12px;
             spacing: 8px;
 
-            // Search
-            Rectangle {
-                height: 40px;
-                border-radius: 12px;
-                background: Theme.glass-fill-strong;
-                border-width: 1px;
-                border-color: Theme.glass-border;
-                HorizontalLayout {
-                    padding-left: 12px;
-                    padding-right: 12px;
-                    spacing: 8px;
-                    IconTasks { width: 14px; height: 14px; stroke-color: Theme.text-muted; }
-                    Rectangle {
-                        Text {
-                            width: 100%;
-                            height: 100%;
-                            text: "Search tasks";
-                            visible: AppData.task-search == "";
-                            font-size: 14px;
-                            color: Theme.text-muted;
-                            vertical-alignment: center;
-                        }
-                        TextInput {
-                            width: 100%;
-                            height: 100%;
-                            vertical-alignment: center;
-                            font-size: 14px;
-                            color: Theme.text-primary;
-                            text <=> AppData.task-search;
-                            edited => { AppData.task-search-changed(AppData.task-search); }
-                        }
-                    }
-                }
+            SearchField {
+                placeholder: "Search tasks";
+                text <=> AppData.task-search;
+                edited(q) => { AppData.task-search-changed(q); }
             }
 
             // Rows, grouped by due date
@@ -486,28 +313,6 @@ component TimerCard inherits GlassCard {
                     }
                 }
             }
-        }
-    }
-}
-
-/// One figure in the analytics panel, with its change since the last period.
-component StatCard inherits GlassCard {
-    in property <string> title;
-    in property <string> value;
-    in property <string> change;
-    corner: 16px;
-    height: 96px;
-
-    VerticalLayout {
-        padding: 14px;
-        spacing: 4px;
-        alignment: center;
-        Text { text: root.title; font-size: 12px; color: Theme.text-secondary; }
-        Text { text: root.value; font-size: 22px; font-weight: 700; color: Theme.text-primary; overflow: elide; }
-        if root.change != "": Text {
-            text: root.change;
-            font-size: 11px;
-            color: root.change.starts-with("-") ? Theme.destructive : Theme.accent-green;
         }
     }
 }
@@ -651,21 +456,29 @@ export component PomodoroScreen inherits Rectangle {
     property <length> gap: 18px;
 
     property <length> timer-width: AppData.immersive
-        ? min(root.width - 2 * root.side, 620px)
+        ? min(root.width - 2 * root.side, 540px)
         : (root.wide ? (root.width - 2 * root.side - root.gap) * 0.6 : root.width - 2 * root.side);
     property <length> timer-height: AppData.immersive
-        ? min(root.height - 2 * root.side, 760px)
-        : (root.wide ? root.height : min(root.height, max(640px, root.height * 0.6)));
+        ? min(root.height - 2 * root.side, 580px)
+        : (root.wide ? root.height : 760px);
 
     property <length> analytics-x: root.wide ? root.side + root.timer-width + root.gap : root.side;
     property <length> analytics-y: root.wide ? 0px : root.timer-height + root.gap;
     property <length> analytics-width: root.wide ? root.width - root.analytics-x - root.side : root.width - 2 * root.side;
-    property <length> analytics-height: root.height - root.analytics-y;
+    property <length> analytics-height: root.wide ? root.height : 860px;
+
+    // Narrow windows stack the timer above the analytics, so the page scrolls.
+    page := Flickable {
+        width: 100%;
+        height: 100%;
+        content-height: (root.wide || AppData.immersive) ? root.height : root.analytics-y + root.analytics-height + root.side;
+        interactive: !root.wide && !AppData.immersive;
 
     timer := TimerCard {
         view-all-tasks => { root.view-all-tasks(); }
         x: AppData.immersive ? (root.width - self.width) / 2 : root.side;
-        y: AppData.immersive ? (root.height - self.height) / 2 : 0px;
+        // In full screen it centres in the visible part of the page.
+        y: AppData.immersive ? (root.height - self.height) / 2 - page.content-y : 0px;
         width: root.timer-width;
         height: root.timer-height;
         animate x, y, width, height { duration: 800ms; easing: cubic-bezier(0.34, 1.56, 0.64, 1); }
@@ -690,12 +503,5 @@ export component PomodoroScreen inherits Rectangle {
             }
         }
     }
-
-    if AppData.immersive: IconTab {
-        x: parent.width - self.width - 24px;
-        y: 18px;
-        label: "Exit full screen (Esc)";
-        clicked => { AppData.immersive = false; }
-        IconClose { width: 12px; height: 12px; stroke-color: Theme.text-secondary; }
     }
 }
