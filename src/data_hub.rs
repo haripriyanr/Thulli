@@ -40,6 +40,9 @@ pub struct DataHub {
     activity_range: RefCell<String>,
     /// Plays the ambient sound while the timer runs.
     audio: RefCell<AmbientPlayer>,
+    /// The name typed for the current focus round. Not saved; cleared on
+    /// reopen and when a focus round finishes.
+    session_name: RefCell<String>,
 }
 
 impl DataHub {
@@ -56,14 +59,12 @@ impl DataHub {
             mode: RefCell::new("focus".to_string()),
             activity_range: RefCell::new("week".to_string()),
             audio: RefCell::new(AmbientPlayer::default()),
+            session_name: RefCell::new(String::new()),
         })
     }
 
     /// Fills every screen from the saved state and registers the callbacks.
     pub fn attach(self: &Rc<Self>, window: &MainWindow) {
-        window
-            .global::<AppData>()
-            .set_session_name(self.prefs.snapshot().pomodoro_session_name.into());
         self.refresh_all(window);
         self.wire_pomodoro(window);
         self.wire_tasks(window);
@@ -79,6 +80,10 @@ impl DataHub {
         if timer.tick().is_some() {
             drop(timer);
             self.record_time(phase, before + 1);
+            if phase == PomodoroPhase::Focus {
+                self.session_name.borrow_mut().clear();
+                window.global::<AppData>().set_session_name("".into());
+            }
             self.refresh_all(window);
             return;
         }
@@ -219,7 +224,8 @@ impl DataHub {
         let started = ended - chrono::Duration::seconds(secs as i64);
         let mut entry = TimeEntry::new(kind, started, ended);
         if kind == TimeEntryKind::Focus {
-            entry.label = self.prefs.snapshot().pomodoro_session_name;
+            let typed = self.session_name.borrow().trim().to_string();
+            entry.label = if typed.is_empty() { "Focus".to_string() } else { typed };
         }
         self.handle.mutate(|s| s.time_entries.push(entry));
     }
@@ -260,7 +266,9 @@ impl DataHub {
         }
         {
             let hub = self.clone();
-            data.on_session_name_edited(move |name| hub.prefs.set_pomodoro_session_name(name.as_str()));
+            data.on_session_name_edited(move |name| {
+                *hub.session_name.borrow_mut() = name.to_string();
+            });
         }
         {
             let hub = self.clone();

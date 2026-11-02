@@ -36,7 +36,7 @@ pub use task::{MatrixQuadrant, Task, TaskHistoryEntry, TaskSection, TaskStatus};
 pub type ThulliPreferences = Preferences;
 
 /// Version of the persisted layout. Bump when a migration is added.
-pub const CURRENT_SCHEMA_VERSION: u32 = 3;
+pub const CURRENT_SCHEMA_VERSION: u32 = 4;
 
 /// Root aggregate persisted in encrypted storage.
 ///
@@ -125,6 +125,12 @@ impl AppStateStore {
             task.migrate_legacy();
         }
         self.preferences.migrate();
+        if self.schema_version < 4 {
+            // Version 4 sets the Pomodoro cycle to 50 / 10 / 20 minutes.
+            self.preferences.default_session_mins = 50;
+            self.preferences.default_break_mins = 10;
+            self.preferences.pomodoro_long_break_mins = 20;
+        }
         if self.lists.is_empty() {
             self.lists.push(TaskList::new_personal());
         }
@@ -254,7 +260,7 @@ mod tests {
     #[test]
     fn new_defaults_follow_the_spec() {
         let p = Preferences::default();
-        assert_eq!(p.default_break_mins, 5);
+        assert_eq!(p.default_break_mins, 10);
         assert_eq!(p.focus_display_mode, FocusDisplayMode::Expanded);
         assert!(p.suggestions.plan_my_day);
         assert_eq!(p.app_shortcuts.preferences.keys, "Ctrl+,");

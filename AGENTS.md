@@ -198,7 +198,6 @@ cargo build --release
 
 - The shared `AppBackground` (ui/components/ambient_background.slint) is the one backdrop for every screen. It is a gradient with three soft orbs that drift slowly on a shared `background-phase` driven by the shell timer. Screens stay transparent and sit on it.
 - Glass surfaces (`GlassCard`, `GlassPill`, `GlassIconButton` in ui/components/glass.slint) are translucent fills with a hairline edge. Use them for panels and controls instead of solid theme fills.
-- Hover feedback and navigation rail/panel size changes are immediate; do not animate them.
 - Keep the interruptible 260ms native maximize/restore morph as the only shell transition. Apply each Windows frame's position and size in one native update.
 - For future screen-level transitions, animate only when motion clarifies feedback or spatial change. Respect reduced-motion preferences where supported.
 

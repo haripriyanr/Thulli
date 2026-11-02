@@ -478,13 +478,6 @@ impl PreferencesService {
         })
     }
 
-    /// Saves the name of the current Pomodoro session. The length is capped
-    /// to keep the title row readable.
-    pub fn set_pomodoro_session_name(&self, name: &str) {
-        let name: String = name.trim().chars().take(60).collect();
-        self.handle.mutate(|s| s.preferences.pomodoro_session_name = name);
-    }
-
     /// Saves the ambient sound choice. Unknown choices are ignored.
     pub fn set_pomodoro_ambient(&self, id: &str) {
         if matches!(id, "off" | "forest" | "lofi" | "rain") {

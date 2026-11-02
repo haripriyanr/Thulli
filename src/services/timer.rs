@@ -1699,7 +1699,7 @@ mod run_tests {
         svc.start_break_at(None, t1);
         let snap = svc.timer.snapshot();
         assert_eq!(snap.purpose, TimerPurpose::Break);
-        assert_eq!(snap.planned_secs, 300);
+        assert_eq!(snap.planned_secs, 600);
         let t2 = tick(&svc, t1, 100);
 
         // Ending early with the preference off waits for the next task.

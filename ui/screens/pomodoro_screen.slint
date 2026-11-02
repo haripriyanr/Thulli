@@ -130,13 +130,27 @@ component TimerCard inherits GlassCard {
                 padding-right: 16px;
                 spacing: 12px;
                 Text { text: "Session name"; font-size: 13px; color: Theme.text-secondary; vertical-alignment: center; }
-                TextInput {
+                Rectangle {
                     horizontal-stretch: 1;
-                    vertical-alignment: center;
-                    font-size: 14px;
-                    color: Theme.text-primary;
-                    text <=> AppData.session-name;
-                    edited => { AppData.session-name-edited(AppData.session-name); }
+                    // Shown only while the field is empty. It is a label, not text.
+                    Text {
+                        width: 100%;
+                        height: 100%;
+                        text: "Focus";
+                        visible: AppData.session-name == "";
+                        font-size: 14px;
+                        color: Theme.text-muted;
+                        vertical-alignment: center;
+                    }
+                    TextInput {
+                        width: 100%;
+                        height: 100%;
+                        vertical-alignment: center;
+                        font-size: 14px;
+                        color: Theme.text-primary;
+                        text <=> AppData.session-name;
+                        edited => { AppData.session-name-edited(AppData.session-name); }
+                    }
                 }
             }
         }

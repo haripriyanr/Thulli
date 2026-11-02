@@ -24,6 +24,7 @@ export component GlassPill inherits Rectangle {
     background: root.selected ? root.accent.with-alpha(0.18) : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
     border-width: 1px;
     border-color: root.selected ? root.accent.with-alpha(0.55) : Theme.glass-border;
+    animate background, border-color { duration: 200ms; easing: ease-out; }
 
     Text {
         text: root.label;
@@ -55,6 +56,7 @@ export component GlassIconButton inherits Rectangle {
     height: root.dia;
     border-radius: root.dia / 2;
     background: touch.has-hover ? Theme.glass-fill-hover : root.fill;
+    animate background { duration: 200ms; easing: ease-out; }
 
     VerticalLayout {
         alignment: center;

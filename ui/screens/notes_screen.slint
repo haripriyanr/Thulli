@@ -47,6 +47,7 @@ export component NotesScreen inherits Rectangle {
                         background: note.id == AppData.selected-note-id
                             ? Theme.dock-indicator
                             : (row-touch.has-hover ? Theme.glass-fill-hover : transparent);
+                        animate background { duration: 200ms; easing: ease-out; }
                         VerticalLayout {
                             padding: 10px;
                             spacing: 2px;

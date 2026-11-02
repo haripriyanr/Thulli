@@ -276,7 +276,9 @@ mod tests {
         assert_eq!(p.alert_sound_id, "basic-ding");
         assert_eq!(p.quick_notes, "my notes");
         assert!(p.timezone.is_empty());
-        assert_eq!(p.default_session_mins, 90);
+        assert_eq!(p.default_session_mins, 50);
+        assert_eq!(p.default_break_mins, 10);
+        assert_eq!(p.pomodoro_long_break_mins, 20);
         assert!(p.auto_parse_estimates);
 
         assert_eq!(store.blocked_apps.len(), 1);

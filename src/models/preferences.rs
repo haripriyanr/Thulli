@@ -258,8 +258,6 @@ pub struct Preferences {
     pub pomodoro_long_break_mins: u32,
     pub pomodoro_rounds: u32,
     pub pomodoro_auto_advance: bool,
-    /// Name typed for the current session; shown again when the app reopens.
-    pub pomodoro_session_name: String,
     /// Length of the Custom focus interval, in minutes.
     pub pomodoro_custom_mins: u32,
     /// Ambient sound while the timer runs: off, forest, lofi or rain.
@@ -293,11 +291,11 @@ impl Default for Preferences {
             daily_goal_mins: 360,
             count_weekends: false,
 
-            default_session_mins: 90,
+            default_session_mins: 50,
             sprint_enabled: false,
             work_sprint_mins: 60,
             break_time_mins: 15,
-            default_break_mins: 5,
+            default_break_mins: 10,
             pause_suggestions: false,
             scrolling_title: true,
             start_next_after_early_break: false,
@@ -321,10 +319,9 @@ impl Default for Preferences {
             overtime_alert: true,
             reminder_sound_id: "basic-ding".to_string(),
             break_reminder_mins: 0,
-            pomodoro_long_break_mins: 15,
+            pomodoro_long_break_mins: 20,
             pomodoro_rounds: 4,
             pomodoro_auto_advance: false,
-            pomodoro_session_name: String::new(),
             pomodoro_custom_mins: 40,
             pomodoro_ambient: "forest".to_string(),
             break_reminder_sound_id: "soft-chime".to_string(),

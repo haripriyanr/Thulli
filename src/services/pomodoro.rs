@@ -65,9 +65,9 @@ impl PomodoroSettings {
 impl Default for PomodoroSettings {
     fn default() -> Self {
         Self {
-            focus_secs: 25 * 60,
-            short_break_secs: 5 * 60,
-            long_break_secs: 15 * 60,
+            focus_secs: 50 * 60,
+            short_break_secs: 10 * 60,
+            long_break_secs: 20 * 60,
             rounds_before_long_break: 4,
             auto_advance: false,
         }
@@ -304,8 +304,8 @@ mod tests {
         let timer = PomodoroTimer::default();
         assert_eq!(timer.phase(), PomodoroPhase::Focus);
         assert!(!timer.is_running());
-        assert_eq!(timer.remaining_secs(), 25 * 60);
-        assert_eq!(timer.display(), "25:00");
+        assert_eq!(timer.remaining_secs(), 50 * 60);
+        assert_eq!(timer.display(), "50:00");
         assert_eq!(timer.progress(), 0.0);
     }
 
