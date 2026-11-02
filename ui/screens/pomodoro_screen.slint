@@ -302,9 +302,23 @@ component TimerCard inherits GlassCard {
                             y: parent.height - 44px;
                             height: 44px;
                             border-radius: 10px;
-                            background: option.id == AppData.session-task-id && option.id != "" ? Theme.accent-violet.with-alpha(0.22)
-                                : (row-touch.has-hover ? Theme.glass-fill-hover : transparent);
-                            animate background { duration: 200ms; easing: ease-out; }
+                            property <bool> chosen: option.id == AppData.session-task-id && option.id != "";
+                            // Hover is a firm accent tint with an edge, so the row under
+                            // the pointer reads as selected without a slow fade.
+                            background: self.chosen ? Theme.accent-violet.with-alpha(0.24)
+                                : (row-touch.has-hover ? Theme.accent-violet.with-alpha(0.13) : transparent);
+                            border-width: row-touch.has-hover || self.chosen ? 1px : 0px;
+                            border-color: Theme.accent-violet.with-alpha(0.45);
+                            animate background { duration: 60ms; }
+                            Rectangle {
+                                x: 0;
+                                y: 10px;
+                                width: 3px;
+                                height: parent.height - 20px;
+                                border-radius: 2px;
+                                background: Theme.accent-violet;
+                                visible: row-touch.has-hover || parent.chosen;
+                            }
                             Rectangle {
                                 x: 10px;
                                 y: (parent.height - self.height) / 2;

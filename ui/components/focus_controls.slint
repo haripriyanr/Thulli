@@ -50,47 +50,57 @@ export component PlayButton inherits Rectangle {
     width: 88px;
     height: 88px;
     border-radius: 44px;
-    background: touch.pressed
-        ? @linear-gradient(150deg, #A78BFA 0%, #6D28D9 100%)
-        : @linear-gradient(150deg, #D8B4FE 0%, #A78BFA 45%, #7C3AED 100%);
-    drop-shadow-blur: touch.has-hover ? 40px : 30px;
-    drop-shadow-color: #8B5CF6AA;
-    drop-shadow-offset-y: 8px;
-    animate drop-shadow-blur { duration: 200ms; easing: ease-out; }
+    // A thin bright rim around a deep violet face.
+    background: @linear-gradient(160deg, #EDE4FF 0%, #A78BFA 55%, #6D28D9 100%);
+    drop-shadow-blur: touch.has-hover ? 34px : 24px;
+    drop-shadow-color: #7C3AED80;
+    drop-shadow-offset-y: touch.pressed ? 4px : 10px;
+    animate drop-shadow-blur, drop-shadow-offset-y { duration: 180ms; easing: ease-out; }
 
-    // Soft outer halo and a glossy top edge.
-    Rectangle {
-        x: -8px;
-        y: -8px;
-        width: parent.width + 16px;
-        height: parent.height + 16px;
+    face := Rectangle {
+        property <length> inset: touch.pressed ? 4px : 3px;
+        x: self.inset;
+        y: self.inset;
+        width: parent.width - 2 * self.inset;
+        height: parent.height - 2 * self.inset;
         border-radius: self.width / 2;
-        border-width: 1px;
-        border-color: #C4B5FD40;
-        background: #A78BFA1A;
-    }
-    Rectangle {
-        x: 6px;
-        y: 4px;
-        width: parent.width - 12px;
-        height: parent.height / 2;
-        border-radius: self.width / 2;
-        background: @linear-gradient(180deg, #FFFFFF59 0%, #FFFFFF00 100%);
-    }
+        background: touch.pressed
+            ? @linear-gradient(180deg, #8B5CF6 0%, #5B21B6 100%)
+            : (touch.has-hover
+                ? @linear-gradient(180deg, #B69CFF 0%, #8B5CF6 50%, #6D28D9 100%)
+                : @linear-gradient(180deg, #A78BFA 0%, #8B5CF6 50%, #6D28D9 100%));
+        animate x, y, width, height { duration: 120ms; easing: ease-out; }
 
-    if !root.running: IconPlay {
-        width: 30px; height: 30px;
-        x: (parent.width - self.width) / 2 + 2px;
-        y: (parent.height - self.height) / 2;
-        stroke-color: #FFFFFF; fill-color: #FFFFFF;
-        stroke-line-join: round;
-    }
-    if root.running: IconPause {
-        width: 28px; height: 28px;
-        x: (parent.width - self.width) / 2;
-        y: (parent.height - self.height) / 2;
-        stroke-color: #FFFFFF; fill-color: #FFFFFF;
-        stroke-line-join: round;
+        // Soft sheen across the upper third.
+        Rectangle {
+            x: parent.width * 0.18;
+            y: parent.height * 0.07;
+            width: parent.width * 0.64;
+            height: parent.height * 0.34;
+            border-radius: self.height / 2;
+            background: @linear-gradient(180deg, #FFFFFF47 0%, #FFFFFF00 100%);
+        }
+
+        if !root.running: IconPlay {
+            width: 30px; height: 30px;
+            x: (parent.width - self.width) / 2 + 3px;
+            y: (parent.height - self.height) / 2;
+            stroke-color: #FFFFFF; fill-color: #FFFFFF;
+            stroke-line-join: round;
+        }
+        // Pause: two solid rounded bars, 3:1 tall to wide.
+        if root.running: HorizontalLayout {
+            alignment: center;
+            spacing: 7px;
+            VerticalLayout {
+                alignment: center;
+                Rectangle { width: 8px; height: 26px; border-radius: 3px; background: #FFFFFF; }
+            }
+            VerticalLayout {
+                alignment: center;
+                Rectangle { width: 8px; height: 26px; border-radius: 3px; background: #FFFFFF; }
+            }
+        }
     }
 
     touch := TouchArea {

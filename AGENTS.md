@@ -8,7 +8,7 @@ Welcome to **Thulli**! This document provides authoritative architectural guidel
 
 - **Application Name**: Thulli
 - **Repository**: `E:\repos\Thuli`
-- **Core Purpose**: A 100% native Rust desktop shell with local encrypted storage and reusable Slint UI components. Product screens and navigation are currently removed at the user's direction; the productivity domain services remain in `thulli_core`.
+- **Core Purpose**: A 100% native Rust productivity app (Pomodoro, Spaces, Notes, Settings, AI planning) with local encrypted storage and reusable Slint UI components. See §13 for the current state.
 - **Tech Stack**:
   - **Language**: 100% pure Rust (Slint UI 1.18 + Tokio).
   - **Crate Structure**: Dual-target package providing `thulli_core` library crate (`src/lib.rs`) and `thulli` desktop application binary (`src/main.rs`).
@@ -82,7 +82,7 @@ All code in Thulli must follow clean Object-Oriented and SOLID design principles
 - Low-level Win32 unsafe calls are encapsulated behind the safe, modular `WindowManager` interface (`begin_native_drag()`, `minimize()`, `toggle_maximize()`, `exit_cleanly()`).
 
 ### 4.5. UI Wiring
-- Screens (Today, Pomodoro, Tasks, Notes, Insights, Settings) are restored and show only saved data. Every value they display comes from `AppData` (`ui/app_data.slint`), which Rust fills from the saved state in `src/data_hub.rs`; display rows are built in `src/convert.rs`.
+- Screens (Pomodoro, Spaces, Notes, Settings, plus the AI Plan panel and Sort screen) are live and show only saved data. Every value they display comes from `AppData` (`ui/app_data.slint`), which Rust fills from the saved state in `src/data_hub.rs`; display rows are built in `src/convert.rs`.
 - Screens never hold sample or invented data. A screen with nothing saved shows an empty-state line.
 - `DataHub` changes data only through the services (`TaskService`, `NotesService`, `PreferencesService`, `StoreHandle`) so every change is saved. Do not write to the store from a screen.
 
@@ -90,7 +90,7 @@ All code in Thulli must follow clean Object-Oriented and SOLID design principles
 
 ## 5. Reusable UI Library Component Standard (`ui/components/`)
 
-The user interface must never be implemented as a monolithic file. The current `app.slint` is a screen-free native shell; reusable widgets remain in `ui/components/` with configurable public properties. Product screens are intentionally absent unless the user asks to restore them.
+The user interface must never be implemented as a monolithic file. Screens live in `ui/screens/`; reusable widgets live in `ui/components/` with configurable public properties. Build new UI from these components.
 
 ```
 ui/
@@ -226,3 +226,95 @@ Three features that would make Flow stand out:
    Select a task, estimate the required sessions, track time spent and automatically update task progress.
 
 Recommendation: make Flow more than a Pomodoro timer. Make it a complete productivity system with Focus, Tasks, Analytics and Timesheets working together.
+
+## 12. Spaces Behaviour Spec
+
+Behaviour rules observed in a third-party reference app (read-only study of its installed bundle and UI strings). Written in plain English. "Space" is Thulli's term for a list. Items marked (unverified) were not confirmed by code or UI.
+
+### a. Spaces (lists)
+- Each task belongs to exactly one space (unverified: a default space is created for new users).
+- A space has a name and a colour and an optional icon or letter badge (verified).
+- Tasks without a space are shown under the label "Unsorted" (verified).
+- An "All" combined view shows tasks from all visible spaces at once (unverified).
+- Per-space counts include only open tasks, not done or archived ones (verified for the queue count).
+- Deleting a space: tasks in it are moved or removed (unverified; check before implementing).
+- Archiving is a separate action from deleting (verified label exists, behaviour unverified).
+
+### b. Board columns
+- Four columns: Backlog, This Week, Today, Done (verified).
+- Progress reads as completed over total. Done tasks and archived tasks are excluded from the open count (verified).
+- Column collapse and expand behaviour: (unverified).
+- Done column groups finished tasks under their completion date, one group per local calendar day (verified).
+- Adding a task to the Done column creates it in Backlog instead (verified).
+- Back and forward column moves at the ends of the sequence: (unverified).
+
+### c. Task card
+- Ticking a task marks it done and moves it to the Done column (verified).
+- Unticking a done task returns it to Today at the position it held before, appended as the first item of Today (verified).
+- Subtasks: each subtask has its own done flag. Ticking one subtask only changes that subtask (verified in the editor state).
+- Ticking the last subtask does not complete the parent task in the editor (verified in the client; server behaviour unverified).
+- The card shows a count of completed subtasks over total subtasks (verified).
+- Estimate is stored in minutes and shown on the card; an estimate can be entered when creating a task (verified).
+- Deadline urgency is derived from the time left until the deadline compared with the estimate: "urgent" when the deadline has passed or less time remains than the estimate; "soon" when under 24 hours remain or under twice the estimate remains; otherwise "comfortable" (verified).
+- Tags, notes and "+ EST" shortcut: (unverified).
+- Do date and deadline are separate fields in the scheduling editor (verified labels); exact effect of each on column placement: (unverified).
+- Edit mode Save and Escape behaviour: (unverified).
+- The more menu contents: (unverified).
+
+### d. Launch
+- Launch is a rocket action on the card (verified).
+- Launch moves the task to the top of the Today queue. It does nothing for tasks that are done, archived, recurring templates, or not standard tasks (verified).
+- If the task is already first in Today, Launch changes nothing (verified).
+- Whether Launch starts a timer or a fixed duration: (unverified).
+
+### e. Matrix
+- Four quadrants with these display labels: "Do ASAP", "Later today", "Mid week", "Leave till end" (verified). Internal keys are do, schedule, delegate and drop (verified).
+- Quadrant assignment can be requested from an AI prioritisation service in batches of up to 200 tasks (verified). Thulli should treat this as optional and never required for the matrix to work.
+- Quadrant to column mapping: (unverified).
+- Unsorted queue and "review one by one" flow: a review screen exists (verified string), exact steps: (unverified).
+- Moving tasks between quadrants and columns: (unverified).
+
+### f. Calendar
+- Tasks can be placed on the calendar by a start time and an end time. Time blocks are separate items that are hatched in the grid (verified).
+- Default selection length is 60 minutes (verified constant). Default end offset is 30 minutes (verified constant, use unverified).
+- Past items are visually dimmed by a shared style class (verified). Whether past days are hatched: (unverified).
+- Today is highlighted (unverified).
+- Unscheduled tasks appear in a rail grouped by Today, This Week and Backlog (verified).
+- Dropping a task onto a date sets its start date. If the date is today it goes to Today, if it falls in the current week it goes to This Week, otherwise Backlog (partly verified; the later-week case is unverified).
+- Day, week and month views: (unverified).
+
+### g. Undo and redo
+- Undo and redo are available by Ctrl+Z and Ctrl+Shift+Z (verified).
+- Shortcuts are ignored while focus is in a text input, text area, select, or editable element (verified).
+- The toolbar buttons show the label of the next action to undo or redo, or "Nothing to undo" / "Nothing to redo" (verified).
+- The undo control is behind a build-time feature flag (verified; flag value unverified).
+- Undo scope (which actions are recorded): (unverified).
+
+## 13. Current State and Handoff (2026-11-03)
+
+### a. Where things live
+- **Pomodoro** `ui/screens/pomodoro_screen.slint`: ring with elapsed gradient, full screen toggle (ring expands, only toggle and play/pause shown), task picker dropdown, ambient scene tiles, analytics with Recent sessions. Controls in `ui/components/focus_controls.slint` (PlayButton, SceneTile, FieldCard, SearchField, StatCard, IconTab).
+- **Spaces** (replaced Tasks) `ui/screens/spaces_screen.slint`: Board (collapsible columns, back/forward), Matrix (four quadrants + Unsorted, "Sort one by one"), Calendar (week, unscheduled rail). Spaces start empty; no default space is ever created. Rust side: `src/spaces.rs` builds rows, `src/data_hub.rs` `wire_spaces` handles callbacks. Widgets in `ui/components/space_widgets.slint` (TaskCard, ColumnShell, TaskComposer, SpaceForm, DateField, CardAction, MicButton).
+- **TaskCard**: hover actions float over the top-right corner (no layout change on hover). Add subtask lives in the edit mode only. Subtasks are tasks; deleting one calls `space-task-deleted`.
+- **Drag and drop** `ui/components/drag.slint`: `DragState` global, `DropZone` overlays, `DragGhost`. `TipState` + `TipLayer` draw every hover tooltip at window level (never inside a container).
+- **Settings** `ui/screens/settings_screen.slint`: Language (English only) at top, AI (key, model, Test), Timer settings. Controls in `ui/components/settings_controls.slint`.
+- **AI** `src/services/assistant/` (engine trait, `RemoteEngine` for OpenRouter, strict JSON action parser, short 6-char task ids, compact prompts in `prompt.rs`) and `src/data_hub_ai.rs` (worker thread, approve-before-apply). UI in `ui/screens/ai_panels.slint` (PlanPanel, SortScreen). Prompts are kept small on purpose: a bundled local model (Qwen3.5 0.8B, fine-tuned later) will replace the remote one behind the same `ChatEngine` trait.
+- **API key**: Windows Credential Manager via `src/secrets.rs` (`Thulli/openrouter-api-key`). Never store it in the data file.
+- **Voice**: `src/voice.rs` sends Win+H (Windows voice typing). An ASR model will replace `toggle_voice_typing` later; UI already calls it through `AppData.mic-toggle`.
+- **Window**: frameless with native resize (`begin_native_resize` in `src/main.rs`; Slint gets PointerReleased/Exited before SC_SIZE so input is not stuck).
+
+### b. Open issues (not yet verified in the running app)
+- Task drag and drop and card hover are reported glitchy. Suspects: the 1 s Pomodoro tick calls `refresh_pomodoro` (and `refresh_all` on phase change), and any model reset recreates TaskCards mid-drag; subtask rows have their own TouchArea that swallows drag presses. Reproduce in the app before changing anything.
+- The latest TaskCard changes (floating hover bar, subtask delete, two-row DateField, add subtask in editor) compile but were not checked visually.
+- Pomodoro task picker "No due date" rows fix not confirmed visually.
+
+### c. Pending work
+- ASR model for voice typing (user will bring it).
+- Fine-tuning Qwen3.5 0.8B on Kaggle for Thulli actions in all its languages, low reasoning tokens. A side session on branch `claude/sleepy-diffie-8d9c7b` stalled because the Kaggle connector was unauthenticated; nothing from it is merged.
+
+### d. Working agreements with the user
+- Work screen by screen; the user sends reference screenshots. Match them but never copy another product's name or branding (§2.1).
+- Do not hardcode spaces, names or sample data.
+- Commit only when asked; run the keyword audit (§8.1) and `cargo check` first.
+- The user often says "no need to test"; still say plainly what was not verified.
+- Write Slint edits with a script or Edit tool; avoid PowerShell `Set-Content` (it mangles `·` and adds BOMs).

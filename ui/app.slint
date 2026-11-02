@@ -15,7 +15,7 @@ import { AppData } from "app_data.slint";
 import { PomodoroScreen } from "screens/pomodoro_screen.slint";
 import { SpacesScreen } from "screens/spaces_screen.slint";
 import { SortScreen } from "screens/ai_panels.slint";
-import { DragGhost } from "components/drag.slint";
+import { DragGhost, TipLayer } from "components/drag.slint";
 import { TodayScreen } from "screens/today_screen.slint";
 import { NotesScreen } from "screens/notes_screen.slint";
 import { InsightsScreen } from "screens/insights_screen.slint";
@@ -209,6 +209,8 @@ export component MainWindow inherits Window {
 
         // The card following the pointer while a task is dragged.
         DragGhost {}
+        // Hover tooltips, above every container.
+        TipLayer {}
 
         // --- Frameless resize edges: transparent strips pinned to the ------
         // window frame, on top of everything, hidden while maximized.
