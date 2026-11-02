@@ -421,6 +421,7 @@ impl PreferencesService {
             let p = &mut s.preferences;
             match key.as_str() {
                 "hide_estimates" => p.hide_estimates = value,
+                "pomodoro_auto_advance" => p.pomodoro_auto_advance = value,
                 "auto_parse_estimates" => p.auto_parse_estimates = value,
                 "open_at_login" => p.open_at_login = value,
                 "open_on_wake" => p.open_on_wake = value,
@@ -468,6 +469,8 @@ impl PreferencesService {
                 "reminder_mins_before" => p.reminder_mins_before = v.clamp(0, 120),
                 "break_reminder_mins" => p.break_reminder_mins = v.min(240),
                 "zoom_percent" => p.zoom_percent = v.clamp(50, 200),
+                "pomodoro_long_break_mins" => p.pomodoro_long_break_mins = v.clamp(1, 60),
+                "pomodoro_rounds" => p.pomodoro_rounds = v.clamp(1, 8),
                 _ => return Err(PrefError::UnknownSetting(key.clone())),
             }
             Ok(())

@@ -1,0 +1,58 @@
+import { Theme } from "../theme.slint";
+
+/// AppBackground: the single backdrop shared by every screen.
+///
+/// A slow vertical gradient with three soft colour orbs. Each orb is a
+/// radial gradient that fades to transparent, so the glass surfaces above
+/// pick up the colour. `phase` runs from 0 to 1 and loops; the shell timer
+/// advances it, and the orbs move on that one value so they stay in step.
+export component AppBackground inherits Rectangle {
+    in property <float> phase: 0.0;
+    // Matches the window corner so the background never shows a square edge.
+    in property <length> corner: 16px;
+
+    clip: true;
+    border-radius: root.corner;
+    background: Theme.dark-mode
+        ? @linear-gradient(160deg, #1F1A3D 0%, #0A071E 60%, #161523 100%)
+        : @linear-gradient(160deg, #EDE9FE 0%, #FAFAF9 60%, #E0F2FE 100%);
+
+    // Violet orb, large, drifting across the upper left.
+    Rectangle {
+        property <length> dia: root.width * 0.75;
+        width: self.dia;
+        height: self.dia;
+        x: root.width * (0.25 + 0.15 * Math.sin(root.phase * 360deg)) - self.width / 2;
+        y: root.height * (0.30 + 0.12 * Math.cos(root.phase * 360deg)) - self.height / 2;
+        border-radius: self.width / 2;
+        background: @radial-gradient(circle,
+            (Theme.dark-mode ? #7C3AED80 : #A78BFA70) 0%,
+            transparent 70%);
+    }
+
+    // Teal orb, lower right.
+    Rectangle {
+        property <length> dia: root.width * 0.65;
+        width: self.dia;
+        height: self.dia;
+        x: root.width * (0.80 + 0.12 * Math.cos(root.phase * 360deg)) - self.width / 2;
+        y: root.height * (0.70 + 0.10 * Math.sin(root.phase * 360deg)) - self.height / 2;
+        border-radius: self.width / 2;
+        background: @radial-gradient(circle,
+            (Theme.dark-mode ? #14B8A65C : #5EEAD45C) 0%,
+            transparent 70%);
+    }
+
+    // Pink orb, small, quicker so the motion does not feel mechanical.
+    Rectangle {
+        property <length> dia: root.width * 0.45;
+        width: self.dia;
+        height: self.dia;
+        x: root.width * (0.55 + 0.18 * Math.sin(root.phase * 720deg)) - self.width / 2;
+        y: root.height * (0.15 + 0.10 * Math.cos(root.phase * 720deg)) - self.height / 2;
+        border-radius: self.width / 2;
+        background: @radial-gradient(circle,
+            (Theme.dark-mode ? #EC489952 : #F9A8D452) 0%,
+            transparent 70%);
+    }
+}

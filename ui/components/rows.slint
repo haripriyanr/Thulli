@@ -1,0 +1,198 @@
+import { Theme } from "../theme.slint";
+import { IconCheck, IconTrash, IconChevronRight } from "../icons.slint";
+import { GlassPill, GlassIconButton } from "glass.slint";
+
+/// Section heading for a settings or list group.
+export component SectionTitle inherits Text {
+    font-size: 15px;
+    font-weight: 600;
+    color: Theme.text-primary;
+}
+
+/// A task row: tick to complete, chip to move to the next section, bin to delete.
+export component TaskRowView inherits Rectangle {
+    in property <string> title;
+    in property <string> meta;
+    in property <bool> done: false;
+    in property <string> section: "today";
+    callback toggled();
+    callback moved();
+    callback deleted();
+
+    min-height: 60px;
+    border-radius: 14px;
+    background: Theme.glass-fill;
+    border-width: 1px;
+    border-color: Theme.glass-border;
+
+    HorizontalLayout {
+        padding-left: 14px;
+        padding-right: 8px;
+        padding-top: 8px;
+        padding-bottom: 8px;
+        spacing: 12px;
+        alignment: start;
+
+        // Tick circle. Even size and a whole-pixel edge keep it crisp.
+        VerticalLayout {
+            alignment: center;
+            Rectangle {
+                width: 24px;
+                height: 24px;
+                border-radius: 12px;
+                border-width: 1px;
+                border-color: root.done ? Theme.accent-green : Theme.text-muted;
+                background: root.done ? Theme.accent-green-soft : transparent;
+                check-touch := TouchArea {
+                    width: 100%;
+                    height: 100%;
+                    clicked => { root.toggled(); }
+                }
+                if root.done: IconCheck {
+                    x: 6px;
+                    y: 6px;
+                    width: 12px;
+                    height: 12px;
+                    stroke-color: Theme.accent-green;
+                }
+            }
+        }
+
+        VerticalLayout {
+            alignment: center;
+            spacing: 3px;
+            horizontal-stretch: 1;
+            Text {
+                text: root.title;
+                font-size: 14px;
+                color: root.done ? Theme.text-muted : Theme.text-primary;
+                overflow: elide;
+            }
+            if root.meta != "": Text {
+                text: root.meta;
+                font-size: 12px;
+                color: Theme.text-muted;
+                overflow: elide;
+            }
+        }
+
+        VerticalLayout {
+            alignment: center;
+            GlassPill {
+                width: 84px;
+                label: root.section == "today" ? "Today" : (root.section == "week" ? "This week" : "Backlog");
+                selected: false;
+                clicked => { root.moved(); }
+            }
+        }
+
+        VerticalLayout {
+            alignment: center;
+            GlassIconButton {
+                dia: 32px;
+                clicked => { root.deleted(); }
+                IconTrash {
+                    width: 14px;
+                    height: 14px;
+                }
+            }
+        }
+    }
+}
+
+/// A label with a value that is changed by − and + buttons.
+export component StepperRow inherits Rectangle {
+    in property <string> label;
+    in property <string> hint;
+    in property <int> value: 0;
+    callback step(int);
+
+    min-height: 62px;
+
+    HorizontalLayout {
+        spacing: 12px;
+        alignment: space-between;
+        VerticalLayout {
+            alignment: center;
+            spacing: 3px;
+            Text { text: root.label; font-size: 14px; color: Theme.text-primary; }
+            Text { text: root.hint; font-size: 12px; color: Theme.text-muted; }
+        }
+        HorizontalLayout {
+            alignment: end;
+            spacing: 10px;
+            VerticalLayout {
+                alignment: center;
+                GlassIconButton {
+                    dia: 32px;
+                    clicked => { root.step(-1); }
+                    Text { text: "−"; font-size: 16px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+                }
+            }
+            VerticalLayout {
+                alignment: center;
+                Text {
+                    text: "\{root.value}";
+                    width: 44px;
+                    font-size: 15px;
+                    font-weight: 600;
+                    color: Theme.text-primary;
+                    horizontal-alignment: center;
+                }
+            }
+            VerticalLayout {
+                alignment: center;
+                GlassIconButton {
+                    dia: 32px;
+                    clicked => { root.step(1); }
+                    Text { text: "+"; font-size: 16px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+                }
+            }
+        }
+    }
+}
+
+/// An on/off row. The switch reports the new value through `changed`.
+export component ToggleRow inherits Rectangle {
+    in property <string> label;
+    in property <string> hint;
+    in property <bool> on: false;
+    callback changed(bool);
+
+    min-height: 62px;
+
+    HorizontalLayout {
+        spacing: 12px;
+        alignment: space-between;
+        VerticalLayout {
+            alignment: center;
+            spacing: 3px;
+            Text { text: root.label; font-size: 14px; color: Theme.text-primary; }
+            Text { text: root.hint; font-size: 12px; color: Theme.text-muted; }
+        }
+        VerticalLayout {
+            alignment: center;
+            Rectangle {
+                width: 46px;
+                height: 26px;
+                border-radius: 13px;
+                border-width: 1px;
+                border-color: root.on ? Theme.accent-amber : Theme.glass-border;
+                background: root.on ? Theme.accent-amber-soft : Theme.glass-fill-strong;
+                Rectangle {
+                    width: 20px;
+                    height: 20px;
+                    border-radius: 10px;
+                    x: root.on ? 22px : 3px;
+                    y: 2px;
+                    background: root.on ? Theme.accent-amber : Theme.text-muted;
+                }
+                switch-touch := TouchArea {
+                    width: 100%;
+                    height: 100%;
+                    clicked => { root.changed(!root.on); }
+                }
+            }
+        }
+    }
+}

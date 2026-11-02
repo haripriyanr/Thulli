@@ -249,3 +249,27 @@ export struct FocusQueueItemModel {
     done: bool,
     active: bool,
 }
+
+/// One open or finished task on the Today, Tasks and Done lists.
+export struct TaskRow {
+    id: string,
+    title: string,
+    meta: string,
+    done: bool,
+    section: string, // "today", "week", "backlog"
+}
+
+/// One note in the notes list.
+export struct NoteRow {
+    id: string,
+    title: string,
+    preview: string,
+    updated: string,
+}
+
+/// One day of the focus chart; `value` is 0 to 1 of the busiest day.
+export struct DayBar {
+    label: string,
+    value: float,
+    value-label: string,
+}

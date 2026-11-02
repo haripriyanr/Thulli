@@ -5,61 +5,64 @@ export global Theme {
     out property <bool> system-dark: Palette.color-scheme == ColorScheme.dark;
     out property <bool> dark-mode: theme-choice == "system" ? system-dark : theme-choice == "dark";
     out property <bool> light-mode: !dark-mode;
-    in-out property <color> bg-canvas: dark-mode ? #0D0F12 : #F7F5F0;
-    in-out property <color> bg-sidebar: dark-mode ? #14171D : #EFEEE8;
-    in-out property <color> bg-panel: dark-mode ? #14171D : #FBFAF6;
-    in-out property <color> bg-card: dark-mode ? #181C24 : #FFFFFF;
-    in-out property <color> bg-card-hover: dark-mode ? #222733 : #EAE9E2;
-    in-out property <color> bg-card-selected: dark-mode ? #252D3D : #DCEBE7;
-    in-out property <color> border-subtle: dark-mode ? #262D3D : #DDDCD4;
-    in-out property <color> border-light: dark-mode ? #343E54 : #C8C9C0;
 
-    in-out property <color> text-primary: dark-mode ? #FFFFFF : #242B2A;
-    in-out property <color> text-secondary: dark-mode ? #9EABBE : #586765;
-    in-out property <color> text-muted: dark-mode ? #5E697C : #7D8985;
+    // Direction 2: Warm Alabaster & Amber Bronze (Things 3 / Craft / Notion inspired)
+    in-out property <color> bg-canvas: dark-mode ? #18181B : #FAFAF9;
+    in-out property <color> bg-sidebar: dark-mode ? #202024 : #F5F5F4;
+    in-out property <color> bg-panel: dark-mode ? #242429 : #FFFFFF;
+    in-out property <color> bg-card: dark-mode ? #27272A : #FFFFFF;
+    in-out property <color> bg-card-hover: dark-mode ? #303036 : #EBEAE5;
+    in-out property <color> bg-card-selected: dark-mode ? #332B1F : #FEF3C7;
+    in-out property <color> border-subtle: dark-mode ? #2E2E33 : #E7E5E4;
+    in-out property <color> border-light: dark-mode ? #3F3F46 : #D6D3D1;
 
-    in-out property <color> accent-cyan: dark-mode ? #3CC9C4 : #1D7772;
-    in-out property <color> accent-lime: dark-mode ? #B3C065 : #68751F;
-    in-out property <color> accent-pink: dark-mode ? #EF82EF : #A83D8F;
-    in-out property <color> accent-blue: dark-mode ? #6F98E8 : #365EB0;
-    in-out property <color> accent-green: dark-mode ? #00C282 : #007A53;
-    in-out property <color> accent-amber: dark-mode ? #DB9D20 : #9A5E00;
-    in-out property <color> accent-violet: dark-mode ? #A855F7 : #7136AA;
-    in-out property <color> destructive: dark-mode ? #FF4757 : #C52C3B;
-    out property <color> accent-cyan-soft: dark-mode ? #3CC9C425 : #1D77721A;
-    out property <color> accent-lime-soft: dark-mode ? #B3C06525 : #68751F1A;
-    out property <color> accent-pink-soft: dark-mode ? #EF82EF25 : #A83D8F1A;
-    out property <color> accent-blue-soft: dark-mode ? #6F98E825 : #365EB01A;
-    out property <color> accent-green-soft: dark-mode ? #00C28225 : #007A531A;
-    out property <color> accent-amber-soft: dark-mode ? #DB9D2025 : #9A5E001A;
-    out property <color> accent-violet-soft: dark-mode ? #A855F725 : #7136AA1A;
-    out property <color> destructive-soft: dark-mode ? #FF475725 : #C52C3B1A;
-    out property <color> icon-fill-muted: dark-mode ? #9EABBE25 : #6476721A;
+    in-out property <color> text-primary: dark-mode ? #FAFAF9 : #1C1917;
+    in-out property <color> text-secondary: dark-mode ? #A1A1AA : #57534E;
+    in-out property <color> text-muted: dark-mode ? #71717A : #A8A29E;
+
+    // Refined accents: warm amber primary with rich harmonized secondaries
+    in-out property <color> accent-amber: dark-mode ? #F59E0B : #D97706;
+    in-out property <color> accent-cyan: dark-mode ? #2DD4BF : #0D9488;
+    in-out property <color> accent-lime: dark-mode ? #A3E635 : #65A30D;
+    in-out property <color> accent-pink: dark-mode ? #F472B6 : #DB2777;
+    in-out property <color> accent-blue: dark-mode ? #60A5FA : #2563EB;
+    in-out property <color> accent-green: dark-mode ? #34D399 : #16A34A;
+    in-out property <color> accent-violet: dark-mode ? #A78BFA : #7C3AED;
+    in-out property <color> destructive: dark-mode ? #F87171 : #DC2626;
+
+    out property <color> accent-amber-soft: dark-mode ? #F59E0B25 : #D977061A;
+    out property <color> accent-cyan-soft: dark-mode ? #2DD4BF25 : #0D94881A;
+    out property <color> accent-lime-soft: dark-mode ? #A3E63525 : #65A30D1A;
+    out property <color> accent-pink-soft: dark-mode ? #F472B625 : #DB27771A;
+    out property <color> accent-blue-soft: dark-mode ? #60A5FA25 : #2563EB1A;
+    out property <color> accent-green-soft: dark-mode ? #34D39925 : #16A34A1A;
+    out property <color> accent-violet-soft: dark-mode ? #A78BFA25 : #7C3AED1A;
+    out property <color> destructive-soft: dark-mode ? #F8717125 : #DC26261A;
+    out property <color> icon-fill-muted: dark-mode ? #A1A1AA20 : #78716C1A;
 
     out property <length> radius-sm: 6px;
     out property <length> radius-md: 10px;
     out property <length> radius-lg: 14px;
     out property <length> radius-full: 9999px;
 
-    // Liquid glass surfaces. Fills stay low-alpha; the aurora below shows
-    // through them, and a light rim sells the pane of glass.
-    out property <color> glass-fill: dark-mode ? #FFFFFF0A : #4056500A;
-    out property <color> glass-fill-strong: dark-mode ? #FFFFFF12 : #40565012;
-    out property <color> glass-fill-hover: dark-mode ? #FFFFFF1E : #40565018;
-    out property <color> glass-border: dark-mode ? #FFFFFF26 : #40565024;
-    out property <color> glass-highlight: dark-mode ? #FFFFFF4D : #FFFFFFAA;
-    out property <color> glass-shadow: #00000059;
+    // Liquid glass surfaces: warm tinted highlights
+    out property <color> glass-fill: dark-mode ? #FFFFFF0D : #FFFFFF1F;
+    out property <color> glass-fill-strong: dark-mode ? #FFFFFF14 : #FFFFFF2E;
+    out property <color> glass-fill-hover: dark-mode ? #FFFFFF1F : #FFFFFF45;
+    out property <color> glass-border: dark-mode ? #FFFFFF26 : #FFFFFFA6;
+    out property <color> glass-highlight: dark-mode ? #FFFFFF2E : #FFFFFFB8;
+    out property <color> glass-shadow: #00000040;
 
     out property <length> title-bar-height: 44px;
     out property <length> radius-pill: 30px;
 
-    // Dock (values lifted verbatim from the glass-dock spec: surface 55%,
-    // top sheen +7% white, hairline 14%, shadow 35% blur 24 offset 6).
-    out property <color> dock-fill: dark-mode ? #16161C8C : #FDFCF8E8;
-    out property <color> dock-fill-top: dark-mode ? #1F1F2AA4 : #FFFFFFF2;
-    out property <color> dock-hairline: dark-mode ? #FFFFFF24 : #40565024;
-    out property <color> dock-indicator: dark-mode ? #1D383A : #DCEBE7;
-    out property <color> dock-icon-active: dark-mode ? #36C9C5 : #1D6661;
-    out property <color> dock-icon-active-fill: dark-mode ? #36C9C533 : #1D66611A;
-    out property <color> dock-icon-passive: dark-mode ? #9AA7BA : #647672;
+    // Dock & Navigation Rail: warm luminous amber pill with high-contrast active icons
+    out property <color> dock-fill: dark-mode ? #202024 : #F5F5F4;
+    out property <color> dock-fill-top: dark-mode ? #27272D : #FFFFFF;
+    out property <color> dock-hairline: dark-mode ? #2E2E33 : #E7E5E4;
+    out property <color> dock-indicator: dark-mode ? #2E281F : #FEF3C7;
+    out property <color> dock-indicator-border: dark-mode ? #F59E0B4D : #D9770638;
+    out property <color> dock-icon-active: dark-mode ? #F59E0B : #D97706;
+    out property <color> dock-icon-active-fill: dark-mode ? #F59E0B2E : #D9770624;
+    out property <color> dock-icon-passive: dark-mode ? #A1A1AA : #78716C;
 }

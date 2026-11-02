@@ -1,0 +1,72 @@
+import { Theme } from "../theme.slint";
+
+/// GlassCard: a translucent panel with a soft top sheen and a hairline edge.
+/// The shared AppBackground shows through, which gives the glass effect.
+export component GlassCard inherits Rectangle {
+    in property <length> corner: 20px;
+
+    border-radius: root.corner;
+    background: @linear-gradient(170deg, Theme.glass-highlight 0%, Theme.glass-fill-strong 35%, Theme.glass-fill 100%);
+    border-width: 1px;
+    border-color: Theme.glass-border;
+    clip: true;
+}
+
+/// GlassPill: a selectable capsule used for mode switches.
+export component GlassPill inherits Rectangle {
+    in property <string> label: "";
+    in property <bool> selected: false;
+    in property <color> accent: Theme.accent-amber;
+    callback clicked();
+
+    height: 36px;
+    border-radius: 18px;
+    background: root.selected ? root.accent.with-alpha(0.18) : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
+    border-width: 1px;
+    border-color: root.selected ? root.accent.with-alpha(0.55) : Theme.glass-border;
+
+    Text {
+        text: root.label;
+        font-size: 13px;
+        font-weight: root.selected ? 600 : 400;
+        color: root.selected ? Theme.text-primary : Theme.text-secondary;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+
+    touch := TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.clicked(); }
+    }
+}
+
+/// GlassIconButton: a round, translucent button that holds one icon.
+/// The icon goes in as a child and is centred. The tap area covers the whole
+/// circle.
+export component GlassIconButton inherits Rectangle {
+    in property <length> dia: 48px;
+    in property <color> fill: Theme.glass-fill-strong;
+    callback clicked();
+
+    // Even diameter and no border: a 1px edge on a round shape rasterises
+    // unevenly at fractional scale factors, which made the rim look jagged.
+    width: root.dia;
+    height: root.dia;
+    border-radius: root.dia / 2;
+    background: touch.has-hover ? Theme.glass-fill-hover : root.fill;
+
+    VerticalLayout {
+        alignment: center;
+        HorizontalLayout {
+            alignment: center;
+            @children
+        }
+    }
+
+    touch := TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.clicked(); }
+    }
+}

@@ -1,0 +1,119 @@
+import { Theme } from "../theme.slint";
+import { IconChart, IconClock, IconBolt, IconCheck } from "../icons.slint";
+import { GlassCard } from "../components/glass.slint";
+import { SectionTitle } from "../components/rows.slint";
+import { AppData } from "../app_data.slint";
+
+/// InsightsScreen: focus time, sessions and streak from the saved time
+/// entries, plus the last seven days as bars.
+export component InsightsScreen inherits Rectangle {
+    clip: true;
+    background: transparent;
+
+    VerticalLayout {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 28px;
+        padding-right: 28px;
+        spacing: 18px;
+
+        VerticalLayout {
+            spacing: 4px;
+            Text { text: "Insights"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+            Text { text: "How your focus has gone"; font-size: 13px; color: Theme.text-secondary; }
+        }
+
+        HorizontalLayout {
+            spacing: 12px;
+
+            GlassCard {
+                height: 96px;
+                VerticalLayout {
+                    padding: 16px;
+                    spacing: 6px;
+                    alignment: center;
+                    HorizontalLayout {
+                        spacing: 6px;
+                        alignment: start;
+                        IconClock { width: 14px; height: 14px; stroke-color: Theme.accent-amber; }
+                        Text { text: "Focus this week"; font-size: 12px; color: Theme.text-secondary; }
+                    }
+                    Text { text: AppData.insight-focus-week; font-size: 24px; font-weight: 700; color: Theme.text-primary; }
+                }
+            }
+            GlassCard {
+                height: 96px;
+                VerticalLayout {
+                    padding: 16px;
+                    spacing: 6px;
+                    alignment: center;
+                    HorizontalLayout {
+                        spacing: 6px;
+                        alignment: start;
+                        IconCheck { width: 14px; height: 14px; stroke-color: Theme.accent-green; }
+                        Text { text: "Sessions this week"; font-size: 12px; color: Theme.text-secondary; }
+                    }
+                    Text { text: AppData.insight-sessions; font-size: 24px; font-weight: 700; color: Theme.text-primary; }
+                }
+            }
+            GlassCard {
+                height: 96px;
+                VerticalLayout {
+                    padding: 16px;
+                    spacing: 6px;
+                    alignment: center;
+                    HorizontalLayout {
+                        spacing: 6px;
+                        alignment: start;
+                        IconBolt { width: 14px; height: 14px; stroke-color: Theme.accent-cyan; }
+                        Text { text: "Streak"; font-size: 12px; color: Theme.text-secondary; }
+                    }
+                    Text { text: AppData.insight-streak; font-size: 24px; font-weight: 700; color: Theme.text-primary; }
+                }
+            }
+        }
+
+        GlassCard {
+            VerticalLayout {
+                padding: 18px;
+                spacing: 16px;
+                HorizontalLayout {
+                    spacing: 8px;
+                    alignment: start;
+                    IconChart { width: 18px; height: 18px; stroke-color: Theme.accent-violet; }
+                    SectionTitle { text: "Focus by day"; vertical-alignment: center; }
+                }
+
+                if AppData.insight-bars.length == 0: Text { text: "No focus time recorded yet."; font-size: 13px; color: Theme.text-muted; }
+                HorizontalLayout {
+                    height: 190px;
+                    spacing: 12px;
+                    alignment: space-between;
+
+                    for bar in AppData.insight-bars: VerticalLayout {
+                        alignment: end;
+                        spacing: 6px;
+                        Text {
+                            text: bar.value-label;
+                            font-size: 10px;
+                            color: Theme.text-muted;
+                            horizontal-alignment: center;
+                        }
+                        Rectangle {
+                            height: 120px * bar.value + 4px;
+                            width: 100%;
+                            border-radius: 8px;
+                            background: @linear-gradient(180deg, Theme.accent-violet 0%, Theme.accent-violet-soft 100%);
+                        }
+                        Text {
+                            text: bar.label;
+                            font-size: 11px;
+                            color: Theme.text-muted;
+                            horizontal-alignment: center;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

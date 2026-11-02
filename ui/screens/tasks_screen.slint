@@ -1,0 +1,117 @@
+import { Theme } from "../theme.slint";
+import { GlassCard, GlassPill } from "../components/glass.slint";
+import { TaskRowView } from "../components/rows.slint";
+import { AppData } from "../app_data.slint";
+
+/// TasksScreen: every task grouped by section, with quick add. Every change
+/// is saved through AppData.
+export component TasksScreen inherits Rectangle {
+    in-out property <string> filter: "today"; // "today", "week", "backlog", "done"
+
+    clip: true;
+    background: transparent;
+
+    function next-section(section: string) -> string {
+        if section == "today" { return "week"; }
+        if section == "week" { return "backlog"; }
+        return "today";
+    }
+
+    VerticalLayout {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 28px;
+        padding-right: 28px;
+        spacing: 18px;
+
+        VerticalLayout {
+            spacing: 4px;
+            Text { text: "Tasks"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+            Text { text: "Everything you have planned, grouped by when"; font-size: 13px; color: Theme.text-secondary; }
+        }
+
+        GlassCard {
+            height: 48px;
+            HorizontalLayout {
+                padding-left: 14px;
+                padding-right: 6px;
+                padding-top: 6px;
+                padding-bottom: 6px;
+                spacing: 10px;
+                TextInput {
+                    horizontal-stretch: 1;
+                    vertical-alignment: center;
+                    font-size: 14px;
+                    color: Theme.text-primary;
+                    text <=> AppData.new-task-text;
+                    accepted => { AppData.add-task(AppData.new-task-text); }
+                }
+                GlassPill {
+                    width: 72px;
+                    label: "Add";
+                    selected: true;
+                    accent: Theme.accent-amber;
+                    clicked => { AppData.add-task(AppData.new-task-text); }
+                }
+            }
+        }
+
+        HorizontalLayout {
+            alignment: start;
+            spacing: 8px;
+            GlassPill { width: 80px; label: "Today"; selected: root.filter == "today"; accent: Theme.accent-amber; clicked => { root.filter = "today"; } }
+            GlassPill { width: 92px; label: "This week"; selected: root.filter == "week"; accent: Theme.accent-cyan; clicked => { root.filter = "week"; } }
+            GlassPill { width: 84px; label: "Backlog"; selected: root.filter == "backlog"; accent: Theme.accent-violet; clicked => { root.filter = "backlog"; } }
+            GlassPill { width: 72px; label: "Done"; selected: root.filter == "done"; accent: Theme.accent-green; clicked => { root.filter = "done"; } }
+        }
+
+        GlassCard {
+            VerticalLayout {
+                padding: 18px;
+                spacing: 12px;
+                alignment: start;
+
+                if root.filter == "today": VerticalLayout {
+                    spacing: 12px;
+                    if AppData.tasks-today.length == 0: Text { text: "No tasks for today yet."; font-size: 13px; color: Theme.text-muted; }
+                    for task in AppData.tasks-today: TaskRowView {
+                        title: task.title; meta: task.meta; done: task.done; section: task.section;
+                        toggled => { AppData.toggle-task(task.id); }
+                        moved => { AppData.move-task(task.id, root.next-section(task.section)); }
+                        deleted => { AppData.delete-task(task.id); }
+                    }
+                }
+                if root.filter == "week": VerticalLayout {
+                    spacing: 12px;
+                    if AppData.tasks-week.length == 0: Text { text: "No tasks for this week yet."; font-size: 13px; color: Theme.text-muted; }
+                    for task in AppData.tasks-week: TaskRowView {
+                        title: task.title; meta: task.meta; done: task.done; section: task.section;
+                        toggled => { AppData.toggle-task(task.id); }
+                        moved => { AppData.move-task(task.id, root.next-section(task.section)); }
+                        deleted => { AppData.delete-task(task.id); }
+                    }
+                }
+                if root.filter == "backlog": VerticalLayout {
+                    spacing: 12px;
+                    if AppData.tasks-backlog.length == 0: Text { text: "The backlog is empty."; font-size: 13px; color: Theme.text-muted; }
+                    for task in AppData.tasks-backlog: TaskRowView {
+                        title: task.title; meta: task.meta; done: task.done; section: task.section;
+                        toggled => { AppData.toggle-task(task.id); }
+                        moved => { AppData.move-task(task.id, root.next-section(task.section)); }
+                        deleted => { AppData.delete-task(task.id); }
+                    }
+                }
+                if root.filter == "done": VerticalLayout {
+                    spacing: 12px;
+                    if AppData.tasks-done.length == 0: Text { text: "Finished tasks appear here."; font-size: 13px; color: Theme.text-muted; }
+                    for task in AppData.tasks-done: TaskRowView {
+                        title: task.title; meta: task.meta; done: task.done; section: task.section;
+                        toggled => { AppData.toggle-task(task.id); }
+                        moved => { AppData.move-task(task.id, root.next-section(task.section)); }
+                        deleted => { AppData.delete-task(task.id); }
+                    }
+                }
+            }
+        }
+    }
+}

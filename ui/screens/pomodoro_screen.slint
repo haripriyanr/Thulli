@@ -1,0 +1,95 @@
+import { Theme } from "../theme.slint";
+import { IconRefresh, IconPlay, IconPause, IconSkip, IconTimer } from "../icons.slint";
+import { ThulliRing } from "../components/ring.slint";
+import { GlassPill, GlassIconButton } from "../components/glass.slint";
+import { AppData } from "../app_data.slint";
+
+/// PomodoroScreen: the focus timer. The shell owns the timer; this screen
+/// shows AppData and reports taps back to it.
+export component PomodoroScreen inherits Rectangle {
+    property <color> phase-accent: AppData.pomodoro-phase == "focus"
+        ? Theme.accent-amber
+        : (AppData.pomodoro-phase == "short_break" ? Theme.accent-cyan : Theme.accent-violet);
+
+    clip: true;
+    background: transparent;
+
+    VerticalLayout {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 28px;
+        padding-right: 28px;
+        spacing: 18px;
+
+        VerticalLayout {
+            spacing: 4px;
+            Text { text: "Pomodoro"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+            Text { text: "Work in timed rounds, then rest"; font-size: 13px; color: Theme.text-secondary; }
+        }
+
+        HorizontalLayout {
+            alignment: start;
+            spacing: 8px;
+            GlassPill { width: 92px; label: "Focus"; selected: AppData.pomodoro-phase == "focus"; accent: Theme.accent-amber; clicked => { AppData.pomodoro-select("focus"); } }
+            GlassPill { width: 116px; label: "Short break"; selected: AppData.pomodoro-phase == "short_break"; accent: Theme.accent-cyan; clicked => { AppData.pomodoro-select("short_break"); } }
+            GlassPill { width: 116px; label: "Long break"; selected: AppData.pomodoro-phase == "long_break"; accent: Theme.accent-violet; clicked => { AppData.pomodoro-select("long_break"); } }
+        }
+
+        // The timer sits directly on the shared background. No extra card.
+        VerticalLayout {
+            alignment: center;
+            spacing: 26px;
+            vertical-stretch: 1;
+
+            HorizontalLayout {
+                alignment: center;
+                ThulliRing {
+                    width: 260px;
+                    height: 260px;
+                    thickness: 12px;
+                    progress: AppData.pomodoro-progress;
+                    ring-color: root.phase-accent;
+                    track-color: Theme.glass-border;
+
+                    VerticalLayout {
+                        alignment: center;
+                        spacing: 4px;
+                        Text { text: AppData.pomodoro-status; font-size: 13px; color: Theme.text-secondary; horizontal-alignment: center; }
+                        Text { text: AppData.pomodoro-time; font-size: 58px; font-weight: 700; color: Theme.text-primary; horizontal-alignment: center; }
+                        Text { text: AppData.pomodoro-round; font-size: 13px; color: root.phase-accent; horizontal-alignment: center; }
+                    }
+                }
+            }
+
+            HorizontalLayout {
+                alignment: center;
+                spacing: 18px;
+
+                GlassIconButton {
+                    dia: 50px;
+                    clicked => { AppData.pomodoro-reset(); }
+                    IconRefresh { width: 18px; height: 18px; stroke-color: Theme.text-secondary; }
+                }
+                GlassIconButton {
+                    dia: 72px;
+                    fill: root.phase-accent.with-alpha(0.18);
+                    clicked => { AppData.pomodoro-toggle(); }
+                    if !AppData.pomodoro-running: IconPlay { width: 26px; height: 26px; stroke-color: root.phase-accent; fill-color: root.phase-accent.with-alpha(0.25); }
+                    if AppData.pomodoro-running: IconPause { width: 26px; height: 26px; stroke-color: root.phase-accent; fill-color: root.phase-accent.with-alpha(0.25); }
+                }
+                GlassIconButton {
+                    dia: 50px;
+                    clicked => { AppData.pomodoro-next(); }
+                    IconSkip { width: 18px; height: 18px; stroke-color: Theme.text-secondary; }
+                }
+            }
+        }
+
+        HorizontalLayout {
+            alignment: center;
+            spacing: 8px;
+            IconTimer { width: 14px; height: 14px; stroke-color: Theme.text-muted; }
+            Text { text: AppData.pomodoro-durations; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
+        }
+    }
+}

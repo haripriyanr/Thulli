@@ -1,0 +1,108 @@
+import { Theme } from "../theme.slint";
+import { IconNote, IconTrash } from "../icons.slint";
+import { GlassCard, GlassPill, GlassIconButton } from "../components/glass.slint";
+import { AppData } from "../app_data.slint";
+
+/// NotesScreen: the saved notes. The editor saves each change as you type.
+export component NotesScreen inherits Rectangle {
+    clip: true;
+    background: transparent;
+
+    VerticalLayout {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 28px;
+        padding-right: 28px;
+        spacing: 18px;
+
+        HorizontalLayout {
+            alignment: space-between;
+            VerticalLayout {
+                spacing: 4px;
+                Text { text: "Notes"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+                Text { text: "Quick thoughts and longer write-ups"; font-size: 13px; color: Theme.text-secondary; }
+            }
+            GlassPill { width: 96px; label: "New note"; selected: true; accent: Theme.accent-amber; clicked => { AppData.new-note(); } }
+        }
+
+        HorizontalLayout {
+            spacing: 14px;
+
+            // Note list
+            GlassCard {
+                width: 260px;
+                VerticalLayout {
+                    padding: 14px;
+                    spacing: 6px;
+                    alignment: start;
+                    if AppData.notes.length == 0: Text {
+                        text: "No notes yet. Create one to start writing.";
+                        font-size: 13px;
+                        color: Theme.text-muted;
+                        wrap: word-wrap;
+                    }
+                    for note in AppData.notes: Rectangle {
+                        height: 62px;
+                        border-radius: 12px;
+                        background: note.id == AppData.selected-note-id
+                            ? Theme.dock-indicator
+                            : (row-touch.has-hover ? Theme.glass-fill-hover : transparent);
+                        VerticalLayout {
+                            padding: 10px;
+                            spacing: 2px;
+                            alignment: center;
+                            Text { text: note.title; font-size: 14px; color: Theme.text-primary; overflow: elide; }
+                            Text { text: note.preview; font-size: 12px; color: Theme.text-muted; overflow: elide; }
+                        }
+                        row-touch := TouchArea {
+                            width: 100%;
+                            height: 100%;
+                            clicked => { AppData.select-note(note.id); }
+                        }
+                    }
+                }
+            }
+
+            // Editor
+            GlassCard {
+                horizontal-stretch: 1;
+                VerticalLayout {
+                    padding: 18px;
+                    spacing: 12px;
+                    alignment: start;
+
+                    if AppData.selected-note-id == "": Text {
+                        text: "Pick a note, or create one, to start writing.";
+                        font-size: 13px;
+                        color: Theme.text-muted;
+                    }
+                    if AppData.selected-note-id != "": HorizontalLayout {
+                        spacing: 8px;
+                        IconNote { width: 18px; height: 18px; stroke-color: Theme.accent-cyan; }
+                        TextInput {
+                            horizontal-stretch: 1;
+                            font-size: 16px;
+                            font-weight: 600;
+                            color: Theme.text-primary;
+                            text <=> AppData.selected-note-title;
+                            edited => { AppData.save-note(AppData.selected-note-title, AppData.selected-note-body); }
+                        }
+                        GlassIconButton {
+                            dia: 32px;
+                            clicked => { AppData.delete-note(); }
+                            IconTrash { width: 14px; height: 14px; }
+                        }
+                    }
+                    if AppData.selected-note-id != "": TextInput {
+                        height: 300px;
+                        wrap: word-wrap;
+                        font-size: 14px;
+                        color: Theme.text-primary;
+                        text <=> AppData.selected-note-body;
+                        edited => { AppData.save-note(AppData.selected-note-title, AppData.selected-note-body); }
+                    }
+                }
+            }
+        }
+    }
+}

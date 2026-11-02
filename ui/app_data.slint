@@ -1,0 +1,61 @@
+import { TaskRow, NoteRow, DayBar } from "types.slint";
+
+/// AppData: everything the screens show. Rust fills it from the saved data
+/// and handles the callbacks; the screens only display it and report taps.
+export global AppData {
+    // Background motion, 0 to 1 and looping.
+    in-out property <float> background-phase: 0.0;
+
+    // Pomodoro
+    in-out property <string> pomodoro-time: "25:00";
+    in-out property <float> pomodoro-progress: 0.0;
+    in-out property <bool> pomodoro-running: false;
+    in-out property <string> pomodoro-phase: "focus";
+    in-out property <string> pomodoro-round: "Round 1 of 4";
+    in-out property <string> pomodoro-status: "Ready to focus";
+    in-out property <string> pomodoro-durations: "";
+    callback pomodoro-toggle();
+    callback pomodoro-next();
+    callback pomodoro-reset();
+    callback pomodoro-select(string);
+
+    // Today
+    in-out property <string> today-focus: "0m";
+    in-out property <[TaskRow]> today-tasks: [];
+
+    // Tasks
+    in-out property <string> new-task-text: "";
+    in-out property <[TaskRow]> tasks-today: [];
+    in-out property <[TaskRow]> tasks-week: [];
+    in-out property <[TaskRow]> tasks-backlog: [];
+    in-out property <[TaskRow]> tasks-done: [];
+    callback add-task(string);
+    callback toggle-task(string);
+    callback move-task(string, string);
+    callback delete-task(string);
+
+    // Notes
+    in-out property <[NoteRow]> notes: [];
+    in-out property <string> selected-note-id: "";
+    in-out property <string> selected-note-title: "";
+    in-out property <string> selected-note-body: "";
+    callback new-note();
+    callback select-note(string);
+    callback save-note(string, string);
+    callback delete-note();
+
+    // Insights
+    in-out property <string> insight-focus-week: "0m";
+    in-out property <string> insight-sessions: "0";
+    in-out property <string> insight-streak: "0 days";
+    in-out property <[DayBar]> insight-bars: [];
+
+    // Settings
+    in-out property <int> setting-focus-mins: 25;
+    in-out property <int> setting-short-mins: 5;
+    in-out property <int> setting-long-mins: 15;
+    in-out property <int> setting-rounds: 4;
+    in-out property <bool> setting-auto-advance: false;
+    callback adjust-setting(string, int);
+    callback set-auto-advance(bool);
+}

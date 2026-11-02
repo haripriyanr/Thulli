@@ -11,6 +11,9 @@ slint::include_modules!();
 
 #[allow(dead_code)]
 mod telemetry;
+mod convert;
+mod data_hub;
+use data_hub::DataHub;
 
 use slint::ComponentHandle;
 use std::cell::RefCell;
@@ -138,14 +141,19 @@ fn set_window_rect(window: &slint::Window, rect: Rect) -> bool {
     }
 }
 
+/// Length of one full drift of the background orbs, in seconds.
+const BACKGROUND_LOOP_SECS: f32 = 40.0;
+/// Interval between background updates (about 20 per second).
+const BACKGROUND_FRAME: Duration = Duration::from_millis(50);
+
 fn main() -> Result<(), Box<dyn std::error::Error>> {
     telemetry::install_crash_hook();
     let security = Arc::new(SecurityManager::init()?);
     let repository: Arc<dyn StorageRepository> = Arc::new(EncryptedStorageRepository::new_default(security)?);
     let report = repository.load_with_report();
     let state = Arc::new(Mutex::new(report.store));
-    let handle = StoreHandle::new(state, repository.clone());
-    let preferences = Arc::new(PreferencesService::new(handle));
+    let handle = StoreHandle::new(state.clone(), repository.clone());
+    let preferences = Arc::new(PreferencesService::new(handle.clone()));
     let window = MainWindow::new()?;
     let shell = window.global::<ShellState>();
 
@@ -158,10 +166,41 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     };
     window.global::<Theme>().set_theme_choice(theme_choice.into());
     window.global::<ShellState>().set_theme_choice(theme_choice.into());
+    window.global::<ShellState>().set_is_macos(thulli_core::window::WindowManager::is_macos());
     {
         let preferences = preferences.clone();
         shell.on_theme_choice_changed(move |choice| {
             let _ = preferences.set_text("theme", choice.as_str());
+        });
+    }
+
+    // --- Saved data: tasks, notes, insights, settings and the Pomodoro timer
+    let hub = DataHub::new(state.clone(), repository.clone());
+    hub.attach(&window);
+
+    // One tick per second. Each tick advances the timer and refreshes the window.
+    let _pomodoro_ticker = slint::Timer::default();
+    {
+        let hub = hub.clone();
+        let weak = window.as_weak();
+        _pomodoro_ticker.start(slint::TimerMode::Repeated, Duration::from_secs(1), move || {
+            if let Some(w) = weak.upgrade() {
+                hub.tick_pomodoro(&w);
+            }
+        });
+    }
+
+    // Background drift: the orbs complete one loop every BACKGROUND_LOOP_SECS,
+    // updated BACKGROUND_FRAME times a second.
+    let _background_ticker = slint::Timer::default();
+    {
+        let weak = window.as_weak();
+        let started = Instant::now();
+        _background_ticker.start(slint::TimerMode::Repeated, BACKGROUND_FRAME, move || {
+            if let Some(w) = weak.upgrade() {
+                let phase = (started.elapsed().as_secs_f32() / BACKGROUND_LOOP_SECS).fract();
+                w.global::<AppData>().set_background_phase(phase);
+            }
         });
     }
 
@@ -429,7 +468,7 @@ fn schedule_corner_update(weak: slint::Weak<MainWindow>) {
 fn set_rounded_window_corners(window: &slint::Window) -> bool {
     use raw_window_handle::{HasWindowHandle, RawWindowHandle};
     use windows_sys::Win32::Graphics::Dwm::{
-        DwmSetWindowAttribute, DWMWA_WINDOW_CORNER_PREFERENCE, DWMWCP_ROUND,
+        DwmSetWindowAttribute, DWMWA_WINDOW_CORNER_PREFERENCE, DWMWCP_DONOTROUND,
     };
 
     let provider = window.window_handle();
@@ -439,7 +478,9 @@ fn set_rounded_window_corners(window: &slint::Window) -> bool {
     let RawWindowHandle::Win32(handle) = handle.as_raw() else {
         return false;
     };
-    let preference = DWMWCP_ROUND;
+    // The shell draws its own rounded frame, so the system must not round
+    // the window too: two different radii leave a visible corner artifact.
+    let preference = DWMWCP_DONOTROUND;
     unsafe {
         DwmSetWindowAttribute(
             handle.hwnd.get() as _,

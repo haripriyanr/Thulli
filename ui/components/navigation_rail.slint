@@ -1,6 +1,8 @@
 import { Theme } from "../theme.slint";
-import { IconCalendar, IconTasks, IconClock, IconNote, IconChart, IconSettings, IconChevronLeft, IconChevronRight } from "../icons.slint";
+import { IconCalendar, IconTasks, IconTimer, IconNote, IconChart, IconSettings, IconChevronLeft, IconChevronRight } from "../icons.slint";
 
+/// One destination in the rail. The icon is chosen by `icon-name`, and the
+/// active destination gets the warm pill and the filled glyph.
 export component NavigationRailItem inherits Rectangle {
     in property <string> label: "";
     in property <string> item-id: "";
@@ -10,6 +12,9 @@ export component NavigationRailItem inherits Rectangle {
     in property <bool> compact: false;
     in property <length> wide-width: 52px;
     callback selected(string);
+
+    property <color> icon-color: root.active ? Theme.dock-icon-active : Theme.dock-icon-passive;
+    property <color> icon-fill: root.active ? Theme.dock-icon-active-fill : transparent;
 
     width: compact ? 42px : wide-width;
     height: compact ? 44px : 46px;
@@ -24,73 +29,68 @@ export component NavigationRailItem inherits Rectangle {
             height: 40px;
             x: (parent.width - self.width) / 2;
             y: (parent.height - self.height) / 2;
-            border-radius: active ? 12px : 10px;
-            background: active ? Theme.dock-indicator : (item-touch.has-hover ? Theme.glass-fill-hover : transparent);
+            border-radius: root.active ? 12px : 10px;
+            background: root.active ? Theme.dock-indicator : (item-touch.has-hover ? Theme.glass-fill-hover : transparent);
+            border-width: root.active ? 1px : 0px;
+            border-color: root.active ? Theme.dock-indicator-border : transparent;
 
-            if icon-name == "today": IconCalendar {
+            if root.icon-name == "today": IconCalendar {
                 width: 22px; height: 22px;
                 x: 14px;
                 y: (parent.height - self.height) / 2;
-                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? Theme.dock-icon-active-fill : transparent;
-                filled: active;
+                stroke-color: root.icon-color;
+                fill-color: root.icon-fill;
             }
-            if icon-name == "tasks": IconTasks {
+            if root.icon-name == "tasks": IconTasks {
                 width: 22px; height: 22px;
                 x: 14px;
                 y: (parent.height - self.height) / 2;
-                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? Theme.dock-icon-active-fill : transparent;
-                filled: active;
+                stroke-color: root.icon-color;
             }
-            if icon-name == "focus": IconClock {
+            if root.icon-name == "pomodoro": IconTimer {
                 width: 22px; height: 22px;
                 x: 14px;
                 y: (parent.height - self.height) / 2;
-                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? Theme.dock-icon-active-fill : transparent;
-                filled: active;
+                stroke-color: root.icon-color;
+                fill-color: root.icon-fill;
             }
-            if icon-name == "notes": IconNote {
+            if root.icon-name == "notes": IconNote {
                 width: 22px; height: 22px;
                 x: 14px;
                 y: (parent.height - self.height) / 2;
-                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? Theme.dock-icon-active-fill : transparent;
-                filled: active;
+                stroke-color: root.icon-color;
+                fill-color: root.icon-fill;
             }
-            if icon-name == "insights": IconChart {
+            if root.icon-name == "insights": IconChart {
                 width: 22px; height: 22px;
                 x: 14px;
                 y: (parent.height - self.height) / 2;
-                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? Theme.dock-icon-active-fill : transparent;
-                filled: active;
+                stroke-color: root.icon-color;
+                fill-color: root.icon-fill;
             }
-            if icon-name == "settings": IconSettings {
+            if root.icon-name == "settings": IconSettings {
                 width: 22px; height: 22px;
                 x: 14px;
                 y: (parent.height - self.height) / 2;
-                stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? Theme.dock-icon-active-fill : transparent;
-                filled: active;
+                stroke-color: root.icon-color;
+                fill-color: root.icon-fill;
             }
 
-            if !compact: Text {
-                text: label;
+            if !root.compact: Text {
+                text: root.label;
                 x: 50px;
                 y: (parent.height - self.height) / 2;
-                color: active ? Theme.text-primary : Theme.text-secondary;
+                color: root.active ? Theme.text-primary : Theme.text-secondary;
                 font-size: 14px;
                 vertical-alignment: center;
-                visible: expanded;
+                visible: root.expanded;
             }
         }
     }
 }
 
-/// Responsive left navigation: a hover-expandable rail on desktop and a
-/// touch-sized bottom row in compact windows.
+/// Responsive left navigation: a hover-expandable glass rail on desktop and
+/// a touch-sized bottom row in compact windows.
 export component NavigationRail inherits Rectangle {
     in property <bool> compact: false;
     in property <length> compact-width: 336px;
@@ -103,13 +103,14 @@ export component NavigationRail inherits Rectangle {
     width: compact ? compact-width : (expanded ? 250px : 76px);
     height: compact ? 62px : desktop-height;
     border-radius: compact ? Theme.radius-pill : 24px;
-    background: Theme.bg-sidebar;
+    background: @linear-gradient(170deg, Theme.glass-highlight 0%, Theme.glass-fill-strong 40%, Theme.glass-fill 100%);
     border-width: 1px;
-    border-color: Theme.dock-hairline;
+    border-color: Theme.glass-border;
     drop-shadow-blur: 24px;
     drop-shadow-color: Theme.glass-shadow;
     drop-shadow-offset-y: 6px;
-    if !compact: VerticalLayout {
+
+    if !root.compact: VerticalLayout {
         padding-top: 12px;
         padding-bottom: 12px;
         padding-left: 6px;
@@ -123,24 +124,24 @@ export component NavigationRail inherits Rectangle {
                 height: 100%;
                 clicked => { root.touch-pinned = !root.expanded; }
             }
-            if expanded || !header-hover.has-hover: Image {
+            if root.expanded || !header-hover.has-hover: Image {
                 source: @image-url("../../assets/Thulli-Mark.png");
                 image-fit: contain;
                 width: 28px;
                 height: 28px;
-                x: expanded ? 12px : (parent.width - self.width) / 2;
+                x: root.expanded ? 12px : (parent.width - self.width) / 2;
                 y: (parent.height - self.height) / 2;
             }
-            // Keep the same full-width TouchArea under the pointer in every
-            // state. Swapping nested TouchAreas here caused hover to oscillate.
-            if !expanded && header-hover.has-hover: IconChevronRight {
+            // The same full-width TouchArea stays under the pointer in every
+            // state. Swapping nested TouchAreas here made hover oscillate.
+            if !root.expanded && header-hover.has-hover: IconChevronRight {
                 width: 17px;
                 height: 17px;
                 x: (parent.width - self.width) / 2;
                 y: (parent.height - self.height) / 2;
                 stroke-color: Theme.dock-icon-passive;
             }
-            if expanded: IconChevronLeft {
+            if root.expanded: IconChevronLeft {
                 width: 17px;
                 height: 17px;
                 x: parent.width - 28px;
@@ -151,13 +152,13 @@ export component NavigationRail inherits Rectangle {
 
         NavigationRailItem { label: "Today"; item-id: "today"; icon-name: "today"; active: root.active-item == "today"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: "Tasks"; item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
-        NavigationRailItem { label: "Focus"; item-id: "focus"; icon-name: "focus"; active: root.active-item == "focus"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: "Pomodoro"; item-id: "pomodoro"; icon-name: "pomodoro"; active: root.active-item == "pomodoro"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: "Notes"; item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: "Insights"; item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: "Settings"; item-id: "settings"; icon-name: "settings"; active: root.active-item == "settings"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
     }
 
-    if compact: HorizontalLayout {
+    if root.compact: HorizontalLayout {
         alignment: space-evenly;
         padding-left: 8px;
         padding-right: 8px;
@@ -167,7 +168,7 @@ export component NavigationRail inherits Rectangle {
 
         NavigationRailItem { compact: true; item-id: "today"; icon-name: "today"; active: root.active-item == "today"; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { compact: true; item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; selected(id) => { root.active-item = id; root.item-selected(id); } }
-        NavigationRailItem { compact: true; item-id: "focus"; icon-name: "focus"; active: root.active-item == "focus"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; item-id: "pomodoro"; icon-name: "pomodoro"; active: root.active-item == "pomodoro"; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { compact: true; item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { compact: true; item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { compact: true; item-id: "settings"; icon-name: "settings"; active: root.active-item == "settings"; selected(id) => { root.active-item = id; root.item-selected(id); } }

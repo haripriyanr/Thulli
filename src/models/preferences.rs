@@ -253,6 +253,12 @@ pub struct Preferences {
     pub app_shield_active: bool,
     pub web_shield_active: bool,
 
+    // Pomodoro cycle: long break length, focus rounds before it, and whether
+    // the next phase starts on its own.
+    pub pomodoro_long_break_mins: u32,
+    pub pomodoro_rounds: u32,
+    pub pomodoro_auto_advance: bool,
+
     // Assistant: user-chosen model file; never downloaded automatically.
     pub assistant_model_path: String,
 
@@ -309,6 +315,9 @@ impl Default for Preferences {
             overtime_alert: true,
             reminder_sound_id: "basic-ding".to_string(),
             break_reminder_mins: 0,
+            pomodoro_long_break_mins: 15,
+            pomodoro_rounds: 4,
+            pomodoro_auto_advance: false,
             break_reminder_sound_id: "soft-chime".to_string(),
             pill_alert_animated: true,
 

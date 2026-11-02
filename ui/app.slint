@@ -1,7 +1,8 @@
-// Thulli shell — frameless, warm neutral surfaces with muted teal accents.
-// A restrained two-tone canvas sits behind a softly layered panel and dock.
+// Thulli shell: frameless window, one animated background shared by every
+// screen, and glass panels on top of it.
 //
-// Motion policy: shell surfaces and ambient lighting stay still.
+// Motion: the background orbs drift on a shared phase value that the shell
+// timer advances. Hover feedback and panel size changes stay immediate.
 
 import { Theme } from "theme.slint";
 import { WindowControls } from "window_controls.slint";
@@ -9,9 +10,18 @@ import { IconSun, IconMoon } from "icons.slint";
 import { EdgeResize } from "resize_edges.slint";
 import { ShellState } from "shell_state.slint";
 import { NavigationRail } from "components/navigation_rail.slint";
+import { AppBackground } from "components/ambient_background.slint";
+import { AppData } from "app_data.slint";
+import { PomodoroScreen } from "screens/pomodoro_screen.slint";
+import { TasksScreen } from "screens/tasks_screen.slint";
+import { TodayScreen } from "screens/today_screen.slint";
+import { NotesScreen } from "screens/notes_screen.slint";
+import { InsightsScreen } from "screens/insights_screen.slint";
+import { SettingsScreen } from "screens/settings_screen.slint";
 
 export { ShellState }
 export { Theme }
+export { AppData }
 
 export component MainWindow inherits Window {
     title: "Thulli";
@@ -20,20 +30,29 @@ export component MainWindow inherits Window {
     preferred-height: 760px;
     min-width: 360px;
     min-height: 480px;
-    background: Theme.bg-canvas;
+    background: transparent;
 
-    // Outer frame: 1px gradient edge so the window has a defined silhouette
-    // against any wallpaper. Everything else lives inside.
+    // Outer frame: smoothly rounded silhouette with crisp 1px border.
+    // Clips all children to the border radius so the window never feels like a harsh rectangle.
     Rectangle {
         width: 100%;
         height: 100%;
         clip: true;
 
-        border-width: 1px;
-        border-color: Theme.glass-border;
+        border-radius: ShellState.is-maximized ? 0px : 16px;
+        border-width: ShellState.is-maximized ? 0px : 1px;
+        border-color: Theme.border-subtle;
         background: Theme.bg-canvas;
 
-        // --- Title strip: drag area + window controls, nothing else -------
+        // The one background for the whole app. Every screen sits on it.
+        AppBackground {
+            width: 100%;
+            height: 100%;
+            phase: AppData.background-phase;
+            corner: ShellState.is-maximized ? 0px : 16px;
+        }
+
+        // --- Title strip: drag area + window controls ----------------------
         // x/y must be pinned: elements without a position binding default to
         // being centered in their parent, which shoved this strip mid-window.
         Rectangle {
@@ -56,10 +75,24 @@ export component MainWindow inherits Window {
                 }
             }
 
+            // macOS Traffic lights (Top-Left)
+            if ShellState.is-macos: WindowControls {
+                width: 68px;
+                height: 24px;
+                x: 14px;
+                y: (parent.height - 24px) / 2;
+                is-maximized: ShellState.is-maximized;
+                is-macos: true;
+                minimize => { ShellState.window-minimize(); }
+                maximize => { ShellState.window-maximize(); }
+                close => { ShellState.window-close(); }
+            }
+
+            // Theme toggle: placed on the right
             Rectangle {
                 width: 30px;
                 height: 30px;
-                x: parent.width - 98px - 10px - 38px;
+                x: ShellState.is-macos ? (parent.width - 30px - 14px) : (parent.width - 98px - 10px - 38px);
                 y: (parent.height - 30px) / 2;
                 theme-touch := TouchArea {
                     width: 100%;
@@ -77,19 +110,22 @@ export component MainWindow inherits Window {
                     }
                 }
             }
-            WindowControls {
+
+            // Windows / Linux controls (Top-Right)
+            if !ShellState.is-macos: WindowControls {
                 width: 98px;
                 height: 30px;
                 x: parent.width - 98px - 10px;
                 y: (parent.height - 30px) / 2;
                 is-maximized: ShellState.is-maximized;
+                is-macos: false;
                 minimize => { ShellState.window-minimize(); }
                 maximize => { ShellState.window-maximize(); }
                 close => { ShellState.window-close(); }
             }
         }
 
-        // --- Frosted glass panel -------------------------------------------
+        // --- Screens sit directly on the shared background ----------------
         Rectangle {
             x: parent.width < 640px ? 14px : (navigation-rail.expanded ? 286px : 116px);
             y: Theme.title-bar-height + 2px;
@@ -97,13 +133,37 @@ export component MainWindow inherits Window {
                 ? parent.width - 28px
                 : parent.width - (navigation-rail.expanded ? 300px : 130px);
             height: parent.height - Theme.title-bar-height - (parent.width < 640px ? 96px : 16px);
-            border-radius: 26px;
+            clip: true;
 
-            background: Theme.bg-panel;
+            if navigation-rail.active-item == "today": TodayScreen {
+                width: 100%;
+                height: 100%;
+            }
 
-            border-width: 1px;
-            border-color: Theme.border-subtle;
+            if navigation-rail.active-item == "tasks": TasksScreen {
+                width: 100%;
+                height: 100%;
+            }
 
+            if navigation-rail.active-item == "pomodoro": PomodoroScreen {
+                width: 100%;
+                height: 100%;
+            }
+
+            if navigation-rail.active-item == "notes": NotesScreen {
+                width: 100%;
+                height: 100%;
+            }
+
+            if navigation-rail.active-item == "insights": InsightsScreen {
+                width: 100%;
+                height: 100%;
+            }
+
+            if navigation-rail.active-item == "settings": SettingsScreen {
+                width: 100%;
+                height: 100%;
+            }
         }
 
         navigation-rail := NavigationRail {

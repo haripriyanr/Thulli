@@ -1,15 +1,105 @@
 import { Theme } from "theme.slint";
 
-// Compact glass window controls for the frameless shell.
-// Immediate hover feedback; no UI transitions or ambient motion.
+// Adaptive window controls for the frameless shell.
+// Displays macOS traffic lights (top-left) on macOS, or sleek frameless controls (top-right) on Windows/Linux.
 export component WindowControls {
     in property <bool> is-maximized: false;
+    in property <bool> is-macos: false;
 
     callback minimize();
     callback maximize();
     callback close();
 
-    HorizontalLayout {
+    // macOS traffic light buttons (Close | Minimize | Maximize)
+    if root.is-macos: macos-cluster := Rectangle {
+        width: 68px;
+        height: 24px;
+        mac-hover := TouchArea { width: 100%; height: 100%; }
+
+        HorizontalLayout {
+            spacing: 8px;
+            alignment: start;
+
+            // Close (Red)
+            mac-close-touch := TouchArea {
+                width: 12px;
+                height: 12px;
+                clicked => { root.close(); }
+
+                Rectangle {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 6px;
+                    background: #FF5F56;
+                    border-width: 0.5px;
+                    border-color: #E0443E;
+
+                    if mac-hover.has-hover: Path {
+                        width: 6px;
+                        height: 6px;
+                        x: 3px;
+                        y: 3px;
+                        stroke: #4D0000;
+                        stroke-width: 1.2px;
+                        commands: "M 0 0 L 6 6 M 6 0 L 0 6";
+                    }
+                }
+            }
+
+            // Minimize (Yellow)
+            mac-min-touch := TouchArea {
+                width: 12px;
+                height: 12px;
+                clicked => { root.minimize(); }
+
+                Rectangle {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 6px;
+                    background: #FFBD2E;
+                    border-width: 0.5px;
+                    border-color: #DEA123;
+
+                    if mac-hover.has-hover: Rectangle {
+                        width: 6px;
+                        height: 1.2px;
+                        x: 3px;
+                        y: 5.4px;
+                        background: #5A3E00;
+                    }
+                }
+            }
+
+            // Maximize / Fullscreen (Green)
+            mac-max-touch := TouchArea {
+                width: 12px;
+                height: 12px;
+                clicked => { root.maximize(); }
+
+                Rectangle {
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 6px;
+                    background: #27C93F;
+                    border-width: 0.5px;
+                    border-color: #1AAB29;
+
+                    if mac-hover.has-hover: Path {
+                        width: 6px;
+                        height: 6px;
+                        x: 3px;
+                        y: 3px;
+                        stroke: #004812;
+                        stroke-width: 1.1px;
+                        commands: "M 1 5 L 5 1 M 1 2 L 1 5 L 4 5 M 5 4 L 5 1 L 2 1";
+                    }
+                }
+            }
+        }
+    }
+
+    // Windows & Linux controls (Minimize | Maximize | Close)
+    if !root.is-macos: HorizontalLayout {
         spacing: 4px;
         alignment: end;
 

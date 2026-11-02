@@ -1,0 +1,61 @@
+import { Theme } from "../theme.slint";
+import { IconCalendar } from "../icons.slint";
+import { GlassCard } from "../components/glass.slint";
+import { SectionTitle, TaskRowView } from "../components/rows.slint";
+import { AppData } from "../app_data.slint";
+
+/// TodayScreen: what is planned for today and the focus time recorded today.
+export component TodayScreen inherits Rectangle {
+    clip: true;
+    background: transparent;
+
+    function next-section(section: string) -> string {
+        if section == "today" { return "week"; }
+        if section == "week" { return "backlog"; }
+        return "today";
+    }
+
+    VerticalLayout {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 28px;
+        padding-right: 28px;
+        spacing: 18px;
+
+        VerticalLayout {
+            spacing: 4px;
+            Text { text: "Today"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+            HorizontalLayout {
+                alignment: start;
+                spacing: 6px;
+                IconCalendar { width: 14px; height: 14px; stroke-color: Theme.text-secondary; }
+                Text { text: "Focused today: \{AppData.today-focus}"; font-size: 13px; color: Theme.text-secondary; }
+            }
+        }
+
+        GlassCard {
+            VerticalLayout {
+                padding: 18px;
+                spacing: 12px;
+                alignment: start;
+                SectionTitle { text: "Planned for today"; }
+
+                if AppData.today-tasks.length == 0: Text {
+                    text: "Nothing planned for today. Add tasks on the Tasks screen.";
+                    font-size: 13px;
+                    color: Theme.text-muted;
+                    wrap: word-wrap;
+                }
+                for task in AppData.today-tasks: TaskRowView {
+                    title: task.title;
+                    meta: task.meta;
+                    done: task.done;
+                    section: task.section;
+                    toggled => { AppData.toggle-task(task.id); }
+                    moved => { AppData.move-task(task.id, root.next-section(task.section)); }
+                    deleted => { AppData.delete-task(task.id); }
+                }
+            }
+        }
+    }
+}

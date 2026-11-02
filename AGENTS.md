@@ -82,7 +82,9 @@ All code in Thulli must follow clean Object-Oriented and SOLID design principles
 - Low-level Win32 unsafe calls are encapsulated behind the safe, modular `WindowManager` interface (`begin_native_drag()`, `minimize()`, `toggle_maximize()`, `exit_cleanly()`).
 
 ### 4.5. UI Wiring
-- Product screen bindings are currently removed at the user's direction. Keep the native shell in `ui/app.slint` small, and do not reintroduce screen routes or screen bindings unless the user asks.
+- Screens (Today, Pomodoro, Tasks, Notes, Insights, Settings) are restored and show only saved data. Every value they display comes from `AppData` (`ui/app_data.slint`), which Rust fills from the saved state in `src/data_hub.rs`; display rows are built in `src/convert.rs`.
+- Screens never hold sample or invented data. A screen with nothing saved shows an empty-state line.
+- `DataHub` changes data only through the services (`TaskService`, `NotesService`, `PreferencesService`, `StoreHandle`) so every change is saved. Do not write to the store from a screen.
 
 ---
 
@@ -194,7 +196,8 @@ cargo build --release
 
 ## 9. Motion Policy
 
-- The shell background uses static, solid theme surfaces. Do not add ambient drift, glow layers, or gradient effects.
+- The shared `AppBackground` (ui/components/ambient_background.slint) is the one backdrop for every screen. It is a gradient with three soft orbs that drift slowly on a shared `background-phase` driven by the shell timer. Screens stay transparent and sit on it.
+- Glass surfaces (`GlassCard`, `GlassPill`, `GlassIconButton` in ui/components/glass.slint) are translucent fills with a hairline edge. Use them for panels and controls instead of solid theme fills.
 - Hover feedback and navigation rail/panel size changes are immediate; do not animate them.
 - Keep the interruptible 260ms native maximize/restore morph as the only shell transition. Apply each Windows frame's position and size in one native update.
 - For future screen-level transitions, animate only when motion clarifies feedback or spatial change. Respect reduced-motion preferences where supported.

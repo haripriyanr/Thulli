@@ -1,0 +1,76 @@
+import { Theme } from "../theme.slint";
+import { IconSettings, IconTimer } from "../icons.slint";
+import { GlassCard } from "../components/glass.slint";
+import { SectionTitle, StepperRow, ToggleRow } from "../components/rows.slint";
+import { AppData } from "../app_data.slint";
+
+/// SettingsScreen: the Pomodoro durations and cycle rule. Changes are saved
+/// straight away and the timer picks them up.
+export component SettingsScreen inherits Rectangle {
+    clip: true;
+    background: transparent;
+
+    VerticalLayout {
+        padding-top: 24px;
+        padding-bottom: 24px;
+        padding-left: 28px;
+        padding-right: 28px;
+        spacing: 18px;
+
+        VerticalLayout {
+            spacing: 4px;
+            Text { text: "Settings"; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+            Text { text: "Tune how Thulli feels and behaves"; font-size: 13px; color: Theme.text-secondary; }
+        }
+
+        GlassCard {
+            VerticalLayout {
+                padding: 18px;
+                spacing: 6px;
+                HorizontalLayout {
+                    spacing: 8px;
+                    alignment: start;
+                    IconTimer { width: 18px; height: 18px; stroke-color: Theme.accent-amber; }
+                    SectionTitle { text: "Pomodoro"; vertical-alignment: center; }
+                }
+                StepperRow {
+                    label: "Focus length";
+                    hint: "Minutes per focus round";
+                    value: AppData.setting-focus-mins;
+                    step(d) => { AppData.adjust-setting("default_session_mins", d); }
+                }
+                StepperRow {
+                    label: "Short break";
+                    hint: "Minutes between focus rounds";
+                    value: AppData.setting-short-mins;
+                    step(d) => { AppData.adjust-setting("default_break_mins", d); }
+                }
+                StepperRow {
+                    label: "Long break";
+                    hint: "Minutes after the last round";
+                    value: AppData.setting-long-mins;
+                    step(d) => { AppData.adjust-setting("pomodoro_long_break_mins", d); }
+                }
+                StepperRow {
+                    label: "Rounds before a long break";
+                    hint: "Focus rounds in one cycle";
+                    value: AppData.setting-rounds;
+                    step(d) => { AppData.adjust-setting("pomodoro_rounds", d); }
+                }
+                ToggleRow {
+                    label: "Start the next phase automatically";
+                    hint: "Keep the timer running between rounds";
+                    on: AppData.setting-auto-advance;
+                    changed(on) => { AppData.set-auto-advance(on); }
+                }
+            }
+        }
+
+        HorizontalLayout {
+            alignment: start;
+            spacing: 8px;
+            IconSettings { width: 14px; height: 14px; stroke-color: Theme.text-muted; }
+            Text { text: "Theme is set from the sun and moon button in the title bar."; font-size: 12px; color: Theme.text-muted; }
+        }
+    }
+}
