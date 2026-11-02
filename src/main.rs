@@ -28,9 +28,9 @@ const MIN_WIDTH: f32 = 360.0;
 const MIN_HEIGHT: f32 = 480.0;
 
 // Shared motion token for window state changes: one easing, one duration,
-// no stagger (AGENTS.md motion policy).
+// and one atomic native bounds update per frame.
 #[cfg(target_os = "windows")]
-const MORPH_MS: f32 = 220.0;
+const MORPH_MS: f32 = 260.0;
 #[cfg(target_os = "windows")]
 const MORPH_TICK: Duration = Duration::from_millis(16);
 
@@ -61,9 +61,9 @@ struct ResizeState {
     start: Rect,
 }
 
-/// Eases the window rect from `from` to `to` over MORPH_MS (cubic out),
-/// repositioning every tick so the UI re-layouts continuously — content
-/// flows with the morph instead of snapping after it.
+/// Eases the window rect from `from` to `to` over MORPH_MS (smooth ease-in-out),
+/// applying position and size together so the compositor never presents an
+/// intermediate half-updated rectangle.
 ///
 /// The slot doubles as interruption state: starting a new morph drops the
 /// previous timer (a dropped slint::Timer stops), and a finished morph takes
@@ -86,7 +86,7 @@ fn start_morph(
             return;
         };
         let t = (began.elapsed().as_secs_f32() * 1000.0 / MORPH_MS).min(1.0);
-        let eased = 1.0 - (1.0 - t).powi(3);
+        let eased = t * t * (3.0 - 2.0 * t);
         let r = Rect {
             x: from.x + (to.x - from.x) * eased,
             y: from.y + (to.y - from.y) * eased,
@@ -94,16 +94,48 @@ fn start_morph(
             h: from.h + (to.h - from.h) * eased,
         };
         let wnd = window.window();
-        wnd.set_position(slint::PhysicalPosition::new(r.x.round() as i32, r.y.round() as i32));
-        wnd.set_size(slint::PhysicalSize::new(
-            r.w.round() as u32,
-            r.h.round() as u32,
-        ));
+        if !set_window_rect(&wnd, r) {
+            wnd.set_position(slint::PhysicalPosition::new(r.x.round() as i32, r.y.round() as i32));
+            wnd.set_size(slint::PhysicalSize::new(
+                r.w.round() as u32,
+                r.h.round() as u32,
+            ));
+        }
         if t >= 1.0 {
             slot_for_callback.borrow_mut().take();
         }
     });
     *slot.borrow_mut() = Some(timer);
+}
+
+/// Updates the native window's position and size with one Win32 operation.
+/// Two separate Slint calls can allow an intermediate frame to be presented,
+/// which makes the maximize/restore morph look like alternating steps.
+#[cfg(target_os = "windows")]
+fn set_window_rect(window: &slint::Window, rect: Rect) -> bool {
+    use raw_window_handle::{HasWindowHandle, RawWindowHandle};
+    use windows_sys::Win32::UI::WindowsAndMessaging::{
+        SetWindowPos, SWP_NOACTIVATE, SWP_NOZORDER,
+    };
+
+    let provider = window.window_handle();
+    let Ok(handle) = provider.window_handle() else {
+        return false;
+    };
+    let RawWindowHandle::Win32(handle) = handle.as_raw() else {
+        return false;
+    };
+    unsafe {
+        SetWindowPos(
+            handle.hwnd.get() as _,
+            std::ptr::null_mut(),
+            rect.x.round() as i32,
+            rect.y.round() as i32,
+            rect.w.round() as i32,
+            rect.h.round() as i32,
+            SWP_NOACTIVATE | SWP_NOZORDER,
+        ) != 0
+    }
 }
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {

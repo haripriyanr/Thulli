@@ -196,7 +196,7 @@ cargo build --release
 
 - The shell background uses static, solid theme surfaces. Do not add ambient drift, glow layers, or gradient effects.
 - Hover feedback and navigation rail/panel size changes are immediate; do not animate them.
-- Keep the interruptible 220ms native maximize/restore morph as the only shell transition.
+- Keep the interruptible 260ms native maximize/restore morph as the only shell transition. Apply each Windows frame's position and size in one native update.
 - For future screen-level transitions, animate only when motion clarifies feedback or spatial change. Respect reduced-motion preferences where supported.
 
 ## 10. Telemetry & Crash Logging (dev phase)
