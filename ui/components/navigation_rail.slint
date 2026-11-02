@@ -26,14 +26,13 @@ export component NavigationRailItem inherits Rectangle {
             y: (parent.height - self.height) / 2;
             border-radius: active ? 12px : 10px;
             background: active ? Theme.dock-indicator : (item-touch.has-hover ? Theme.glass-fill-hover : transparent);
-            animate background { duration: 120ms; easing: ease-out; }
 
             if icon-name == "today": IconCalendar {
                 width: 22px; height: 22px;
                 x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? #36C9C533 : transparent;
+                fill-color: active ? Theme.dock-icon-active-fill : transparent;
                 filled: active;
             }
             if icon-name == "tasks": IconTasks {
@@ -41,7 +40,7 @@ export component NavigationRailItem inherits Rectangle {
                 x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? #36C9C533 : transparent;
+                fill-color: active ? Theme.dock-icon-active-fill : transparent;
                 filled: active;
             }
             if icon-name == "focus": IconClock {
@@ -49,7 +48,7 @@ export component NavigationRailItem inherits Rectangle {
                 x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? #36C9C533 : transparent;
+                fill-color: active ? Theme.dock-icon-active-fill : transparent;
                 filled: active;
             }
             if icon-name == "notes": IconNote {
@@ -57,7 +56,7 @@ export component NavigationRailItem inherits Rectangle {
                 x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? #36C9C533 : transparent;
+                fill-color: active ? Theme.dock-icon-active-fill : transparent;
                 filled: active;
             }
             if icon-name == "insights": IconChart {
@@ -65,7 +64,7 @@ export component NavigationRailItem inherits Rectangle {
                 x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? #36C9C533 : transparent;
+                fill-color: active ? Theme.dock-icon-active-fill : transparent;
                 filled: active;
             }
             if icon-name == "settings": IconSettings {
@@ -73,7 +72,7 @@ export component NavigationRailItem inherits Rectangle {
                 x: 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: active ? Theme.dock-icon-active : Theme.dock-icon-passive;
-                fill-color: active ? #36C9C533 : transparent;
+                fill-color: active ? Theme.dock-icon-active-fill : transparent;
                 filled: active;
             }
 
@@ -84,8 +83,7 @@ export component NavigationRailItem inherits Rectangle {
                 color: active ? Theme.text-primary : Theme.text-secondary;
                 font-size: 14px;
                 vertical-alignment: center;
-                opacity: expanded ? 1 : 0;
-                animate opacity { duration: 120ms; easing: ease-out; }
+                visible: expanded;
             }
         }
     }
@@ -105,15 +103,12 @@ export component NavigationRail inherits Rectangle {
     width: compact ? compact-width : (expanded ? 250px : 76px);
     height: compact ? 62px : desktop-height;
     border-radius: compact ? Theme.radius-pill : 24px;
-    background: @linear-gradient(180deg, Theme.dock-fill-top 0%, Theme.dock-fill 100%);
+    background: Theme.bg-sidebar;
     border-width: 1px;
     border-color: Theme.dock-hairline;
     drop-shadow-blur: 24px;
     drop-shadow-color: Theme.glass-shadow;
     drop-shadow-offset-y: 6px;
-    animate width { duration: 180ms; easing: ease-out; }
-    animate height { duration: 180ms; easing: ease-out; }
-
     if !compact: VerticalLayout {
         padding-top: 12px;
         padding-bottom: 12px;

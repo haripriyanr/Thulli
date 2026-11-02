@@ -5,7 +5,7 @@ import { Theme } from "theme.slint";
 
 export component IconBolt inherits Path {
     in property <color> stroke-color: Theme.accent-cyan;
-    in property <color> fill-color: #3CC9C433; // 20% alpha
+    in property <color> fill-color: Theme.accent-cyan-soft; // 20% alpha
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -70,7 +70,7 @@ export component IconClose inherits Path {
 
 export component IconSearch inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
-    in property <color> fill-color: #88888820;
+    in property <color> fill-color: Theme.icon-fill-muted;
     width: 15px;
     height: 15px;
     viewbox-x: 0;
@@ -85,7 +85,7 @@ export component IconSearch inherits Path {
 
 export component IconFolder inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
-    in property <color> fill-color: #3CC9C425; // 15% opacity non-solid fill
+    in property <color> fill-color: Theme.accent-cyan-soft; // 15% opacity non-solid fill
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -100,7 +100,7 @@ export component IconFolder inherits Path {
 
 export component IconArchive inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
-    in property <color> fill-color: #6F98E825;
+    in property <color> fill-color: Theme.accent-blue-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -115,7 +115,7 @@ export component IconArchive inherits Path {
 
 export component IconShield inherits Path {
     in property <color> stroke-color: Theme.accent-cyan;
-    in property <color> fill-color: #3CC9C425;
+    in property <color> fill-color: Theme.accent-cyan-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -130,7 +130,7 @@ export component IconShield inherits Path {
 
 export component IconScratchpad inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
-    in property <color> fill-color: #B3C06525;
+    in property <color> fill-color: Theme.accent-lime-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -145,7 +145,7 @@ export component IconScratchpad inherits Path {
 
 export component IconSettings inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
-    in property <color> fill-color: #88888825;
+    in property <color> fill-color: Theme.icon-fill-muted;
     // Filled variant: solid gear body with the center circle knocked out
     // (evenodd hole) — silhouette and tooth pattern identical to outline.
     in property <bool> filled: false;
@@ -165,7 +165,7 @@ export component IconSettings inherits Path {
 
 export component IconTrash inherits Path {
     in property <color> stroke-color: Theme.destructive;
-    in property <color> fill-color: #EF444425;
+    in property <color> fill-color: Theme.destructive-soft;
     width: 14px;
     height: 14px;
     viewbox-x: 0;
@@ -180,7 +180,7 @@ export component IconTrash inherits Path {
 
 export component IconCheck inherits Path {
     in property <color> stroke-color: Theme.accent-lime;
-    in property <color> fill-color: #B3C06525;
+    in property <color> fill-color: Theme.accent-lime-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -194,8 +194,8 @@ export component IconCheck inherits Path {
 }
 
 export component IconSun inherits Path {
-    in property <color> stroke-color: #F59E0B;
-    in property <color> fill-color: #F59E0B25;
+    in property <color> stroke-color: Theme.accent-amber;
+    in property <color> fill-color: Theme.accent-amber-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -218,8 +218,8 @@ export component IconMoon inherits Path {
 }
 
 export component IconCalendar inherits Path {
-    in property <color> stroke-color: #38BDF8;
-    in property <color> fill-color: #38BDF825;
+    in property <color> stroke-color: Theme.accent-blue;
+    in property <color> fill-color: Theme.accent-blue-soft;
     // Filled variant: solid body, header rule knocked out, rings as nubs
     // that abut the top edge (evenodd-safe: touching, never overlapping).
     in property <bool> filled: false;
@@ -238,8 +238,8 @@ export component IconCalendar inherits Path {
 }
 
 export component IconInbox inherits Path {
-    in property <color> stroke-color: #A855F7;
-    in property <color> fill-color: #A855F725;
+    in property <color> stroke-color: Theme.accent-violet;
+    in property <color> fill-color: Theme.accent-violet-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -253,8 +253,8 @@ export component IconInbox inherits Path {
 }
 
 export component IconRocket inherits Path {
-    in property <color> stroke-color: #3CC9C4;
-    in property <color> fill-color: #3CC9C425;
+    in property <color> stroke-color: Theme.accent-cyan;
+    in property <color> fill-color: Theme.accent-cyan-soft;
     width: 15px;
     height: 15px;
     viewbox-x: 0;
@@ -283,7 +283,7 @@ export component IconArrowRight inherits Path {
 
 export component IconClock inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
-    in property <color> fill-color: #88888820;
+    in property <color> fill-color: Theme.icon-fill-muted;
     // Filled variant: solid disc with the hands knocked out (evenodd holes),
     // no outline — hands read as background-colored gaps.
     in property <bool> filled: false;
@@ -302,8 +302,8 @@ export component IconClock inherits Path {
 }
 
 export component IconPlay inherits Path {
-    in property <color> stroke-color: #111111;
-    in property <color> fill-color: #111111;
+    in property <color> stroke-color: Theme.text-primary;
+    in property <color> fill-color: Theme.text-primary;
     width: 13px;
     height: 13px;
     viewbox-x: 0;
@@ -348,7 +348,7 @@ export component IconSkip inherits Path {
 
 export component IconChart inherits Path {
     in property <color> stroke-color: Theme.accent-cyan;
-    in property <color> fill-color: #3CC9C425;
+    in property <color> fill-color: Theme.accent-cyan-soft;
     // Filled variant: axis becomes a solid L-band, bars fill solid — same
     // coordinates as the outline so the silhouette never shifts.
     in property <bool> filled: false;
@@ -368,7 +368,7 @@ export component IconChart inherits Path {
 
 export component IconMore inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
-    in property <color> fill-color: #9EABBE40;
+    in property <color> fill-color: Theme.icon-fill-muted;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -383,7 +383,7 @@ export component IconMore inherits Path {
 
 export component IconChat inherits Path {
     in property <color> stroke-color: Theme.accent-blue;
-    in property <color> fill-color: #6F98E825;
+    in property <color> fill-color: Theme.accent-blue-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -398,7 +398,7 @@ export component IconChat inherits Path {
 
 export component IconUser inherits Path {
     in property <color> stroke-color: Theme.text-secondary;
-    in property <color> fill-color: #9EABBE25;
+    in property <color> fill-color: Theme.icon-fill-muted;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -443,7 +443,7 @@ export component IconChevronRight inherits Path {
 
 export component IconNote inherits Path {
     in property <color> stroke-color: Theme.accent-pink;
-    in property <color> fill-color: #EF82EF25;
+    in property <color> fill-color: Theme.accent-pink-soft;
     // Filled variant: solid page, text rows knocked out. The diagonal cut
     // already reads as the fold, so no fold stroke is kept.
     in property <bool> filled: false;
@@ -463,7 +463,7 @@ export component IconNote inherits Path {
 
 export component IconStar inherits Path {
     in property <color> stroke-color: Theme.accent-amber;
-    in property <color> fill-color: #DB9D2025;
+    in property <color> fill-color: Theme.accent-amber-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -478,7 +478,7 @@ export component IconStar inherits Path {
 
 export component IconFlag inherits Path {
     in property <color> stroke-color: Theme.accent-green;
-    in property <color> fill-color: #00C28225;
+    in property <color> fill-color: Theme.accent-green-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -493,7 +493,7 @@ export component IconFlag inherits Path {
 
 export component IconCoffee inherits Path {
     in property <color> stroke-color: Theme.accent-amber;
-    in property <color> fill-color: #DB9D2025;
+    in property <color> fill-color: Theme.accent-amber-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -523,7 +523,7 @@ export component IconMinus inherits Path {
 
 export component IconTower inherits Path {
     in property <color> stroke-color: Theme.accent-blue;
-    in property <color> fill-color: #6F98E825;
+    in property <color> fill-color: Theme.accent-blue-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -538,7 +538,7 @@ export component IconTower inherits Path {
 
 export component IconPill inherits Path {
     in property <color> stroke-color: Theme.accent-pink;
-    in property <color> fill-color: #EF82EF25;
+    in property <color> fill-color: Theme.accent-pink-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -553,7 +553,7 @@ export component IconPill inherits Path {
 
 export component IconExpand inherits Path {
     in property <color> stroke-color: Theme.accent-cyan;
-    in property <color> fill-color: #3CC9C425;
+    in property <color> fill-color: Theme.accent-cyan-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;
@@ -568,7 +568,7 @@ export component IconExpand inherits Path {
 
 export component IconImage inherits Path {
     in property <color> stroke-color: Theme.accent-lime;
-    in property <color> fill-color: #B3C06525;
+    in property <color> fill-color: Theme.accent-lime-soft;
     width: 16px;
     height: 16px;
     viewbox-x: 0;

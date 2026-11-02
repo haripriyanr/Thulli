@@ -18,13 +18,23 @@ export global Theme {
     in-out property <color> text-secondary: dark-mode ? #9EABBE : #586765;
     in-out property <color> text-muted: dark-mode ? #5E697C : #7D8985;
 
-    in-out property <color> accent-cyan: #3CC9C4;
-    in-out property <color> accent-lime: #B3C065;
-    in-out property <color> accent-pink: #EF82EF;
-    in-out property <color> accent-blue: #6F98E8;
-    in-out property <color> accent-green: #00C282;
-    in-out property <color> accent-amber: #DB9D20;
-    in-out property <color> destructive: #FF4757;
+    in-out property <color> accent-cyan: dark-mode ? #3CC9C4 : #1D7772;
+    in-out property <color> accent-lime: dark-mode ? #B3C065 : #68751F;
+    in-out property <color> accent-pink: dark-mode ? #EF82EF : #A83D8F;
+    in-out property <color> accent-blue: dark-mode ? #6F98E8 : #365EB0;
+    in-out property <color> accent-green: dark-mode ? #00C282 : #007A53;
+    in-out property <color> accent-amber: dark-mode ? #DB9D20 : #9A5E00;
+    in-out property <color> accent-violet: dark-mode ? #A855F7 : #7136AA;
+    in-out property <color> destructive: dark-mode ? #FF4757 : #C52C3B;
+    out property <color> accent-cyan-soft: dark-mode ? #3CC9C425 : #1D77721A;
+    out property <color> accent-lime-soft: dark-mode ? #B3C06525 : #68751F1A;
+    out property <color> accent-pink-soft: dark-mode ? #EF82EF25 : #A83D8F1A;
+    out property <color> accent-blue-soft: dark-mode ? #6F98E825 : #365EB01A;
+    out property <color> accent-green-soft: dark-mode ? #00C28225 : #007A531A;
+    out property <color> accent-amber-soft: dark-mode ? #DB9D2025 : #9A5E001A;
+    out property <color> accent-violet-soft: dark-mode ? #A855F725 : #7136AA1A;
+    out property <color> destructive-soft: dark-mode ? #FF475725 : #C52C3B1A;
+    out property <color> icon-fill-muted: dark-mode ? #9EABBE25 : #6476721A;
 
     out property <length> radius-sm: 6px;
     out property <length> radius-md: 10px;
@@ -49,6 +59,7 @@ export global Theme {
     out property <color> dock-fill-top: dark-mode ? #1F1F2AA4 : #FFFFFFF2;
     out property <color> dock-hairline: dark-mode ? #FFFFFF24 : #40565024;
     out property <color> dock-indicator: dark-mode ? #1D383A : #DCEBE7;
-    out property <color> dock-icon-active: #36C9C5;
+    out property <color> dock-icon-active: dark-mode ? #36C9C5 : #1D6661;
+    out property <color> dock-icon-active-fill: dark-mode ? #36C9C533 : #1D66611A;
     out property <color> dock-icon-passive: dark-mode ? #9AA7BA : #647672;
 }
