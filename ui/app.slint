@@ -172,10 +172,12 @@ export component MainWindow inherits Window {
 
         // --- Frosted glass panel -------------------------------------------
         Rectangle {
-            x: 24px;
+            x: parent.width < 640px ? 14px : (navigation-rail.expanded ? 286px : 116px);
             y: Theme.title-bar-height + 2px;
-            width: parent.width - 38px;
-            height: parent.height - Theme.title-bar-height - 16px;
+            width: parent.width < 640px
+                ? parent.width - 28px
+                : parent.width - (navigation-rail.expanded ? 300px : 130px);
+            height: parent.height - Theme.title-bar-height - (parent.width < 640px ? 96px : 16px);
             border-radius: 26px;
 
             // Body: a diagonal light sweep — brighter top-left, mild dark
@@ -238,9 +240,10 @@ export component MainWindow inherits Window {
 
         navigation-rail := NavigationRail {
             x: parent.width < 640px ? 12px : 24px;
-            y: parent.width < 640px ? parent.height - self.height - 14px : (parent.height - self.height) / 2;
+            y: parent.width < 640px ? parent.height - self.height - 14px : Theme.title-bar-height + 2px;
             compact: parent.width < 640px;
             compact-width: parent.width - 24px;
+            desktop-height: parent.height - Theme.title-bar-height - 16px;
         }
 
         // --- Frameless resize edges: transparent strips pinned to the ------

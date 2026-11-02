@@ -1,5 +1,5 @@
 import { Theme } from "../theme.slint";
-import { IconCalendar, IconTasks, IconClock, IconNote, IconChart, IconSettings, IconChevronLeft } from "../icons.slint";
+import { IconCalendar, IconTasks, IconClock, IconNote, IconChart, IconSettings, IconChevronLeft, IconChevronRight } from "../icons.slint";
 
 export component NavigationRailItem inherits Rectangle {
     in property <string> label: "";
@@ -94,14 +94,15 @@ export component NavigationRailItem inherits Rectangle {
 export component NavigationRail inherits Rectangle {
     in property <bool> compact: false;
     in property <length> compact-width: 336px;
+    in property <length> desktop-height: 600px;
     in-out property <string> active-item: "today";
     in-out property <bool> touch-pinned: false;
-    out property <bool> expanded: !compact && (touch-pinned || rail-hover.has-hover);
+    out property <bool> expanded: !compact && touch-pinned;
     callback item-selected(string);
 
     width: compact ? compact-width : (expanded ? 250px : 76px);
-    height: compact ? 62px : (expanded ? 392px : 336px);
-    border-radius: Theme.radius-pill;
+    height: compact ? 62px : desktop-height;
+    border-radius: compact ? Theme.radius-pill : 24px;
     background: @linear-gradient(180deg, Theme.dock-fill-top 0%, Theme.dock-fill 100%);
     border-width: 1px;
     border-color: Theme.dock-hairline;
@@ -110,8 +111,6 @@ export component NavigationRail inherits Rectangle {
     drop-shadow-offset-y: 6px;
     animate width { duration: 180ms; easing: ease-out; }
     animate height { duration: 180ms; easing: ease-out; }
-
-    rail-hover := TouchArea { width: 100%; height: 100%; }
 
     if !compact: VerticalLayout {
         padding-top: 12px;
@@ -122,13 +121,26 @@ export component NavigationRail inherits Rectangle {
         Rectangle {
             width: 100%;
             height: 50px;
-            Image {
+            header-hover := TouchArea {
+                width: 100%;
+                height: 100%;
+                clicked => { if !root.expanded { root.touch-pinned = true; } }
+            }
+            if expanded || !header-hover.has-hover: Image {
                 source: @image-url("../../assets/Thulli-Mark.png");
                 image-fit: contain;
                 width: 28px;
                 height: 28px;
                 x: expanded ? 12px : (parent.width - self.width) / 2;
                 y: (parent.height - self.height) / 2;
+            }
+            if !expanded && header-hover.has-hover: TouchArea {
+                width: 40px;
+                height: 40px;
+                x: (parent.width - self.width) / 2;
+                y: (parent.height - self.height) / 2;
+                clicked => { root.touch-pinned = true; }
+                IconChevronRight { width: 17px; height: 17px; x: 11.5px; y: 11.5px; stroke-color: Theme.dock-icon-passive; }
             }
             if expanded: TouchArea {
                 width: 32px; height: 32px;
