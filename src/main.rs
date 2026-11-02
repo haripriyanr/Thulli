@@ -342,11 +342,28 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             // On Windows the system runs the resize, so it keeps tracking the
             // pointer after it leaves the thin edge strip.
             #[cfg(target_os = "windows")]
-            if let Some(w) = weak.upgrade() {
-                if begin_native_resize(&w.window(), &edge) {
-                    return;
-                }
+            {
+                let weak = weak.clone();
+                let edge = edge.to_string();
+                // Runs after the press is handled. The system loop swallows the
+                // button release, so the strip is released here first;
+                // otherwise it keeps the pointer and every later click resizes.
+                slint::Timer::single_shot(std::time::Duration::ZERO, move || {
+                    let Some(w) = weak.upgrade() else {
+                        return;
+                    };
+                    let wnd = w.window();
+                    let position = slint::LogicalPosition::new(px, py);
+                    wnd.dispatch_event(slint::platform::WindowEvent::PointerReleased {
+                        position,
+                        button: slint::platform::PointerEventButton::Left,
+                    });
+                    wnd.dispatch_event(slint::platform::WindowEvent::PointerExited);
+                    begin_native_resize(&wnd, &edge);
+                });
+                let _ = &state;
             }
+            #[cfg(not(target_os = "windows"))]
             if let Some(w) = weak.upgrade() {
                 let wnd = w.window();
                 let sf = wnd.scale_factor();
@@ -487,19 +504,19 @@ fn begin_native_resize(window: &slint::Window, edge: &str) -> bool {
     use raw_window_handle::{HasWindowHandle, RawWindowHandle};
     use windows_sys::Win32::UI::Input::KeyboardAndMouse::ReleaseCapture;
     use windows_sys::Win32::UI::WindowsAndMessaging::{
-        PostMessageW, SC_SIZE, WMSZ_BOTTOM, WMSZ_BOTTOMLEFT, WMSZ_BOTTOMRIGHT, WMSZ_LEFT,
+        LoadCursorW, PostMessageW, SetCursor, IDC_SIZENESW, IDC_SIZENS, IDC_SIZENWSE, IDC_SIZEWE, SC_SIZE, WMSZ_BOTTOM, WMSZ_BOTTOMLEFT, WMSZ_BOTTOMRIGHT, WMSZ_LEFT,
         WMSZ_RIGHT, WMSZ_TOP, WMSZ_TOPLEFT, WMSZ_TOPRIGHT, WM_SYSCOMMAND,
     };
 
-    let side = match edge {
-        "left" => WMSZ_LEFT,
-        "right" => WMSZ_RIGHT,
-        "top" => WMSZ_TOP,
-        "bottom" => WMSZ_BOTTOM,
-        "top-left" => WMSZ_TOPLEFT,
-        "top-right" => WMSZ_TOPRIGHT,
-        "bottom-left" => WMSZ_BOTTOMLEFT,
-        "bottom-right" => WMSZ_BOTTOMRIGHT,
+    let (side, cursor) = match edge {
+        "left" => (WMSZ_LEFT, IDC_SIZEWE),
+        "right" => (WMSZ_RIGHT, IDC_SIZEWE),
+        "top" => (WMSZ_TOP, IDC_SIZENS),
+        "bottom" => (WMSZ_BOTTOM, IDC_SIZENS),
+        "top-left" => (WMSZ_TOPLEFT, IDC_SIZENWSE),
+        "top-right" => (WMSZ_TOPRIGHT, IDC_SIZENESW),
+        "bottom-left" => (WMSZ_BOTTOMLEFT, IDC_SIZENESW),
+        "bottom-right" => (WMSZ_BOTTOMRIGHT, IDC_SIZENWSE),
         _ => return false,
     };
     let provider = window.window_handle();
@@ -511,6 +528,9 @@ fn begin_native_resize(window: &slint::Window, edge: &str) -> bool {
     };
     unsafe {
         ReleaseCapture();
+        // The window reports itself as client area, so the system would show
+        // the arrow; the matching sizing arrow is set for the drag instead.
+        SetCursor(LoadCursorW(std::ptr::null_mut(), cursor));
         // Posted, not sent, so the pointer event that started the drag
         // finishes before the system resize loop takes over.
         PostMessageW(handle.hwnd.get() as _, WM_SYSCOMMAND, (SC_SIZE + side) as usize, 0) != 0

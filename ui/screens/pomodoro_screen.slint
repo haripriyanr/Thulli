@@ -11,6 +11,10 @@ import { AppData } from "../app_data.slint";
 component TimerCard inherits GlassCard {
     corner: 26px;
     callback view-all-tasks();
+    // Full screen shows the bare ring on the background, with no card.
+    background: AppData.immersive ? transparent
+        : @linear-gradient(170deg, Theme.glass-highlight 0%, Theme.glass-fill-strong 35%, Theme.glass-fill 100%);
+    border-color: AppData.immersive ? transparent : Theme.glass-border;
 
     property <bool> picker-open: false;
     property <color> accent: Theme.accent-violet;
@@ -20,6 +24,7 @@ component TimerCard inherits GlassCard {
 
     VerticalLayout {
         padding: 22px;
+        padding-bottom: 28px;
         spacing: 16px;
         alignment: center;
 
@@ -41,13 +46,16 @@ component TimerCard inherits GlassCard {
         HorizontalLayout {
             alignment: center;
             spacing: 18px;
-            if !AppData.immersive: GlassIconButton {
-                dia: 44px;
-                clicked => { AppData.pomodoro-previous(); }
-                IconChevronLeft { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
+            if !AppData.immersive: VerticalLayout {
+                alignment: center;
+                GlassIconButton {
+                    dia: 44px;
+                    clicked => { AppData.pomodoro-previous(); }
+                    IconChevronLeft { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
+                }
             }
             ThulliRing {
-                width: AppData.immersive ? 420px : 320px;
+                width: AppData.immersive ? max(320px, min(root.width, root.height) - 120px) : 320px;
                 height: self.width;
                 thickness: 10px;
                 progress: AppData.pomodoro-progress;
@@ -77,10 +85,10 @@ component TimerCard inherits GlassCard {
                     spacing: 6px;
                     HorizontalLayout {
                         alignment: center;
-                        IconBolt { width: 20px; height: 20px; stroke-color: root.accent; fill-color: root.accent.with-alpha(0.25); }
+                        IconWave { width: 22px; height: 22px; stroke-color: root.accent; }
                     }
                     Text { text: root.phase-label; font-size: 14px; color: Theme.text-secondary; horizontal-alignment: center; }
-                    Text { text: AppData.pomodoro-time; font-size: 64px; font-weight: 700; color: Theme.text-primary; horizontal-alignment: center; }
+                    Text { text: AppData.pomodoro-time; font-size: AppData.immersive ? 96px : 64px; font-weight: 700; color: Theme.text-primary; horizontal-alignment: center; }
                     Text { text: AppData.pomodoro-round; font-size: 13px; color: Theme.text-secondary; horizontal-alignment: center; }
                     HorizontalLayout {
                         alignment: center;
@@ -92,19 +100,31 @@ component TimerCard inherits GlassCard {
                             background: i == AppData.pomodoro-rounds-done ? root.accent : (i < AppData.pomodoro-rounds-done ? root.accent.with-alpha(0.55) : Theme.glass-border);
                         }
                     }
+                    if AppData.immersive: HorizontalLayout {
+                        alignment: center;
+                        padding-top: 18px;
+                        GlassIconButton {
+                            dia: 44px;
+                            clicked => { AppData.immersive = false; }
+                            IconExpand { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
+                        }
+                    }
                 }
             }
-            if !AppData.immersive: GlassIconButton {
-                dia: 44px;
-                clicked => { AppData.pomodoro-next(); }
-                IconChevronRight { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
+            if !AppData.immersive: VerticalLayout {
+                alignment: center;
+                GlassIconButton {
+                    dia: 44px;
+                    clicked => { AppData.pomodoro-next(); }
+                    IconChevronRight { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
+                }
             }
         }
 
         // Transport controls, with full screen at the right edge above the task card
-        Rectangle {
-            height: AppData.immersive ? 52px : 96px;
-            if !AppData.immersive: HorizontalLayout {
+        if !AppData.immersive: Rectangle {
+            height: 96px;
+            HorizontalLayout {
                 alignment: center;
                 spacing: 22px;
                 VerticalLayout {
@@ -130,8 +150,7 @@ component TimerCard inherits GlassCard {
             }
             GlassIconButton {
                 dia: 44px;
-                // Centred under the ring in full screen, at the right edge otherwise.
-                x: AppData.immersive ? (parent.width - self.width) / 2 : parent.width - self.width;
+                x: parent.width - self.width;
                 y: (parent.height - self.height) / 2;
                 clicked => { AppData.immersive = !AppData.immersive; }
                 IconExpand { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
@@ -182,13 +201,13 @@ component TimerCard inherits GlassCard {
                     Text { text: "Ambient Sound"; font-size: 14px; color: Theme.text-primary; vertical-alignment: center; }
                 }
                 SceneTile { label: "None"; scene: @image-url("../../assets/scenes/none.svg"); selected: AppData.ambient-choice == "off"; clicked => { AppData.ambient-selected("off"); }
-                    IconSoundOff { width: 18px; height: 18px; stroke-color: #FFFFFF; fill-color: #FFFFFF26; } }
+                    IconSoundOff { width: 18px; height: 18px; stroke-color: AppData.ambient-choice == "off" ? #FFFFFF : Theme.text-secondary; } }
                 SceneTile { label: "Lo-fi"; scene: @image-url("../../assets/scenes/lofi.svg"); selected: AppData.ambient-choice == "lofi"; clicked => { AppData.ambient-selected("lofi"); }
-                    IconWave { width: 18px; height: 18px; stroke-color: #FFFFFF; } }
+                    IconWave { width: 18px; height: 18px; stroke-color: AppData.ambient-choice == "lofi" ? #FFFFFF : Theme.text-secondary; } }
                 SceneTile { label: "Forest"; scene: @image-url("../../assets/scenes/forest.svg"); selected: AppData.ambient-choice == "forest"; clicked => { AppData.ambient-selected("forest"); }
-                    IconTree { width: 18px; height: 18px; stroke-color: #86EFAC; fill-color: #86EFAC40; } }
+                    IconTree { width: 18px; height: 18px; stroke-color: AppData.ambient-choice == "forest" ? #86EFAC : Theme.text-secondary; fill-color: AppData.ambient-choice == "forest" ? #86EFAC40 : transparent; } }
                 SceneTile { label: "Rain"; scene: @image-url("../../assets/scenes/rain.svg"); selected: AppData.ambient-choice == "rain"; clicked => { AppData.ambient-selected("rain"); }
-                    IconCloudRain { width: 18px; height: 18px; stroke-color: #FFFFFF; fill-color: #FFFFFF26; } }
+                    IconCloudRain { width: 18px; height: 18px; stroke-color: AppData.ambient-choice == "rain" ? #FFFFFF : Theme.text-secondary; } }
             }
         }
 
@@ -429,6 +448,16 @@ component AnalyticsCard inherits GlassCard {
         // Summary of the chosen period
         GlassCard {
             corner: 16px;
+            // Wave artwork in the lower right corner, behind the text.
+            Image {
+                source: @image-url("../../assets/scenes/wave.svg");
+                image-fit: fill;
+                width: min(parent.width * 0.7, 320px);
+                height: min(parent.height * 0.85, 160px);
+                x: parent.width - self.width;
+                y: parent.height - self.height;
+                opacity: Theme.dark-mode ? 0.9 : 0.55;
+            }
             VerticalLayout {
                 padding: 16px;
                 spacing: 10px;
@@ -473,16 +502,16 @@ export component PomodoroScreen inherits Rectangle {
     property <length> gap: 18px;
 
     property <length> timer-width: AppData.immersive
-        ? min(root.width - 2 * root.side, 540px)
+        ? root.width
         : (root.wide ? (root.width - 2 * root.side - root.gap) * 0.6 : root.width - 2 * root.side);
     property <length> timer-height: AppData.immersive
-        ? min(root.height - 2 * root.side, 580px)
-        : (root.wide ? root.height : 760px);
+        ? root.height
+        : (root.wide ? root.height - root.side : 760px);
 
     property <length> analytics-x: root.wide ? root.side + root.timer-width + root.gap : root.side;
     property <length> analytics-y: root.wide ? 0px : root.timer-height + root.gap;
     property <length> analytics-width: root.wide ? root.width - root.analytics-x - root.side : root.width - 2 * root.side;
-    property <length> analytics-height: root.wide ? root.height : 860px;
+    property <length> analytics-height: root.wide ? root.height - root.side : 860px;
 
     // Narrow windows stack the timer above the analytics, so the page scrolls.
     page := Flickable {

@@ -47,25 +47,50 @@ export component PlayButton inherits Rectangle {
     in property <bool> running: false;
     callback clicked();
 
-    width: 84px;
-    height: 84px;
-    border-radius: 42px;
-    background: @linear-gradient(135deg, #C4B5FD 0%, #7C3AED 100%);
-    drop-shadow-blur: 28px;
-    drop-shadow-color: #A78BFA99;
-    drop-shadow-offset-y: 6px;
+    width: 88px;
+    height: 88px;
+    border-radius: 44px;
+    background: touch.pressed
+        ? @linear-gradient(150deg, #A78BFA 0%, #6D28D9 100%)
+        : @linear-gradient(150deg, #D8B4FE 0%, #A78BFA 45%, #7C3AED 100%);
+    drop-shadow-blur: touch.has-hover ? 40px : 30px;
+    drop-shadow-color: #8B5CF6AA;
+    drop-shadow-offset-y: 8px;
+    animate drop-shadow-blur { duration: 200ms; easing: ease-out; }
+
+    // Soft outer halo and a glossy top edge.
+    Rectangle {
+        x: -8px;
+        y: -8px;
+        width: parent.width + 16px;
+        height: parent.height + 16px;
+        border-radius: self.width / 2;
+        border-width: 1px;
+        border-color: #C4B5FD40;
+        background: #A78BFA1A;
+    }
+    Rectangle {
+        x: 6px;
+        y: 4px;
+        width: parent.width - 12px;
+        height: parent.height / 2;
+        border-radius: self.width / 2;
+        background: @linear-gradient(180deg, #FFFFFF59 0%, #FFFFFF00 100%);
+    }
 
     if !root.running: IconPlay {
-        width: 26px; height: 26px;
+        width: 30px; height: 30px;
         x: (parent.width - self.width) / 2 + 2px;
         y: (parent.height - self.height) / 2;
-        stroke-color: #FFFFFF; fill-color: #FFFFFF38;
+        stroke-color: #FFFFFF; fill-color: #FFFFFF;
+        stroke-line-join: round;
     }
     if root.running: IconPause {
-        width: 26px; height: 26px;
+        width: 28px; height: 28px;
         x: (parent.width - self.width) / 2;
         y: (parent.height - self.height) / 2;
-        stroke-color: #FFFFFF; fill-color: #FFFFFF38;
+        stroke-color: #FFFFFF; fill-color: #FFFFFF;
+        stroke-line-join: round;
     }
 
     touch := TouchArea {
@@ -88,7 +113,8 @@ export component SceneTile inherits Rectangle {
     height: 64px;
     border-radius: 14px;
     clip: true;
-    background: #1E1B2E;
+    // Only the chosen tile shows its picture; the others are plain glass.
+    background: touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill;
     border-width: root.selected ? 3px : 1px;
     border-color: root.selected ? (Theme.dark-mode ? #C4B5FD : #7C3AED) : Theme.glass-border;
     drop-shadow-blur: root.selected ? 18px : 0px;
@@ -100,13 +126,14 @@ export component SceneTile inherits Rectangle {
         height: 100%;
         source: root.scene;
         image-fit: cover;
-        opacity: root.selected ? 1.0 : (touch.has-hover ? 0.85 : 0.6);
+        opacity: root.selected ? 1.0 : 0.0;
         animate opacity { duration: 200ms; easing: ease-out; }
     }
-    // Darkens the lower half so the name stays readable on any picture.
+    // Darkens the lower half so the name stays readable on the picture.
     Rectangle {
         width: 100%;
         height: 100%;
+        visible: root.selected;
         background: @linear-gradient(180deg, #00000000 30%, #00000073 100%);
     }
 
@@ -121,7 +148,7 @@ export component SceneTile inherits Rectangle {
             text: root.label;
             font-size: 12px;
             font-weight: root.selected ? 600 : 500;
-            color: #FFFFFF;
+            color: root.selected ? #FFFFFF : Theme.text-secondary;
             horizontal-alignment: center;
         }
     }
