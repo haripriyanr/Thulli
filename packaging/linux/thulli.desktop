@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Thulli
+Comment=Focus timer, spaces and on-device AI planning
+Exec=thulli
+Icon=thulli
+Categories=Office;Utility;
+Terminal=false
+StartupWMClass=thulli

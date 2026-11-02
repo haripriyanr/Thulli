@@ -32,7 +32,8 @@ raw-window-handle = "0.6"
 regex = "1.12"
 rodio = { version = "0.23.0", default-features = false, features = ["playback", "mp3"] }
 global-hotkey = "0.7"
-notify-rust = { version = "4", default-features = false }
+# "z" = pure-Rust D-Bus for Linux notifications; unused on Windows and macOS.
+notify-rust = { version = "4", default-features = false, features = ["z"] }
 rfd = "0.16"
 ureq = { version = "2", features = ["json"] }
 # On-device models: llama.cpp for the planner, ONNX Runtime for speech.
@@ -46,4 +47,14 @@ zip = { version = "2", default-features = false, features = ["deflate"] }
 
 [build-dependencies]
 slint-build = "1.18.1"
+# Embeds the app icon in thulli.exe on Windows.
+winresource = "0.1"
+
+# Used by `cargo bundle` for the macOS .app and Linux .deb packages.
+[package.metadata.bundle]
+name = "Thulli"
+identifier = "app.thulli"
+icon = ["assets/icon/thulli-32.png", "assets/icon/thulli-128.png", "assets/icon/thulli-256.png", "assets/icon/thulli-512.png", "assets/icon/thulli.icns"]
+category = "Productivity"
+short_description = "Focus timer, spaces and on-device AI planning"
 
