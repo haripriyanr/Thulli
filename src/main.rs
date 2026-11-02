@@ -105,6 +105,11 @@ fn start_morph(
             ));
         }
         if t >= 1.0 {
+            #[cfg(target_os = "windows")]
+            {
+                let maximized = window.global::<ShellState>().get_is_maximized();
+                apply_window_shape(&wnd, r.w.round() as u32, r.h.round() as u32, maximized);
+            }
             slot_for_callback.borrow_mut().take();
         }
     });
@@ -407,6 +412,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
 
             wnd.set_size(slint::PhysicalSize::new(r.w.round() as u32, r.h.round() as u32));
+            #[cfg(target_os = "windows")]
+            apply_window_shape(&wnd, r.w.round() as u32, r.h.round() as u32, false);
             if left || top {
                 wnd.set_position(slint::PhysicalPosition::new(
                     r.x.round() as i32,
@@ -430,6 +437,8 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     let _sync_timer = slint::Timer::default();
     {
         let weak = window.as_weak();
+        #[cfg(target_os = "windows")]
+        let mut last_shape: (u32, u32, bool) = (0, 0, false);
         _sync_timer.start(
             slint::TimerMode::Repeated,
             std::time::Duration::from_millis(250),
@@ -437,6 +446,15 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                 if let Some(w) = weak.upgrade() {
                     let maximized = w.window().is_maximized();
                     let shell = w.global::<ShellState>();
+                    #[cfg(target_os = "windows")]
+                    {
+                        let size = w.window().size();
+                        let shape = (size.width, size.height, shell.get_is_maximized());
+                        if shape != last_shape {
+                            last_shape = shape;
+                            apply_window_shape(&w.window(), shape.0, shape.1, shape.2);
+                        }
+                    }
                     #[cfg(target_os = "windows")]
                     if maximized && !shell.get_is_maximized() {
                         shell.set_is_maximized(true);
@@ -453,11 +471,49 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     Ok(window.run()?)
 }
 
+/// Corner radius of the shell frame in logical pixels. Must match the
+/// `corner` of AppBackground in ui/app.slint.
+#[cfg(target_os = "windows")]
+const SHELL_CORNER_RADIUS: f32 = 16.0;
+
+/// Clips the window to the rounded shell frame. Pixels outside the rounded
+/// corners are then not part of the window, so they show the desktop rather
+/// than the window's opaque black backing. A maximized window keeps its
+/// square outline.
+#[cfg(target_os = "windows")]
+fn apply_window_shape(window: &slint::Window, width: u32, height: u32, maximized: bool) {
+    use raw_window_handle::{HasWindowHandle, RawWindowHandle};
+    use windows_sys::Win32::Graphics::Gdi::{CreateRoundRectRgn, SetWindowRgn};
+
+    let provider = window.window_handle();
+    let Ok(handle) = provider.window_handle() else {
+        return;
+    };
+    let RawWindowHandle::Win32(handle) = handle.as_raw() else {
+        return;
+    };
+    let hwnd = handle.hwnd.get() as _;
+    unsafe {
+        if maximized {
+            SetWindowRgn(hwnd, std::ptr::null_mut(), 1);
+            return;
+        }
+        let radius = (SHELL_CORNER_RADIUS * window.scale_factor()).round() as i32;
+        let region = CreateRoundRectRgn(0, 0, width as i32, height as i32, radius * 2, radius * 2);
+        // The system owns the region after SetWindowRgn, so it is not deleted here.
+        SetWindowRgn(hwnd, region, 1);
+    }
+}
+
 #[cfg(target_os = "windows")]
 fn schedule_corner_update(weak: slint::Weak<MainWindow>) {
     slint::Timer::single_shot(Duration::from_millis(100), move || {
         if let Some(window) = weak.upgrade() {
-            if !set_rounded_window_corners(&window.window()) {
+            if set_rounded_window_corners(&window.window()) {
+                let size = window.window().size();
+                let maximized = window.global::<ShellState>().get_is_maximized();
+                apply_window_shape(&window.window(), size.width, size.height, maximized);
+            } else {
                 schedule_corner_update(weak);
             }
         }
