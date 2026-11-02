@@ -983,19 +983,17 @@ impl DataHub {
     }
 }
 
-/// Languages whose name or id contains `query` (any case), with the region
-/// named on the first row of each region.
+/// Languages whose name or id contains `query` (any case), in alphabetical
+/// order by name.
 fn language_rows(query: &str) -> Vec<LanguageRow> {
     let q = query.trim().to_lowercase();
-    let mut last_region = "";
-    LANGUAGE_CHOICES
+    let mut rows: Vec<_> = LANGUAGE_CHOICES
         .iter()
         .filter(|(id, name, _)| q.is_empty() || name.to_lowercase().contains(&q) || *id == q)
-        .map(|(id, name, region)| {
-            let header = if *region != last_region { *region } else { "" };
-            last_region = region;
-            LanguageRow { id: (*id).into(), name: (*name).into(), header: header.into() }
-        })
+        .collect();
+    rows.sort_by_key(|(_, name, _)| name.to_lowercase());
+    rows.into_iter()
+        .map(|(id, name, _)| LanguageRow { id: (*id).into(), name: (*name).into(), header: "".into() })
         .collect()
 }
 

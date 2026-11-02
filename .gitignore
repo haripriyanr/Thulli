@@ -14,3 +14,5 @@ inspect*.js
 
 # Dev telemetry & crash logs (never commit)
 logs/
+/models
+/thulli-translations.zip
