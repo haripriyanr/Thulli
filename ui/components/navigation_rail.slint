@@ -124,7 +124,7 @@ export component NavigationRail inherits Rectangle {
             header-hover := TouchArea {
                 width: 100%;
                 height: 100%;
-                clicked => { if !root.expanded { root.touch-pinned = true; } }
+                clicked => { root.touch-pinned = !root.expanded; }
             }
             if expanded || !header-hover.has-hover: Image {
                 source: @image-url("../../assets/Thulli-Mark.png");
@@ -134,20 +134,21 @@ export component NavigationRail inherits Rectangle {
                 x: expanded ? 12px : (parent.width - self.width) / 2;
                 y: (parent.height - self.height) / 2;
             }
-            if !expanded && header-hover.has-hover: TouchArea {
-                width: 40px;
-                height: 40px;
+            // Keep the same full-width TouchArea under the pointer in every
+            // state. Swapping nested TouchAreas here caused hover to oscillate.
+            if !expanded && header-hover.has-hover: IconChevronRight {
+                width: 17px;
+                height: 17px;
                 x: (parent.width - self.width) / 2;
                 y: (parent.height - self.height) / 2;
-                clicked => { root.touch-pinned = true; }
-                IconChevronRight { width: 17px; height: 17px; x: 11.5px; y: 11.5px; stroke-color: Theme.dock-icon-passive; }
+                stroke-color: Theme.dock-icon-passive;
             }
-            if expanded: TouchArea {
-                width: 32px; height: 32px;
-                x: parent.width - 40px;
+            if expanded: IconChevronLeft {
+                width: 17px;
+                height: 17px;
+                x: parent.width - 28px;
                 y: (parent.height - self.height) / 2;
-                clicked => { root.touch-pinned = false; }
-                IconChevronLeft { width: 17px; height: 17px; x: 7.5px; y: 7.5px; stroke-color: Theme.dock-icon-passive; }
+                stroke-color: Theme.dock-icon-passive;
             }
         }
 
