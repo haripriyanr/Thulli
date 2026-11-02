@@ -25,16 +25,6 @@ pub enum Ambient {
 }
 
 impl Ambient {
-    /// Stable identifier used in preferences and at the UI boundary.
-    pub fn as_str(self) -> &'static str {
-        match self {
-            Ambient::Off => "off",
-            Ambient::Forest => "forest",
-            Ambient::LoFi => "lofi",
-            Ambient::Rain => "rain",
-        }
-    }
-
     pub fn from_id(id: &str) -> Option<Self> {
         match id {
             "off" => Some(Ambient::Off),
