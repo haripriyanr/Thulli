@@ -176,12 +176,31 @@ export component FieldCard inherits GlassCard {
     callback clicked();
 
     corner: 18px;
-    height: 68px;
+    height: 72px;
+    // Hover lifts the card a little; typing in it or an open dropdown gives
+    // it a violet edge and glow.
+    property <bool> active: root.open || (root.editable && input-focus);
+    property <bool> input-focus: false;
+    background: root.active ? Theme.accent-violet.with-alpha(0.16)
+        : (hover.has-hover ? Theme.glass-fill-hover : Theme.glass-fill-strong);
+    border-width: root.active ? 1.5px : 1px;
+    border-color: root.active ? Theme.accent-violet.with-alpha(0.8)
+        : (hover.has-hover ? Theme.accent-violet.with-alpha(0.4) : Theme.glass-border);
+    drop-shadow-blur: root.active ? 18px : 0px;
+    drop-shadow-color: Theme.accent-violet.with-alpha(0.35);
+    animate background, border-color, drop-shadow-blur { duration: 200ms; easing: ease-out; }
 
-    if !root.editable: TouchArea {
+    hover := TouchArea {
         width: 100%;
         height: 100%;
-        clicked => { root.clicked(); }
+        mouse-cursor: root.editable ? MouseCursor.text : MouseCursor.pointer;
+        clicked => {
+            if root.editable {
+                field-input.focus();
+            } else {
+                root.clicked();
+            }
+        }
     }
 
     // Icon, centred on the left.
@@ -216,27 +235,30 @@ export component FieldCard inherits GlassCard {
                     height: 100%;
                     text: root.placeholder;
                     visible: root.text == "";
-                    font-size: 16px;
+                    font-size: 17px;
                     font-weight: 600;
                     color: Theme.text-muted;
                     vertical-alignment: center;
                     overflow: elide;
                 }
-                if root.editable: TextInput {
+                field-input := TextInput {
+                    visible: root.editable;
+                    enabled: root.editable;
                     width: 100%;
                     height: 100%;
                     vertical-alignment: center;
-                    font-size: 16px;
+                    font-size: 17px;
                     font-weight: 600;
                     color: Theme.text-primary;
                     text <=> root.text;
                     edited => { root.edited(root.text); }
+                    changed has-focus => { root.input-focus = self.has-focus; }
                 }
                 if !root.editable: Text {
                     width: 100%;
                     height: 100%;
                     text: root.text;
-                    font-size: 16px;
+                    font-size: 17px;
                     font-weight: 600;
                     color: Theme.text-primary;
                     vertical-alignment: center;

@@ -11,6 +11,8 @@ export component ThulliRing inherits Rectangle {
     in property <length> thickness: 10px;
     in property <color> ring-color: Theme.accent-cyan;
     in property <color> track-color: Theme.border-subtle;
+    // Paint for the progress arc; a gradient here gives a shaded arc.
+    in property <brush> ring-brush: root.ring-color;
 
     width: 220px;
     height: 220px;
@@ -45,7 +47,7 @@ export component ThulliRing inherits Rectangle {
         viewbox-y: 0;
         viewbox-width: root.size;
         viewbox-height: root.size;
-        stroke: root.ring-color;
+        stroke: root.ring-brush;
         stroke-width: root.thickness;
         stroke-line-cap: round;
         fill: transparent;

@@ -58,8 +58,13 @@ component TimerCard inherits GlassCard {
                 width: AppData.immersive ? max(320px, min(root.width, root.height) - 120px) : 320px;
                 height: self.width;
                 thickness: 10px;
+                // Elapsed share of the phase. The timer ticks once a second,
+                // so the arc glides between ticks instead of stepping.
                 progress: AppData.pomodoro-progress;
+                animate progress { duration: 1000ms; easing: linear; }
                 ring-color: root.accent;
+                // The gradient turns slowly with the background motion.
+                ring-brush: @linear-gradient(AppData.background-phase * 360deg, #C4B5FD 0%, #8B5CF6 50%, #EC4899 100%);
                 track-color: Theme.glass-border;
 
                 // Mountain artwork across the lower part of the ring.
@@ -103,6 +108,13 @@ component TimerCard inherits GlassCard {
                     if AppData.immersive: HorizontalLayout {
                         alignment: center;
                         padding-top: 18px;
+                        spacing: 12px;
+                        GlassIconButton {
+                            dia: 44px;
+                            clicked => { AppData.pomodoro-toggle(); }
+                            if !AppData.pomodoro-running: IconPlay { width: 18px; height: 18px; stroke-color: Theme.text-primary; fill-color: Theme.text-primary; }
+                            if AppData.pomodoro-running: IconPause { width: 18px; height: 18px; stroke-color: Theme.text-primary; fill-color: Theme.text-primary; }
+                        }
                         GlassIconButton {
                             dia: 44px;
                             clicked => { AppData.immersive = false; }
@@ -213,7 +225,7 @@ component TimerCard inherits GlassCard {
 
         // Footer: durations
         if !AppData.immersive: HorizontalLayout {
-            alignment: start;
+            alignment: center;
             spacing: 8px;
             VerticalLayout { alignment: center; IconTimer { width: 14px; height: 14px; stroke-color: Theme.text-muted; } }
             Text { text: AppData.pomodoro-durations; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
@@ -487,6 +499,52 @@ component AnalyticsCard inherits GlassCard {
                 }
             }
         }
+
+        // Recent sessions: the last few focus sessions, newest first.
+        GlassCard {
+            corner: 16px;
+            VerticalLayout {
+                padding: 16px;
+                spacing: 8px;
+                HorizontalLayout {
+                    spacing: 8px;
+                    VerticalLayout { alignment: center; IconClock { width: 16px; height: 16px; stroke-color: Theme.accent-violet; } }
+                    Text { text: "Recent sessions"; font-size: 14px; font-weight: 600; color: Theme.text-primary; }
+                }
+                if AppData.session-history.length == 0: Text {
+                    text: "Finished focus sessions show up here.";
+                    font-size: 13px;
+                    color: Theme.text-muted;
+                }
+                for session[i] in AppData.session-history: VerticalLayout { if i < 4: HorizontalLayout {
+                    spacing: 10px;
+                    height: 34px;
+                    VerticalLayout {
+                        alignment: center;
+                        Rectangle {
+                            width: 8px;
+                            height: 8px;
+                            border-radius: 4px;
+                            background: Theme.accent-violet;
+                        }
+                    }
+                    Text {
+                        text: session.title;
+                        font-size: 13px;
+                        color: Theme.text-primary;
+                        vertical-alignment: center;
+                        overflow: elide;
+                        horizontal-stretch: 1;
+                    }
+                    Text {
+                        text: session.detail;
+                        font-size: 11px;
+                        color: Theme.text-muted;
+                        vertical-alignment: center;
+                    }
+                } }
+            }
+        }
     }
 }
 
@@ -506,12 +564,14 @@ export component PomodoroScreen inherits Rectangle {
         : (root.wide ? (root.width - 2 * root.side - root.gap) * 0.6 : root.width - 2 * root.side);
     property <length> timer-height: AppData.immersive
         ? root.height
-        : (root.wide ? root.height - root.side : 760px);
+        : (root.wide ? root.height - root.side : root.timer-min-height);
+    // Height the timer card needs to show every row without squeezing.
+    property <length> timer-min-height: 790px;
 
     property <length> analytics-x: root.wide ? root.side + root.timer-width + root.gap : root.side;
     property <length> analytics-y: root.wide ? 0px : root.timer-height + root.gap;
     property <length> analytics-width: root.wide ? root.width - root.analytics-x - root.side : root.width - 2 * root.side;
-    property <length> analytics-height: root.wide ? root.height - root.side : 860px;
+    property <length> analytics-height: root.wide ? root.height - root.side : analytics.preferred-height;
 
     // Narrow windows stack the timer above the analytics, so the page scrolls.
     page := Flickable {
@@ -520,14 +580,23 @@ export component PomodoroScreen inherits Rectangle {
         content-height: (root.wide || AppData.immersive) ? root.height : root.analytics-y + root.analytics-height + root.side;
         interactive: !root.wide && !AppData.immersive;
 
-    timer := TimerCard {
-        view-all-tasks => { root.view-all-tasks(); }
+    // In the wide layout the timer card scrolls on its own when the window is
+    // shorter than its content, the same way the analytics panel does.
+    timer-scroll := Flickable {
         x: AppData.immersive ? (root.width - self.width) / 2 : root.side;
         // In full screen it centres in the visible part of the page.
         y: AppData.immersive ? (root.height - self.height) / 2 - page.content-y : 0px;
         width: root.timer-width;
         height: root.timer-height;
         animate x, y, width, height { duration: 800ms; easing: cubic-bezier(0.34, 1.56, 0.64, 1); }
+        content-height: timer.height;
+        interactive: root.wide && !AppData.immersive;
+
+        timer := TimerCard {
+            view-all-tasks => { root.view-all-tasks(); }
+            width: parent.width;
+            height: AppData.immersive ? parent.height : max(parent.height, root.timer-min-height);
+        }
     }
 
     analytics-wrap := Rectangle {
@@ -538,14 +607,15 @@ export component PomodoroScreen inherits Rectangle {
         opacity: AppData.immersive ? 0 : 1;
         animate opacity { duration: 250ms; easing: ease-out; }
 
+        // The card is only as tall as its content, so no empty space below.
         Flickable {
             width: 100%;
             height: 100%;
-            content-height: max(860px, parent.height);
+            content-height: analytics.height;
 
-            AnalyticsCard {
+            analytics := AnalyticsCard {
                 width: parent.width;
-                height: max(860px, parent.height);
+                height: self.preferred-height;
             }
         }
     }

@@ -202,7 +202,9 @@ fn tally(
 }
 
 fn activity_from(labels: Vec<(String, String)>, counts: Vec<u32>, secs: u64) -> Activity {
-    let peak = counts.iter().copied().max().unwrap_or(0).max(1);
+    // The axis shows four even steps, so its top is a multiple of four:
+    // every label is then a whole number of sessions.
+    let peak = counts.iter().copied().max().unwrap_or(0).max(1).div_ceil(4) * 4;
     let bars = labels
         .iter()
         .zip(&counts)
