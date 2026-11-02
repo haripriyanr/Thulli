@@ -89,10 +89,10 @@ export component SceneTile inherits Rectangle {
     border-radius: 14px;
     clip: true;
     background: #1E1B2E;
-    border-width: root.selected ? 2px : 1px;
-    border-color: root.selected ? #C4B5FD : Theme.glass-border;
-    drop-shadow-blur: root.selected ? 16px : 0px;
-    drop-shadow-color: #A78BFA66;
+    border-width: root.selected ? 3px : 1px;
+    border-color: root.selected ? (Theme.dark-mode ? #C4B5FD : #7C3AED) : Theme.glass-border;
+    drop-shadow-blur: root.selected ? 18px : 0px;
+    drop-shadow-color: Theme.dark-mode ? #A78BFA66 : #7C3AED80;
     animate border-color { duration: 200ms; easing: ease-out; }
 
     Image {

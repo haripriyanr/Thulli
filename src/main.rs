@@ -339,6 +339,14 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let weak = window.as_weak();
         let state = resize_state.clone();
         shell.on_window_resize_start(move |edge, px, py| {
+            // On Windows the system runs the resize, so it keeps tracking the
+            // pointer after it leaves the thin edge strip.
+            #[cfg(target_os = "windows")]
+            if let Some(w) = weak.upgrade() {
+                if begin_native_resize(&w.window(), &edge) {
+                    return;
+                }
+            }
             if let Some(w) = weak.upgrade() {
                 let wnd = w.window();
                 let sf = wnd.scale_factor();
@@ -470,6 +478,43 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
     }
 
     Ok(window.run()?)
+}
+
+/// Hands an edge drag to the system's own resize loop. Returns false when the
+/// window handle is unavailable, so the caller falls back to manual resizing.
+#[cfg(target_os = "windows")]
+fn begin_native_resize(window: &slint::Window, edge: &str) -> bool {
+    use raw_window_handle::{HasWindowHandle, RawWindowHandle};
+    use windows_sys::Win32::UI::Input::KeyboardAndMouse::ReleaseCapture;
+    use windows_sys::Win32::UI::WindowsAndMessaging::{
+        PostMessageW, SC_SIZE, WMSZ_BOTTOM, WMSZ_BOTTOMLEFT, WMSZ_BOTTOMRIGHT, WMSZ_LEFT,
+        WMSZ_RIGHT, WMSZ_TOP, WMSZ_TOPLEFT, WMSZ_TOPRIGHT, WM_SYSCOMMAND,
+    };
+
+    let side = match edge {
+        "left" => WMSZ_LEFT,
+        "right" => WMSZ_RIGHT,
+        "top" => WMSZ_TOP,
+        "bottom" => WMSZ_BOTTOM,
+        "top-left" => WMSZ_TOPLEFT,
+        "top-right" => WMSZ_TOPRIGHT,
+        "bottom-left" => WMSZ_BOTTOMLEFT,
+        "bottom-right" => WMSZ_BOTTOMRIGHT,
+        _ => return false,
+    };
+    let provider = window.window_handle();
+    let Ok(handle) = provider.window_handle() else {
+        return false;
+    };
+    let RawWindowHandle::Win32(handle) = handle.as_raw() else {
+        return false;
+    };
+    unsafe {
+        ReleaseCapture();
+        // Posted, not sent, so the pointer event that started the drag
+        // finishes before the system resize loop takes over.
+        PostMessageW(handle.hwnd.get() as _, WM_SYSCOMMAND, (SC_SIZE + side) as usize, 0) != 0
+    }
 }
 
 /// Corner radius of the shell frame in logical pixels. Must match the

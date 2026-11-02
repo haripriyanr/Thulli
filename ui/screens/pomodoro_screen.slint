@@ -201,6 +201,13 @@ component TimerCard inherits GlassCard {
         }
     }
 
+    // A tap anywhere outside the open dropdown closes it.
+    if root.picker-open: TouchArea {
+        width: 100%;
+        height: 100%;
+        clicked => { root.picker-open = false; }
+    }
+
     // Task dropdown: opens above the task field, aligned to its right edge.
     if root.picker-open: Rectangle {
         width: min(root.width - 44px, 420px);
@@ -350,13 +357,23 @@ component AnalyticsCard inherits GlassCard {
                 Text { text: "Productivity"; font-size: 18px; font-weight: 700; color: Theme.text-primary; }
                 Text { text: "Your focus at a glance"; font-size: 12px; color: Theme.text-muted; }
             }
-            HorizontalLayout {
-                spacing: 4px;
-                alignment: end;
-                IconTab { label: "Day"; selected: AppData.activity-range == "day"; clicked => { AppData.activity-range-selected("day"); } }
-                IconTab { label: "Week"; selected: AppData.activity-range == "week"; clicked => { AppData.activity-range-selected("week"); } }
-                IconTab { label: "Month"; selected: AppData.activity-range == "month"; clicked => { AppData.activity-range-selected("month"); } }
-                IconTab { label: "Year"; selected: AppData.activity-range == "year"; clicked => { AppData.activity-range-selected("year"); } }
+            // Scrolls sideways when the panel is too narrow for all four.
+            range-strip := Flickable {
+                horizontal-stretch: 1;
+                min-width: 120px;
+                height: 38px;
+                content-width: max(range-row.preferred-width, self.width);
+                content-height: 38px;
+                range-row := HorizontalLayout {
+                    x: max(0px, range-strip.width - self.preferred-width);
+                    width: self.preferred-width;
+                    height: 38px;
+                    spacing: 4px;
+                    IconTab { label: "Day"; selected: AppData.activity-range == "day"; clicked => { AppData.activity-range-selected("day"); } }
+                    IconTab { label: "Week"; selected: AppData.activity-range == "week"; clicked => { AppData.activity-range-selected("week"); } }
+                    IconTab { label: "Month"; selected: AppData.activity-range == "month"; clicked => { AppData.activity-range-selected("month"); } }
+                    IconTab { label: "Year"; selected: AppData.activity-range == "year"; clicked => { AppData.activity-range-selected("year"); } }
+                }
             }
         }
 

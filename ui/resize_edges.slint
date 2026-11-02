@@ -11,6 +11,10 @@ export component EdgeResize inherits Rectangle {
     touch := TouchArea {
         width: 100%;
         height: 100%;
+        mouse-cursor: root.edge == "left" || root.edge == "right" ? MouseCursor.ew-resize
+            : root.edge == "top" || root.edge == "bottom" ? MouseCursor.ns-resize
+            : root.edge == "top-left" || root.edge == "bottom-right" ? MouseCursor.nwse-resize
+            : MouseCursor.nesw-resize;
 
         // Window-relative pointer position = strip origin in window coords
         // (`absolute-position`, injected on every element) + pointer offset
