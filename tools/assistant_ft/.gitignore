@@ -1,0 +1,5 @@
+eval/target/
+data/*
+!data/sample_cases.jsonl
+*.zip
+__pycache__/
