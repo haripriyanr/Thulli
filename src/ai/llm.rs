@@ -27,7 +27,7 @@ const KV_HEADS: usize = 2;
 const HEAD_DIM: usize = 256;
 /// `<|im_end|>` and `<|endoftext|>`.
 const STOP_IDS: [u32; 2] = [248_046, 248_044];
-/// Thinking plus the answer; thinking is short when it is not needed.
+/// The answer only: reasoning is switched off.
 const MAX_NEW_TOKENS: usize = 3072;
 /// The model card's sampling settings.
 const TEMPERATURE: f32 = 0.6;
@@ -101,7 +101,8 @@ fn past_name(present: &str) -> Option<String> {
     present.strip_prefix("present.").map(|rest| format!("past_key_values.{rest}"))
 }
 
-/// Qwen chat format with thinking on: the reply starts inside `<think>`.
+/// Qwen chat format with reasoning off: the empty think block tells the model
+/// to answer straight away.
 pub fn chat_prompt(messages: &[EngineMessage]) -> String {
     let mut p = String::new();
     for m in messages {
@@ -112,7 +113,7 @@ pub fn chat_prompt(messages: &[EngineMessage]) -> String {
         };
         p.push_str(&format!("<|im_start|>{role}\n{}<|im_end|>\n", m.content));
     }
-    p.push_str("<|im_start|>assistant\n<think>\n");
+    p.push_str("<|im_start|>assistant\n<think>\n\n</think>\n\n");
     p
 }
 
@@ -245,9 +246,9 @@ mod tests {
     }
 
     #[test]
-    fn prompt_opens_thinking_and_answer_is_after_it() {
+    fn prompt_skips_thinking_and_answer_is_after_it() {
         let p = chat_prompt(&[EngineMessage::new(EngineRole::User, "hi")]);
-        assert!(p.ends_with("<|im_start|>assistant\n<think>\n"));
+        assert!(p.ends_with("<|im_start|>assistant\n<think>\n\n</think>\n\n"));
         assert_eq!(strip_thinking("plan...\n</think>\n\n{\"actions\":[]}"), "{\"actions\":[]}");
         assert_eq!(strip_thinking("{\"actions\":[]}"), "{\"actions\":[]}");
     }

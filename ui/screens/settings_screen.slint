@@ -80,20 +80,22 @@ export component SettingsScreen inherits Rectangle {
                     hint: AppData.ai-models-ready ? @tr("Remove them to free the space; they download again when needed.") : @tr("They download the first time you use AI, or now.");
                     HorizontalLayout {
                         spacing: 8px;
-                        // Installed: a green Ready badge.
-                        if AppData.ai-models-ready: Rectangle {
-                            width: ready-row.preferred-width + 24px;
-                            height: 40px;
-                            border-radius: 20px;
-                            background: Theme.accent-green.with-alpha(0.16);
-                            border-width: 1px;
-                            border-color: Theme.accent-green.with-alpha(0.55);
-                            ready-row := HorizontalLayout {
-                                x: 12px;
-                                spacing: 6px;
-                                alignment: center;
-                                VerticalLayout { alignment: center; IconCheck { width: 14px; height: 14px; stroke-color: Theme.accent-green; } }
-                                Text { text: @tr("Ready"); font-size: 14px; font-weight: 600; color: Theme.accent-green; vertical-alignment: center; }
+                        // Installed: a small green Ready chip, centred on the buttons.
+                        if AppData.ai-models-ready: VerticalLayout {
+                            alignment: center;
+                            Rectangle {
+                                height: 28px;
+                                border-radius: 14px;
+                                background: Theme.accent-green.with-alpha(0.14);
+                                border-width: 1px;
+                                border-color: Theme.accent-green.with-alpha(0.45);
+                                HorizontalLayout {
+                                    padding-left: 10px;
+                                    padding-right: 12px;
+                                    spacing: 6px;
+                                    VerticalLayout { alignment: center; IconCheck { width: 12px; height: 12px; stroke-color: Theme.accent-green; } }
+                                    Text { text: @tr("Ready"); font-size: 13px; font-weight: 600; color: Theme.accent-green; vertical-alignment: center; }
+                                }
                             }
                         }
                         PlainButton { label: @tr("Refresh"); clicked => { AppData.ai-models-refresh(); } }

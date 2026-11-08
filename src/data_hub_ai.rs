@@ -32,8 +32,7 @@ pub struct Triage {
 
 impl DataHub {
     pub(super) fn refresh_ai(&self, window: &MainWindow) {
-        window.global::<AppData>().set_ai_models_ready(pack::is_ready());
-        self.refresh_triage(window);
+        window.global::<AppData>().set_ai_models_ready(pack::is_ready());        self.refresh_triage(window);
     }
 
     pub(super) fn refresh_triage(&self, window: &MainWindow) {
@@ -76,16 +75,8 @@ impl DataHub {
             let (ok, text) = match llm {
                 Err(why) => (false, format!("The AI could not start: {why}")),
                 Ok(llm) => {
-                    status("Thinking...".into());
-                    let mut thinking = true;
-                    let reply = llm.generate(&prompt, &mut |piece| {
-                        // Show when the model has finished thinking.
-                        if thinking && piece.contains("</think>") {
-                            thinking = false;
-                            status("Writing the plan...".into());
-                        }
-                        true
-                    });
+                    status("Writing the plan...".into());
+                    let reply = llm.generate(&prompt, &mut |_| true);
                     match reply {
                         Ok(text) => (true, text),
                         Err(e) => (false, e.user_message()),
@@ -266,7 +257,7 @@ impl DataHub {
                         data.set_ai_busy(false);
                         data.set_ai_models_ready(pack::is_ready());
                         data.set_ai_status(match done {
-                            Ok(_) => "AI models are ready.".into(),
+                            Ok(_) => "".into(),
                             Err(why) => format!("The download did not finish: {why}").into(),
                         });
                     });
@@ -279,10 +270,8 @@ impl DataHub {
             data.on_ai_models_refresh(move || {
                 let Some(w) = weak.upgrade() else { return };
                 hub.refresh_ai(&w);
-                let ready = pack::is_ready();
-                w.global::<AppData>().set_ai_status(
-                    if ready { "AI models are installed and ready." } else { "AI models are not downloaded yet." }.into(),
-                );
+                // The chip and buttons already show the state.
+                w.global::<AppData>().set_ai_status("".into());
             });
         }
         {

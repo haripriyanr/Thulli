@@ -169,6 +169,10 @@ enum RawAction {
         do_date: Option<String>,
         #[serde(default)]
         steps: Option<Vec<String>>,
+        // Small models add notes to new tasks; accepted and ignored.
+        #[serde(default)]
+        #[allow(dead_code)]
+        notes: Option<String>,
     },
     AddSubtask {
         task: String,
@@ -339,7 +343,7 @@ fn strip_empty_fences(text: &str) -> String {
 fn validate(value: Value) -> Result<ProposedAction, String> {
     let raw: RawAction = serde_json::from_value(value).map_err(|e| e.to_string())?;
     match raw {
-        RawAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps } => {
+        RawAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps, .. } => {
             let title = clean_line(&title, MAX_TITLE_CHARS, "title")?;
             let section = match section.as_deref().map(str::trim) {
                 None | Some("") => TaskSection::Today,

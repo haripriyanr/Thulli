@@ -120,7 +120,7 @@ export component PlanPanel inherits Rectangle {
                 }
                 Text { horizontal-stretch: 1; text: @tr("Start the first task now"); font-size: 14px; color: Theme.text-secondary; vertical-alignment: center; }
                 PanelButton {
-                    label: AppData.ai-busy ? "Thinking..." : "Plan it";
+                    label: AppData.ai-busy ? "Planning..." : "Plan it";
                     primary: true;
                     enabled: !AppData.ai-busy && root.request != "";
                     clicked => { AppData.ai-plan(root.request, root.start-now); }
