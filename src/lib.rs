@@ -8,6 +8,8 @@ pub mod ai;
 pub mod models;
 pub mod parser;
 pub mod repository;
+pub mod research;
+pub mod search;
 pub mod security;
 pub mod services;
 pub mod window;

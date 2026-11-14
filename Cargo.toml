@@ -35,7 +35,9 @@ global-hotkey = "0.7"
 # "z" = pure-Rust D-Bus for Linux notifications; unused on Windows and macOS.
 notify-rust = { version = "4", default-features = false, features = ["z"] }
 rfd = "0.16"
+arboard = { version = "3", default-features = false }
 ureq = { version = "2", features = ["json"] }
+scraper = "0.24"
 # On-device models: llama.cpp for the planner, ONNX Runtime for speech.
 ort = { version = "=2.0.0-rc.15", features = ["download-binaries", "ndarray", "half"] }
 half = "2"
