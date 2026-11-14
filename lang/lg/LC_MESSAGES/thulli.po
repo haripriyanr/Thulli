@@ -688,3 +688,839 @@ msgstr "Ezitegekeddwa leero"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Tewali ssente ezitegekeddwa leero. Ongerako emirimu ku lupapula lw'Ebifo."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Ekigendererwa kye kintu ky'oyagala okutuukako. Kikutulemu emitendera emikulu, yunga emirimu egikutuusaayo, era olabe enkulaakulana yo nga yeeyongera."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Kukwata ku kigendererwa kino"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Kikola"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Ongerako omutendera omukulu"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Ebika bya AI (ebiwera nga 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Ebika bya AI biteereddwamu"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Ekintu ekirala kyonna ekisaanidde okujjukirwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Tereka mu tterekero"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Kyaterekeddwa mu tterekero"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Ddayo ku bigendererwa"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "ebitabo, essaawa…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Ettuluba"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Kyusa omutendera omukulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Ggalawo"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Ebijja"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Kiwedde"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Bala emitendera emikulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Kola ekigendererwa ekikola okufuna ebirowoozo."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Kola ekigendererwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Kola ekigendererwa kyo ekisooka"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Eky'omulembe guno"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Omuwendo gw'ensonga eno"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Olunaku (bwe kyetaagisa)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Sangulawo"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Sangulawo ekigendererwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Sangulawo ekigendererwa kino?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Nnyonnyola ebinaavaamu"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Ennyonnyola"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Kikoleddwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Wanula kati"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Kiwanulwa..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Kyusa ekigendererwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Ekiseera ky'okussa essira ku bigendererwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Ebigendererwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Ebigendererwa ebitambudde mu wiiki eno"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Waggulu"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Obukulu obwa waggulu"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Ebyafaayo"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Enkulaakulana ebalibwa etya?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Kikola"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Kuumirawo ekigendererwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Ennaku 7 eziyise"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Yunga omulimu"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Wansi"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Obukulu obwa wansi"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Lamba ng'ekimaze okukolebwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Wakati"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Obukulu obwa wakati"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Omutendera omukulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Omutendera omukulu: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Emitendera emikulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Emitendera emikulu egyamaze okukolebwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Kyetagisa okussaako essira"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Ekigendererwa ekipya"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Ekiddako: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Tewali nnaku zikoma mu nnaku musanvu ezijja."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Tewali biseera bya kussa ssira ku kigendererwa kino binaakolebwa. Tandika ekiseera ky'okussa essira ku gumu ku mirimu gyakyo."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Tewali kigendererwa kyabaddemu mutendera mukulu, mulimu oba kiseera kya kussa ssira mu wiiki eno."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Tewali bigendererwa bikwatagana"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Tewali bigendererwa binaabaawo"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Tewali mitendera mikulu ginaabaawo. Yongezako ekifo ekisooka mu kkubo erigenda ku kigendererwa kino."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Tewali mirimu mikalu gyungibwa. Emirimu egiri mu kigendererwa dda tegiyolesebwa."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Tewali mirimu giyungiddwa binaabaawo. Yunga emirimu okuva mu Bifo okugiraba wano."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Tewali kintu kisusse kiseera oba ekisirise. Kirungi nnyo."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Ggulawo"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Ggulawo Ebifo"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Yimirizaamu"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Kiyimiriziddwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Kwatisa enyunzi empya ku mutendera omukulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Okutegeka, okutegeera eddoboozi n'okusoma mu ddoboozi eriri waggulu byonna bikolera ku kiyingo kino. Tewali ky'oyogera oba ky'owandiika ekikifulumako."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Obukulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Enkulaakulana"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Enkulaakulana kye kitundu ky'emitendera emikulu gy'omaze okutuukiriza."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Enkulaakulana gwe muwendo gwo ogw'ensonga eno bw'ogugeraageranya n'ekiruubirirwa, gamba nga bitabo 12 ku 20."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Soma mu ddoboozi eriri waggulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Kyetegese"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Eby'akazindalo"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Zza obuggya"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Ggyawo"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Biggyeewo okusobola okufuna ebbanga; bijja kuddamu okuwanulwa nga byetaagisa."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Ggulawo nate"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Zzaawo"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Weyongereyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Kaza enkyukakyuka"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Noonya ebigendererwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Noonya emirimu gyo egikyakola"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sengeka okusinziira ku"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Okusoma, obulamu, emirimu…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Ebisembyeddwa okukulembezebwa mu wiiki ejja"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Ekiruubirirwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Olunaku olusuubirwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Olunaku olusuubirwa (YYYY-MM-DD, bwe kyetaagisa)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Emirimu egimaze okukolebwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Emirimu gy'ekigendererwa kino"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Enteekateeka esooka ewanula ebika bya AI eby'oku kiyingo kino (ebiwera nga 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Ekigendererwa n'emitendera gyakyo emikulu bijja kuggyibwawo. Emirimu gyo gijja kukuumibwa mu Bifo; gijja kukomya bunyiikivu okusonga ku kigendererwa kino."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Ennaku omusanvu eziyise, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Biwanulwa omulundi gwo ogusooka okukozesa AI, oba kati."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Ekigendererwa kino kigoberera omuwendo. Emitendera emikulu gikyayoleka we wayimirirwa mu kkubo, naye tegyusa bitundu ku kikumi."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Omutwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Omugatte"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Goberera omuwendo"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Gezaako akasengejja akalala oba okunoonya okulala."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Ekigera"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Kutula enyunzi"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Zza buggya"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Okwekebejja buli wiiki"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Kiki ky'oyagala okutuukako?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Lwaki kikulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ensonga yo ey'okukola kino"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} ebisigaddeyo"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} bikola"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} biwedde"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} gukoma mu nnaku {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} gukoma leero"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} gukoma enkya"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} bissiddwako essira"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} ku {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} ku {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} ku mitendera emikulu {} giwedde"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} ku mirimu {} giwedde"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} bisussizza ekiseera"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} biyimiriziddwa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} ebisigaddeyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Ongerako omutendera omukulu oba olunaku olusuubirwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Gukoma {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Gukoma mu nnaku {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Gukoma leero"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Gukoma enkya"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Buli mutendera omukulu gumaze okukolebwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Ekiseera ky'okussa essira kiwandiikiddwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Emitendera emikulu egikoleddwa: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Tewali kikolwa okumala ennaku {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Tewali mitendera mikulu ginaabaawo"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Gusussizza ennaku {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Gusussizza olunaku 1"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Kutegeke"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Kitegekebwa..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Teekawo ekiruubirirwa okulaba enkulaakulana"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Ekiruubirirwa kituusiddwako"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Emirimu egikoleddwa: {}"
+
+msgid "Planning"
+msgstr "Enteekateeka"
+
+msgid "Speech to text"
+msgstr "Amaloboozi mu biwandiiko"
+
+msgid "Add subtask"
+msgstr "Yongerako omulimu omutono"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Buuza ku mirimu gyo, oba nnyonnyola ky'oyagala okuteekateeka. Tewali kikyuka okuggyako nga okikkirizza."
+
+msgid "Asking AI..."
+msgstr "Abuuza AI..."
+
+msgid "Chat"
+msgstr "Emboozi"
+
+msgid "Chats"
+msgstr "Emboozi"
+
+msgid "Click again to delete"
+msgstr "Nyiga nate osangule"
+
+msgid "Collapse"
+msgstr "Funza"
+
+msgid "Collapse menu"
+msgstr "Funza menyu"
+
+msgid "Copy"
+msgstr "Koppa"
+
+msgid "Count my focus hours"
+msgstr "Bala essaawa zange ez'okussaako omwoyo"
+
+msgid "Decrease"
+msgstr "Kendeza"
+
+msgid "Deep"
+msgstr "Ez'omunda"
+
+msgid "Delete chat"
+msgstr "Sangula emboozi"
+
+msgid "Delete note"
+msgstr "Sangula ekiwandiiko"
+
+msgid "Delete subtask"
+msgstr "Sangula omulimu omutono"
+
+msgid "Delete this chat?"
+msgstr "Sangula emboozi eno?"
+
+msgid "Dictate"
+msgstr "Yogera awandiike"
+
+msgid "Exit full screen"
+msgstr "Va mu sikuliini ejjuddemu"
+
+msgid "Expand"
+msgstr "Gaziyako"
+
+msgid "Expand menu"
+msgstr "Gaziyako menyu"
+
+msgid "Fork from here"
+msgstr "Tandikira wano empya"
+
+msgid "Fork this chat"
+msgstr "Koppa emboozi eno"
+
+msgid "Full screen"
+msgstr "Sikuliini ejjuddemu"
+
+msgid "Hide subtasks"
+msgstr "Kisa emirimu emitono"
+
+msgid "Increase"
+msgstr "Yongerako"
+
+msgid "Jump to latest"
+msgstr "Genda ku kusembayo"
+
+msgid "Launch"
+msgstr "Tandika leero"
+
+msgid "Let the assistant search the web"
+msgstr "Leka omubeezi anoonye ku yintaneeti"
+
+msgid "Maximize"
+msgstr "Zimbulukusa"
+
+msgid "Merging the notes"
+msgstr "Kugatta ebiwandiiko"
+
+msgid "Message"
+msgstr "Obubaka"
+
+msgid "Minimize"
+msgstr "Kendeza"
+
+msgid "More"
+msgstr "Ebirala"
+
+msgid "Move back"
+msgstr "Zzaayo emabega"
+
+msgid "Move down"
+msgstr "Sindiika wansi"
+
+msgid "Move forward"
+msgstr "Sindiika mu maaso"
+
+msgid "Move up"
+msgstr "Sindiika waggulu"
+
+msgid "New chat"
+msgstr "Emboozi empya"
+
+msgid "New space"
+msgstr "Ekifo ekipya"
+
+msgid "Next mode"
+msgstr "Enteekateeka eddako"
+
+msgid "Next version"
+msgstr "Enkyusa eddako"
+
+msgid "Next week"
+msgstr "Wiiki ejja"
+
+msgid "Planned the searches"
+msgstr "Ennoonya zitegekeddwa"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Okuteekateeka, okutegeera eddoboozi n'okusoma mu ddoboozi bikolera ku ssimu eno. Okunoonya kw'oyagala kwokka kwe kugenda ku yintaneeti."
+
+msgid "Previous mode"
+msgstr "Enteekateeka eyise"
+
+msgid "Previous version"
+msgstr "Enkyusa eyise"
+
+msgid "Previous week"
+msgstr "Wiiki ewedde"
+
+msgid "Quick"
+msgstr "Mangu"
+
+msgid "Reading {}"
+msgstr "Kusoma {}"
+
+msgid "Redo"
+msgstr "Ddamu okukola"
+
+msgid "Searching: {}"
+msgstr "Kunoonyereza: {}"
+
+msgid "Send"
+msgstr "Weereza"
+
+msgid "Show subtasks"
+msgstr "Laga emirimu emitono"
+
+msgid "Skipped {}"
+msgstr "Abuuse {}"
+
+msgid "Standard"
+msgstr "Eya bulijjo"
+
+msgid "Start"
+msgstr "Tandika"
+
+msgid "Start focus on this task"
+msgstr "Tandika okussaako omwoyo ku mulimu guno"
+
+msgid "Stop"
+msgstr "Lekera awo"
+
+msgid "Stop recording"
+msgstr "Lekera awo okukwata eddoboozi"
+
+msgid "Suggest with AI"
+msgstr "Semba ne AI"
+
+msgid "Switch to dark mode"
+msgstr "Kyusa ku kisaakate ekiddugavu"
+
+msgid "Switch to light mode"
+msgstr "Kyusa ku kisaakate ekitangaavu"
+
+msgid "Target hours"
+msgstr "Essaawa ez'okutuukako"
+
+msgid "Thinking..."
+msgstr "Alowooza..."
+
+msgid "Took notes from {}"
+msgstr "Yaggye ebiwandiiko mu {}"
+
+msgid "Undo"
+msgstr "Julula"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Bwe kiba kyaka, ebinonyezebwa byokka bye biweerezebwa ku bifo eby'okunoonya. Ebirala byonna bisigala ku ssimu eno."
+
+msgid "Writing the answer"
+msgstr "Kuwandiika eky'okuddamu"
+
+msgid "Yes, delete"
+msgstr "Yee, sangula"
+
+msgid "Yesterday"
+msgstr "Jjo"
+
+msgid "{} results"
+msgstr "Ebyavuddemu {}"
+
+msgid "A longer rest"
+msgstr "Okuwummula okuwanvu"
+
+msgid "A short rest"
+msgstr "Okuwummula okumpi"
+
+msgid "A work session"
+msgstr "Ekiseera ky'okukola"
+
+msgid "Activity for the day"
+msgstr "Emirimu gy'olunaku"
+
+msgid "Activity for the month"
+msgstr "Emirimu gy'omwezi"
+
+msgid "Activity for the week"
+msgstr "Emirimu gya wiiki"
+
+msgid "Activity for the year"
+msgstr "Emirimu gy'omwaka"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Nnyonnyola ky'oyagala era omuyambi akitegeke"
+
+msgid "Go to this week"
+msgstr "Genda ku wiiki eno"
+
+msgid "Move to this week"
+msgstr "Sengula ku wiiki eno"
+
+msgid "See tasks in columns"
+msgstr "Laba emirimu mu nnyiriri"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Laba emirimu ku kalenda ya wiiki"
+
+msgid "Set your own length"
+msgstr "Tegeka ekiseera kyo"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Sengeka emirimu okusinziira ku bwangu n'omugaso"
+
+msgid "Take it off the calendar"
+msgstr "Ggyako ku kalenda"

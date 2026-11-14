@@ -688,3 +688,839 @@ msgstr "Icwangciswe namhlanje"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Akukho nto icwangciswe namhlanje. Yongeza imisebenzi kwiskrini seziThuba."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Injongo yinto ofuna ukuyifikelela. Yahlule ngamanyathelo abalulekileyo, qhagamshela imisebenzi ekusa apho, uze ubukele inkqubela yakho isanda."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Malunga nale njongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Iyasebenza"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Yongeza inyathelo elibalulekileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Iimodeli ze-AI (malunga ne-2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Iimodeli ze-AI zifakelwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Nantoni na enye efanelekileyo ukukhunjulwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Faka kuvimba"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Kufakwe kuvimba"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Buyela kwiinjongo"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "iincwadi, iiyure…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Udidi"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Tshintsha inyathelo elibalulekileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Vala"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Ezizayo"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Igqityiwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Bala amanyathelo abalulekileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Yenza injongo esebenzayo ukuze ufumane amacebiso."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Yenza injongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Yenza injongo yakho yokuqala"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Okwangoku"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Ixabiso langoku"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Umhla (uyazikhethela)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Cima"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Cima injongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Cima le njongo?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Chaza isiphumo"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Inkcazelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Kwenziwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Khuphela ngoku"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Iyakhuphela..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Hlela injongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Ixesha lokugxila kwiinjongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Iinjongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Iinjongo ezihambele phambili kule veki"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Phezulu"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Eyona nto ibaluleke kakhulu"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Imbali"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Ibalwa njani inkqubela?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Iyasebenza"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Gcina injongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Iintsuku ezisi-7 ezidlulileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Qhagamshela umsebenzi"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Ezantsi"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Eyona nto ibaluleke kancinci"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Phawula njengegqityiweyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Phakathi"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Eyona nto ibaluleke ngokuphakathi"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Inyathelo elibalulekileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Inyathelo elibalulekileyo: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Amanyathelo abalulekileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Amanyathelo abalulekileyo agqityiweyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Idinga ingqwalasela"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Injongo entsha"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Elandelayo: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Akukho mihla yokugqibela kwiintsuku ezisixhenxe ezizayo."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Akukho maxesha okugxila kule njongo okwangoku. Qala iseshoni yokugxila komnye wemisebenzi yayo."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Akukho njongo ibe nenyathelo elibalulekileyo, umsebenzi okanye iseshoni yokugxila kule veki."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Akukho njongo ihambelanayo"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Akukho njongo okwangoku"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Akukho manyathelo abalulekileyo okwangoku. Yongeza inyathelo lokuqala elisingisa kule njongo."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Akukho misebenzi ivulekileyo yokunxibelelanisa. Imisebenzi esele ikwinjongo ayiboniswa."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Akukho misebenzi iqhagamshelweyo okwangoku. Qhagamshela imisebenzi evela kwiZithuba ukuze uyibone apha."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Akukho nto idlulelwe lixesha okanye izolileyo. Intle kakhulu."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Vula"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Vula Izithuba"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Nqumama"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Inqunyanyisiwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Qhoboshela amakhonkco amatsha kwinyathelo elibalulekileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Ucwangciso, ukubona ilizwi kunye nokufunda ngokuvakalayo konke kusebenza kwesi sixhobo. Akukho nto oyithethayo okanye oyibhalayo ephuma kuso."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Okubalulekileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Inkqubela"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Inkqubela sisabelo samanyathelo abalulekileyo owagqibileyo."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Inkqubela linani lakho langoku xa lithelekiswa noko kujoliswe kuko, njengeencwadi ezili-12 kuma-20."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Fundela phezulu"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Ilungile"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Kutshanje"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Hlaziya"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Susa"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Zisuse ukuze ukhulule indawo; ziya kukhutshelwa kwakhona xa zifuneka."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Vula kwakhona"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Buyisela"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Qhubeka"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Gcina iinguqu"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Khangela iinjongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Khangela imisebenzi yakho evulekileyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Hlela ngo-"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Ukufunda, impilo, umsebenzi…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Izinto eziphambili ezicetyiswayo kwiveki ezayo"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Ekujoliswe kuko"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Umhla ekujoliswe kuwo"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Umhla ekujoliswe kuwo (YYYY-MM-DD, uyazikhethela)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Imisebenzi egqityiweyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Imisebenzi yale njongo"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Isicwangciso sokuqala sikhuphela iimodeli ze-AI zesixhobo (malunga ne-2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Injongo kunye namanyathelo ayo abalulekileyo ayasuswa. Imisebenzi yakho igcinwa kwiZithuba; iyeka nje ukukhomba kule njongo."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Iintsuku ezisixhenxe ezidlulileyo, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Zikhutshelwa okokuqala usebenzisa i-AI, okanye ngoku."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Le njongo ilandelela inani. Amanyathelo abalulekileyo asaphawula iindawo zokumisa endleleni, kodwa awatshintshi ipesenti."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Isihloko"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Iyonke"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Landelela inani"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Zama esinye isihluzi okanye olunye uphando."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Iyunithi"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Cima uqhagamshelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Hlaziya"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Uphononongo lweveki"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Yintoni ofuna ukuyifezekisa?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Kutheni kubalulekile"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Isizathu sakho sokwenza oku"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} eseleyo"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} iyasebenza"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} igqityiwe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} ifuneka kwiintsuku ezingama-{}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} ifuneka namhlanje"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} ifuneka kusasa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} igxilwe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} kwi-{}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} kwi-{} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} kumanyathelo abalulekileyo angama-{} agqityiwe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} kwimisebenzi engama-{} igqityiwe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} idlulelwe lixesha"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} inqunyanyisiwe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} eseleyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Yongeza inyathelo elibalulekileyo okanye umhla ekujoliswe kuwo"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Ifuneka nge-{}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Ifuneka kwiintsuku ezingama-{}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Ifuneka namhlanje"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Ifuneka kusasa"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Inyathelo ngalinye elibalulekileyo ligqityiwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Ixesha lokugxila libhaliwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Amanyathelo abalulekileyo enziweyo: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Akukho msebenzi kangangeentsuku ezingama-{}"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Akukho manyathelo abalulekileyo okwangoku"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Idlulelwe lixesha ngeentsuku ezingama-{}"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Idlulelwe lixesha ngosuku olu-1"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Yicwangcise"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Iyacwangciswa..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Cwangcisa into ekujoliswe kuyo ukuze ubone inkqubela"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Ekujoliswe kuko kufikelelwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Imisebenzi eyenziweyo: {}"
+
+msgid "Planning"
+msgstr "Ucwangciso"
+
+msgid "Speech to text"
+msgstr "Ilizwi libe ngumbhalo"
+
+msgid "Add subtask"
+msgstr "Faka umsebenzi omncinci"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Buza ngemisebenzi yakho, okanye chaza ofuna ukukwenza. Akukho nto iza kutshintsha de uyivumele."
+
+msgid "Asking AI..."
+msgstr "Ibuza i-AI..."
+
+msgid "Chat"
+msgstr "Incoko"
+
+msgid "Chats"
+msgstr "Iincoko"
+
+msgid "Click again to delete"
+msgstr "Cofa kwakhona ukuze ucime"
+
+msgid "Collapse"
+msgstr "Shwankathela"
+
+msgid "Collapse menu"
+msgstr "Shwankathela imenyu"
+
+msgid "Copy"
+msgstr "Khuphela"
+
+msgid "Count my focus hours"
+msgstr "Bala iiyure zam zokuqwalasela"
+
+msgid "Decrease"
+msgstr "Nciphisa"
+
+msgid "Deep"
+msgstr "Nzulu"
+
+msgid "Delete chat"
+msgstr "Cima incoko"
+
+msgid "Delete note"
+msgstr "Cima inqaku"
+
+msgid "Delete subtask"
+msgstr "Cima umsebenzi omncinci"
+
+msgid "Delete this chat?"
+msgstr "Cima le ncoko?"
+
+msgid "Dictate"
+msgstr "Thetha ukuze kubhalwe"
+
+msgid "Exit full screen"
+msgstr "Phuma kwisikrini esigcweleyo"
+
+msgid "Expand"
+msgstr "Yandisa"
+
+msgid "Expand menu"
+msgstr "Yandisa imenyu"
+
+msgid "Fork from here"
+msgstr "Qala incoko entsha apha"
+
+msgid "Fork this chat"
+msgstr "Yenza ikopi yale ncoko"
+
+msgid "Full screen"
+msgstr "Isikrini esigcweleyo"
+
+msgid "Hide subtasks"
+msgstr "Fihla imisebenzi emincinci"
+
+msgid "Increase"
+msgstr "Yongeza"
+
+msgid "Jump to latest"
+msgstr "Yiya kweyona intsha"
+
+msgid "Launch"
+msgstr "Yibeke kuqala namhlanje"
+
+msgid "Let the assistant search the web"
+msgstr "Vumela umncedisi akhangele kwiwebhu"
+
+msgid "Maximize"
+msgstr "Khulisa"
+
+msgid "Merging the notes"
+msgstr "Idibanisa amanqaku"
+
+msgid "Message"
+msgstr "Umyalezo"
+
+msgid "Minimize"
+msgstr "Nciphisa"
+
+msgid "More"
+msgstr "Ngaphezulu"
+
+msgid "Move back"
+msgstr "Hambisa ngasemva"
+
+msgid "Move down"
+msgstr "Hambisa ezantsi"
+
+msgid "Move forward"
+msgstr "Hambisa phambili"
+
+msgid "Move up"
+msgstr "Hambisa phezulu"
+
+msgid "New chat"
+msgstr "Incoko entsha"
+
+msgid "New space"
+msgstr "Indawo entsha"
+
+msgid "Next mode"
+msgstr "Imo elandelayo"
+
+msgid "Next version"
+msgstr "Inguqulelo elandelayo"
+
+msgid "Next week"
+msgstr "Iveki ezayo"
+
+msgid "Planned the searches"
+msgstr "Ucwangcise uphando"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Ucwangciso, ukubona ilizwi nokufunda ngokuvakalayo kusebenza kwesi sixhobo. Kuphela kuphendlo lwe-intanethi oluvumelayo oluya kwi-intanethi."
+
+msgid "Previous mode"
+msgstr "Imo edlulileyo"
+
+msgid "Previous version"
+msgstr "Inguqulelo edlulileyo"
+
+msgid "Previous week"
+msgstr "Iveki ephelileyo"
+
+msgid "Quick"
+msgstr "Khawuleza"
+
+msgid "Reading {}"
+msgstr "Ifunda {}"
+
+msgid "Redo"
+msgstr "Phinda wenze"
+
+msgid "Searching: {}"
+msgstr "Ikhangela: {}"
+
+msgid "Send"
+msgstr "Thumela"
+
+msgid "Show subtasks"
+msgstr "Bonisa imisebenzi emincinci"
+
+msgid "Skipped {}"
+msgstr "Itshiyiwe {}"
+
+msgid "Standard"
+msgstr "Eqhelekileyo"
+
+msgid "Start"
+msgstr "Qala"
+
+msgid "Start focus on this task"
+msgstr "Qala ukugxila kulo msebenzi"
+
+msgid "Stop"
+msgstr "Nqumama"
+
+msgid "Stop recording"
+msgstr "Yeka ukurekhoda"
+
+msgid "Suggest with AI"
+msgstr "Cebisa nge-AI"
+
+msgid "Switch to dark mode"
+msgstr "Tshintshelwe kwimo emnyama"
+
+msgid "Switch to light mode"
+msgstr "Tshintshelwe kwimo ekhanyayo"
+
+msgid "Target hours"
+msgstr "Iiyure ekujoliswe kuzo"
+
+msgid "Thinking..."
+msgstr "Iyacinga..."
+
+msgid "Took notes from {}"
+msgstr "Ithabathe amanqaku ku-{}"
+
+msgid "Undo"
+msgstr "Hlehlisa"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Xa ivuliwe, oko ikukhangelayo kuthunyelwa kwiisayithi zokukhangela. Yonke enye into ihlala kwesi sixhobo."
+
+msgid "Writing the answer"
+msgstr "Ibhala impendulo"
+
+msgid "Yes, delete"
+msgstr "Ewe, cima"
+
+msgid "Yesterday"
+msgstr "Izolo"
+
+msgid "{} results"
+msgstr "Iziphumo ezi-{}"
+
+msgid "A longer rest"
+msgstr "Ikhefu elide"
+
+msgid "A short rest"
+msgstr "Ikhefu elifutshane"
+
+msgid "A work session"
+msgstr "Ixesha lomsebenzi"
+
+msgid "Activity for the day"
+msgstr "Imisebenzi yosuku"
+
+msgid "Activity for the month"
+msgstr "Imisebenzi yenyanga"
+
+msgid "Activity for the week"
+msgstr "Imisebenzi yeveki"
+
+msgid "Activity for the year"
+msgstr "Imisebenzi yonyaka"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Chaza okufunayo kwaye umncedisi uya kukucwangcisa"
+
+msgid "Go to this week"
+msgstr "Yiya kule veki"
+
+msgid "Move to this week"
+msgstr "Hambisa kule veki"
+
+msgid "See tasks in columns"
+msgstr "Jonga imisebenzi kwiikholam"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Jonga imisebenzi kwikhalenda yeveki"
+
+msgid "Set your own length"
+msgstr "Zimisele ixesha lakho"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Hlela ngokukhawuleza nangokubaluleka"
+
+msgid "Take it off the calendar"
+msgstr "Susa kwikhalenda"

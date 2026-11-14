@@ -688,3 +688,839 @@ msgstr "Di rulaganyeditswe gompieno"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Ga go na se se rulaganyeditsweng gompieno. Tsenya ditiro mo tlhamaneng ya Ditlhamane."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Maikaelelo ke sengwe se o batlang go se fitlhelela. Se kgaoganye ka dikgato tse di botlhokwa, golaganya ditiro tse di go isang koo, mme o bone kgatelopele ya gago e gola."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Ka ga maikaelelo ano"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "E a dira"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Tsenya kgato e e botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Mefuta ya AI (e e ka nnang 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Mefuta ya AI e tsentshitswe"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Sengwe gape se se tshwanetseng go gakologelwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Boloka mo polokelong"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Go bolokilwe mo polokelong"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Boela kwa maikaelelong"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "dibuka, diura…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Setlhopha"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Fetola kgato e e botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Tswala"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Tse di tlang"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "E weditswe"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Bala dikgato tse di botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Tlhoma maikaelelo a a dirang go bona dikakanyo."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Tlhoma maikaelelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Tlhoma maikaelelo a gago a ntlha"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Ga jaana"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Boleng jwa ga jaana"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Letlha (ka boikhethelo)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Phimola"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Phimola maikaelelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "A go phimolwe maikaelelo ano?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Tlhalosa matswela"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Tlhaloso"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Go dirilwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Laolla jaanong"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "E a laollwa..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Baakanya maikaelelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Nako ya tsepamo mo maikaelelong"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Maikaelelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Maikaelelo a a gatelang pele mo bekeng eno"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Kwa godimo"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Botlhokwa jo bo kwa godimo"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Ditiragalo"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Kgatelopele e balwa jang?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Mo tirisong"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Tshwara maikaelelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Malatsi a le 7 a a fetileng"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Golaganya tiro"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Kwa tlase"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Botlhokwa jo bo kwa tlase"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Swaya jaaka e e weditsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Fa gare"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Botlhokwa jo bo fa gare"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Kgato e e botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Kgato e e botlhokwa: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Dikgato tse di botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Dikgato tse di botlhokwa tse di weditsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "E tlhoka tlhokomelo"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Maikaelelo a mašwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Se se latelang: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Ga go na matlha a bofelo mo malatsing a supa a a tlang."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Ga go ise go nne le dipaka tsa tsepamo mo maikaelelong ano. Simolola paka ya tsepamo mo nngweng ya ditiro tsa one."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Ga go na maikaelelo a a nang le kgato e e botlhokwa, tiro kgotsa paka ya tsepamo mo bekeng eno."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Ga go na maikaelelo a a nyalanang"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Ga go ise go nne le maikaelelo"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Ga go ise go nne le dikgato tse di botlhokwa. Tsenya kemo ya ntlha mo tseleng e e yang kwa maikaelelong ano."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Ga go na ditiro tse di bulegileng tse di ka golaganngwang. Ditiro tse di setseng di le mo maikaelelong ga di bontshiwe."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Ga go na ditiro tse di golagantsweng ga jaana. Golaganya ditiro go tswa mo Ditlamelong go di bona fano."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Ga go na sepe se se fetilweng ke nako kgotsa se se didimetseng. Go siame."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Bula"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Bula Ditlamelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Emisa ka nakwana"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "E emisitswe"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Tsenya dikgokagano tse dišwa mo kgatong e e botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Thulaganyo, temogo ya lentswe le go bala kwa godimo tsotlhe di dira mo sedirisiweng seno. Ga go na sepe se o se buang kgotsa o se kwalang se se tswang mo go sone."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Kgatelopele"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Kgatelopele ke seabe sa dikgato tse di botlhokwa tse o di weditseng."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Kgatelopele ke palo ya gago ya ga jaana go bapisiwa le se se lebeletsweng, jaaka dibuka di le 12 mo go tse 20."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Bala kwa godimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Ipaakantse"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Tsa bosheng"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Ntšhafatsa"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Tlosa"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Di tlose go bula phatlha; di tla laollwa gape fa di tlhokega."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Bula gape"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Busetsa"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Tswela pele"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Boloka diphetogo"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Batla maikaelelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Batla ditiro tsa gago tse di bulegileng"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Rulaganya ka"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Dithuto, botsogo, tiro…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Dintlha tse di botlhokwa tse di tshitshintsweng tsa beke e e tlang"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Se se lebeletsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Letlha le le lebeletsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Letlha le le lebeletsweng (YYYY-MM-DD, ka boikhethelo)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Ditiro tse di weditsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Ditiro tsa maikaelelo ano"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Thulaganyo ya ntlha e laolla mefuta ya AI ya mo sedirisiweng (e e ka nnang 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Maikaelelo le dikgato tsa one tse di botlhokwa di tla tlosiwa. Ditiro tsa gago di tla sala mo Ditlamelong; di tla emisa fela go supa maikaelelo ano."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Malatsi a supa a a fetileng, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Di laollwa la ntlha fa o dirisa AI, kgotsa jaanong."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Maikaelelo ano a latedisa palo. Dikgato tse di botlhokwa di sa ntse di tshwaya dikemo mo tseleng, mme ga di fetole phesente."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Setlhogo"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Palogotlhe"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Latedisa palo"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Leka sesireletsi se sengwe kgotsa patlo e sele."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Yuniti"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Kgaola kgolagano"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Ntšhafatsa"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Tekodiso ya beke le beke"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "O batla go fitlhelela eng?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Lebaka la go bo go le botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Lebaka la gago la go dira seno"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} tse di setseng"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} e e dirang"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} e e weditsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} e tshwanetse mo malatsing a le {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} e tshwanetse gompieno"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} e tshwanetse ka moso"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} e e tsepamisitsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} mo go {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} mo go {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} mo dikgatong tse di botlhokwa tse {} di weditswe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} mo ditirong tse {} di weditswe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} e e fetilweng ke nako"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} e e emisitsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} tse di setseng"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Tsenya kgato e e botlhokwa kgotsa letlha le le lebeletsweng"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "E tshwanetse ka {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "E tshwanetse mo malatsing a le {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "E tshwanetse gompieno"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "E tshwanetse ka moso"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Kgato nngwe le nngwe e e botlhokwa e weditswe"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Nako ya tsepamo e kwadilwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Dikgato tse di botlhokwa tse di dirilweng: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Ga go na tiro mo malatsing a le {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Ga go ise go nne le dikgato tse di botlhokwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "E fetilwe ke nako ka malatsi a le {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "E fetilwe ke nako ka letsatsi le le 1"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "E rulaganye"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "E a rulaganngwa..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Tlhoma se se lebeletsweng go bona kgatelopele"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Se se lebeletsweng se fitlheletswe"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Ditiro tse di dirilweng: {}"
+
+msgid "Planning"
+msgstr "Thulaganyo"
+
+msgid "Speech to text"
+msgstr "Lentswe go ya mokwalong"
+
+msgid "Add subtask"
+msgstr "Tsenya tiro e nnye"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Botsa ka ditiro tsa gago, kgotsa tlhalosa se o batlang go se rulaganya. Ga go sepe se se tla fetogang go fitlha o se dumelela."
+
+msgid "Asking AI..."
+msgstr "E botsa AI..."
+
+msgid "Chat"
+msgstr "Puisano"
+
+msgid "Chats"
+msgstr "Dipuisano"
+
+msgid "Click again to delete"
+msgstr "Tobetsa gape go phimola"
+
+msgid "Collapse"
+msgstr "Hunyetsa"
+
+msgid "Collapse menu"
+msgstr "Hunyetsa menyu"
+
+msgid "Copy"
+msgstr "Kopolola"
+
+msgid "Count my focus hours"
+msgstr "Bala diura tsa me tsa tsepamo"
+
+msgid "Decrease"
+msgstr "Fokotsa"
+
+msgid "Deep"
+msgstr "Boteng"
+
+msgid "Delete chat"
+msgstr "Phimola puisano"
+
+msgid "Delete note"
+msgstr "Phimola ntlha"
+
+msgid "Delete subtask"
+msgstr "Phimola tiro e nnye"
+
+msgid "Delete this chat?"
+msgstr "Phimola puisano e?"
+
+msgid "Dictate"
+msgstr "Bua gore e kwale"
+
+msgid "Exit full screen"
+msgstr "Tswa mo skrineng se se tletseng"
+
+msgid "Expand"
+msgstr "Atolosa"
+
+msgid "Expand menu"
+msgstr "Atolosa menyu"
+
+msgid "Fork from here"
+msgstr "Simolola e ntšha fa"
+
+msgid "Fork this chat"
+msgstr "Kopisa puisano e"
+
+msgid "Full screen"
+msgstr "Skrine se se tletseng"
+
+msgid "Hide subtasks"
+msgstr "Fitlha ditiro tse dinnye"
+
+msgid "Increase"
+msgstr "Oketsa"
+
+msgid "Jump to latest"
+msgstr "Feta go ya kwa go e ntšha"
+
+msgid "Launch"
+msgstr "E beye kwa pele gompieno"
+
+msgid "Let the assistant search the web"
+msgstr "Letlelela mothusi go batla mo inthaneteng"
+
+msgid "Maximize"
+msgstr "Godisa"
+
+msgid "Merging the notes"
+msgstr "E kopanya dintlha"
+
+msgid "Message"
+msgstr "Molaetsa"
+
+msgid "Minimize"
+msgstr "Nnyafatsa"
+
+msgid "More"
+msgstr "Tse dingwe"
+
+msgid "Move back"
+msgstr "Sutisa morago"
+
+msgid "Move down"
+msgstr "Sutisa tlase"
+
+msgid "Move forward"
+msgstr "Sutisa pele"
+
+msgid "Move up"
+msgstr "Sutisa godimo"
+
+msgid "New chat"
+msgstr "Puisano e ntšha"
+
+msgid "New space"
+msgstr "Sebaka se se ntšha"
+
+msgid "Next mode"
+msgstr "Mokgwa o o latelang"
+
+msgid "Next version"
+msgstr "Phetolo e e latelang"
+
+msgid "Next week"
+msgstr "Beke e e tlang"
+
+msgid "Planned the searches"
+msgstr "E rulagantse dipatlo"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Thulaganyo, temogo ya puo le go buisa di bereka mo sedirisweng se. Ke fela dipatlo tsa inthanete tse o di letlelelang tse di tsenang mo maranyaneng."
+
+msgid "Previous mode"
+msgstr "Mokgwa o o fetileng"
+
+msgid "Previous version"
+msgstr "Phetolo e e fetileng"
+
+msgid "Previous week"
+msgstr "Beke e e fetileng"
+
+msgid "Quick"
+msgstr "Bonako"
+
+msgid "Reading {}"
+msgstr "E bala {}"
+
+msgid "Redo"
+msgstr "Dira gape"
+
+msgid "Searching: {}"
+msgstr "E batla: {}"
+
+msgid "Send"
+msgstr "Romela"
+
+msgid "Show subtasks"
+msgstr "Bontsha ditiro tse dinnye"
+
+msgid "Skipped {}"
+msgstr "E tlodile {}"
+
+msgid "Standard"
+msgstr "E e tlwaelegileng"
+
+msgid "Start"
+msgstr "Simolola"
+
+msgid "Start focus on this task"
+msgstr "Simolola go tsepama mo tirong e"
+
+msgid "Stop"
+msgstr "Ema"
+
+msgid "Stop recording"
+msgstr "Emiša go rekoto"
+
+msgid "Suggest with AI"
+msgstr "Kopa kgakololo ya AI"
+
+msgid "Switch to dark mode"
+msgstr "Fetolela go mokgwa o o lefifi"
+
+msgid "Switch to light mode"
+msgstr "Fetolela go mokgwa o o lesedi"
+
+msgid "Target hours"
+msgstr "Diura tse di batlegang"
+
+msgid "Thinking..."
+msgstr "E a akanya..."
+
+msgid "Took notes from {}"
+msgstr "E tsere dintlha go tswa go {}"
+
+msgid "Undo"
+msgstr "Dirolola"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Fa e buletswe, se e se batlang se romelwa kwa mafelong a patlo. Sengwe le sengwe se sala mo sedirisweng se."
+
+msgid "Writing the answer"
+msgstr "E kwala karabo"
+
+msgid "Yes, delete"
+msgstr "Ee, phimola"
+
+msgid "Yesterday"
+msgstr "Maabane"
+
+msgid "{} results"
+msgstr "Dipholo di le {}"
+
+msgid "A longer rest"
+msgstr "Boikhutso jo botelele"
+
+msgid "A short rest"
+msgstr "Boikhutso jo bokhutshwane"
+
+msgid "A work session"
+msgstr "Nako ya tiro"
+
+msgid "Activity for the day"
+msgstr "Ditiro tsa letsatsi"
+
+msgid "Activity for the month"
+msgstr "Ditiro tsa kgwedi"
+
+msgid "Activity for the week"
+msgstr "Ditiro tsa beke"
+
+msgid "Activity for the year"
+msgstr "Ditiro tsa ngwaga"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Tlhalosa se o se tlhokang mme mothusi o tla se rulaganya"
+
+msgid "Go to this week"
+msgstr "Ya kwa bekeng eno"
+
+msgid "Move to this week"
+msgstr "Fudusetsa kwa bekeng eno"
+
+msgid "See tasks in columns"
+msgstr "Bona ditiro mo dikholomong"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Bona ditiro mo khalentareng ya beke"
+
+msgid "Set your own length"
+msgstr "Tlhoma boleele jwa gago"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Rulaganya ka bonako le botlhokwa"
+
+msgid "Take it off the calendar"
+msgstr "Ntsha mo khalentareng"

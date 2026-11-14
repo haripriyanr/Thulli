@@ -688,3 +688,839 @@ msgstr "Heute geplant"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Heute ist nichts geplant. Füge Aufgaben im Bereich Bereiche hinzu."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Ein Ziel ist etwas, das du erreichen möchtest. Unterteile es in Meilensteine, verknüpfe die Aufgaben, die dich dorthin bringen, und sieh zu, wie dein Fortschritt wächst."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Über dieses Ziel"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktiv"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Meilenstein hinzufügen"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "KI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "KI-Modelle (ca. 2,3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "KI-Modelle installiert"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Sonstiges, das man sich merken sollte"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Archivieren"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Archiviert"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Zurück zu Zielen"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "Bücher, Stunden…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategorie"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Meilenstein ändern"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Schließen"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Demnächst"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Abgeschlossen"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Meilensteine zählen"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Erstelle ein aktives Ziel, um Vorschläge zu erhalten."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Ziel erstellen"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Erstelle dein erstes Ziel"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Aktuell"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Aktueller Wert"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Datum (optional)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Löschen"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Ziel löschen"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Dieses Ziel löschen?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Beschreibe das Ergebnis"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Beschreibung"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Erledigt"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Jetzt herunterladen"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Wird heruntergeladen..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Ziel bearbeiten"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Fokuszeit für Ziele"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Ziele"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Ziele mit Fortschritt diese Woche"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Hoch"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Hohe Priorität"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Verlauf"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Wie wird der Fortschritt gezählt?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Im Gange"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Ziel behalten"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Letzte 7 Tage"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Aufgabe verknüpfen"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Niedrig"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Niedrige Priorität"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Als erledigt markieren"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Mittel"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Mittlere Priorität"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Meilenstein"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Meilenstein: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Meilensteine"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Meilensteine abgeschlossen"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Erfordert Aufmerksamkeit"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Neues Ziel"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Als Nächstes: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Keine Fristen in den nächsten sieben Tagen."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Noch keine Fokus-Sitzungen für dieses Ziel. Starte eine Fokusrunde für eine seiner Aufgaben."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Kein Ziel hatte diese Woche einen Meilenstein, eine Aufgabe oder eine Fokus-Sitzung."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Keine passenden Ziele"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Noch keine Ziele"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Noch keine Meilensteine. Füge die erste Zwischenstation auf dem Weg zu diesem Ziel hinzu."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Keine offenen Aufgaben zum Verknüpfen. Aufgaben, die bereits in einem Ziel enthalten sind, werden nicht angezeigt."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Noch keine Aufgaben verknüpft. Verknüpfe Aufgaben aus Bereichen, um sie hier zu sehen."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Nichts ist überfällig oder inaktiv. Schön."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Offen"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Bereiche öffnen"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Pausieren"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Pausiert"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Neue Verknüpfungen an einen Meilenstein anheften"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Planung, Spracherkennung und Vorlesen laufen vollständig auf diesem Gerät. Nichts von dem, was du sagst oder tippst, verlässt es."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Priorität"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Fortschritt"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Der Fortschritt ist der Anteil der Meilensteine, die du abgeschlossen hast."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Der Fortschritt ist dein aktueller Stand gegenüber dem Ziel, wie z. B. 12 von 20 Büchern."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Vorlesen"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Bereit"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Kürzlich"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Aktualisieren"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Entfernen"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Entferne sie, um Speicherplatz freizugeben; sie werden bei Bedarf erneut heruntergeladen."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Wieder öffnen"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Wiederherstellen"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Fortsetzen"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Änderungen speichern"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Ziele suchen"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Offene Aufgaben durchsuchen"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sortieren nach"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Lernen, Gesundheit, Arbeit…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Vorgeschlagene Prioritäten für nächste Woche"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Ziel"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Zieldatum"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Zieldatum (YYYY-MM-DD, optional)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Aufgaben abgeschlossen"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Aufgaben für dieses Ziel"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Der erste Plan lädt die geräteinternen KI-Modelle herunter (ca. 2,3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Das Ziel und seine Meilensteine werden entfernt. Deine Aufgaben bleiben in Bereichen erhalten; sie verweisen nur nicht mehr auf dieses Ziel."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Die letzten sieben Tage, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Sie werden heruntergeladen, wenn du die KI zum ersten Mal verwendest, oder jetzt."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Dieses Ziel verfolgt eine Zahl. Meilensteine markieren weiterhin Zwischenstationen auf dem Weg, ändern jedoch nicht den Prozentsatz."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Titel"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Gesamt"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Eine Zahl verfolgen"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Probiere einen anderen Filter oder eine andere Suche aus."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Einheit"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Verknüpfung aufheben"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Aktualisieren"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Wochenrückblick"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Was möchtest du erreichen?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Warum es wichtig ist"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Dein Grund dafür"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "noch {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktiv"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} abgeschlossen"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} fällig in {} Tagen"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} heute fällig"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} morgen fällig"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} im Fokus"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} von {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} von {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} von {} Meilensteinen erledigt"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} von {} Aufgaben erledigt"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} überfällig"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} pausiert"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "noch {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Meilenstein oder Zieldatum hinzufügen"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Fällig am {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Fällig in {} Tagen"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Heute fällig"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Morgen fällig"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Jeder Meilenstein ist erledigt"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Fokuszeit erfasst"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Meilensteine erledigt: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Keine Aktivität seit {} Tagen"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Noch keine Meilensteine"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} Tage überfällig"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 Tag überfällig"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Planen"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Wird geplant..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Lege ein Ziel fest, um den Fortschritt zu sehen"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Ziel erreicht"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Aufgaben erledigt: {}"
+
+msgid "Planning"
+msgstr "Planung"
+
+msgid "Speech to text"
+msgstr "Sprache zu Text"
+
+msgid "Add subtask"
+msgstr "Teilaufgabe hinzufügen"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Frage nach deinen Aufgaben oder beschreibe, was du planen möchtest. Nichts ändert sich ohne deine Bestätigung."
+
+msgid "Asking AI..."
+msgstr "KI wird gefragt..."
+
+msgid "Chat"
+msgstr "Chat"
+
+msgid "Chats"
+msgstr "Chats"
+
+msgid "Click again to delete"
+msgstr "Zum Löschen nochmals klicken"
+
+msgid "Collapse"
+msgstr "Einklappen"
+
+msgid "Collapse menu"
+msgstr "Menü einklappen"
+
+msgid "Copy"
+msgstr "Kopieren"
+
+msgid "Count my focus hours"
+msgstr "Meine Fokusstunden zählen"
+
+msgid "Decrease"
+msgstr "Verringern"
+
+msgid "Deep"
+msgstr "Gründlich"
+
+msgid "Delete chat"
+msgstr "Chat löschen"
+
+msgid "Delete note"
+msgstr "Notiz löschen"
+
+msgid "Delete subtask"
+msgstr "Teilaufgabe löschen"
+
+msgid "Delete this chat?"
+msgstr "Diesen Chat löschen?"
+
+msgid "Dictate"
+msgstr "Diktieren"
+
+msgid "Exit full screen"
+msgstr "Vollbild beenden"
+
+msgid "Expand"
+msgstr "Ausklappen"
+
+msgid "Expand menu"
+msgstr "Menü ausklappen"
+
+msgid "Fork from here"
+msgstr "Ab hier abzweigen"
+
+msgid "Fork this chat"
+msgstr "Diesen Chat abzweigen"
+
+msgid "Full screen"
+msgstr "Vollbild"
+
+msgid "Hide subtasks"
+msgstr "Teilaufgaben ausblenden"
+
+msgid "Increase"
+msgstr "Erhöhen"
+
+msgid "Jump to latest"
+msgstr "Zum Neuesten springen"
+
+msgid "Launch"
+msgstr "Starten"
+
+msgid "Let the assistant search the web"
+msgstr "Assistent Websuche erlauben"
+
+msgid "Maximize"
+msgstr "Maximieren"
+
+msgid "Merging the notes"
+msgstr "Notizen werden zusammengeführt"
+
+msgid "Message"
+msgstr "Nachricht"
+
+msgid "Minimize"
+msgstr "Minimieren"
+
+msgid "More"
+msgstr "Mehr"
+
+msgid "Move back"
+msgstr "Zurück verschieben"
+
+msgid "Move down"
+msgstr "Nach unten verschieben"
+
+msgid "Move forward"
+msgstr "Vorwärts verschieben"
+
+msgid "Move up"
+msgstr "Nach oben verschieben"
+
+msgid "New chat"
+msgstr "Neuer Chat"
+
+msgid "New space"
+msgstr "Neuer Bereich"
+
+msgid "Next mode"
+msgstr "Nächster Modus"
+
+msgid "Next version"
+msgstr "Nächste Version"
+
+msgid "Next week"
+msgstr "Nächste Woche"
+
+msgid "Planned the searches"
+msgstr "Suchanfragen geplant"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Planung, Spracherkennung und Vorlesen laufen auf diesem Gerät. Nur von dir erlaubte Websuchen gehen online."
+
+msgid "Previous mode"
+msgstr "Vorheriger Modus"
+
+msgid "Previous version"
+msgstr "Vorherige Version"
+
+msgid "Previous week"
+msgstr "Vorherige Woche"
+
+msgid "Quick"
+msgstr "Schnell"
+
+msgid "Reading {}"
+msgstr "{} wird gelesen"
+
+msgid "Redo"
+msgstr "Wiederholen"
+
+msgid "Searching: {}"
+msgstr "Suche: {}"
+
+msgid "Send"
+msgstr "Senden"
+
+msgid "Show subtasks"
+msgstr "Teilaufgaben anzeigen"
+
+msgid "Skipped {}"
+msgstr "{} übersprungen"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "Start focus on this task"
+msgstr "Fokus für diese Aufgabe starten"
+
+msgid "Stop"
+msgstr "Stopp"
+
+msgid "Stop recording"
+msgstr "Aufnahme beenden"
+
+msgid "Suggest with AI"
+msgstr "Mit KI vorschlagen"
+
+msgid "Switch to dark mode"
+msgstr "Zum dunklen Modus wechseln"
+
+msgid "Switch to light mode"
+msgstr "Zum hellen Modus wechseln"
+
+msgid "Target hours"
+msgstr "Zielstunden"
+
+msgid "Thinking..."
+msgstr "Nachdenken..."
+
+msgid "Took notes from {}"
+msgstr "Notizen aus {} erstellt"
+
+msgid "Undo"
+msgstr "Rückgängig"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Wenn aktiviert, werden Suchanfragen an die genutzten Suchdienste gesendet. Alles andere bleibt auf diesem Gerät."
+
+msgid "Writing the answer"
+msgstr "Antwort wird verfasst"
+
+msgid "Yes, delete"
+msgstr "Ja, löschen"
+
+msgid "Yesterday"
+msgstr "Gestern"
+
+msgid "{} results"
+msgstr "{} Ergebnisse"
+
+msgid "A longer rest"
+msgstr "Eine längere Pause"
+
+msgid "A short rest"
+msgstr "Eine kurze Pause"
+
+msgid "A work session"
+msgstr "Eine Arbeitssitzung"
+
+msgid "Activity for the day"
+msgstr "Tagesaktivität"
+
+msgid "Activity for the month"
+msgstr "Monatsaktivität"
+
+msgid "Activity for the week"
+msgstr "Wochenaktivität"
+
+msgid "Activity for the year"
+msgstr "Jahresaktivität"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Beschreibe dein Ziel und der Assistent plant es"
+
+msgid "Go to this week"
+msgstr "Zur aktuellen Woche"
+
+msgid "Move to this week"
+msgstr "In diese Woche"
+
+msgid "See tasks in columns"
+msgstr "Aufgaben in Spalten"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Aufgaben im Wochenkalender"
+
+msgid "Set your own length"
+msgstr "Eigene Dauer festlegen"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Nach Dringlichkeit und Wichtigkeit"
+
+msgid "Take it off the calendar"
+msgstr "Aus Kalender entfernen"

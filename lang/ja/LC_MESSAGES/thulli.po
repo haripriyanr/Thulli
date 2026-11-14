@@ -688,3 +688,839 @@ msgstr "今日の予定"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "今日の予定はありません。スペース画面でタスクを追加してください。"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "目標は達成したい事柄です。マイルストーンに分解し、そこへ導くタスクをリンクさせて、進捗を積み上げていきましょう。"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "この目標について"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "アクティブ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "マイルストーンを追加"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI モデル（約 2.3 GB）"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI モデルがインストールされました"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "その他に覚えておくべきこと"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "アーカイブ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "アーカイブ済み"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "目標一覧に戻る"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "冊、時間…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "カテゴリー"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "マイルストーンを変更"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "閉じる"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "もうすぐ期日"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "完了"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "マイルストーン数"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "提案を受け取るには、アクティブな目標を作成してください。"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "目標を作成"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "最初の目標を作成"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "現在"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "現在の値"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "日付（省略可能）"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "削除"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "目標を削除"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "この目標を削除しますか？"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "期待する結果を入力してください"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "説明"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "完了"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "今すぐダウンロード"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "ダウンロード中..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "目標を編集"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "目標の集中時間"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "今週進捗があった目標"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "高"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "高優先度"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "履歴"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "進捗はどのように計算されますか？"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "進行中"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "目標を保持"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "直近 7 日間"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "タスクをリンク"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "低"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "低優先度"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "完了としてマーク"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "中"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "中優先度"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "マイルストーン"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "マイルストーン: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "マイルストーン"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "完了したマイルストーン"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "注意が必要"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "新しい目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "次: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "今後 7 日間に締め切りはありません。"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "この目標にはまだ集中セッションがありません。タスクで集中ラウンドを開始しましょう。"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "今週、マイルストーン、タスク、または集中セッションの動きがあった目標はありません。"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "一致する目標がありません"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "目標がまだありません"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "マイルストーンがまだありません。この目標への最初の経由地を追加しましょう。"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "リンクできる未完了タスクがありません。すでに目標に含まれているタスクは表示されません。"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "リンクされたタスクはまだありません。スペースからタスクをリンクするとここに表示されます。"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "期限超過や停滞している目標はありません。順調です。"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "開く"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "スペースを開く"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "一時停止"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "一時停止中"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "新しいリンクをマイルストーンに固定"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "計画作成、音声認識、読み上げはすべてこの端末上で実行されます。音声やテキストが端末の外に送信されることはありません。"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "優先度"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "進捗"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "進捗は、完了したマイルストーンの割合です。"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "進捗は、20 冊中 12 冊のように、目標に対する現在の数値です。"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "読み上げ"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "準備完了"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "最近"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "更新"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "削除"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "削除して空き容量を増やせます。必要なときに再度ダウンロードされます。"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "再開する"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "復元"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "再開"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "変更を保存"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "目標を検索"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "未完了タスクを検索"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "並べ替え順"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "勉強、健康、仕事…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "来週のおすすめ優先度"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "目標期日"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "目標期日（YYYY-MM-DD、省略可能）"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "完了したタスク"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "この目標のタスク"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "最初の計画作成時に端末上 AI モデル（約 2.3 GB）がダウンロードされます。"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "目標とそのマイルストーンは削除されます。タスクはスペースに保持され、この目標への関連付けのみ解除されます。"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "直近 7 日間、{}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "AI を初めて使用するとき、または今すぐダウンロードされます。"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "この目標は数値を追跡します。マイルストーンは途中の経由地を示しますが、進捗率には影響しません。"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "タイトル"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "合計"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "数値を追跡"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "別のフィルターまたは別の検索ワードを試してください。"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "単位"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "リンク解除"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "更新"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "週間レビュー"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "何を達成したいですか？"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "なぜ重要なのか"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "これを行う理由"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "残り {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "アクティブ: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "完了: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} 件が {} 日以内に期日"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} 件が今日期限"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} 件が明日期限"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "集中 {} 回"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "マイルストーン {} / {} 完了"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "タスク {} / {} 完了"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "期限超過: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "一時停止中: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "残り {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "マイルストーンまたは目標期日を追加"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "期限: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "期限まであと {} 日"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "今日が期限"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "明日が期限"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "すべてのマイルストーンが完了しました"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "集中時間が記録されました"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "完了したマイルストーン: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{} 日間アクティビティがありません"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "マイルストーンがまだありません"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} 日遅れ"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 日遅れ"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "計画する"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "計画中..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "進捗を表示するには目標を設定してください"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "目標達成"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "完了したタスク: {}"
+
+msgid "Planning"
+msgstr "計画"
+
+msgid "Speech to text"
+msgstr "音声入力"
+
+msgid "Add subtask"
+msgstr "サブタスクを追加"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "タスクについて尋ねるか、計画したいことを説明してください。承認するまで何も変更されません。"
+
+msgid "Asking AI..."
+msgstr "AIに確認中..."
+
+msgid "Chat"
+msgstr "チャット"
+
+msgid "Chats"
+msgstr "チャット履歴"
+
+msgid "Click again to delete"
+msgstr "もう一度クリックして削除"
+
+msgid "Collapse"
+msgstr "折りたたむ"
+
+msgid "Collapse menu"
+msgstr "メニューを折りたたむ"
+
+msgid "Copy"
+msgstr "コピー"
+
+msgid "Count my focus hours"
+msgstr "集中時間をカウント"
+
+msgid "Decrease"
+msgstr "減らす"
+
+msgid "Deep"
+msgstr "詳細"
+
+msgid "Delete chat"
+msgstr "チャットを削除"
+
+msgid "Delete note"
+msgstr "メモを削除"
+
+msgid "Delete subtask"
+msgstr "サブタスクを削除"
+
+msgid "Delete this chat?"
+msgstr "このチャットを削除しますか？"
+
+msgid "Dictate"
+msgstr "音声入力"
+
+msgid "Exit full screen"
+msgstr "全画面表示を終了"
+
+msgid "Expand"
+msgstr "展開"
+
+msgid "Expand menu"
+msgstr "メニューを展開"
+
+msgid "Fork from here"
+msgstr "ここから分岐"
+
+msgid "Fork this chat"
+msgstr "このチャットを分岐"
+
+msgid "Full screen"
+msgstr "全画面表示"
+
+msgid "Hide subtasks"
+msgstr "サブタスクを非表示"
+
+msgid "Increase"
+msgstr "増やす"
+
+msgid "Jump to latest"
+msgstr "最新へ移動"
+
+msgid "Launch"
+msgstr "今日最初に行う"
+
+msgid "Let the assistant search the web"
+msgstr "アシスタントによるウェブ検索を許可"
+
+msgid "Maximize"
+msgstr "最大化"
+
+msgid "Merging the notes"
+msgstr "メモを統合中"
+
+msgid "Message"
+msgstr "メッセージ"
+
+msgid "Minimize"
+msgstr "最小化"
+
+msgid "More"
+msgstr "その他"
+
+msgid "Move back"
+msgstr "前に戻す"
+
+msgid "Move down"
+msgstr "下に移動"
+
+msgid "Move forward"
+msgstr "次に進める"
+
+msgid "Move up"
+msgstr "上に移動"
+
+msgid "New chat"
+msgstr "新しいチャット"
+
+msgid "New space"
+msgstr "新しいスペース"
+
+msgid "Next mode"
+msgstr "次のモード"
+
+msgid "Next version"
+msgstr "次のバージョン"
+
+msgid "Next week"
+msgstr "来週"
+
+msgid "Planned the searches"
+msgstr "検索を計画しました"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "計画、音声認識、読み上げはこの端末上で実行されます。許可したウェブ検索のみがオンラインに接続されます。"
+
+msgid "Previous mode"
+msgstr "前のモード"
+
+msgid "Previous version"
+msgstr "前のバージョン"
+
+msgid "Previous week"
+msgstr "先週"
+
+msgid "Quick"
+msgstr "高速"
+
+msgid "Reading {}"
+msgstr "{} を読み取り中"
+
+msgid "Redo"
+msgstr "やり直し"
+
+msgid "Searching: {}"
+msgstr "検索中: {}"
+
+msgid "Send"
+msgstr "送信"
+
+msgid "Show subtasks"
+msgstr "サブタスクを表示"
+
+msgid "Skipped {}"
+msgstr "{} をスキップしました"
+
+msgid "Standard"
+msgstr "標準"
+
+msgid "Start"
+msgstr "開始"
+
+msgid "Start focus on this task"
+msgstr "このタスクの集中タイマーを開始"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Stop recording"
+msgstr "録音を停止"
+
+msgid "Suggest with AI"
+msgstr "AIで提案"
+
+msgid "Switch to dark mode"
+msgstr "ダークモードに切り替え"
+
+msgid "Switch to light mode"
+msgstr "ライトモードに切り替え"
+
+msgid "Target hours"
+msgstr "目標時間"
+
+msgid "Thinking..."
+msgstr "考え中..."
+
+msgid "Took notes from {}"
+msgstr "{} からメモを取りました"
+
+msgid "Undo"
+msgstr "元に戻す"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "オンにすると、検索内容が使用する検索サイトに送信されます。それ以外はすべてこの端末内に残ります。"
+
+msgid "Writing the answer"
+msgstr "回答を作成中"
+
+msgid "Yes, delete"
+msgstr "はい、削除します"
+
+msgid "Yesterday"
+msgstr "昨日"
+
+msgid "{} results"
+msgstr "{} 件の結果"
+
+msgid "A longer rest"
+msgstr "長めの休憩"
+
+msgid "A short rest"
+msgstr "短い休憩"
+
+msgid "A work session"
+msgstr "作業セッション"
+
+msgid "Activity for the day"
+msgstr "今日のアクティビティ"
+
+msgid "Activity for the month"
+msgstr "今月のアクティビティ"
+
+msgid "Activity for the week"
+msgstr "今週のアクティビティ"
+
+msgid "Activity for the year"
+msgstr "今年のアクティビティ"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "やりたいことを入力するとアシスタントが計画します"
+
+msgid "Go to this week"
+msgstr "今週へ移動"
+
+msgid "Move to this week"
+msgstr "今週に移動"
+
+msgid "See tasks in columns"
+msgstr "列形式でタスクを表示"
+
+msgid "See tasks on a weekly calendar"
+msgstr "週間カレンダーでタスクを表示"
+
+msgid "Set your own length"
+msgstr "時間を自由に設定"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "緊急度と重要度で整理"
+
+msgid "Take it off the calendar"
+msgstr "カレンダーから外す"

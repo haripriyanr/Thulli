@@ -688,3 +688,839 @@ msgstr "Biteganyijwe uyu munsi"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Nta kiteganyijwe uyu munsi. Ongeramo imirimo ku ishusho y'Ibibanza."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Intego ni ikintu wifuza kugeraho. Yigabanyemo intambwe z'ingenzi, huza imirimo ikugezayo, maze urebe iterambere ryawe ryiyongera."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Kuri iyi ntego"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Irakora"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Ongeraho intambwe y'ingenzi"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Ibyitegererezo bya AI (hafi GB 2.3)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Ibyitegererezo bya AI byashyizwemo"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Ikindi kintu cyose gikwiye kwibukwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Shyira mu bubiko"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Byashyizwe mu bubiko"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Subira ku ntego"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "ibitabo, amasaha…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Icyiciro"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Hindura intambwe y'ingenzi"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Funga"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Ibitaha"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Byarangiye"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Bara intambwe z'ingenzi"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Kora intego ikora kugira ngo ubone inama."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Kora intego"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Kora intego yawe ya mbere"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Iriho ubu"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Agaciro k'ubu"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Itariki (ubishatse)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Siba"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Siba intego"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Siba iyi ntego?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Sobanura umusaruro"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Ibisobanuro"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Byakozwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Kuramo nonaha"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Birimo gukuramo..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Hindura intego"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Igihe cyo kwibanda ku ntego"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Intego"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Intego zateye imbere muri iki cyumweru"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Hejuru"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Icyihutirwa cyane"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Amateka"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Iterambere ribarwa rite?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Birakora"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Gumana intego"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Iminsi 7 ishize"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Huza umurimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Hasi"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Icyihutirwa gito"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Shyiraho akamenyetso ko byarangiye"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Hagati"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Icyihutirwa buringaniye"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Intambwe y'ingenzi"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Intambwe y'ingenzi: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Intambwe z'ingenzi"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Intambwe z'ingenzi zarangiye"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Bikeneye kwitabwaho"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Intego nshya"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Igikurikira: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Nta matariki ntarengwa mu minsi irindwi iri imbere."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Nta bihe byo kwibanda kuri iyi ntego birakorwa. Tangira igihe cyo kwibanda kuri umwe mu mirimo yayo."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Nta ntego yagize intambwe y'ingenzi, umurimo cyangwa igihe cyo kwibanda muri iki cyumweru."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Nta ntego ihuye"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Nta ntego ziraboneka"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Nta ntambwe z'ingenzi ziraboneka. Ongeraho intambwe ya mbere iganisha kuri iyi ntego."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Nta mirimo ifunguye yo guhuza. Imirimo isanzwe mu ntego ntiyerekanwa."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Nta mirimo irahuzwa. Huza imirimo ivuye mu Bibanza kugira ngo uyibone hano."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Nta cyarengeje igihe cyangwa cyatuje. Ni byiza."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Fungura"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Fungura Ibibanza"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Hagarika akanya gato"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Byahagaritswe"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Fata amahuza mashya ku ntambwe y'ingenzi"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Gutegura, kumenya ijwi no gusoma mu ijwi riranguruye byose bikorera kuri iki gikoresho. Nta cyo uvuga cyangwa wandika gisohoka."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Icyihutirwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Iterambere"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Iterambere ni igice cy'intambwe z'ingenzi warangije."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Iterambere ni umubare wawe w'ubu ugereranije n'intego, nk'ibitabo 12 kuri 20."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Soma mu ijwi riranguruye"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Biteguye"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Ibiheruka"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Vugurura"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Kura"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Bikuremo kugira ngo ubone umwanya; bizongera bikurwemo nibiba bikenewe."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Fungura nanone"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Garura"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Komeza"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Bika impinduka"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Shakisha intego"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Shakisha imirimo yawe ifunguye"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Shungura hakurikijwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Kwigamo, ubuzima, akazi…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Ibyihutirwa byasabwe mu cyumweru gitaha"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Intego"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Itariki ntarengwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Itariki ntarengwa (YYYY-MM-DD, ubishatse)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Imirimo yarangiye"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Imirimo y'iyi ntego"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Gahunda ya mbere ikuramo ibyitegererezo bya AI byo ku gikoresho (hafi GB 2.3)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Intego n'intambwe zayo z'ingenzi birasibwa. Imirimo yawe iguma mu Bibanza; ireka gusa kwerekana iyi ntego."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Iminsi irindwi ishize, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Bikurwamo bwa mbere ukoresheje AI, cyangwa nonaha."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Iyi ntego ikurikirana umubare. Intambwe z'ingenzi ziracyerekana ibipimo mu nzira, ariko ntizihindura ijanisha."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Umutwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Igiteranyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Kurikirana umubare"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Gerageza akayunguruzo gashya cyangwa ubushakashatsi butandukanye."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Igipimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Kura ihuzwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Vugurura"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Isuzuma ry'icyumweru"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Ni iki wifuza kugeraho?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Impamvu ari ingenzi"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Impamvu yawe yo gukora ibi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} bisigaye"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} birakora"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} byarangiye"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} biteganyijwe mu minsi {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} biteganyijwe uyu munsi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} biteganyijwe ejo"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} byibanze"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} kuri {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} kuri {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} mu ntambwe z'ingenzi {} byarangiye"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} mu mirimo {} yarangiye"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} byarengeje igihe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} byahagaritswe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} bisigaye"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Ongeraho intambwe y'ingenzi cyangwa itariki ntarengwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Biteganyijwe {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Biteganyijwe mu minsi {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Biteganyijwe uyu munsi"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Biteganyijwe ejo"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Buri ntambwe y'ingenzi yararangiye"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Igihe cyo kwibanda cyanditswe"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Intambwe z'ingenzi zakozwe: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Nta gikorwa mu minsi {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Nta ntambwe z'ingenzi ziraboneka"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Byarengeje igihe ku minsi {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Byarengeje igihe ku munsi 1"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Bitegure"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Birimo gutegurwa..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Shyiraho intego kugira ngo ubone iterambere"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Intego yagezweho"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Imirimo yakozwe: {}"
+
+msgid "Planning"
+msgstr "Igenamigambi"
+
+msgid "Speech to text"
+msgstr "Ijwi mu nyandiko"
+
+msgid "Add subtask"
+msgstr "Ongeraho umurimo muto"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Baza ibyerekeye imirimo yawe, cyangwa usobanure ibyo wifuza gutegura. Nta kintu gihinduka utabyemeje."
+
+msgid "Asking AI..."
+msgstr "Iri kubaza AI..."
+
+msgid "Chat"
+msgstr "Ikiganiro"
+
+msgid "Chats"
+msgstr "Ibiganiro"
+
+msgid "Click again to delete"
+msgstr "Kanda nanone kugira ngo usibe"
+
+msgid "Collapse"
+msgstr "Kunya"
+
+msgid "Collapse menu"
+msgstr "Kunya menu"
+
+msgid "Copy"
+msgstr "Kopiya"
+
+msgid "Count my focus hours"
+msgstr "Bara amasaha yo kwita ku mirimo"
+
+msgid "Decrease"
+msgstr "Gabanya"
+
+msgid "Deep"
+msgstr "Byimbitse"
+
+msgid "Delete chat"
+msgstr "Siba ikiganiro"
+
+msgid "Delete note"
+msgstr "Siba inyandiko"
+
+msgid "Delete subtask"
+msgstr "Siba umurimo muto"
+
+msgid "Delete this chat?"
+msgstr "Gusiba iki kiganiro?"
+
+msgid "Dictate"
+msgstr "Vuga byandikwe"
+
+msgid "Exit full screen"
+msgstr "Va muri ecran yose"
+
+msgid "Expand"
+msgstr "Kwagura"
+
+msgid "Expand menu"
+msgstr "Kwagura menu"
+
+msgid "Fork from here"
+msgstr "Tangirira ikindi kiganiro hano"
+
+msgid "Fork this chat"
+msgstr "Kopera iki kiganiro"
+
+msgid "Full screen"
+msgstr "Ecran yose"
+
+msgid "Hide subtasks"
+msgstr "Hisha imirimo mito"
+
+msgid "Increase"
+msgstr "Ongera"
+
+msgid "Jump to latest"
+msgstr "Jya ku butumwa bwa nyuma"
+
+msgid "Launch"
+msgstr "Tangiza"
+
+msgid "Let the assistant search the web"
+msgstr "Emerera umufasha gushakisha kuri internet"
+
+msgid "Maximize"
+msgstr "Kwizana hejuru"
+
+msgid "Merging the notes"
+msgstr "Guhuza inyandiko"
+
+msgid "Message"
+msgstr "Ubutumwa"
+
+msgid "Minimize"
+msgstr "Kugabanya ingano"
+
+msgid "More"
+msgstr "Ibindi"
+
+msgid "Move back"
+msgstr "Subiza inyuma"
+
+msgid "Move down"
+msgstr "Shyira hasi"
+
+msgid "Move forward"
+msgstr "Komeza imbere"
+
+msgid "Move up"
+msgstr "Shyira hejuru"
+
+msgid "New chat"
+msgstr "Ikiganiro gishya"
+
+msgid "New space"
+msgstr "Umwanya mushya"
+
+msgid "Next mode"
+msgstr "Uburyo bukurikira"
+
+msgid "Next version"
+msgstr "Verisiyo ikurikira"
+
+msgid "Next week"
+msgstr "Icyumweru gitaha"
+
+msgid "Planned the searches"
+msgstr "Gushakisha kwateguwe"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Itegura, kumenya ijwi no gusoma mu ijwi riranguruye bikorera kuri iki gikoresho. Ubushakashatsi bwo kuri internet wemeye gusa nibwo bujya kuri interineti."
+
+msgid "Previous mode"
+msgstr "Uburyo bwabanje"
+
+msgid "Previous version"
+msgstr "Verisiyo yabanje"
+
+msgid "Previous week"
+msgstr "Icyumweru gishize"
+
+msgid "Quick"
+msgstr "Bwangu"
+
+msgid "Reading {}"
+msgstr "Gusoma {}"
+
+msgid "Redo"
+msgstr "Subiramo"
+
+msgid "Searching: {}"
+msgstr "Gushakisha: {}"
+
+msgid "Send"
+msgstr "Ohereza"
+
+msgid "Show subtasks"
+msgstr "Erekana imirimo mito"
+
+msgid "Skipped {}"
+msgstr "Ibyasimbitswe {}"
+
+msgid "Standard"
+msgstr "Bisanzwe"
+
+msgid "Start"
+msgstr "Tangira"
+
+msgid "Start focus on this task"
+msgstr "Tangira kwita kuri uyu murimo"
+
+msgid "Stop"
+msgstr "Hagarika"
+
+msgid "Stop recording"
+msgstr "Hagarika gufata amajwi"
+
+msgid "Suggest with AI"
+msgstr "Gusaba inama AI"
+
+msgid "Switch to dark mode"
+msgstr "Guhindura mu buryo bwijimye"
+
+msgid "Switch to light mode"
+msgstr "Guhindura mu buryo bw'umucyo"
+
+msgid "Target hours"
+msgstr "Amasaha ateganyijwe"
+
+msgid "Thinking..."
+msgstr "Iratekereza..."
+
+msgid "Took notes from {}"
+msgstr "Yafashe inyandiko kuri {}"
+
+msgid "Undo"
+msgstr "Subiza uko byari bimeze"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Iyo ikora, ibyo ishakisha byoherezwa ku mbuga zikoreshwa. Ibindi byose biguma kuri iki gikoresho."
+
+msgid "Writing the answer"
+msgstr "Kwandika igisubizo"
+
+msgid "Yes, delete"
+msgstr "Yego, siba"
+
+msgid "Yesterday"
+msgstr "Ejo hashize"
+
+msgid "{} results"
+msgstr "Ibisubizo {}"
+
+msgid "A longer rest"
+msgstr "Ikiruhuko kirekire"
+
+msgid "A short rest"
+msgstr "Ikiruhuko kigufi"
+
+msgid "A work session"
+msgstr "Igihe cyo gukora"
+
+msgid "Activity for the day"
+msgstr "Ibikorwa by'umunsi"
+
+msgid "Activity for the month"
+msgstr "Ibikorwa by'ukwezi"
+
+msgid "Activity for the week"
+msgstr "Ibikorwa by'icyumweru"
+
+msgid "Activity for the year"
+msgstr "Ibikorwa by'umwaka"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Sobanura icyo ukeneye umufasha abitegure"
+
+msgid "Go to this week"
+msgstr "Jya kuri iki cyumweru"
+
+msgid "Move to this week"
+msgstr "Imurira muri iki cyumweru"
+
+msgid "See tasks in columns"
+msgstr "Reba imirimo mu nkingi"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Reba imirimo kuri kalendari y'icyumweru"
+
+msgid "Set your own length"
+msgstr "Shyiraho igihe cyawe"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Tondeka imirimo ukurikije uburyo yihutirwa n'akamaro"
+
+msgid "Take it off the calendar"
+msgstr "Bikure kuri kalendari"

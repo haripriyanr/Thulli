@@ -688,3 +688,575 @@ msgstr "Planned for today"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Nothing planned for today. Add tasks on the Spaces screen."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "About this goal"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Active"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Add a milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI models (about 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI models installed"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Anything else worth remembering"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Archive"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Archived"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Back to goals"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "books, hours…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Category"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Change milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Close"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Coming up"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Completed"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Count milestones"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Create an active goal to get suggestions."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Create goal"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Create your first goal"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Current"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Current value"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Date (optional)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Delete"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Delete goal"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Delete this goal?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Describe the outcome"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Description"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Done"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Download now"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Downloading..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Edit goal"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Focus time on goals"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Goals"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Goals that moved this week"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "High"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "High priority"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "History"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "How is progress counted?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "In play"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Keep goal"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Last 7 days"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Link a task"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Low"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Low priority"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Mark complete"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Medium"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Medium priority"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Milestone: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Milestones"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Milestones completed"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Needs attention"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "New goal"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Next: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "No deadlines in the next seven days."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "No goal had a milestone, task or focus session this week."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "No goals match"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "No goals yet"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "No milestones yet. Add the first stop on the way to this goal."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "No open tasks to link. Tasks already in a goal are not shown."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "No tasks linked yet. Link tasks from Spaces to see them here."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Nothing is overdue or quiet. Nice."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Open"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Open Spaces"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Pause"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Paused"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Pin new links to a milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Priority"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Progress"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Progress is the share of milestones you have completed."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Progress is your current number against the target, such as 12 of 20 books."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Read aloud"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Ready"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Recent"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Refresh"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Remove"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Remove them to free the space; they download again when needed."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Reopen"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Restore"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Resume"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Save changes"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Search goals"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Search your open tasks"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sort by"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Study, health, work…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Suggested priorities for next week"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Target"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Target date"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Target date (YYYY-MM-DD, optional)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Tasks completed"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Tasks for this goal"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "The first plan downloads the on-device AI models (about 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "The last seven days, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "They download the first time you use AI, or now."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Title"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Total"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Track a number"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Try another filter or a different search."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Unit"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Unlink"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Update"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Weekly review"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "What do you want to achieve?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Why it matters"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Your reason for doing this"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} to go"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} active"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} completed"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} due in {} days"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} due today"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} due tomorrow"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} focused"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} of {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} of {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} of {} milestones done"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} of {} tasks done"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} overdue"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} paused"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} to go"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Add a milestone or a target date"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Due {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Due in {} days"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Due today"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Due tomorrow"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Every milestone is done"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Focus time logged"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Milestones done: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "No activity for {} days"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "No milestones yet"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Overdue by {} days"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Overdue by 1 day"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Plan it"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Planning..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Set a target to see progress"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Target reached"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Tasks done: {}"

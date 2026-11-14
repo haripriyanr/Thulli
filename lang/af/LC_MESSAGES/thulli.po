@@ -688,3 +688,839 @@ msgstr "Beplan vir vandag"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Niks beplan vir vandag nie. Voeg take by op die Ruimtes-skerm."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "'n Doel is iets wat jy wil bereik. Breek dit op in mylpale, koppel die take wat jou daar bring, en sien hoe jou vordering bou."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Oor hierdie doel"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktief"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Voeg 'n mylpaal by"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "KI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "KI-modelle (ongeveer 2,3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "KI-modelle geïnstalleer"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Enigiets anders wat die moeite werd is om te onthou"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Argiveer"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Gearchiveer"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Terug na doelwitte"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "boeke, ure…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategorie"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Verander mylpaal"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Sluit"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Binnekort"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Voltooi"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Tel mylpale"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Skep 'n aktiewe doel om voorstelle te kry."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Skep doel"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Skep jou eerste doel"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Huidig"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Huidige waarde"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Datum (opsioneel)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Skrap"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Skrap doel"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Skrap hierdie doel?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Beskryf die uitkoms"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Beskrywing"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Klaar"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Laai nou af"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Laai tans af..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Wysig doel"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Fokustyd op doelwitte"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Doelwitte"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Doelwitte wat hierdie week beweeg het"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Hoog"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Hoë prioriteit"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Geskiedenis"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Hoe word vordering getel?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "In spel"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Behou doel"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Afgelope 7 dae"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Koppel 'n taak"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Laag"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Lae prioriteit"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Merk as voltooid"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Medium"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Medium prioriteit"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Mylpaal"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Mylpaal: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Mylpale"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Mylpale voltooi"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Benodig aandag"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Nuwe doel"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Volgende: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Geen sperdatums in die volgende sewe dae nie."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Nog geen fokussessies vir hierdie doel nie. Begin 'n fokusronde op een van sy take."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Geen doel het hierdie week 'n mylpaal, taak of fokussessie gehad nie."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Geen doelwitte pas nie"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Nog geen doelwitte nie"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Nog geen mylpale nie. Voeg die eerste stop op pad na hierdie doel by."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Geen oop take om te koppel nie. Take wat reeds in 'n doel is, word nie gewys nie."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Nog geen take gekoppel nie. Koppel take vanaf Ruimtes om hulle hier te sien."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Niks is agterstallig of stil nie. Mooi so."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Oop"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Maak Ruimtes oop"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Pouseer"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Gepouseer"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Speld nuwe skakels aan 'n mylpaal vas"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Beplanning, spraakherkenning en hardoplees hardloop alles op hierdie toestel. Niks wat jy sê of tik verlaat dit nie."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioriteit"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Vordering"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Vordering is die deel van mylpale wat jy voltooi het."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Vordering is jou huidige getal teenoor die teiken, soos 12 van 20 boeke."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Lees hardop"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Gereed"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Onlangs"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Verfris"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Verwyder"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Verwyder hulle om spasie vry te maak; hulle laai weer af wanneer nodig."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Heropen"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Herstel"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Hervat"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Stoor veranderinge"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Soek doelwitte"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Soek jou oop take"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sorteer volgens"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Studie, gesondheid, werk…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Voorgestelde prioriteite vir volgende week"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Teiken"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Teikendatum"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Teikendatum (YYYY-MM-DD, opsioneel)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Take voltooi"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Take vir hierdie doel"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Die eerste beplanning laai die toestel-KI-modelle af (ongeveer 2,3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Die doel en sy mylpale word verwyder. Jou take word in Ruimtes gehou; hulle wys net nie meer na hierdie doel nie."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Die afgelope sewe dae, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Hulle laai af die eerste keer wat jy KI gebruik, of nou."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Hierdie doel volg 'n getal. Mylpale merk steeds die stoppe langs die pad, maar hulle verander nie die persentasie nie."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Titel"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Totaal"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Volg 'n getal"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Probeer 'n ander filter of 'n ander soektog."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Eenheid"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Ontkoppel"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Dateer op"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Weeklikse oorsig"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Wat wil jy bereik?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Waarom dit saak maak"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Jou rede om dit te doen"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "nog {} {} oor"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktief"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} voltooi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} verval oor {} dae"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} verval vandag"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} verval môre"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} gefokus"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} van {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} van {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} van {} mylpale voltooi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} van {} take voltooi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} agterstallig"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} gepouseer"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "nog {} oor"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Voeg 'n mylpaal of 'n teikendatum by"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Verval {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Verval oor {} dae"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Verval vandag"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Verval môre"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Elke mylpaal is voltooi"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Fokustyd aangeteken"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Mylpale voltooi: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Geen aktiwiteit vir {} dae nie"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Nog geen mylpale nie"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} dae agterstallig"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 dag agterstallig"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Beplan dit"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Beplan tans..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Stel 'n teiken om vordering te sien"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Teiken bereik"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Take voltooi: {}"
+
+msgid "Planning"
+msgstr "Beplanning"
+
+msgid "Speech to text"
+msgstr "Spraak na teks"
+
+msgid "Add subtask"
+msgstr "Voeg subtaak by"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Vra oor jou take, of beskryf wat jy wil beplan. Niks verander totdat jy dit goedkeur nie."
+
+msgid "Asking AI..."
+msgstr "Vra tans KI..."
+
+msgid "Chat"
+msgstr "Klets"
+
+msgid "Chats"
+msgstr "Kletse"
+
+msgid "Click again to delete"
+msgstr "Klik weer om te skrap"
+
+msgid "Collapse"
+msgstr "Vou in"
+
+msgid "Collapse menu"
+msgstr "Vou kieslys in"
+
+msgid "Copy"
+msgstr "Kopieer"
+
+msgid "Count my focus hours"
+msgstr "Tel my fokusure"
+
+msgid "Decrease"
+msgstr "Verminder"
+
+msgid "Deep"
+msgstr "Diep"
+
+msgid "Delete chat"
+msgstr "Skrap klets"
+
+msgid "Delete note"
+msgstr "Skrap nota"
+
+msgid "Delete subtask"
+msgstr "Skrap subtaak"
+
+msgid "Delete this chat?"
+msgstr "Skrap hierdie klets?"
+
+msgid "Dictate"
+msgstr "Dikteer"
+
+msgid "Exit full screen"
+msgstr "Verlaat volskerm"
+
+msgid "Expand"
+msgstr "Vou uit"
+
+msgid "Expand menu"
+msgstr "Vou kieslys uit"
+
+msgid "Fork from here"
+msgstr "Vurk hiervandaan"
+
+msgid "Fork this chat"
+msgstr "Vurk hierdie klets"
+
+msgid "Full screen"
+msgstr "Volskerm"
+
+msgid "Hide subtasks"
+msgstr "Versteek subtake"
+
+msgid "Increase"
+msgstr "Vermeerder"
+
+msgid "Jump to latest"
+msgstr "Spring na nuutste"
+
+msgid "Launch"
+msgstr "Begin"
+
+msgid "Let the assistant search the web"
+msgstr "Laat die assistent die web deursoek"
+
+msgid "Maximize"
+msgstr "Maksimeer"
+
+msgid "Merging the notes"
+msgstr "Voeg die notas saam"
+
+msgid "Message"
+msgstr "Boodskap"
+
+msgid "Minimize"
+msgstr "Minimeer"
+
+msgid "More"
+msgstr "Meer"
+
+msgid "Move back"
+msgstr "Skuif terug"
+
+msgid "Move down"
+msgstr "Skuif af"
+
+msgid "Move forward"
+msgstr "Skuif vorentoe"
+
+msgid "Move up"
+msgstr "Skuif op"
+
+msgid "New chat"
+msgstr "Nuwe klets"
+
+msgid "New space"
+msgstr "Nuwe spasie"
+
+msgid "Next mode"
+msgstr "Volgende modus"
+
+msgid "Next version"
+msgstr "Volgende weergawe"
+
+msgid "Next week"
+msgstr "Volgende week"
+
+msgid "Planned the searches"
+msgstr "Soektogte beplan"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Beplanning, spraakherkenning en hardoplees loop op hierdie toestel. Net die websoektogte wat jy toelaat gaan aanlyn."
+
+msgid "Previous mode"
+msgstr "Vorige modus"
+
+msgid "Previous version"
+msgstr "Vorige weergawe"
+
+msgid "Previous week"
+msgstr "Vorige week"
+
+msgid "Quick"
+msgstr "Vinnig"
+
+msgid "Reading {}"
+msgstr "Lees tans {}"
+
+msgid "Redo"
+msgstr "Herdoen"
+
+msgid "Searching: {}"
+msgstr "Soek tans: {}"
+
+msgid "Send"
+msgstr "Stuur"
+
+msgid "Show subtasks"
+msgstr "Wys subtake"
+
+msgid "Skipped {}"
+msgstr "{} oorgeslaan"
+
+msgid "Standard"
+msgstr "Standaard"
+
+msgid "Start"
+msgstr "Begin"
+
+msgid "Start focus on this task"
+msgstr "Begin fokus op hierdie taak"
+
+msgid "Stop"
+msgstr "Stop"
+
+msgid "Stop recording"
+msgstr "Stop opname"
+
+msgid "Suggest with AI"
+msgstr "Stel voor met KI"
+
+msgid "Switch to dark mode"
+msgstr "Skakel oor na donker modus"
+
+msgid "Switch to light mode"
+msgstr "Skakel oor na ligte modus"
+
+msgid "Target hours"
+msgstr "Teikenure"
+
+msgid "Thinking..."
+msgstr "Dink tans..."
+
+msgid "Took notes from {}"
+msgstr "Notas geneem van {}"
+
+msgid "Undo"
+msgstr "Ontdoen"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Wanneer aangeskakel, word wat dit opsoek na die soekwebwerwe gestuur wat dit gebruik. Alles anders bly op hierdie toestel."
+
+msgid "Writing the answer"
+msgstr "Skryf tans die antwoord"
+
+msgid "Yes, delete"
+msgstr "Ja, skrap"
+
+msgid "Yesterday"
+msgstr "Gister"
+
+msgid "{} results"
+msgstr "{} resultate"
+
+msgid "A longer rest"
+msgstr "Langer rus"
+
+msgid "A short rest"
+msgstr "Kort rus"
+
+msgid "A work session"
+msgstr "Werksessie"
+
+msgid "Activity for the day"
+msgstr "Aktiwiteit vir die dag"
+
+msgid "Activity for the month"
+msgstr "Aktiwiteit vir die maand"
+
+msgid "Activity for the week"
+msgstr "Aktiwiteit vir die week"
+
+msgid "Activity for the year"
+msgstr "Aktiwiteit vir die jaar"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Beskryf wat jy nodig het en die assistent beplan dit"
+
+msgid "Go to this week"
+msgstr "Gaan na hierdie week"
+
+msgid "Move to this week"
+msgstr "Skuif na hierdie week"
+
+msgid "See tasks in columns"
+msgstr "Sien take in kolomme"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Sien take op 'n weekkalender"
+
+msgid "Set your own length"
+msgstr "Stel jou eie tyd in"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Sorteer take volgens dringendheid en belangrikheid"
+
+msgid "Take it off the calendar"
+msgstr "Haal dit van die kalender af"

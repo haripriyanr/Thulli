@@ -688,3 +688,839 @@ msgstr "Giplano para karon"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Walay giplano para karon. Dugangi ug buluhaton sa Mga Espasyo."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Ang tumong maoy usa ka butang nga gusto nimong makab-ot. Bahina kini ngadto sa mga milestone, i-link ang mga buluhaton nga magdala kanimo didto, ug tan-awa ang pagtubo sa imong pag-uswag."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Mahitungod niini nga tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktibo"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Pagdugang og milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Mga modelo sa AI (mga 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Na-install na ang mga modelo sa AI"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Bisan unsa pa nga angay hinumdoman"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "I-archive"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Na-archive"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Balik sa mga tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "mga libro, mga oras…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategoriya"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Usba ang milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Isira"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Hapit na moabot"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Nahuman"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Ipha ang mga milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Paghimo og aktibong tumong aron makadawat og mga sugyot."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Paghimo og tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Paghimo sa imong unang tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Kasamtangan"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Kasamtangang bili"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Petsa (opsyonal)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "I-delete"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "I-delete ang tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "I-delete kini nga tumong?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Ihulagway ang resulta"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Paghulagway"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Nahuman"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "I-download karon"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Nag-download..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "I-edit ang tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Oras sa focus sa mga tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Mga Tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Mga tumong nga miuswag niining semanaha"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Taas"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Taas nga prayoridad"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Kasaysayan"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Giunsa pag-ihap ang pag-uswag?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Nagpadayon"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Tipigi ang tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Miaging 7 ka adlaw"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "I-link ang usa ka buluhaton"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Ubos"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Ubos nga prayoridad"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Markahi nga nahuman"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Kasarangan"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Kasarangang prayoridad"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Milestone: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Mga Milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Nahuman nga mga milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Nagkinahanglan og pagtagad"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Bag-ong tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Sunod: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Walay mga deadline sa sunod nga pito ka adlaw."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Wala pay focus session niini nga tumong. Pagsugod og focus round sa usa sa mga buluhaton niini."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Walay tumong nga may milestone, buluhaton o focus session niining semanaha."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Walay tumong nga motakdo"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Wala pay mga tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Wala pay mga milestone. Idugang ang unang hunonganan padulong niini nga tumong."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Walay bukas nga mga buluhaton nga ma-link. Ang mga buluhaton nga anaa na sa usa ka tumong dili ipakita."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Wala pay mga buluhaton nga na-link. Pag-link og mga buluhaton gikan sa Mga Espasyo aron makita kini dinhi."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Walay na-overdue o hilom. Nindot."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Buksi"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Bukha ang Mga Espasyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "I-pause"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Gi-pause"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "I-pin ang bag-ong mga link sa usa ka milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Ang pagplano, pag-ila sa tingog ug pagbasa og kusog tanan nagdagan niini nga device. Walay bisan unsa nga imong isulti o i-type ang mogawas niini."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prayoridad"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Pag-uswag"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Ang pag-uswag mao ang bahin sa mga milestone nga imong nahuman."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Ang pag-uswag mao ang imong kasamtangang numero batok sa target, sama sa 12 sa 20 ka libro."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Basaha og kusog"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Andam na"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Bag-o"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "I-refresh"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Kuhaa"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Kuhaa kini aron mabakante ang storage; mag-download kini pag-usab kung gikinahanglan."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Ablihi pag-usab"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Ibalik"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Ipadayon"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "I-save ang mga kausaban"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Pangitaa ang mga tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Pangitaa ang imong bukas nga mga buluhaton"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Ihan-ay sumala sa"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Pagtuon, panglawas, trabaho…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Gisugyot nga mga prayoridad alang sa sunod semana"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Target"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Target nga petsa"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Target nga petsa (YYYY-MM-DD, opsyonal)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Nahuman nga mga buluhaton"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Mga buluhaton alang niini nga tumong"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Ang unang plano mag-download sa on-device AI nga mga modelo (mga 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Ang tumong ug ang mga milestone niini kuhaon. Ang imong mga buluhaton pabilin sa Mga Espasyo; mohunong lang kini sa pagpunting niini nga tumong."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Ang miaging pito ka adlaw, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Mag-download kini sa unang higayon nga mogamit ka og AI, o karon."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Kini nga tumong nagsubay sa usa ka numero. Ang mga milestone nagtimaan gihapon sa mga hunonganan sa dalan, apan wala kini mag-usab sa porsyento."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Titulo"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Kinatibuk-an"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Pagsubay sa usa ka numero"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Sulayi ang laing filter o laing pagpangita."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Yunit"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "I-unlink"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "I-update"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Sinemanang pagsusi"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Unsa ang gusto nimong makab-ot?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Nganong importante kini"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Imong rason sa pagbuhat niini"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} ang nahibilin"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktibo"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} nahuman"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} takdang panahon sulod sa {} ka adlaw"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} takdang panahon karon"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} takdang panahon ugma"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} naka-focus"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} sa {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} sa {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} sa {} ka milestone nahuman"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} sa {} ka buluhaton nahuman"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} na-overdue"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} gi-pause"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} ang nahibilin"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Pagdugang og milestone o target nga petsa"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Takdang panahon {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Takdang panahon sulod sa {} ka adlaw"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Takdang panahon karon"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Takdang panahon ugma"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Nahuman na ang matag milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Narekord na ang oras sa focus"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Nahuman nga mga milestone: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Walay kalihokan sulod sa {} ka adlaw"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Wala pay mga milestone"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Na-overdue og {} ka adlaw"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Na-overdue og 1 ka adlaw"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Iplano kini"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Nagplano..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Pagtakda og target aron makita ang pag-uswag"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Nakab-ot ang target"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Nahuman nga mga buluhaton: {}"
+
+msgid "Planning"
+msgstr "Pagplano"
+
+msgid "Speech to text"
+msgstr "Tingog ngadto sa teksto"
+
+msgid "Add subtask"
+msgstr "Idugang ang subtask"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Pangutana bahin sa imong mga buluhaton, o ihulagway unsay gusto nimong planohon. Walay mausab hangtod nga mouyon ka."
+
+msgid "Asking AI..."
+msgstr "Nangutana sa AI..."
+
+msgid "Chat"
+msgstr "Chat"
+
+msgid "Chats"
+msgstr "Mga chat"
+
+msgid "Click again to delete"
+msgstr "I-klik pag-usab aron mapapas"
+
+msgid "Collapse"
+msgstr "I-collapse"
+
+msgid "Collapse menu"
+msgstr "Isira ang menu"
+
+msgid "Copy"
+msgstr "Kopyaha"
+
+msgid "Count my focus hours"
+msgstr "Ihapa ang akong oras sa focus"
+
+msgid "Decrease"
+msgstr "Kunhuri"
+
+msgid "Deep"
+msgstr "Lawom"
+
+msgid "Delete chat"
+msgstr "Papasa ang chat"
+
+msgid "Delete note"
+msgstr "Papasa ang nota"
+
+msgid "Delete subtask"
+msgstr "Papasa ang subtask"
+
+msgid "Delete this chat?"
+msgstr "Papason kini nga chat?"
+
+msgid "Dictate"
+msgstr "Idikta"
+
+msgid "Exit full screen"
+msgstr "Gawas sa full screen"
+
+msgid "Expand"
+msgstr "Ipalapad"
+
+msgid "Expand menu"
+msgstr "Ipalapad ang menu"
+
+msgid "Fork from here"
+msgstr "I-fork gikan dinhi"
+
+msgid "Fork this chat"
+msgstr "I-fork kini nga chat"
+
+msgid "Full screen"
+msgstr "Full screen"
+
+msgid "Hide subtasks"
+msgstr "Itago ang mga subtask"
+
+msgid "Increase"
+msgstr "Dugangi"
+
+msgid "Jump to latest"
+msgstr "Ambak sa pinakabag-o"
+
+msgid "Launch"
+msgstr "Ilusad"
+
+msgid "Let the assistant search the web"
+msgstr "Tugoti ang assistant nga mangita sa web"
+
+msgid "Maximize"
+msgstr "Padak-a"
+
+msgid "Merging the notes"
+msgstr "Gihiusa ang mga nota"
+
+msgid "Message"
+msgstr "Mensahe"
+
+msgid "Minimize"
+msgstr "Pagamay"
+
+msgid "More"
+msgstr "Dugang pa"
+
+msgid "Move back"
+msgstr "Ibalhin pabalik"
+
+msgid "Move down"
+msgstr "Ibalhin paubos"
+
+msgid "Move forward"
+msgstr "Ibalhin sa unahan"
+
+msgid "Move up"
+msgstr "Ibalhin pataas"
+
+msgid "New chat"
+msgstr "Bag-ong chat"
+
+msgid "New space"
+msgstr "Bag-ong space"
+
+msgid "Next mode"
+msgstr "Sunod nga mode"
+
+msgid "Next version"
+msgstr "Sunod nga bersyon"
+
+msgid "Next week"
+msgstr "Sunod semana"
+
+msgid "Planned the searches"
+msgstr "Giplano ang mga pagpangita"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Ang pagplano, pag-ila sa tingog, ug pagbasa og kusog nagdagan niini nga aparato. Ang mga pagpangita sa web lamang nga imong gitugotan ang moadto online."
+
+msgid "Previous mode"
+msgstr "Naunang mode"
+
+msgid "Previous version"
+msgstr "Naunang bersyon"
+
+msgid "Previous week"
+msgstr "Niaging semana"
+
+msgid "Quick"
+msgstr "Dali"
+
+msgid "Reading {}"
+msgstr "Nagbasa sa {}"
+
+msgid "Redo"
+msgstr "Usba"
+
+msgid "Searching: {}"
+msgstr "Nangita: {}"
+
+msgid "Send"
+msgstr "Ipadala"
+
+msgid "Show subtasks"
+msgstr "Ipakita ang mga subtask"
+
+msgid "Skipped {}"
+msgstr "Gilaktawan ang {}"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Start"
+msgstr "Sugdi"
+
+msgid "Start focus on this task"
+msgstr "Sugdi ang pag-focus niini nga buluhaton"
+
+msgid "Stop"
+msgstr "Hunong"
+
+msgid "Stop recording"
+msgstr "Hunonga ang pagrekord"
+
+msgid "Suggest with AI"
+msgstr "Mosugyot gamit ang AI"
+
+msgid "Switch to dark mode"
+msgstr "Balhin sa dark mode"
+
+msgid "Switch to light mode"
+msgstr "Balhin sa light mode"
+
+msgid "Target hours"
+msgstr "Target nga oras"
+
+msgid "Thinking..."
+msgstr "Naghunahuna..."
+
+msgid "Took notes from {}"
+msgstr "Nikuha og mga nota gikan sa {}"
+
+msgid "Undo"
+msgstr "I-undo"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Kon naka-on, ang gipangita ipadala sa mga search site nga gigamit niini. Ang tanan magpabilin niini nga aparato."
+
+msgid "Writing the answer"
+msgstr "Nagsulat sa tubag"
+
+msgid "Yes, delete"
+msgstr "Oo, papasa"
+
+msgid "Yesterday"
+msgstr "Gahapon"
+
+msgid "{} results"
+msgstr "{} ka resulta"
+
+msgid "A longer rest"
+msgstr "Mas taas nga pahulay"
+
+msgid "A short rest"
+msgstr "Mubo nga pahulay"
+
+msgid "A work session"
+msgstr "Sesyon sa trabaho"
+
+msgid "Activity for the day"
+msgstr "Aktibidad sa adlaw"
+
+msgid "Activity for the month"
+msgstr "Aktibidad sa bulan"
+
+msgid "Activity for the week"
+msgstr "Aktibidad sa semana"
+
+msgid "Activity for the year"
+msgstr "Aktibidad sa tuig"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Ihulagway ang imong gikinahanglan ug ang assistant ang magplano niini"
+
+msgid "Go to this week"
+msgstr "Adto karong semanaha"
+
+msgid "Move to this week"
+msgstr "Ibalhin karong semanaha"
+
+msgid "See tasks in columns"
+msgstr "Tan-awa ang mga buluhaton sa mga kolum"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Tan-awa ang mga buluhaton sa semana nga kalendaryo"
+
+msgid "Set your own length"
+msgstr "Itakda ang imong kaugalingong oras"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Ihan-ay ang mga buluhaton sumala sa pagkadinalian ug kaimportante"
+
+msgid "Take it off the calendar"
+msgstr "Kuhaa gikan sa kalendaryo"

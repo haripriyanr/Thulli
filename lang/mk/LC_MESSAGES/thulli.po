@@ -688,3 +688,839 @@ msgstr "Распоредено за денес"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Ништо не е распоредено за денес. Додајте задачи на екранот Простори."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Целта е нешто што сакате да го постигнете. Поделете ја на етапи, поврзете ги задачите што ве водат до неа и следете го вашиот напредок."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "За оваа цел"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Активни"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Додај етапа"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "ВИ"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Модели на ВИ (околу 2,3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Инсталирани модели на ВИ"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Сè друго што вреди да се запомни"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Архивирај"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Архивирани"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Назад кон целите"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "книги, часови…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Категорија"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Промени етапа"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Затвори"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Претстојни"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Завршени"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Број етапи"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Создајте активна цел за да добивате предлози."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Создај цел"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Создајте ја вашата прва цел"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Тековно"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Тековна вредност"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Датум (изборно)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Избриши"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Избриши цел"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Да се избрише ли оваа цел?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Опишете го посакуваниот исход"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Опис"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Готово"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Преземи сега"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Преземање..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Уреди цел"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Време за фокус на цели"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Цели"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Цели со напредок оваа недела"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Висок"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Висок приоритет"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Историја"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Како се пресметува напредокот?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Во тек"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Задржи ја целта"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Последните 7 дена"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Поврзи задача"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Низок"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Низок приоритет"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Означи како завршена"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Среден"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Среден приоритет"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Етапа"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Етапа: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Етапи"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Завршени етапи"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Потребно е внимание"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Нова цел"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Следно: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Нема рокови во следните седум дена."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Сè уште нема фокус сесии за оваа цел. Започнете сесија на една од нејзините задачи."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Ниту една цел немаше етапа, задача или фокус сесија оваа недела."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Нема совпаѓање на цели"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Сè уште нема цели"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Сè уште нема етапи. Додајте ја првата постојка на патот кон оваа цел."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Нема отворени задачи за поврзување. Задачите кои веќе се во цел не се прикажуваат."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Сè уште нема поврзани задачи. Поврзете задачи од Простори за да ги видите тука."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Ништо не доцни ниту е тивко. Одлично."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Отворени"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Отвори Простори"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Паузирај"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Паузирани"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Закачи нови врски кон етапа"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Планирањето, препознавањето говор и читањето наглас се извршуваат на овој уред. Ништо што ќе кажете или напишете не го напушта."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Приоритет"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Напредок"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Напредокот е уделот на етапи што сте ги завршиле."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Напредокот е вашата тековна бројка наспроти целта, како 12 од 20 книги."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Прочитај наглас"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Подготвено"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Неодамнешни"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Освежи"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Отстрани"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Отстранете ги за да ослободите простор; ќе се преземат повторно кога ќе бидат потребни."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Отвори повторно"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Врати"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Продолжи"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Зачувај промени"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Пребарај цели"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Пребарај ги отворените задачи"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Сортирај според"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Учење, здравје, работа…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Предложени приоритети за следната недела"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Целна вредност"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Целен датум"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Целен датум (YYYY-MM-DD, изборно)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Завршени задачи"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Задачи за оваа цел"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Првиот план ги презема локалните модели на ВИ (околу 2,3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Целта и нејзините етапи се отстрануваат. Вашите задачи се чуваат во Простори; само престануваат да покажуваат кон оваа цел."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Последните седум дена, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Се преземаат при првата употреба на ВИ или сега."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Оваа цел следи број. Етапите сè уште ги означуваат постојките на патот, но не го менуваат процентот."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Наслов"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Вкупно"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Следи број"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Обидете се со друг филтер или друго пребарување."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Единица"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Откачи"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Ажурирај"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Неделен преглед"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Што сакате да постигнете?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Зошто е важно"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Вашата причина за ова"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "Преостануваат: {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} активни"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} завршени"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} со рок за {} дена"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} со рок денес"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} со рок утре"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} во фокус"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} од {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} од {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "Завршени етапи: {} од {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "Завршени задачи: {} од {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} задоцнети"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} паузирани"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "Преостануваат: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Додај етапа или целен датум"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Рок: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Рок за {} дена"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Рок денес"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Рок утре"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Секоја етапа е завршена"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Запишано време за фокус"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Завршени етапи: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Нема активност {} дена"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Сè уште нема етапи"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Задоцнето за {} дена"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Задоцнето за 1 ден"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Испланирај"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Планирање..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Поставете цел за да го видите напредокот"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Целта е постигната"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Завршени задачи: {}"
+
+msgid "Planning"
+msgstr "Планирање"
+
+msgid "Speech to text"
+msgstr "Говор во текст"
+
+msgid "Add subtask"
+msgstr "Додај потзадача"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Прашај за твоите задачи или опиши што сакаш да планираш. Ништо не се менува додека не одобриш."
+
+msgid "Asking AI..."
+msgstr "Се прашува AI..."
+
+msgid "Chat"
+msgstr "Разговор"
+
+msgid "Chats"
+msgstr "Разговори"
+
+msgid "Click again to delete"
+msgstr "Кликни пак за бришење"
+
+msgid "Collapse"
+msgstr "Склопи"
+
+msgid "Collapse menu"
+msgstr "Склопи мени"
+
+msgid "Copy"
+msgstr "Копирај"
+
+msgid "Count my focus hours"
+msgstr "Број ги моите часови за фокус"
+
+msgid "Decrease"
+msgstr "Намали"
+
+msgid "Deep"
+msgstr "Длабоко"
+
+msgid "Delete chat"
+msgstr "Избриши разговор"
+
+msgid "Delete note"
+msgstr "Избриши белешка"
+
+msgid "Delete subtask"
+msgstr "Избриши потзадача"
+
+msgid "Delete this chat?"
+msgstr "Да се избрише овој разговор?"
+
+msgid "Dictate"
+msgstr "Диктирај"
+
+msgid "Exit full screen"
+msgstr "Излези од цел екран"
+
+msgid "Expand"
+msgstr "Прошири"
+
+msgid "Expand menu"
+msgstr "Прошири мени"
+
+msgid "Fork from here"
+msgstr "Разграни од тука"
+
+msgid "Fork this chat"
+msgstr "Клонирај го овој разговор"
+
+msgid "Full screen"
+msgstr "Цел екран"
+
+msgid "Hide subtasks"
+msgstr "Сокриј потзадачи"
+
+msgid "Increase"
+msgstr "Зголеми"
+
+msgid "Jump to latest"
+msgstr "Оди до најновото"
+
+msgid "Launch"
+msgstr "Стартувај"
+
+msgid "Let the assistant search the web"
+msgstr "Дозволи му на асистентот да пребарува на веб"
+
+msgid "Maximize"
+msgstr "Максимизирај"
+
+msgid "Merging the notes"
+msgstr "Спојување на белешките"
+
+msgid "Message"
+msgstr "Порака"
+
+msgid "Minimize"
+msgstr "Минимизирај"
+
+msgid "More"
+msgstr "Повеќе"
+
+msgid "Move back"
+msgstr "Помести назад"
+
+msgid "Move down"
+msgstr "Помести надолу"
+
+msgid "Move forward"
+msgstr "Помести напред"
+
+msgid "Move up"
+msgstr "Помести нагоре"
+
+msgid "New chat"
+msgstr "Нов разговор"
+
+msgid "New space"
+msgstr "Нов простор"
+
+msgid "Next mode"
+msgstr "Следен режим"
+
+msgid "Next version"
+msgstr "Следна верзија"
+
+msgid "Next week"
+msgstr "Следна недела"
+
+msgid "Planned the searches"
+msgstr "Планирани пребарувања"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Планирањето, препознавањето говор и гласното читање работат на овој уред. Само пребарувањата што ќе ги дозволиш одат на интернет."
+
+msgid "Previous mode"
+msgstr "Претходен режим"
+
+msgid "Previous version"
+msgstr "Претходна верзија"
+
+msgid "Previous week"
+msgstr "Претходна недела"
+
+msgid "Quick"
+msgstr "Брзо"
+
+msgid "Reading {}"
+msgstr "Се чита {}"
+
+msgid "Redo"
+msgstr "Повтори"
+
+msgid "Searching: {}"
+msgstr "Се пребарува: {}"
+
+msgid "Send"
+msgstr "Испрати"
+
+msgid "Show subtasks"
+msgstr "Прикажи потзадачи"
+
+msgid "Skipped {}"
+msgstr "Прескокнато {}"
+
+msgid "Standard"
+msgstr "Стандардно"
+
+msgid "Start"
+msgstr "Старт"
+
+msgid "Start focus on this task"
+msgstr "Започни фокус на оваа задача"
+
+msgid "Stop"
+msgstr "Стоп"
+
+msgid "Stop recording"
+msgstr "Прекини снимање"
+
+msgid "Suggest with AI"
+msgstr "Предложи со AI"
+
+msgid "Switch to dark mode"
+msgstr "Префрли на темен режим"
+
+msgid "Switch to light mode"
+msgstr "Префрли на светол режим"
+
+msgid "Target hours"
+msgstr "Целни часови"
+
+msgid "Thinking..."
+msgstr "Размислува..."
+
+msgid "Took notes from {}"
+msgstr "Запишани белешки од {}"
+
+msgid "Undo"
+msgstr "Врати"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Кога е вклучено, она што го бара се испраќа до сајтовите за пребарување. Сè друго останува на овој уред."
+
+msgid "Writing the answer"
+msgstr "Се пишува одговорот"
+
+msgid "Yes, delete"
+msgstr "Да, избриши"
+
+msgid "Yesterday"
+msgstr "Вчера"
+
+msgid "{} results"
+msgstr "{} резултати"
+
+msgid "A longer rest"
+msgstr "Подолга пауза"
+
+msgid "A short rest"
+msgstr "Кратка пауза"
+
+msgid "A work session"
+msgstr "Работна сесија"
+
+msgid "Activity for the day"
+msgstr "Активност за денот"
+
+msgid "Activity for the month"
+msgstr "Активност за месецот"
+
+msgid "Activity for the week"
+msgstr "Активност за неделата"
+
+msgid "Activity for the year"
+msgstr "Активност за годината"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Опишете што ви треба и асистентот ќе го испланира"
+
+msgid "Go to this week"
+msgstr "Оди на оваа недела"
+
+msgid "Move to this week"
+msgstr "Премести во оваа недела"
+
+msgid "See tasks in columns"
+msgstr "Прегледај задачи во колони"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Прегледај задачи на неделен календар"
+
+msgid "Set your own length"
+msgstr "Постави сопствено времетраење"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Подреди задачи по итност и важност"
+
+msgid "Take it off the calendar"
+msgstr "Отстрани од календарот"

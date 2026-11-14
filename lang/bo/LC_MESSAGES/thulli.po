@@ -688,3 +688,839 @@ msgstr "དེ་རིང་གི་འཆར་གཞི།"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "དེ་རིང་འཆར་གཞི་མེད། ས་ཁོངས་ཤོག་ངོས་སུ་ལས་འགན་སྣོན།"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "དམིགས་ཡུལ་ནི་ཁྱེད་ཀྱིས་འགྲུབ་འདོད་པའི་དོན་ཞིག་ཡིན། དེ་དུས་མཚམས་སུ་དབྱེ། དེར་སླེབས་པའི་ལས་འགན་རྣམས་སྦྲེལ་ཞིང་། ཁྱེད་ཀྱི་ཡར་རྒྱས་ལ་བལྟ་བར་བྱོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "དམིགས་ཡུལ་འདིའི་སྐོར།"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "སྤྱོད་བཞིན།"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "དུས་མཚམས་གསར་འགོད།"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI དཔེ་དབྱིབས། (2.3 GB ཙམ།)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI དཔེ་དབྱིབས་སྒྲིག་འཇུག་བྱས་ཟིན།"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "དྲན་དགོས་པའི་གནད་དོན་གཞན།"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "ཡིག་ཚགས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "ཡིག་ཚགས་བྱས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "དམིགས་ཡུལ་ལ་ཕྱིར་ལོག"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "དེབ། ཆུ་ཚོད..."
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "རིགས་དབྱེ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "དུས་མཚམས་བསྒྱུར་བཅོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "ཁ་རྒྱག"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "མགྱོགས་པོར་སླེབས་རྒྱུ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "ལེགས་གྲུབ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "དུས་མཚམས་རྩིས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "བསམ་འཆར་ཐོབ་ཆེད་སྤྱོད་བཞིན་པའི་དམིགས་ཡུལ་ཞིག་གསར་བཟོ་བྱོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "དམིགས་ཡུལ་གསར་བཟོ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "ཁྱེད་ཀྱི་དམིགས་ཡུལ་དང་པོ་གསར་བཟོ་བྱོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "ད་ལྟའི་གནས་སྟངས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "ད་ལྟའི་གྲངས་ཐང་།"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "ཚེས་གྲངས། (འདེམས་རུང་།)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "བསུབས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "དམིགས་ཡུལ་བསུབས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "དམིགས་ཡུལ་འདི་བསུབ་བམ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "འབྲས་བུ་གསལ་བཤད་བྱོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "གསལ་བཤད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "གྲུབ་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "ད་ལྟ་ཕབ་ལེན་བྱོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "ཕབ་ལེན་བྱེད་བཞིན་པ..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "དམིགས་ཡུལ་བསྒྱུར་བཅོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "དམིགས་ཡུལ་ཐོག་གི་སེམས་བསྡུའི་དུས་ཚོད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "དམིགས་ཡུལ་ཁག"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "བདུན་ཕྲག་འདིར་ཡར་རྒྱས་བྱུང་བའི་དམིགས་ཡུལ།"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "མཐོ་བ།"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "གལ་ཆེ་རིམ་པ་མཐོ་བ།"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "ལོ་རྒྱུས།"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "ཡར་རྒྱས་ཇི་ལྟར་རྩི་བ།"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "སྤྱོད་བཞིན་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "དམིགས་ཡུལ་ཉར་ཚགས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "ཉེ་བའི་ཉིན་ ༧"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "ལས་འགན་སྦྲེལ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "དམའ་བ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "གལ་ཆེ་རིམ་པ་དམའ་བ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "ལེགས་གྲུབ་རྟགས་རྒྱོབ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "འབྲིང་བ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "གལ་ཆེ་རིམ་པ་འབྲིང་བ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "དུས་མཚམས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "དུས་མཚམས: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "དུས་མཚམས་ཁག"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "གྲུབ་ཟིན་པའི་དུས་མཚམས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "དོ་སྣང་དགོས་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "དམིགས་ཡུལ་གསརཔ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "རྗེས་མ: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "ཉེ་བའི་ཉིན་བདུན་རིང་དུས་བཀག་མེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "དམིགས་ཡུལ་འདིར་ད་དུང་སེམས་བསྡུའི་ཆ་ཚད་མེད། འདིའི་ལས་འགན་ཞིག་གི་ཐོག་སེམས་བསྡུའི་སྐོར་འགོ་བཙུགས།"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "བདུན་ཕྲག་འདིར་དམིགས་ཡུལ་གང་ལའང་དུས་མཚམས་དང་ལས་འགན། སེམས་བསྡུའི་ཆ་ཚད་མ་བྱུང་།"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "མཐུན་པའི་དམིགས་ཡུལ་མེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "ད་དུང་དམིགས་ཡུལ་མེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "ད་དུང་དུས་མཚམས་མེད། དམིགས་ཡུལ་འདིའི་ལམ་བུའི་ཐོག་གི་བབས་ཚུགས་དང་པོ་སྣོན་རོགས།"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "སྦྲེལ་དགོས་པའི་ལས་འགན་ཁ་ཕྱེ་བ་མེད། དམིགས་ཡུལ་ནང་ཡོད་ཟིན་པའི་ལས་འགན་མི་མངོན།"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "ད་དུང་ལས་འགན་སྦྲེལ་མེད། འདིར་མཐོང་ཆེད་ས་ཁོངས་ནས་ལས་འགན་སྦྲེལ་རོགས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "དུས་ལས་ཡོལ་བ་དང་ལྷིང་འཇགས་གང་ཡང་མེད། ཡག་པོ་བྱུང་།"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "ཁ་ཕྱེ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "ས་ཁོངས་ཁ་ཕྱེ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "བར་མཚམས་འཇོག"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "བར་མཚམས་བཞག"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "དུས་མཚམས་སུ་སྦྲེལ་མཐུད་གསར་པ་འདེབས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "འཆར་གཞི་འགོད་པ་དང་། སྐད་གདངས་ངོས་འཛིན། སྐད་གསང་མཐོན་པོས་ཀློག་པ་ཚང་མ་སྒྲིག་ཆས་འདིའི་ཐོག་འགྲོ་བཞིན་ཡོད། ཁྱེད་ཀྱིས་བཤད་པའམ་བྲིས་པ་གང་ཡང་ཕྱིར་མི་འགྲོ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "གལ་ཆེའི་རིམ་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "ཡར་རྒྱས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "ཡར་རྒྱས་ནི་ཁྱེད་ཀྱིས་གྲུབ་ཟིན་པའི་དུས་མཚམས་ཀྱི་བགོ་སྐལ་ཡིན།"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "ཡར་རྒྱས་ནི་དེབ་ ༢༠ ནས་ ༡༢ ལྟ་བུ་དམིགས་ཚད་དང་བསྡུར་བའི་ད་ལྟའི་གྲངས་ཀ་ཡིན།"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "སྐད་གསང་མཐོན་པོས་ཀློག"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "གྲຽས་སྒྲིག"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "ཉེ་བའི།"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "གསར་སྒྱུར།"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "བསུབས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "ཤོང་ས་ཐོན་ཆེད་དེ་དག་བསུབས་དྭངས། དགོས་མཁོ་བྱུང་ཚེ་ཡང་བསྐྱར་ཕབ་ལེན་བྱེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "བསྐྱར་དུ་ཁ་ཕྱེ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "སོར་ཆུད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "མུ་མཐུད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "བཟོ་བཅོས་ཉར་ཚགས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "དམིགས་ཡུལ་འཚོལ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "ཁྱེད་ཀྱི་ལས་འགན་ཁ་ཕྱེ་བ་རྣམས་འཚོལ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "རིམ་སྒྲིག"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "སློབ་སྦྱོང་། འཕྲོད་བསྟེན། ལས་ཀ..."
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "གཟའ་འཁོར་རྗེས་མའི་གལ་ཆེའི་རིམ་པའི་བསམ་འཆར།"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "དམིགས་ཚད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "དམིགས་ཚད་ཚེས་གྲངས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "དམིགས་ཚད་ཚེས་གྲངས། (YYYY-MM-DD, འདེམས་རུང་།)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "ལེགས་གྲུབ་བྱུང་བའི་ལས་འགན།"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "དམིགས་ཡུལ་འདིའི་ལས་འགན།"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "འཆར་གཞི་དང་པོས་སྒྲིག་ཆས་ཐོག་གི་ AI དཔེ་དབྱིབས་ཕབ་ལེན་བྱེད། (2.3 GB ཙམ།)"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "དམིགས་ཡུལ་དང་དེའི་དུས་མཚམས་རྣམས་བསུབས་ཟིན། ཁྱེད་ཀྱི་ལས་འགན་རྣམས་ས་ཁོངས་ནང་ཉར་ཡོད། དེ་དག་གིས་དམིགས་ཡུལ་འདིར་མཛུབ་སྟོན་མི་བྱེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "ཉེ་བའི་ཉིན་བདུན་རིང་། {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "ཁྱེད་ཀྱིས་ AI ཐོག་མར་སྤྱོད་སྐབས་སམ་ད་ལྟ་ཕབ་ལེན་བྱེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "དམིགས་ཡུལ་འདིས་གྲངས་ཀ་ཞིག་རྗེས་འདེད་བྱེད། དུས་མཚམས་ཀྱིས་ལམ་བུའི་ཐོག་གི་བབས་ཚུགས་མཚོན་ཡང་བརྒྱ་ཆ་མི་བསྒྱུར།"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "ཁ་བྱང་།"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "བསྡོམས་པས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "གྲངས་ཀ་རྗེས་འདེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "འཚག་བྱེད་གཞན་ནམ་འཚོལ་ཞིབ་མི་འདྲ་བ་ཞིག་ཚོད་ལྟ་བྱོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "རྩིས་གཞི།"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "སྦྲེལ་མཐུད་མེད་པར་བཟོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "གསར་སྒྱུར།"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "བདུན་རེའི་བསྐྱར་ཞིབ།"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "ཁྱེད་ཀྱིས་ཅི་ཞིག་འགྲུབ་པར་འདོད་དམ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "དེའི་གལ་གནད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "འདི་བྱེད་པའི་ཁྱེད་ཀྱི་རྒྱུ་མཚན།"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} ལྷག་མ།"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} སྤྱོད་བཞིན།"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} ལེགས་གྲུབ།"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} ཉིན་ {} ནང་དུས་བཀག"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} དེ་རིང་དུས་བཀག"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} སང་ཉིན་དུས་བཀག"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} སེམས་བསྡུས།"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} དུས་མཚམས་གྲུབ་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} ལས་འགན་གྲུབ་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} དུས་ལས་ཡོལ་བ།"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} བར་མཚམས་བཞག"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} ལྷག་མ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "དུས་མཚམས་སམ་དམིགས་ཚད་ཚེས་གྲངས་གསར་འགོད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "དུས་བཀག་ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "ཉིན་ {} ནང་དུས་བཀག"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "དེ་རིང་དུས་བཀག"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "སང་ཉིན་དུས་བཀག"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "དུས་མཚམས་ཚང་མ་གྲུབ་ཟིན།"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "སེམས་བསྡུའི་དུས་ཚོད་ཐོ་འགོད་བྱས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "གྲུབ་པའི་དུས་མཚམས: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "ཉིན་ {} རིང་བྱེད་སྒོ་གང་ཡང་མེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "ད་དུང་དུས་མཚམས་མེད།"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "ཉིན་ {} འགྱངས་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "ཉིན་ ༡ འགྱངས་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "འཆར་གཞི་བཟོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "འཆར་གཞི་འགོད་བཞིན་པ..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "ཡར་རྒྱས་མཐོང་ཆེད་དམིགས་ཚད་གཏན་འཁེལ་བྱོས།"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "དམིགས་ཚད་དུ་སླེབས་པ།"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "གྲུབ་པའི་ལས་འགན: {}"
+
+msgid "Planning"
+msgstr "འཆར་འགོད།"
+
+msgid "Speech to text"
+msgstr "སྐད་སྒྲ་ཡིག་ཐོག་ཏུ་སྒྱུར་བ།"
+
+msgid "Add subtask"
+msgstr "ལས་འགན་ཡན་ལག་སྣོན"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "ཁྱེད་ཀྱི་ལས་འགན་སྐོར་དྲིས་ཤིག ཡང་ན་འཆར་གཞི་འགོད་འདོད་པ་དེ་བརྗོད་དང་། ཁྱེད་ཀྱིས་ཆོག་མཆན་མ་སྤྲད་བར་དུ་གང་ཡང་མི་འགྱུར།"
+
+msgid "Asking AI..."
+msgstr "AI ལ་འདྲི་བཞིན་པ..."
+
+msgid "Chat"
+msgstr "གླེང་མོལ"
+
+msgid "Chats"
+msgstr "གླེང་མོལ་རྣམས"
+
+msgid "Click again to delete"
+msgstr "གསུབ་པར་ཡང་བསྐྱར་མནོན"
+
+msgid "Collapse"
+msgstr "བསྡུ་བ"
+
+msgid "Collapse menu"
+msgstr "དཀར་ཆག་བསྡུ་བ"
+
+msgid "Copy"
+msgstr "འདྲ་བཤུས"
+
+msgid "Count my focus hours"
+msgstr "ངའི་དམིགས་གཏད་ཆུ་ཚོད་རྩིས"
+
+msgid "Decrease"
+msgstr "ཉུང་དུ་གཏོང་བ"
+
+msgid "Deep"
+msgstr "གཏིང་ཟབ"
+
+msgid "Delete chat"
+msgstr "གླེང་མོལ་གསུབ་པ"
+
+msgid "Delete note"
+msgstr "ཟིན་བྲིས་གསུབ་པ"
+
+msgid "Delete subtask"
+msgstr "ལས་འགན་ཡན་ལག་གསུབ་པ"
+
+msgid "Delete this chat?"
+msgstr "གླེང་མོལ་འདི་གསུབ་བམ།"
+
+msgid "Dictate"
+msgstr "ངག་འདོན"
+
+msgid "Exit full screen"
+msgstr "ཡོལ་ཆེན་ནས་ཕྱིར་དོན"
+
+msgid "Expand"
+msgstr "རྒྱས་པ"
+
+msgid "Expand menu"
+msgstr "དཀར་ཆག་རྒྱས་པ"
+
+msgid "Fork from here"
+msgstr "འདི་ནས་ཡན་ལག་དབྱེ"
+
+msgid "Fork this chat"
+msgstr "གླེང་མོལ་འདི་ཡན་ལག་དབྱེ"
+
+msgid "Full screen"
+msgstr "ཡོལ་ཆེན"
+
+msgid "Hide subtasks"
+msgstr "ལས་འགན་ཡན་ལག་སྦས"
+
+msgid "Increase"
+msgstr "མང་དུ་གཏོང་བ"
+
+msgid "Jump to latest"
+msgstr "གསར་ཤོས་ལ་མཆོངས"
+
+msgid "Launch"
+msgstr "འགོ་འཛུགས"
+
+msgid "Let the assistant search the web"
+msgstr "རོགས་པར་དྲ་བའི་འཚོལ་ཞིབ་བྱེད་དུ་ཆུག"
+
+msgid "Maximize"
+msgstr "ཆེ་ཤོས་བཟོ"
+
+msgid "Merging the notes"
+msgstr "ཟིན་བྲིས་ཟླ་སྒྲིལ་བཞིན་པ"
+
+msgid "Message"
+msgstr "འཕྲིན"
+
+msgid "Minimize"
+msgstr "ཆུང་ཤོས་བཟོ"
+
+msgid "More"
+msgstr "དེ་ལས་མང་བ"
+
+msgid "Move back"
+msgstr "ཕྱིར་སྤོ"
+
+msgid "Move down"
+msgstr "མར་སྤོ"
+
+msgid "Move forward"
+msgstr "མདུན་དུ་སྤོ"
+
+msgid "Move up"
+msgstr "ཡར་སྤོ"
+
+msgid "New chat"
+msgstr "གླེང་མོལ་གསར་པ"
+
+msgid "New space"
+msgstr "བར་སྟོང་གསར་པ"
+
+msgid "Next mode"
+msgstr "རྣམ་པ་རྗེས་མ"
+
+msgid "Next version"
+msgstr "པར་གཞི་རྗེས་མ"
+
+msgid "Next week"
+msgstr "གཟའ་འཁོར་རྗེས་མ"
+
+msgid "Planned the searches"
+msgstr "འཚོལ་ཞིབ་འཆར་གཞི་བཏིངས"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "འཆར་གཞི་དང་སྐད་ངོས་འཛིན། སྒྲོག་འདོན་བཅས་སྒྲིག་ཆས་འདིའི་ཐོག་འཁོར་གྱི་ཡོད། ཁྱེད་ཀྱིས་ཆོག་མཆན་སྤྲད་པའི་དྲ་རྒྱའི་འཚོལ་ཞིབ་ཁོ་ན་དྲ་ཐོག་ཏུ་འགྲོ།"
+
+msgid "Previous mode"
+msgstr "རྣམ་པ་སྔོན་མ"
+
+msgid "Previous version"
+msgstr "པར་གཞི་སྔོན་མ"
+
+msgid "Previous week"
+msgstr "གཟའ་འཁོར་སྔོན་མ"
+
+msgid "Quick"
+msgstr "མགྱོགས་པོ"
+
+msgid "Reading {}"
+msgstr "{} ཀློག་བཞིན་པ"
+
+msgid "Redo"
+msgstr "བསྐྱར་བཟོ"
+
+msgid "Searching: {}"
+msgstr "འཚོལ་ཞིབ་བཞིན་པ: {}"
+
+msgid "Send"
+msgstr "གཏོང་བ"
+
+msgid "Show subtasks"
+msgstr "ལས་འགན་ཡན་ལག་སྟོན"
+
+msgid "Skipped {}"
+msgstr "{} བསྐྱུར་བ"
+
+msgid "Standard"
+msgstr "ཚད་ལྡན"
+
+msgid "Start"
+msgstr "འགོ་འཛུགས"
+
+msgid "Start focus on this task"
+msgstr "ལས་འགན་འདིར་དམིགས་གཏད་འགོ་འཛུགས"
+
+msgid "Stop"
+msgstr "མཚམས་འཇོག"
+
+msgid "Stop recording"
+msgstr "སྒྲ་ཕབ་མཚམས་འཇོག"
+
+msgid "Suggest with AI"
+msgstr "AI ལ་བསམ་འཆར་འདྲི"
+
+msgid "Switch to dark mode"
+msgstr "མདོག་མུན་པར་སྒྱུར"
+
+msgid "Switch to light mode"
+msgstr "མདོག་དཀར་པོར་སྒྱུར"
+
+msgid "Target hours"
+msgstr "དམིགས་ཚད་ཆུ་ཚོད"
+
+msgid "Thinking..."
+msgstr "བསམ་བློ་གཏོང་བཞིན་པ..."
+
+msgid "Took notes from {}"
+msgstr "{} ནས་ཟིན་བྲིས་བླངས"
+
+msgid "Undo"
+msgstr "ཕྱིར་འཐེན"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "སྒོ་ཕྱེ་སྐབས། བཤེར་འཚོལ་བྱས་པ་རྣམས་བེད་སྤྱོད་པའི་འཚོལ་ཞིབ་དྲ་ཚིགས་སུ་གཏོང་གི་ཡོད། གཞན་ཐམས་ཅད་སྒྲིག་ཆས་འདིའི་ཐོག་ལུས།"
+
+msgid "Writing the answer"
+msgstr "ལན་འབྲི་བཞིན་པ"
+
+msgid "Yes, delete"
+msgstr "ལགས། གསུབས"
+
+msgid "Yesterday"
+msgstr "ཁ་སང"
+
+msgid "{} results"
+msgstr "འབྲས་བུ་ {}"
+
+msgid "A longer rest"
+msgstr "ངལ་གསོ་རིང་པོ"
+
+msgid "A short rest"
+msgstr "ངལ་གསོ་ཐུང་ངུ"
+
+msgid "A work session"
+msgstr "ལས་ཀའི་དུས་ཚོད"
+
+msgid "Activity for the day"
+msgstr "ཉིན་གཅིག་གི་བྱེད་སྒོ"
+
+msgid "Activity for the month"
+msgstr "ཟླ་གཅིག་གི་བྱེད་སྒོ"
+
+msgid "Activity for the week"
+msgstr "བདུན་གཅིག་གི་བྱེད་སྒོ"
+
+msgid "Activity for the year"
+msgstr "ལོ་གཅིག་གི་བྱེད་སྒོ"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "ཁྱེད་ལ་གང་དགོས་འགྲེལ་བཤད་རྒྱོབས་དང་རོགས་པས་འཆར་གཞི་བཟོ་ངེས"
+
+msgid "Go to this week"
+msgstr "བདུན་འདིར་འགྲོ"
+
+msgid "Move to this week"
+msgstr "བདུན་འདིར་སྤོས"
+
+msgid "See tasks in columns"
+msgstr "ལས་འགན་ཀ་བའི་ནང་ལྟོས"
+
+msgid "See tasks on a weekly calendar"
+msgstr "བདུན་རེའི་ལོ་ཐོའི་ནང་ལས་འགན་ལྟོས"
+
+msgid "Set your own length"
+msgstr "རང་གི་དུས་ཚོད་སྒྲིགས"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "གལ་འགངས་དང་ཛ་དྲག་ལྟར་ལས་འགན་སྒྲིགས"
+
+msgid "Take it off the calendar"
+msgstr "ལོ་ཐོ་ནས་ཕྱིར་འཐེན་བྱོས"

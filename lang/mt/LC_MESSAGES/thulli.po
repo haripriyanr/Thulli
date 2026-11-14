@@ -688,3 +688,839 @@ msgstr "Ippjanat għall-lum"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Xejn mhu ppjanat għall-lum. Żid kompiti fuq is-skrin tal-Ispazji."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Mira hija xi ħaġa li trid tilħaq. Aqsamha fi tragwardi, rabat il-kompiti li jwassluk hemm, u ara l-progress tiegħek jikber."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Dwar din il-mira"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Attiv"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Żid tragward"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Mudelli tal-AI (madwar 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Il-mudelli tal-AI ġew installati"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Kwalunkwe ħaġa oħra li ta' min jiftakarha"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arkivja"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Fl-arkivju"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Lura għall-miri"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "kotba, sigħat…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategorija"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Biddel it-tragward"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Agħlaq"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Li jmiss"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Imlesta"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Għodd it-tragwardi"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Oħloq mira attiva biex tirċievi suġġerimenti."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Oħloq mira"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Oħloq l-ewwel mira tiegħek"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Kurrenti"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Valur kurrenti"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Data (mhux obbligatorja)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Ħassar"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Ħassar il-mira"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Trid tħassar din il-mira?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Iddeskrivi r-riżultat"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Deskrizzjoni"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Lest"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Niżżel issa"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Qed iniżżel..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Editja l-mira"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Ħin ta' fokus fuq il-miri"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Miri"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Miri li mxew 'il quddiem din il-ġimgħa"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Għolja"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Prijorità għolja"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Storja"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Kif jiġi kkalkulat il-progress?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Għaddej"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Żomm il-mira"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "L-aħħar 7 ijiem"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Rabat kompitu"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Baxxa"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Prijorità baxxa"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Immarka bħala lest"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Medja"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Prijorità medja"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Tragward"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Tragward: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Tragwardi"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Tragwardi lesti"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Jeħtieġ attenzjoni"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Mira ġdida"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Li jmiss: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "L-ebda skadenza fis-sebat ijiem li ġejjin."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Għad m'hemmx sessjonijiet ta' fokus fuq din il-mira. Ibda rawnd ta' fokus fuq wieħed mill-kompiti tagħha."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "L-ebda mira ma kellha tragward, kompitu jew sessjoni ta' fokus din il-ġimgħa."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "L-ebda mira ma taqbel"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Għad m'hemmx miri"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Għad m'hemmx tragwardi. Żid l-ewwel waqfa fit-triq lejn din il-mira."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "M'hemmx kompiti miftuħa biex torbot. Kompiti diġà f'mira ma jidhrux."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Għad m'hemmx kompiti marbuta. Rabat kompiti minn Spazji biex tarahom hawnhekk."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Xejn mhu tard jew wieqaf. Tajjeb ħafna."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Miftuħ"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Iftaħ l-Ispazji"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Waqqaf ftit"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Sospiż"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Waħħal rabtiet ġodda ma' tragward"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "L-ippjanar, l-għarfien tat-taħdit u l-qari b'leħen għoli kollha jaħdmu fuq dan l-apparat. Xejn minn dak li tgħid jew tikteb ma joħroġ minnu."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prijorità"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Progress"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Il-progress huwa s-sehem ta' tragwardi li lestejt."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Il-progress huwa n-numru kurrenti tiegħek kontra l-mira, bħal 12 minn 20 ktieb."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Aqra b'leħen għoli"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Lest"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Riċenti"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Aġġorna"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Neħħi"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Neħħihom biex tillibera l-ispazju; jerġgħu jitniżżlu meta jkun hemm bżonn."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Erġa' iftaħ"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Irrestawra"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Kompli"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Salva l-bidliet"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Fittex miri"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Fittex fil-kompiti miftuħa tiegħek"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Issortja skont"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Studju, saħħa, xogħol…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Prijoritajiet issuġġeriti għall-ġimgħa d-dieħla"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Mira"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Data mmirata"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Data mmirata (YYYY-MM-DD, mhux obbligatorja)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Kompiti mlestija"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Kompiti għal din il-mira"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "L-ewwel pjan iniżżel il-mudelli tal-AI fuq l-apparat (madwar 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Il-mira u t-tragwardi tagħha jitneħħew. Il-kompiti tiegħek jinżammu fi Spazji; sempliċement jieqfu jippontaw lejn din il-mira."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "L-aħħar sebat ijiem, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Jitniżżlu l-ewwel darba li tuża l-AI, jew issa."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Din il-mira ssegwi numru. It-tragwardi xorta jimmarkaw il-waqfiet fit-triq, iżda ma jbiddlux il-persentaġġ."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Titlu"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Total"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Segwi numru"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Ipprova filtru ieħor jew tfittxija differenti."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Unità"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Ħoll ir-rabta"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Aġġorna"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Reviżjoni ta' kull ġimgħa"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Xi trid tikseb?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Għaliex huwa importanti"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ir-raġuni tiegħek biex tagħmel dan"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "fadal {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} attiv"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} lest"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} skadenza fi {} ijiem"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} skadenza llum"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} skadenza għada"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} ffukat"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} minn {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} minn {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} minn {} tragwardi lesti"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} minn {} kompiti lesti"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} tard"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} sospiż"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "fadal {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Żid tragward jew data mmirata"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Skadenza {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Skadenza fi żmien {} ijiem"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Skadenza llum"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Skadenza għada"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Kull tragward huwa lest"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Ħin ta' fokus irrekordjat"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Tragwardi lesti: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "L-ebda attività għal {} ijiem"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Għad m'hemmx tragwardi"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Scadut b'{} ijiem"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Scadut b'ġurnata"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Ippjana"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Qed jippjana..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Issettja mira biex tara l-progress"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Il-mira ntlaħqet"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Kompiti lesti: {}"
+
+msgid "Planning"
+msgstr "Ippjanar"
+
+msgid "Speech to text"
+msgstr "Diskors għal test"
+
+msgid "Add subtask"
+msgstr "Żid sub-kompitu"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Staqsi dwar il-kompiti tiegħek, jew iddeskrivi x'tixtieq tippjana. Xejn ma jinbidel sakemm tapprovah int."
+
+msgid "Asking AI..."
+msgstr "Qed jistaqsi lill-AI..."
+
+msgid "Chat"
+msgstr "Chat"
+
+msgid "Chats"
+msgstr "Chats"
+
+msgid "Click again to delete"
+msgstr "Erġa' kklikkja biex tħassar"
+
+msgid "Collapse"
+msgstr "Ikkollassa"
+
+msgid "Collapse menu"
+msgstr "Ikkollassa l-menu"
+
+msgid "Copy"
+msgstr "Ikkopja"
+
+msgid "Count my focus hours"
+msgstr "Għodd is-sigħat ta' fokus tiegħi"
+
+msgid "Decrease"
+msgstr "Naqqas"
+
+msgid "Deep"
+msgstr "Fil-fond"
+
+msgid "Delete chat"
+msgstr "Ħassar iċ-chat"
+
+msgid "Delete note"
+msgstr "Ħassar in-nota"
+
+msgid "Delete subtask"
+msgstr "Ħassar is-sub-kompitu"
+
+msgid "Delete this chat?"
+msgstr "Trid tħassar din iċ-chat?"
+
+msgid "Dictate"
+msgstr "Iddetta"
+
+msgid "Exit full screen"
+msgstr "Oħroġ mill-iskrin sħiħ"
+
+msgid "Expand"
+msgstr "Espandi"
+
+msgid "Expand menu"
+msgstr "Espandi l-menu"
+
+msgid "Fork from here"
+msgstr "Ibda minn hawn"
+
+msgid "Fork this chat"
+msgstr "Idduplika din iċ-chat"
+
+msgid "Full screen"
+msgstr "Skrin sħiħ"
+
+msgid "Hide subtasks"
+msgstr "Aħbi s-sub-kompiti"
+
+msgid "Increase"
+msgstr "Żid"
+
+msgid "Jump to latest"
+msgstr "Mur għall-aħħar"
+
+msgid "Launch"
+msgstr "Ibda"
+
+msgid "Let the assistant search the web"
+msgstr "Ħalli l-assistent ifittex fuq il-web"
+
+msgid "Maximize"
+msgstr "Immassimizza"
+
+msgid "Merging the notes"
+msgstr "Qed jgħaqqad in-noti"
+
+msgid "Message"
+msgstr "Messaġġ"
+
+msgid "Minimize"
+msgstr "Imminimizza"
+
+msgid "More"
+msgstr "Aktar"
+
+msgid "Move back"
+msgstr "Mexxi lura"
+
+msgid "Move down"
+msgstr "Mexxi 'l isfel"
+
+msgid "Move forward"
+msgstr "Mexxi 'l quddiem"
+
+msgid "Move up"
+msgstr "Mexxi 'l fuq"
+
+msgid "New chat"
+msgstr "Chat ġdida"
+
+msgid "New space"
+msgstr "Spazju ġdid"
+
+msgid "Next mode"
+msgstr "Modalità li jmiss"
+
+msgid "Next version"
+msgstr "Verżjoni li jmiss"
+
+msgid "Next week"
+msgstr "Il-ġimgħa d-dieħla"
+
+msgid "Planned the searches"
+msgstr "It-tfittxijiet ġew ippjanati"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "L-ippjanar, l-għarfien tat-taħdit u l-qari b'leħen għoli jaħdmu fuq dan l-apparat. It-tfittxijiet fuq il-web li tippermetti biss imorru online."
+
+msgid "Previous mode"
+msgstr "Modalità preċedenti"
+
+msgid "Previous version"
+msgstr "Verżjoni preċedenti"
+
+msgid "Previous week"
+msgstr "Il-ġimgħa li għaddiet"
+
+msgid "Quick"
+msgstr "Mgħaġġla"
+
+msgid "Reading {}"
+msgstr "Qed jaqra {}"
+
+msgid "Redo"
+msgstr "Erġa' agħmel"
+
+msgid "Searching: {}"
+msgstr "Qed ifittex: {}"
+
+msgid "Send"
+msgstr "Ibgħat"
+
+msgid "Show subtasks"
+msgstr "Uri s-sub-kompiti"
+
+msgid "Skipped {}"
+msgstr "Taqbeż {}"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Start"
+msgstr "Ibda"
+
+msgid "Start focus on this task"
+msgstr "Ibda l-fokus fuq dan il-kompitu"
+
+msgid "Stop"
+msgstr "Waqqaf"
+
+msgid "Stop recording"
+msgstr "Waqqaf ir-reġistrazzjoni"
+
+msgid "Suggest with AI"
+msgstr "Issuġġerixxi bl-AI"
+
+msgid "Switch to dark mode"
+msgstr "Aqleb għall-modalità skura"
+
+msgid "Switch to light mode"
+msgstr "Aqleb għall-modalità ċara"
+
+msgid "Target hours"
+msgstr "Sigħat fil-mira"
+
+msgid "Thinking..."
+msgstr "Qed jaħseb..."
+
+msgid "Took notes from {}"
+msgstr "Ħa noti minn {}"
+
+msgid "Undo"
+msgstr "Ħassar l-aħħar azzjoni"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Meta tkun mixgħula, dak li jfittex jintbagħat lis-siti tat-tiftix użati. Kulma jifdal jibqa' fuq dan l-apparat."
+
+msgid "Writing the answer"
+msgstr "Qed jikteb it-tweġiba"
+
+msgid "Yes, delete"
+msgstr "Iva, ħassar"
+
+msgid "Yesterday"
+msgstr "Ilbieraħ"
+
+msgid "{} results"
+msgstr "{} riżultati"
+
+msgid "A longer rest"
+msgstr "Mistrieħ itwal"
+
+msgid "A short rest"
+msgstr "Mistrieħ qasir"
+
+msgid "A work session"
+msgstr "Sessjoni ta' xogħol"
+
+msgid "Activity for the day"
+msgstr "Attività tal-ġurnata"
+
+msgid "Activity for the month"
+msgstr "Attività tax-xahar"
+
+msgid "Activity for the week"
+msgstr "Attività tal-ġimgħa"
+
+msgid "Activity for the year"
+msgstr "Attività tas-sena"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Iddeskrivi x'għandek bżonn u l-assistent jippjanah"
+
+msgid "Go to this week"
+msgstr "Mur f'din il-ġimgħa"
+
+msgid "Move to this week"
+msgstr "Mexxi għal din il-ġimgħa"
+
+msgid "See tasks in columns"
+msgstr "Ara l-kompiti f'kolonni"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Ara l-kompiti f'kalendarju ta' kull ġimgħa"
+
+msgid "Set your own length"
+msgstr "Issettja t-tul tiegħek"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Issortja l-kompiti skont l-urġenza u l-importanza"
+
+msgid "Take it off the calendar"
+msgstr "Neħħih mill-kalendarju"

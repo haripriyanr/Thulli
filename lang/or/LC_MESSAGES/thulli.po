@@ -688,3 +688,839 @@ msgstr "ଆଜିର ଯୋଜନା"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "ଆଜି ପାଇଁ କିଛି ଯୋଜନା ନାହିଁ। ସ୍ପେସ୍ ସ୍କ୍ରିନ୍ରେ କାମ ଯୋଗ କରନ୍ତୁ।"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "ଲକ୍ଷ୍ୟ ହେଉଛି ଏପରି କିଛି ଯାହା ଆପଣ ହାସଲ କରିବାକୁ ଚାହାଁନ୍ତି। ଏହାକୁ ମାଇଲଖୁଣ୍ଟରେ ଭାଗ କରନ୍ତୁ, ସେଠାରେ ପହଞ୍ଚାଉଥିବା କାମଗୁଡ଼ିକୁ ଯୋଡ଼ନ୍ତୁ ଏବଂ ଆପଣଙ୍କ ପ୍ରଗତି ବଢ଼ୁଥିବା ଦେଖନ୍ତୁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "ଏହି ଲକ୍ଷ୍ୟ ବିଷୟରେ"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "ସକ୍ରିୟ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "ଏକ ମାଇଲଖୁଣ୍ଟ ଯୋଗ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI ମଡେଲ୍ (ପ୍ରାୟ 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI ମଡେଲ୍ ଇନଷ୍ଟଲ୍ ହୋଇଛି"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "ମନେ ରଖିବା ଯୋଗ୍ୟ ଅନ୍ୟ କିଛି"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "ଆର୍କାଇଭ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "ଆର୍କାଇଭ୍ ହୋଇଥିବା"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "ଲକ୍ଷ୍ୟକୁ ଫେରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "ବହି, ଘଣ୍ଟା…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "ବର୍ଗ"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "ମାଇଲଖୁଣ୍ଟ ପରିବର୍ତ୍ତନ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "ବନ୍ଦ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "ଆଗାମୀ"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "ସମ୍ପୂର୍ଣ୍ଣ"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "ମାଇଲଖୁଣ୍ଟ ଗଣନା କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "ପରାମର୍ଶ ପାଇବା ପାଇଁ ଏକ ସକ୍ରିୟ ଲକ୍ଷ୍ୟ ତିଆରି କରନ୍ତୁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "ଲକ୍ଷ୍ୟ ତିଆରି କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "ଆପଣଙ୍କ ପ୍ରଥମ ଲକ୍ଷ୍ୟ ତିଆରି କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "ବର୍ତ୍ତମାନ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "ବର୍ତ୍ତମାନର ମୂଲ୍ୟ"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "ତାରିଖ (ଐଚ୍ଛିକ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "ଡିଲିଟ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "ଲକ୍ଷ୍ୟ ଡିଲିଟ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "ଏହି ଲକ୍ଷ୍ୟ ଡିଲିଟ୍ କରିବେ କି?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "ଫଳାଫଳ ବର୍ଣ୍ଣନା କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "ବିବରଣୀ"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "ସମ୍ପୂର୍ଣ୍ଣ"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "ବର୍ତ୍ତମାନ ଡାଉନଲୋଡ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "ଡାଉନଲୋଡ୍ ହେଉଛି..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "ଲକ୍ଷ୍ୟ ସମ୍ପାଦନା କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "ଲକ୍ଷ୍ୟରେ ଫୋକସ୍ ସମୟ"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "ଲକ୍ଷ୍ୟଗୁଡ଼ିକ"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "ଏହି ସପ୍ତାହରେ ଆଗକୁ ବଢ଼ିଥିବା ଲକ୍ଷ୍ୟଗୁଡ଼ିକ"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "ଉଚ୍ଚ"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "ଉଚ୍ଚ ପ୍ରାଥମିକତା"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "ଇତିହାସ"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "ପ୍ରଗତି କିପରି ଗଣନା କରାଯାଏ?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "ଚାଲୁ ଅଛି"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "ଲକ୍ଷ୍ୟ ରଖନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "ଗତ 7 ଦିନ"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "ଏକ କାମ ଲିଙ୍କ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "କମ୍"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "କମ୍ ପ୍ରାଥମିକତା"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "ସମ୍ପୂର୍ଣ୍ଣ ଭାବରେ ଚିହ୍ନିତ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "ମଧ୍ୟମ"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "ମଧ୍ୟମ ପ୍ରାଥମିକତା"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "ମାଇଲଖୁଣ୍ଟ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "ମାଇଲଖୁଣ୍ଟ: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "ମାଇଲଖୁଣ୍ଟଗୁଡ଼ିକ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "ସମ୍ପୂର୍ଣ୍ଣ ହୋଇଥିବା ମାଇଲଖୁଣ୍ଟ"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "ଧ୍ୟାନ ଦେବା ଆବଶ୍ୟକ"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "ନୂଆ ଲକ୍ଷ୍ୟ"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "ପରବର୍ତ୍ତୀ: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "ଆଗାମୀ ସାତ ଦିନରେ କୌଣସି ଶେଷ ସମୟସୀମା ନାହିଁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "ଏହି ଲକ୍ଷ୍ୟରେ ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ଫୋକସ୍ ସେସନ୍ ହୋଇନାହିଁ। ଏହାର ଏକ କାମ ଉପରେ ଫୋକସ୍ ରାଉଣ୍ଡ ଆରମ୍ଭ କରନ୍ତୁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "ଏହି ସପ୍ତାହରେ କୌଣସି ଲକ୍ଷ୍ୟରେ ମାଇଲଖୁଣ୍ଟ, କାମ କିମ୍ବା ଫୋକସ୍ ସେସନ୍ ନଥିଲା।"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "କୌଣସି ଲକ୍ଷ୍ୟ ମେଳ ହେଉନାହିଁ"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ଲକ୍ଷ୍ୟ ନାହିଁ"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ମାଇଲଖୁଣ୍ଟ ନାହିଁ। ଏହି ଲକ୍ଷ୍ୟ ପଥରେ ପ୍ରଥମ ପାହାଚ ଯୋଗ କରନ୍ତୁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "ଲିଙ୍କ୍ କରିବାକୁ କୌଣସି ଖୋଲା କାମ ନାହିଁ। ପୂର୍ବରୁ ଏକ ଲକ୍ଷ୍ୟରେ ଥିବା କାମଗୁଡ଼ିକ ଦେଖାଯାଏ ନାହିଁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି କାମ ଲିଙ୍କ୍ ହୋଇନାହିଁ। ସେଗୁଡ଼ିକୁ ଏଠାରେ ଦେଖିବା ପାଇଁ ସ୍ପେସ୍‌ରୁ କାମ ଲିଙ୍କ୍ କରନ୍ତୁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "କିଛି ବି ବିଳମ୍ବିତ କିମ୍ବା ନିଷ୍କ୍ରିୟ ନାହିଁ। ବହୁତ ବଢ଼ିଆ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "ଖୋଲନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "ସ୍ପେସ୍ ଖୋଲନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "ସ୍ଥଗିତ ରଖନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "ସ୍ଥଗିତ"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "ମାଇଲଖୁଣ୍ଟରେ ନୂଆ ଲିଙ୍କ୍ ପିନ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "ଯୋଜନା, ସ୍ୱର ଚିହ୍ନଟ ଏବଂ ଉଚ୍ଚ ସ୍ୱରରେ ପଢ଼ିବା ସବୁ ଏହି ଡିଭାଇସରେ ଚାଲେ। ଆପଣ ଯାହା କୁହନ୍ତି ବା ଟାଇପ୍ କରନ୍ତି ତାହା ଏହା ବାହାରକୁ ଯାଏ ନାହିଁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "ପ୍ରାଥମିକତା"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "ପ୍ରଗତି"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "ପ୍ରଗତି ହେଉଛି ଆପଣ ସମ୍ପୂର୍ଣ୍ଣ କରିଥିବା ମାଇଲଖୁଣ୍ଟର ଅଂଶ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "ପ୍ରଗତି ହେଉଛି ଲକ୍ଷ୍ୟ ତୁଳନାରେ ଆପଣଙ୍କ ବର୍ତ୍ତମାନର ସଂଖ୍ୟା, ଯେପରିକି 20 ଟି ବହିରୁ 12 ଟି।"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "ଉଚ୍ଚ ସ୍ୱରରେ ପଢ଼ନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "ପ୍ରସ୍ତୁତ"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "ସାମ୍ପ୍ରତିକ"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "ରିଫ୍ରେସ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "ହଟାନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "ସ୍ଥାନ ଖାଲି କରିବାକୁ ସେଗୁଡ଼ିକୁ ହଟାନ୍ତୁ; ଆବଶ୍ୟକ ହେଲେ ସେଗୁଡ଼ିକ ପୁନର୍ବାର ଡାଉନଲୋଡ୍ ହୋଇଯିବ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "ପୁନର୍ବାର ଖୋଲନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "ପୁନରୁଦ୍ଧାର କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "ପୁନର୍ବାର ଆରମ୍ଭ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "ପରିବର୍ତ୍ତନ ସେଭ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "ଲକ୍ଷ୍ୟ ଖୋଜନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "ଆପଣଙ୍କ ଖୋଲା କାମ ଖୋଜନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "ଅନୁସାରେ ସଜାନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "ପାଠପଢ଼ା, ସ୍ୱାସ୍ଥ୍ୟ, କାମ…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "ପରବର୍ତ୍ତୀ ସପ୍ତାହ ପାଇଁ ପ୍ରସ୍ତାବିତ ପ୍ରାଥମିକତା"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "ଲକ୍ଷ୍ୟ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "ଲକ୍ଷ୍ୟ ତାରିଖ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "ଲକ୍ଷ୍ୟ ତାରିଖ (YYYY-MM-DD, ଐଚ୍ଛିକ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "ସମ୍ପୂର୍ଣ୍ଣ ହୋଇଥିବା କାମ"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "ଏହି ଲକ୍ଷ୍ୟ ପାଇଁ କାମ"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "ପ୍ରଥମ ଯୋଜନା ଡିଭାଇସ୍‌ରେ ଥିବା AI ମଡେଲ୍ ଡାଉନଲୋଡ୍ କରେ (ପ୍ରାୟ 2.3 GB)।"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "ଲକ୍ଷ୍ୟ ଏବଂ ଏହାର ମାଇଲଖୁଣ୍ଟଗୁଡ଼ିକ ହଟାଇ ଦିଆଯାଏ। ଆପଣଙ୍କ କାମଗୁଡ଼ିକ ସ୍ପେସ୍‌ରେ ରହିଥାଏ; ସେଗୁଡ଼ିକ କେବଳ ଏହି ଲକ୍ଷ୍ୟକୁ ସୂଚାଇବା ବନ୍ଦ କରନ୍ତି।"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "ଗତ ସାତ ଦିନ, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "ଆପଣ ପ୍ରଥମ ଥର AI ବ୍ୟବହାର କରିବା ସମୟରେ, କିମ୍ବା ବର୍ତ୍ତମାନ ଡାଉନଲୋଡ୍ ହୁଏ।"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "ଏହି ଲକ୍ଷ୍ୟ ଏକ ସଂଖ୍ୟାକୁ ଟ୍ରାକ୍ କରେ। ମାଇଲଖୁଣ୍ଟଗୁଡ଼ିକ ରାସ୍ତାର ରହଣିକୁ ଚିହ୍ନଟ କରେ, କିନ୍ତୁ ସେଗୁଡ଼ିକ ପ୍ରତିଶତ ପରିବର୍ତ୍ତନ କରନ୍ତି ନାହିଁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "ଶୀର୍ଷକ"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "ମୋଟ"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "ଏକ ସଂଖ୍ୟା ଟ୍ରାକ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "ଅନ୍ୟ ଏକ ଫିଲ୍ଟର୍ କିମ୍ବା ଏକ ଭିନ୍ନ ସନ୍ଧାନ ଚେଷ୍ଟା କରନ୍ତୁ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "ଏକକ"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "ଅନଲିଙ୍କ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "ଅପଡେଟ୍ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "ସାପ୍ତାହିକ ସମୀକ୍ଷା"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "ଆପଣ କ'ଣ ହାସଲ କରିବାକୁ ଚାହାଁନ୍ତି?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "ଏହା କାହିଁକି ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "ଏହା କରିବାର ଆପଣଙ୍କ କାରଣ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} ବାକି"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} ସକ୍ରିୟ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} ସମ୍ପୂର୍ଣ୍ଣ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} ବାକି, {} ଦିନ ମଧ୍ୟରେ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} ଆଜି ସୁଦ୍ଧା"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} ଆସନ୍ତାକାଲି ସୁଦ୍ଧା"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} ଫୋକସ୍"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} ମାଇଲଖୁଣ୍ଟ ସମ୍ପୂର୍ଣ୍ଣ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} କାମ ସମ୍ପୂର୍ଣ୍ଣ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} ବିଳମ୍ବିତ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} ସ୍ଥଗିତ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} ବାକି"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "ଏକ ମାଇଲଖୁଣ୍ଟ କିମ୍ବା ଲକ୍ଷ୍ୟ ତାରିଖ ଯୋଗ କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "{} ସୁଦ୍ଧା"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "{} ଦିନ ମଧ୍ୟରେ"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "ଆଜି ସୁଦ୍ଧା"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "ଆସନ୍ତାକାଲି ସୁଦ୍ଧା"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "ପ୍ରତ୍ୟେକ ମାଇଲଖୁଣ୍ଟ ସମ୍ପୂର୍ଣ୍ଣ ହୋଇଛି"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "ଫୋକସ୍ ସମୟ ରେକର୍ଡ ହୋଇଛି"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "ସମ୍ପୂର୍ଣ୍ଣ ହୋଇଥିବା ମାଇଲଖୁଣ୍ଟ: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{} ଦିନ ଧରି କୌଣସି କାର୍ଯ୍ୟକଳାପ ନାହିଁ"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "ଏପର୍ଯ୍ୟନ୍ତ କୌଣସି ମାଇଲଖୁଣ୍ଟ ନାହିଁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} ଦିନ ବିଳମ୍ବ"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 ଦିନ ବିଳମ୍ବ"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "ଯୋଜନା କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "ଯୋଜନା କରାଯାଉଛି..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "ପ୍ରଗତି ଦେଖିବା ପାଇଁ ଏକ ଲକ୍ଷ୍ୟ ସ୍ଥିର କରନ୍ତୁ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "ଲକ୍ଷ୍ୟ ହାସଲ ହେଲା"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "ସମ୍ପୂର୍ଣ୍ଣ ହୋଇଥିବା କାମ: {}"
+
+msgid "Planning"
+msgstr "ଯୋଜନା"
+
+msgid "Speech to text"
+msgstr "ସ୍ୱରରୁ ଲେଖା"
+
+msgid "Add subtask"
+msgstr "ଉପ-କାର୍ଯ୍ୟ ଯୋଡ଼ନ୍ତୁ"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "ଆପଣଙ୍କର କାର୍ଯ୍ୟ ବିଷୟରେ ପଚାରନ୍ତୁ, କିମ୍ବା ଆପଣ କ’ଣ ଯୋଜନା କରିବାକୁ ଚାହାଁନ୍ତି ବର୍ଣ୍ଣନା କରନ୍ତୁ। ଆପଣ ଅନୁମୋଦନ ନକରିବା ପର୍ଯ୍ୟନ୍ତ କିଛି ବି ପରିବର୍ତ୍ତନ ହେବ ନାହିଁ।"
+
+msgid "Asking AI..."
+msgstr "AI କୁ ପଚାରୁଛି..."
+
+msgid "Chat"
+msgstr "ଚାଟ୍"
+
+msgid "Chats"
+msgstr "ଚାଟ୍ ଗୁଡ଼ିକ"
+
+msgid "Click again to delete"
+msgstr "ଡିଲିଟ୍ କରିବାକୁ ପୁଣି କ୍ଲିକ୍ କରନ୍ତୁ"
+
+msgid "Collapse"
+msgstr "ସଙ୍କୁଚିତ କରନ୍ତୁ"
+
+msgid "Collapse menu"
+msgstr "ମେନୁ ସଙ୍କୁଚିତ କରନ୍ତୁ"
+
+msgid "Copy"
+msgstr "କପି କରନ୍ତୁ"
+
+msgid "Count my focus hours"
+msgstr "ମୋର ଫୋକସ୍ ଘଣ୍ଟା ଗଣନା କରନ୍ତୁ"
+
+msgid "Decrease"
+msgstr "ହ୍ରାସ କରନ୍ତୁ"
+
+msgid "Deep"
+msgstr "ଗଭୀର"
+
+msgid "Delete chat"
+msgstr "ଚାଟ୍ ଡିଲିଟ୍ କରନ୍ତୁ"
+
+msgid "Delete note"
+msgstr "ନୋଟ୍ ଡିଲିଟ୍ କରନ୍ତୁ"
+
+msgid "Delete subtask"
+msgstr "ଉପ-କାର୍ଯ୍ୟ ଡିଲିଟ୍ କରନ୍ତୁ"
+
+msgid "Delete this chat?"
+msgstr "ଏହି ଚାଟ୍ ଡିଲିଟ୍ କରିବେ?"
+
+msgid "Dictate"
+msgstr "ଡିକ୍ଟେସନ୍"
+
+msgid "Exit full screen"
+msgstr "ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନରୁ ବାହାରନ୍ତୁ"
+
+msgid "Expand"
+msgstr "ପ୍ରସାରିତ କରନ୍ତୁ"
+
+msgid "Expand menu"
+msgstr "ମେନୁ ପ୍ରସାରିତ କରନ୍ତୁ"
+
+msgid "Fork from here"
+msgstr "ଏଠାରୁ ଶାଖା କରନ୍ତୁ"
+
+msgid "Fork this chat"
+msgstr "ଏହି ଚାଟ୍ କପି କରନ୍ତୁ"
+
+msgid "Full screen"
+msgstr "ପୂର୍ଣ୍ଣ ସ୍କ୍ରିନ୍"
+
+msgid "Hide subtasks"
+msgstr "ଉପ-କାର୍ଯ୍ୟ ଲୁଚାନ୍ତୁ"
+
+msgid "Increase"
+msgstr "ବୃଦ୍ଧି କରନ୍ତୁ"
+
+msgid "Jump to latest"
+msgstr "ସର୍ବଶେଷକୁ ଯାଆନ୍ତୁ"
+
+msgid "Launch"
+msgstr "ଆରମ୍ଭ କରନ୍ତୁ"
+
+msgid "Let the assistant search the web"
+msgstr "ସହାୟକଙ୍କୁ ୱେବ୍ ସନ୍ଧାନ କରିବାକୁ ଦିଅନ୍ତୁ"
+
+msgid "Maximize"
+msgstr "ବଡ଼ କରନ୍ତୁ"
+
+msgid "Merging the notes"
+msgstr "ନୋଟ୍ ମିଶ୍ରଣ କରାଯାଉଛି"
+
+msgid "Message"
+msgstr "ବାର୍ତ୍ତା"
+
+msgid "Minimize"
+msgstr "ଛୋଟ କରନ୍ତୁ"
+
+msgid "More"
+msgstr "ଅଧିକ"
+
+msgid "Move back"
+msgstr "ପଛକୁ ନିଅନ୍ତୁ"
+
+msgid "Move down"
+msgstr "ତଳକୁ ନିଅନ୍ତୁ"
+
+msgid "Move forward"
+msgstr "ଆଗକୁ ନିଅନ୍ତୁ"
+
+msgid "Move up"
+msgstr "ଉପରକୁ ନିଅନ୍ତୁ"
+
+msgid "New chat"
+msgstr "ନୂତନ ଚାଟ୍"
+
+msgid "New space"
+msgstr "ନୂତନ ସ୍ପେସ୍"
+
+msgid "Next mode"
+msgstr "ପରବର୍ତ୍ତୀ ମୋଡ୍"
+
+msgid "Next version"
+msgstr "ପରବର୍ତ୍ତୀ ସଂସ୍କରଣ"
+
+msgid "Next week"
+msgstr "ପରବର୍ତ୍ତୀ ସପ୍ତାହ"
+
+msgid "Planned the searches"
+msgstr "ସନ୍ଧାନ ଯୋଜନା କରାଗଲା"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "ଯୋଜନା, ସ୍ପିଚ୍ ଚିହ୍ନଟ ଏବଂ ଉଚ୍ଚ ସ୍ୱରରେ ପଢ଼ିବା ଏହି ଡିଭାଇସରେ ଚାଲେ। କେବଳ ଆପଣ ଅନୁମତି ଦେଇଥିବା ୱେବ୍ ସନ୍ଧାନ ଅନଲାଇନ୍ ଯାଏ।"
+
+msgid "Previous mode"
+msgstr "ପୂର୍ବବର୍ତ୍ତୀ ମୋଡ୍"
+
+msgid "Previous version"
+msgstr "ପୂର୍ବବର୍ତ୍ତୀ ସଂସ୍କରଣ"
+
+msgid "Previous week"
+msgstr "ପୂର୍ବ ସପ୍ତାହ"
+
+msgid "Quick"
+msgstr "ଦ୍ରୁତ"
+
+msgid "Reading {}"
+msgstr "{} ପଢ଼ୁଛି"
+
+msgid "Redo"
+msgstr "ପୁନର୍ବାର କରନ୍ତୁ"
+
+msgid "Searching: {}"
+msgstr "ସନ୍ଧାନ କରୁଛି: {}"
+
+msgid "Send"
+msgstr "ପଠାନ୍ତୁ"
+
+msgid "Show subtasks"
+msgstr "ଉପ-କାର୍ଯ୍ୟ ଦେଖାନ୍ତୁ"
+
+msgid "Skipped {}"
+msgstr "{} ଏଡ଼ାଇ ଦିଆଗଲା"
+
+msgid "Standard"
+msgstr "ମାନକ"
+
+msgid "Start"
+msgstr "ଆରମ୍ଭ କରନ୍ତୁ"
+
+msgid "Start focus on this task"
+msgstr "ଏହି କାର୍ଯ୍ୟରେ ଧ୍ୟାନ ଆରମ୍ଭ କରନ୍ତୁ"
+
+msgid "Stop"
+msgstr "ବନ୍ଦ କରନ୍ତୁ"
+
+msgid "Stop recording"
+msgstr "ରେକର୍ଡିଂ ବନ୍ଦ କରନ୍ତୁ"
+
+msgid "Suggest with AI"
+msgstr "AI ସହିତ ପରାମର୍ଶ ଦିଅନ୍ତୁ"
+
+msgid "Switch to dark mode"
+msgstr "ଡାର୍କ ମୋଡ୍ ବଦଳାନ୍ତୁ"
+
+msgid "Switch to light mode"
+msgstr "ଲାଇଟ୍ ମୋଡ୍ ବଦଳାନ୍ତୁ"
+
+msgid "Target hours"
+msgstr "ଲକ୍ଷ୍ୟ ଘଣ୍ଟା"
+
+msgid "Thinking..."
+msgstr "ଚିନ୍ତା କରୁଛି..."
+
+msgid "Took notes from {}"
+msgstr "{} ରୁ ନୋଟ୍ ନିଆଗଲା"
+
+msgid "Undo"
+msgstr "ପୂର୍ବବତ୍ କରନ୍ତୁ"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "ଅନ୍ ଥିବାବେଳେ, ଏହା ଯାହା ଖୋଜେ ତାହା ବ୍ୟବହୃତ ସନ୍ଧାନ ସାଇଟକୁ ପଠାଯାଏ। ଅନ୍ୟ ସମସ୍ତ ଜିନିଷ ଏହି ଡିଭାଇସରେ ରହିଥାଏ।"
+
+msgid "Writing the answer"
+msgstr "ଉତ୍ତର ଲେଖୁଛି"
+
+msgid "Yes, delete"
+msgstr "ହଁ, ଡିଲିଟ୍ କରନ୍ତୁ"
+
+msgid "Yesterday"
+msgstr "ଗତକାଲି"
+
+msgid "{} results"
+msgstr "{} ଫଳାଫଳ"
+
+msgid "A longer rest"
+msgstr "ଲମ୍ବା ବିଶ୍ରାମ"
+
+msgid "A short rest"
+msgstr "ଛୋଟ ବିଶ୍ରାମ"
+
+msgid "A work session"
+msgstr "କାର୍ଯ୍ୟ ସମୟ"
+
+msgid "Activity for the day"
+msgstr "ଦିନର କାର୍ଯ୍ୟକଳାପ"
+
+msgid "Activity for the month"
+msgstr "ମାସର କାର୍ଯ୍ୟକଳାପ"
+
+msgid "Activity for the week"
+msgstr "ସପ୍ତାହର କାର୍ଯ୍ୟକଳାପ"
+
+msgid "Activity for the year"
+msgstr "ବର୍ଷର କାର୍ଯ୍ୟକଳାପ"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "ଆପଣଙ୍କୁ କଣ ଦରକାର ବର୍ଣ୍ଣନା କରନ୍ତୁ ଏବଂ ସହାୟକ ଏହାର ଯୋଜନା କରିବ"
+
+msgid "Go to this week"
+msgstr "ଏହି ସପ୍ତାହକୁ ଯାଆନ୍ତୁ"
+
+msgid "Move to this week"
+msgstr "ଏହି ସପ୍ତାହକୁ ଘୁଞ୍ଚାନ୍ତୁ"
+
+msgid "See tasks in columns"
+msgstr "କଲମରେ କାମଗୁଡ଼ିକ ଦେଖନ୍ତୁ"
+
+msgid "See tasks on a weekly calendar"
+msgstr "ସାପ୍ତାହିକ କ୍ୟାଲେଣ୍ଡରରେ କାମ ଦେଖନ୍ତୁ"
+
+msgid "Set your own length"
+msgstr "ନିଜସ୍ୱ ଅବଧି ସେଟ୍ କରନ୍ତୁ"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "ଜରୁରୀ ଓ ଗୁରୁତ୍ୱ ଅନୁସାରେ କାମ ସଜାନ୍ତୁ"
+
+msgid "Take it off the calendar"
+msgstr "କ୍ୟାଲେଣ୍ଡରରୁ ହଟାନ୍ତୁ"

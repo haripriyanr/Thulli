@@ -688,3 +688,839 @@ msgstr "Tegg tey"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Amul lu tegg tey. Yokk liggéey ci kanam bi Bokk."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Jubluway ab mbir la boo bëgg a àgg. Séddatle ko ay jaloré yu am solo, lëkkalale liggéey yi lay yóbbu fa, te nga séen sa doxalin di yokku."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Ci mbiru jubluway bii"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Mu ngi dox"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Yokk jaloré"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Mise yu AI (lu tollook 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Mise yu AI yi samp nañu leen"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Leneen lu jara fàttaliku"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Denc ci dencuway bi"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Denc nañu ko"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Dellu ci ay jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "téere, wakhtu…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Wàll"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Soppi jaloré"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Tëj"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Yi di ñëw"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Mat na"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Konte jaloré yi"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Sosal ab jubluway bu dox ngir am ay xalaat."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Sos jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Sosal sa jubluway bu njëkk"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Bi léegi"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Njëg bi léegi"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Bés (boo ko bëggee)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Far"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Far jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Far jubluway bii?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Tegtal li ngay séentu"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Tegtal"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Mat na"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Yeb ko léegi"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Mu ngiy yeb..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Soppal jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Wakhtu xel ci ay jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Ay jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Jubluway yi jëm kanam ayu-bés bii"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Kawe"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Njëkk bu kawe"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Jaar-jaar"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Naka lañuy konte doxalin bi?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Mu ngi dox"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Denc jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "7 bés yi weesu"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Lëkkalale liggéey"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Suufe"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Njëkk bu tuuti"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Mànke ko ni lu mat"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Yam"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Njëkk bu yam"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Jaloré"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Jaloré: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Ay jaloré"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Jaloré yi mat"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Laaj na bàyyi xel"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Jubluway bu bees"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Li ci tegu: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Amul benn bés bu mujj ci juróom-ñaari bés yi di ñëw."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Amagul benn wakhtu xel ci jubluway bii. Tambalil wakhtu xel ci benn ci liggéeyam yi."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Benn jubluway amul jaloré, liggéey walla wakhtu xel ayu-bés bii."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Amul benn jubluway bu méngóo"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Amagul ay jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Amagul ay jaloré. Yokkal taxawaay bu njëkk bi ci yoonu jubluway bii."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Amul benn liggéey bu ubbiku ngir lëkkalale. Liggéey yi nekk ba noppi ci ab jubluway duñu leen wone."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Lëkkalalegunu benn liggéey. Lëkkalaleel liggéey yi jóge ci Béen-béen yi ngir séen leen fii."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Lenn yeexul te lenn neewul nooy. Baax na lool."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Ubbi"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Ubbi Béen-béen yi"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Taxawal"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Taxaw na"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Takkaat ay lëkkalekaay yu bees ci ab jaloré"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Waajal, ràññee baat ak jàng ci kaw yépp ci masin bii lañuy doxe. Dara loo wax walla bind du génn ci moom."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Njëkk"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Doxalin"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Doxalin bi mooy wàllu jaloré yi nga matal."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Doxalin mooy sa limu léegi mengooleek li nga jublu, ni 12 ci 20 téere."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Jàngal ci kaw"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Wàjjar"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Lu yàggul"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Yeesal"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Dindi"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Dindi leen ngir maye barab; dinañu yebaat bu soobee."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Ubbitaat"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Delloosi"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Wéyal"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Denc soppite yi"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Seet ay jubluway"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Seet sa liggéey yi ubbiku"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Tànn ci"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Njàng, wér-gi-yaram, liggéey…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Njëkk yi ñu digle ngir ayu-bés bi di ñëw"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Li nu jublu"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Bés bu nu jublu"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Bés bu nu jublu (YYYY-MM-DD, boo ko bëggee)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Liggéey yi mat"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Liggéey yi jëm ci jubluway bii"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Waajal bu njëkk bi day yeb mise yu AI yi nekk ci masin bi (lu tollook 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Jubluway bi ak jaloré yi dinañu leen dindi. Sa liggéey yi dinañu des ci Béen-béen yi; dañuy dakk rekk a jëmale ci jubluway bii."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Juróom-ñaari bés yi weesu, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Dinañu yeb soo jëfandikoo AI bu njëkk, walla léegi."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Jubluway bii day topp ab lim. Jaloré yi dañuy wone taxawaay yi ci yoon wi, waaye duñu soppi màkkaas bi."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Koj"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Mbooleem"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Topp ab lim"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Jéemal kayeeneen walla leneen seet."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Karmat"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Dindi lëkkalekaay"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Yeesal"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Saytu bu ayu-bés"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Looy bëgg a àgg?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Lu tax mu am solo"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Sa sabab ci def lii"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} des na"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} dox na"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} mat na"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} war a mat ci {} bés"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} war a mat tey"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} war a mat ëllëg"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} xel na"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} ci {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} ci {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} ci {} jaloré mat na"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} ci {} liggéey mat na"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} yeex na"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} taxaw na"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} des na"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Yokk jaloré walla bés bu nu jublu"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "War a mat {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "War a mat ci {} bés"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "War a mat tey"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "War a mat ëllëg"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Bépp jaloré mat na"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Wakhtu xel bi bind nañu ko"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Jaloré yi ñu def: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Amul benn jëf ci {} bés"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Amagul ay jaloré"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Yeex na {} bés"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Yeex na 1 bés"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Waajal ko"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Mu ngiy waajal..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Tegal jubluway ngir séen doxalin bi"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Àgg nañu ci li nu jublu"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Liggéey yi ñu def: {}"
+
+msgid "Planning"
+msgstr "Waajal"
+
+msgid "Speech to text"
+msgstr "Baat ci mbind"
+
+msgid "Add subtask"
+msgstr "Yokk li ci biir"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Laajal sa ay liggéey, mbaa nga wax li nga bëgg tëral. Dara du soppiku ba keroog ngay nangu."
+
+msgid "Asking AI..."
+msgstr "Yaa ngi laaj AI bi..."
+
+msgid "Chat"
+msgstr "Waxtaan"
+
+msgid "Chats"
+msgstr "Waxtaan yi"
+
+msgid "Click again to delete"
+msgstr "Kligéwaatal ngir dindi"
+
+msgid "Collapse"
+msgstr "Lem"
+
+msgid "Collapse menu"
+msgstr "Lem njël li"
+
+msgid "Copy"
+msgstr "Duppil"
+
+msgid "Count my focus hours"
+msgstr "Waññ sama waxtuy jéem"
+
+msgid "Decrease"
+msgstr "Wàññi"
+
+msgid "Deep"
+msgstr "Xóot"
+
+msgid "Delete chat"
+msgstr "Dindi waxtaan bi"
+
+msgid "Delete note"
+msgstr "Dindi karmat bi"
+
+msgid "Delete subtask"
+msgstr "Dindi sas bu ndaw bi"
+
+msgid "Delete this chat?"
+msgstr "Dindi waxtaan bii?"
+
+msgid "Dictate"
+msgstr "Wax ko bind"
+
+msgid "Exit full screen"
+msgstr "Gënn ci wone bu yaa bi"
+
+msgid "Expand"
+msgstr "Lell"
+
+msgid "Expand menu"
+msgstr "Lell njël li"
+
+msgid "Fork from here"
+msgstr "Tambalee fi benn waxtaan"
+
+msgid "Fork this chat"
+msgstr "Duppil waxtaan bii"
+
+msgid "Full screen"
+msgstr "Wone bu yaa"
+
+msgid "Hide subtasks"
+msgstr "Néb sas yu ndaw yi"
+
+msgid "Increase"
+msgstr "Yokk"
+
+msgid "Jump to latest"
+msgstr "Dem ci bi mujj"
+
+msgid "Launch"
+msgstr "Def ko ci kanam tey"
+
+msgid "Let the assistant search the web"
+msgstr "May ndimbal li mu seet ci lëkkalekaay bi"
+
+msgid "Maximize"
+msgstr "Yaatal"
+
+msgid "Merging the notes"
+msgstr "Yaa ngi boole karmat yi"
+
+msgid "Message"
+msgstr "Bataaxal"
+
+msgid "Minimize"
+msgstr "Tuutil"
+
+msgid "More"
+msgstr "Yeneen"
+
+msgid "Move back"
+msgstr "Delloo ginaaw"
+
+msgid "Move down"
+msgstr "Wàccoole suuf"
+
+msgid "Move forward"
+msgstr "Yóbbu kanam"
+
+msgid "Move up"
+msgstr "Yékkatee kaw"
+
+msgid "New chat"
+msgstr "Waxtaan bu bees"
+
+msgid "New space"
+msgstr "Barab bu bees"
+
+msgid "Next mode"
+msgstr "Xew-xew bi di ñëw"
+
+msgid "Next version"
+msgstr "Sumb bu ñëw"
+
+msgid "Next week"
+msgstr "Ayi-bis bi di ñëw"
+
+msgid "Planned the searches"
+msgstr "Tëral na seet yi"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Tëral gi, xam càkk gi ak jàng bu kawe ci aparay bii lañuy dox. Seet ci lëkkalekaay bi nga may rekk lañuy yóbbu ci internet."
+
+msgid "Previous mode"
+msgstr "Xew-xew bi weesu"
+
+msgid "Previous version"
+msgstr "Sumb bi weesu"
+
+msgid "Previous week"
+msgstr "Ayi-bis bi weesu"
+
+msgid "Quick"
+msgstr "Gaaw"
+
+msgid "Reading {}"
+msgstr "Yaa ngi jàng {}"
+
+msgid "Redo"
+msgstr "Defaat"
+
+msgid "Searching: {}"
+msgstr "Yaa ngi seet: {}"
+
+msgid "Send"
+msgstr "Yónnee"
+
+msgid "Show subtasks"
+msgstr "Wone sas yu ndaw yi"
+
+msgid "Skipped {}"
+msgstr "Wacc na {}"
+
+msgid "Standard"
+msgstr "Yem"
+
+msgid "Start"
+msgstr "Tambali"
+
+msgid "Start focus on this task"
+msgstr "Tambali jéem ci liggéey bii"
+
+msgid "Stop"
+msgstr "Taxawal"
+
+msgid "Stop recording"
+msgstr "Taxawal tëyye gi"
+
+msgid "Suggest with AI"
+msgstr "Xalaat ak AI bi"
+
+msgid "Switch to dark mode"
+msgstr "Soppi ko ci xool bu ñuul"
+
+msgid "Switch to light mode"
+msgstr "Soppi ko ci xool bu leer"
+
+msgid "Target hours"
+msgstr "Waxtu yi nga jublu"
+
+msgid "Thinking..."
+msgstr "Yaa ngi xalaat..."
+
+msgid "Took notes from {}"
+msgstr "Jël na karmat ci {}"
+
+msgid "Undo"
+msgstr "Neenal"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Bu takkee, li muy seet lañuy yónnee ci dalub seetukaay yi. Leneen lépp ci aparay bii lay des."
+
+msgid "Writing the answer"
+msgstr "Yaa ngi bind tontu bi"
+
+msgid "Yes, delete"
+msgstr "Waaw, dindi ko"
+
+msgid "Yesterday"
+msgstr "Démb"
+
+msgid "{} results"
+msgstr "{} njariñ"
+
+msgid "A longer rest"
+msgstr "Noppalu bu gudd"
+
+msgid "A short rest"
+msgstr "Noppalu bu gàtt"
+
+msgid "A work session"
+msgstr "Waxtu liggéey"
+
+msgid "Activity for the day"
+msgstr "Liggéeyu bés bi"
+
+msgid "Activity for the month"
+msgstr "Liggéeyu weer wi"
+
+msgid "Activity for the week"
+msgstr "Liggéeyu ayu-bés gi"
+
+msgid "Activity for the year"
+msgstr "Liggéeyu at mi"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Waxal li nga soxla, ndimbal li dina ko tëral"
+
+msgid "Go to this week"
+msgstr "Dem ci ayu-bés gii"
+
+msgid "Move to this week"
+msgstr "Yóbbu ci ayu-bés gii"
+
+msgid "See tasks in columns"
+msgstr "Xool liggéey yi ci koloon"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Xool liggéey yi ci arminaatu ayu-bés"
+
+msgid "Set your own length"
+msgstr "Tànnal sa diir"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Tëggale ci gaaw ak solo"
+
+msgid "Take it off the calendar"
+msgstr "Dindi ko ci arminaat bi"

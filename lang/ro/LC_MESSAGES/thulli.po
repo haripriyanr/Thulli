@@ -688,3 +688,839 @@ msgstr "Planificat pentru azi"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Nimic planificat pentru azi. Adaugă sarcini pe ecranul Spații."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Un obiectiv este ceva ce vrei să atingi. Împarte-l în etape, leagă sarcinile care te duc acolo și privește cum progresezi."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Despre acest obiectiv"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Activ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Adaugă o etapă"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Modele AI (aproximativ 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Modele AI instalate"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Altceva demn de reținut"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arhivează"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Arhivat"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Înapoi la obiective"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "cărți, ore…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Categorie"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Schimbă etapa"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Închide"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "În curând"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Finalizat"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Numără etapele"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Creează un obiectiv activ pentru a primi sugestii."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Creează obiectiv"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Creează primul tău obiectiv"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Actual"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Valoare actuală"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Dată (opțional)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Șterge"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Șterge obiectivul"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Ștergi acest obiectiv?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Descrie rezultatul"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Descriere"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Gata"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Descarcă acum"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Se descarcă..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Editează obiectivul"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Timp de concentrare pe obiective"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Obiective"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Obiective care au avansat săptămâna aceasta"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Ridicată"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Prioritate ridicată"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Istoric"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Cum se calculează progresul?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "În joc"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Păstrează obiectivul"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Ultimele 7 zile"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Leagă o sarcină"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Scăzută"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Prioritate scăzută"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Marchează ca finalizat"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Medie"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Prioritate medie"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Etapă"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Etapă: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Etape"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Etape finalizate"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Necesită atenție"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Obiectiv nou"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Următorul: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Niciun termen în următoarele șapte zile."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Nicio sesiune de concentrare pe acest obiectiv încă. Începe o rundă de concentrare pe una dintre sarcinile sale."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Niciun obiectiv nu a avut nicio etapă, sarcină sau sesiune de concentrare săptămâna aceasta."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Niciun obiectiv nu se potrivește"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Niciun obiectiv încă"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Nicio etapă încă. Adaugă prima oprire în drumul spre acest obiectiv."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Nicio sarcină deschisă de legat. Sarcinile incluse deja într-un obiectiv nu sunt afișate."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Nicio sarcină legată încă. Leagă sarcini din Spații pentru a le vedea aici."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Nimic nu este întârziat sau inactiv. Excelent."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Deschide"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Deschide Spații"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Pune pe pauză"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "În pauză"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Fixează linkurile noi la o etapă"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Planificarea, recunoașterea vocală și citirea cu voce tare rulează pe acest dispozitiv. Nimic din ce spui sau tastezi nu îl părăsește."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioritate"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Progres"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Progresul este ponderea etapelor pe care le-ai finalizat."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Progresul este numărul tău actual raportat la țintă, cum ar fi 12 din 20 de cărți."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Citește cu voce tare"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Gata"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Recent"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Actualizează"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Elimină"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Elimină-le pentru a elibera spațiu; se vor descărca din nou când este nevoie."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Redeschide"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Restaurează"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Reia"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Salvează modificările"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Caută obiective"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Caută în sarcinile tale deschise"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sortează după"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Studiu, sănătate, muncă…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Priorități sugerate pentru săptămâna viitoare"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Țintă"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Dată țintă"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Dată țintă (YYYY-MM-DD, opțional)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Sarcini finalizate"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Sarcini pentru acest obiectiv"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Primul plan descarcă modelele AI pe dispozitiv (aproximativ 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Obiectivul și etapele sale sunt eliminate. Sarcinile tale sunt păstrate în Spații; doar că nu mai indică spre acest obiectiv."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Ultimele șapte zile, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Se descarcă prima dată când folosești AI, sau acum."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Acest obiectiv urmărește un număr. Etapele marchează în continuare opririle pe parcurs, dar nu modifică procentul."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Titlu"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Total"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Urmărește un număr"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Încearcă un alt filtru sau o altă căutare."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Unitate"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Anulează legătura"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Actualizează"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Revizuire săptămânală"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Ce vrei să realizezi?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "De ce contează"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Motivul tău pentru a face asta"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "încă {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} active"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} finalizate"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} scadente în {} zile"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} scadente azi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} scadente mâine"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} cu concentrare"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} din {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} din {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} din {} etape finalizate"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} din {} sarcini finalizate"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} depășite"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} în pauză"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "încă {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Adaugă o etapă sau o dată țintă"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Scadent la {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Scadent în {} zile"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Scadent azi"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Scadent mâine"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Toate etapele sunt finalizate"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Timp de concentrare înregistrat"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Etape finalizate: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Fără activitate timp de {} zile"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Nicio etapă încă"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Depășit cu {} zile"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Depășit cu 1 zi"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Planifică"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Se planifică..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Setează o țintă pentru a vedea progresul"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Țintă atinsă"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Sarcini finalizate: {}"
+
+msgid "Planning"
+msgstr "Planificare"
+
+msgid "Speech to text"
+msgstr "Voce în text"
+
+msgid "Add subtask"
+msgstr "Adaugă sub-sarcină"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Întreabă despre sarcinile tale sau descrie ce vrei să planifici. Nimic nu se schimbă până nu aprobi."
+
+msgid "Asking AI..."
+msgstr "Întreb IA..."
+
+msgid "Chat"
+msgstr "Conversație"
+
+msgid "Chats"
+msgstr "Conversații"
+
+msgid "Click again to delete"
+msgstr "Apasă din nou pentru a șterge"
+
+msgid "Collapse"
+msgstr "Restrânge"
+
+msgid "Collapse menu"
+msgstr "Restrânge meniul"
+
+msgid "Copy"
+msgstr "Copiază"
+
+msgid "Count my focus hours"
+msgstr "Contorizează orele mele de concentrare"
+
+msgid "Decrease"
+msgstr "Micșorează"
+
+msgid "Deep"
+msgstr "Aprofundat"
+
+msgid "Delete chat"
+msgstr "Șterge conversația"
+
+msgid "Delete note"
+msgstr "Șterge nota"
+
+msgid "Delete subtask"
+msgstr "Șterge sub-sarcina"
+
+msgid "Delete this chat?"
+msgstr "Ștergi această conversație?"
+
+msgid "Dictate"
+msgstr "Diktează"
+
+msgid "Exit full screen"
+msgstr "Ieși din ecran complet"
+
+msgid "Expand"
+msgstr "Extinde"
+
+msgid "Expand menu"
+msgstr "Extinde meniul"
+
+msgid "Fork from here"
+msgstr "Ramifică de aici"
+
+msgid "Fork this chat"
+msgstr "Ramifică această conversație"
+
+msgid "Full screen"
+msgstr "Ecran complet"
+
+msgid "Hide subtasks"
+msgstr "Ascunde sub-sarcinile"
+
+msgid "Increase"
+msgstr "Mărește"
+
+msgid "Jump to latest"
+msgstr "Sari la cel mai recent"
+
+msgid "Launch"
+msgstr "Lansează"
+
+msgid "Let the assistant search the web"
+msgstr "Permite asistentului să caute pe web"
+
+msgid "Maximize"
+msgstr "Maximizează"
+
+msgid "Merging the notes"
+msgstr "Se îmbină notițele"
+
+msgid "Message"
+msgstr "Mesaj"
+
+msgid "Minimize"
+msgstr "Minimizează"
+
+msgid "More"
+msgstr "Mai multe"
+
+msgid "Move back"
+msgstr "Mută înapoi"
+
+msgid "Move down"
+msgstr "Mută în jos"
+
+msgid "Move forward"
+msgstr "Mută înainte"
+
+msgid "Move up"
+msgstr "Mută în sus"
+
+msgid "New chat"
+msgstr "Conversație nouă"
+
+msgid "New space"
+msgstr "Spațiu nou"
+
+msgid "Next mode"
+msgstr "Modul următor"
+
+msgid "Next version"
+msgstr "Versiunea următoare"
+
+msgid "Next week"
+msgstr "Săptămâna viitoare"
+
+msgid "Planned the searches"
+msgstr "Căutările au fost planificate"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Planificarea, recunoașterea vocală și citirea cu voce tare rulează pe acest dispozitiv. Doar căutările pe web pe care le permiți ajung online."
+
+msgid "Previous mode"
+msgstr "Modul anterior"
+
+msgid "Previous version"
+msgstr "Versiunea anterioară"
+
+msgid "Previous week"
+msgstr "Săptămâna trecută"
+
+msgid "Quick"
+msgstr "Rapid"
+
+msgid "Reading {}"
+msgstr "Se citește {}"
+
+msgid "Redo"
+msgstr "Refă"
+
+msgid "Searching: {}"
+msgstr "Căutare: {}"
+
+msgid "Send"
+msgstr "Trimite"
+
+msgid "Show subtasks"
+msgstr "Afișează sub-sarcinile"
+
+msgid "Skipped {}"
+msgstr "S-a omis {}"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Start"
+msgstr "Start"
+
+msgid "Start focus on this task"
+msgstr "Concentrează-te pe această sarcină"
+
+msgid "Stop"
+msgstr "Oprește"
+
+msgid "Stop recording"
+msgstr "Oprește înregistrarea"
+
+msgid "Suggest with AI"
+msgstr "Sugerează cu IA"
+
+msgid "Switch to dark mode"
+msgstr "Comută la modul întunecat"
+
+msgid "Switch to light mode"
+msgstr "Comută la modul luminos"
+
+msgid "Target hours"
+msgstr "Ore țintă"
+
+msgid "Thinking..."
+msgstr "Gândesc..."
+
+msgid "Took notes from {}"
+msgstr "S-au luat notițe de pe {}"
+
+msgid "Undo"
+msgstr "Anulează"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Când este activat, ceea ce caută este trimis către site-urile de căutare utilizate. Orice altceva rămâne pe acest dispozitiv."
+
+msgid "Writing the answer"
+msgstr "Se scrie răspunsul"
+
+msgid "Yes, delete"
+msgstr "Da, șterge"
+
+msgid "Yesterday"
+msgstr "Ieri"
+
+msgid "{} results"
+msgstr "{} rezultate"
+
+msgid "A longer rest"
+msgstr "O pauză mai lungă"
+
+msgid "A short rest"
+msgstr "O pauză scurtă"
+
+msgid "A work session"
+msgstr "O sesiune de lucru"
+
+msgid "Activity for the day"
+msgstr "Activitatea zilei"
+
+msgid "Activity for the month"
+msgstr "Activitatea lunii"
+
+msgid "Activity for the week"
+msgstr "Activitatea săptămânii"
+
+msgid "Activity for the year"
+msgstr "Activitatea anului"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Descrie ce ai nevoie și asistentul va planifica"
+
+msgid "Go to this week"
+msgstr "Mergi la această săptămână"
+
+msgid "Move to this week"
+msgstr "Mută în această săptămână"
+
+msgid "See tasks in columns"
+msgstr "Vezi sarcinile în coloane"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Vezi sarcinile în calendarul săptămânal"
+
+msgid "Set your own length"
+msgstr "Setează propria durată"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Sortează sarcinile după urgență și importanță"
+
+msgid "Take it off the calendar"
+msgstr "Scoate din calendar"

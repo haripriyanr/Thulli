@@ -688,3 +688,839 @@ msgstr "ယနေ့ စီစဉ်ထားသော အရာများ"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "ယနေ့ စီစဉ်ထားခြင်း မရှိပါ။ နေရာများ စခရင်တွင် အလုပ်ထည့်ပါ။"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "ပန်းတိုင်ဆိုသည်မှာ သင်ရောက်ရှိလိုသောအရာ ဖြစ်သည်။ ၎င်းကို မှတ်တိုင်များအဖြစ် ပိုင်းဖြတ်ပြီး ထိုနေရာသို့ ပို့ဆောင်ပေးမည့် အလုပ်များကို ချိတ်ဆက်ကာ သင်၏ တိုးတက်မှုကို စောင့်ကြည့်ပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "ဤပန်းတိုင်အကြောင်း"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "လုပ်ဆောင်ဆဲ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "မှတ်တိုင်တစ်ခု ထည့်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI မော်ဒယ်များ (ခန့်မှန်းခြေ 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI မော်ဒယ်များ ထည့်သွင်းပြီးပါပြီ"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "မှတ်သားထားသင့်သော အခြားအရာများ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "မော်ကွန်းတင်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "မော်ကွန်းတင်ထားသော"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "ပန်းတိုင်များသို့ ပြန်သွားရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "စာအုပ်များ၊ နာရီများ…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "အမျိုးအစား"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "မှတ်တိုင် ပြောင်းရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "ပိတ်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "မကြာမီ လာမည်"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "ပြီးစီးသော"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "မှတ်တိုင်များကို ရေတွက်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "အကြံပြုချက်များ ရယူရန် လုပ်ဆောင်ဆဲ ပန်းတိုင်တစ်ခု ဖန်တီးပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "ပန်းတိုင် ဖန်တီးရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "သင်၏ ပထမဆုံး ပန်းတိုင်ကို ဖန်တီးပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "လက်ရှိ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "လက်ရှိ တန်ဖိုး"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "ရက်စွဲ (ရွေးချယ်နိုင်သည်)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "ဖျက်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "ပန်းတိုင် ဖျက်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "ဤပန်းတိုင်ကို ဖျက်မလား။"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "ရလဒ်ကို ဖော်ပြပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "ဖော်ပြချက်"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "ပြီးပါပြီ"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "ယခု ဒေါင်းလုဒ်လုပ်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "ဒေါင်းလုဒ်လုပ်နေသည်..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "ပန်းတိုင် တည်းဖြတ်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "ပန်းတိုင်များအတွက် အာရုံစိုက်ချိန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "ပန်းတိုင်များ"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "ယခုအပတ် တိုးတက်မှုရှိသော ပန်းတိုင်များ"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "မြင့်"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "ဦးစားပေး မြင့်"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "မှတ်တမ်း"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "တိုးတက်မှုကို မည်သို့ ရေတွက်သနည်း။"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "ဆောင်ရွက်ဆဲ"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "ပန်းတိုင်ကို ထိန်းသိမ်းရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "ပြီးခဲ့သည့် ၇ ရက်"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "အလုပ်တစ်ခု ချိတ်ဆက်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "နိမ့်"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "ဦးစားပေး နိမ့်"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "ပြီးစီးကြောင်း မှတ်သားရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "အလယ်အလတ်"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "ဦးစားပေး အလယ်အလတ်"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "မှတ်တိုင်"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "မှတ်တိုင်- {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "မှတ်တိုင်များ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "ပြီးစီးသော မှတ်တိုင်များ"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "ဂရုစိုက်ရန် လိုအပ်သည်"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "ပန်းတိုင်အသစ်"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "နောက်တစ်ခု- {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "လာမည့် ခုနစ်ရက်အတွင်း သတ်မှတ်ရက် မရှိပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "ဤပန်းတိုင်အတွက် အာရုံစိုက်ချိန် မရှိသေးပါ။ ၎င်း၏ အလုပ်တစ်ခုတွင် အာရုံစိုက်မှု စတင်ပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "ယခုအပတ်တွင် မှတ်တိုင်၊ အလုပ် သို့မဟုတ် အာရုံစိုက်ချိန်ရှိသည့် ပန်းတိုင် မရှိပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "ကိုက်ညီသော ပန်းတိုင် မရှိပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "ပန်းတိုင် မရှိသေးပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "မှတ်တိုင် မရှိသေးပါ။ ဤပန်းတိုင်သို့ သွားရာလမ်းတွင် ပထမဆုံးမှတ်တိုင်ကို ထည့်ပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "ချိတ်ဆက်ရန် မပြီးသေးသော အလုပ်များ မရှိပါ။ ပန်းတိုင်တစ်ခုတွင် ပါရှိပြီးသော အလုပ်များကို ပြသမည်မဟုတ်ပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "အလုပ်များ ချိတ်ဆက်ထားခြင်း မရှိသေးပါ။ ဤနေရာတွင် တွေ့မြင်နိုင်ရန် နေရာများ မှ အလုပ်များကို ချိတ်ဆက်ပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "ရက်ကျော်လွန်ခြင်း သို့မဟုတ် ငြိမ်သက်နေခြင်း မရှိပါ။ ကောင်းပါသည်။"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "ဖွင့်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "နေရာများ ဖွင့်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "ခေတ္တရပ်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "ခေတ္တရပ်ထားသည်"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "မှတ်တိုင်တစ်ခုသို့ လင့်ခ်အသစ်များ ချိတ်ဆွဲရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "အစီအစဉ်ဆွဲခြင်း၊ စကားသံ အသိအမှတ်ပြုခြင်းနှင့် အသံထွက်ဖတ်ခြင်းအားလုံးသည် ဤစက်ပစ္စည်းပေါ်တွင်သာ အလုပ်လုပ်သည်။ သင်ပြောဆို သို့မဟုတ် ရိုက်ထည့်သောအရာများသည် ဤစက်မှ အပြင်သို့ မထွက်ပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "ဦးစားပေး"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "တိုးတက်မှု"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "တိုးတက်မှုသည် သင်ပြီးစီးခဲ့သော မှတ်တိုင်များ၏ အချိုးအစား ဖြစ်သည်။"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "တိုးတက်မှုသည် စာအုပ် ၂၀ တွင် ၁၂ အုပ်ကဲ့သို့ ပစ်မှတ်နှင့် နှိုင်းယှဉ်ထားသော သင်၏ လက်ရှိ အရေအတွက် ဖြစ်သည်။"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "အသံထွက်ဖတ်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "အဆင်သင့်ဖြစ်ပါပြီ"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "မကြာသေးမီက"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "ပြန်လည်စတင်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "ဖယ်ရှားရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "နေရာလွတ်ရစေရန် ၎င်းတို့ကို ဖယ်ရှားပါ။ လိုအပ်သည့်အခါ ထပ်မံဒေါင်းလုဒ်လုပ်ပါမည်။"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "ပြန်ဖွင့်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "ပြန်လည်ရယူရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "ပြန်လည်စတင်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "အပြောင်းအလဲများကို သိမ်းရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "ပန်းတိုင်များကို ရှာရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "မပြီးသေးသော သင်၏ အလုပ်များကို ရှာရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "စီရန် နည်းလမ်း"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "လေ့လာမှု၊ ကျန်းမာရေး၊ အလုပ်…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "လာမည့်အပတ်အတွက် အကြံပြုထားသော ဦးစားပေးများ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "ပစ်မှတ်"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "ပစ်မှတ်ရက်စွဲ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "ပစ်မှတ်ရက်စွဲ (YYYY-MM-DD၊ စိတ်ကြိုက်)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "ပြီးစီးသော အလုပ်များ"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "ဤပန်းတိုင်အတွက် အလုပ်များ"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "ပထမဆုံး အစီအစဉ်ဆွဲခြင်းသည် စက်တွင်း AI မော်ဒယ်များ (ခန့်မှန်းခြေ 2.3 GB) ကို ဒေါင်းလုဒ်လုပ်ပါမည်။"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "ပန်းတိုင်နှင့် ၎င်း၏ မှတ်တိုင်များကို ဖယ်ရှားလိုက်ပါပြီ။ သင်၏ အလုပ်များကို နေရာများ တွင် ဆက်လက်ထားရှိမည်ဖြစ်ပြီး ဤပန်းတိုင်သို့ ညွှန်ပြတော့မည် မဟုတ်ပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "ပြီးခဲ့သည့် ခုနစ်ရက်၊ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "AI ကို ပထမဆုံးအကြိမ် အသုံးပြုသည့်အခါ သို့မဟုတ် ယခု ဒေါင်းလုဒ်လုပ်ပါမည်။"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "ဤပန်းတိုင်သည် ကိန်းဂဏန်းတစ်ခုကို ခြေရာခံသည်။ မှတ်တိုင်များသည် လမ်းခရီးရှိ ရပ်နားရာများကို မှတ်သားထားဆဲဖြစ်သော်လည်း ရာခိုင်နှုန်းကို မပြောင်းလဲစေပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "ခေါင်းစဉ်"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "စုစုပေါင်း"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "ကိန်းဂဏန်းတစ်ခုကို ခြေရာခံပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "အခြား စစ်ထုတ်မှု သို့မဟုတ် အခြား ရှာဖွေမှုတစ်ခုကို စမ်းကြည့်ပါ။"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "ယူနစ်"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "ချိတ်ဆက်မှု ဖြုတ်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "အပ်ဒိတ်လုပ်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "အပတ်စဉ် ပြန်လည်သုံးသပ်ချက်"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "သင်ဘာကို အောင်မြင်ချင်ပါသလဲ။"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "အဘယ်ကြောင့် အရေးကြီးသနည်း"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "ဒါကို လုပ်ဆောင်ရသည့် သင်၏ အကြောင်းပြချက်"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} ကျန်ရှိ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "လုပ်ဆောင်ဆဲ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "ပြီးစီး {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} ခုသည် {} ရက်အတွင်း သတ်မှတ်ရက်"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} ခုသည် ယနေ့ သတ်မှတ်ရက်"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} ခုသည် မနက်ဖြန် သတ်မှတ်ရက်"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "အာရုံစိုက်မှု {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} တွင် {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} တွင် {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "မှတ်တိုင် {} ခုအနက် {} ခု ပြီးစီး"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "အလုပ် {} ခုအနက် {} ခု ပြီးစီး"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "ရက်ကျော်လွန် {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "ခေတ္တရပ်ထား {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} ခု ကျန်ရှိ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "မှတ်တိုင် သို့မဟုတ် ပစ်မှတ်ရက်စွဲ ထည့်ရန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "{} တွင် သတ်မှတ်ရက်"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "{} ရက်အတွင်း သတ်မှတ်ရက်"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "ယနေ့ သတ်မှတ်ရက်"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "မနက်ဖြန် သတ်မှတ်ရက်"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "မှတ်တိုင်အားလုံး ပြီးစီးပါပြီ"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "အာရုံစိုက်ချိန် မှတ်တမ်းတင်ပြီးပါပြီ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "ပြီးစီးသော မှတ်တိုင်များ- {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{} ရက်တိုင် လှုပ်ရှားမှု မရှိပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "မှတ်တိုင် မရှိသေးပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} ရက် ကျော်လွန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "၁ ရက် ကျော်လွန်"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "အစီအစဉ်ဆွဲပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "အစီအစဉ်ဆွဲနေသည်..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "တိုးတက်မှုကို မြင်တွေ့ရန် ပစ်မှတ်တစ်ခု သတ်မှတ်ပါ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "ပစ်မှတ်သို့ ရောက်ရှိပါပြီ"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "ပြီးစီးသော အလုပ်များ- {}"
+
+msgid "Planning"
+msgstr "အစီအစဉ်ဆွဲခြင်း"
+
+msgid "Speech to text"
+msgstr "အသံမှ စာသားသို့"
+
+msgid "Add subtask"
+msgstr "အလုပ်ခွဲ ထည့်ရန်"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "သင့်အလုပ်များအကြောင်း မေးပါ သို့မဟုတ် သင်စီစဉ်လိုသည်များကို ပြောပြပါ။ သင်အတည်မပြုမချင်း မည်သည့်အရာမျှ ပြောင်းလဲမည်မဟုတ်ပါ။"
+
+msgid "Asking AI..."
+msgstr "AI ကို မေးနေသည်..."
+
+msgid "Chat"
+msgstr "စကားပြော"
+
+msgid "Chats"
+msgstr "စကားပြောများ"
+
+msgid "Click again to delete"
+msgstr "ဖျက်ရန် ထပ်နှိပ်ပါ"
+
+msgid "Collapse"
+msgstr "ခေါက်သိမ်းရန်"
+
+msgid "Collapse menu"
+msgstr "မီနူး ခေါက်သိမ်းရန်"
+
+msgid "Copy"
+msgstr "ကူးယူရန်"
+
+msgid "Count my focus hours"
+msgstr "ကျွန်ုပ်၏ အာရုံစိုက်ချိန်ကို ရေတွက်ရန်"
+
+msgid "Decrease"
+msgstr "လျှော့ချရန်"
+
+msgid "Deep"
+msgstr "အသေးစိတ်"
+
+msgid "Delete chat"
+msgstr "စကားပြော ဖျက်ရန်"
+
+msgid "Delete note"
+msgstr "မှတ်စု ဖျက်ရန်"
+
+msgid "Delete subtask"
+msgstr "အလုပ်ခွဲ ဖျက်ရန်"
+
+msgid "Delete this chat?"
+msgstr "ဤစကားပြောကို ဖျက်မလား။"
+
+msgid "Dictate"
+msgstr "အသံဖြင့် စာရိုက်ရန်"
+
+msgid "Exit full screen"
+msgstr "မျက်နှာပြင်ပြည့်မှ ထွက်ရန်"
+
+msgid "Expand"
+msgstr "ချဲ့ရန်"
+
+msgid "Expand menu"
+msgstr "မီနူး ချဲ့ရန်"
+
+msgid "Fork from here"
+msgstr "ဤနေရာမှ အသစ်စတင်ရန်"
+
+msgid "Fork this chat"
+msgstr "ဤစကားပြောကို မိတ္တူကူးရန်"
+
+msgid "Full screen"
+msgstr "မျက်နှာပြင်ပြည့်"
+
+msgid "Hide subtasks"
+msgstr "အလုပ်ခွဲများ ဝှက်ရန်"
+
+msgid "Increase"
+msgstr "တိုးမြှင့်ရန်"
+
+msgid "Jump to latest"
+msgstr "နောက်ဆုံးသို့ သွားရန်"
+
+msgid "Launch"
+msgstr "ယနေ့အတွက် စတင်ရန်"
+
+msgid "Let the assistant search the web"
+msgstr "လက်ထောက်ကို ဝဘ်တွင် ရှာဖွေခွင့်ပြုရန်"
+
+msgid "Maximize"
+msgstr "အကြီးဆုံးချဲ့ရန်"
+
+msgid "Merging the notes"
+msgstr "မှတ်စုများ ပေါင်းစည်းနေသည်"
+
+msgid "Message"
+msgstr "မက်ဆေ့ဂျ်"
+
+msgid "Minimize"
+msgstr "အသေးဆုံးချုံ့ရန်"
+
+msgid "More"
+msgstr "နောက်ထပ်"
+
+msgid "Move back"
+msgstr "နောက်သို့ ရွှေ့ရန်"
+
+msgid "Move down"
+msgstr "အောက်သို့ ရွှေ့ရန်"
+
+msgid "Move forward"
+msgstr "ရှေ့သို့ ရွှေ့ရန်"
+
+msgid "Move up"
+msgstr "အပေါ်သို့ ရွှေ့ရန်"
+
+msgid "New chat"
+msgstr "စကားပြော အသစ်"
+
+msgid "New space"
+msgstr "နေရာ အသစ်"
+
+msgid "Next mode"
+msgstr "နောက်မုဒ်"
+
+msgid "Next version"
+msgstr "နောက်ဗားရှင်း"
+
+msgid "Next week"
+msgstr "နောက်တစ်ပတ်"
+
+msgid "Planned the searches"
+msgstr "ရှာဖွေမှုများ စီစဉ်ပြီးပါပြီ"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "စီစဉ်ခြင်း၊ အသံမှတ်သားခြင်းနှင့် အသံထွက်ဖတ်ခြင်းတို့ကို ဤစက်ပစ္စည်းပေါ်တွင် လုပ်ဆောင်ပါသည်။ သင်ခွင့်ပြုထားသော ဝဘ်ရှာဖွေမှုများသာ အွန်လိုင်းသို့ ရောက်ရှိပါသည်။"
+
+msgid "Previous mode"
+msgstr "ယခင်မုဒ်"
+
+msgid "Previous version"
+msgstr "ယခင်ဗားရှင်း"
+
+msgid "Previous week"
+msgstr "ပြီးခဲ့သည့်အပတ်"
+
+msgid "Quick"
+msgstr "အမြန်"
+
+msgid "Reading {}"
+msgstr "{} ကို ဖတ်နေသည်"
+
+msgid "Redo"
+msgstr "ပြန်လုပ်ရန်"
+
+msgid "Searching: {}"
+msgstr "ရှာဖွေနေသည်: {}"
+
+msgid "Send"
+msgstr "ပို့ရန်"
+
+msgid "Show subtasks"
+msgstr "အလုပ်ခွဲများ ပြရန်"
+
+msgid "Skipped {}"
+msgstr "{} ကို ကျော်သွားသည်"
+
+msgid "Standard"
+msgstr "ပုံမှန်"
+
+msgid "Start"
+msgstr "စတင်ရန်"
+
+msgid "Start focus on this task"
+msgstr "ဤအလုပ်ကို စတင် အာရုံစိုက်ရန်"
+
+msgid "Stop"
+msgstr "ရပ်ရန်"
+
+msgid "Stop recording"
+msgstr "အသံဖမ်းခြင်း ရပ်ရန်"
+
+msgid "Suggest with AI"
+msgstr "AI ဖြင့် အကြံပြုရန်"
+
+msgid "Switch to dark mode"
+msgstr "အမှောင်မုဒ်သို့ ပြောင်းရန်"
+
+msgid "Switch to light mode"
+msgstr "အလင်းမုဒ်သို့ ပြောင်းရန်"
+
+msgid "Target hours"
+msgstr "ပစ်မှတ်နာရီ"
+
+msgid "Thinking..."
+msgstr "စဉ်းစားနေသည်..."
+
+msgid "Took notes from {}"
+msgstr "{} မှ မှတ်စုများ ယူပြီးပါပြီ"
+
+msgid "Undo"
+msgstr "ပြန်ပြင်ရန်"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "ဖွင့်ထားပါက ရှာဖွေသည့်အရာများကို ရှာဖွေရေးဆိုက်များသို့ ပေးပို့သည်။ အခြားအရာအားလုံးသည် ဤစက်ပစ္စည်းပေါ်တွင်သာ ရှိနေမည်ဖြစ်သည်။"
+
+msgid "Writing the answer"
+msgstr "အဖြေ ရေးနေသည်"
+
+msgid "Yes, delete"
+msgstr "ဟုတ်ကဲ့၊ ဖျက်ပါ"
+
+msgid "Yesterday"
+msgstr "မနေ့က"
+
+msgid "{} results"
+msgstr "ရလဒ် {} ခု"
+
+msgid "A longer rest"
+msgstr "ပိုရှည်သော အနားယူချိန်"
+
+msgid "A short rest"
+msgstr "ခဏနားချိန်"
+
+msgid "A work session"
+msgstr "အလုပ်လုပ်ချိန်"
+
+msgid "Activity for the day"
+msgstr "နေ့စဉ် လုပ်ဆောင်ချက်"
+
+msgid "Activity for the month"
+msgstr "လစဉ် လုပ်ဆောင်ချက်"
+
+msgid "Activity for the week"
+msgstr "အပတ်စဉ် လုပ်ဆောင်ချက်"
+
+msgid "Activity for the year"
+msgstr "နှစ်စဉ် လုပ်ဆောင်ချက်"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "သင်လိုအပ်သည်ကို ဖော်ပြပါ၊ လက်ထောက်က စီစဉ်ပေးပါမည်"
+
+msgid "Go to this week"
+msgstr "ယခုအပတ်သို့ သွားပါ"
+
+msgid "Move to this week"
+msgstr "ယခုအပတ်သို့ ရွှေ့ပါ"
+
+msgid "See tasks in columns"
+msgstr "အလုပ်များကို ကော်လံများဖြင့် ကြည့်ပါ"
+
+msgid "See tasks on a weekly calendar"
+msgstr "အပတ်စဉ် ပြက္ခဒိန်တွင် အလုပ်များ ကြည့်ပါ"
+
+msgid "Set your own length"
+msgstr "ကိုယ်ပိုင်ကြာချိန် သတ်မှတ်ပါ"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "အရေးကြီးမှုနှင့် အရေးပေါ်မှုအလိုက် အလုပ်များ စီပါ"
+
+msgid "Take it off the calendar"
+msgstr "ပြက္ခဒိန်မှ ဖယ်ရှားပါ"

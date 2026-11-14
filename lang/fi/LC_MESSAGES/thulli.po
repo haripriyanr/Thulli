@@ -688,3 +688,839 @@ msgstr "Tänään suunniteltu"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Tänään ei ole suunniteltua mitään. Lisää tehtäviä Tilat-näkymässä."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Tavoite on asia, jonka haluat saavuttaa. Jaa se virstanpylväisiin, liitä siihen vievät tehtävät ja seuraa edistymistäsi."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Tietoja tästä tavoitteesta"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktiivinen"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Lisää virstanpylväs"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "Tekoäly"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Tekoälymallit (noin 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Tekoälymallit asennettu"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Muuta muistamisen arvoista"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arkistoi"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Arkistoitu"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Takaisin tavoitteisiin"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "kirjat, tunnit…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Luokka"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Muuta virstanpylvästä"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Sulje"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Tulossa"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Suoritettu"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Laske virstanpylväät"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Luo aktiivinen tavoite saadaksesi ehdotuksia."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Luo tavoite"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Luo ensimmäinen tavoitteesi"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Nykyinen"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Nykyinen arvo"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Päivämäärä (valinnainen)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Poista"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Poista tavoite"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Poistetaanko tämä tavoite?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Kuvaile tulosta"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Kuvaus"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Valmis"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Lataa nyt"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Ladataan..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Muokkaa tavoitetta"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Tavoitteisiin käytetty keskittymisaika"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Tavoitteet"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Tällä viikolla edistyneet tavoitteet"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Korkea"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Korkea prioriteetti"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Historia"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Miten edistyminen lasketaan?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Käynnissä"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Säilytä tavoite"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Viimeiset 7 päivää"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Linkitä tehtävä"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Matala"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Matala prioriteetti"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Merkitse suoritetuksi"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Keskitaso"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Keskitason prioriteetti"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Virstanpylväs"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Virstanpylväs: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Virstanpylväät"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Suoritetut virstanpylväät"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Vaatii huomiota"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Uusi tavoite"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Seuraavaksi: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Ei määräaikoja seuraavan seitsemän päivän aikana."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Tälle tavoitteelle ei ole vielä keskittymisjaksoja. Aloita keskittymiskierros yhdessä sen tehtävistä."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Yhdelläkään tavoitteella ei ollut virstanpylvästä, tehtävää tai keskittymisjaksoa tällä viikolla."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Ei vastaavia tavoitteita"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Ei vielä tavoitteita"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Ei vielä virstanpylväitä. Lisää ensimmäinen pysäkki matkalla kohti tätä tavoitetta."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Ei avoimia tehtäviä linkitettäväksi. Tavoitteeseen jo liitettyjä tehtäviä ei näytetä."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Ei vielä linkitettyjä tehtäviä. Linkitä tehtäviä Tiloista nähdäksesi ne täällä."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Mikään ei ole myöhässä tai pysähdyksissä. Hienoa."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Avoinna"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Avaa Tilat"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Keskeytä"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Keskeytetty"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Kiinnitä uudet linkit virstanpylvääseen"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Suunnittelu, puheentunnistus ja ääneenluku toimivat kaikki tällä laitteella. Mikään sanomasi tai kirjoittamasi ei poistu laitteelta."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioriteetti"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Edistyminen"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Edistyminen on suorittamiesi virstanpylväiden osuus."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Edistyminen on nykyinen määräsi suhteessa tavoitteeseen, kuten 12/20 kirjaa."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Lue ääneen"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Valmis"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Viimeaikaiset"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Päivitä"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Poista"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Poista ne vapauttaaksesi tilaa; ne ladataan tarvittaessa uudelleen."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Avaa uudelleen"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Palauta"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Jatka"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Tallenna muutokset"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Etsi tavoitteita"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Etsi avoimia tehtäviäsi"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Lajitteluperuste"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Opiskelu, terveys, työ…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Ehdotetut prioriteetit ensi viikolle"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Tavoite"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Tavoitepäivä"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Tavoitepäivä (YYYY-MM-DD, valinnainen)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Suoritetut tehtävät"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Tämän tavoitteen tehtävät"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Ensimmäinen suunnitelma lataa laitteessa toimivat tekoälymallit (noin 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Tavoite ja sen virstanpylväät poistetaan. Tehtäväsi säilyvät Tiloissa; ne vain lakkaavat osoittamasta tähän tavoitteeseen."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Viimeiset seitsemän päivää, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Ne ladataan, kun käytät tekoälyä ensimmäisen kerran, tai nyt."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Tämä tavoite seuraa numeroa. Virstanpylväät merkitsevät edelleen välietappeja, mutta ne eivät muuta prosenttiosuutta."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Otsikko"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Yhteensä"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Seuraa lukumäärää"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Kokeile toista suodatinta tai toista hakua."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Yksikkö"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Poista linkitys"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Päivitä"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Viikkokatsaus"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Mitä haluat saavuttaa?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Miksi se on tärkeää"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Syysi tehdä tämä"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "jäljellä {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktiivisena"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} suoritettu"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} erääntyy {} päivän kuluttua"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} erääntyy tänään"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} erääntyy huomenna"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} keskitytty"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} virstanpylvästä suoritettu"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} tehtävää tehty"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} myöhässä"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} keskeytetty"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "jäljellä {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Lisää virstanpylväs tai tavoitepäivä"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Erääntyy {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Erääntyy {} päivän kuluttua"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Erääntyy tänään"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Erääntyy huomenna"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Kaikki virstanpylväät suoritettu"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Keskittymisaika kirjattu"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Virstanpylväitä suoritettu: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Ei toimintaa {} päivään"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Ei vielä virstanpylväitä"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Myöhässä {} päivää"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Myöhässä 1 päivän"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Suunnittele"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Suunnitellaan..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Aseta tavoite nähdäksesi edistymisen"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Tavoite saavutettu"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Tehtäviä tehty: {}"
+
+msgid "Planning"
+msgstr "Suunnittelu"
+
+msgid "Speech to text"
+msgstr "Puhe tekstiksi"
+
+msgid "Add subtask"
+msgstr "Lisää alitehtävä"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Kysy tehtävistäsi tai kuvaile, mitä haluat suunnitella. Mikään ei muutu ennen kuin hyväksyt sen."
+
+msgid "Asking AI..."
+msgstr "Kysytään tekoälyltä..."
+
+msgid "Chat"
+msgstr "Keskustelu"
+
+msgid "Chats"
+msgstr "Keskustelut"
+
+msgid "Click again to delete"
+msgstr "Poista napsauttamalla uudelleen"
+
+msgid "Collapse"
+msgstr "Kutista"
+
+msgid "Collapse menu"
+msgstr "Kutista valikko"
+
+msgid "Copy"
+msgstr "Kopioi"
+
+msgid "Count my focus hours"
+msgstr "Laske keskittymistuntini"
+
+msgid "Decrease"
+msgstr "Pienennä"
+
+msgid "Deep"
+msgstr "Syvällinen"
+
+msgid "Delete chat"
+msgstr "Poista keskustelu"
+
+msgid "Delete note"
+msgstr "Poista muistiinpano"
+
+msgid "Delete subtask"
+msgstr "Poista alitehtävä"
+
+msgid "Delete this chat?"
+msgstr "Poistetaanko tämä keskustelu?"
+
+msgid "Dictate"
+msgstr "Sanele"
+
+msgid "Exit full screen"
+msgstr "Poistu koko näytöstä"
+
+msgid "Expand"
+msgstr "Laajenna"
+
+msgid "Expand menu"
+msgstr "Laajenna valikko"
+
+msgid "Fork from here"
+msgstr "Haaraudu tästä"
+
+msgid "Fork this chat"
+msgstr "Haaraudu tästä keskustelusta"
+
+msgid "Full screen"
+msgstr "Koko näyttö"
+
+msgid "Hide subtasks"
+msgstr "Piilota alitehtävät"
+
+msgid "Increase"
+msgstr "Suurenna"
+
+msgid "Jump to latest"
+msgstr "Siirry uusimpaan"
+
+msgid "Launch"
+msgstr "Käynnistä"
+
+msgid "Let the assistant search the web"
+msgstr "Anna avustajan hakea verkosta"
+
+msgid "Maximize"
+msgstr "Suurenna"
+
+msgid "Merging the notes"
+msgstr "Yhdistetään muistiinpanoja"
+
+msgid "Message"
+msgstr "Viesti"
+
+msgid "Minimize"
+msgstr "Pienennä"
+
+msgid "More"
+msgstr "Lisää"
+
+msgid "Move back"
+msgstr "Siirrä taaksepäin"
+
+msgid "Move down"
+msgstr "Siirrä alas"
+
+msgid "Move forward"
+msgstr "Siirrä eteenpäin"
+
+msgid "Move up"
+msgstr "Siirrä ylös"
+
+msgid "New chat"
+msgstr "Uusi keskustelu"
+
+msgid "New space"
+msgstr "Uusi tila"
+
+msgid "Next mode"
+msgstr "Seuraava tila"
+
+msgid "Next version"
+msgstr "Seuraava versio"
+
+msgid "Next week"
+msgstr "Ensi viikko"
+
+msgid "Planned the searches"
+msgstr "Haut suunniteltu"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Suunnittelu, puheentunnistus ja ääneenluku toimivat tällä laitteella. Vain sallimasi verkkohaut menevät nettiin."
+
+msgid "Previous mode"
+msgstr "Edellinen tila"
+
+msgid "Previous version"
+msgstr "Edellinen versio"
+
+msgid "Previous week"
+msgstr "Viime viikko"
+
+msgid "Quick"
+msgstr "Nopea"
+
+msgid "Reading {}"
+msgstr "Luetaan kohdetta {}"
+
+msgid "Redo"
+msgstr "Tee uudelleen"
+
+msgid "Searching: {}"
+msgstr "Haetaan: {}"
+
+msgid "Send"
+msgstr "Lähetä"
+
+msgid "Show subtasks"
+msgstr "Näytä alitehtävät"
+
+msgid "Skipped {}"
+msgstr "Ohitettu {}"
+
+msgid "Standard"
+msgstr "Normaali"
+
+msgid "Start"
+msgstr "Aloita"
+
+msgid "Start focus on this task"
+msgstr "Aloita keskittyminen tähän tehtävään"
+
+msgid "Stop"
+msgstr "Pysäytä"
+
+msgid "Stop recording"
+msgstr "Lopeta tallennus"
+
+msgid "Suggest with AI"
+msgstr "Ehdota tekoälyllä"
+
+msgid "Switch to dark mode"
+msgstr "Vaihda tummaan tilaan"
+
+msgid "Switch to light mode"
+msgstr "Vaihda vaaleaan tilaan"
+
+msgid "Target hours"
+msgstr "Tavoitetunnit"
+
+msgid "Thinking..."
+msgstr "Ajatellaan..."
+
+msgid "Took notes from {}"
+msgstr "Tehtiin muistiinpanoja kohteesta {}"
+
+msgid "Undo"
+msgstr "Kumoa"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Kun asetus on päällä, hakusanat lähetetään käytetyille hakusivustoille. Kaikki muu pysyy tällä laitteella."
+
+msgid "Writing the answer"
+msgstr "Kirjoitetaan vastausta"
+
+msgid "Yes, delete"
+msgstr "Kyllä, poista"
+
+msgid "Yesterday"
+msgstr "Eilen"
+
+msgid "{} results"
+msgstr "{} tulosta"
+
+msgid "A longer rest"
+msgstr "Pidempi tauko"
+
+msgid "A short rest"
+msgstr "Lyhyt tauko"
+
+msgid "A work session"
+msgstr "Työjakso"
+
+msgid "Activity for the day"
+msgstr "Päivän aktiivisuus"
+
+msgid "Activity for the month"
+msgstr "Kuukauden aktiivisuus"
+
+msgid "Activity for the week"
+msgstr "Viikon aktiivisuus"
+
+msgid "Activity for the year"
+msgstr "Vuoden aktiivisuus"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Kerro tarpeesi, niin avustaja suunnittelee sen"
+
+msgid "Go to this week"
+msgstr "Siirry tähän viikkoon"
+
+msgid "Move to this week"
+msgstr "Siirrä tähän viikkoon"
+
+msgid "See tasks in columns"
+msgstr "Tehtävät sarakkeissa"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Tehtävät viikkokalenterissa"
+
+msgid "Set your own length"
+msgstr "Aseta oma kesto"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Järjestä kiireellisyyden ja tärkeyden mukaan"
+
+msgid "Take it off the calendar"
+msgstr "Poista kalenterista"

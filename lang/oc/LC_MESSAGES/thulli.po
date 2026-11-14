@@ -688,3 +688,839 @@ msgstr "Planificat per uèi"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Res es pas planificat per uèi. Ajustatz de tascas sus l'ecran Espacis."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Un objectiu es quicòm que volètz aténher. Devesissètz-lo en jalons, ligatz las tascas que vos i menan e agachatz vòstre progrès avançar."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "A prepaus d'aqueste objectiu"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Actiu"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Ajustar un jalon"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "IA"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Modèls d'IA (a l'entorn de 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Modèls d'IA installats"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Quicòm mai de reténer"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Archivar"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Archivat"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Tornar als objectius"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "libres, oras…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Categoria"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Cambiar de jalon"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Tampar"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "De venir"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Completat"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Comptar los jalons"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Creatz un objectiu actiu per recebre de suggestions."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Crear un objectiu"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Creatz vòstre primièr objectiu"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Actual"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Valor actuala"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Data (facultatiu)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Suprimir"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Suprimir l'objectiu"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Suprimir aqueste objectiu ?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Descrivètz lo resultat"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Descripcion"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Fach"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Telecargar ara"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Telecargament..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Modificar l'objectiu"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Temps de concentracion suls objectius"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Objectius"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Objectius qu'avancèron aquesta setmana"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Nauta"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Prioritat nauta"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Istoric"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Com es comptat lo progrès ?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "En jòc"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Gardar l'objectiu"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Darrièrs 7 jorns"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Ligar una tasca"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Bassa"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Prioritat bassa"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Marcar coma completat"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Mejana"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Prioritat mejana"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Jalon"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Jalon : {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Jalons"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Jalons completats"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "A besonh d'atencion"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Objectiu novèl"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Seguent : {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Cap d'escasença dins los sèt jorns venents."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Cap de session de concentracion sus aqueste objectiu pel moment. Comencetz un torn de concentracion sus una de las seunas tascas."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Cap d'objectiu aguèt pas de jalon, de tasca o de session de concentracion aquesta setmana."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Cap d'objectiu correspond pas"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Cap d'objectiu pel moment"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Cap de jalon pel moment. Ajustatz la primièra estapa sul camin cap a aqueste objectiu."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Cap de tasca dobèrta de ligar. Las tascas ja compresas dins un objectiu s'afichan pas."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Cap de tasca ligada pel moment. Ligatz de tascas dempuèi Espacis per las veire aicí."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Pas res es en retard nimai inactiu. Plan."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Dobrir"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Dobrir Espacis"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Metre en pausa"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "En pausa"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Penjar de ligams novèls a un jalon"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "La planificacion, la reconoissença vocala e la lectura de votz nauta s'executan sus aqueste periferic. Pas res de çò que disètz o picatz ne sòrt."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioritat"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Progrès"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Lo progrès correspond a la part de jalons qu'avètz completats."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Lo progrès es vòstre nombre actual al vejaire de la cibla, per exemple 12 sus 20 libres."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Legir de votz nauta"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Prèst"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Recent"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Actualizar"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Suprimir"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Suprimissètz-los per liberar d'espaci ; se telecargaràn tornamai quand ne serà besonh."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Tornar dobrir"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Restablir"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Reprene"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Enregistrar los cambiaments"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Recercar d'objectius"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Recercar las teunas tascas dobèrtas"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Trier per"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Estudis, santat, trabalh…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Prioritats suggeridas per la setmana venenta"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Cibla"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Data cibla"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Data cibla (YYYY-MM-DD, facultatiu)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Tascas completadas"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Tascas per aqueste objectiu"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Lo primièr plan telecarga los modèls d'IA sul periferic (a l'entorn de 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "L'objectiu e los seuns jalons son suprimits. Las teunas tascas son gardadas dins Espacis ; daissan simplament de puntar cap a aqueste objectiu."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Los darrièrs sèt jorns, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Se telecargan lo primièr còp qu'utilizatz l'IA, o ara."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Aqueste objectiu seguís un nombre. Los jalons marcan totjorn las etapas pel camin, mas modifican pas lo percentatge."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Títol"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Total"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Seguir un nombre"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Ensajatz un autre filtre o una recèrca diferenta."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Unitat"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Desligar"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Metre a jorn"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Balanç setmanièr"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Çò que volètz realizar ?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Perqué es important"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "La teuna rason de far aquò"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "encara {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} actius"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} completats"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} vençon d'aquí {} jorns"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} vençon uèi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} vençon deman"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} amb concentracion"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} sus {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} sus {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} sus {} jalons completats"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} sus {} tascas completadas"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} en retard"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} en pausa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "encara {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Ajustar un jalon o una data cibla"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Venç lo {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Venç d'aquí {} jorns"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Venç uèi"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Venç deman"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Cada jalon es completat"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Temps de concentracion enregistrat"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Jalons completats : {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Cap d'activitat dempuèi {} jorns"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Cap de jalon pel moment"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "En retard de {} jorns"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "En retard de 1 jorn"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Planificar"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Planificacion..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Definissètz una cibla per veire lo progrès"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Cibla atencha"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Tascas completadas : {}"
+
+msgid "Planning"
+msgstr "Planificacion"
+
+msgid "Speech to text"
+msgstr "Votz a tèxt"
+
+msgid "Add subtask"
+msgstr "Apondre una sostèsca"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Demandatz sus vòstres prètzfaches, o descrivètz çò que volètz planificar. Res non càmbia fins que o aprovatz."
+
+msgid "Asking AI..."
+msgstr "A demandar a l'IA..."
+
+msgid "Chat"
+msgstr "Conversacion"
+
+msgid "Chats"
+msgstr "Conversacions"
+
+msgid "Click again to delete"
+msgstr "Tornatz clicar per suprimir"
+
+msgid "Collapse"
+msgstr "Plegar"
+
+msgid "Collapse menu"
+msgstr "Plegar lo menú"
+
+msgid "Copy"
+msgstr "Copiar"
+
+msgid "Count my focus hours"
+msgstr "Comptar mas oras de concentracion"
+
+msgid "Decrease"
+msgstr "Demesir"
+
+msgid "Deep"
+msgstr "Prigond"
+
+msgid "Delete chat"
+msgstr "Suprimir la conversacion"
+
+msgid "Delete note"
+msgstr "Suprimir la nòta"
+
+msgid "Delete subtask"
+msgstr "Suprimir la sostèsca"
+
+msgid "Delete this chat?"
+msgstr "Suprimir aquesta conversacion?"
+
+msgid "Dictate"
+msgstr "Dictar"
+
+msgid "Exit full screen"
+msgstr "Quitar l'ecran complet"
+
+msgid "Expand"
+msgstr "Desplegar"
+
+msgid "Expand menu"
+msgstr "Desplegar lo menú"
+
+msgid "Fork from here"
+msgstr "Bifurcar d'aquí"
+
+msgid "Fork this chat"
+msgstr "Bifurcar aquesta conversacion"
+
+msgid "Full screen"
+msgstr "Ecran complet"
+
+msgid "Hide subtasks"
+msgstr "Amagar las sostèscas"
+
+msgid "Increase"
+msgstr "Aumentar"
+
+msgid "Jump to latest"
+msgstr "Sautar al mai recent"
+
+msgid "Launch"
+msgstr "Aviar"
+
+msgid "Let the assistant search the web"
+msgstr "Permetre a l'assistent de cercar sus la tela"
+
+msgid "Maximize"
+msgstr "Maximizar"
+
+msgid "Merging the notes"
+msgstr "Fusion de las nòtas"
+
+msgid "Message"
+msgstr "Messatge"
+
+msgid "Minimize"
+msgstr "Minimizar"
+
+msgid "More"
+msgstr "Mai"
+
+msgid "Move back"
+msgstr "Tornar enrèire"
+
+msgid "Move down"
+msgstr "Davalar"
+
+msgid "Move forward"
+msgstr "Avançar"
+
+msgid "Move up"
+msgstr "Pujar"
+
+msgid "New chat"
+msgstr "Novèla conversacion"
+
+msgid "New space"
+msgstr "Novèl espaci"
+
+msgid "Next mode"
+msgstr "Mòde seguent"
+
+msgid "Next version"
+msgstr "Version seguenta"
+
+msgid "Next week"
+msgstr "La setmana que ven"
+
+msgid "Planned the searches"
+msgstr "Recèrcas planificadas"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "La planificacion, la reconeissença vocala e la lectura a votz nauta foncionan sus aqueste periferic. Solas las recèrcas que permetètz van en linha."
+
+msgid "Previous mode"
+msgstr "Mòde precedent"
+
+msgid "Previous version"
+msgstr "Version precedenta"
+
+msgid "Previous week"
+msgstr "La setmana passada"
+
+msgid "Quick"
+msgstr "Rapid"
+
+msgid "Reading {}"
+msgstr "Lectura de {}"
+
+msgid "Redo"
+msgstr "Refar"
+
+msgid "Searching: {}"
+msgstr "Recèrca: {}"
+
+msgid "Send"
+msgstr "Mandar"
+
+msgid "Show subtasks"
+msgstr "Mostrar las sostèscas"
+
+msgid "Skipped {}"
+msgstr "Ignorat {}"
+
+msgid "Standard"
+msgstr "Estandard"
+
+msgid "Start"
+msgstr "Aviar"
+
+msgid "Start focus on this task"
+msgstr "Se concentrar sus aqueste prètzfach"
+
+msgid "Stop"
+msgstr "Arrestar"
+
+msgid "Stop recording"
+msgstr "Arrestar l'enregistrament"
+
+msgid "Suggest with AI"
+msgstr "Suggerir amb l'IA"
+
+msgid "Switch to dark mode"
+msgstr "Passar al mòde escur"
+
+msgid "Switch to light mode"
+msgstr "Passar al mòde clar"
+
+msgid "Target hours"
+msgstr "Oras ciblas"
+
+msgid "Thinking..."
+msgstr "A pensar..."
+
+msgid "Took notes from {}"
+msgstr "Nòtas presas de {}"
+
+msgid "Undo"
+msgstr "Desfar"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Quand es activat, çò que cerca es mandat als sites de recèrca utilizats. Tota la rèsta demòra sus aqueste periferic."
+
+msgid "Writing the answer"
+msgstr "Redaccion de la responsa"
+
+msgid "Yes, delete"
+msgstr "Òc, suprimir"
+
+msgid "Yesterday"
+msgstr "Ièr"
+
+msgid "{} results"
+msgstr "{} resultats"
+
+msgid "A longer rest"
+msgstr "Un repaus mai long"
+
+msgid "A short rest"
+msgstr "Un repaus cort"
+
+msgid "A work session"
+msgstr "Una session de trabalh"
+
+msgid "Activity for the day"
+msgstr "Activitat del jorn"
+
+msgid "Activity for the month"
+msgstr "Activitat del mes"
+
+msgid "Activity for the week"
+msgstr "Activitat de la setmana"
+
+msgid "Activity for the year"
+msgstr "Activitat de l'an"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Descrivètz çò que vos cal e l'assistent o planificarà"
+
+msgid "Go to this week"
+msgstr "Anar a aquesta setmana"
+
+msgid "Move to this week"
+msgstr "Desplaçar cap a aquesta setmana"
+
+msgid "See tasks in columns"
+msgstr "Veire los prètzfaches en colomnas"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Veire los prètzfaches sus un calendièr setmanièr"
+
+msgid "Set your own length"
+msgstr "Definir vòstra pròpria durada"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Triar los prètzfaches per urgéncia e importància"
+
+msgid "Take it off the calendar"
+msgstr "Levar del calendièr"

@@ -688,3 +688,839 @@ msgstr "Maanta loo qorsheeyay"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Maanta wax loo qorsheeyay ma jiro. Hawlo ku dar bogga Meelaha."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Hadafku waa wax aad doonayso inaad gaadho. U qaybi tallaabooyin muhiim ah, ku xidh hawlaha ku gaadhsiinaya, oo daawo horumarkaaga oo dhisamaya."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Ku saabsan hadafkan"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Firfircoon"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Ku dar tallaabo muhiim ah"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Moodooyinka AI (qiyaastii 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Moodooyinka AI waa la rakibay"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Wax kasta oo kale oo mudan in la xusuusto"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Kaydi"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "La kaydiyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Ku noqo hadaafyada"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "buugaag, saacado…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Qaybta"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Beddel tallaabada muhiimka ah"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Xidh"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Kuwa soo socda"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "La dhammeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Tiri tallaabooyinka muhiimka ah"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Abuur hadaf firfircoon si aad talooyin u hesho."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Abuur hadaf"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Abuur hadafkaagii ugu horreeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Hadda"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Qiimaha hadda"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Taariikhda (ikhtiyaari)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Tirtir"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Tirtir hadafka"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Ma tirtirtaa hadafkan?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Sharax natiijada"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Sharaxaad"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Dhammaystiran"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Hadda soo deji"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Waa la soo dejinayaa..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Wax ka beddel hadafka"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Waqtiga diiradda ee hadaafyada"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Hadaafyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Hadaafyadii hore u socday usbuucan"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Sare"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Mudnaan sare"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Taariikhda"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Sidee loo xisaabiyaa horumarka?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Socda"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Hayso hadafka"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "7-dii maalmood ee u dambeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Ku xidh hawl"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Hoose"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Mudnaan hoose"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Calaamadee in la dhammeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Dhexdhexaad"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Mudnaan dhexdhexaad ah"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Tallaabo muhiim ah"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Tallaabo muhiim ah: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Tallaabooyin muhiim ah"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Tallaabooyinka muhiimka ah ee la dhammeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Waxay u baahan tahay fiiro gaar ah"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Hadaf cusub"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Ku xiga: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Ma jiraan taariikho kama dambays ah todobada maalmood ee soo socda."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Weli ma jiraan kalfadhiyo diiradda lagu saaray hadafkan. Ka bilow wareeg diiradeed mid ka mid ah hawlihiisa."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Hadafna ma lahayn tallaabo muhiim ah, hawl ama kalfadhi diiradeed usbuucan."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Ma jiraan hadaafyo u dhigma"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Weli hadaafyo ma jiraan"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Weli ma jiraan tallaabooyin muhiim ah. Ku dar joogsiga ugu horreeya ee jidka loo maro hadafkan."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Ma jiraan hawlo furan oo la xidhi karo. Hawlaha mar hore ku jiray hadaf lama muujinayo."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Weli ma jiraan hawlo la xidhay. Ku xidh hawlaha Meelaha si aad halkan ugu aragto."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Waxba ma dhaafin waqtigoodii mana aamusna. Aad u wanaagsan."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Fur"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Fur Meelaha"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Hakad"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "La hakiyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Ku dheji xidhiidhyo cusub tallaabo muhiim ah"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Qorshaynta, aqoonsiga codka iyo akhriska kor loogu akhriyo dhammaantood waxay ka shaqeeyaan aaladdan. Waxba aad tidhaahdo ama qorto kama baxaan."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Mudnaanta"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Horumarka"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Horumarku waa saamiga tallaabooyinka muhiimka ah ee aad dhammaysay."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Horumarku waa tiradaada hadda ee la barbardhigo bartilmaameedka, sida 12 ka mid ah 20 buug."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Kor ugu akhri"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Diyaar"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Kuwii dhowaa"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Cusbooneysii"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Ka saar"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Ka saar si aad meel u banneyso; dib ayaa loo soo dejin doonaa marka loo baahdo."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Dib u fur"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Soo celi"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Sii wad"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Kaydi isbeddelada"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Raadi hadaafyada"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Raadi hawlahaaga furan"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "U kala saar"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Waxbarasho, caafimaad, shaqo…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Mudnaanta la soo jeediyay ee toddobaadka soo socda"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Bartilmaameed"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Taariikhda la beegsanayo"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Taariikhda la beegsanayo (YYYY-MM-DD, ikhtiyaari)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Hawlaha la dhammeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Hawlaha hadafkan"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Qorshaha ugu horreeya wuxuu soo dejiyaa moodooyinka AI ee aaladda (qiyaastii 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Hadafka iyo tallaabooyinkiisa muhiimka ah waa la saari doonaa. Hawlahaaga waxaa lagu hayn doonaa Meelaha; waxay kaliya joojin doonaan u tilmaamida hadafkan."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Toddobadii maalmood ee u dambeeyay, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Waxay soo degaan markii ugu horreysay ee aad isticmaasho AI, ama hadda."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Hadafkani wuxuu la socdaa tiro. Tallaabooyinka muhiimka ah wali waxay calaamadeeyaan joogsiyada jidka, laakiin ma beddelaan boqolkiiba."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Cinwaanka"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Wadarta"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "La soco tiro"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Isku day shaandheeye kale ama raadin ka duwan."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Halbeeg"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Ka saar xidhiidhka"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Cusbooneysii"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Dib-u-eegista toddobaadlaha ah"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Maxaad doonaysaa inaad gaadho?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Sababta ay muhiim u tahay"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Sababta aad tan u samaynayso"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} ayaa hadhay"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} firfircoon"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} la dhammeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} wuxuu ku egyahay {} maalmood gudahood"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} wuxuu ku egyahay maanta"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} wuxuu ku egyahay berri"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} diiradda la saaray"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} ka mid ah {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} ka mid ah {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} ka mid ah tallaabooyinka muhiimka ah ee {} waa la dhammeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} ka mid ah hawlaha {} waa la dhammeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} waqtigiisii dhaafay"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} la hakiyay"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} ayaa hadhay"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Ku dar tallaabo muhiim ah ama taariikhda la beegsanayo"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Wuxuu ku egyahay {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Wuxuu ku egyahay {} maalmood gudahood"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Wuxuu ku egyahay maanta"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Wuxuu ku egyahay berri"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Tallaabo kasta oo muhiim ah waa la dhammeeyay"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Waqtiga diiradda waa la qoray"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Tallaabooyinka muhiimka ah ee la qabtay: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Wax dhaqdhaqaaq ah ma jiro {} maalmood"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Weli ma jiraan tallaabooyin muhiim ah"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Waxaa la dhaafay {} maalmood"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Waxaa la dhaafay 1 maalin"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Qorshee"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Qorsheynaya..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Deji bartilmaameed si aad u aragto horumarka"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Bartilmaameedkii waa la gaadhay"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Hawlaha la qabtay: {}"
+
+msgid "Planning"
+msgstr "Qorshaynta"
+
+msgid "Speech to text"
+msgstr "Codka oo qoraal loo rogo"
+
+msgid "Add subtask"
+msgstr "Ku dar hawl-hoosaad"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Weydii hawlahaaga, ama sharax waxa aad rabto inaad qorsheyso. Waxba isma beddelayaan ilaa aad oggolaato."
+
+msgid "Asking AI..."
+msgstr "Weydiinaya AI..."
+
+msgid "Chat"
+msgstr "Wadahadal"
+
+msgid "Chats"
+msgstr "Wadahadallo"
+
+msgid "Click again to delete"
+msgstr "Mar kale guji si aad u tirtirto"
+
+msgid "Collapse"
+msgstr "Laab"
+
+msgid "Collapse menu"
+msgstr "Laab liiska"
+
+msgid "Copy"
+msgstr "Koobiyeey"
+
+msgid "Count my focus hours"
+msgstr "Tiri saacadaha diiradda"
+
+msgid "Decrease"
+msgstr "Yaree"
+
+msgid "Deep"
+msgstr "Dheer"
+
+msgid "Delete chat"
+msgstr "Tirtir wadahadalka"
+
+msgid "Delete note"
+msgstr "Tirtir qoraalka"
+
+msgid "Delete subtask"
+msgstr "Tirtir hawl-hoosaadka"
+
+msgid "Delete this chat?"
+msgstr "Ma tirtirtaa wadahadalkan?"
+
+msgid "Dictate"
+msgstr "Ku qor cod"
+
+msgid "Exit full screen"
+msgstr "Ka bax shaashadda buuxda"
+
+msgid "Expand"
+msgstr "Balaadhi"
+
+msgid "Expand menu"
+msgstr "Balaadhi liiska"
+
+msgid "Fork from here"
+msgstr "Halkan ka bilow wadahadal cusub"
+
+msgid "Fork this chat"
+msgstr "Koobiyeey wadahadalkan"
+
+msgid "Full screen"
+msgstr "Shaashad buuxda"
+
+msgid "Hide subtasks"
+msgstr "Qari hawl-hoosaadyada"
+
+msgid "Increase"
+msgstr "Kordhi"
+
+msgid "Jump to latest"
+msgstr "U bood kii ugu dambeeyay"
+
+msgid "Launch"
+msgstr "Bilow"
+
+msgid "Let the assistant search the web"
+msgstr "U oggolow kaaliyaha inuu ka raadiyo shabakadda"
+
+msgid "Maximize"
+msgstr "Weynee"
+
+msgid "Merging the notes"
+msgstr "Isku darka qoraallada"
+
+msgid "Message"
+msgstr "Farriin"
+
+msgid "Minimize"
+msgstr "Yaree"
+
+msgid "More"
+msgstr "Dheeraad"
+
+msgid "Move back"
+msgstr "Dib u celi"
+
+msgid "Move down"
+msgstr "Hoos u qaad"
+
+msgid "Move forward"
+msgstr "Horay u qaad"
+
+msgid "Move up"
+msgstr "Kor u qaad"
+
+msgid "New chat"
+msgstr "Wadahadal cusub"
+
+msgid "New space"
+msgstr "Meel cusub"
+
+msgid "Next mode"
+msgstr "Qaabka xiga"
+
+msgid "Next version"
+msgstr "Nooca xiga"
+
+msgid "Next week"
+msgstr "Toddobaadka dambe"
+
+msgid "Planned the searches"
+msgstr "Raadinta waa la qorsheeyay"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Qorsheynta, aqoonsiga codka iyo akhrinta kor waxay ku shaqeeyaan aaladdan. Kaliya raadinta shabakadda aad oggolaato ayaa khadka tooska ah gasha."
+
+msgid "Previous mode"
+msgstr "Qaabkii hore"
+
+msgid "Previous version"
+msgstr "Noocii hore"
+
+msgid "Previous week"
+msgstr "Toddobaadkii hore"
+
+msgid "Quick"
+msgstr "Degdeg"
+
+msgid "Reading {}"
+msgstr "Akhrinaya {}"
+
+msgid "Redo"
+msgstr "Ku celi"
+
+msgid "Searching: {}"
+msgstr "Raadinaya: {}"
+
+msgid "Send"
+msgstr "Dir"
+
+msgid "Show subtasks"
+msgstr "Muuji hawl-hoosaadyada"
+
+msgid "Skipped {}"
+msgstr "Waa laga booday {}"
+
+msgid "Standard"
+msgstr "Heerka caadiga ah"
+
+msgid "Start"
+msgstr "Bilow"
+
+msgid "Start focus on this task"
+msgstr "Ku bilow diiradda hawshan"
+
+msgid "Stop"
+msgstr "Jooji"
+
+msgid "Stop recording"
+msgstr "Jooji duubista"
+
+msgid "Suggest with AI"
+msgstr "Ku soo jeedi AI"
+
+msgid "Switch to dark mode"
+msgstr "U beddel habka mugdiga"
+
+msgid "Switch to light mode"
+msgstr "U beddel habka iftiinka"
+
+msgid "Target hours"
+msgstr "Saacadaha la hiigsanayo"
+
+msgid "Thinking..."
+msgstr "Fakaraya..."
+
+msgid "Took notes from {}"
+msgstr "Qoraallo laga soo qaatay {}"
+
+msgid "Undo"
+msgstr "Ka noqo"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Marka ay daaran tahay, waxa ay raadiso waxaa loo diraa boggaga raadinta. Wax kasta oo kale waxay ku harayaan aaladdan."
+
+msgid "Writing the answer"
+msgstr "Qoraya jawaabta"
+
+msgid "Yes, delete"
+msgstr "Haa, tirtir"
+
+msgid "Yesterday"
+msgstr "Shalay"
+
+msgid "{} results"
+msgstr "{} natiijo"
+
+msgid "A longer rest"
+msgstr "Nasasho dheer"
+
+msgid "A short rest"
+msgstr "Nasasho gaaban"
+
+msgid "A work session"
+msgstr "Kulan shaqo"
+
+msgid "Activity for the day"
+msgstr "Waxqabadka maalinta"
+
+msgid "Activity for the month"
+msgstr "Waxqabadka bisha"
+
+msgid "Activity for the week"
+msgstr "Waxqabadka toddobaadka"
+
+msgid "Activity for the year"
+msgstr "Waxqabadka sannadka"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Sharax waxaad u baahan tahay, kaaliyuhuna wuu qorsheynayaa"
+
+msgid "Go to this week"
+msgstr "Tag toddobaadkan"
+
+msgid "Move to this week"
+msgstr "U wareeji toddobaadkan"
+
+msgid "See tasks in columns"
+msgstr "Ku arag hawlaha tiirar"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Ku arag hawlaha jadwalka toddobaadka"
+
+msgid "Set your own length"
+msgstr "Deji muddadaada"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "U kala sooc degdeg iyo muhiimad"
+
+msgid "Take it off the calendar"
+msgstr "Ka saar jadwalka"

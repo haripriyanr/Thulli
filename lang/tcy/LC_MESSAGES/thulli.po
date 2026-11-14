@@ -688,3 +688,839 @@ msgstr "ಇಂದಿನ ಯೋಜನೆ"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "ಇಂದಿಗೆ ಯಾವುದೇ ಯೋಜನೆ ಇಲ್ಲ. ಸ್ಪೇಸ್ ಪರದೆಯಲ್ಲಿ ಕೆಲಸಗಳನ್ನು ಸೇರಿಸಿ."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "ಗುರಿ ಪಂಡ ಈರ್ ಮುಟ್ಟರೆ ಬಯಸುನ ವಿಷಯ. ಅವೆನ್ ಮೈಲಿಗಲ್ಲುಲಾದ್ ವಿಭಾಗ ಮಲ್ಪುಲೆ, ಅಡೆ ಮುಟ್ಟಾವುನ ಕೆಲಸಲೆನ್ ಲಿಂಕ್ ಮಲ್ಪುಲೆ, ಬೊಕ್ಕ ಈರೆನ ಪ್ರಗತಿನ್ ತೂಲೆ."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "ಈ ಗುರಿದ ಬಗ್ಗೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "ಸಕ್ರಿಯ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "ಮೈಲಿಗಲ್ಲು ಸೇರ್ಪಾಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI ಮಾದರಿಲು (ಸುಮಾರು 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI ಮಾದರಿಲೆನ್ ಸ್ಥಾಪನೆ ಮಲ್ತ್‌ದ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "ನೆನಪುಡು ದೀವೊಡಾಯಿನ ಬೇತೆ ದಾದಾಂಡಲಾ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "ಆರ್ಕೈವ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "ಆರ್ಕೈವ್ ಮಲ್ತ್‌ದ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "ಪಿರ ಗುರಿಲೆಗ್"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "ಪುಸ್ತಕಲು, ಗಂಟೆಲು…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "ವರ್ಗ"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "ಮೈಲಿಗಲ್ಲು ಬದಲ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "ಮುಚ್ಚಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "ಬರ್ಪುನವು"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "ಪೂರ್ಣ ಆತ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "ಮೈಲಿಗಲ್ಲುಲೆನ್ ಲೆಕ್ಕ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "ಸಲಹೆಲೆನ್ ಪಡೆಯರೆ ಸಕ್ರಿಯ ಗುರಿ ಮಲ್ಪುಲೆ."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "ಗುರಿ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "ಈರೆನ ಸುರುತ ಗುರಿ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "ಇತ್ತೆದ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "ಇತ್ತೆದ ಮೌಲ್ಯ"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "ದಿನಾಂಕ (ಐಚ್ಛಿಕ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "ಅಳಿಸಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "ಗುರಿ ಅಳಿಸಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "ಈ ಗುರಿನ್ ಅಳಿಸೊಡೆ?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "ಫಲಿತಾಂಶನ್ ವಿವರಣೆ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "ವಿವರಣೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "ಆಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "ಇತ್ತೆನೇ ಡೌನ್‌ಲೋಡ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "ಡೌನ್‌ಲೋಡ್ ಆವೊಂದುಂಡು..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "ಗುರಿ ಸಂಪಾದನೆ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "ಗುರಿಲೆತ ಮಿತ್ತ್ ಫೋಕಸ್ ಸಮಯ"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "ಗುರಿಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "ಈ ವಾರ ಮುನ್ನಡೆತ ಗುರಿಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "ಜಾಸ್ತಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "ಹೆಚ್ಚಿನ ಆದ್ಯತೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "ಇತಿಹಾಸ"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "ಪ್ರಗತಿನ್ ಎಂಚ ಲೆಕ್ಕ ಮಲ್ಪುವೆರ್?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "ಪ್ರಗತಿಡ್ ಉಂಡು"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "ಗುರಿನ್ ಒರಿಪಾಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "ಕರಿನ 7 ದಿನೊಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "ಕೆಲಸ ಲಿಂಕ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "ಕಡಿಮೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "ಕಡಿಮೆ ಆದ್ಯತೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "ಪೂರ್ಣ ಆಂಡ್ ಪಂಡ್‌ದ್ ಗುರುತು ಪಾಡುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "ಮಧ್ಯಮ"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "ಮಧ್ಯಮ ಆದ್ಯತೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "ಮೈಲಿಗಲ್ಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "ಮೈಲಿಗಲ್ಲು: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "ಮೈಲಿಗಲ್ಲುಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "ಪೂರ್ಣ ಆಯಿನ ಮೈಲಿಗಲ್ಲುಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "ಗಮನ ಬೋಡಾತ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "ಪೊಸ ಗುರಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "ಬೊಕ್ಕದವು: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "ಮುಂದಿನ ಏಳು ದಿನೊಟು ಒವ್ವೇ ಗಡುವು ಇಜ್ಜಿ."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "ಈ ಗುರಿಡ್ ನನಲಾ ಒವ್ವೇ ಫೋಕಸ್ ಅವಧಿ ಇಜ್ಜಿ. ಐತ ಒಂಜಿ ಕೆಲಸದ ಮಿತ್ತ್ ಫೋಕಸ್ ರೌಂಡ್ ಸುರು ಮಲ್ಪುಲೆ."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "ಈ ವಾರ ಒವ್ವೇ ಗುರಿಕ್ ಮೈಲಿಗಲ್ಲು, ಕೆಲಸ ಅತ್ತಂಡ ಫೋಕಸ್ ಅವಧಿ ಇಜ್ಜಾಂಡ್."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "ಒವ್ವೇ ಗುರಿ ಹೊಂದಿಕೆ ಆಪುಜಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "ನನಲಾ ಗುರಿಲು ಇಜ್ಜಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "ನನಲಾ ಮೈಲಿಗಲ್ಲುಲು ಇಜ್ಜಿ. ಈ ಗುರಿದ ಸಾದಿಡ್ ಸುರುತ ನಿಲ್ದಾಣ ಸೇರ್ಪಾಲೆ."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "ಲಿಂಕ್ ಮಲ್ಪೆರೆ ಮುಕ್ತ ಕೆಲಸಲು ಇಜ್ಜಿ. ದುಂಬೇ ಗುರಿಡ್ ಇಪ್ಪುನ ಕೆಲಸಲೆನ್ ತೋಜಾವುಜಿ."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "ನನಲಾ ಕೆಲಸಲೆನ್ ಲಿಂಕ್ ಮಲ್ತ್‌ಜಿ. ಮೂಲು ತೂಯೆರೆ ಸ್ಪೇಸ್‌ಡ್ದ್ ಕೆಲಸಲೆನ್ ಲಿಂಕ್ ಮಲ್ಪುಲೆ."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "ದಾಲಾ ಮಿತಿಮೀರಿದಿಜ್ಜಿ ಅತ್ತಂಡ ನಿಷ್ಕ್ರಿಯ ಇಜ್ಜಿ. ಎಡ್ಡೆ."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "ದೆಪ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "ಸ್ಪೇಸ್‌ಲೆನ್ ದೆಪ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "ವಿರಾಮ ಕೊರ್ಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "ವಿರಾಮ ಕೊರ್ತರ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "ಮೈಲಿಗಲ್ಲುಗು ಪೊಸ ಲಿಂಕ್‌ಲೆನ್ ಪಿನ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "ಯೋಜನೆ, ಪಾತೆರ ಗುರುತಿಸುನವು ಬೊಕ್ಕ ಜೋರಾದ್ ಓದುನವು ಮಾತಾ ಈ ಸಾಧನೊಡೇ ನಡಪುಂಡು. ಈರ್ ಪನ್ಪಿನ ಅತ್ತಂಡ ಟೈಪ್ ಮಲ್ಪುನವು ಪಿದಯಿ ಪೋಪುಜಿ."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "ಆದ್ಯತೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "ಪ್ರಗತಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "ಪ್ರಗತಿ ಪಂಡ ಈರ್ ಪೂರ್ಣ ಮಲ್ತಿನ ಮೈಲಿಗಲ್ಲುಲೆನ ಪಾಲು."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "ಪ್ರಗತಿ ಪಂಡ ಗುರಿಕ್ ಎದುರಾದ್ ಈರೆನ ಇತ್ತೆದ ಸಂಖ್ಯೆ, ಉದಾಹರಣೆಗ್ 20 ಬೂಕುಲೆಡ್ 12."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "ಜೋರಾದ್ ಓದುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "ಸಿದ್ಧ ಉಂಡು"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "ಇತ್ತೀಚೆದವು"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "ರಿಫ್ರೆಶ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "ದೆತ್ತುಪಾಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "ಜಾಗೆನ್ ಮುಕ್ತ ಮಲ್ಪೆರೆ ಅವೆನ್ ದೆತ್ತುಪಾಲೆ; ಬೋಡಾನಗ ಪಿರ ಡೌನ್‌ಲೋಡ್ ಆಪುಂಡು."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "ಪಿರ ದೆಪ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "ಮರುಸ್ಥಾಪನೆ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "ಮುಂದುವರಿಸಾಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "ಬದಲಾವಣೆಲೆನ್ ಉಳಿಸಾಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "ಗುರಿಲೆನ್ ನಾಡ್ಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "ಈರೆನ ಮುಕ್ತ ಕೆಲಸಲೆನ್ ನಾಡ್ಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "ಇಂಚ ವಿಂಗಡಿಸಾಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "ಅಧ್ಯಯನ, ಆರೋಗ್ಯ, ಕೆಲಸ…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "ಮುಂದಿನ ವಾರದ ಸೂಚಿತ ಆದ್ಯತೆಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "ಗುರಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "ಗುರಿದ ದಿನಾಂಕ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "ಗುರಿದ ದಿನಾಂಕ (YYYY-MM-DD, ಐಚ್ಛಿಕ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "ಪೂರ್ಣ ಆಯಿನ ಕೆಲಸಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "ಈ ಗುರಿತ್ತ ಕೆಲಸಲು"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "ಸುರುತ ಯೋಜನೆ ಸಾಧನೊಡುಪ್ಪುನ AI ಮಾದರಿಲೆನ್ ಡೌನ್‌ಲೋಡ್ ಮಲ್ಪುಂಡು (ಸುಮಾರು 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "ಗುರಿ ಬೊಕ್ಕ ಐತ ಮೈಲಿಗಲ್ಲುಲೆನ್ ದೆತ್ತುಪಾಡಲಾಗುಂಡು. ಈರೆನ ಕೆಲಸಲು ಸ್ಪೇಸ್‌ಲೆಡೇ ಒರಿಪುಂಡು; ಅವ್ವು ಕೇವಲ ಈ ಗುರಿನ್ ತೋಜಾವುನೆನ್ ಉಂತಾವುಂಡು."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "ಕರಿನ ಏಳು ದಿನೊಲು, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "ಈರ್ ಸುರುತ ಸರ್ತಿ AI ಗಳಸುನಗ ಅತ್ತಂಡ ಇತ್ತೆ ಡೌನ್‌ಲೋಡ್ ಆಪುಂಡು."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "ಈ ಗುರಿ ಒಂಜಿ ಸಂಖ್ಯೆನ್ ಟ್ರ್ಯಾಕ್ ಮಲ್ಪುಂಡು. ಮೈಲಿಗಲ್ಲುಲು ಸಾದಿಡ್ ನಿಲ್ದಾಣಲೆನ್ ತೋಜಾವುಂಡು, ಆಂಡ ಶೇಕಡಾವಾರುನ್ ಬದಲಾವಣೆ ಮಲ್ಪುಜಿ."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "ಶೀರ್ಷಿಕೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "ಒಟ್ಟು"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "ಸಂಖ್ಯೆನ್ ಟ್ರ್ಯಾಕ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "ಬೇತೆ ಫಿಲ್ಟರ್ ಅತ್ತಂಡ ಬೇತೆ ನಾಡಾಟ ಪ್ರಯತ್ನ ಮಲ್ಪುಲೆ."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "ಘಟಕ"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "ಅನ್‌ಲಿಂಕ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "ಅಪ್‌ಡೇಟ್ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "ವಾರದ ಪರಿಶೀಲನೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "ಈರ್ ದಾದ ಸಾಧನೆ ಮಲ್ಪೆರೆ ಬಯಸುವರ್?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "ಉಂದು ದಾಯೆ ಮುಖ್ಯ"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "ಉಂದೆನ್ ಮಲ್ಪೆರೆ ಈರೆನ ಕಾರಣ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "ನನಲಾ {} {} ಬಾಕಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} ಸಕ್ರಿಯ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} ಪೂರ್ಣ ಆತ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} - {} ದಿನೊಟು ಬಾಕಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "ಇನಿ {} ಬಾಕಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "ನಾಲೆ {} ಬಾಕಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} ಫೋಕಸ್ ಮಲ್ತ್‌ದ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} ಮೈಲಿಗಲ್ಲುಲು ಪೂರ್ಣ ಆತ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} ಕೆಲಸಲು ಪೂರ್ಣ ಆತ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} ಮಿತಿಮೀರ್‌ದ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} ವಿರಾಮ ಕೊರ್ತರ್"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "ನನಲಾ {} ಬಾಕಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "ಮೈಲಿಗಲ್ಲು ಅತ್ತಂಡ ಗುರಿದ ದಿನಾಂಕ ಸೇರ್ಪಾಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "{} ಕ್ಕ್ ಬಾಕಿ ಉಂಡು"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "{} ದಿನೊಟು ಬಾಕಿ ಉಂಡು"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "ಇನ್ನೇ ಬಾಕಿ ಉಂಡು"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "ನಾಲೆಗ್ ಬಾಕಿ ಉಂಡು"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "ಮಾತಾ ಮೈಲಿಗಲ್ಲು ಪೂರ್ಣ ಆತ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "ಫೋಕಸ್ ಸಮಯ ದಾಖಲಾತ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "ಪೂರ್ಣ ಆಯಿನ ಮೈಲಿಗಲ್ಲುಲು: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{} ದಿನೊಡ್ದು ಒವ್ವೇ ಚಟುವಟಿಕೆ ಇಜ್ಜಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "ನನಲಾ ಮೈಲಿಗಲ್ಲುಲು ಇಜ್ಜಿ"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} ದಿನೊಲು ಮಿತಿಮೀರ್‌ದ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 ದಿನ ಮಿತಿಮೀರ್‌ದ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "ಯೋಜನೆ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "ಯೋಜನೆ ಮಲ್ತೊಂದುಂಡು..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "ಪ್ರಗತಿ ತೂಯೆರೆ ಗುರಿನ್ ನಿಗದಿ ಮಲ್ಪುಲೆ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "ಗುರಿ ಮುಟ್ಟ್‌ದ್ಂಡ್"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "ಪೂರ್ಣ ಆಯಿನ ಕೆಲಸಲು: {}"
+
+msgid "Planning"
+msgstr "ಯೋಜನೆ"
+
+msgid "Speech to text"
+msgstr "ಸ್ವರೊಡ್ದು ಪಠ್ಯ"
+
+msgid "Add subtask"
+msgstr "ಒಳಬೇಲೆ ಸೇರ್ಪಾಲೆ"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "ಈರೆನ ಬೇಲೆದ ಬಗ್ಗೆ ಕೇನ್ಲೆ, ಇಜ್ಜಾಂಡ ಪ್ಲಾನ್ ಮಲ್ಪೊಡು ಪಂಡ್ದ್ ಪನ್ಲೆ. ಈರ್ ಒಪ್ಪುನ ಮುಟ್ಟ ದಾಲ ಬದಲಾವಣೆ ಆಪುಜಿ."
+
+msgid "Asking AI..."
+msgstr "AI ಡ ಕೇನೊಂದುಂಡು..."
+
+msgid "Chat"
+msgstr "ಪಾತೆರ"
+
+msgid "Chats"
+msgstr "ಪಾತೆರೊಲು"
+
+msgid "Click again to delete"
+msgstr "ಡಿಲೀಟ್ ಮಲ್ಪೆರೆ ಕುಡೊರ ಒತ್ತ್‌ಲೆ"
+
+msgid "Collapse"
+msgstr "ಮಡಂಕ್‌ಲೆ"
+
+msgid "Collapse menu"
+msgstr "ಮೆನು ಮಡಂಕ್‌ಲೆ"
+
+msgid "Copy"
+msgstr "ಕಾಪಿ ಮಲ್ಪುಲೆ"
+
+msgid "Count my focus hours"
+msgstr "ಎನ್ನ ಫೋಕಸ್ ಗಂಟೆಲೆನ್ ಲೆಕ್ಕ ಮಲ್ಪುಲೆ"
+
+msgid "Decrease"
+msgstr "ಕಮ್ಮಿ ಮಲ್ಪುಲೆ"
+
+msgid "Deep"
+msgstr "ಗಾಢ"
+
+msgid "Delete chat"
+msgstr "ಪಾತೆರ ಡಿಲೀಟ್ ಮಲ್ಪುಲೆ"
+
+msgid "Delete note"
+msgstr "ನೋಟ್ ಡಿಲೀಟ್ ಮಲ್ಪುಲೆ"
+
+msgid "Delete subtask"
+msgstr "ಒಳಬೇಲೆ ಡಿಲೀಟ್ ಮಲ್ಪುಲೆ"
+
+msgid "Delete this chat?"
+msgstr "ಈ ಪಾತೆರನ್ ಡಿಲೀಟ್ ಮಲ್ಪೊಡೇ?"
+
+msgid "Dictate"
+msgstr "ಪಾತೆರ್ದ್ ಬರೆಪಾಲೆ"
+
+msgid "Exit full screen"
+msgstr "ಫುಲ್ ಸ್ಕ್ರೀನ್‌ಡ್ದ್ ಪಿದಯಿ ಬನ್ನಿ"
+
+msgid "Expand"
+msgstr "ಬಿರ್ಕ್‌ಲೆ"
+
+msgid "Expand menu"
+msgstr "ಮೆನು ಬಿರ್ಕ್‌ಲೆ"
+
+msgid "Fork from here"
+msgstr "ಮೂಲುರ್ದ್ ಪೊಸ ಪಾತೆರ ಸುರು ಮಲ್ಪುಲೆ"
+
+msgid "Fork this chat"
+msgstr "ಈ ಪಾತೆರದ ನಕಲ್ ಮಲ್ಪುಲೆ"
+
+msgid "Full screen"
+msgstr "ಫುಲ್ ಸ್ಕ್ರೀನ್"
+
+msgid "Hide subtasks"
+msgstr "ಒಳಬೇಲೆಲೆನ್ ದೆಂಗಾಲೆ"
+
+msgid "Increase"
+msgstr "ಜಾಸ್ತಿ ಮಲ್ಪುಲೆ"
+
+msgid "Jump to latest"
+msgstr "ಕಡೆತ ಸಂದೇಶೊಗು ಪೋಲೆ"
+
+msgid "Launch"
+msgstr "ಸುರುಕು ದೀವೊಡು"
+
+msgid "Let the assistant search the web"
+msgstr "ಅಸಿಸ್ಟೆಂಟ್‌ಗ್ ವೆಬ್‌ಡ್ ನಾಡೆರೆ ಬುಡ್ಲೆ"
+
+msgid "Maximize"
+msgstr "ಮಲ್ಲ ಮಲ್ಪುಲೆ"
+
+msgid "Merging the notes"
+msgstr "ನೋಟ್ಸ್‌ಲೆನ್ ಒಟ್ಟು ಮಲ್ತೊಂದುಂಡು"
+
+msgid "Message"
+msgstr "ಸಂದೇಶ"
+
+msgid "Minimize"
+msgstr "ಎಲ್ಯ ಮಲ್ಪುಲೆ"
+
+msgid "More"
+msgstr "ನನಲಾ"
+
+msgid "Move back"
+msgstr "ಪಿರ ಕಡಪುಡ್ಲೆ"
+
+msgid "Move down"
+msgstr "ತಿರ್ತ್ ಕಡಪುಡ್ಲೆ"
+
+msgid "Move forward"
+msgstr "ದುಂಬು ಕಡಪುಡ್ಲೆ"
+
+msgid "Move up"
+msgstr "ಮಿತ್ತ್ ಕಡಪುಡ್ಲೆ"
+
+msgid "New chat"
+msgstr "ಪೊಸ ಪಾತೆರ"
+
+msgid "New space"
+msgstr "ಪೊಸ ಜಾಗೆ"
+
+msgid "Next mode"
+msgstr "ಬೊಕ್ಕದ ಮೋಡ್"
+
+msgid "Next version"
+msgstr "ಬೊಕ್ಕದ ಆವೃತ್ತಿ"
+
+msgid "Next week"
+msgstr "ಬರ್ಪಿನ ವಾರ"
+
+msgid "Planned the searches"
+msgstr "ನಾಡುನೆನ್ ಪ್ಲಾನ್ ಮಲ್ತ್ಂಡ್"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "ಪ್ಲಾನಿಂಗ್, ಪಾತೆರ ಗುರ್ತಿಸುನೆ ಬೊಕ್ಕ ಓದುನೆ ಈ ಡಿವೈಸ್‌ಡೇ ನಡಪುಂಡು. ಈರ್ ಅನುಮತಿ ಕೊರ್ತಿನ ವೆಬ್ ಸರ್ಚ್ ಮಾತ್ರ ಆನ್‌ಲೈನ್‌ಗ್ ಪೋಪುಂಡು."
+
+msgid "Previous mode"
+msgstr "ಪಿರಾವುದ ಮೋಡ್"
+
+msgid "Previous version"
+msgstr "ಪಿರಾವುದ ಆವೃತ್ತಿ"
+
+msgid "Previous week"
+msgstr "ಕೋಡಿದ ವಾರ"
+
+msgid "Quick"
+msgstr "ಬೇಗ"
+
+msgid "Reading {}"
+msgstr "ಓದೊಂದುಂಡು: {}"
+
+msgid "Redo"
+msgstr "ಕುಡ ಮಲ್ಪುಲೆ"
+
+msgid "Searching: {}"
+msgstr "ನಾಡೊಂದುಂಡು: {}"
+
+msgid "Send"
+msgstr "ಕಡಪುಡ್ಲೆ"
+
+msgid "Show subtasks"
+msgstr "ಒಳಬೇಲೆಲೆನ್ ತೋಜಾಲೆ"
+
+msgid "Skipped {}"
+msgstr "ಬುಡ್ದು ಪಾಡ್ದ್ಂಡ್: {}"
+
+msgid "Standard"
+msgstr "ಸಾಮಾನ್ಯ"
+
+msgid "Start"
+msgstr "ಸುರು ಮಲ್ಪುಲೆ"
+
+msgid "Start focus on this task"
+msgstr "ಈ ಬೇಲೆಗ್ ಫೋಕಸ್ ಸುರು ಮಲ್ಪುಲೆ"
+
+msgid "Stop"
+msgstr "ಉಂತಾಲೆ"
+
+msgid "Stop recording"
+msgstr "ರೆಕಾರ್ಡಿಂಗ್ ಉಂತಾಲೆ"
+
+msgid "Suggest with AI"
+msgstr "AI ಡ್ದ್ ಸಲಹೆ ದೆತೊನ್ಲೆ"
+
+msgid "Switch to dark mode"
+msgstr "ಡಾರ್ಕ್ ಮೋಡ್‌ಗ್ ಬದಲ್ಲೆ"
+
+msgid "Switch to light mode"
+msgstr "ಲೈಟ್ ಮೋಡ್‌ಗ್ ಬದಲ್ಲೆ"
+
+msgid "Target hours"
+msgstr "ಗುರಿದ ಗಂಟೆಲು"
+
+msgid "Thinking..."
+msgstr "ಯೋಚನೆ ಮಲ್ತೊಂದುಂಡು..."
+
+msgid "Took notes from {}"
+msgstr "{} ಡ್ದ್ ನೋಟ್ಸ್ ದೆತೊಂಡ್"
+
+msgid "Undo"
+msgstr "ಪಿರ ದೆತೊನ್ಲೆ"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "ಆನ್ ಮಲ್ತ್ಂಡ, ನಾಡುನ ವಿಷಯೊನು ಸರ್ಚ್ ಸೈಟ್‌ಲೆಗ್ ಕಡಪುಡುಂಡು. ಒರಿದಿನ ಪೂರ ಈ ಡಿವೈಸ್‌ಡೇ ಒರಿಪುಂಡು."
+
+msgid "Writing the answer"
+msgstr "ಉತ್ತರ ಬರೆವೊಂದುಂಡು"
+
+msgid "Yes, delete"
+msgstr "ಅಂದ್, ಡಿಲೀಟ್ ಮಲ್ಪುಲೆ"
+
+msgid "Yesterday"
+msgstr "ಕೋಡೆ"
+
+msgid "{} results"
+msgstr "{} ಫಲಿತಾಂಶೊಲು"
+
+msgid "A longer rest"
+msgstr "ಜಾಸ್ತಿ ವಿಶ್ರಾಂತಿ"
+
+msgid "A short rest"
+msgstr "ಎಲ್ಯ ವಿಶ್ರಾಂತಿ"
+
+msgid "A work session"
+msgstr "ಬೇಲೆದ ಸಮಯ"
+
+msgid "Activity for the day"
+msgstr "ದಿನೊತ ಚಟುವಟಿಕೆ"
+
+msgid "Activity for the month"
+msgstr "ತಿಂಗೊಲ್ದ ಚಟುವಟಿಕೆ"
+
+msgid "Activity for the week"
+msgstr "ವಾರೊದ ಚಟುವಟಿಕೆ"
+
+msgid "Activity for the year"
+msgstr "ವರ್ಷೊದ ಚಟುವಟಿಕೆ"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "ನಿಕ್ಲೆಗ್ ಬೋಡಾಯಿನೆನ್ ಪನ್ಲೆ, ಸಹಾಯಕೆರ್ ಯೋಜನೆ ಮಲ್ಪುವೆರ್"
+
+msgid "Go to this week"
+msgstr "ಈ ವಾರೊಗು ಪೋಲೆ"
+
+msgid "Move to this week"
+msgstr "ಈ ವಾರೊಗು ಮಾರ್ಪುಲೆ"
+
+msgid "See tasks in columns"
+msgstr "ಬೇಲೆಲೆನ್ ಕಾಲಂಲೆಡ್ ತೂಲೆ"
+
+msgid "See tasks on a weekly calendar"
+msgstr "ವಾರೊದ ಕ್ಯಾಲೆಂಡರ್‌ಡ್ ತೂಲೆ"
+
+msgid "Set your own length"
+msgstr "ನಿಕ್ಲೆನ ಸಮಯ ಸೆಟ್ ಮಲ್ಪುಲೆ"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "ಅರ್ಜೆಂಟ್ ಬೊಕ್ಕ ಮುಖ್ಯತ್ವೊದ ಪ್ರಕಾರ ಜೋಡಿಸಲೆ"
+
+msgid "Take it off the calendar"
+msgstr "ಕ್ಯಾಲೆಂಡರ್‌ರ್ದ್ ದೆಪ್ಪುಲೆ"

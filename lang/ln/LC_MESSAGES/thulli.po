@@ -688,3 +688,839 @@ msgstr "Esika ya lelo"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Eloko ezali kokabolama lelo te. Bakisa misala na nkasa ya Bisika."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Mokano ezali eloko oyo olingi kokóma na yango. Kabola yango na bitape ya ntina, kangisa misala oyo ekomema yo kuna, mpe tala bokoli na yo komata."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Na ntina ya mokano oyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Ezali kosala"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Bakisa etape ya ntina"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Modèle ya AI (pene na 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Modèle ya AI etiama"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Eloko nionso mosusu oyo esengeli kokanisa"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Bomba na kashiti"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Ebómbami na kashiti"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Zonga na mikano"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "babuku, bangonga…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Lolenge"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Bongola etape ya ntina"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Kanga"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Oyo ezali koya"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Esili"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Tángá bitape ya ntina"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Kela mokano oyo ezali kosala mpo na kozwa makanisi."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Kela mokano"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Kela mokano na yo ya liboso"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Ya sikoyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Motuya ya sikoyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Mokolo (soki olingi)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Limwisa"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Limwisa mokano"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Kolimwisa mokano oyo?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Limbola matomba"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Ndimbola"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Esalami"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Kitisa sikoyo"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Ezali kokita..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Bongola mokano"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Ntango ya kotia makanisi na mikano"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Mikano"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Mikano oyo etambolaki na pɔ́sɔ oyo"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Likolo"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Ntina mingi"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Lisolo ya kala"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Ndenge nini bokoli etangamaka?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Ezali kosala"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Bomba mokano"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Mikolo 7 oyo euti koleka"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Kangisa mosala"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Nse"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Ntina moke"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Tia elembo ete esili"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Katikati"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Ntina ya katikati"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Etape ya ntina"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Etape ya ntina: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Bitape ya ntina"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Bitape ya ntina oyo esili"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Esengeli likebi"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Mokano ya sika"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Oyo elandi: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Mokolo ya suka te na mikolo nsambo oyo ezali koya."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Ntango ya kotia makanisi na mokano oyo ezali te naino. Banda ntango moko na mosala moko na yango."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Mokano moko te ezalaki na etape ya ntina, mosala to ntango ya kotia makanisi na pɔ́sɔ oyo."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Mokano moko te ekokani"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Mikano ezali te naino"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Bitape ya ntina ezali te naino. Bakisa esika ya liboso na nzela ya mokano oyo."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Misala ya kofungola ezali te mpo na kokangisa. Misala oyo ezali na mokano emonanaka te."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Misala ekangisami te naino. Kangisa misala kowuta na Bisika mpo na komona yango awa."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Eloko moko te eleki ngonga to efandi kimia. Kitoko mingi."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Fungola"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Fungola Bisika"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Têlêmisa moke"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Etelemisami"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Tia ba liens ya sika na etape ya ntina"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Kobongisa, koyeba mongongo mpe kotánga na mongongo makasi nyonso esalaka na apareyi oyo. Eloko moko te oyo olobi to okomi ebimaka na yango."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Ntina"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Bokoli"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Bokoli ezali eteni ya bitape ya ntina oyo osilisi."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Bokoli ezali motuya na yo ya sikoyo na kotalaka mokano, ndakisa babuku 12 na 20."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Tángá na mongongo makasi"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Ebongami"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Eumeli te"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Bongisa lisusu"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Longola"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Longola yango mpo na kopesa esika; ekokita lisusu soki esengeli."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Fungola lisusu"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Zongisa"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Koba"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Bomba mbongwana"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Luka mikano"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Luka misala na yo oyo ezali ya kofungwama"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Kabola na"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Boyekoli, kolɔngɔnɔ ya nzoto, mosala…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Makambo ya ntina oyo epesami mpo na pɔ́sɔ ekoya"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Mokano oyo etangami"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Mokolo oyo etangami"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Mokolo oyo etangami (YYYY-MM-DD, soki olingi)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Misala oyo esili"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Misala mpo na mokano oyo"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Mwango ya liboso ekitisaka modèle ya AI ya apareyi (pene na 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Mokano mpe bitape na yango ya ntina ekolongolwa. Misala na yo ekobikama na Bisika; ekotika kaka kolakisa mokano oyo."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Mikolo nsambo oyo eleki, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Ekitaka na mbala ya liboso oyo ozali kosalela AI, to sikoyo."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Mokano oyo elandaka motuya. Bitape ya ntina elakisaka kaka bisika ya kotelema na nzela, kasi ebongolaka pourcentage te."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Motó ya likambo"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Nyonso esangami"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Landa motuya"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Meka ekɔngɔlɔ mosusu to boluki mosusu."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Mokili"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Katisa kokangama"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Bongisa ya sika"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Botalisi ya pɔ́sɔ"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Olingi kokóma na nini?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Mpo na nini ezali na ntina"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ntina na yo ya kosala boye"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} etikali"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} ezali kosala"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} esili"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} esengeli na mikolo {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} esengeli lelo"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} esengeli lobi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} etiami makanisi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} kati na {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} kati na {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} kati na bitape ya ntina {} esili"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} kati na misala {} esili"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} eleki ngonga"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} etelemisami"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} etikali"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Bakisa etape ya ntina to mokolo oyo etangami"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Esengeli na {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Esengeli na mikolo {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Esengeli lelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Esengeli lobi"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Etape moko na moko ya ntina esili"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Ntango ya kotia makanisi ekomami"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Bitape ya ntina oyo esalemi: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Mosala moko te na mikolo {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Bitape ya ntina ezali te naino"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Eleki ngonga na mikolo {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Eleki ngonga na mokolo 1"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Bongisa yango"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Ezali kobongisa..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Tia mokano mpo na komona bokoli"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Mokano oyo etangami ekómi"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Misala oyo esalemi: {}"
+
+msgid "Planning"
+msgstr "Mwango"
+
+msgid "Speech to text"
+msgstr "Mongongo na makomi"
+
+msgid "Add subtask"
+msgstr "Bakisa mosala moke"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Tuna mpo na misala na yo, to loba oyo olingi kobongisa. Eloko moko te ekobongwana tii kondima."
+
+msgid "Asking AI..."
+msgstr "Kotuna AI..."
+
+msgid "Chat"
+msgstr "Lisolo"
+
+msgid "Chats"
+msgstr "Masolo"
+
+msgid "Click again to delete"
+msgstr "Fina lisusu mpo na kolimwisa"
+
+msgid "Collapse"
+msgstr "Kangisa"
+
+msgid "Collapse menu"
+msgstr "Kangisa meni"
+
+msgid "Copy"
+msgstr "Kopi"
+
+msgid "Count my focus hours"
+msgstr "Tanga bangonga na ngai ya bokebi"
+
+msgid "Decrease"
+msgstr "Kitisa"
+
+msgid "Deep"
+msgstr "Mozindo"
+
+msgid "Delete chat"
+msgstr "Limwisa lisolo"
+
+msgid "Delete note"
+msgstr "Limwisa mokanda"
+
+msgid "Delete subtask"
+msgstr "Limwisa mosala moke"
+
+msgid "Delete this chat?"
+msgstr "Kolimwisa lisolo oyo?"
+
+msgid "Dictate"
+msgstr "Loba mpo na kokoma"
+
+msgid "Exit full screen"
+msgstr "Bima na skrini mobimba"
+
+msgid "Expand"
+msgstr "Fungola"
+
+msgid "Expand menu"
+msgstr "Fungola meni"
+
+msgid "Fork from here"
+msgstr "Banda sika awa"
+
+msgid "Fork this chat"
+msgstr "Kobalola lisolo oyo"
+
+msgid "Full screen"
+msgstr "Skrini mobimba"
+
+msgid "Hide subtasks"
+msgstr "Bombisa misala mike"
+
+msgid "Increase"
+msgstr "Bakisa"
+
+msgid "Jump to latest"
+msgstr "Kende na oyo ya sika"
+
+msgid "Launch"
+msgstr "Banda lelo"
+
+msgid "Let the assistant search the web"
+msgstr "Tika mosungi aluka na wɛbsayiti"
+
+msgid "Maximize"
+msgstr "Tombola"
+
+msgid "Merging the notes"
+msgstr "Kosangisa ba noti"
+
+msgid "Message"
+msgstr "Mukanda"
+
+msgid "Minimize"
+msgstr "Kitisa"
+
+msgid "More"
+msgstr "Mingi"
+
+msgid "Move back"
+msgstr "Zongisa nsima"
+
+msgid "Move down"
+msgstr "Kitisa na se"
+
+msgid "Move forward"
+msgstr "Pusisa liboso"
+
+msgid "Move up"
+msgstr "Tombola likolo"
+
+msgid "New chat"
+msgstr "Lisolo ya sika"
+
+msgid "New space"
+msgstr "Esika ya sika"
+
+msgid "Next mode"
+msgstr "Lolenge ekolanda"
+
+msgid "Next version"
+msgstr "Libongoli ekolanda"
+
+msgid "Next week"
+msgstr "Poso ekolanda"
+
+msgid "Planned the searches"
+msgstr "Boluki ebongisami"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Kobongisa, koyoka mongongo mpe kotanga makasi esalemaka na apareyi oyo. Kaka boluki olingi nde ekendaka na internet."
+
+msgid "Previous mode"
+msgstr "Lolenge eleki"
+
+msgid "Previous version"
+msgstr "Libongoli eleki"
+
+msgid "Previous week"
+msgstr "Poso eleki"
+
+msgid "Quick"
+msgstr "Noki"
+
+msgid "Reading {}"
+msgstr "Kotanga {}"
+
+msgid "Redo"
+msgstr "Zongela"
+
+msgid "Searching: {}"
+msgstr "Koluka: {}"
+
+msgid "Send"
+msgstr "Tinda"
+
+msgid "Show subtasks"
+msgstr "Lakisa misala mike"
+
+msgid "Skipped {}"
+msgstr "Leki {}"
+
+msgid "Standard"
+msgstr "Ya momesano"
+
+msgid "Start"
+msgstr "Banda"
+
+msgid "Start focus on this task"
+msgstr "Banda bokebi na mosala oyo"
+
+msgid "Stop"
+msgstr "Tika"
+
+msgid "Stop recording"
+msgstr "Tika kokanga mongongo"
+
+msgid "Suggest with AI"
+msgstr "Pesela makanisi na AI"
+
+msgid "Switch to dark mode"
+msgstr "Bongola na modɛli ya molili"
+
+msgid "Switch to light mode"
+msgstr "Bongola na modɛli ya pole"
+
+msgid "Target hours"
+msgstr "Bangonga ya mokano"
+
+msgid "Thinking..."
+msgstr "Kokanisa..."
+
+msgid "Took notes from {}"
+msgstr "Azwi ba noti na {}"
+
+msgid "Undo"
+msgstr "Zongisa nsima"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Soki epelisi, oyo ezali koluka etindami na bisika ya boluki. Nyonso mosusu etikali na apareyi oyo."
+
+msgid "Writing the answer"
+msgstr "Kokoma eyano"
+
+msgid "Yes, delete"
+msgstr "Iyo, limwisa"
+
+msgid "Yesterday"
+msgstr "Lobi eleki"
+
+msgid "{} results"
+msgstr "Bipesi {}"
+
+msgid "A longer rest"
+msgstr "Kopema ya molai"
+
+msgid "A short rest"
+msgstr "Kopema ya mokuse"
+
+msgid "A work session"
+msgstr "Ntango ya mosala"
+
+msgid "Activity for the day"
+msgstr "Misala ya mokolo"
+
+msgid "Activity for the month"
+msgstr "Misala ya sanza"
+
+msgid "Activity for the week"
+msgstr "Misala ya poso"
+
+msgid "Activity for the year"
+msgstr "Misala ya mobu"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Limbola oyo osengeli na yango mpe mosalisi akobongisa yango"
+
+msgid "Go to this week"
+msgstr "Kende na poso oyo"
+
+msgid "Move to this week"
+msgstr "Tinda na poso oyo"
+
+msgid "See tasks in columns"
+msgstr "Tala misala na bakolone"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Tala misala na manaka ya poso"
+
+msgid "Set your own length"
+msgstr "Tya ntango na yo moko"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Pongola misala na kolanda lombangu mpe ntina"
+
+msgid "Take it off the calendar"
+msgstr "Longola yango na manaka"

@@ -688,3 +688,839 @@ msgstr "متخطط لليوم"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "ما فماش شي متخطط لليوم. زيد مهام من شاشة المساحات."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "الهدف هو حاجة تبي توصللها. قسّمه لمحطات، واربط المهام اللي توصلك، وشوف تقدّمك يزيد."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "على هالهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "نشط"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "زيد محطة"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "الذكاء الاصطناعي"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "نماذج الذكاء الاصطناعي (حوالي 2.3 جيجابايت)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "نماذج الذكاء الاصطناعي تثبتت"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "أي حاجة تانية تستاهل تتذكرها"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "أرشف"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "مؤرشف"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "رجوع للأهداف"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "كتب، ساعات…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "الفئة"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "غيّر المحطة"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "إغلاق"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "اللي جاي"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "مكمّل"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "عد المحطات"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "سوّي هدف نشط باش تجيك اقتراحات."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "سوّي هدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "سوّي أول هدف ليك"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "الحالي"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "القيمة الحالية"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "التاريخ (اختياري)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "احذف"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "احذف الهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "تبي تحذف هالهدف؟"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "اوصف النتيجة"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "الوصف"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "تم"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "نزّل توا"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "جاري التنزيل..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "عدّل الهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "وقت التركيز على الأهداف"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "الأهداف"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "الأهداف اللي تحركت هالأسبوع"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "عالي"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "أولوية عالية"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "السجل"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "كيف ينحسب التقدّم؟"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "جاري"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "خلّي الهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "آخر 7 أيام"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "اربط مهمة"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "منخفض"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "أولوية منخفضة"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "علّم عليه مكمّل"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "متوسط"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "أولوية متوسطة"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "محطة"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "المحطة: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "المحطات"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "محطات مكمّلة"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "يبي اهتمام"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "هدف جديد"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "اللي بعده: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "ما فماش مواعيد في السبع أيام الجاية."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "ما فماش جلسات تركيز على هالهدف لتوا. ابدا جولة تركيز على وحدة من مهامه."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "ما فماش هدف كان فيه محطة أو مهمة أو جلسة تركيز هالأسبوع."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "ما فماش أهداف مطابقة"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "ما فماش أهداف لتوا"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "ما فماش محطات لتوا. زيد أول محطة في طريق هالهدف."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "ما فماش مهام مفتوحة للربط. المهام اللي في هدف ما تطلعش هنا."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "ما فماش مهام مربوطة لتوا. اربط مهام من المساحات باش تشوفها هنا."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "ما فماش شي معطّل أو هادي. ممتاز."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "افتح"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "افتح المساحات"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "وقّف مؤقتاً"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "متوقف مؤقتاً"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "ثبّت الروابط الجديدة في محطة"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "التخطيط والتعرف على الصوت والقراءة بصوت عالي كلها تشتغل على هالجهاز. ما فماش شي تقوله أو تكتبه يطلع منه."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "الأولوية"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "التقدّم"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "التقدّم هو نسبة المحطات اللي خلّصتها."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "التقدّم هو رقمك الحالي مقارنة بالهدف، زي 12 من 20 كتاب."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "اقرأ بصوت عالي"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "جاهز"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "الأخيرة"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "حدّث"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "شيل"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "شيلهم باش تفضي مساحة؛ ينزلوا مرة تانية لما تحتاجهم."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "عاود افتح"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "رجّع"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "كمّل"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "احفظ التغييرات"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "دوّر في الأهداف"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "دوّر في مهامك المفتوحة"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "ترتيب حسب"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "قراية، صحة، شغل…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "الأولويات المقترحة للأسبوع الجاي"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "الهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "التاريخ المستهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "التاريخ المستهدف (YYYY-MM-DD، اختياري)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "المهام المكمّلة"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "مهام هالهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "أول خطة تنزّل نماذج الذكاء الاصطناعي على الجهاز (حوالي 2.3 جيجابايت)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "الهدف ومحطاته حينحذفوا. مهامك تقعد في المساحات؛ بس معاش تشير لهالهدف."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "آخر سبع أيام، {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "ينزلوا أول مرة تستعمل فيها الذكاء الاصطناعي، أو توا."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "هالهدف يتبع رقم. المحطات ما زال تحدد محطات الطريق، بس ما تغيّر النسبة المئوية."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "العنوان"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "الإجمالي"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "تتبّع رقم"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "جرّب فلتر تاني أو بحث مختلف."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "الوحدة"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "فك الربط"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "حدّث"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "المراجعة الأسبوعية"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "شنو تبي تحقق؟"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "ليش هالشي مهم"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "سبب قيامك بهالشي"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "باقي {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} نشط"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} مكمّل"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} موعده بعد {} أيام"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} موعده اليوم"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} موعده غدوة"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} تركيز"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} من {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} من {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} من {} محطات مكمّلة"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} من {} مهام مكمّلة"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} معطل"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} متوقف مؤقتاً"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "باقي {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "زيد محطة أو تاريخ مستهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "موعده في {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "موعده بعد {} أيام"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "موعده اليوم"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "موعده غدوة"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "كل المحطات خلّصت"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "تسجّل وقت تركيز"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "المحطات المكمّلة: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "ما فماش نشاط ليه {} أيام"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "ما فماش محطات لتوا"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "معطل بـ {} أيام"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "معطل بيوم"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "خطّطها"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "جاري التخطيط..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "حدد هدف باش تشوف التقدّم"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "وصلت للهدف"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "المهام المكمّلة: {}"
+
+msgid "Planning"
+msgstr "تخطيط"
+
+msgid "Speech to text"
+msgstr "تحويل الصوت إلى نص"
+
+msgid "Add subtask"
+msgstr "إضافة مهمة فرعية"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "اسأل على مهامك، أو اكتب شن تبي تخطط. ما يتغير شي لين توافق عليه."
+
+msgid "Asking AI..."
+msgstr "يسأل في الذكاء الاصطناعي..."
+
+msgid "Chat"
+msgstr "محادثة"
+
+msgid "Chats"
+msgstr "المحادثات"
+
+msgid "Click again to delete"
+msgstr "اضغط مرة ثانية باش تحذف"
+
+msgid "Collapse"
+msgstr "طي"
+
+msgid "Collapse menu"
+msgstr "طي القائمة"
+
+msgid "Copy"
+msgstr "نسخ"
+
+msgid "Count my focus hours"
+msgstr "احسب ساعات تركيزي"
+
+msgid "Decrease"
+msgstr "تقليل"
+
+msgid "Deep"
+msgstr "عميق"
+
+msgid "Delete chat"
+msgstr "حذف المحادثة"
+
+msgid "Delete note"
+msgstr "حذف الملاحظة"
+
+msgid "Delete subtask"
+msgstr "حذف المهمة الفرعية"
+
+msgid "Delete this chat?"
+msgstr "تحذف المحادثة هذي؟"
+
+msgid "Dictate"
+msgstr "إملاء صوتي"
+
+msgid "Exit full screen"
+msgstr "الخروج من ملء الشاشة"
+
+msgid "Expand"
+msgstr "توسيع"
+
+msgid "Expand menu"
+msgstr "توسيع القائمة"
+
+msgid "Fork from here"
+msgstr "فرّع من هنا"
+
+msgid "Fork this chat"
+msgstr "فرّع المحادثة هذي"
+
+msgid "Full screen"
+msgstr "ملء الشاشة"
+
+msgid "Hide subtasks"
+msgstr "إخفاء المهام الفرعية"
+
+msgid "Increase"
+msgstr "زيادة"
+
+msgid "Jump to latest"
+msgstr "امشي للأخير"
+
+msgid "Launch"
+msgstr "انطلاق"
+
+msgid "Let the assistant search the web"
+msgstr "خلّي المساعد يبحث في الويب"
+
+msgid "Maximize"
+msgstr "تكبير"
+
+msgid "Merging the notes"
+msgstr "يدمج في الملاحظات"
+
+msgid "Message"
+msgstr "رسالة"
+
+msgid "Minimize"
+msgstr "تصغير"
+
+msgid "More"
+msgstr "المزيد"
+
+msgid "Move back"
+msgstr "رجع لتالي"
+
+msgid "Move down"
+msgstr "نزّل لوطا"
+
+msgid "Move forward"
+msgstr "قدّم لقدام"
+
+msgid "Move up"
+msgstr "ركّب لفوق"
+
+msgid "New chat"
+msgstr "محادثة جديدة"
+
+msgid "New space"
+msgstr "مساحة جديدة"
+
+msgid "Next mode"
+msgstr "الوضع الجاي"
+
+msgid "Next version"
+msgstr "النسخة الجاية"
+
+msgid "Next week"
+msgstr "الأسبوع الجاي"
+
+msgid "Planned the searches"
+msgstr "خطط لعمليات البحث"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "التخطيط والتعرف على الصوت والقراءة يخدموا على الجهاز هذا. بس بحث الويب اللي تسمح بيه يمشي أونلاين."
+
+msgid "Previous mode"
+msgstr "الوضع السابق"
+
+msgid "Previous version"
+msgstr "النسخة السابقة"
+
+msgid "Previous week"
+msgstr "الأسبوع اللي فات"
+
+msgid "Quick"
+msgstr "سريع"
+
+msgid "Reading {}"
+msgstr "يقرأ في {}"
+
+msgid "Redo"
+msgstr "إعادة"
+
+msgid "Searching: {}"
+msgstr "يبحث عن: {}"
+
+msgid "Send"
+msgstr "إرسال"
+
+msgid "Show subtasks"
+msgstr "عرض المهام الفرعية"
+
+msgid "Skipped {}"
+msgstr "تخطى {}"
+
+msgid "Standard"
+msgstr "عادي"
+
+msgid "Start"
+msgstr "ابدأ"
+
+msgid "Start focus on this task"
+msgstr "ابدأ التركيز في المهمة هذي"
+
+msgid "Stop"
+msgstr "توقف"
+
+msgid "Stop recording"
+msgstr "وقف التسجيل"
+
+msgid "Suggest with AI"
+msgstr "اقترح بالذكاء الاصطناعي"
+
+msgid "Switch to dark mode"
+msgstr "التبديل للوضع المظلم"
+
+msgid "Switch to light mode"
+msgstr "التبديل للوضع الفاتح"
+
+msgid "Target hours"
+msgstr "الساعات المستهدفة"
+
+msgid "Thinking..."
+msgstr "يفكر..."
+
+msgid "Took notes from {}"
+msgstr "خدي ملاحظات من {}"
+
+msgid "Undo"
+msgstr "تراجع"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "لما يخدم، اللي يبحث عليه يمشي لمواقع البحث. كل شي ثاني يقعد في الجهاز هذا."
+
+msgid "Writing the answer"
+msgstr "يكتب في الإجابة"
+
+msgid "Yes, delete"
+msgstr "أي، احذف"
+
+msgid "Yesterday"
+msgstr "أمس"
+
+msgid "{} results"
+msgstr "{} نتائج"
+
+msgid "A longer rest"
+msgstr "راحة طويلة"
+
+msgid "A short rest"
+msgstr "راحة قصيرة"
+
+msgid "A work session"
+msgstr "جلسة شغل"
+
+msgid "Activity for the day"
+msgstr "نشاط اليوم"
+
+msgid "Activity for the month"
+msgstr "نشاط الشهر"
+
+msgid "Activity for the week"
+msgstr "نشاط الأسبوع"
+
+msgid "Activity for the year"
+msgstr "نشاط السنة"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "اوصف اللي تبيه والمساعد يخططه"
+
+msgid "Go to this week"
+msgstr "امشي للأسبوع هذا"
+
+msgid "Move to this week"
+msgstr "انقل للأسبوع هذا"
+
+msgid "See tasks in columns"
+msgstr "شوف المهام في أعمدة"
+
+msgid "See tasks on a weekly calendar"
+msgstr "شوف المهام في تقويم أسبوعي"
+
+msgid "Set your own length"
+msgstr "حدد الوقت بروحك"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "رتب المهام حسب الاستعجال والأهمية"
+
+msgid "Take it off the calendar"
+msgstr "حوّله من التقويم"

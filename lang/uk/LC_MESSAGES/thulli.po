@@ -688,3 +688,839 @@ msgstr "Заплановано на сьогодні"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "На сьогодні нічого не заплановано. Додайте завдання на екрані «Простори»."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Ціль — це те, чого ви прагнете досягти. Розбийте її на етапи, прив'яжіть завдання, що ведуть до неї, і спостерігайте за зростанням прогресу."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Про цю ціль"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Активні"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Додати етап"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "ШІ"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Моделі ШІ (близько 2,3 ГБ)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Моделі ШІ встановлено"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Щось іще, що варто пам’ятати"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "До архіву"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "В архіві"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Назад до цілей"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "книги, години…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Категорія"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Змінити етап"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Закрити"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Незабаром"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Завершені"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Рахувати етапи"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Створіть активну ціль, щоб отримувати пропозиції."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Створити ціль"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Створіть свою першу ціль"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Поточне"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Поточне значення"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Дата (необов’язково)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Видалити"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Видалити ціль"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Видалити цю ціль?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Опишіть бажаний результат"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Опис"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Готово"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Завантажити зараз"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Завантаження..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Редагувати ціль"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Час фокусу на цілях"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Цілі"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Цілі з прогресом цього тижня"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Високий"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Високий пріоритет"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Історія"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Як рахується прогрес?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "У процесі"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Залишити ціль"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Останні 7 днів"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Прив’язати завдання"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Низький"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Низький пріоритет"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Позначити як виконану"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Середній"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Середній пріоритет"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Етап"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Етап: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Етапи"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Етапів виконано"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Потребує уваги"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Нова ціль"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Далі: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Немає дедлайнів на найближчі сім днів."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Для цієї цілі ще не було фокус-сесій. Запустіть сесію для одного з її завдань."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Цього тижня в жодній цілі не було етапів, завдань чи фокус-сесій."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Жодна ціль не відповідає запиту"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Цілей ще немає"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Етапів ще немає. Додайте перший пункт на шляху до цієї цілі."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Немає відкритих завдань для прив’язки. Завдання, які вже належать цілі, не показуються."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Завдання ще не прив’язані. Прив’яжіть завдання з «Просторів», щоб бачити їх тут."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Нічого не прострочено й не закинуто. Чудово."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Відкрити"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Відкрити «Простори»"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Призупинити"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "На паузі"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Закріплювати нові зв’язки за етапом"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Планування, розпізнавання мовлення та читання вголос працюють на цьому пристрої. Ніщо з того, що ви говорите чи вводите, не залишає його."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Пріоритет"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Прогрес"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Прогрес — це частка виконаних етапів."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Прогрес — це ваше поточне значення відносно цілі, наприклад 12 з 20 книг."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Прочитати вголос"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Готово"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Недавні"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Оновити"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Видалити"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Видаліть їх, щоб звільнити місце; за потреби вони завантажаться знову."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Відкрити знову"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Відновити"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Відновити"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Зберегти зміни"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Пошук цілей"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Пошук відкритих завдань"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Сортувати за"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Навчання, здоров’я, робота…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Пропоновані пріоритети на наступний тиждень"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Цільове значення"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Цільова дата"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Цільова дата (YYYY-MM-DD, необов’язково)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Завдань виконано"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Завдання для цієї цілі"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Перше планування завантажує локальні моделі ШІ (близько 2,3 ГБ)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Ціль та її етапи видаляються. Ваші завдання залишаються в «Просторах», вони лише перестають посилатися на цю ціль."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Останні сім днів: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Вони завантажуються під час першого використання ШІ або зараз."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Ця ціль відстежує числове значення. Етапи все ще позначають проміжні зупинки, але не змінюють відсоток виконання."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Назва"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Всього"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Відстежувати числове значення"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Спробуйте інший фільтр або змініть пошуковий запит."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Одиниця виміру"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Відв’язати"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Оновити"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Щотижневий огляд"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Чого ви хочете досягти?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Чому це важливо"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ваша причина робити це"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "Залишилося: {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} активних"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} завершено"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} з терміном через {} дн."
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} з терміном сьогодні"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} з терміном завтра"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} у фокусі"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} з {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} з {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "Виконано етапів: {} з {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "Виконано завдань: {} з {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} прострочено"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} на паузі"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "Залишилося: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Додайте етап або цільову дату"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Термін: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Термін через {} дн."
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Термін сьогодні"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Термін завтра"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Усі етапи виконано"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Час фокусу записано"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Виконано етапів: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Немає активності {} дн."
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Етапів ще немає"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Прострочено на {} дн."
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Прострочено на 1 день"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Спланувати"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Планування..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Установіть ціль, щоб бачити прогрес"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Цілі досягнуто"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Виконано завдань: {}"
+
+msgid "Planning"
+msgstr "Планування"
+
+msgid "Speech to text"
+msgstr "Голосове введення"
+
+msgid "Add subtask"
+msgstr "Додати підзавдання"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Запитуйте про завдання або опишіть плани. Нічого не зміниться без вашої згоди."
+
+msgid "Asking AI..."
+msgstr "Запитую ШІ..."
+
+msgid "Chat"
+msgstr "Чат"
+
+msgid "Chats"
+msgstr "Чати"
+
+msgid "Click again to delete"
+msgstr "Натисніть ще раз, щоб видалити"
+
+msgid "Collapse"
+msgstr "Згорнути"
+
+msgid "Collapse menu"
+msgstr "Згорнути меню"
+
+msgid "Copy"
+msgstr "Копіювати"
+
+msgid "Count my focus hours"
+msgstr "Рахувати години фокусування"
+
+msgid "Decrease"
+msgstr "Зменшити"
+
+msgid "Deep"
+msgstr "Глибокий"
+
+msgid "Delete chat"
+msgstr "Видалити чат"
+
+msgid "Delete note"
+msgstr "Видалити нотатку"
+
+msgid "Delete subtask"
+msgstr "Видалити підзавдання"
+
+msgid "Delete this chat?"
+msgstr "Видалити цей чат?"
+
+msgid "Dictate"
+msgstr "Диктувати"
+
+msgid "Exit full screen"
+msgstr "Вийти з повного екрана"
+
+msgid "Expand"
+msgstr "Розгорнути"
+
+msgid "Expand menu"
+msgstr "Розгорнути меню"
+
+msgid "Fork from here"
+msgstr "Розгалузити звідси"
+
+msgid "Fork this chat"
+msgstr "Створити копію чату"
+
+msgid "Full screen"
+msgstr "На весь екран"
+
+msgid "Hide subtasks"
+msgstr "Сховати підзавдання"
+
+msgid "Increase"
+msgstr "Збільшити"
+
+msgid "Jump to latest"
+msgstr "До найновішого"
+
+msgid "Launch"
+msgstr "Поставити на сьогодні"
+
+msgid "Let the assistant search the web"
+msgstr "Дозволити асистенту шукати в інтернеті"
+
+msgid "Maximize"
+msgstr "Розгорнути"
+
+msgid "Merging the notes"
+msgstr "Об'єднання нотаток"
+
+msgid "Message"
+msgstr "Повідомлення"
+
+msgid "Minimize"
+msgstr "Згорнути"
+
+msgid "More"
+msgstr "Більше"
+
+msgid "Move back"
+msgstr "Перемістити назад"
+
+msgid "Move down"
+msgstr "Перемістити вниз"
+
+msgid "Move forward"
+msgstr "Перемістити вперед"
+
+msgid "Move up"
+msgstr "Перемістити вгору"
+
+msgid "New chat"
+msgstr "Новий чат"
+
+msgid "New space"
+msgstr "Новий простір"
+
+msgid "Next mode"
+msgstr "Наступний режим"
+
+msgid "Next version"
+msgstr "Наступна версія"
+
+msgid "Next week"
+msgstr "Наступний тиждень"
+
+msgid "Planned the searches"
+msgstr "Пошуки сплановано"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Планування, розпізнавання мови та читання вголос працюють на цьому пристрої. Лише дозволені вами пошуки виходять в інтернет."
+
+msgid "Previous mode"
+msgstr "Попередній режим"
+
+msgid "Previous version"
+msgstr "Попередня версія"
+
+msgid "Previous week"
+msgstr "Попередній тиждень"
+
+msgid "Quick"
+msgstr "Швидкий"
+
+msgid "Reading {}"
+msgstr "Читаю {}"
+
+msgid "Redo"
+msgstr "Повторити"
+
+msgid "Searching: {}"
+msgstr "Шукаю: {}"
+
+msgid "Send"
+msgstr "Надіслати"
+
+msgid "Show subtasks"
+msgstr "Показати підзавдання"
+
+msgid "Skipped {}"
+msgstr "Пропущено {}"
+
+msgid "Standard"
+msgstr "Стандартний"
+
+msgid "Start"
+msgstr "Старт"
+
+msgid "Start focus on this task"
+msgstr "Фокусуватися на завданні"
+
+msgid "Stop"
+msgstr "Зупинити"
+
+msgid "Stop recording"
+msgstr "Зупинити запис"
+
+msgid "Suggest with AI"
+msgstr "Підказка від ШІ"
+
+msgid "Switch to dark mode"
+msgstr "Темна тема"
+
+msgid "Switch to light mode"
+msgstr "Світла тема"
+
+msgid "Target hours"
+msgstr "Цільові години"
+
+msgid "Thinking..."
+msgstr "Думаю..."
+
+msgid "Took notes from {}"
+msgstr "Збережено нотатки з {}"
+
+msgid "Undo"
+msgstr "Скасувати"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Якщо увімкнено, пошукові запити надсилаються до пошуковика. Решта даних залишається на пристрої."
+
+msgid "Writing the answer"
+msgstr "Пишу відповідь"
+
+msgid "Yes, delete"
+msgstr "Так, видалити"
+
+msgid "Yesterday"
+msgstr "Вчора"
+
+msgid "{} results"
+msgstr "Результатів: {}"
+
+msgid "A longer rest"
+msgstr "Довший відпочинок"
+
+msgid "A short rest"
+msgstr "Короткий відпочинок"
+
+msgid "A work session"
+msgstr "Робоча сесія"
+
+msgid "Activity for the day"
+msgstr "Активність за день"
+
+msgid "Activity for the month"
+msgstr "Активність за місяць"
+
+msgid "Activity for the week"
+msgstr "Активність за тиждень"
+
+msgid "Activity for the year"
+msgstr "Активність за рік"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Опишіть, що вам потрібно, і помічник це спланує"
+
+msgid "Go to this week"
+msgstr "Перейти до цього тижня"
+
+msgid "Move to this week"
+msgstr "Перемістити на цей тиждень"
+
+msgid "See tasks in columns"
+msgstr "Переглянути завдання у колонках"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Переглянути завдання у тижневому календарі"
+
+msgid "Set your own length"
+msgstr "Встановити власну тривалість"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Сортувати за терміновістю та важливістю"
+
+msgid "Take it off the calendar"
+msgstr "Прибрати з календаря"

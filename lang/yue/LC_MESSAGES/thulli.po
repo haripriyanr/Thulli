@@ -688,3 +688,839 @@ msgstr "今日計劃"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "今日冇計劃。請喺空間頁面加任務。"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "目標係你想達成嘅事。將佢拆解做里程碑，連結帶你實現目標嘅任務，見證你嘅點滴進步。"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "關於呢個目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "進行中"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "新增里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI 模型（大約 2.3 GB）"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "已安裝 AI 模型"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "仲有咩值得記低"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "封存"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "已封存"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "返回目標"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "本書、個鐘…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "類別"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "更改里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "關閉"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "即將到期"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "已完成"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "計算里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "建立進行中嘅目標嚟攞建議。"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "建立目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "建立你嘅第一個目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "目前"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "目前數值"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "日期（可選）"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "刪除"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "刪除目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "刪除呢個目標？"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "描述預期成果"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "描述"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "完成"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "即刻下載"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "下載緊..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "編輯目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "目標專注時間"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "今個禮拜有進展嘅目標"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "高"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "高優先級"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "歷史紀錄"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "點樣計算進度？"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "進行中"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "保留目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "最近 7 日"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "連結任務"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "低"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "低優先級"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "標記為完成"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "中"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "中優先級"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "里程碑：{}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "已完成嘅里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "需要留意"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "新目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "下一步：{}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "未來七日之內冇截止日期。"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "呢個目標仲未有專注時段。揀其中一個任務開始專注衝刺啦。"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "今個禮拜冇任何目標有里程碑、任務或者專注時段嘅進展。"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "冇相符嘅目標"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "仲未有目標"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "仲未有里程碑。為呢個目標加入第一個中途站啦。"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "冇可連結嘅待辦任務。已經加入咗目標嘅任務唔會喺度顯示。"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "仲未連結任務。由「空間」連結任務之後就會喺度見到。"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "冇任何嘢逾期或者停頓。好嘢！"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "開啟"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "開啟空間"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "暫停"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "已暫停"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "將新連結固定到里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "規劃、語音識別同朗讀功能全部喺呢部裝置執行。你講嘅嘢或者輸入嘅內容都唔會離開部機。"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "優先級"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "進度"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "進度係你已經完成咗嘅里程碑佔嘅比例。"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "進度係你目前嘅數值對比目標，例如 20 本書睇咗 12 本。"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "朗讀"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "準備就緒"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "最近"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "重新整理"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "移除"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "移除佢哋嚟釋放儲存空間；需要嗰陣會再次下載。"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "重新開啟"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "還原"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "繼續"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "儲存變更"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "搜尋目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "搜尋你嘅待辦任務"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "排序方式"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "學習、健康、工作…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "建議下個禮拜嘅優先級"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "目標日期"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "目標日期（YYYY-MM-DD，可選）"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "已完成嘅任務"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "呢個目標嘅任務"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "第一次規劃嗰陣會下載裝置端 AI 模型（大約 2.3 GB）。"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "呢個目標同埋佢嘅里程碑會被移除。你嘅任務會繼續保留喺「空間」入面，只係唔會再指向呢個目標。"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "最近七日，{}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "佢哋會喺你第一次用 AI 嗰陣下載，或者而家下載。"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "呢個目標用嚟追蹤數值。里程碑仍然係途經嘅中途站，但唔會改變進度百分比。"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "標題"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "總計"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "追蹤數值"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "試下其他篩選條件或者唔同嘅搜尋關鍵字。"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "單位"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "取消連結"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "更新"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "每週回顧"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "你想達成咩目標？"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "點解呢個咁重要"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "你做呢件事嘅原因"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "仲剩 {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} 個進行中"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} 個已完成"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} 個喺 {} 日後到期"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} 個今日到期"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} 個聽日到期"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} 次專注"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{}/{}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "已完成 {}/{} 個里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "已完成 {}/{} 個任務"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} 個已逾期"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} 個已暫停"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "仲剩 {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "新增里程碑或目標日期"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "{} 到期"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "{} 日後到期"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "今日到期"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "聽日到期"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "所有里程碑都完成咗"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "已記錄專注時間"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "已完成里程碑：{}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "連續 {} 日冇動態"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "仲未有里程碑"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "逾期咗 {} 日"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "逾期咗 1 日"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "規劃下"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "規劃緊..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "設定目標數值嚟睇進度"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "已達到目標"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "已完成任務：{}"
+
+msgid "Planning"
+msgstr "規劃"
+
+msgid "Speech to text"
+msgstr "語音轉文字"
+
+msgid "Add subtask"
+msgstr "加子任務"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "問下你嘅任務，或者講下你想點規劃。等你確認咗先會變動。"
+
+msgid "Asking AI..."
+msgstr "問緊 AI..."
+
+msgid "Chat"
+msgstr "對話"
+
+msgid "Chats"
+msgstr "對話紀錄"
+
+msgid "Click again to delete"
+msgstr "再撳一次就刪除"
+
+msgid "Collapse"
+msgstr "收起"
+
+msgid "Collapse menu"
+msgstr "收起選單"
+
+msgid "Copy"
+msgstr "複製"
+
+msgid "Count my focus hours"
+msgstr "計入專注時數"
+
+msgid "Decrease"
+msgstr "減少"
+
+msgid "Deep"
+msgstr "深度"
+
+msgid "Delete chat"
+msgstr "刪除對話"
+
+msgid "Delete note"
+msgstr "刪除筆記"
+
+msgid "Delete subtask"
+msgstr "刪除子任務"
+
+msgid "Delete this chat?"
+msgstr "刪除呢個對話？"
+
+msgid "Dictate"
+msgstr "語音輸入"
+
+msgid "Exit full screen"
+msgstr "退出全螢幕"
+
+msgid "Expand"
+msgstr "展開"
+
+msgid "Expand menu"
+msgstr "展開選單"
+
+msgid "Fork from here"
+msgstr "由呢度分叉"
+
+msgid "Fork this chat"
+msgstr "分叉呢個對話"
+
+msgid "Full screen"
+msgstr "全螢幕"
+
+msgid "Hide subtasks"
+msgstr "隱藏子任務"
+
+msgid "Increase"
+msgstr "增加"
+
+msgid "Jump to latest"
+msgstr "跳去最新"
+
+msgid "Launch"
+msgstr "優先處理"
+
+msgid "Let the assistant search the web"
+msgstr "畀助理搜尋網頁"
+
+msgid "Maximize"
+msgstr "最大化"
+
+msgid "Merging the notes"
+msgstr "整理緊筆記"
+
+msgid "Message"
+msgstr "輸入訊息"
+
+msgid "Minimize"
+msgstr "最小化"
+
+msgid "More"
+msgstr "更多"
+
+msgid "Move back"
+msgstr "向後移"
+
+msgid "Move down"
+msgstr "往下移"
+
+msgid "Move forward"
+msgstr "向前移"
+
+msgid "Move up"
+msgstr "往上移"
+
+msgid "New chat"
+msgstr "新對話"
+
+msgid "New space"
+msgstr "新空間"
+
+msgid "Next mode"
+msgstr "下一個模式"
+
+msgid "Next version"
+msgstr "下一個版本"
+
+msgid "Next week"
+msgstr "下個禮拜"
+
+msgid "Planned the searches"
+msgstr "已經規劃好搜尋"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "規劃、語音識別同朗讀都會喺呢部裝置上運行。只有你批准嘅網頁搜尋先會連線。"
+
+msgid "Previous mode"
+msgstr "上一個模式"
+
+msgid "Previous version"
+msgstr "上一個版本"
+
+msgid "Previous week"
+msgstr "上個禮拜"
+
+msgid "Quick"
+msgstr "快速"
+
+msgid "Reading {}"
+msgstr "讀緊 {}"
+
+msgid "Redo"
+msgstr "重做"
+
+msgid "Searching: {}"
+msgstr "搜尋緊：{}"
+
+msgid "Send"
+msgstr "傳送"
+
+msgid "Show subtasks"
+msgstr "顯示子任務"
+
+msgid "Skipped {}"
+msgstr "略過咗 {}"
+
+msgid "Standard"
+msgstr "標準"
+
+msgid "Start"
+msgstr "開始"
+
+msgid "Start focus on this task"
+msgstr "開始專注呢個任務"
+
+msgid "Stop"
+msgstr "停止"
+
+msgid "Stop recording"
+msgstr "停止錄音"
+
+msgid "Suggest with AI"
+msgstr "用 AI 提供建議"
+
+msgid "Switch to dark mode"
+msgstr "切換去深色模式"
+
+msgid "Switch to light mode"
+msgstr "切換去淺色模式"
+
+msgid "Target hours"
+msgstr "目標時數"
+
+msgid "Thinking..."
+msgstr "諗緊..."
+
+msgid "Took notes from {}"
+msgstr "已經喺 {} 抄低筆記"
+
+msgid "Undo"
+msgstr "復原"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "開啟之後，搵嘅內容會傳去搜尋網站。其他嘢全部留喺呢部裝置度。"
+
+msgid "Writing the answer"
+msgstr "寫緊答案"
+
+msgid "Yes, delete"
+msgstr "係，刪除"
+
+msgid "Yesterday"
+msgstr "尋日"
+
+msgid "{} results"
+msgstr "{} 個結果"
+
+msgid "A longer rest"
+msgstr "長少少嘅休息"
+
+msgid "A short rest"
+msgstr "短暫休息"
+
+msgid "A work session"
+msgstr "專注時段"
+
+msgid "Activity for the day"
+msgstr "當日活動"
+
+msgid "Activity for the month"
+msgstr "當月活動"
+
+msgid "Activity for the week"
+msgstr "當週活動"
+
+msgid "Activity for the year"
+msgstr "當年活動"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "講低你需要啲咩，助手會幫你安排"
+
+msgid "Go to this week"
+msgstr "跳去今個星期"
+
+msgid "Move to this week"
+msgstr "移去今個星期"
+
+msgid "See tasks in columns"
+msgstr "以欄目睇任務"
+
+msgid "See tasks on a weekly calendar"
+msgstr "喺週曆睇任務"
+
+msgid "Set your own length"
+msgstr "自訂時長"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "按緊急同重要程度排序"
+
+msgid "Take it off the calendar"
+msgstr "從日曆移除"

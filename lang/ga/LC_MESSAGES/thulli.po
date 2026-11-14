@@ -688,3 +688,839 @@ msgstr "Pleanáilte don lá inniu"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Níl aon rud pleanáilte don lá inniu. Cuir tascanna leis ar scáileán na Spás."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Is éard is sprioc ann ná rud ar mhaith leat a bhaint amach. Roinn ina chlocha míle é, ceangail na tascanna a thabharfaidh ann thú, agus breathnaigh ar do dhul chun cinn ag tógáil."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Maidir leis an sprioc seo"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Gníomhach"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Cuir cloch mhíle leis"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Samhlacha AI (thart ar 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Samhlacha AI suiteáilte"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Aon rud eile gur fiú cuimhneamh air"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Cartlannaigh"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Cartlannaithe"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Ar ais chuig spriocanna"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "leabhair, uaireanta…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Catagóir"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Athraigh cloch mhíle"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Dún"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Ag teacht aníos"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Críochnaithe"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Comhair clocha míle"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Cruthaigh sprioc ghníomhach chun moltaí a fháil."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Cruthaigh sprioc"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Cruthaigh do chéad sprioc"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Reatha"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Luach reatha"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Dáta (roghnach)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Scrios"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Scrios an sprioc"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Ar mhaith leat an sprioc seo a scriosadh?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Déan cur síos ar an toradh"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Cur síos"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Déanta"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Íoslódáil anois"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Ag íoslódáil..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Cuir an sprioc in eagar"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Am fócais ar spriocanna"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Spriocanna"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Spriocanna a chuaigh ar aghaidh an tseachtain seo"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Ard"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Tosaíocht ard"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Stair"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Conas a dhéantar dul chun cinn a chomhaireamh?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Ar siúl"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Coinnigh an sprioc"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Na 7 lá seo caite"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Ceangail tasc"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Íseal"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Tosaíocht íseal"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Marcáil mar críochnaithe"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Meánach"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Tosaíocht mheánach"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Cloch mhíle"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Cloch mhíle: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Clocha míle"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Clocha míle bainte amach"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Aird de dhíth"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Sprioc nua"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Ar aghaidh: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Gan aon spriocdhátaí sna seacht lá amach romhainn."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Níl aon seisiúin fhócais ar an sprioc seo fós. Tosaigh babhta fócais ar cheann dá thascanna."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Ní raibh cloch mhíle, tasc ná seisiún fócais ag aon sprioc an tseachtain seo."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Ní mheaitseálann aon sprioc"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Níl aon spriocanna fós"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Níl aon chlocha míle fós. Cuir an chéad stad leis ar an mbealach chuig an sprioc seo."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Níl aon tascanna oscailte le ceangal. Ní thaispeántar tascanna atá i sprioc cheana féin."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Níl aon tascanna ceangailte fós. Ceangail tascanna ó Spásanna chun iad a fheiceáil anseo."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Níl aon rud thar téarma ná ciúin. Go hiontach."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Oscailte"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Oscail Spásanna"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Cuir ar shos"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Curtha ar shos"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Pionnáil naisc nua le cloch mhíle"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Ritheann pleanáil, aithint cainte agus léamh os ard ar an ngléas seo go léir. Ní fhágann aon rud a deir tú nó a chlóscríobhann tú an gléas."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Tosaíocht"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Dul chun cinn"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Is é an dul chun cinn an sciar de na clocha míle atá bainte amach agat."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Is é an dul chun cinn an uimhir reatha atá agat i gcomparáid leis an sprioc, mar shampla 12 as 20 leabhar."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Léigh os ard"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Réidh"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Le déanaí"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Athnuaigh"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Bain"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Bain iad chun spás a shaoradh; déanfar iad a íoslódáil arís nuair is gá."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Athoscail"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Athchóirigh"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Atosaigh"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Sábháil na hathruithe"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Cuardaigh spriocanna"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Cuardaigh do thascanna oscailte"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sórtáil de réir"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Staidéar, sláinte, obair…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Tosaíochtaí molta don tseachtain seo chugainn"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Sprioc"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Spriocdháta"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Spriocdháta (YYYY-MM-DD, roghnach)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Tascanna críochnaithe"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Tascanna don sprioc seo"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Íoslódálann an chéad phlean na samhlacha AI ar an ngléas (thart ar 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Baintear an sprioc agus a clocha míle. Coimeádtar do thascanna i Spásanna; ní bhíonn siad ag díriú ar an sprioc seo a thuilleadh."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Na seacht lá seo caite, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Íoslódálfar iad an chéad uair a úsáideann tú AI, nó anois."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Rianaíonn an sprioc seo uimhir. Marcálann clocha míle na stadanna ar an mbealach i gcónaí, ach ní athraíonn siad an céatadán."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Teideal"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Iomlán"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Rianaigh uimhir"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Bain triail as scagaire eile nó cuardach difriúil."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Aonad"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Dícheangail"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Nuashonraigh"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Athbhreithniú seachtainiúil"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Cad ba mhaith leat a bhaint amach?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Cén fáth a bhfuil tábhacht leis"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Do chúis leis seo a dhéanamh"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} fágtha"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} gníomhach"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} críochnaithe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} le déanamh i gceann {} lá"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} le déanamh inniu"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} le déanamh amárach"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} i bhfócas"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} as {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} as {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} as {} cloch mhíle críochnaithe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} as {} tasc críochnaithe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} thar téarma"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} curtha ar shos"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} fágtha"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Cuir cloch mhíle nó spriocdháta leis"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Le déanamh {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Le déanamh i gceann {} lá"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Le déanamh inniu"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Le déanamh amárach"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Tá gach cloch mhíle bainte amach"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Am fócais taifeadta"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Clocha míle críochnaithe: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Gan aon ghníomhaíocht le {} lá"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Níl aon chlocha míle fós"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} lá thar téarma"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Lá amháin thar téarma"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Pleanáil é"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Ag pleanáil..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Socraigh sprioc chun dul chun cinn a fheiceáil"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Sprioc bainte amach"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Tascanna críochnaithe: {}"
+
+msgid "Planning"
+msgstr "Pleanáil"
+
+msgid "Speech to text"
+msgstr "Caint go téacs"
+
+msgid "Add subtask"
+msgstr "Cuir fostasc leis"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Cuir ceist faoi do thascanna, nó cuir síos ar a bhfuil le pleanáil agat. Ní athróidh aon rud go dtí go gceadaíonn tú é."
+
+msgid "Asking AI..."
+msgstr "Ag cur ceiste ar AI..."
+
+msgid "Chat"
+msgstr "Comhrá"
+
+msgid "Chats"
+msgstr "Comhráite"
+
+msgid "Click again to delete"
+msgstr "Cliceáil arís le scriosadh"
+
+msgid "Collapse"
+msgstr "Laghdaigh"
+
+msgid "Collapse menu"
+msgstr "Laghdaigh roghchlár"
+
+msgid "Copy"
+msgstr "Cóipeáil"
+
+msgid "Count my focus hours"
+msgstr "Comhair mo chuid uaireanta fócais"
+
+msgid "Decrease"
+msgstr "Laghdaigh"
+
+msgid "Deep"
+msgstr "Domhain"
+
+msgid "Delete chat"
+msgstr "Scrios comhrá"
+
+msgid "Delete note"
+msgstr "Scrios nóta"
+
+msgid "Delete subtask"
+msgstr "Scrios fostasc"
+
+msgid "Delete this chat?"
+msgstr "Scrios an comhrá seo?"
+
+msgid "Dictate"
+msgstr "Deachtaigh"
+
+msgid "Exit full screen"
+msgstr "Scoir lánscáileán"
+
+msgid "Expand"
+msgstr "Leathnaigh"
+
+msgid "Expand menu"
+msgstr "Leathnaigh roghchlár"
+
+msgid "Fork from here"
+msgstr "Scoilt as seo"
+
+msgid "Fork this chat"
+msgstr "Scoilt an comhrá seo"
+
+msgid "Full screen"
+msgstr "Lánscáileán"
+
+msgid "Hide subtasks"
+msgstr "Folaigh fostascanna"
+
+msgid "Increase"
+msgstr "Méadaigh"
+
+msgid "Jump to latest"
+msgstr "Léim go dtí an ceann is déanaí"
+
+msgid "Launch"
+msgstr "Lainseáil"
+
+msgid "Let the assistant search the web"
+msgstr "Lig don chúntóir an gréasán a chuardach"
+
+msgid "Maximize"
+msgstr "Uasmhéadaigh"
+
+msgid "Merging the notes"
+msgstr "Nótaí á gcumasc"
+
+msgid "Message"
+msgstr "Teachtaireacht"
+
+msgid "Minimize"
+msgstr "Íoslaghdaigh"
+
+msgid "More"
+msgstr "Tuilleadh"
+
+msgid "Move back"
+msgstr "Bog siar"
+
+msgid "Move down"
+msgstr "Bog síos"
+
+msgid "Move forward"
+msgstr "Bog ar aghaidh"
+
+msgid "Move up"
+msgstr "Bog suas"
+
+msgid "New chat"
+msgstr "Comhrá nua"
+
+msgid "New space"
+msgstr "Spás nua"
+
+msgid "Next mode"
+msgstr "An chéad mhodh eile"
+
+msgid "Next version"
+msgstr "An chéad leagan eile"
+
+msgid "Next week"
+msgstr "An tseachtain seo chugainn"
+
+msgid "Planned the searches"
+msgstr "Cuardaigh pleanáilte"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Ritheann pleanáil, aithint cainte agus léamh os ard ar an ngléas seo. Ní théann ach na cuardaigh ghréasáin a cheadaíonn tú ar líne."
+
+msgid "Previous mode"
+msgstr "Mód roimhe seo"
+
+msgid "Previous version"
+msgstr "Leagan roimhe seo"
+
+msgid "Previous week"
+msgstr "An tseachtain seo caite"
+
+msgid "Quick"
+msgstr "Gasta"
+
+msgid "Reading {}"
+msgstr "Ag léamh {}"
+
+msgid "Redo"
+msgstr "Athdhéan"
+
+msgid "Searching: {}"
+msgstr "Ag cuardach: {}"
+
+msgid "Send"
+msgstr "Seol"
+
+msgid "Show subtasks"
+msgstr "Taispeáin fostascanna"
+
+msgid "Skipped {}"
+msgstr "Scipeáladh {}"
+
+msgid "Standard"
+msgstr "Caighdeánach"
+
+msgid "Start"
+msgstr "Tosaigh"
+
+msgid "Start focus on this task"
+msgstr "Tosaigh fócas ar an tasc seo"
+
+msgid "Stop"
+msgstr "Stad"
+
+msgid "Stop recording"
+msgstr "Stop taifeadadh"
+
+msgid "Suggest with AI"
+msgstr "Mol le AI"
+
+msgid "Switch to dark mode"
+msgstr "Aistrigh go mód dorcha"
+
+msgid "Switch to light mode"
+msgstr "Aistrigh go mód geal"
+
+msgid "Target hours"
+msgstr "Uaireanta sprice"
+
+msgid "Thinking..."
+msgstr "Ag smaoineamh..."
+
+msgid "Took notes from {}"
+msgstr "Breacadh nótaí ó {}"
+
+msgid "Undo"
+msgstr "Cealaigh"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Nuair a bhíonn sé ar siúl, seoltar a lorgaíonn sé chuig na suíomhanna cuardaigh a úsáideann sé. Fanann gach rud eile ar an ngléas seo."
+
+msgid "Writing the answer"
+msgstr "Freagra á scríobh"
+
+msgid "Yes, delete"
+msgstr "Sea, scrios"
+
+msgid "Yesterday"
+msgstr "Inné"
+
+msgid "{} results"
+msgstr "{} toradh"
+
+msgid "A longer rest"
+msgstr "Sos níos faide"
+
+msgid "A short rest"
+msgstr "Sos gairid"
+
+msgid "A work session"
+msgstr "Seisiún oibre"
+
+msgid "Activity for the day"
+msgstr "Gníomhaíocht an lae"
+
+msgid "Activity for the month"
+msgstr "Gníomhaíocht na míosa"
+
+msgid "Activity for the week"
+msgstr "Gníomhaíocht na seachtaine"
+
+msgid "Activity for the year"
+msgstr "Gníomhaíocht na bliana"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Déan cur síos ar do riachtanas agus pleanálfaidh an cúntóir é"
+
+msgid "Go to this week"
+msgstr "Téigh go dtí an tseachtain seo"
+
+msgid "Move to this week"
+msgstr "Bog go dtí an tseachtain seo"
+
+msgid "See tasks in columns"
+msgstr "Féach ar thascanna i gcolúin"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Féach ar thascanna i bhféilire seachtainiúil"
+
+msgid "Set your own length"
+msgstr "Socraigh do fhad féin"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Sórtáil tascanna de réir práinne agus tábhachta"
+
+msgid "Take it off the calendar"
+msgstr "Bain den fhéilire é"

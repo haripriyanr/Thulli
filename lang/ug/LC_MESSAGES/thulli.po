@@ -688,3 +688,839 @@ msgstr "بۈگۈنگە پىلانلانغان"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "بۈگۈنگە پىلان يوق. بوشلۇقلار ئېكرانىدا ۋەزىپە قوشۇڭ."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "نىشان سىز يەتمەكچى بولغان بىر نىشان. ئۇنى باسقۇچلارغا ئايرىڭ، سىزنى شۇ يەرگە يەتكۈزىدىغان ۋەزىپىلەرنى باغلاڭ ۋە ئىلگىرىلىشىڭىزنى كۆرۈڭ."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "بۇ نىشان ھەققىدە"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "ئاكتىپ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "باسقۇچ قوشۇش"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI مودېللىرى (تەخمىنەن 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI مودېللىرى ئورنىتىلدى"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "ئەستە تۇتۇشقا ئەرزىيدىغان باشقا نەرسە"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "ئارخىپلا"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "ئارخىپلاندى"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "نىشانلارغا قايتىش"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "كىتابلار، سائەتلەر…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "تۈر"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "باسقۇچنى ئۆزگەرتىش"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "تاقا"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "پات يېقىندا"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "تامام بولدى"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "باسقۇچلارنى سانا"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "تەكلىپلەرگە ئېرىشىش ئۈچۈن ئاكتىپ نىشان قۇرۇڭ."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "نىشان قۇرۇش"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "تۇنجى نىشانىڭىزنى قۇرۇڭ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "نۆۋەتتىكى"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "نۆۋەتتىكى قىممەت"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "كۈن (تاللاشچان)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "ئۆچۈر"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "نىشاننى ئۆچۈر"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "بۇ نىشاننى ئۆچۈرەمسىز؟"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "نەتىجىنى تەسۋىرلەڭ"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "چۈشەندۈرۈش"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "تامام"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "ھازىر چۈشۈرۈش"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "چۈشۈرۈۋاتىدۇ..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "نىشاننى تەھرىرلەش"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "نىشاندىكى دىققەت ۋاقتى"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "نىشانلار"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "بۇ ھەپتە ئىلگىرىلىگەن نىشانلار"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "يۇقىرى"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "يۇقىرى دەرىجە"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "تارىخ"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "ئىلگىرىلەش قانداق ھېسابلىنىدۇ؟"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "ئىجرا قىلىنىۋاتىدۇ"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "نىشاننى ساقلاپ قال"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "ئاخىرقى 7 كۈن"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "ۋەزىپىنى باغلاش"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "تۆۋەن"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "تۆۋەن دەرىجە"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "تاماملاندى دەپ بەلگە سال"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "ئوتتۇرا"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "ئوتتۇرا دەرىجە"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "باسقۇچ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "باسقۇچ: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "باسقۇچلار"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "تاماملانغان باسقۇچلار"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "دىققەت تەلەپ قىلىدۇ"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "يېڭى نىشان"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "كېيىنكى: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "كېيىنكى يەتتە كۈن ئىچىدە مۆھلەت يوق."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "بۇ نىشاندا تېخى دىققەت سېسسىيەسى يوق. ئۇنىڭ ۋەزىپىلىرىنىڭ بىرىدە دىققەت ئايلانمىسىنى باشلاڭ."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "بۇ ھەپتە ھېچقانداق نىشاندا باسقۇچ، ۋەزىپە ياكى دىققەت سېسسىيەسى بولمىدى."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "ماس كېلىدىغان نىشان يوق"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "تېخى نىشان يوق"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "تېخى باسقۇچ يوق. بۇ نىشانغا بارىدىغان يولدىكى تۇنجى بېكەتنى قوشۇڭ."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "باغلايدىغان ئوچۇق ۋەزىپە يوق. نىشانغا كىرگۈزۈلگەن ۋەزىپىلەر كۆرسىتىلمەيدۇ."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "تېخى ۋەزىپە باغلانمىدى. ئۇلارنى بۇ يەردە كۆرۈش ئۈچۈن بوشلۇقلاردىن ۋەزىپە باغلاڭ."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "ۋاقتى ئۆتكەن ياكى ھەرىكەتسىز نەرسە يوق. ناھايىتى ياخشى."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "ئوچۇق"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "بوشلۇقلارنى ئېچىش"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "ۋاقىتلىق توختات"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "ۋاقىتلىق توختىتىلدى"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "يېڭى ئۇلىنىشلارنى باسقۇچقا مىخلاش"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "پىلانلاش، نۇتۇقنى تونۇش ۋە ئاۋاز چىقىرىپ ئوقۇشنىڭ ھەممىسى بۇ ئۈسكۈنىدە ئىجرا بولىدۇ. سىز ئېيتقان ياكى كىرگۈزگەن ھېچ نەرسە سىرتقا چىقمايدۇ."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "دەرىجىسى"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "ئىلگىرىلەش"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "ئىلگىرىلەش سىز تاماملىغان باسقۇچلارنىڭ نىسبىتىدۇر."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "ئىلگىرىلەش سىزنىڭ نىشانغا سېلىشتۇرغاندا نۆۋەتتىكى سانىڭىز، مەسىلەن 20 كىتابتىن 12 سى."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "ئاۋاز چىقىرىپ ئوقۇ"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "تەييار"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "يېقىنقى"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "يېڭىلا"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "چىقىرىۋەت"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "بوشلۇقنى بوشىتىش ئۈچۈن ئۇلارنى چىقىرىۋېتىڭ؛ لازىم بولغاندا يەنە چۈشۈرۈلىدۇ."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "قايتا ئاچ"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "ئەسلىگە كەلتۈر"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "داۋاملاشتۇر"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "ئۆزگىرىشلەرنى ساقلا"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "نىشانلارنى ئىزدەش"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "ئوچۇق ۋەزىپىلىرىڭىزنى ئىزدەڭ"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "تەرتىپلەش"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "ئۆگىنىش، ساغلاملىق، خىزمەت…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "كېلەر ھەپتە ئۈچۈن تەۋسىيە قىلىنغان مۇھىم دەرىجىلەر"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "نىشان"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "نىشان كۈنى"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "نىشان كۈنى (YYYY-MM-DD، تاللاشچان)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "تاماملانغان ۋەزىپىلەر"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "بۇ نىشاندىكى ۋەزىپىلەر"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "تۇنجى پىلان ئۈسكۈنىدىكى AI مودېللىرىنى چۈشۈرىدۇ (تەخمىنەن 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "نىشان ۋە ئۇنىڭ باسقۇچلىرى ئۆچۈرۈلىدۇ. ۋەزىپىلىرىڭىز بوشلۇقلاردا ساقلىنىدۇ؛ ئۇلار پەقەت بۇ نىشانغا كۆرسىتىشنى توختىتىدۇ."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "ئاخىرقى يەتتە كۈن، {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "ئۇلار AI نى تۇنجى قېتىم ئىشلەتكەندە ياكى ھازىر چۈشۈرۈلىدۇ."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "بۇ نىشان بىر ساننى ئىز قوغلايدۇ. باسقۇچلار يەنىلا يولدىكى بېكەتلەرنى بەلگىلەيدۇ، ئەمما پىرسەنتنى ئۆزگەرتمەيدۇ."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "ماۋزۇ"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "جەمئىي"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "ساننى ئىز قوغلاش"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "باشقا سۈزگۈچ ياكى ئوخشىمىغان ئىزدەشنى سىناپ بېقىڭ."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "بىرلىك"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "ئۇلىنىشنى ئۈزۈش"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "يېڭىلاش"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "ھەپتىلىك تەكرارلاش"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "نېمىگە ئېرىشمەكچىسىز؟"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "نېمە ئۈچۈن مۇھىم"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "بۇنى قىلىشتىكى سەۋەبىڭىز"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "قالغان {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} ئاكتىپ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} تامام بولدى"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} نىڭغا {} كۈن قالدى"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} بۈگۈن مۆھلىتى توشىدۇ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} ئەتە مۆھلىتى توشىدۇ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} دىققەت قىلىندى"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} باسقۇچ تاماملاندى"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} ۋەزىپە تاماملاندى"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} ۋاقتى ئۆتكەن"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} توختىتىلدى"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "قالغان {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "باسقۇچ ياكى نىشان كۈنى قوشۇش"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "ۋاقتى {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "{} كۈن قالدى"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "ۋاقتى بۈگۈن"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "ۋاقتى ئەتە"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "بارلىق باسقۇچلار تاماملاندى"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "دىققەت ۋاقتى خاتىرىلەندى"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "تاماملانغان باسقۇچلار: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{} كۈندىن بۇيان پائالىيەت يوق"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "تېخى باسقۇچ يوق"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} كۈن ئۆتۈپ كەتتى"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 كۈن ئۆتۈپ كەتتى"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "پىلانلا"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "پىلانلاۋاتىدۇ..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "ئىلگىرىلەشنى كۆرۈش ئۈچۈن نىشان بەلگىلەڭ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "نىشانغا يەتتى"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "تاماملانغان ۋەزىپىلەر: {}"
+
+msgid "Planning"
+msgstr "پىلانلاش"
+
+msgid "Speech to text"
+msgstr "ئاۋازنى تېكىستكە ئايلاندۇرۇش"
+
+msgid "Add subtask"
+msgstr "تارماق ۋەزىپە قوشۇش"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "ۋەزىپىلىرىڭىزنى سوراڭ ياكى نېمىنى پىلانلىماقچى بولغانلىقىڭىزنى تەسۋىرلەڭ. سىز تەستىقلىمىغۇچە ھېچنەرسە ئۆزگەرمەيدۇ."
+
+msgid "Asking AI..."
+msgstr "سۈنئىي ئەقىلدىن سوراۋاتىدۇ..."
+
+msgid "Chat"
+msgstr "سۆھبەت"
+
+msgid "Chats"
+msgstr "سۆھبەتلەر"
+
+msgid "Click again to delete"
+msgstr "ئۆچۈرۈش ئۈچۈن قايتا چېكىڭ"
+
+msgid "Collapse"
+msgstr "يىغىش"
+
+msgid "Collapse menu"
+msgstr "تىزىملىكنى يىغىش"
+
+msgid "Copy"
+msgstr "كۆچۈرۈش"
+
+msgid "Count my focus hours"
+msgstr "زېھىن قويۇش ۋاقتىمنى ھېسابلاش"
+
+msgid "Decrease"
+msgstr "ئازايتىش"
+
+msgid "Deep"
+msgstr "چوڭقۇر"
+
+msgid "Delete chat"
+msgstr "سۆھبەتنى ئۆچۈرۈش"
+
+msgid "Delete note"
+msgstr "خاتىرىنى ئۆچۈرۈش"
+
+msgid "Delete subtask"
+msgstr "تارماق ۋەزىپىنى ئۆچۈرۈش"
+
+msgid "Delete this chat?"
+msgstr "بۇ سۆھبەتنى ئۆچۈرەمسىز؟"
+
+msgid "Dictate"
+msgstr "ئاۋازدا كىرگۈزۈش"
+
+msgid "Exit full screen"
+msgstr "پۈتۈن ئېكراندىن چېكىنىش"
+
+msgid "Expand"
+msgstr "يېيىش"
+
+msgid "Expand menu"
+msgstr "تىزىملىكنى يېيىش"
+
+msgid "Fork from here"
+msgstr "بۇ يەردىن ئايرىش"
+
+msgid "Fork this chat"
+msgstr "بۇ سۆھبەتنى نۇسخىلاش"
+
+msgid "Full screen"
+msgstr "پۈتۈن ئېكران"
+
+msgid "Hide subtasks"
+msgstr "تارماق ۋەزىپىلەرنى يوشۇرۇش"
+
+msgid "Increase"
+msgstr "كۆپەيتىش"
+
+msgid "Jump to latest"
+msgstr "ئەڭ يېڭىسىغا سەكرەش"
+
+msgid "Launch"
+msgstr "بۈگۈنگە بېكىتىش"
+
+msgid "Let the assistant search the web"
+msgstr "ياردەمچىنىڭ توردىن ئىزدەشىگە يول قويۇش"
+
+msgid "Maximize"
+msgstr "چوڭايتىش"
+
+msgid "Merging the notes"
+msgstr "خاتىرىلەر بىرلەشتۈرۈلۈۋاتىدۇ"
+
+msgid "Message"
+msgstr "ئۇچۇر"
+
+msgid "Minimize"
+msgstr "كىچىكلىتىش"
+
+msgid "More"
+msgstr "تېخىمۇ كۆپ"
+
+msgid "Move back"
+msgstr "كەينىگە يۆتكەش"
+
+msgid "Move down"
+msgstr "تۆۋەنگە يۆتكەش"
+
+msgid "Move forward"
+msgstr "ئالدىغا يۆتكەش"
+
+msgid "Move up"
+msgstr "يۇقىرىغا يۆتكەش"
+
+msgid "New chat"
+msgstr "يېڭى سۆھبەت"
+
+msgid "New space"
+msgstr "يېڭى بوشلۇق"
+
+msgid "Next mode"
+msgstr "كېيىنكى ھالەت"
+
+msgid "Next version"
+msgstr "كېيىنكى نەشرى"
+
+msgid "Next week"
+msgstr "كېلەر ھەپتە"
+
+msgid "Planned the searches"
+msgstr "ئىزدەشلەر پىلانلاندى"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "پىلانلاش، ئاۋاز تونۇش ۋە ئۈنلۈك ئوقۇش بۇ ئۈسكۈنىدە ئىجرا بولىدۇ. پەقەت سىز رۇخسەت قىلغان تور ئىزدەشلىرىلا تورغا چىقىدۇ."
+
+msgid "Previous mode"
+msgstr "ئالدىنقى ھالەت"
+
+msgid "Previous version"
+msgstr "ئالدىنقى نەشرى"
+
+msgid "Previous week"
+msgstr "ئۆتكەن ھەپتە"
+
+msgid "Quick"
+msgstr "تېز"
+
+msgid "Reading {}"
+msgstr "ئوقۇۋاتىدۇ: {}"
+
+msgid "Redo"
+msgstr "قايتىلاش"
+
+msgid "Searching: {}"
+msgstr "ئىزدەۋاتىدۇ: {}"
+
+msgid "Send"
+msgstr "ئەۋەتىش"
+
+msgid "Show subtasks"
+msgstr "تارماق ۋەزىپىلەرنى كۆرسىتىش"
+
+msgid "Skipped {}"
+msgstr "ئۆتكۈزۈۋېتىلدى: {}"
+
+msgid "Standard"
+msgstr "ئۆلچەملىك"
+
+msgid "Start"
+msgstr "باشلاش"
+
+msgid "Start focus on this task"
+msgstr "بۇ ۋەزىپىگە زېھىن قويۇشنى باشلاش"
+
+msgid "Stop"
+msgstr "توختىتىش"
+
+msgid "Stop recording"
+msgstr "ئۈن ئېلىشنى توختىتىش"
+
+msgid "Suggest with AI"
+msgstr "سۈنئىي ئەقىلدىن تەكلىپ ئېلىش"
+
+msgid "Switch to dark mode"
+msgstr "قاراڭغۇ ھالەتكە ئالماشتۇرۇش"
+
+msgid "Switch to light mode"
+msgstr "يورۇق ھالەتكە ئالماشتۇرۇش"
+
+msgid "Target hours"
+msgstr "نىشان سائەت"
+
+msgid "Thinking..."
+msgstr "ئويلىنىۋاتىدۇ..."
+
+msgid "Took notes from {}"
+msgstr "{} دىن خاتىرە ئېلىندى"
+
+msgid "Undo"
+msgstr "يېنىۋېلىش"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "ئوچۇق بولغاندا، ئىزدەلگەن مەزمۇن ئىشلىتىلىدىغان ئىزدەش تور بېكەتلىرىگە ئەۋەتىلىدۇ. قالغان بارلىق نەرسە بۇ ئۈسكۈنىدە قالىدۇ."
+
+msgid "Writing the answer"
+msgstr "جاۋاب يېزىلىۋاتىدۇ"
+
+msgid "Yes, delete"
+msgstr "ھەئە، ئۆچۈرۈلسۇن"
+
+msgid "Yesterday"
+msgstr "تۈنۈگۈن"
+
+msgid "{} results"
+msgstr "{} نەتىجە"
+
+msgid "A longer rest"
+msgstr "ئۇزۇنراق ئارام"
+
+msgid "A short rest"
+msgstr "قىسقا ئارام"
+
+msgid "A work session"
+msgstr "خىزمەت باسقۇچى"
+
+msgid "Activity for the day"
+msgstr "كۈنلۈك پائالىيەت"
+
+msgid "Activity for the month"
+msgstr "ئايلىق پائالىيەت"
+
+msgid "Activity for the week"
+msgstr "ھەپتىلىك پائالىيەت"
+
+msgid "Activity for the year"
+msgstr "يىللىق پائالىيەت"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "نېمە كېرەكلىكىنى يېزىڭ، ياردەمچى پىلانلايدۇ"
+
+msgid "Go to this week"
+msgstr "بۇ ھەپتىگە بېرىش"
+
+msgid "Move to this week"
+msgstr "بۇ ھەپتىگە يۆتكەش"
+
+msgid "See tasks in columns"
+msgstr "ۋەزىپىلەرنى ئىستوندا كۆرۈش"
+
+msgid "See tasks on a weekly calendar"
+msgstr "ۋەزىپىلەرنى ھەپتىلىك كالېنداردا كۆرۈش"
+
+msgid "Set your own length"
+msgstr "ئۆز ۋاقتىڭىزنى تەڭشەڭ"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "جىددىيلىك ۋە مۇھىملىقى بويىچە تىزىش"
+
+msgid "Take it off the calendar"
+msgstr "كالېنداردىن ئۆچۈرۈش"

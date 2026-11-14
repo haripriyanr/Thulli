@@ -688,3 +688,839 @@ msgstr "Naplánováno na dnes"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Na dnes nic naplánováno není. Přidejte úkoly na obrazovce Prostory."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Cíl je něco, čeho chcete dosáhnout. Rozdělte ho na milníky, propojte s ním úkoly, které vás k němu dovedou, a sledujte svůj pokrok."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "O tomto cíli"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktivní"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Přidat milník"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Modely AI (cca 2,3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Modely AI nainstalovány"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Cokoli dalšího, co stojí za zapamatování"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Archivovat"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Archivováno"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Zpět k cílům"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "knihy, hodiny…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategorie"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Změnit milník"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Zavřít"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Nadcházející"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Dokončené"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Počítat milníky"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Vytvořte aktivní cíl a získejte návrhy."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Vytvořit cíl"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Vytvořte svůj první cíl"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Aktuální"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Aktuální hodnota"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Datum (volitelné)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Smazat"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Smazat cíl"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Smazat tento cíl?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Popište požadovaný výsledek"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Popis"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Hotovo"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Stáhnout nyní"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Stahování..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Upravit cíl"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Čas soustředění na cílech"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Cíle"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Cíle s posunem v tomto týdnu"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Vysoká"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Vysoká priorita"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Historie"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Jak se počítá pokrok?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Probíhá"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Ponechat cíl"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Posledních 7 dní"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Propojit úkol"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Nízká"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Nízká priorita"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Označit jako dokončené"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Střední"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Střední priorita"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Milník"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Milník: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Milníky"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Splněné milníky"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Vyžaduje pozornost"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Nový cíl"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Další: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "V příštích sedmi dnech nejsou žádné termíny."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "K tomuto cíli zatím neproběhly žádné sprinty. Začněte soustředěný sprint na jednom z úkolů."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "U žádného cíle tento týden neproběhl milník, úkol ani soustředěný sprint."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Žádné cíle neodpovídají"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Zatím žádné cíle"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Zatím žádné milníky. Přidejte první zastávku na cestě k tomuto cíli."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Žádné otevřené úkoly k propojení. Úkoly již přiřazené k cíli se nezobrazují."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Zatím nejsou propojeny žádné úkoly. Propojte úkoly z Prostorů a uvidíte je zde."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Nic není po termínu ani nečinné. Skvělé."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Otevřené"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Otevřít Prostory"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Pozastavit"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Pozastaveno"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Připnout nová propojení k milníku"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Plánování, rozpoznávání řeči i hlasité čtení běží na tomto zařízení. Nic z toho, co řeknete nebo napíšete, jej neopustí."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Priorita"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Pokrok"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Pokrok je podíl milníků, které jste dokončili."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Pokrok je vaše aktuální hodnota oproti cíli, například 12 z 20 knih."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Přečíst nahlas"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Připraveno"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Nedávné"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Obnovit"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Odebrat"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Odeberte je a uvolněte místo; v případě potřeby se stáhnou znovu."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Znovu otevřít"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Obnovit"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Pokračovat"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Uložit změny"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Hledat cíle"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Hledat v otevřených úkolech"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Řadit podle"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Studium, zdraví, práce…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Doporučené priority na příští týden"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Cílová hodnota"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Cílové datum"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Cílové datum (YYYY-MM-DD, volitelné)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Dokončené úkoly"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Úkoly pro tento cíl"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Při prvním plánování se stáhnou modely AI pro toto zařízení (cca 2,3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Cíl a jeho milníky budou odstraněny. Vaše úkoly zůstanou v Prostorech, pouze přestanou odkazovat na tento cíl."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Posledních sedm dní, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Stáhnou se při prvním použití AI nebo nyní."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Tento cíl sleduje číselnou hodnotu. Milníky stále označují zastávky na cestě, ale nemění procento dokončení."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Název"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Celkem"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Sledovat číselnou hodnotu"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Zkuste jiný filtr nebo jiné hledání."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Jednotka"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Odpojit"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Aktualizovat"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Týdenní přehled"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Čeho chcete dosáhnout?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Proč je to důležité"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Váš důvod, proč to děláte"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "Zbývá: {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktivních"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} dokončeno"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} s termínem za {} dní"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} s termínem dnes"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} s termínem zítra"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} v soustředění"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} z {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} z {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "Splněno milníků: {} z {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "Dokončeno úkolů: {} z {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} po termínu"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} pozastaveno"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "Zbývá: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Přidat milník nebo cílové datum"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Termín: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Termín za {} dní"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Termín dnes"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Termín zítra"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Všechny milníky jsou splněny"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Zaznamenán čas soustředění"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Splněno milníků: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Žádná aktivita po dobu {} dní"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Zatím žádné milníky"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Zpožděno o {} dní"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Zpožděno o 1 den"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Naplánovat"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Plánování..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Nastavte cíl pro zobrazení pokroku"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Cíl dosažen"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Dokončeno úkolů: {}"
+
+msgid "Planning"
+msgstr "Plánování"
+
+msgid "Speech to text"
+msgstr "Hlas na text"
+
+msgid "Add subtask"
+msgstr "Přidat dílčí úkol"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Zeptejte se na své úkoly nebo popište, co chcete naplánovat. Nic se nezmění, dokud to neschválíte."
+
+msgid "Asking AI..."
+msgstr "Dotazuji se AI..."
+
+msgid "Chat"
+msgstr "Chat"
+
+msgid "Chats"
+msgstr "Chaty"
+
+msgid "Click again to delete"
+msgstr "Dalším kliknutím smažete"
+
+msgid "Collapse"
+msgstr "Sbalit"
+
+msgid "Collapse menu"
+msgstr "Sbalit nabídku"
+
+msgid "Copy"
+msgstr "Kopírovat"
+
+msgid "Count my focus hours"
+msgstr "Počítat hodiny soustředění"
+
+msgid "Decrease"
+msgstr "Snížit"
+
+msgid "Deep"
+msgstr "Hloubkové"
+
+msgid "Delete chat"
+msgstr "Smazat chat"
+
+msgid "Delete note"
+msgstr "Smazat poznámku"
+
+msgid "Delete subtask"
+msgstr "Smazat dílčí úkol"
+
+msgid "Delete this chat?"
+msgstr "Smazat tento chat?"
+
+msgid "Dictate"
+msgstr "Diktovat"
+
+msgid "Exit full screen"
+msgstr "Ukončit celou obrazovku"
+
+msgid "Expand"
+msgstr "Rozbalit"
+
+msgid "Expand menu"
+msgstr "Rozbalit nabídku"
+
+msgid "Fork from here"
+msgstr "Odbočit odsud"
+
+msgid "Fork this chat"
+msgstr "Vytvořit kopii chatu"
+
+msgid "Full screen"
+msgstr "Celá obrazovka"
+
+msgid "Hide subtasks"
+msgstr "Skrýt dílčí úkoly"
+
+msgid "Increase"
+msgstr "Zvýšit"
+
+msgid "Jump to latest"
+msgstr "Přejít na nejnovější"
+
+msgid "Launch"
+msgstr "Spustit"
+
+msgid "Let the assistant search the web"
+msgstr "Povolit asistentovi hledat na webu"
+
+msgid "Maximize"
+msgstr "Maximalizovat"
+
+msgid "Merging the notes"
+msgstr "Slučování poznámek"
+
+msgid "Message"
+msgstr "Zpráva"
+
+msgid "Minimize"
+msgstr "Minimalizovat"
+
+msgid "More"
+msgstr "Další"
+
+msgid "Move back"
+msgstr "Posunout zpět"
+
+msgid "Move down"
+msgstr "Posunout dolů"
+
+msgid "Move forward"
+msgstr "Posunout vpřed"
+
+msgid "Move up"
+msgstr "Posunout nahoru"
+
+msgid "New chat"
+msgstr "Nový chat"
+
+msgid "New space"
+msgstr "Nový prostor"
+
+msgid "Next mode"
+msgstr "Další režim"
+
+msgid "Next version"
+msgstr "Další verze"
+
+msgid "Next week"
+msgstr "Příští týden"
+
+msgid "Planned the searches"
+msgstr "Vyhledávání naplánováno"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Plánování, rozpoznávání řeči a předčítání probíhají na tomto zařízení. Na internet se odesílají pouze vyhledávání, která povolíte."
+
+msgid "Previous mode"
+msgstr "Předchozí režim"
+
+msgid "Previous version"
+msgstr "Předchozí verze"
+
+msgid "Previous week"
+msgstr "Minulý týden"
+
+msgid "Quick"
+msgstr "Rychlé"
+
+msgid "Reading {}"
+msgstr "Čtení {}"
+
+msgid "Redo"
+msgstr "Znovu"
+
+msgid "Searching: {}"
+msgstr "Vyhledávání: {}"
+
+msgid "Send"
+msgstr "Odeslat"
+
+msgid "Show subtasks"
+msgstr "Zobrazit dílčí úkoly"
+
+msgid "Skipped {}"
+msgstr "Přeskočeno {}"
+
+msgid "Standard"
+msgstr "Standardní"
+
+msgid "Start"
+msgstr "Spustit"
+
+msgid "Start focus on this task"
+msgstr "Soustředit se na tento úkol"
+
+msgid "Stop"
+msgstr "Zastavit"
+
+msgid "Stop recording"
+msgstr "Zastavit nahrávání"
+
+msgid "Suggest with AI"
+msgstr "Navrhnout pomocí AI"
+
+msgid "Switch to dark mode"
+msgstr "Přepnout na tmavý režim"
+
+msgid "Switch to light mode"
+msgstr "Přepnout na světlý režim"
+
+msgid "Target hours"
+msgstr "Cílové hodiny"
+
+msgid "Thinking..."
+msgstr "Přemýšlím..."
+
+msgid "Took notes from {}"
+msgstr "Poznámky pořízeny z {}"
+
+msgid "Undo"
+msgstr "Zpět"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Když je funkce zapnutá, hledané výrazy se odesílají vyhledávačům. Vše ostatní zůstává na tomto zařízení."
+
+msgid "Writing the answer"
+msgstr "Zapisování odpovědi"
+
+msgid "Yes, delete"
+msgstr "Ano, smazat"
+
+msgid "Yesterday"
+msgstr "Včera"
+
+msgid "{} results"
+msgstr "{} výsledků"
+
+msgid "A longer rest"
+msgstr "Delší pauza"
+
+msgid "A short rest"
+msgstr "Krátká pauza"
+
+msgid "A work session"
+msgstr "Pracovní blok"
+
+msgid "Activity for the day"
+msgstr "Aktivita za den"
+
+msgid "Activity for the month"
+msgstr "Aktivita za měsíc"
+
+msgid "Activity for the week"
+msgstr "Aktivita za týden"
+
+msgid "Activity for the year"
+msgstr "Aktivita za rok"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Popište, co potřebujete, a asistent to naplánuje"
+
+msgid "Go to this week"
+msgstr "Přejít na tento týden"
+
+msgid "Move to this week"
+msgstr "Přesunout na tento týden"
+
+msgid "See tasks in columns"
+msgstr "Zobrazit úkoly ve sloupcích"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Zobrazit úkoly v týdenním kalendáři"
+
+msgid "Set your own length"
+msgstr "Nastavit vlastní délku"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Seřadit úkoly podle naléhavosti a důležitosti"
+
+msgid "Take it off the calendar"
+msgstr "Odebrat z kalendáře"

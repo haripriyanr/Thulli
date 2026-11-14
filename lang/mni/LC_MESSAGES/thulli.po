@@ -688,3 +688,839 @@ msgstr "অসিগী প্ল্যান"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "অসিগী শৌনা প্ল্যান মদা। স্পেস স্ক্রীনা কাম ষেপ্খ্রে।"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "পান্দম হায়বসি নহাক্না য়ৌনিংবা পোৎশক অমনি। মসিবু মাইলস্টোনশিংদা খাইদোকউ, মসিদা য়ৌহনগদবা কামশিং লিঙ্ক তৌ, অমসুং নহাক্কী প্রোগ্রেস হেনগৎলকপা য়েংঙু।"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "পান্দম অসিগী মরমদা"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "এক্টিভ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "মাইলস্টোন অমা হাপচিল্লু"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI মডেলশিং (প্রায় 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI মডেলশিং ইনস্টল তৌরে"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "নিংশিংবা য়াবা অতৈ করিগুম্বা"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "আর্কাইভ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "আর্কাইভ তৌরবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "পান্দমশিংদা হল্লকপা"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "লাইরিকশিং, পুংশিং…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "কেটাগরি"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "মাইলস্টোন হোংদোকউ"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "ক্লোজ"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "লাক্কদৌরিবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "লোইরে"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "মাইলস্টোনশিং মশিং থীবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "পাউতাকশিং ফংনবগীদমক এক্টিভ পান্দম অমা শেম্মু।"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "পান্দম শেম্মু"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "নহাক্কী অহানবা পান্দম শেম্মু"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "হৌজিক্কী"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "হৌজিক্কী ভ্যালু"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "তারিখ (অপশনেল)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "মুত্থৎপা"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "পান্দম মুত্থৎপা"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "পান্দম অসি মুত্থৎসিরা?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "মহৈ অদুগী মরমদা ফোংদোকউ"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "মরম"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "খয়গদমবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "হৌজিক ডাউনলোড তৌরো"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "ডাউনলোড তৌরি..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "পান্দম এডিট তৌবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "পান্দমশিংগী ফোকাস মতম"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "পান্দমশিং"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "হয়িংগী চয়োল অসিদা মাংজিল থাবা পান্দমশিং"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "অৱাংবা"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "অৱাংবা প্রায়োরিটি"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "ইতিহাস"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "প্রোগ্রেস করম্না মশিং থীবগে?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "চল্লাইরিবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "পান্দম থম্বা"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "মমাংগী নুমিৎ ৭"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "কাম লিঙ্ক তৌ"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "নেম্বা"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "নেম্বা প্রায়োরিটি"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "লোইরে হায়না মাক তৌ"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "ময়াই ওইবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "ময়াই ওইবা প্রায়োরিটি"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "মাইলস্টোন"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "মাইলস্টোন: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "মাইলস্টোনশিং"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "লোইশিল্পবা মাইলস্টোনশিং"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "মিৎয়েং চংবা দরকার ওই"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "অনৌবা পান্দম"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "মথংদা: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "মথংগী নুমিৎ তরেত অসিদা করিগুম্বা ডেডলাইন লৈতে।"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "পান্দম অসিদা হৌজিকফাওবা ফোকাস সেশন লৈতবা। মসিগী কাম অমদা ফোকাস রাউন্ড অমা হৌদোকউ।"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "চয়োল অসিদা পান্দম অমত্তদা মাইলস্টোন, কাম নত্রগা ফোকাস সেশন লৈতে।"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "পান্দম অমত্তা চুনদে"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "হৌজিকফাওবা পান্দম লৈতে"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "হৌজিকফাওবা মাইলস্টোন লৈতে। পান্দম অসিগী লম্বীদা অহানবা মাইলস্টোন হাপচিল্লু।"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "লিঙ্ক তৌনবা হাংবা কাম লৈতে। পান্দমদা য়াওখ্রবা কামশিং উৎতে।"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "হৌজিকফাওবা কাম লিঙ্ক তৌদে। মফমসিদা য়েংনবগীদমক স্পেসশিংদগী কাম লিঙ্ক তৌ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "করিগুম্বা মতম হেনখ্রবা নত্রগা তৌদবা লৈতে। ফৈ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "হাংদোকউ"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "স্পেসশিং হাংদোকউ"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "লেপখ্রবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "লেপহনখ্রে"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "মাইলস্টোন অমদা অনৌবা লিঙ্কশিং পিন তৌ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "প্ল্যানিং, ৱা ঙাংবা খঙদোকপা অমসুং হকচাংনা পাবা খুদিংমক ডিভাইচ অসিদা চৎলি। নহাক্না হায়বা নত্রগা টাইপ তৌবা অমত্তা মসিমদগী মপান্দা চৎতে।"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "প্রায়োরিটি"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "প্রোগ্রেস"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "প্রোগ্রেস হায়বসি নহাক্না লোইশিল্পবা মাইলস্টোনশিংগী শরুক্নি।"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "প্রোগ্রেস হায়বসি পান্দমগী মাইয়োক্তা নহাক্কী হৌজিক্কী মশিংনি, হায়বদি লাইরিক ২০গী মনুংদা ১২গুম্বা।"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "হকচাংনা পাবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "রেডি ওইরে"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "হন্দক্কী"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "রিফ্রেশ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "লৌথোকউ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "মফম হাংহন্নবা মখোয়বু লৌথোকউ; দরকার ওইরকপা মতমদা অমুক ডাউনলোড তৌরক্কনি।"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "অমুক হাংদোকউ"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "অমুক হলহনবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "অমুক হন্না হৌদোকপা"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "অহোংবশিং সেভ তৌ"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "পান্দমশিং থাগখ্রে"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "নহাক্কী হাংবা কামশিং থাগখ্রে"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "মসিগী মতুংইন্না"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "পারা, হকশেল, কাম…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "মথং চয়োলগী হায়রিবা প্রায়োরিটিশিং"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "টার্গেট"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "টার্গেট তারিখ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "টার্গেট তারিখ (YYYY-MM-DD, অপশনেল)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "লোইশিল্পবা কামশিং"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "পান্দম অসিগী কামশিং"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "অহানবা প্ল্যান্না ডিভাইচতা লৈবা AI মডেলশিং ডাউনলোড তৌই (প্রায় 2.3 GB)।"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "পান্দম অমসুং মসিগী মাইলস্টোনশিং লৌথোকই। নহাক্কী কামশিং স্পেসশিংদা লৈহৌই; মখোয়না পান্দম অসিবু তাকপা লেপখ্রবনি।"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "মমাংগী নুমিৎ তরেত, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "নহাক্না AI অহানবা ওইনা শীজিন্নবা মতমদা নত্রগা হৌজিক ডাউনলোড তৌই।"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "পান্দম অসিনা মশিং অমা ট্রেক তৌই। মাইলস্টোনশিংনা লম্বীগী লেপফমশিং উৎলি, অদুবু মখোয়না চাদা অদু হোংহনদে।"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "মমিং"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "অপুনবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "মশিং অমা ট্রেক তৌ"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "অতোপ্পা ফিল্টার নত্রগা তোঙানবা থীবগী পাম্বৈ অমা হোৎনৌ।"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "য়ুনিট"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "আনলিঙ্ক তৌ"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "অপডেট তৌ"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "চয়োলগী রিভ্যু"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "নহাক্না করি ফংনিংবগে?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "মসি করিগী মরুওইবগে"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "মসি তৌবগী নহাক্কী মরম"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} ৱাৎলি"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} এক্টিভ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} লোইরে"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} - নুমিৎ {} গী মনুংদা"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "ঙসি {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "হয়েং {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} ফোকাস তৌরে"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} মাইলস্টোন লোইরে"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} কাম লোইরে"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} মতম হেনখ্রে"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} লেপহনখ্রে"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} ৱাৎলি"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "মাইলস্টোন অমা নত্রগা তারিখ অমা হাপচিল্লু"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "{} দা লোইশিনগদবা"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "নুমিৎ {} গী মনুংদা"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "ঙসিগী ওইনা"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "হয়েংগী ওইনা"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "মাইলস্টোন খুদিংমক লোইরে"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "ফোকাস মতম রিকোর্দ তৌরে"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "লোইশিল্পবা মাইলস্টোনশিং: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "নুমিৎ {} নি কিসু তৌদে"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "হৌজিকফাওবা মাইলস্টোন লৈতে"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "নুমিৎ {} মতম হেনখ্রে"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "নুমিৎ ১ মতম হেনখ্রে"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "প্ল্যান তৌ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "প্ল্যান তৌরি..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "প্রোগ্রেস য়েংনবগীদমক পান্দম অমা থম্মী"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "টার্গেট য়ৌরে"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "লোইশিল্পবা কামশিং: {}"
+
+msgid "Planning"
+msgstr "থৌরাং"
+
+msgid "Speech to text"
+msgstr "খোঞ্জেলদগী ইবা"
+
+msgid "Add subtask"
+msgstr "সবটাস্ক হাপচিল্লু"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "নহাক্কী থবক্কী মরমদা হংলু, নত্রগা প্লান তৌনিংবা অদুগী মরমদা ফোংদোক্লু। নহাক্না অয়াবা পীদ্রিবমখৈ অমত্তা হোংদোক্লোই।"
+
+msgid "Asking AI..."
+msgstr "AI দা হংলি..."
+
+msgid "Chat"
+msgstr "ৱারী"
+
+msgid "Chats"
+msgstr "ৱারীশিং"
+
+msgid "Click again to delete"
+msgstr "মুথৎনবা অমুক হন্না নম্বীয়ু"
+
+msgid "Collapse"
+msgstr "অপীকপা ওন্থোক্লু"
+
+msgid "Collapse menu"
+msgstr "মেনু অপীকপা ওন্থোক্লু"
+
+msgid "Copy"
+msgstr "কোপি তৌরো"
+
+msgid "Count my focus hours"
+msgstr "ঐগী ফোকস পুং মশিং থিরো"
+
+msgid "Decrease"
+msgstr "হন্থহল্লু"
+
+msgid "Deep"
+msgstr "অকুপ্পা"
+
+msgid "Delete chat"
+msgstr "ৱারী মুথথ্লু"
+
+msgid "Delete note"
+msgstr "নোট মুথথ্লু"
+
+msgid "Delete subtask"
+msgstr "সবটাস্ক মুথথ্লু"
+
+msgid "Delete this chat?"
+msgstr "ৱারী অসি মুথৎসিরা?"
+
+msgid "Dictate"
+msgstr "ৱা ঙাংদুনা ইরোক"
+
+msgid "Exit full screen"
+msgstr "ফুল স্ক্রিনদগী থোক্লু"
+
+msgid "Expand"
+msgstr "চাওথোকহল্লু"
+
+msgid "Expand menu"
+msgstr "মেনু চাওথোকহল্লু"
+
+msgid "Fork from here"
+msgstr "মসিদগী অনৌবা ৱারী হৌরো"
+
+msgid "Fork this chat"
+msgstr "ৱারী অসি কোপি তৌরো"
+
+msgid "Full screen"
+msgstr "ফুল স্ক্রিন"
+
+msgid "Hide subtasks"
+msgstr "সবটাস্কশিং লোৎলু"
+
+msgid "Increase"
+msgstr "হেনগৎহল্লু"
+
+msgid "Jump to latest"
+msgstr "অরোইবা পাউদা চৎলো"
+
+msgid "Launch"
+msgstr "হৌদোক্লু"
+
+msgid "Let the assistant search the web"
+msgstr "এসিষ্টেন্টবু ৱেবতা থীনবা য়াহল্লু"
+
+msgid "Maximize"
+msgstr "মপুংফানা চাওথোকহল্লু"
+
+msgid "Merging the notes"
+msgstr "নোটশিং পুনশিল্লি"
+
+msgid "Message"
+msgstr "পাউজেল"
+
+msgid "Minimize"
+msgstr "অপীকপা ওইহল্লু"
+
+msgid "More"
+msgstr "অহেনবা"
+
+msgid "Move back"
+msgstr "তুংদা হোংদোক্লু"
+
+msgid "Move down"
+msgstr "মখাদা হোংদোক্লু"
+
+msgid "Move forward"
+msgstr "মাংদা হোংদোক্লু"
+
+msgid "Move up"
+msgstr "মথক্তা হোংদোক্লু"
+
+msgid "New chat"
+msgstr "অনৌবা ৱারী"
+
+msgid "New space"
+msgstr "অনৌবা মফম"
+
+msgid "Next mode"
+msgstr "মথংগী মোড"
+
+msgid "Next version"
+msgstr "মথংগী ভর্জন"
+
+msgid "Next week"
+msgstr "মথংগী চয়োল"
+
+msgid "Planned the searches"
+msgstr "থীগদবশিং প্লান তৌরে"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "প্লান তৌবা, খোঞ্জেল খঙদোকপা অমসুং তারকপা পারিকপা পুম্নমক ডিভাইজ অসিদা চত্থৈ। নহাক্না য়াবা ৱেব সর্চশিং খক্তমক ওনলাইনদা চৎকনি।"
+
+msgid "Previous mode"
+msgstr "মমাংগী মোড"
+
+msgid "Previous version"
+msgstr "মমাংগী ভর্জন"
+
+msgid "Previous week"
+msgstr "মমাংগী চয়োল"
+
+msgid "Quick"
+msgstr "য়াংবা"
+
+msgid "Reading {}"
+msgstr "{} পারো"
+
+msgid "Redo"
+msgstr "অমুক হন্না তৌরো"
+
+msgid "Searching: {}"
+msgstr "থীরি: {}"
+
+msgid "Send"
+msgstr "থারক্লু"
+
+msgid "Show subtasks"
+msgstr "সবটাস্কশিং উৎলো"
+
+msgid "Skipped {}"
+msgstr "{} থাদোক্লে"
+
+msgid "Standard"
+msgstr "স্তেন্দার্দ"
+
+msgid "Start"
+msgstr "হৌরো"
+
+msgid "Start focus on this task"
+msgstr "থবক অসিদা ফোকস হৌরো"
+
+msgid "Stop"
+msgstr "লেপলু"
+
+msgid "Stop recording"
+msgstr "রেকোর্ডিং লেপলু"
+
+msgid "Suggest with AI"
+msgstr "AI না সজেস্ত তৌরো"
+
+msgid "Switch to dark mode"
+msgstr "দार्क মোদতা হোংদোক্লু"
+
+msgid "Switch to light mode"
+msgstr "লাইত মোদতা হোংদোক্লু"
+
+msgid "Target hours"
+msgstr "তার্গেত পুং"
+
+msgid "Thinking..."
+msgstr "খনরি..."
+
+msgid "Took notes from {}"
+msgstr "{} দগী নোট লৌরে"
+
+msgid "Undo"
+msgstr "হান্নগী ওন্থোক্লু"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "ওন ওইরিঙৈদা, থীরিবশিং অদু শীজিন্নরিবা সর্চ সাইতশিংদা থারই। অতৈ পুম্নমক ডিভাইজ অসিদা লৈহৌই।"
+
+msgid "Writing the answer"
+msgstr "পাউখুম ইরি"
+
+msgid "Yes, delete"
+msgstr "হোয়, মুথথ্লু"
+
+msgid "Yesterday"
+msgstr "ঙরাং"
+
+msgid "{} results"
+msgstr "ফল {}"
+
+msgid "A longer rest"
+msgstr "শাংবা পোত্থা"
+
+msgid "A short rest"
+msgstr "অতেনবা পোত্থা"
+
+msgid "A work session"
+msgstr "থবক্কী মতম"
+
+msgid "Activity for the day"
+msgstr "নুমিৎকী থবক"
+
+msgid "Activity for the month"
+msgstr "থাগী থবক"
+
+msgid "Activity for the week"
+msgstr "চয়োলগী থবক"
+
+msgid "Activity for the year"
+msgstr "চহিগী থবক"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "নহাক্না করি দরকার ওইবগে হায়য়ু অমসুং এসিস্তেন্তনা মদু থৌরাং তৌগনি"
+
+msgid "Go to this week"
+msgstr "চয়োল অসিদা চৎলু"
+
+msgid "Move to this week"
+msgstr "চয়োল অসিদা হোংদোকউ"
+
+msgid "See tasks in columns"
+msgstr "থবকশিং কোলমদা য়েংউ"
+
+msgid "See tasks on a weekly calendar"
+msgstr "চয়োলগী কেলেন্দরদা থবকশিং য়েংউ"
+
+msgid "Set your own length"
+msgstr "নশাগী মতম লেপ্পু"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "অথুবা অমসুং মরুওইবগী মতুং ইন্না থবকশিং থম্মু"
+
+msgid "Take it off the calendar"
+msgstr "কেলেন্দরদগী লৌথোকউ"

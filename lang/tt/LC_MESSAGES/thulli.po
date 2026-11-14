@@ -688,3 +688,839 @@ msgstr "Бүгенгә планлаштырылган"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Бүгенгә план юк. Урыннар экранына эш өстәгез."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Максат — сез ирешергә теләгән нәтиҗә. Аны этапларга бүлегез, аңа илтүче эшләрне бәйләгез һәм үсешегезне күзәтегез."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Бу максат турында"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Актив"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Этап өстәү"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI модельләре (якынча 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI модельләре урнаштырылды"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Хәтердә калдырырга лаек башка нәрсә"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Архивлау"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Архивланган"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Максатларга кире кайту"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "китаплар, сәгатьләр…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Категория"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Этапны үзгәртү"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Ябу"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Якынлашучы"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Тәмамланды"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Этапларны санау"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Киңәшләр алу өчен актив максат төзегез."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Максат төзү"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Беренче максатыгызны төзегез"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Хәзерге"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Хәзерге кыйммәт"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Дата (мәҗбүри түгел)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Бетерү"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Максатны бетерү"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Бу максатны бетерергәме?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Нәтиҗәне тасвирлагыз"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Тасвирлама"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Әзер"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Хәзер йөкләү"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Йөкләнә..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Максатны үзгәртү"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Максатлардагы фокус вакыты"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Максатлар"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Бу атнада алга киткән максатлар"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Югары"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Югары өстенлек"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Тарих"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Прогресс ничек исәпләнә?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Эштә"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Максатны калдыру"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Соңгы 7 көн"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Эшне бәйләү"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Түбән"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Түбән өстенлек"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Тәмамланган дип билгеләү"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Уртача"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Уртача өстенлек"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Этап"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Этап: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Этаплар"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Тәмамланган этаплар"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Игътибар таләп итә"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Яңа максат"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Чираттагы: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Киләсе җиде көндә срок юк."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Бу максат буенча фокус сессияләре әле юк. Аның бер эшендә фокус раундын башлагыз."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Бу атнада бернинди максатта да этап, эш яки фокус сессиясе булмады."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Туры килгән максатлар юк"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Әлегә максатлар юк"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Әлегә этаплар юк. Бу максатка юлда беренче тукталышны өстәгез."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Бәйләр өчен ачык эшләр юк. Максатка кертелгән эшләр күрсәтелми."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Әлегә эшләр бәйләнмәгән. Аларны монда күрү өчен Урыннардан эшләр бәйләгез."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Вакыты узган яки тукталып торган берни юк. Бик яхшы."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Ачык"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Урыннарны ачу"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Туктатып тору"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Туктатылды"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Яңа сылтамаларны этапка беркетү"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Планлаштыру, тавышны тану һәм кычкырып уку барысы да бу җайланмада эшли. Сез әйткән яки язган берни тышка чыкмый."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Өстенлек"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Прогресс"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Прогресс — сез тәмамлаган этапларның өлеше."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Прогресс — 20 китаптан 12се кебек, максатка карата хәзерге саныгыз."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Кычкырып уку"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Әзер"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Соңгы"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Яңарту"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Бетерү"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Урын бушату өчен аларны бетерегез; кирәк булганда яңадан йөкләнәчәкләр."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Яңадан ачу"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Кире кайтару"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Дәвам итү"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Үзгәрешләрне саклау"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Максатлар буенча эзләү"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Ачык эшләрегездә эзләгез"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Тәртипләү"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Уку, сәламәтлек, эш…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Киләсе атнага тәкъдим ителгән өстенлекләр"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Максат"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Максатлы дата"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Максатлы дата (YYYY-MM-DD, мәҗбүри түгел)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Тәмамланган эшләр"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Бу максат өчен эшләр"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Беренче план җайланмадагы AI модельләрен йөкли (якынча 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Максат һәм аның этаплары бетерелә. Эшләрегез Урыннарда саклана; алар бары тик бу максатка күрсәтми башлый."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Соңгы җиде көн, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Алар AI беренче тапкыр кулланганда яки хәзер йөкләнә."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Бу максат санны күзәтә. Этаплар юлдагы тукталышларны билгели, ләкин процентны үзгәртми."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Исем"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Барлыгы"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Санны күзәтү"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Башка фильтрны яки башка эзләүне карагыз."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Берәмлек"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Бәйләнешне өзү"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Яңарту"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Атналык күзәтү"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Нәрсәгә ирешергә телисез?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Ни өчен мөһим"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Моны эшләү сәбәбегез"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "калган {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} актив"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} тәмамланды"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} срок {} көннән"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} срок бүген"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} срок иртәгә"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} фокусланган"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} этап тәмамланды"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} эш тәмамланды"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} вакыты узган"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} туктатылды"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "калган {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Этап яки максатлы дата өстәү"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Срок {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Срок {} көннән"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Срок бүген"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Срок иртәгә"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Барлык этаплар тәмамланды"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Фокус вакыты теркәлде"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Тәмамланган этаплар: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{} көн дәвамында активлык юк"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Әлегә этаплар юк"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} көнгә соңарды"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 көнгә соңарды"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Планлаштыру"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Планлаштырыла..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Прогрессны күрү өчен максат билгеләгез"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Максатка ирешелде"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Тәмамланган эшләр: {}"
+
+msgid "Planning"
+msgstr "Планлаштыру"
+
+msgid "Speech to text"
+msgstr "Тавышны язмага күчерү"
+
+msgid "Add subtask"
+msgstr "Алас бурыч өстәү"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Бурычларыгыз турында сорагыз яки планлаштырасы теләгегезне языгыз. Сез расламыйча берни дә үзгәрмәс."
+
+msgid "Asking AI..."
+msgstr "ЯИ-дан сорау..."
+
+msgid "Chat"
+msgstr "Чат"
+
+msgid "Chats"
+msgstr "Чатлар"
+
+msgid "Click again to delete"
+msgstr "Бетерү өчен тагын басыгыз"
+
+msgid "Collapse"
+msgstr "Төрү"
+
+msgid "Collapse menu"
+msgstr "Менюны төрү"
+
+msgid "Copy"
+msgstr "Күчермәләү"
+
+msgid "Count my focus hours"
+msgstr "Игътибар сәгатьләремне санау"
+
+msgid "Decrease"
+msgstr "Киметү"
+
+msgid "Deep"
+msgstr "Тирән"
+
+msgid "Delete chat"
+msgstr "Чатны бетерү"
+
+msgid "Delete note"
+msgstr "Язманы бетерү"
+
+msgid "Delete subtask"
+msgstr "Алас бурычны бетерү"
+
+msgid "Delete this chat?"
+msgstr "Бу чатны бетерергәме?"
+
+msgid "Dictate"
+msgstr "Тавыш белән яздыру"
+
+msgid "Exit full screen"
+msgstr "Тулы экраннан чыгу"
+
+msgid "Expand"
+msgstr "Җәю"
+
+msgid "Expand menu"
+msgstr "Менюны җәю"
+
+msgid "Fork from here"
+msgstr "Моңардан тармакландыру"
+
+msgid "Fork this chat"
+msgstr "Бу чатның күчермәсен ясау"
+
+msgid "Full screen"
+msgstr "Тулы экран"
+
+msgid "Hide subtasks"
+msgstr "Алас бурычларны яшерү"
+
+msgid "Increase"
+msgstr "Арттыру"
+
+msgid "Jump to latest"
+msgstr "Соңгысына күчү"
+
+msgid "Launch"
+msgstr "Бүгенгә кую"
+
+msgid "Let the assistant search the web"
+msgstr "Ярдәмчегә челтәрдә эзләргә рөхсәт итү"
+
+msgid "Maximize"
+msgstr "Зуррайту"
+
+msgid "Merging the notes"
+msgstr "Язмалар берләштерелә"
+
+msgid "Message"
+msgstr "Хәбәр"
+
+msgid "Minimize"
+msgstr "Кечерәйтү"
+
+msgid "More"
+msgstr "Тәфсилле"
+
+msgid "Move back"
+msgstr "Артка күчерү"
+
+msgid "Move down"
+msgstr "Түбәнгә күчерү"
+
+msgid "Move forward"
+msgstr "Алга күчерү"
+
+msgid "Move up"
+msgstr "Өскә күчерү"
+
+msgid "New chat"
+msgstr "Яңа чат"
+
+msgid "New space"
+msgstr "Яңа киңлек"
+
+msgid "Next mode"
+msgstr "Киләсе режим"
+
+msgid "Next version"
+msgstr "Киләсе юрама"
+
+msgid "Next week"
+msgstr "Киләсе атна"
+
+msgid "Planned the searches"
+msgstr "Эзләүләр планлаштырылды"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Планлаштыру, тавышны тану һәм кычкырып уку шушы җайланмада башкарыла. Сез рөхсәт иткән эзләүләр генә челтәргә чыга."
+
+msgid "Previous mode"
+msgstr "Алдагы режим"
+
+msgid "Previous version"
+msgstr "Алдагы юрама"
+
+msgid "Previous week"
+msgstr "Узган атна"
+
+msgid "Quick"
+msgstr "Тиз"
+
+msgid "Reading {}"
+msgstr "Укыла: {}"
+
+msgid "Redo"
+msgstr "Кабатлау"
+
+msgid "Searching: {}"
+msgstr "Эзләү: {}"
+
+msgid "Send"
+msgstr "Җибәрү"
+
+msgid "Show subtasks"
+msgstr "Алас бурычларны күрсәтү"
+
+msgid "Skipped {}"
+msgstr "Төшереп калдырылды: {}"
+
+msgid "Standard"
+msgstr "Стандарт"
+
+msgid "Start"
+msgstr "Башлау"
+
+msgid "Start focus on this task"
+msgstr "Бу бурычка игътибарны башлау"
+
+msgid "Stop"
+msgstr "Туктату"
+
+msgid "Stop recording"
+msgstr "Яздыруны туктату"
+
+msgid "Suggest with AI"
+msgstr "ЯИ киңәше"
+
+msgid "Switch to dark mode"
+msgstr "Караңгы режимга күчү"
+
+msgid "Switch to light mode"
+msgstr "Якты режимга күчү"
+
+msgid "Target hours"
+msgstr "Максат сәгатьләр"
+
+msgid "Thinking..."
+msgstr "Уйлый..."
+
+msgid "Took notes from {}"
+msgstr "{} чыганагыннан язмалар алынды"
+
+msgid "Undo"
+msgstr "Кире кайтару"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Кабызылган чакта, эзләнгән нәрсә кулланылган эзләү сайтларына җибәрелә. Калган бар нәрсә шушы җайланмада кала."
+
+msgid "Writing the answer"
+msgstr "Җавап языла"
+
+msgid "Yes, delete"
+msgstr "Әйе, бетерү"
+
+msgid "Yesterday"
+msgstr "Кичә"
+
+msgid "{} results"
+msgstr "{} нәтиҗә"
+
+msgid "A longer rest"
+msgstr "Озаграк ял"
+
+msgid "A short rest"
+msgstr "Кыска ял"
+
+msgid "A work session"
+msgstr "Эш сессиясе"
+
+msgid "Activity for the day"
+msgstr "Көнлек активлык"
+
+msgid "Activity for the month"
+msgstr "Айлык активлык"
+
+msgid "Activity for the week"
+msgstr "Атналык активлык"
+
+msgid "Activity for the year"
+msgstr "Еллык активлык"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Нәрсә кирәген языгыз, ярдәмче планлаштырыр"
+
+msgid "Go to this week"
+msgstr "Бу атнага күчү"
+
+msgid "Move to this week"
+msgstr "Бу атнага күчерү"
+
+msgid "See tasks in columns"
+msgstr "Биремнәрне баганаларда күрү"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Биремнәрне атналык календарьда күрү"
+
+msgid "Set your own length"
+msgstr "Үз вакытыңны кую"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Ашыгычлык һәм мөһимлек буенча тәртипләү"
+
+msgid "Take it off the calendar"
+msgstr "Календарьдан алу"

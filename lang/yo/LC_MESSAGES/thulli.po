@@ -688,3 +688,839 @@ msgstr "Tí a gbèrò fún lónìí"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Kò sí ohun tí a gbèrò fún lónìí. Fi iṣẹ́ kún ojú-ìwé Àwọn Ààyè."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Àfojúsùn jẹ́ ohun tí o fẹ́ láti dé bá. Pín in sí àwọn àmì ìdàgbàsókè, so àwọn iṣẹ́ tí yóò mú ọ dé ibẹ̀ pọ̀, kí o sì wo bí ìtẹ̀síwájú rẹ ṣe ń dàgbà."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Nípa àfojúsùn yìí"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Tí ń ṣiṣẹ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Fi àmì ìdàgbàsókè kún un"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Àwọn àpẹẹrẹ AI (bii 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Àwọn àpẹẹrẹ AI ti fi sori ẹrọ"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Ohun mìíràn tí ó tọ́ láti rántí"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Kó pamọ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Ti kó pamọ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Padà sí àwọn àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "ìwé, wákàtí…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Ẹ̀ka"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Yí àmì ìdàgbàsókè padà"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Tì í"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Tí ń bọ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Parí"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Ka àwọn àmì ìdàgbàsókè"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Ṣẹ̀dá àfojúsùn tí ń ṣiṣẹ́ láti gba àwọn àbá."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Ṣẹ̀dá àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Ṣẹ̀dá àfojúsùn àkọ́kọ́ rẹ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Lọ́wọ́lọ́wọ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Iye lọ́wọ́lọ́wọ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Ọjọ́ (kò pọn dandan)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Pa rẹ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Pa àfojúsùn rẹ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Pa àfojúsùn yìí rẹ́?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Ṣàpèjúwe àbájáde rẹ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Àpèjúwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Ṣetán"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Gba wọlé báyìí"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Ń gba wọlé..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Ṣàtúnṣe àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Àkókò ìdojúkọ lórí àwọn àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Àwọn àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Àwọn àfojúsùn tí ó tẹ̀síwájú ní ọ̀sẹ̀ yìí"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Gíga"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Pàtàkì gíga"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Ìtàn"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Báwo ni a ṣe ń ka ìtẹ̀síwájú?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Ń lọ lọ́wọ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Dúró lórí àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Ọjọ́ 7 sẹ́yìn"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "So iṣẹ́ pọ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Kékeré"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Pàtàkì kékeré"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Sàmì sí i gẹ́gẹ́ bí èyí tí ó parí"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Àárín"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Pàtàkì àárín"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Àmì ìdàgbàsókè"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Àmì ìdàgbàsókè: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Àwọn àmì ìdàgbàsókè"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Àwọn àmì ìdàgbàsókè tí ó parí"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Nílò àfiyèsí"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Àfojúsùn tuntun"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Èyí tí ń tẹ̀lé e: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Kò sí ọjọ́ ìparí ní ọjọ́ méje tí ń bọ̀."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Kò sí àkókò ìdojúkọ lórí àfojúsùn yìí síbẹ̀. Bẹ̀rẹ̀ àkókò ìdojúkọ lórí ọ̀kan nínú àwọn iṣẹ́ rẹ̀."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Kò sí àfojúsùn tí ó ní àmì ìdàgbàsókè, iṣẹ́ tàbí àkókò ìdojúkọ ní ọ̀sẹ̀ yìí."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Kò sí àwọn àfojúsùn tí ó bá a mu"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Kò tíì sí àwọn àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Kò tíì sí àwọn àmì ìdàgbàsókè. Fi ìdúró àkọ́kọ́ kún un lójú ọ̀nà sí àfojúsùn yìí."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Kò sí àwọn iṣẹ́ tí ó ṣí sílẹ̀ láti so pọ̀. Àwọn iṣẹ́ tí ó wà nínú àfojúsùn kò hàn."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Kò tíì sí iṣẹ́ tí a so pọ̀. So àwọn iṣẹ́ pọ̀ láti Àwọn ààyè láti rí wọn níhìn-ín."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Kò sí ohun tí ó kọjá àkókò tàbí tí ó dákẹ́. Ó dára."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Ṣí i"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Ṣí Àwọn ààyè"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Dúró díẹ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Dúró díẹ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Fi àwọn àjápọ̀ tuntun mọ́ àmì ìdàgbàsókè"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Ìgbèrò, ìdámọ̀ ohùn àti kíkà jáde ní gbangba gbogbo wọn ń ṣiṣẹ́ lórí ẹ̀rọ yìí. Kò sí ohun tí o sọ tàbí kọ tí yóò jáde kúrò lórí rẹ̀."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Pàtàkì"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Ìtẹ̀síwájú"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Ìtẹ̀síwájú ni ìpín àwọn àmì ìdàgbàsókè tí o ti parí."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Ìtẹ̀síwájú ni nọ́mbà rẹ lọ́wọ́lọ́wọ́ lórí àfojúsùn náà, bíi 12 nínú 20 ìwé."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Ka jáde ní gbangba"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Ṣetán"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Lẹ́nu àìpẹ́"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Tún sọ di ọ̀tun"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Yọ kúrò"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Yọ wọ́n kúrò láti rí ààyè; wọn yóò tún gba wọlé nígbà tí a bá nílò wọn."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Tún ṣí"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Mú padà bọ̀sípò"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Tẹ̀síwájú"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Fipamọ́ àwọn àyípadà"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Wá àwọn àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Wá àwọn iṣẹ́ rẹ tí ó ṣí sílẹ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Tò lẹ́sẹẹsẹ nípa"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Ẹ̀kọ́, ìlera, iṣẹ́…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Àwọn pàtàkì tí a dámọ̀ràn fún ọ̀sẹ̀ tí ń bọ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Ọjọ́ àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Ọjọ́ àfojúsùn (YYYY-MM-DD, kò pọn dandan)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Àwọn iṣẹ́ tí ó parí"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Àwọn iṣẹ́ fún àfojúsùn yìí"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Ètò àkọ́kọ́ máa ń gba àwọn àpẹẹrẹ AI ti ẹ̀rọ wọlé (bii 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "A ó yọ àfojúsùn náà àti àwọn àmì ìdàgbàsókè rẹ̀ kúrò. A ó pa àwọn iṣẹ́ rẹ mọ́ sínú Àwọn ààyè; wọn yóò kàn dáwọ́ tọ́kasí àfojúsùn yìí dúró."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Ọjọ́ méje sẹ́yìn, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Wọ́n ń gba wọlé ní ìgbà àkọ́kọ́ tí o bá lo AI, tàbí báyìí."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Àfojúsùn yìí ń tọpa nọ́mbà kan. Àwọn àmì ìdàgbàsókè ṣì ń sàmì sí àwọn ìdúró lójú ọ̀nà, ṣùgbọ́n wọn kì í yí ìpín ọgọ́rùn-ún padà."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Àkọlé"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Àpapọ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Tọpa nọ́mbà kan"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Gbìyànjú asẹ́ mìíràn tàbí ìwádìí tí ó yàtọ̀."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Ìwọ̀n"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Tú ìsopọ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Ṣe àfikún ọ̀tun"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Àtúnyẹ̀wò ọ̀sẹ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Kí ni o fẹ́ láti ṣe àṣeyọrí rẹ̀?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Ìdí tí ó fi ṣe pàtàkì"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ìdí rẹ fún ṣíṣe èyí"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} kù"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} tí ń ṣiṣẹ́"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} ti parí"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} gbọ́dọ̀ parí ní ọjọ́ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} gbọ́dọ̀ parí lónìí"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} gbọ́dọ̀ parí lọ́la"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} tí a dojúkọ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} nínú {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} nínú {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} nínú àwọn àmì ìdàgbàsókè {} ti parí"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} nínú àwọn iṣẹ́ {} ti parí"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} ti kọjá àkókò"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} tí a dá dúró"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} kù"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Fi àmì ìdàgbàsókè tàbí ọjọ́ àfojúsùn kún un"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Gbọ́dọ̀ parí ní {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Gbọ́dọ̀ parí ní ọjọ́ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Gbọ́dọ̀ parí lónìí"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Gbọ́dọ̀ parí lọ́la"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Gbogbo àmì ìdàgbàsókè ti parí"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Àkókò ìdojúkọ ti gba àkọsílẹ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Àwọn àmì ìdàgbàsókè tí a ṣe: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Kò sí ìgbòkègbodò fún ọjọ́ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Kò tíì sí àwọn àmì ìdàgbàsókè"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Ti kọjá àkókò pẹ̀lú ọjọ́ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Ti kọjá àkókò pẹ̀lú ọjọ́ 1"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Gbèrò rẹ̀"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Ń gbèrò..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Ṣètò àfojúsùn kan láti rí ìtẹ̀síwájú"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Ti dé ibi àfojúsùn"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Àwọn iṣẹ́ tí a ṣe: {}"
+
+msgid "Planning"
+msgstr "Ètò"
+
+msgid "Speech to text"
+msgstr "Ohùn sí àkọsílẹ̀"
+
+msgid "Add subtask"
+msgstr "Fi iṣẹ́ kékeré kún un"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Béèrè nípa àwọn iṣẹ́ rẹ, tàbí sọ ohun tí o fẹ́ ṣètò. Kò sí ohun tí yóò yípadà títí tí o fi fọwọ́ sí i."
+
+msgid "Asking AI..."
+msgstr "Ń béèrè lọ́wọ́ AI..."
+
+msgid "Chat"
+msgstr "Ìfọ̀rọ̀wérọ̀"
+
+msgid "Chats"
+msgstr "Àwọn ìfọ̀rọ̀wérọ̀"
+
+msgid "Click again to delete"
+msgstr "Tẹ́ ẹ lẹ́ẹ̀kan sí i láti pa á rẹ́"
+
+msgid "Collapse"
+msgstr "Kálọ"
+
+msgid "Collapse menu"
+msgstr "Pa àkójọ kálọ"
+
+msgid "Copy"
+msgstr "Dàkọ"
+
+msgid "Count my focus hours"
+msgstr "Ka àwọn wákàtí ìfọkànsìn mi"
+
+msgid "Decrease"
+msgstr "Dín kù"
+
+msgid "Deep"
+msgstr "Jìn"
+
+msgid "Delete chat"
+msgstr "Pa ìfọ̀rọ̀wérọ̀ rẹ́"
+
+msgid "Delete note"
+msgstr "Pa àkọsílẹ̀ rẹ́"
+
+msgid "Delete subtask"
+msgstr "Pa iṣẹ́ kékeré rẹ́"
+
+msgid "Delete this chat?"
+msgstr "Pa ìfọ̀rọ̀wérọ̀ yìí rẹ́?"
+
+msgid "Dictate"
+msgstr "Sọ̀rọ̀ láti kọ ọ́"
+
+msgid "Exit full screen"
+msgstr "Jáde kúrò ní ojú-ìwòye kíkún"
+
+msgid "Expand"
+msgstr "Fẹ̀ ẹ́"
+
+msgid "Expand menu"
+msgstr "Fẹ àkójọ fẹ̀"
+
+msgid "Fork from here"
+msgstr "Bẹ̀rẹ̀ tuntun láti ibí"
+
+msgid "Fork this chat"
+msgstr "Ṣe àwòkọ ìfọ̀rọ̀wérọ̀ yìí"
+
+msgid "Full screen"
+msgstr "Ojú-ìwòye kíkún"
+
+msgid "Hide subtasks"
+msgstr "Fi àwọn iṣẹ́ kéékèèké pamọ́"
+
+msgid "Increase"
+msgstr "Bù kún un"
+
+msgid "Jump to latest"
+msgstr "Lọ sí èyí tuntun jù"
+
+msgid "Launch"
+msgstr "Gbé sí iwájú lónìí"
+
+msgid "Let the assistant search the web"
+msgstr "Gba olùrànlọ́wọ́ láàyè láti wá lórí ayélujára"
+
+msgid "Maximize"
+msgstr "Tobi jù"
+
+msgid "Merging the notes"
+msgstr "Ń so àwọn àkọsílẹ̀ pọ̀"
+
+msgid "Message"
+msgstr "Ìfiranṣẹ́"
+
+msgid "Minimize"
+msgstr "Kékeré jù"
+
+msgid "More"
+msgstr "Síwájú sí i"
+
+msgid "Move back"
+msgstr "Fà sẹ́yìn"
+
+msgid "Move down"
+msgstr "Fà sísàlẹ̀"
+
+msgid "Move forward"
+msgstr "Fà síwájú"
+
+msgid "Move up"
+msgstr "Fà sókè"
+
+msgid "New chat"
+msgstr "Ìfọ̀rọ̀wérọ̀ tuntun"
+
+msgid "New space"
+msgstr "Àyè tuntun"
+
+msgid "Next mode"
+msgstr "Ìlànà tó kàn"
+
+msgid "Next version"
+msgstr "Àtúnṣe tó kàn"
+
+msgid "Next week"
+msgstr "Ọ̀sẹ̀ tí ń bọ̀"
+
+msgid "Planned the searches"
+msgstr "Ṣètò àwọn ìwádìí"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Ìṣètò, mímọ ohùn àti kíkà sókè ń ṣiṣẹ́ lórí ẹ̀rọ yìí. Àwọn ìwádìí ayélujára tí o gbà láàyè nìkan ló ń lọ sí orí ayélujára."
+
+msgid "Previous mode"
+msgstr "Ìlànà tẹ́lẹ̀"
+
+msgid "Previous version"
+msgstr "Àtúnṣe tẹ́lẹ̀"
+
+msgid "Previous week"
+msgstr "Ọ̀sẹ̀ tó kọjá"
+
+msgid "Quick"
+msgstr "Yára"
+
+msgid "Reading {}"
+msgstr "Ń ka {}"
+
+msgid "Redo"
+msgstr "Tún ṣe"
+
+msgid "Searching: {}"
+msgstr "Ń wá: {}"
+
+msgid "Send"
+msgstr "Fi ránṣẹ́"
+
+msgid "Show subtasks"
+msgstr "Fi àwọn iṣẹ́ kéékèèké hàn"
+
+msgid "Skipped {}"
+msgstr "Fò {} dá"
+
+msgid "Standard"
+msgstr "Déédé"
+
+msgid "Start"
+msgstr "Bẹ̀rẹ̀"
+
+msgid "Start focus on this task"
+msgstr "Bẹ̀rẹ̀ ìfọkànsìn lórí iṣẹ́ yìí"
+
+msgid "Stop"
+msgstr "Dúró"
+
+msgid "Stop recording"
+msgstr "Dá gbígba ohùn dúró"
+
+msgid "Suggest with AI"
+msgstr "Dábàá pẹ̀lú AI"
+
+msgid "Switch to dark mode"
+msgstr "Yí sí ipò dúdú"
+
+msgid "Switch to light mode"
+msgstr "Yí sí ipò ìmọ́lẹ̀"
+
+msgid "Target hours"
+msgstr "Wákàtí àfojúsùn"
+
+msgid "Thinking..."
+msgstr "Ń ronú..."
+
+msgid "Took notes from {}"
+msgstr "Gba àkọsílẹ̀ láti {}"
+
+msgid "Undo"
+msgstr "Dá padà"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Nígbà tí ó bá wà ní títàn, ohun tí ó ń wá ni a ń firánṣẹ́ sí àwọn ojúlé ìwádìí. Gbogbo nǹkan mìíràn ń wà lórí ẹ̀rọ yìí."
+
+msgid "Writing the answer"
+msgstr "Ń kọ ìdáhùn"
+
+msgid "Yes, delete"
+msgstr "Bẹ́ẹ̀ ni, pa á rẹ́"
+
+msgid "Yesterday"
+msgstr "Lánàá"
+
+msgid "{} results"
+msgstr "Àbájáde {}"
+
+msgid "A longer rest"
+msgstr "Ìsinmi gígùn"
+
+msgid "A short rest"
+msgstr "Ìsinmi kékeré"
+
+msgid "A work session"
+msgstr "Àkókò iṣẹ́"
+
+msgid "Activity for the day"
+msgstr "Iṣẹ́ ọjọ́"
+
+msgid "Activity for the month"
+msgstr "Iṣẹ́ oṣù"
+
+msgid "Activity for the week"
+msgstr "Iṣẹ́ ọ̀sẹ̀"
+
+msgid "Activity for the year"
+msgstr "Iṣẹ́ ọdún"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Ṣàlàyé ohun tí o fẹ́, olùrànlọ́wọ́ yóò ṣètò rẹ̀"
+
+msgid "Go to this week"
+msgstr "Lọ sí ọ̀sẹ̀ yìí"
+
+msgid "Move to this week"
+msgstr "Gbé e sí ọ̀sẹ̀ yìí"
+
+msgid "See tasks in columns"
+msgstr "Wo àwọn iṣẹ́ ní ọ̀wọ̀n"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Wo àwọn iṣẹ́ lórí kàlẹ́ńdà ọ̀sẹ̀"
+
+msgid "Set your own length"
+msgstr "Ṣètò àkókò tìrẹ"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Tò ó nípa ìkánjú àti pàtàkì"
+
+msgid "Take it off the calendar"
+msgstr "Yọ ọ́ kúrò lórí kàlẹ́ńdà"

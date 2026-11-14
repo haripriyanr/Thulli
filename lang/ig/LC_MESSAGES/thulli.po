@@ -688,3 +688,839 @@ msgstr "Ahazila taa"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Enweghị ihe ahazila taa. Tinye ọrụ na ihuenyo Oghere."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Ebumnuche bụ ihe ị chọrọ iru. Kewa ya n'ime nzọụkwụ dị mkpa, jikọọ ọrụ ndị na-akpọga gị ebe ahụ, ma hụ ka ọganihu gị na-etolite."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Gbasara ebumnuche a"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Na-arụ ọrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Tinye nzọụkwụ dị mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Ụdị AI (ihe dị ka 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Etinyela ụdị AI"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Ihe ọ bụla ọzọ kwesịrị icheta"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Kekwaa n'ebe nchekwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Echekwara n'ebe nchekwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Laghachi na ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "akwụkwọ, awa…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Ụdị"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Gbanwee nzọụkwụ dị mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Mechie"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Na-abịa n'ihu"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Mezuru"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Gụọ nzọụkwụ dị mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Mepụta ebumnuche na-arụ ọrụ iji nweta aro."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Mepụta ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Mepụta ebumnuche mbụ gị"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Ugbu a"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Uru dị ugbu a"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Ụbọchị (nhọrọ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Hichapụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Hichapụ ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Hichapụ ebumnuche a?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Kọwaa nsonaazụ ya"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Nkọwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Emela"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Budata ugbu a"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Na-ebudata..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Dezie ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Oge ilekwasị anya na ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Ebumnuche ndị gara n'ihu n'izu a"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Elu"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Oke mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Akụkọ ihe mere eme"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Kedu ka esi agụ ọganihu?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Na-aga n'ihu"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Debe ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Ụbọchị 7 gara aga"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Jikọọ ọrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Ala"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Mkpa dị ala"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Kaa akara dị ka nke emechara"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Ọkara"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Mkpa dị n'etiti"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Nzọụkwụ dị mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Nzọụkwụ dị mkpa: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Nzọụkwụ dị mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Nzọụkwụ dị mkpa emechara"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Chọrọ nlebara anya"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Ebumnuche ọhụrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Na-esote: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Enweghị oge njedebe n'ime ụbọchị asaa na-abịa."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Enwebeghị oge ilekwasị anya na ebumnuche a. Malite oge ilekwasị anya n'otu n'ime ọrụ ya."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Enweghị ebumnuche nwere nzọụkwụ dị mkpa, ọrụ ma ọ bụ oge ilekwasị anya n'izu a."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Enweghị ebumnuche kwekọrọ"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Enwebeghị ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Enwebeghị nzọụkwụ dị mkpa. Tinye nkwụsị mbụ na ụzọ iji ruo ebumnuche a."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Enweghị ọrụ mepere emepe iji jikọọ. Ọrụ ndị dị na ebumnuche adịghị egosi."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Ejikọbeghị ọrụ ọ bụla. Jikọọ ọrụ site na Oghere ka ị hụ ha ebe a."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Ọ dịghị ihe oge ya gafere ma ọ bụ dị jụụ. Ọ mara mma."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Mepee"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Mepee Oghere"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Kwụsịtụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Kwụsịtụrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Pịnye njikọ ọhụrụ na nzọụkwụ dị mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Nhazi, nkwenye olu na ịgụ ihe n'olu dara ụda na-arụ ọrụ na ngwaọrụ a. Ọ dịghị ihe ị na-ekwu ma ọ bụ na-ede na-apụ na ya."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Ọkwa mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Ọganihu"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Ọganihu bụ òkè nke nzọụkwụ dị mkpa ị gụchara."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Ọganihu bụ ọnụọgụ gị ugbu a n'ebe lekwasịrị anya, dịka akwụkwọ 12 n'ime 20."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Gụọ ya n'olu dara ụda"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Dị njikere"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Nso nso a"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Mee ka ọ dị ọhụrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Wepụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Wepụ ha iji hapụ ohere; ha ga-ebudatakwa ọzọ mgbe achọrọ ha."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Meghegharịa"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Weghachi"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Gaa n'ihu"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Chekwaa mgbanwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Chọọ ebumnuche"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Chọọ ọrụ gị mepere emepe"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Hazie site na"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Ọmụmụ, ahụike, ọrụ…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Aro ihe ndị kacha mkpa maka izu na-abịa"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Ihe lekwasịrị anya"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Ụbọchị lekwasịrị anya"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Ụbọchị lekwasịrị anya (YYYY-MM-DD, nhọrọ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Ọrụ emechara"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Ọrụ maka ebumnuche a"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Atụmatụ mbụ na-ebudata ụdị AI dị na ngwaọrụ (ihe dị ka 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "A ga-ewepụ ebumnuche na nzọụkwụ ya dị mkpa. A ga-edebe ọrụ gị na Oghere; ha ga-akwụsị naanị ịtụ aka na ebumnuche a."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Ụbọchị asaa gara aga, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Ha na-ebudata oge mbụ ị na-eji AI, ma ọ bụ ugbu a."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Ebumnuche a na-esochi nọmba. Nzọụkwụ dị mkpa ka na-egosi nkwụsị n'ụzọ, mana ha anaghị agbanwe pasentị."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Aha"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Mkpokọta"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Sochie nọmba"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Nwalee nzacha ọzọ ma ọ bụ ọchụchọ dị iche."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Nkeji"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Kwụpụ njikọ"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Mmelite"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Nlele izu ụka"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Kedu ihe ị chọrọ iru?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Ihe kpatara o ji dị mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ihe kpatara i ji eme nke a"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} fọdụrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} na-arụ ọrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} mezuru"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} ruru n'ụbọchị {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} ruru taa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} ruru echi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} lekwasịrị anya"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} n'ime {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} n'ime {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} n'ime nzọụkwụ dị mkpa {} emechara"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} n'ime ọrụ {} emechara"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} oge gafere"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} kwụsịtụrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} fọdụrụ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Tinye nzọụkwụ dị mkpa ma ọ bụ ụbọchị lekwasịrị anya"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Ruru {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Ruru n'ụbọchị {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Ruru taa"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Ruru echi"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Nzọụkwụ ọ bụla dị mkpa emechala"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Edere oge ilekwasị anya"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Nzọụkwụ dị mkpa emere: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Ọ dịghị ihe emere ruo ụbọchị {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Enwebeghị nzọụkwụ dị mkpa"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Oge gafere site na ụbọchị {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Oge gafere site na ụbọchị 1"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Hazie ya"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Na-ahazi..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Tọọ lekwasịrị anya iji hụ ọganihu"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Eruru ihe lekwasịrị anya"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Ọrụ emere: {}"
+
+msgid "Planning"
+msgstr "Nhazi"
+
+msgid "Speech to text"
+msgstr "Olu gaa na ederede"
+
+msgid "Add subtask"
+msgstr "Tinye obere ọrụ"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Jụọ maka ọrụ gị, ma ọ bụ kọwaa ihe ị chọrọ ịhazi. Ọ dịghị ihe ga-agbanwe ruo mgbe ị kwadoro ya."
+
+msgid "Asking AI..."
+msgstr "Na-ajụ AI..."
+
+msgid "Chat"
+msgstr "Mkparịta ụka"
+
+msgid "Chats"
+msgstr "Mkparịta ụka"
+
+msgid "Click again to delete"
+msgstr "Pịa ọzọ ka ihichapụ"
+
+msgid "Collapse"
+msgstr "Kpokọta"
+
+msgid "Collapse menu"
+msgstr "Kpokọta menu"
+
+msgid "Copy"
+msgstr "Detuo"
+
+msgid "Count my focus hours"
+msgstr "Gụọ oge nlebara anya m"
+
+msgid "Decrease"
+msgstr "Belata"
+
+msgid "Deep"
+msgstr "Nke miri emi"
+
+msgid "Delete chat"
+msgstr "Hichapụ mkparịta ụka"
+
+msgid "Delete note"
+msgstr "Hichapụ ndetu"
+
+msgid "Delete subtask"
+msgstr "Hichapụ obere ọrụ"
+
+msgid "Delete this chat?"
+msgstr "Hichapụ mkparịta ụka a?"
+
+msgid "Dictate"
+msgstr "Kwuo ka e dee"
+
+msgid "Exit full screen"
+msgstr "Pụọ na ihuenyo zuru ezu"
+
+msgid "Expand"
+msgstr "Gbasaa"
+
+msgid "Expand menu"
+msgstr "Gbasaa menu"
+
+msgid "Fork from here"
+msgstr "Bido ọhụrụ site ebe a"
+
+msgid "Fork this chat"
+msgstr "Mepụtaghachi mkparịta ụka a"
+
+msgid "Full screen"
+msgstr "Ihuenyo zuru ezu"
+
+msgid "Hide subtasks"
+msgstr "Zonari obere ọrụ"
+
+msgid "Increase"
+msgstr "Mụbaa"
+
+msgid "Jump to latest"
+msgstr "Gaa na nke kachasị ọhụrụ"
+
+msgid "Launch"
+msgstr "Bupụta"
+
+msgid "Let the assistant search the web"
+msgstr "Kwe ka onye inyeaka chọọ na weebụ"
+
+msgid "Maximize"
+msgstr "Mepee nke ukwuu"
+
+msgid "Merging the notes"
+msgstr "Na-ejikọta ndetu"
+
+msgid "Message"
+msgstr "Ozi"
+
+msgid "Minimize"
+msgstr "Mepee nke nta"
+
+msgid "More"
+msgstr "Ndị ọzọ"
+
+msgid "Move back"
+msgstr "Bugharịa azụ"
+
+msgid "Move down"
+msgstr "Bugharịa ala"
+
+msgid "Move forward"
+msgstr "Bugharịa n'ihu"
+
+msgid "Move up"
+msgstr "Bugharịa elu"
+
+msgid "New chat"
+msgstr "Mkparịta ụka ọhụrụ"
+
+msgid "New space"
+msgstr "Ohere ọhụrụ"
+
+msgid "Next mode"
+msgstr "Ụdị ọzọ"
+
+msgid "Next version"
+msgstr "Ụdị nke na-abịa"
+
+msgid "Next week"
+msgstr "Izu na-abịa"
+
+msgid "Planned the searches"
+msgstr "Haziri nchọgharị ndị ahụ"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Nhazi, nchọpụta olu na ịgụ ihe n'olu dara ụda na-agba na ngwaọrụ a. Naanị nchọgharị weebụ ị nyere ohere ka na-aga n'ịntanetị."
+
+msgid "Previous mode"
+msgstr "Ụdị gara aga"
+
+msgid "Previous version"
+msgstr "Ụdị gara aga"
+
+msgid "Previous week"
+msgstr "Izu gara aga"
+
+msgid "Quick"
+msgstr "Ngwa ngwa"
+
+msgid "Reading {}"
+msgstr "Na-agụ {}"
+
+msgid "Redo"
+msgstr "Mee ọzọ"
+
+msgid "Searching: {}"
+msgstr "Na-achọ: {}"
+
+msgid "Send"
+msgstr "Ziga"
+
+msgid "Show subtasks"
+msgstr "Gosi obere ọrụ"
+
+msgid "Skipped {}"
+msgstr "Wepụrụ {}"
+
+msgid "Standard"
+msgstr "Nkịtị"
+
+msgid "Start"
+msgstr "Bido"
+
+msgid "Start focus on this task"
+msgstr "Bido nlebara anya na ọrụ a"
+
+msgid "Stop"
+msgstr "Kwụsị"
+
+msgid "Stop recording"
+msgstr "Kwụsị ndekọ"
+
+msgid "Suggest with AI"
+msgstr "Tụọ aro site na AI"
+
+msgid "Switch to dark mode"
+msgstr "Gbanwee gaa na ọnọdụ gbara ọchịchịrị"
+
+msgid "Switch to light mode"
+msgstr "Gbanwee gaa na ọnọdụ na-egbuke egbuke"
+
+msgid "Target hours"
+msgstr "Awa ezubere"
+
+msgid "Thinking..."
+msgstr "Na-eche echiche..."
+
+msgid "Took notes from {}"
+msgstr "Depụtara ndetu site na {}"
+
+msgid "Undo"
+msgstr "Weghachi"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Mgbe agbanyere ya, a na-eziga ihe ọ na-achọ na saịtị nchọgharị ọ na-eji. Ihe ndị ọzọ niile na-adị na ngwaọrụ a."
+
+msgid "Writing the answer"
+msgstr "Na-ede azịza"
+
+msgid "Yes, delete"
+msgstr "Ee, hichapụ"
+
+msgid "Yesterday"
+msgstr "Nnyaahụ"
+
+msgid "{} results"
+msgstr "Ihe {} rụpụtara"
+
+msgid "A longer rest"
+msgstr "Ezumike ogologo"
+
+msgid "A short rest"
+msgstr "Ezumike nkenke"
+
+msgid "A work session"
+msgstr "Oge ọrụ"
+
+msgid "Activity for the day"
+msgstr "Ọrụ ụbọchị"
+
+msgid "Activity for the month"
+msgstr "Ọrụ ọnwa"
+
+msgid "Activity for the week"
+msgstr "Ọrụ izu"
+
+msgid "Activity for the year"
+msgstr "Ọrụ afọ"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Kọwaa ihe ịchọrọ ka onye enyemaka hazie ya"
+
+msgid "Go to this week"
+msgstr "Gaa n'izu a"
+
+msgid "Move to this week"
+msgstr "Bufee n'izu a"
+
+msgid "See tasks in columns"
+msgstr "Lee ọrụ n'ahịrị"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Lee ọrụ na kalịnda izu"
+
+msgid "Set your own length"
+msgstr "Tọọ ogologo oge gị"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Hazie ọrụ site n'ịdị ngwa na mkpa"
+
+msgid "Take it off the calendar"
+msgstr "Wepụ ya na kalịnda"

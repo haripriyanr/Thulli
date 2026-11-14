@@ -688,3 +688,839 @@ msgstr "Şu gün üçin meýilnamalaşdyrylan"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Şu gün üçin meýilnama ýok. Giňişlikler ekranyndan iş goşuň."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Maksat — ýetmek isleýän zadyňyzdyr. Ony tapgyrlara bölüň, sizi şoňa eltýän işleri baglaň we ösüşiňizi synlaň."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Bu maksat barada"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Işjeň"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Tapgyr goş"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI modelleri (takmynan 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI modelleri gurnaldy"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Ýatda saklamaga mynasyp başga zat"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arhiwle"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Arhiwlendi"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Maksatlara dolan"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "kitaplar, sagatlar…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategoriýa"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Tapgyry üýtget"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Ýap"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Golaýlaşýan"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Tamamlandy"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Tapgyrlary sana"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Maslahat almak üçin işjeň maksat dörediň."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Maksat döret"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Ilkinji maksadyňyzy dörediň"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Häzirki"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Häzirki baha"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Sene (hökmany däl)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Poz"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Maksady poz"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Bu maksat pozulsynmy?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Netijäni düşündiriň"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Düşündiriş"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Boldy"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Häzir göçürip al"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Göçürilip alynýar..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Maksady üýtget"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Maksatlardaky jemlenme wagty"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Maksatlar"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Şu hepde öňe giden maksatlar"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Ýokary"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Ýokary möhümlik"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Taryh"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Ösüş nähili hasaplanýar?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Gidişlikde"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Maksady sakla"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Soňky 7 gün"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Işi bagla"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Pes"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Pes möhümlik"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Tamamlandy diýip belle"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Orta"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Orta möhümlik"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Tapgyr"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Tapgyr: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Tapgyrlar"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Tamamlanan tapgyrlar"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Üns bermeli"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Täze maksat"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Indiki: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Öňümizdäki ýedi günde möhlet ýok."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Bu maksat boýunça entek jemlenme sessiýasy ýok. Işleriniň birinde jemlenme tapgyryny başlaň."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Şu hepde hiç bir maksatda tapgyr, iş ýa-da jemlenme sessiýasy bolmady."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Gabata gelýän maksat ýok"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Entek maksat ýok"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Entek tapgyr ýok. Bu maksada barýan ýolda ilkinji duralgany goşuň."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Baglamak üçin açyk iş ýok. Eýýäm bir maksatda bar bolan işler görkezilmeýär."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Entek baglanan iş ýok. Olary şu ýerde görmek üçin Giňişliklerden iş baglaň."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Möhleti geçen ýa-da hereketsiz zat ýok. Ajaýyp."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Açyk"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Giňişlikleri aç"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Sägin"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Sägindirildi"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Täze baglanyşyklary tapgyra berkit"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Meýilnamalaşdyrmak, gürleýşi tanamak we sesli okamak hemmesi şu enjamda işleýär. Aýdan ýa-da ýazan zadyňyz bu ýerden çykmaýar."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Möhümlik"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Ösüş"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Ösüş — tamamlan tapgyrlaryňyzyň paýydyr."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Ösüş — 20 kitapdan 12-si ýaly, maksada garşy häzirki sanyňyzdyr."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Sesli oka"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Taýyn"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Ýakyndaky"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Täzele"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Aýyr"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Ýeri boşatmak üçin olary aýryň; gerek bolanda ýene göçürilip alnar."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Täzeden aç"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Dikelt"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Dowam et"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Üýtgeşmeleri ýatda sakla"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Maksatlary gözle"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Açyk işleriňizi gözläň"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Tertiple"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Okuw, saglyk, iş…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Geljek hepde üçin teklip edilýän möhümlikler"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Nyşana"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Maksatly sene"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Maksatly sene (YYYY-MM-DD, hökmany däl)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Tamamlanan işler"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Bu maksat üçin işler"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Ilkinji meýilnama enjamdaky AI modellerini göçürip alýar (takmynan 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Maksat we onuň tapgyrlary aýrylýar. Işleriňiz Giňişliklerde saklanýar; olar diňe bu maksada salgylanmagyny bes edýär."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Soňky ýedi gün, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Olar AI-ni ilkinji gezek ulananyňyzda ýa-da häzir göçürilip alynýar."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Bu maksat bir sany yzarlaýar. Tapgyrlar ýoldaky duralgalary belleýär, ýöne göterimi üýtgetmeýär."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Sözbasy"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Jemi"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Bir sany yzarlaň"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Başga süzgüç ýa-da başga gözleg synap görüň."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Birlik"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Baglanyşygy aýyr"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Täzele"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Hepdelik syn"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Näme gazanmak isleýärsiňiz?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Munuň näme üçin ähmiýeti bar"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Muny etmegiňiziň sebäbi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "galan {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} işjeň"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} tamamlandy"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} möhleti {} günden"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} möhleti şu gün"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} möhleti ertir"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} jemlenildi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} tapgyr tamamlandy"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} iş ýerine ýetirildi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} möhleti geçen"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} sägindirildi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "galan {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Tapgyr ýa-da maksatly sene goşuň"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Möhleti {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "{} günden möhleti"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Möhleti şu gün"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Möhleti ertir"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Ähli tapgyrlar tamamlandy"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Jemlenme wagty ýazyldy"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Tamamlanan tapgyrlar: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{} gün bäri işjeňlik ýok"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Entek tapgyr ýok"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} gün gijikdirildi"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 gün gijikdirildi"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Meýilnamalaşdyr"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Meýilnamalaşdyrylýar..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Ösüşi görmek üçin maksat belläň"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Maksada ýetildi"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Ýerine ýetirilen işler: {}"
+
+msgid "Planning"
+msgstr "Meýilnamalaşdyrma"
+
+msgid "Speech to text"
+msgstr "Sesi ýazga geçirmek"
+
+msgid "Add subtask"
+msgstr "Kiçi tabşyryk goş"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Tabşyryklaryňyz barada soraň ýa-da näme meýilleşdirýändigiňizi aýdyň. Siz tassyklamaýançaňyz hiç zat üýtgemez."
+
+msgid "Asking AI..."
+msgstr "AI-dan soralýar..."
+
+msgid "Chat"
+msgstr "Çat"
+
+msgid "Chats"
+msgstr "Çatlar"
+
+msgid "Click again to delete"
+msgstr "Pozmak üçin ýene basyň"
+
+msgid "Collapse"
+msgstr "Ýygna"
+
+msgid "Collapse menu"
+msgstr "Menýuny ýygna"
+
+msgid "Copy"
+msgstr "Göçür"
+
+msgid "Count my focus hours"
+msgstr "Üns berlen sagatlarymy hasapla"
+
+msgid "Decrease"
+msgstr "Azalt"
+
+msgid "Deep"
+msgstr "Çuňňur"
+
+msgid "Delete chat"
+msgstr "Çaty poz"
+
+msgid "Delete note"
+msgstr "Belligi poz"
+
+msgid "Delete subtask"
+msgstr "Kiçi tabşyrygy poz"
+
+msgid "Delete this chat?"
+msgstr "Bu çaty pozmalymy?"
+
+msgid "Dictate"
+msgstr "Ses bilen ýaz"
+
+msgid "Exit full screen"
+msgstr "Doly ekrandan çyk"
+
+msgid "Expand"
+msgstr "Giňelt"
+
+msgid "Expand menu"
+msgstr "Menýuny giňelt"
+
+msgid "Fork from here"
+msgstr "Şu ýerden aýratyn dowam et"
+
+msgid "Fork this chat"
+msgstr "Bu çaty täze görnüşde göçür"
+
+msgid "Full screen"
+msgstr "Doly ekran"
+
+msgid "Hide subtasks"
+msgstr "Kiçi tabşyryklary gizle"
+
+msgid "Increase"
+msgstr "Köpelt"
+
+msgid "Jump to latest"
+msgstr "Iň soňka geç"
+
+msgid "Launch"
+msgstr "Başyna geçir"
+
+msgid "Let the assistant search the web"
+msgstr "Kömekçä webde gözlemäge rugsat ber"
+
+msgid "Maximize"
+msgstr "Ulalt"
+
+msgid "Merging the notes"
+msgstr "Bellikler birleşdirilýär"
+
+msgid "Message"
+msgstr "Hat"
+
+msgid "Minimize"
+msgstr "Kiçelt"
+
+msgid "More"
+msgstr "Ýene"
+
+msgid "Move back"
+msgstr "Yza süýşür"
+
+msgid "Move down"
+msgstr "Aşak süýşür"
+
+msgid "Move forward"
+msgstr "Öňe süýşür"
+
+msgid "Move up"
+msgstr "Ýokary süýşür"
+
+msgid "New chat"
+msgstr "Täze çat"
+
+msgid "New space"
+msgstr "Täze giňişlik"
+
+msgid "Next mode"
+msgstr "Indiki tertip"
+
+msgid "Next version"
+msgstr "Indiki wersiýa"
+
+msgid "Next week"
+msgstr "Indiki hepde"
+
+msgid "Planned the searches"
+msgstr "Gözlegler meýilleşdirildi"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Meýilleşdirme, sesi tanamak we sesli okamak şu enjamda ýerine ýetirilýär. Diňe rugsadyňyz bolan gözlegler internete ugradylýar."
+
+msgid "Previous mode"
+msgstr "Öňki tertip"
+
+msgid "Previous version"
+msgstr "Öňki wersiýa"
+
+msgid "Previous week"
+msgstr "Geçen hepde"
+
+msgid "Quick"
+msgstr "Çalt"
+
+msgid "Reading {}"
+msgstr "Okalýar: {}"
+
+msgid "Redo"
+msgstr "Gaýtala"
+
+msgid "Searching: {}"
+msgstr "Gözlenýär: {}"
+
+msgid "Send"
+msgstr "Iber"
+
+msgid "Show subtasks"
+msgstr "Kiçi tabşyryklary görkez"
+
+msgid "Skipped {}"
+msgstr "Geçirildi: {}"
+
+msgid "Standard"
+msgstr "Standart"
+
+msgid "Start"
+msgstr "Başla"
+
+msgid "Start focus on this task"
+msgstr "Bu tabşyryga üns berip başla"
+
+msgid "Stop"
+msgstr "Sakla"
+
+msgid "Stop recording"
+msgstr "Ýazgyny sakla"
+
+msgid "Suggest with AI"
+msgstr "AI bilen maslahat ber"
+
+msgid "Switch to dark mode"
+msgstr "Gara rejimine geç"
+
+msgid "Switch to light mode"
+msgstr "Ýagty rejimine geç"
+
+msgid "Target hours"
+msgstr "Maksat sagatlar"
+
+msgid "Thinking..."
+msgstr "Pikir edýär..."
+
+msgid "Took notes from {}"
+msgstr "{} sahypasyndan bellikler alyndy"
+
+msgid "Undo"
+msgstr "Yza al"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Açyk bolanda, gözleg maglumatlary ulanylýan gözleg sahypalaryna iberilýär. Galan ähli zat şu enjamda galýar."
+
+msgid "Writing the answer"
+msgstr "Jogap ýazylýar"
+
+msgid "Yes, delete"
+msgstr "Hawa, poz"
+
+msgid "Yesterday"
+msgstr "Düýn"
+
+msgid "{} results"
+msgstr "{} netije"
+
+msgid "A longer rest"
+msgstr "Uzak dynç alyş"
+
+msgid "A short rest"
+msgstr "Gysga dynç alyş"
+
+msgid "A work session"
+msgstr "Iş tapgyry"
+
+msgid "Activity for the day"
+msgstr "Günlük işjeňlik"
+
+msgid "Activity for the month"
+msgstr "Aýlyk işjeňlik"
+
+msgid "Activity for the week"
+msgstr "Hepdelik işjeňlik"
+
+msgid "Activity for the year"
+msgstr "Ýyllyk işjeňlik"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Näme gerekdigini ýazyň, kömekçi meýilleşdirer"
+
+msgid "Go to this week"
+msgstr "Şu hepdä geç"
+
+msgid "Move to this week"
+msgstr "Şu hepdä geçir"
+
+msgid "See tasks in columns"
+msgstr "Ýumuşlary sütünlerde gör"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Ýumuşlary hepdelik senenamada gör"
+
+msgid "Set your own length"
+msgstr "Öz wagtyňy belle"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Gyssaglylyk we möhümlik boýunça tertiple"
+
+msgid "Take it off the calendar"
+msgstr "Senenamadan aýyr"

@@ -688,3 +688,839 @@ msgstr "Այսօրվա համար պլանավորված"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Այսօրվա համար ոչինչ պլանավորված չէ։ Ավելացրեք առաջադրանքներ Տարածքների էկրանում։"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Նպատակն այն է, ինչին ցանկանում եք հասնել։ Բաժանեք այն փուլերի, կապեք այնտեղ տանող առաջադրանքները և հետևեք ձեր առաջընթացին։"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Այս նպատակի մասին"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Ակտիվ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Ավելացնել փուլ"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "ԱԲ"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "ԱԲ մոդելներ (մոտ 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "ԱԲ մոդելները տեղադրված են"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Այլ բան, որն արժե հիշել"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Արխիվացնել"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Արխիվացված"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Վերադառնալ նպատակներին"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "գրքեր, ժամեր…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Կատեգորիա"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Փոխել փուլը"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Փակել"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Սպասվող"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Ավարտված"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Հաշվել փուլերը"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Առաջարկներ ստանալու համար ստեղծեք ակտիվ նպատակ։"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Ստեղծել նպատակ"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Ստեղծեք ձեր առաջին նպատակը"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Ընթացիկ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Ընթացիկ արժեք"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Ամսաթիվ (ոչ պարտադիր)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Ջնջել"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Ջնջել նպատակը"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Ջնջե՞լ այս նպատակը։"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Նկարագրեք արդյունքը"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Նկարագրություն"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Կատարված"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Ներբեռնել հիմա"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Ներբեռնում..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Խմբագրել նպատակը"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Նպատակների վրա ֆոկուսի ժամանակը"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Նպատակներ"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Այս շաբաթ առաջընթաց գրանցած նպատակները"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Բարձր"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Բարձր առաջնահերթություն"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Պատմություն"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Ինչպե՞ս է հաշվարկվում առաջընթացը։"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Ընթացքի մեջ"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Պահպանել նպատակը"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Վերջին 7 օրը"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Կապել առաջադրանք"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Ցածր"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Ցածր առաջնահերթություն"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Նշել որպես ավարտված"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Միջին"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Միջին առաջնահերթություն"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Փուլ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Փուլ՝ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Փուլեր"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Ավարտված փուլեր"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Ուշադրության կարիք ունի"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Նոր նպատակ"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Հաջորդը՝ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Առաջիկա յոթ օրերին վերջնաժամկետներ չկան։"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Այս նպատակի համար դեռևս ֆոկուս նիստեր չկան։ Սկսեք ֆոկուս փուլ դրա առաջադրանքներից մեկի վրա։"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Այս շաբաթ ոչ մի նպատակ չի ունեցել փուլ, առաջադրանք կամ ֆոկուս նիստ։"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Համապատասխան նպատակներ չկան"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Դեռևս նպատակներ չկան"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Դեռևս փուլեր չկան։ Ավելացրեք առաջին հանգրվանն այս նպատակի ճանապարհին։"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Կապելու համար բաց առաջադրանքներ չկան։ Նպատակում արդեն ներառված առաջադրանքները չեն ցուցադրվում։"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Դեռևս առաջադրանքներ կապված չեն։ Կապեք առաջադրանքներ Տարածքներից՝ դրանք այստեղ տեսնելու համար։"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Ժամկետանց կամ անգործության մատնված ոչինչ չկա։ Հիանալի է։"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Բաց"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Բացել Տարածքները"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Դադարեցնել"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Դադարեցված"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Ամրացնել նոր հղումները փուլին"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Պլանավորումը, խոսքի ճանաչումը և բարձրաձայն ընթերցումը կատարվում են այս սարքում։ Ձեր ասած կամ մուտքագրած ոչ մի բան դուրս չի գալիս սարքից։"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Առաջնահերթություն"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Առաջընթաց"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Առաջընթացը ձեր ավարտած փուլերի մասնաբաժինն է։"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Առաջընթացը ձեր ընթացիկ թիվն է թիրախի համեմատ, օրինակ՝ 12-ը 20 գրքից։"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Բարձրաձայն կարդալ"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Պատրաստ"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Վերջին"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Թարմացնել"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Հեռացնել"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Հեռացրեք դրանք տարածք ազատելու համար. անհրաժեշտության դեպքում դրանք նորից կներբեռնվեն։"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Վերաբացել"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Վերականգնել"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Շարունակել"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Պահպանել փոփոխությունները"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Որոնել նպատակներ"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Որոնեք ձեր բաց առաջադրանքները"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Տեսակավորել ըստ"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Ուսում, առողջություն, աշխատանք…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Հաջորդ շաբաթվա առաջարկվող առաջնահերթությունները"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Թիրախ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Թիրախային ամսաթիվ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Թիրախային ամսաթիվ (YYYY-MM-DD, ոչ պարտադիր)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Ավարտված առաջադրանքներ"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Այս նպատակի առաջադրանքները"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Առաջին պլանը ներբեռնում է սարքի վրա աշխատող ԱԲ մոդելները (մոտ 2.3 GB)։"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Նպատակը և դրա փուլերը հեռացվում են։ Ձեր առաջադրանքները պահպանվում են Տարածքներում. դրանք պարզապես դադարում են հղվել այս նպատակին։"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Վերջին յոթ օրը, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Դրանք ներբեռնվում են ԱԲ-ն առաջին անգամ օգտագործելիս կամ հիմա։"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Այս նպատակը հետևում է թվին։ Փուլերը շարունակում են նշել ճանապարհի հանգրվանները, բայց չեն փոխում տոկոսը։"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Վերնագիր"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Ընդամենը"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Հետևել թվին"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Փորձեք այլ ֆիլտր կամ այլ որոնում։"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Միավոր"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Անջատել"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Թարմացնել"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Շաբաթական ամփոփում"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Ինչի՞ եք ցանկանում հասնել։"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Ինչու է դա կարևոր"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ձեր պատճառը սա անելու համար"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "մնաց {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} ակտիվ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} ավարտված"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} վերջնաժամկետը՝ {} օրից"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} վերջնաժամկետը՝ այսօր"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} վերջնաժամկետը՝ վաղը"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} ֆոկուսացված"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} փուլ ավարտված"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} առաջադրանք կատարված"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} ժամկետանց"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} դադարեցված"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "մնաց {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Ավելացրեք փուլ կամ թիրախային ամսաթիվ"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Վերջնաժամկետը՝ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Վերջնաժամկետը՝ {} օրից"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Վերջնաժամկետը՝ այսօր"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Վերջնաժամկետը՝ վաղը"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Բոլոր փուլերն ավարտված են"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Ֆոկուսի ժամանակը գրանցված է"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Ավարտված փուլեր՝ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Ոչ մի ակտիվություն {} օր"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Դեռևս փուլեր չկան"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Ուշացել է {} օր"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Ուշացել է 1 օր"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Պլանավորել"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Պլանավորվում է..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Սահմանեք թիրախ՝ առաջընթացը տեսնելու համար"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Թիրախը ձեռք է բերվել"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Կատարված առաջադրանքներ՝ {}"
+
+msgid "Planning"
+msgstr "Պլանավորում"
+
+msgid "Speech to text"
+msgstr "Ձայնից տեքստ"
+
+msgid "Add subtask"
+msgstr "Ավելացնել ենթաառաջադրանք"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Հարցրեք ձեր առաջադրանքների մասին կամ նկարագրեք, թե ինչ եք ուզում պլանավորել: Ոչինչ չի փոխվի, քանի դեռ չեք հաստատել:"
+
+msgid "Asking AI..."
+msgstr "Հարցնում ենք AI-ին..."
+
+msgid "Chat"
+msgstr "Զրույց"
+
+msgid "Chats"
+msgstr "Զրույցներ"
+
+msgid "Click again to delete"
+msgstr "Կտտացրեք նորից՝ ջնջելու համար"
+
+msgid "Collapse"
+msgstr "Ծալել"
+
+msgid "Collapse menu"
+msgstr "Ծալել մենյուն"
+
+msgid "Copy"
+msgstr "Պատճենել"
+
+msgid "Count my focus hours"
+msgstr "Հաշվել իմ կենտրոնացման ժամերը"
+
+msgid "Decrease"
+msgstr "Նվազեցնել"
+
+msgid "Deep"
+msgstr "Խորը"
+
+msgid "Delete chat"
+msgstr "Ջնջել զրույցը"
+
+msgid "Delete note"
+msgstr "Ջնջել նշումը"
+
+msgid "Delete subtask"
+msgstr "Ջնջել ենթաառաջադրանքը"
+
+msgid "Delete this chat?"
+msgstr "Ջնջե՞լ այս զրույցը"
+
+msgid "Dictate"
+msgstr "Թելադրել"
+
+msgid "Exit full screen"
+msgstr "Դուրս գալ ամբողջ էկրանից"
+
+msgid "Expand"
+msgstr "Բացել"
+
+msgid "Expand menu"
+msgstr "Ընդարձակել մենյուն"
+
+msgid "Fork from here"
+msgstr "Ճյուղավորել այստեղից"
+
+msgid "Fork this chat"
+msgstr "Ճյուղավորել այս զրույցը"
+
+msgid "Full screen"
+msgstr "Ամբողջ էկրանով"
+
+msgid "Hide subtasks"
+msgstr "Թաքցնել ենթաառաջադրանքները"
+
+msgid "Increase"
+msgstr "Ավելացնել"
+
+msgid "Jump to latest"
+msgstr "Անցնել վերջինին"
+
+msgid "Launch"
+msgstr "Գործարկել"
+
+msgid "Let the assistant search the web"
+msgstr "Թույլատրել օգնականին որոնել համացանցում"
+
+msgid "Maximize"
+msgstr "Մեծացնել"
+
+msgid "Merging the notes"
+msgstr "Նշումների միաձուլում"
+
+msgid "Message"
+msgstr "Հաղորդագրություն"
+
+msgid "Minimize"
+msgstr "Փոքրացնել"
+
+msgid "More"
+msgstr "Ավելին"
+
+msgid "Move back"
+msgstr "Տեղափոխել հետ"
+
+msgid "Move down"
+msgstr "Տեղափոխել վար"
+
+msgid "Move forward"
+msgstr "Տեղափոխել առաջ"
+
+msgid "Move up"
+msgstr "Տեղափոխել վեր"
+
+msgid "New chat"
+msgstr "Նոր զրույց"
+
+msgid "New space"
+msgstr "Նոր տարածք"
+
+msgid "Next mode"
+msgstr "Հաջորդ ռեժիմը"
+
+msgid "Next version"
+msgstr "Հաջորդ տարբերակը"
+
+msgid "Next week"
+msgstr "Հաջորդ շաբաթ"
+
+msgid "Planned the searches"
+msgstr "Որոնումները պլանավորված են"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Պլանավորումը, խոսքի ճանաչումը և բարձրաձայն ընթերցումը գործում են այս սարքում: Միայն ձեր թույլատրած վեբ որոնումներն են իրականացվում առցանց:"
+
+msgid "Previous mode"
+msgstr "Նախորդ ռեժիմը"
+
+msgid "Previous version"
+msgstr "Նախորդ տարբերակը"
+
+msgid "Previous week"
+msgstr "Նախորդ շաբաթ"
+
+msgid "Quick"
+msgstr "Արագ"
+
+msgid "Reading {}"
+msgstr "Կարդում ենք՝ {}"
+
+msgid "Redo"
+msgstr "Կրկնել"
+
+msgid "Searching: {}"
+msgstr "Որոնում ենք՝ {}"
+
+msgid "Send"
+msgstr "Ուղարկել"
+
+msgid "Show subtasks"
+msgstr "Ցուցադրել ենթաառաջադրանքները"
+
+msgid "Skipped {}"
+msgstr "Բաց է թողնվել՝ {}"
+
+msgid "Standard"
+msgstr "Ստանդարտ"
+
+msgid "Start"
+msgstr "Սկսել"
+
+msgid "Start focus on this task"
+msgstr "Սկսել կենտրոնացումը այս առաջադրանքի վրա"
+
+msgid "Stop"
+msgstr "Կանգնեցնել"
+
+msgid "Stop recording"
+msgstr "Դադարեցնել ձայնագրությունը"
+
+msgid "Suggest with AI"
+msgstr "Առաջարկել AI-ով"
+
+msgid "Switch to dark mode"
+msgstr "Անցնել մուգ ռեժիմի"
+
+msgid "Switch to light mode"
+msgstr "Անցնել լուսավոր ռեժիմի"
+
+msgid "Target hours"
+msgstr "Նպատակային ժամեր"
+
+msgid "Thinking..."
+msgstr "Մտածում ենք..."
+
+msgid "Took notes from {}"
+msgstr "Նշումներ են կատարվել {}-ից"
+
+msgid "Undo"
+msgstr "Հետարկել"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Միացված լինելու դեպքում որոնվող տվյալներն ուղարկվում են համապատասխան որոնողական կայքեր: Մնացած ամեն ինչ մնում է այս սարքում:"
+
+msgid "Writing the answer"
+msgstr "Պատասխանի շարադրում"
+
+msgid "Yes, delete"
+msgstr "Այո, ջնջել"
+
+msgid "Yesterday"
+msgstr "Երեկ"
+
+msgid "{} results"
+msgstr "{} արդյունք"
+
+msgid "A longer rest"
+msgstr "Երկար ընդմիջում"
+
+msgid "A short rest"
+msgstr "Կարճ ընդմիջում"
+
+msgid "A work session"
+msgstr "Աշխատանքային սեսիա"
+
+msgid "Activity for the day"
+msgstr "Օրվա ակտիվություն"
+
+msgid "Activity for the month"
+msgstr "Ամսվա ակտիվություն"
+
+msgid "Activity for the week"
+msgstr "Շաբաթվա ակտիվություն"
+
+msgid "Activity for the year"
+msgstr "Տարվա ակտիվություն"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Նկարագրիր ինչ է պետք, և օգնականը կպլանավորի"
+
+msgid "Go to this week"
+msgstr "Անցնել այս շաբաթ"
+
+msgid "Move to this week"
+msgstr "Տեղափոխել այս շաբաթ"
+
+msgid "See tasks in columns"
+msgstr "Տեսնել առաջադրանքները սյուներում"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Տեսնել առաջադրանքները շաբաթական օրացույցում"
+
+msgid "Set your own length"
+msgstr "Ընտրել քո տևողությունը"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Դասավորել ըստ հրատապության և կարևորության"
+
+msgid "Take it off the calendar"
+msgstr "Հեռացնել օրացույցից"

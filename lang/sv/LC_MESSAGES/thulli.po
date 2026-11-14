@@ -688,3 +688,839 @@ msgstr "Planerat för idag"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Inget planerat för idag. Lägg till uppgifter på skärmen Utrymmen."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Ett mål är något du vill nå. Dela upp det i milstolpar, koppla uppgifterna som tar dig dit och se dina framsteg växa."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Om det här målet"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktiv"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Lägg till en milstolpe"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI-modeller (cirka 2,3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI-modeller installerade"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Något mer värt att komma ihåg"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arkivera"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Arkiverad"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Tillbaka till mål"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "böcker, timmar…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategori"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Ändra milstolpe"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Stäng"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Kommande"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Slutförd"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Räkna milstolpar"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Skapa ett aktivt mål för att få förslag."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Skapa mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Skapa ditt första mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Nuvarande"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Nuvarande värde"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Datum (valfritt)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Ta bort"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Ta bort mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Ta bort det här målet?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Beskriv resultatet"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Beskrivning"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Klar"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Ladda ner nu"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Laddar ner..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Redigera mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Fokustid på mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Mål med framsteg den här veckan"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Hög"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Hög prioritet"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Historik"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Hur räknas framsteg?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "I gång"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Behåll mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Senaste 7 dagarna"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Koppla en uppgift"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Låg"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Låg prioritet"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Markera som klar"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Mellan"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Medelprioritet"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Milstolpe"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Milstolpe: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Milstolpar"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Milstolpar slutförda"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Kräver uppmärksamhet"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Nytt mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Nästa: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Inga tidsfrister de kommande sju dagarna."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Inga fokuspass för det här målet än. Starta en fokusrunda på en av dess uppgifter."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Inget mål hade en milstolpe, uppgift eller ett fokuspass den här veckan."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Inga matchande mål"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Inga mål än"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Inga milstolpar än. Lägg till det första stoppet på vägen mot det här målet."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Inga öppna uppgifter att koppla. Uppgifter som redan finns i ett mål visas inte."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Inga uppgifter kopplade än. Koppla uppgifter från Utrymmen för att se dem här."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Inget är försenat eller inaktivt. Snyggt."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Öppen"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Öppna Utrymmen"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Pausa"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Pausad"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Fäst nya länkar vid en milstolpe"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Planering, taligenkänning och uppläsning körs alla på den här enheten. Inget du säger eller skriver lämnar den."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioritet"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Framsteg"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Framsteg är andelen milstolpar du har slutfört."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Framsteg är ditt nuvarande antal mot målet, som 12 av 20 böcker."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Läs upp"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Klar"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Senaste"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Uppdatera"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Ta bort"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Ta bort dem för att frigöra utrymme; de laddas ner igen vid behov."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Återöppna"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Återställ"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Återuppta"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Spara ändringar"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Sök mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Sök bland dina öppna uppgifter"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sortera efter"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Studier, hälsa, arbete…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Föreslagna prioriteringar för nästa vecka"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Mål"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Måldatum"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Måldatum (YYYY-MM-DD, valfritt)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Uppgifter slutförda"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Uppgifter för det här målet"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Den första planen laddar ner AI-modellerna på enheten (cirka 2,3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Målet och dess milstolpar tas bort. Dina uppgifter behålls i Utrymmen; de slutar bara att peka på det här målet."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "De senaste sju dagarna, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "De laddas ner första gången du använder AI, eller nu."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Det här målet spårar ett tal. Milstolpar markerar fortfarande stopp på vägen, men de ändrar inte procentandelen."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Titel"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Totalt"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Spåra ett tal"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Prova ett annat filter eller en annan sökning."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Enhet"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Ta bort koppling"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Uppdatera"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Veckovis återblick"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Vad vill du uppnå?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Varför det är viktigt"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Din anledning till att göra detta"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} kvar"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktiva"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} slutförda"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} förfaller om {} dagar"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} förfaller idag"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} förfaller imorgon"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} i fokus"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} av {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} av {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} av {} milstolpar klara"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} av {} uppgifter klara"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} försenade"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} pausade"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} kvar"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Lägg till en milstolpe eller ett måldatum"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Förfaller {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Förfaller om {} dagar"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Förfaller idag"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Förfaller imorgon"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Varje milstolpe är klar"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Fokustid registrerad"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Milstolpar klara: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Ingen aktivitet på {} dagar"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Inga milstolpar än"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} dagar försenad"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 dag försenad"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Planera"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Planerar..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Sätt ett mål för att se framsteg"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Mål uppnått"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Uppgifter klara: {}"
+
+msgid "Planning"
+msgstr "Planering"
+
+msgid "Speech to text"
+msgstr "Tal till text"
+
+msgid "Add subtask"
+msgstr "Lägg till deluppgift"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Fråga om dina uppgifter eller beskriv vad du vill planera. Inget ändras förrän du godkänner det."
+
+msgid "Asking AI..."
+msgstr "Frågar AI..."
+
+msgid "Chat"
+msgstr "Chatt"
+
+msgid "Chats"
+msgstr "Chattar"
+
+msgid "Click again to delete"
+msgstr "Klicka igen för att radera"
+
+msgid "Collapse"
+msgstr "Fäll ihop"
+
+msgid "Collapse menu"
+msgstr "Fäll ihop meny"
+
+msgid "Copy"
+msgstr "Kopiera"
+
+msgid "Count my focus hours"
+msgstr "Räkna mina fokustimmar"
+
+msgid "Decrease"
+msgstr "Minska"
+
+msgid "Deep"
+msgstr "Djup"
+
+msgid "Delete chat"
+msgstr "Radera chatt"
+
+msgid "Delete note"
+msgstr "Radera anteckning"
+
+msgid "Delete subtask"
+msgstr "Radera deluppgift"
+
+msgid "Delete this chat?"
+msgstr "Radera den här chatten?"
+
+msgid "Dictate"
+msgstr "Diktera"
+
+msgid "Exit full screen"
+msgstr "Lämna helskärm"
+
+msgid "Expand"
+msgstr "Fäll ut"
+
+msgid "Expand menu"
+msgstr "Fäll ut meny"
+
+msgid "Fork from here"
+msgstr "Dela av härifrån"
+
+msgid "Fork this chat"
+msgstr "Dela av den här chatten"
+
+msgid "Full screen"
+msgstr "Helskärm"
+
+msgid "Hide subtasks"
+msgstr "Dölj deluppgifter"
+
+msgid "Increase"
+msgstr "Öka"
+
+msgid "Jump to latest"
+msgstr "Hoppa till senaste"
+
+msgid "Launch"
+msgstr "Starta"
+
+msgid "Let the assistant search the web"
+msgstr "Låt assistenten söka på webben"
+
+msgid "Maximize"
+msgstr "Maximera"
+
+msgid "Merging the notes"
+msgstr "Slår ihop anteckningarna"
+
+msgid "Message"
+msgstr "Meddelande"
+
+msgid "Minimize"
+msgstr "Minimera"
+
+msgid "More"
+msgstr "Mer"
+
+msgid "Move back"
+msgstr "Flytta bakåt"
+
+msgid "Move down"
+msgstr "Flytta nedåt"
+
+msgid "Move forward"
+msgstr "Flytta framåt"
+
+msgid "Move up"
+msgstr "Flytta uppåt"
+
+msgid "New chat"
+msgstr "Ny chatt"
+
+msgid "New space"
+msgstr "Nytt utrymme"
+
+msgid "Next mode"
+msgstr "Nästa läge"
+
+msgid "Next version"
+msgstr "Nästa version"
+
+msgid "Next week"
+msgstr "Nästa vecka"
+
+msgid "Planned the searches"
+msgstr "Sökningarna planerades"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Planering, taligenkänning och uppläsning körs på den här enheten. Endast webbsökningarna du tillåter ansluter online."
+
+msgid "Previous mode"
+msgstr "Föregående läge"
+
+msgid "Previous version"
+msgstr "Föregående version"
+
+msgid "Previous week"
+msgstr "Föregående vecka"
+
+msgid "Quick"
+msgstr "Snabb"
+
+msgid "Reading {}"
+msgstr "Läser {}"
+
+msgid "Redo"
+msgstr "Gör om"
+
+msgid "Searching: {}"
+msgstr "Söker: {}"
+
+msgid "Send"
+msgstr "Skicka"
+
+msgid "Show subtasks"
+msgstr "Visa deluppgifter"
+
+msgid "Skipped {}"
+msgstr "Hoppade över {}"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Start"
+msgstr "Starta"
+
+msgid "Start focus on this task"
+msgstr "Fokusera på den här uppgiften"
+
+msgid "Stop"
+msgstr "Stopp"
+
+msgid "Stop recording"
+msgstr "Stoppa inspelning"
+
+msgid "Suggest with AI"
+msgstr "Föreslå med AI"
+
+msgid "Switch to dark mode"
+msgstr "Växla till mörkt läge"
+
+msgid "Switch to light mode"
+msgstr "Växla till ljust läge"
+
+msgid "Target hours"
+msgstr "Måltimmar"
+
+msgid "Thinking..."
+msgstr "Tänker..."
+
+msgid "Took notes from {}"
+msgstr "Tog anteckningar från {}"
+
+msgid "Undo"
+msgstr "Ångra"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "När den är på skickas sökningarna till söktjänsterna som används. Allt annat stannar på den här enheten."
+
+msgid "Writing the answer"
+msgstr "Skriver svaret"
+
+msgid "Yes, delete"
+msgstr "Ja, radera"
+
+msgid "Yesterday"
+msgstr "I går"
+
+msgid "{} results"
+msgstr "{} resultat"
+
+msgid "A longer rest"
+msgstr "En längre paus"
+
+msgid "A short rest"
+msgstr "En kort paus"
+
+msgid "A work session"
+msgstr "Ett arbetspass"
+
+msgid "Activity for the day"
+msgstr "Dagens aktivitet"
+
+msgid "Activity for the month"
+msgstr "Månadens aktivitet"
+
+msgid "Activity for the week"
+msgstr "Veckans aktivitet"
+
+msgid "Activity for the year"
+msgstr "Årets aktivitet"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Beskriv vad du behöver så planerar assistenten det"
+
+msgid "Go to this week"
+msgstr "Gå till denna vecka"
+
+msgid "Move to this week"
+msgstr "Flytta till denna vecka"
+
+msgid "See tasks in columns"
+msgstr "Se uppgifter i kolumner"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Se uppgifter i veckokalender"
+
+msgid "Set your own length"
+msgstr "Ställ in egen längd"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Sortera efter brådska och vikt"
+
+msgid "Take it off the calendar"
+msgstr "Ta bort från kalendern"

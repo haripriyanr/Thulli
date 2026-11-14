@@ -688,3 +688,839 @@ msgstr "Προγραμματισμένα για σήμερα"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Τίποτα προγραμματισμένο για σήμερα. Προσθέστε εργασίες στην οθόνη Χώροι."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Ένας στόχος είναι κάτι που θέλετε να πετύχετε. Χωρίστε τον σε ορόσημα, συνδέστε τις εργασίες που σας οδηγούν εκεί και δείτε την πρόοδό σας να αυξάνεται."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Σχετικά με αυτόν τον στόχο"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Ενεργός"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Προσθήκη οροσήμου"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Μοντέλα AI (περίπου 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Τα μοντέλα AI εγκαταστάθηκαν"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Οτιδήποτε άλλο αξίζει να θυμάστε"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Αρχειοθέτηση"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Αρχειοθετημένο"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Πίσω στους στόχους"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "βιβλία, ώρες…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Κατηγορία"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Αλλαγή οροσήμου"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Κλείσιμο"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Επερχόμενα"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Ολοκληρώθηκε"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Μέτρηση οροσήμων"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Δημιουργήστε έναν ενεργό στόχο για να λάβετε προτάσεις."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Δημιουργία στόχου"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Δημιουργήστε τον πρώτο σας στόχο"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Τρέχον"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Τρέχουσα τιμή"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Ημερομηνία (προαιρετικό)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Διαγραφή"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Διαγραφή στόχου"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Διαγραφή αυτού του στόχου;"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Περιγράψτε το αποτέλεσμα"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Περιγραφή"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Έτοιμο"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Λήψη τώρα"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Λήψη..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Επεξεργασία στόχου"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Χρόνος εστίασης σε στόχους"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Στόχοι"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Στόχοι που προχώρησαν αυτή την εβδομάδα"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Υψηλή"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Υψηλή προτεραιότητα"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Ιστορικό"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Πώς υπολογίζεται η πρόοδος;"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Σε εξέλιξη"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Διατήρηση στόχου"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Τελευταίες 7 ημέρες"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Σύνδεση εργασίας"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Χαμηλή"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Χαμηλή προτεραιότητα"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Σήμανση ως ολοκληρωμένο"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Μεσαία"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Μεσαία προτεραιότητα"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Ορόσημο"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Ορόσημο: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Ορόσημα"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Ολοκληρωμένα ορόσημα"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Χρειάζεται προσοχή"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Νέος στόχος"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Επόμενο: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Δεν υπάρχουν προθεσμίες τις επόμενες επτά ημέρες."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Δεν υπάρχουν ακόμη συνεδρίες εστίασης σε αυτόν τον στόχο. Ξεκινήστε έναν γύρο εστίασης σε μία από τις εργασίες του."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Κανένας στόχος δεν είχε ορόσημο, εργασία ή συνεδρία εστίασης αυτή την εβδομάδα."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Κανένας στόχος δεν ταιριάζει"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Δεν υπάρχουν στόχοι ακόμη"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Δεν υπάρχουν ορόσημα ακόμη. Προσθέστε τον πρώτο σταθμό στην πορεία προς αυτόν τον στόχο."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Δεν υπάρχουν ανοιχτές εργασίες για σύνδεση. Οι εργασίες που βρίσκονται ήδη σε στόχο δεν εμφανίζονται."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Δεν έχουν συνδεθεί εργασίες ακόμη. Συνδέστε εργασίες από τους Χώρους για να τις δείτε εδώ."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Τίποτα δεν είναι εκπρόθεσμο ή ανενεργό. Ωραία."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Άνοιγμα"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Άνοιγμα Χώρων"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Παύση"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Σε παύση"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Καρφίτσωμα νέων συνδέσμων σε ορόσημο"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Ο σχεδιασμός, η αναγνώριση ομιλίας και η εκφώνηση εκτελούνται όλα σε αυτήν τη συσκευή. Τίποτα από όσα λέτε ή πληκτρολογείτε δεν φεύγει από αυτήν."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Προτεραιότητα"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Πρόοδος"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Η πρόοδος είναι το ποσοστό των οροσήμων που έχετε ολοκληρώσει."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Η πρόοδος είναι ο τρέχων αριθμός σας σε σχέση με τον στόχο, όπως 12 από 20 βιβλία."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Εκφώνηση"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Έτοιμο"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Πρόσφατα"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Ανανέωση"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Αφαίρεση"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Αφαιρέστε τα για να ελευθερώσετε χώρο. Θα γίνει εκ νέου λήψη όταν χρειαστεί."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Επαναφορά"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Επαναφορά"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Συνέχιση"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Αποθήκευση αλλαγών"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Αναζήτηση στόχων"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Αναζήτηση στις ανοιχτές εργασίες σας"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Ταξινόμηση κατά"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Μελέτη, υγεία, εργασία…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Προτεινόμενες προτεραιότητες για την επόμενη εβδομάδα"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Στόχος"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Ημερομηνία-στόχος"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Ημερομηνία-στόχος (YYYY-MM-DD, προαιρετικό)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Ολοκληρωμένες εργασίες"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Εργασίες για αυτόν τον στόχο"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Το πρώτο σχέδιο πραγματοποιεί λήψη των μοντέλων AI στη συσκευή (περίπου 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Ο στόχος και τα ορόσημά του αφαιρούνται. Οι εργασίες σας διατηρούνται στους Χώρους. Απλώς παύουν να συνδέονται με αυτόν τον στόχο."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Τις τελευταίες επτά ημέρες, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Γίνεται λήψη την πρώτη φορά που χρησιμοποιείτε το AI ή τώρα."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Αυτός ο στόχος παρακολουθεί έναν αριθμό. Τα ορόσημα εξακολουθούν να σηματοδοτούν τους σταθμούς στην πορεία, αλλά δεν αλλάζουν το ποσοστό."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Τίτλος"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Σύνολο"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Παρακολούθηση αριθμού"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Δοκιμάστε άλλο φίλτρο ή διαφορετική αναζήτηση."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Μονάδα"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Αποσύνδεση"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Ενημέρωση"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Εβδομαδιαία ανασκόπηση"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Τι θέλετε να πετύχετε;"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Γιατί έχει σημασία"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ο λόγος που το κάνετε αυτό"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "απομένουν {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} ενεργοί"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} ολοκληρωμένοι"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} λήγουν σε {} ημέρες"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} λήγουν σήμερα"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} λήγουν αύριο"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} σε εστίαση"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} από {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} από {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} από {} ορόσημα ολοκληρώθηκαν"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} από {} εργασίες ολοκληρώθηκαν"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} εκπρόθεσμοι"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} σε παύση"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "απομένουν {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Προσθέστε ένα ορόσημο ή μια ημερομηνία-στόχο"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Λήγει στις {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Σε {} ημέρες"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Λήγει σήμερα"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Λήγει αύριο"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Όλα τα ορόσημα ολοκληρώθηκαν"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Καταγράφηκε χρόνος εστίασης"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Ολοκληρωμένα ορόσημα: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Καμία δραστηριότητα για {} ημέρες"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Δεν υπάρχουν ορόσημα ακόμη"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Εκπρόθεσμο κατά {} ημέρες"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Εκπρόθεσμο κατά 1 ημέρα"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Σχεδίασέ το"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Σχεδιασμός..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Ορίστε έναν στόχο για να δείτε την πρόοδο"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Ο στόχος επιτεύχθηκε"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Ολοκληρωμένες εργασίες: {}"
+
+msgid "Planning"
+msgstr "Σχεδιασμός"
+
+msgid "Speech to text"
+msgstr "Ομιλία σε κείμενο"
+
+msgid "Add subtask"
+msgstr "Προσθήκη υποεργασίας"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Ρωτήστε για τις εργασίες σας ή περιγράψτε τι θέλετε να προγραμματίσετε. Τίποτα δεν αλλάζει μέχρι να το εγκρίνετε."
+
+msgid "Asking AI..."
+msgstr "Ερώτηση στο AI..."
+
+msgid "Chat"
+msgstr "Συνομιλία"
+
+msgid "Chats"
+msgstr "Συνομιλίες"
+
+msgid "Click again to delete"
+msgstr "Κάντε ξανά κλικ για διαγραφή"
+
+msgid "Collapse"
+msgstr "Σύμπτυξη"
+
+msgid "Collapse menu"
+msgstr "Σύμπτυξη μενού"
+
+msgid "Copy"
+msgstr "Αντιγραφή"
+
+msgid "Count my focus hours"
+msgstr "Καταμέτρηση ωρών συγκέντρωσης"
+
+msgid "Decrease"
+msgstr "Μείωση"
+
+msgid "Deep"
+msgstr "Σε βάθος"
+
+msgid "Delete chat"
+msgstr "Διαγραφή συνομιλίας"
+
+msgid "Delete note"
+msgstr "Διαγραφή σημείωσης"
+
+msgid "Delete subtask"
+msgstr "Διαγραφή υποεργασίας"
+
+msgid "Delete this chat?"
+msgstr "Διαγραφή αυτής της συνομιλίας;"
+
+msgid "Dictate"
+msgstr "Υπαγόρευση"
+
+msgid "Exit full screen"
+msgstr "Έξοδος από πλήρη οθόνη"
+
+msgid "Expand"
+msgstr "Ανάπτυξη"
+
+msgid "Expand menu"
+msgstr "Ανάπτυξη μενού"
+
+msgid "Fork from here"
+msgstr "Διακλάδωση από εδώ"
+
+msgid "Fork this chat"
+msgstr "Διακλάδωση συνομιλίας"
+
+msgid "Full screen"
+msgstr "Πλήρης οθόνη"
+
+msgid "Hide subtasks"
+msgstr "Απόκρυψη υποεργασιών"
+
+msgid "Increase"
+msgstr "Αύξηση"
+
+msgid "Jump to latest"
+msgstr "Μετάβαση στα πιο πρόσφατα"
+
+msgid "Launch"
+msgstr "Έναρξη"
+
+msgid "Let the assistant search the web"
+msgstr "Επιτρέψτε στον βοηθό να κάνει αναζήτηση στο διαδίκτυο"
+
+msgid "Maximize"
+msgstr "Μεγιστοποίηση"
+
+msgid "Merging the notes"
+msgstr "Συγχώνευση σημειώσεων"
+
+msgid "Message"
+msgstr "Μήνυμα"
+
+msgid "Minimize"
+msgstr "Ελαχιστοποίηση"
+
+msgid "More"
+msgstr "Περισσότερα"
+
+msgid "Move back"
+msgstr "Μετακίνηση πίσω"
+
+msgid "Move down"
+msgstr "Μετακίνηση κάτω"
+
+msgid "Move forward"
+msgstr "Μετακίνηση εμπρός"
+
+msgid "Move up"
+msgstr "Μετακίνηση πάνω"
+
+msgid "New chat"
+msgstr "Νέα συνομιλία"
+
+msgid "New space"
+msgstr "Νέος χώρος"
+
+msgid "Next mode"
+msgstr "Επόμενη λειτουργία"
+
+msgid "Next version"
+msgstr "Επόμενη έκδοση"
+
+msgid "Next week"
+msgstr "Επόμενη εβδομάδα"
+
+msgid "Planned the searches"
+msgstr "Προγραμματίστηκαν οι αναζητήσεις"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Ο προγραμματισμός, η αναγνώριση ομιλίας και η φωνητική ανάγνωση εκτελούνται σε αυτή τη συσκευή. Μόνο οι αναζητήσεις ιστού που επιτρέπετε συνδέονται στο διαδίκτυο."
+
+msgid "Previous mode"
+msgstr "Προηγούμενη λειτουργία"
+
+msgid "Previous version"
+msgstr "Προηγούμενη έκδοση"
+
+msgid "Previous week"
+msgstr "Προηγούμενη εβδομάδα"
+
+msgid "Quick"
+msgstr "Γρήγορη"
+
+msgid "Reading {}"
+msgstr "Ανάγνωση {}"
+
+msgid "Redo"
+msgstr "Επανάληψη"
+
+msgid "Searching: {}"
+msgstr "Αναζήτηση: {}"
+
+msgid "Send"
+msgstr "Αποστολή"
+
+msgid "Show subtasks"
+msgstr "Εμφάνιση υποεργασιών"
+
+msgid "Skipped {}"
+msgstr "Παραλείφθηκε το {}"
+
+msgid "Standard"
+msgstr "Κανονική"
+
+msgid "Start"
+msgstr "Έναρξη"
+
+msgid "Start focus on this task"
+msgstr "Έναρξη συγκέντρωσης σε αυτήν την εργασία"
+
+msgid "Stop"
+msgstr "Διακοπή"
+
+msgid "Stop recording"
+msgstr "Διακοπή εγγραφής"
+
+msgid "Suggest with AI"
+msgstr "Πρόταση με AI"
+
+msgid "Switch to dark mode"
+msgstr "Εναλλαγή σε σκούρα λειτουργία"
+
+msgid "Switch to light mode"
+msgstr "Εναλλαγή σε φωτεινή λειτουργία"
+
+msgid "Target hours"
+msgstr "Ώρες-στόχος"
+
+msgid "Thinking..."
+msgstr "Σκέφτεται..."
+
+msgid "Took notes from {}"
+msgstr "Λήφθηκαν σημειώσεις από {}"
+
+msgid "Undo"
+msgstr "Αναίρεση"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Όταν είναι ενεργό, οι αναζητήσεις αποστέλλονται στους ιστότοπους αναζήτησης που χρησιμοποιεί. Όλα τα υπόλοιπα παραμένουν σε αυτή τη συσκευή."
+
+msgid "Writing the answer"
+msgstr "Σύνταξη απάντησης"
+
+msgid "Yes, delete"
+msgstr "Ναι, διαγραφή"
+
+msgid "Yesterday"
+msgstr "Χθες"
+
+msgid "{} results"
+msgstr "{} αποτελέσματα"
+
+msgid "A longer rest"
+msgstr "Μεγάλο διάλειμμα"
+
+msgid "A short rest"
+msgstr "Σύντομο διάλειμμα"
+
+msgid "A work session"
+msgstr "Συνεδρία εργασίας"
+
+msgid "Activity for the day"
+msgstr "Δραστηριότητα ημέρας"
+
+msgid "Activity for the month"
+msgstr "Δραστηριότητα μήνα"
+
+msgid "Activity for the week"
+msgstr "Δραστηριότητα εβδομάδας"
+
+msgid "Activity for the year"
+msgstr "Δραστηριότητα έτους"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Περίγραψε τι χρειάζεσαι και ο βοηθός το οργανώνει"
+
+msgid "Go to this week"
+msgstr "Στην τρέχουσα εβδομάδα"
+
+msgid "Move to this week"
+msgstr "Μετακίνηση στην εβδομάδα"
+
+msgid "See tasks in columns"
+msgstr "Εργασίες σε στήλες"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Εργασίες σε εβδομαδιαίο ημερολόγιο"
+
+msgid "Set your own length"
+msgstr "Όρισε τη διάρκεια"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Ταξινόμηση κατά επείγον και σημαντικό"
+
+msgid "Take it off the calendar"
+msgstr "Αφαίρεση από ημερολόγιο"

@@ -688,3 +688,839 @@ msgstr "Запланавана на сёння"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "На сёння нічога не запланавана. Дадайце задачы на экране Прастор."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Мэта — гэта тое, чаго вы хочаце дасягнуць. Разбіце яе на этапы, звяжыце задачы, якія вядуць да яе, і назірайце за сваім прагрэсам."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Пра гэту мэту"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Актыўныя"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Дадаць этап"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "ШІ"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Мадэлі ШІ (каля 2,3 ГБ)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Мадэлі ШІ ўсталяваны"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Што яшчэ варта памятаць"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "У архіў"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "У архіве"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Назад да мэтаў"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "кнігі, гадзіны…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Катэгорыя"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Змяніць этап"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Закрыць"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Хутка"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Выкананыя"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Лічыць этапы"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Стварыце актыўную мэту, каб атрымліваць прапановы."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Стварыць мэту"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Стварыце сваю першую мэту"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Бягучае"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Бягучае значэнне"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Дата (неабавязкова)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Выдаліць"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Выдаліць мэту"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Выдаліць гэту мэту?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Апішыце жаданы вынік"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Апісанне"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Гатова"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Спампаваць зараз"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Спампоўванне..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Рэдагаваць мэту"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Час канцэнтрацыі на мэтах"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Мэты"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Мэты з прагрэсам на гэтым тыдні"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Высокі"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Высокі прыярытэт"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Гісторыя"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Як лічыцца прагрэс?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "У працэсе"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Пакінуць мэту"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Апошнія 7 дзён"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Звязаць задачу"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Нізкі"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Нізкі прыярытэт"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Пазначыць як выкананую"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Сярэдні"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Сярэдні прыярытэт"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Этап"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Этап: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Этапы"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Этапаў выканана"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Патрабуе ўвагі"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Новая мэта"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Далей: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Няма дэдлайнаў на бліжэйшыя сем дзён."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Для гэтай мэты яшчэ не было сесій канцэнтрацыі. Запусціце сесію для адной з яе задач."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "На гэтым тыдні ні ў адной мэты не было этапаў, задач або сесій канцэнтрацыі."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Няма адпаведных мэтаў"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Мэтаў пакуль няма"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Этапаў пакуль няма. Дадайце першы пункт на шляху да гэтай мэты."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Няма адкрытых задач для звязвання. Задачы, якія ўжо дададзены ў мэту, не паказваюцца."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Задачы пакуль не звязаны. Звяжыце задачы з «Прастор», каб бачыць іх тут."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Нічога не пратэрмінавана і няма закінутых мэтаў. Выдатна."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Адкрыць"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Адкрыць «Прасторы»"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Прыпыніць"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "На паўзе"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Замацоўваць новыя сувязі за этапам"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Планаванне, распазнаванне маўлення і чытанне ўслых выконваюцца на гэтай прыладзе. Нічога з таго, што вы кажаце або ўводзіце, не пакідае яе."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Прыярытэт"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Прагрэс"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Прагрэс — гэта доля выкананых этапаў."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Прагрэс — гэта ваша бягучае значэнне адносна мэты, напрыклад 12 з 20 кніг."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Прачытаць услых"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Гатова"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Нядаўнія"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Абнавіць"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Выдаліць"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Выдаліце іх, каб вызваліць месца; пры неабходнасці яны спампуюцца зноў."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Адкрыць зноў"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Аднавіць"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Аднавіць"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Захаваць змены"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Пошук мэтаў"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Пошук па адкрытых задачах"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Сартаваць па"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Вучоба, здароўе, праца…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Прапанаваныя прыярытэты на наступны тыдзень"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Мэтавае значэнне"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Мэтавая дата"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Мэтавая дата (YYYY-MM-DD, неабавязкова)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Задач выканана"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Задачы для гэтай мэты"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Пры першым планаванні спампоўваюцца лакальныя мадэлі ШІ (каля 2,3 ГБ)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Мэта і яе этапы выдаляюцца. Вашы задачы застануцца ў «Прасторах», яны проста перастануць спасылацца на гэту мэту."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "За апошнія сем дзён: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Яны спампоўваюцца пры першым выкарыстанні ШІ або зараз."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Гэта мэта адсочвае лікавае значэнне. Этапы па-ранейшаму адзначаюць прамежкавыя пункты, але не змяняюць працэнт выканання."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Назва"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Усяго"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Адсочваць лікавае значэнне"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Паспрабуйце іншы фільтр або іншы пошукавы запыт."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Адзінка вымярэння"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Адвязаць"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Абнавіць"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Штотыднёвы агляд"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Чаго вы хочаце дасягнуць?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Чаму гэта важна"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Ваша прычына рабіць гэта"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "Засталося: {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} актыўных"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} выканана"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} з тэрмінам праз {} дзён"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} з тэрмінам сёння"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} з тэрмінам заўтра"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} у канцэнтрацыі"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} з {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} з {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "Выканана этапаў: {} з {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "Выканана задач: {} з {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} пратэрмінавана"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} на паўзе"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "Засталося: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Дадайце этап або дату мэты"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Тэрмін: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Тэрмін праз {} дзён"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Тэрмін сёння"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Тэрмін заўтра"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Усе этапы выкананы"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Час канцэнтрацыі запісаны"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Выканана этапаў: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Няма актыўнасці {} дзён"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Этапаў пакуль няма"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Пратэрмінавана на {} дзён"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Пратэрмінавана на 1 дзень"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Спланаваць"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Планаванне..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Задайце мэтавае значэнне, каб бачыць прагрэс"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Мэта дасягнута"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Выканана задач: {}"
+
+msgid "Planning"
+msgstr "Планаванне"
+
+msgid "Speech to text"
+msgstr "Маўленне ў тэкст"
+
+msgid "Add subtask"
+msgstr "Дадаць падзадачу"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Спытайце пра свае задачы або апішыце тое, што хочаце спланаваць. Нічога не зменіцца, пакуль вы не пацвердзіце."
+
+msgid "Asking AI..."
+msgstr "Запыт да AI..."
+
+msgid "Chat"
+msgstr "Чат"
+
+msgid "Chats"
+msgstr "Чаты"
+
+msgid "Click again to delete"
+msgstr "Націсніце яшчэ раз, каб выдаліць"
+
+msgid "Collapse"
+msgstr "Згарнуць"
+
+msgid "Collapse menu"
+msgstr "Згарнуць меню"
+
+msgid "Copy"
+msgstr "Скапіяваць"
+
+msgid "Count my focus hours"
+msgstr "Лічыць мае гадзіны фокусу"
+
+msgid "Decrease"
+msgstr "Паменшыць"
+
+msgid "Deep"
+msgstr "Глыбокі"
+
+msgid "Delete chat"
+msgstr "Выдаліць чат"
+
+msgid "Delete note"
+msgstr "Выдаліць нататку"
+
+msgid "Delete subtask"
+msgstr "Выдаліць падзадачу"
+
+msgid "Delete this chat?"
+msgstr "Выдаліць гэты чат?"
+
+msgid "Dictate"
+msgstr "Дыктаваць"
+
+msgid "Exit full screen"
+msgstr "Выйсці з поўнага экрана"
+
+msgid "Expand"
+msgstr "Разгарнуць"
+
+msgid "Expand menu"
+msgstr "Разгарнуць меню"
+
+msgid "Fork from here"
+msgstr "Стварыць галіну адсюль"
+
+msgid "Fork this chat"
+msgstr "Стварыць копію чата"
+
+msgid "Full screen"
+msgstr "Поўны экран"
+
+msgid "Hide subtasks"
+msgstr "Схаваць падзадачы"
+
+msgid "Increase"
+msgstr "Павялічыць"
+
+msgid "Jump to latest"
+msgstr "Да апошніх"
+
+msgid "Launch"
+msgstr "Запусціць"
+
+msgid "Let the assistant search the web"
+msgstr "Дазволіць асістэнту шукаць у інтэрнэце"
+
+msgid "Maximize"
+msgstr "Разгарнуць"
+
+msgid "Merging the notes"
+msgstr "Аб’яднанне нататак"
+
+msgid "Message"
+msgstr "Паведамленне"
+
+msgid "Minimize"
+msgstr "Згарнуць"
+
+msgid "More"
+msgstr "Яшчэ"
+
+msgid "Move back"
+msgstr "Перамясціць назад"
+
+msgid "Move down"
+msgstr "Перамясціць уніз"
+
+msgid "Move forward"
+msgstr "Перамясціць наперад"
+
+msgid "Move up"
+msgstr "Перамясціць уверх"
+
+msgid "New chat"
+msgstr "Новы чат"
+
+msgid "New space"
+msgstr "Новая прастора"
+
+msgid "Next mode"
+msgstr "Наступны рэжым"
+
+msgid "Next version"
+msgstr "Наступная версія"
+
+msgid "Next week"
+msgstr "Наступны тыдзень"
+
+msgid "Planned the searches"
+msgstr "Пошук спланаваны"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Планаванне, распазнаванне маўлення і чытанне ўслых выконваюцца на гэтай прыладзе. Толькі дазволены пошук ідзе ў сетку."
+
+msgid "Previous mode"
+msgstr "Папярэдні рэжым"
+
+msgid "Previous version"
+msgstr "Папярэдняя версія"
+
+msgid "Previous week"
+msgstr "Мінулы тыдзень"
+
+msgid "Quick"
+msgstr "Хуткі"
+
+msgid "Reading {}"
+msgstr "Чытанне {}"
+
+msgid "Redo"
+msgstr "Паўтарыць"
+
+msgid "Searching: {}"
+msgstr "Пошук: {}"
+
+msgid "Send"
+msgstr "Адправіць"
+
+msgid "Show subtasks"
+msgstr "Паказаць падзадачы"
+
+msgid "Skipped {}"
+msgstr "Прапушчана {}"
+
+msgid "Standard"
+msgstr "Стандартны"
+
+msgid "Start"
+msgstr "Пачаць"
+
+msgid "Start focus on this task"
+msgstr "Пачаць фокус на гэтай задачы"
+
+msgid "Stop"
+msgstr "Спыніць"
+
+msgid "Stop recording"
+msgstr "Спыніць запіс"
+
+msgid "Suggest with AI"
+msgstr "Прапанаваць з AI"
+
+msgid "Switch to dark mode"
+msgstr "Пераключыць на цёмную тэму"
+
+msgid "Switch to light mode"
+msgstr "Пераключыць на светлую тэму"
+
+msgid "Target hours"
+msgstr "Мэтавыя гадзіны"
+
+msgid "Thinking..."
+msgstr "Думае..."
+
+msgid "Took notes from {}"
+msgstr "Запісана з {}"
+
+msgid "Undo"
+msgstr "Адмяніць"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Пры ўключэнні запыты адпраўляюцца ў пошукавыя сістэмы. Усё астатняе застаецца на гэтай прыладзе."
+
+msgid "Writing the answer"
+msgstr "Напісанне адказу"
+
+msgid "Yes, delete"
+msgstr "Так, выдаліць"
+
+msgid "Yesterday"
+msgstr "Учора"
+
+msgid "{} results"
+msgstr "{} вынікаў"
+
+msgid "A longer rest"
+msgstr "Даўжэйшы адпачынак"
+
+msgid "A short rest"
+msgstr "Кароткі адпачынак"
+
+msgid "A work session"
+msgstr "Працоўны сеанс"
+
+msgid "Activity for the day"
+msgstr "Актыўнасць за дзень"
+
+msgid "Activity for the month"
+msgstr "Актыўнасць за месяц"
+
+msgid "Activity for the week"
+msgstr "Актыўнасць за тыдзень"
+
+msgid "Activity for the year"
+msgstr "Актыўнасць за год"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Апішыце, што трэба, і памочнік усё сплануе"
+
+msgid "Go to this week"
+msgstr "Перайсці да гэтага тыдня"
+
+msgid "Move to this week"
+msgstr "Перанесці на гэты тыдзень"
+
+msgid "See tasks in columns"
+msgstr "Глядзець задачы ў слупках"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Глядзець задачы ў тыднёвым календары"
+
+msgid "Set your own length"
+msgstr "Усталяваць свой час"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Сартаваць задачы па тэрміновасці і важнасці"
+
+msgid "Take it off the calendar"
+msgstr "Прыбраць з календара"

@@ -688,3 +688,839 @@ msgstr "Dirancang untuk hari ini"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Tiada yang dirancang untuk hari ini. Tambah tugasan di skrin Ruang."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Matlamat ialah sesuatu yang ingin anda capai. Bahagikannya kepada tonggak, pautkan tugasan yang membawa anda ke sana, dan saksikan kemajuan anda terbina."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Mengenai matlamat ini"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktif"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Tambah tonggak"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Model AI (kira-kira 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Model AI dipasang"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Apa-apa lagi yang perlu diingati"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arkibkan"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Diarkibkan"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Kembali ke matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "buku, jam…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategori"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Tukar tonggak"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Tutup"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Akan datang"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Kira tonggak"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Cipta matlamat aktif untuk mendapatkan cadangan."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Cipta matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Cipta matlamat pertama anda"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Semasa"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Nilai semasa"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Tarikh (pilihan)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Padam"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Padam matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Padam matlamat ini?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Huraikan hasil yang diharapkan"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Penerangan"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Muat turun sekarang"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Memuat turun..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Sunting matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Masa fokus pada matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Matlamat yang berkembang minggu ini"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Tinggi"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Keutamaan tinggi"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Sejarah"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Bagaimanakah kemajuan dikira?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Berjalan"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Kekalkan matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "7 hari lalu"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Pautkan tugasan"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Rendah"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Keutamaan rendah"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Tandakan selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Sederhana"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Keutamaan sederhana"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Tonggak"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Tonggak: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Tonggak"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Tonggak selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Perlu perhatian"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Matlamat baharu"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Seterusnya: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Tiada tarikh akhir dalam tujuh hari akan datang."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Belum ada sesi fokus untuk matlamat ini. Mulakan pusingan fokus pada salah satu tugasannya."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Tiada matlamat yang mempunyai tonggak, tugasan atau sesi fokus pada minggu ini."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Tiada matlamat yang sepadan"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Belum ada matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Belum ada tonggak. Tambah perhentian pertama dalam perjalanan ke arah matlamat ini."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Tiada tugasan terbuka untuk dipautkan. Tugasan yang sudah ada dalam matlamat tidak dipaparkan."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Belum ada tugasan dipautkan. Pautkan tugasan dari Ruang untuk melihatnya di sini."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Tiada yang lewat atau terbiar. Bagus."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Buka"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Buka Ruang"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Jeda"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Dijeda"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Sematkan pautan baharu pada tonggak"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Perancangan, pengecaman pertuturan dan membaca dengan kuat semuanya berjalan pada peranti ini. Tiada apa-apa yang anda sebut atau taip meninggalkan peranti ini."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Keutamaan"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Kemajuan"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Kemajuan ialah bahagian tonggak yang telah anda selesaikan."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Kemajuan ialah bilangan semasa anda berbanding sasaran, seperti 12 daripada 20 buku."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Baca dengan kuat"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Sedia"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Terkini"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Muat semula"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Alih keluar"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Alih keluar untuk mengosongkan ruang; ia akan dimuat turun semula apabila diperlukan."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Buka semula"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Pulihkan"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Sambung semula"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Simpan perubahan"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Cari matlamat"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Cari tugasan belum selesai anda"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Susun mengikut"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Belajar, kesihatan, kerja…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Keutamaan yang dicadangkan untuk minggu depan"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Sasaran"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Tarikh sasaran"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Tarikh sasaran (YYYY-MM-DD, pilihan)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Tugasan selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Tugasan untuk matlamat ini"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Pelan pertama akan memuat turun model AI pada peranti (kira-kira 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Matlamat dan tonggaknya dialih keluar. Tugasan anda disimpan dalam Ruang; ia cuma berhenti menghala ke matlamat ini."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Tujuh hari lalu, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Ia akan dimuat turun pada kali pertama anda menggunakan AI, atau sekarang."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Matlamat ini menjejaki nombor. Tonggak masih menandakan perhentian sepanjang perjalanan, tetapi ia tidak mengubah peratusan."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Tajuk"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Jumlah"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Jejak nombor"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Cuba penapis lain atau carian berbeza."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Unit"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Nyahpaut"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Kemas kini"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Semakan mingguan"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Apakah yang ingin anda capai?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Mengapa ini penting"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Sebab anda melakukan ini"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} lagi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktif"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} tarikh akhir dalam {} hari"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} tarikh akhir hari ini"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} tarikh akhir esok"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} fokus"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} daripada {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} daripada {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} daripada {} tonggak selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} daripada {} tugasan selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} lewat"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} dijeda"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} lagi"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Tambah tonggak atau tarikh sasaran"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Tarikh akhir {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Tarikh akhir dalam {} hari"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Tarikh akhir hari ini"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Tarikh akhir esok"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Setiap tonggak telah selesai"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Masa fokus direkodkan"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Tonggak selesai: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Tiada aktiviti selama {} hari"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Belum ada tonggak"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Lewat {} hari"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Lewat 1 hari"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Rancangkannya"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Merancang..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Tetapkan sasaran untuk melihat kemajuan"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Sasaran tercapai"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Tugasan selesai: {}"
+
+msgid "Planning"
+msgstr "Perancangan"
+
+msgid "Speech to text"
+msgstr "Suara ke teks"
+
+msgid "Add subtask"
+msgstr "Tambah subtugasan"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Tanya tentang tugasan anda, atau terangkan apa yang ingin dirancang. Tiada apa yang berubah sehingga anda meluluskannya."
+
+msgid "Asking AI..."
+msgstr "Bertanya kepada AI..."
+
+msgid "Chat"
+msgstr "Sembang"
+
+msgid "Chats"
+msgstr "Sembang"
+
+msgid "Click again to delete"
+msgstr "Klik sekali lagi untuk padam"
+
+msgid "Collapse"
+msgstr "Runtuhkan"
+
+msgid "Collapse menu"
+msgstr "Runtuhkan menu"
+
+msgid "Copy"
+msgstr "Salin"
+
+msgid "Count my focus hours"
+msgstr "Kira jam fokus saya"
+
+msgid "Decrease"
+msgstr "Kurangkan"
+
+msgid "Deep"
+msgstr "Mendalam"
+
+msgid "Delete chat"
+msgstr "Padam sembang"
+
+msgid "Delete note"
+msgstr "Padam nota"
+
+msgid "Delete subtask"
+msgstr "Padam subtugasan"
+
+msgid "Delete this chat?"
+msgstr "Padam sembang ini?"
+
+msgid "Dictate"
+msgstr "Imlak"
+
+msgid "Exit full screen"
+msgstr "Keluar skrin penuh"
+
+msgid "Expand"
+msgstr "Kembangkan"
+
+msgid "Expand menu"
+msgstr "Kembangkan menu"
+
+msgid "Fork from here"
+msgstr "Cipta cabang dari sini"
+
+msgid "Fork this chat"
+msgstr "Cipta salinan sembang ini"
+
+msgid "Full screen"
+msgstr "Skrin penuh"
+
+msgid "Hide subtasks"
+msgstr "Sembunyikan subtugasan"
+
+msgid "Increase"
+msgstr "Tingkatkan"
+
+msgid "Jump to latest"
+msgstr "Pergi ke terkini"
+
+msgid "Launch"
+msgstr "Lancarkan"
+
+msgid "Let the assistant search the web"
+msgstr "Benarkan pembantu mencari di web"
+
+msgid "Maximize"
+msgstr "Maksimumkan"
+
+msgid "Merging the notes"
+msgstr "Menggabungkan nota"
+
+msgid "Message"
+msgstr "Mesej"
+
+msgid "Minimize"
+msgstr "Minimumkan"
+
+msgid "More"
+msgstr "Lagi"
+
+msgid "Move back"
+msgstr "Alih ke belakang"
+
+msgid "Move down"
+msgstr "Alih ke bawah"
+
+msgid "Move forward"
+msgstr "Alih ke hadapan"
+
+msgid "Move up"
+msgstr "Alih ke atas"
+
+msgid "New chat"
+msgstr "Sembang baharu"
+
+msgid "New space"
+msgstr "Ruang baharu"
+
+msgid "Next mode"
+msgstr "Mod seterusnya"
+
+msgid "Next version"
+msgstr "Versi seterusnya"
+
+msgid "Next week"
+msgstr "Minggu depan"
+
+msgid "Planned the searches"
+msgstr "Carian telah dirancang"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Perancangan, pengecaman pertuturan dan bacaan teks dijalankan pada peranti ini. Hanya carian web yang anda benarkan dihantar dalam talian."
+
+msgid "Previous mode"
+msgstr "Mod sebelumnya"
+
+msgid "Previous version"
+msgstr "Versi sebelumnya"
+
+msgid "Previous week"
+msgstr "Minggu lepas"
+
+msgid "Quick"
+msgstr "Pantas"
+
+msgid "Reading {}"
+msgstr "Membaca {}"
+
+msgid "Redo"
+msgstr "Buat semula"
+
+msgid "Searching: {}"
+msgstr "Mencari: {}"
+
+msgid "Send"
+msgstr "Hantar"
+
+msgid "Show subtasks"
+msgstr "Tunjukkan subtugasan"
+
+msgid "Skipped {}"
+msgstr "Melangkau {}"
+
+msgid "Standard"
+msgstr "Standard"
+
+msgid "Start"
+msgstr "Mula"
+
+msgid "Start focus on this task"
+msgstr "Mula fokus pada tugasan ini"
+
+msgid "Stop"
+msgstr "Henti"
+
+msgid "Stop recording"
+msgstr "Henti rakaman"
+
+msgid "Suggest with AI"
+msgstr "Cadangkan dengan AI"
+
+msgid "Switch to dark mode"
+msgstr "Tukar ke mod gelap"
+
+msgid "Switch to light mode"
+msgstr "Tukar ke mod cerah"
+
+msgid "Target hours"
+msgstr "Sasaran jam"
+
+msgid "Thinking..."
+msgstr "Berfikir..."
+
+msgid "Took notes from {}"
+msgstr "Mencatat nota daripada {}"
+
+msgid "Undo"
+msgstr "Buat asal"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Apabila dihidupkan, perkara yang dicari akan dihantar ke laman carian yang digunakan. Segala-galanya kekal pada peranti ini."
+
+msgid "Writing the answer"
+msgstr "Menulis jawapan"
+
+msgid "Yes, delete"
+msgstr "Ya, padam"
+
+msgid "Yesterday"
+msgstr "Semalam"
+
+msgid "{} results"
+msgstr "{} hasil"
+
+msgid "A longer rest"
+msgstr "Rehat lebih lama"
+
+msgid "A short rest"
+msgstr "Rehat sekejap"
+
+msgid "A work session"
+msgstr "Sesi kerja"
+
+msgid "Activity for the day"
+msgstr "Aktiviti harian"
+
+msgid "Activity for the month"
+msgstr "Aktiviti bulanan"
+
+msgid "Activity for the week"
+msgstr "Aktiviti mingguan"
+
+msgid "Activity for the year"
+msgstr "Aktiviti tahunan"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Terangkan keperluan anda dan pembantu akan merancangnya"
+
+msgid "Go to this week"
+msgstr "Pergi ke minggu ini"
+
+msgid "Move to this week"
+msgstr "Alih ke minggu ini"
+
+msgid "See tasks in columns"
+msgstr "Lihat tugasan dalam lajur"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Lihat tugasan di kalendar mingguan"
+
+msgid "Set your own length"
+msgstr "Tetapkan tempoh sendiri"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Susun tugasan mengikut kesegeraan dan kepentingan"
+
+msgid "Take it off the calendar"
+msgstr "Keluarkan dari kalendar"

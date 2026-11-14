@@ -688,3 +688,839 @@ msgstr "Täna planeeritud"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Täna pole midagi planeeritud. Lisa ülesandeid alade ekraanil."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Eesmärk on midagi, mida soovid saavutada. Jaga see vahe-eesmärkideks, seo selleni viivad ülesanded ja jälgi oma edusamme."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Teave selle eesmärgi kohta"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktiivne"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Lisa vahe-eesmärk"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "Tehisintellekt"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Tehisintellekti mudelid (umbes 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Tehisintellekti mudelid paigaldatud"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Muu meelespidamist väärt teave"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arhiveeri"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Arhiveeritud"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Tagasi eesmärkide juurde"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "raamatud, tunnid…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategooria"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Muuda vahe-eesmärki"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Sule"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Tulekul"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Lõpetatud"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Loenda vahe-eesmärke"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Soovituste saamiseks loo aktiivne eesmärk."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Loo eesmärk"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Loo oma esimene eesmärk"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Praegune"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Praegune väärtus"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Kuupäev (valikuline)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Kustuta"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Kustuta eesmärk"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Kas kustutada see eesmärk?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Kirjelda tulemust"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Kirjeldus"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Valmis"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Laadi kohe alla"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Allalaadimine..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Muuda eesmärki"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Eesmärkidele kulunud fookusaeg"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Eesmärgid"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Sel nädalal edenenud eesmärgid"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Kõrge"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Kõrge prioriteet"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Ajalugu"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Kuidas edenemist arvestatakse?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Pooleli"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Jäta eesmärk alles"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Viimased 7 päeva"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Seo ülesanne"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Madal"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Madal prioriteet"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Märgi tehtuks"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Keskmine"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Keskmine prioriteet"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Vahe-eesmärk"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Vahe-eesmärk: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Vahe-eesmärgid"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Täidetud vahe-eesmärgid"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Vajab tähelepanu"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Uus eesmärk"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Järgmine: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Järgmise seitsme päeva jooksul pole tähtaegu."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Sellel eesmärgil pole veel fookusseansse. Alusta fookusvooru mõne selle ülesandega."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Sel nädalal polnud ühelgi eesmärgil vahe-eesmärki, ülesannet ega fookusseanssi."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Ükski eesmärk ei kattu"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Eesmärke veel pole"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Vahe-eesmärke veel pole. Lisa esimene peatus teel selle eesmärgini."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Sidumiseks pole lahtisi ülesandeid. Eesmärgis juba olevaid ülesandeid ei kuvata."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Ülesandeid pole veel seotud. Seo ülesanded Aladest, et neid siin näha."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Midagi pole üle tähtaja ega unarusse jäänud. Tore."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Avatud"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Ava Alad"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Peata"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Peatatud"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Kinnita uued lingid vahe-eesmärgi külge"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Planeerimine, kõnetuvastus ja ettelugemine toimuvad kõik selles seadmes. Mitte miski öeldu või sisestatu ei lahku seadmest."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioriteet"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Edenemine"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Edenemine on täidetud vahe-eesmärkide osakaal."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Edenemine on praegune arv võrreldes sihtväärtusega, näiteks 12 raamatut 20-st."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Loe ette"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Valmis"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Hiljutised"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Värskenda"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Eemalda"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Ruumi vabastamiseks eemalda need; vajadusel laaditakse need uuesti alla."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Ava uuesti"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Taasta"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Jätka"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Salvesta muudatused"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Otsi eesmärke"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Otsi oma lahtiseid ülesandeid"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sorteeri alusel"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Õppimine, tervis, töö…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Soovitatud prioriteedid järgmiseks nädalaks"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Siht"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Sihtkuupäev"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Sihtkuupäev (YYYY-MM-DD, valikuline)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Täidetud ülesanded"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Selle eesmärgi ülesanded"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Esimene plaan laadib alla seadmesisesed tehisintellekti mudelid (umbes 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Eesmärk ja selle vahe-eesmärgid eemaldatakse. Sinu ülesanded jäävad Aladesse alles; need lihtsalt ei viita enam sellele eesmärgile."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Viimased seitse päeva, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Need laaditakse alla tehisintellekti esmakordsel kasutamisel või nüüd."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "See eesmärk jälgib arvu. Vahe-eesmärgid tähistavad endiselt vahepeatusi, kuid ei muuda protsenti."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Pealkiri"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Kokku"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Jälgi arvu"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Proovi teist filtrit või muud otsingut."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Ühik"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Eemalda seos"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Uuenda"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Nädala ülevaade"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Mida soovid saavutada?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Miks see on oluline"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Sinu põhjus selle tegemiseks"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "veel {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktiivne"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} lõpetatud"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} tähtaeg {} päeva pärast"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} tähtaeg täna"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} tähtaeg homme"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} fookuses"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} vahe-eesmärki täidetud"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} ülesannet tehtud"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} üle tähtaja"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} peatatud"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "veel {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Lisa vahe-eesmärk või sihtkuupäev"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Tähtaeg {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Tähtaeg {} päeva pärast"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Tähtaeg täna"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Tähtaeg homme"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Kõik vahe-eesmärgid on täidetud"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Fookusaeg logitud"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Täidetud vahe-eesmärke: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Tegevus puudub {} päeva"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Vahe-eesmärke veel pole"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Tähtaeg ületatud {} päeva võrra"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Tähtaeg ületatud 1 päeva võrra"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Planeeri"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Planeerimine..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Edenemise nägemiseks määra sihtväärtus"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Siht saavutatud"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Tehtud ülesandeid: {}"
+
+msgid "Planning"
+msgstr "Planeerimine"
+
+msgid "Speech to text"
+msgstr "Kõnest tekstiks"
+
+msgid "Add subtask"
+msgstr "Lisa alamülesanne"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Küsi oma ülesannete kohta või kirjelda, mida soovid planeerida. Miski ei muutu enne, kui oled selle heaks kiitnud."
+
+msgid "Asking AI..."
+msgstr "Küsin tehisintellektilt..."
+
+msgid "Chat"
+msgstr "Vestlus"
+
+msgid "Chats"
+msgstr "Vestlused"
+
+msgid "Click again to delete"
+msgstr "Kustutamiseks klõpsa uuesti"
+
+msgid "Collapse"
+msgstr "Ahenda"
+
+msgid "Collapse menu"
+msgstr "Ahenda menüü"
+
+msgid "Copy"
+msgstr "Kopeeri"
+
+msgid "Count my focus hours"
+msgstr "Loenda minu fookustunde"
+
+msgid "Decrease"
+msgstr "Vähenda"
+
+msgid "Deep"
+msgstr "Põhjalik"
+
+msgid "Delete chat"
+msgstr "Kustuta vestlus"
+
+msgid "Delete note"
+msgstr "Kustuta märge"
+
+msgid "Delete subtask"
+msgstr "Kustuta alamülesanne"
+
+msgid "Delete this chat?"
+msgstr "Kas kustutada see vestlus?"
+
+msgid "Dictate"
+msgstr "Dikteeri"
+
+msgid "Exit full screen"
+msgstr "Välju täisekraanilt"
+
+msgid "Expand"
+msgstr "Laienda"
+
+msgid "Expand menu"
+msgstr "Laienda menüüd"
+
+msgid "Fork from here"
+msgstr "Hooldu siit"
+
+msgid "Fork this chat"
+msgstr "Hooldu sellest vestlusest"
+
+msgid "Full screen"
+msgstr "Täisekraan"
+
+msgid "Hide subtasks"
+msgstr "Peida alamülesanded"
+
+msgid "Increase"
+msgstr "Suurenda"
+
+msgid "Jump to latest"
+msgstr "Keri uusimani"
+
+msgid "Launch"
+msgstr "Käivita"
+
+msgid "Let the assistant search the web"
+msgstr "Luba assistendil veebist otsida"
+
+msgid "Maximize"
+msgstr "Maksimeeri"
+
+msgid "Merging the notes"
+msgstr "Märkmete ühendamine"
+
+msgid "Message"
+msgstr "Sõnum"
+
+msgid "Minimize"
+msgstr "Minimeeri"
+
+msgid "More"
+msgstr "Rohkem"
+
+msgid "Move back"
+msgstr "Liiguta tagasi"
+
+msgid "Move down"
+msgstr "Liiguta alla"
+
+msgid "Move forward"
+msgstr "Liiguta edasi"
+
+msgid "Move up"
+msgstr "Liiguta üles"
+
+msgid "New chat"
+msgstr "Uus vestlus"
+
+msgid "New space"
+msgstr "Uus ruum"
+
+msgid "Next mode"
+msgstr "Järgmine režiim"
+
+msgid "Next version"
+msgstr "Järgmine versioon"
+
+msgid "Next week"
+msgstr "Järgmine nädal"
+
+msgid "Planned the searches"
+msgstr "Otsingud planeeritud"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Planeerimine, kõnetuvastus ja ettelugemine toimuvad selles seadmes. Veebi saadetakse ainult need otsingud, mille oled lubanud."
+
+msgid "Previous mode"
+msgstr "Eelmine režiim"
+
+msgid "Previous version"
+msgstr "Eelmine versioon"
+
+msgid "Previous week"
+msgstr "Eelmine nädal"
+
+msgid "Quick"
+msgstr "Kiire"
+
+msgid "Reading {}"
+msgstr "Loen {}"
+
+msgid "Redo"
+msgstr "Tee uuesti"
+
+msgid "Searching: {}"
+msgstr "Otsin: {}"
+
+msgid "Send"
+msgstr "Saada"
+
+msgid "Show subtasks"
+msgstr "Kuva alamülesanded"
+
+msgid "Skipped {}"
+msgstr "Vahele jäetud {}"
+
+msgid "Standard"
+msgstr "Tavaline"
+
+msgid "Start"
+msgstr "Alusta"
+
+msgid "Start focus on this task"
+msgstr "Alusta sellele ülesandele keskendumist"
+
+msgid "Stop"
+msgstr "Peata"
+
+msgid "Stop recording"
+msgstr "Lõpeta salvestamine"
+
+msgid "Suggest with AI"
+msgstr "Soovita tehisintellektiga"
+
+msgid "Switch to dark mode"
+msgstr "Lülitu tumedale režiimile"
+
+msgid "Switch to light mode"
+msgstr "Lülitu heledale režiimile"
+
+msgid "Target hours"
+msgstr "Sihttunnid"
+
+msgid "Thinking..."
+msgstr "Mõtlen..."
+
+msgid "Took notes from {}"
+msgstr "Tehti märkmeid allikast {}"
+
+msgid "Undo"
+msgstr "Võta tagasi"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Kui see on sisse lülitatud, saadetakse otsitav kasutatavatele otsingusaitidele. Kõik muu jääb sellesse seadmesse."
+
+msgid "Writing the answer"
+msgstr "Vastuse kirjutamine"
+
+msgid "Yes, delete"
+msgstr "Jah, kustuta"
+
+msgid "Yesterday"
+msgstr "Eile"
+
+msgid "{} results"
+msgstr "{} tulemust"
+
+msgid "A longer rest"
+msgstr "Pikem paus"
+
+msgid "A short rest"
+msgstr "Lühike paus"
+
+msgid "A work session"
+msgstr "Töösessioon"
+
+msgid "Activity for the day"
+msgstr "Päeva aktiivsus"
+
+msgid "Activity for the month"
+msgstr "Kuu aktiivsus"
+
+msgid "Activity for the week"
+msgstr "Nädala aktiivsus"
+
+msgid "Activity for the year"
+msgstr "Aasta aktiivsus"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Kirjelda vajadust ja assistent teeb plaani"
+
+msgid "Go to this week"
+msgstr "Mine sellesse nädalasse"
+
+msgid "Move to this week"
+msgstr "Tõsta sellesse nädalasse"
+
+msgid "See tasks in columns"
+msgstr "Ülesanded veergudena"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Ülesanded nädalakalendris"
+
+msgid "Set your own length"
+msgstr "Määra oma kestus"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Sordi kiireloomulisuse ja tähtsuse järgi"
+
+msgid "Take it off the calendar"
+msgstr "Eemalda kalendrist"

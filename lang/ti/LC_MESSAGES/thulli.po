@@ -688,3 +688,839 @@ msgstr "ንሎሚ ዝተመድበ"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "ንሎሚ ዝተመድበ የለን። ኣብ ገጽ ቦታታት ስራሓት ወስኽ።"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "ሸቶ ክትበጽሖ እትደልዮ ነገር እዩ። ናብ መድረኻት ምቀሎ፣ ናብኡ ዘብጽሑኻ ስራሓት ኣተኣሳስር፣ ከምኡ’ውን ዕቤትካ ክህነጽ ተዓዘብ።"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "ብዛዕባ እዚ ሸቶ"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "ንጡፍ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "መድረኽ ወስኽ"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "ናይ AI ሞዴላት (ኣስታት 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "ናይ AI ሞዴላት ተተኺሎም"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "ካልእ ክዝከር ዝግባእ ዝኾነ ነገር"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "ኣርካይቭ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "ኣብ ኣርካይቭ ዝተቐመጠ"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "ናብ ሸቶታት ተመለስ"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "መጻሕፍቲ፣ ሰዓታት…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "ምድብ"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "መድረኽ ቀይር"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "ዕጾ"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "ዝመጽእ ዘሎ"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "ዝተዛዘመ"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "መድረኻት ቚጸር"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "ሓሳባት ንምርካብ ንጡፍ ሸቶ ፍጠር።"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "ሸቶ ፍጠር"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "ናይ መጀመርታ ሸቶኻ ፍጠር"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "ናይ ሕጂ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "ናይ ሕጂ ዋጋ"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "ዕለት (ኣማራጺ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "ሰርዝ"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "ሸቶ ሰርዝ"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "እዚ ሸቶ ይሰረዝ?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "ውጽኢት ግለጽ"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "መግለጺ"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "ተወዲኡ"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "ሕጂ ኣውርድ"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "የውርድ ኣሎ..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "ሸቶ ኣርትዕ"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "ኣብ ሸቶታት ናይ ትኹረት ግዜ"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "ሸቶታት"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "በዚ ሰሙን ዝተንቀሳቐሱ ሸቶታት"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "ላዕለዋይ"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "ላዕለዋይ ቀዳምነት"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "ታሪኽ"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "ዕቤት ብኸመይ ይቝጸር?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "ኣብ ስራሕ ዘሎ"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "ሸቶ ዓቅብ"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "ዝሓለፉ 7 መዓልታት"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "ስራሕ ኣተኣሳስር"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "ትሑት"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "ትሑት ቀዳምነት"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "ከም ዝተዛዘመ ምልክት ግበር"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "ማእከላይ"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "ማእከላይ ቀዳምነት"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "መድረኽ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "መድረኽ፦ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "መድረኻት"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "ዝተዛዘሙ መድረኻት"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "ትኹረት የድልዮ"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "ሓድሽ ሸቶ"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "ቀጻሊ፦ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "ኣብ ዝመጽእ ሸውዓተ መዓልትታት ዝኾነ ናይ ምዝዛም ዕለት የለን።"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "ኣብዚ ሸቶ ክሳብ ሕጂ ምንም ናይ ትኹረት እዋን የለን። ካብቶም ስራሓቱ ኣብ ሓደ ናይ ትኹረት እዋን ጀምር።"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "በዚ ሰሙን ዝኾነ ሸቶ መድረኽ፣ ስራሕ ወይ ናይ ትኹረት እዋን ኣይነበሮን።"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "ዝሰማማዕ ሸቶ የለን"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "ክሳብ ሕጂ ሸቶታት የለን"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "ክሳብ ሕጂ መድረኻት የለን። ናብዚ ሸቶ ኣብ ዝወስድ መንገዲ ቀዳማይ መዕረፊ ወስኽ።"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "ዝተኣሳሰር ክፍቲ ስራሕ የለን። ድሮ ኣብ ሸቶ ዘለዉ ስራሓት ኣየርኣዩን እዮም።"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "ክሳብ ሕጂ ዝተኣሳሰሩ ስራሓት የለዉን። ኣብዚ ንምርኣዮም ስራሓት ካብ ቦታታት ኣተኣሳስር።"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "ዝሓለፎ ወይ ህዱእ ዝኾነ ነገር የለን። ጽቡቕ።"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "ክፈት"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "ቦታታት ክፈት"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "ኣዕርፍ"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "ደው ዝበለ"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "ሓደሽቲ መላግቦታት ናብ መድረኽ ለጥፍ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "ምድላው፣ ድምጺ ምልላይን ዓው ኢልካ ምንባብን ኩሉ ኣብዚ መሳርሒ ይካየድ። ዝኾነ እትዛረቦ ወይ እትጽሕፎ ካብዚ ኣይወጽእን እዩ።"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "ቀዳምነት"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "ዕቤት"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "ዕቤት ማለት ናይቶም ዝዛዘምካዮም መድረኻት ግደ እዩ።"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "ዕቤት ካብቲ ዒላማ ዘለካ ናይ ሕጂ ቚጽሪ እዩ፣ ንኣብነት ካብ 20 መጻሕፍቲ 12።"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "ዓው ኢልካ ኣንብብ"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "ድሉው"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "ናይ ቀረባ"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "ኣሐድስ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "ኣወግድ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "ቦታ ንምርካብ ኣወግዶም፤ ምስ ዘድልዩ እንደገና ይወርዱ።"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "እንደገና ክፈት"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "መልስ"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "ቀጽል"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "ለውጥታት ዓቅብ"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "ሸቶታት ድለ"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "ክፉታት ስራሓትካ ድለ"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "ሰርዕ ብ"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "መጽናዕቲ፣ ጥዕና፣ ስራሕ…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "ንዝመጽእ ሰሙን ዝተሓሰቡ ቀዳምነታት"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "ዒላማ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "ናይ ዒላማ ዕለት"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "ናይ ዒላማ ዕለት (YYYY-MM-DD፣ ኣማራጺ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "ዝተዛዘሙ ስራሓት"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "ናይዚ ሸቶ ስራሓት"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "ቀዳማይ መደብ ነቶም ኣብ መሳርሒ ዝርከቡ ናይ AI ሞዴላት የውርድ (ኣስታት 2.3 GB)።"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "እቲ ሸቶን መድረኻቱን ይውገዱ። ስራሓትካ ኣብ ቦታታት ይዕቀቡ፤ ናብዚ ሸቶ ምምልካት ጥራይ የቋርጹ።"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "ዝሓለፉ ሸውዓተ መዓልታት፣ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "ንመጀመርታ ግዜ AI ክትጥቀም ከለኻ ወይ ሕጂ ይወርዱ።"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "እዚ ሸቶ ቚጽሪ ይከታተል። መድረኻት ኣብ መንገዲ ዘለዉ መዕረፊታት የመልክቱ፣ ግን ሚእታዊት ኣይቅይሩን እዮም።"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "ኣርእስቲ"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "ጠቕላላ"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "ቚጽሪ ተከታተል"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "ካልእ መጽረዪ ወይ ካልእ ምድላይ ፈትን።"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "መለክዒ"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "ምትእስሳር ኣቋርጽ"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "ኣሐድስ"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "ሰሙናዊ ዳህሳስ"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "እንታይ ክትበጽሕ ትደሊ?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "ስለምንታይ ኣገዳሲ ከም ዝኾነ"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "እዚ ንምግባር ዘለካ ምኽንያት"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} ዝተረፈ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} ንጡፍ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} ዝተዛዘመ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} ኣብ {} መዓልትታት ዝበጽሕ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} ሎሚ ዝበጽሕ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} ጽባሕ ዝበጽሕ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} ትኹረት ዝተገብረሉ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} ካብ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} ካብ {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "ካብ {} መድረኻት {} ተወዲኦም"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "ካብ {} ስራሓት {} ተወዲኦም"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} ዝሓለፎ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} ደው ዝበለ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} ዝተረፈ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "መድረኽ ወይ ናይ ዒላማ ዕለት ወስኽ"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "{} ዝበጽሕ"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "ኣብ {} መዓልትታት ዝበጽሕ"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "ሎሚ ዝበጽሕ"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "ጽባሕ ዝበጽሕ"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "ነፍሲ ወከፍ መድረኽ ተወዲኡ"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "ናይ ትኹረት ግዜ ተመዝጊቡ"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "ዝተዛዘሙ መድረኻት፦ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "ን{} መዓልትታት ምንም ምንቅስቓስ የለን"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "ክሳብ ሕጂ መድረኻት የለን"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "ብ{} መዓልትታት ዝሓለፎ"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "ብ1 መዓልቲ ዝሓለፎ"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "መደብ"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "ኣብ ምድላው ኣሎ..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "ዕቤት ንምርኣይ ዒላማ ኣቐምጥ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "ዒላማ ተበጺሑ"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "ዝተዛዘሙ ስራሓት፦ {}"
+
+msgid "Planning"
+msgstr "ምድላው"
+
+msgid "Speech to text"
+msgstr "ካብ ድምጺ ናብ ጽሑፍ"
+
+msgid "Add subtask"
+msgstr "ንኡስ ዕማም ወስኽ"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "ብዛዕባ ዕማማትካ ሕተት፡ ወይ ክትውጥኖ እትደሊ ግለጽ። ንስኻ ክሳዕ ዘየጽደቕካዮ ምንም ኣይቅየርን እዩ።"
+
+msgid "Asking AI..."
+msgstr "ን-AI ይሓትት ኣሎ..."
+
+msgid "Chat"
+msgstr "ዕላል"
+
+msgid "Chats"
+msgstr "ዕላላት"
+
+msgid "Click again to delete"
+msgstr "ንምድምሳስ ደጊምካ ጠውቕ"
+
+msgid "Collapse"
+msgstr "ዓጽፍ"
+
+msgid "Collapse menu"
+msgstr "ሜኑ ዓጽፍ"
+
+msgid "Copy"
+msgstr "ቅዳሕ"
+
+msgid "Count my focus hours"
+msgstr "ናይ ትኹረት ሰዓታተይ ጸብጽብ"
+
+msgid "Decrease"
+msgstr "ኣጉድል"
+
+msgid "Deep"
+msgstr "ዓሚቝ"
+
+msgid "Delete chat"
+msgstr "ዕላል ደምስስ"
+
+msgid "Delete note"
+msgstr "ማስታወሻ ደምስስ"
+
+msgid "Delete subtask"
+msgstr "ንኡስ ዕማም ደምስስ"
+
+msgid "Delete this chat?"
+msgstr "ነዚ ዕላል ክድምሰስ?"
+
+msgid "Dictate"
+msgstr "ብድምጺ ጽሓፍ"
+
+msgid "Exit full screen"
+msgstr "ካብ ምሉእ ስክሪን ውጻእ"
+
+msgid "Expand"
+msgstr "ዘርግሕ"
+
+msgid "Expand menu"
+msgstr "ሜኑ ዘርግሕ"
+
+msgid "Fork from here"
+msgstr "ካብዚ ሓድሽ ዕላል ጀምር"
+
+msgid "Fork this chat"
+msgstr "ነዚ ዕላል ቅዳሕ"
+
+msgid "Full screen"
+msgstr "ምሉእ ስክሪን"
+
+msgid "Hide subtasks"
+msgstr "ንኡሳን ዕማማት ሕባእ"
+
+msgid "Increase"
+msgstr "ወስኽ"
+
+msgid "Jump to latest"
+msgstr "ናብቲ ዝሓደሸ ኪድ"
+
+msgid "Launch"
+msgstr "ቐዳምነት ሃብ"
+
+msgid "Let the assistant search the web"
+msgstr "ረዳኢ ኣብ መርበብ ሓበሬታ ክደሊ ፍቐደሉ"
+
+msgid "Maximize"
+msgstr "ኣዕቢ"
+
+msgid "Merging the notes"
+msgstr "ማስታወሻታት ይወሃሃድ ኣሎ"
+
+msgid "Message"
+msgstr "መልእኽቲ"
+
+msgid "Minimize"
+msgstr "ኣንእስ"
+
+msgid "More"
+msgstr "ተወሳኺ"
+
+msgid "Move back"
+msgstr "ንድሕሪት ኣንቀሳቕስ"
+
+msgid "Move down"
+msgstr "ንታሕቲ ኣንቀሳቕስ"
+
+msgid "Move forward"
+msgstr "ንቕድሚት ኣንቀሳቕስ"
+
+msgid "Move up"
+msgstr "ንላዕሊ ኣንቀሳቕስ"
+
+msgid "New chat"
+msgstr "ሓድሽ ዕላል"
+
+msgid "New space"
+msgstr "ሓድሽ ቦታ"
+
+msgid "Next mode"
+msgstr "ዝቕጽል ሁነታት"
+
+msgid "Next version"
+msgstr "ዝቕጽል ሕታም"
+
+msgid "Next week"
+msgstr "ዝመጽእ ሰሙን"
+
+msgid "Planned the searches"
+msgstr "ምድላይ ተወጢኑ ኣሎ"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "ምውጣን፡ ድምጺ ምልላይን ብዓውታ ምንባብን ኣብዚ መሳርሒ ይካየድ። ዝፈቐድካዮም ናይ መርበብ ሓበሬታ ድላያት ጥራይ እዮም ብኢንተርነት ዝኸዱ።"
+
+msgid "Previous mode"
+msgstr "ዝሓለፈ ሁነታት"
+
+msgid "Previous version"
+msgstr "ዝሓለፈ ሕታም"
+
+msgid "Previous week"
+msgstr "ዝሓለፈ ሰሙን"
+
+msgid "Quick"
+msgstr "ቅልጡፍ"
+
+msgid "Reading {}"
+msgstr "የንብብ ኣሎ፡ {}"
+
+msgid "Redo"
+msgstr "ደጊምካ ግበር"
+
+msgid "Searching: {}"
+msgstr "ይደሊ ኣሎ፡ {}"
+
+msgid "Send"
+msgstr "ስደድ"
+
+msgid "Show subtasks"
+msgstr "ንኡሳን ዕማማት ኣርኢ"
+
+msgid "Skipped {}"
+msgstr "ተሓሊፉ፡ {}"
+
+msgid "Standard"
+msgstr "ስሩዕ"
+
+msgid "Start"
+msgstr "ጀምር"
+
+msgid "Start focus on this task"
+msgstr "ኣብዚ ዕማም ምትኳር ጀምር"
+
+msgid "Stop"
+msgstr "ደው ኣብል"
+
+msgid "Stop recording"
+msgstr "ምቕዳሕ ደው ኣብል"
+
+msgid "Suggest with AI"
+msgstr "ብ-AI ሓሳብ ሃብ"
+
+msgid "Switch to dark mode"
+msgstr "ናብ ጸሊም ሁነታት ቀይር"
+
+msgid "Switch to light mode"
+msgstr "ናብ ብሩህ ሁነታት ቀይር"
+
+msgid "Target hours"
+msgstr "ዒላማ ሰዓታት"
+
+msgid "Thinking..."
+msgstr "ይሓስብ ኣሎ..."
+
+msgid "Took notes from {}"
+msgstr "ካብ {} ማስታወሻ ተወሲዱ"
+
+msgid "Undo"
+msgstr "ምለስ"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "ክውላዕ እንከሎ፡ ዝድለ ሓበሬታ ናብ መርበባት ድላይ ይስደድ። ዝተረፈ ኩሉ ኣብዚ መሳርሒ ይተርፍ።"
+
+msgid "Writing the answer"
+msgstr "መልሲ ይጽሓፍ ኣሎ"
+
+msgid "Yes, delete"
+msgstr "እወ፡ ደምስስ"
+
+msgid "Yesterday"
+msgstr "ትማሊ"
+
+msgid "{} results"
+msgstr "{} ውጽኢት"
+
+msgid "A longer rest"
+msgstr "ነዊሕ ዕረፍቲ"
+
+msgid "A short rest"
+msgstr "ሓጺር ዕረፍቲ"
+
+msgid "A work session"
+msgstr "ናይ ስራሕ ግዜ"
+
+msgid "Activity for the day"
+msgstr "ናይ መዓልቲ ንጥፈት"
+
+msgid "Activity for the month"
+msgstr "ናይ ወርሒ ንጥፈት"
+
+msgid "Activity for the week"
+msgstr "ናይ ሰሙን ንጥፈት"
+
+msgid "Activity for the year"
+msgstr "ናይ ዓመት ንጥፈት"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "ዘድልየካ ግለጽ እሞ እቲ ሓጋዚ ክምድቦ እዩ"
+
+msgid "Go to this week"
+msgstr "ናብዚ ሰሙን ኪድ"
+
+msgid "Move to this week"
+msgstr "ናብዚ ሰሙን ኣግዕዝ"
+
+msgid "See tasks in columns"
+msgstr "ዕማማት ብዓምድታት ርአ"
+
+msgid "See tasks on a weekly calendar"
+msgstr "ዕማማት ኣብ ሰሙናዊ ዓውደ ኣዋርሕ ርአ"
+
+msgid "Set your own length"
+msgstr "ናይ ባዕልኻ ግዜ ምረጽ"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "ብህጹጽነትን ኣገዳስነትን ስራዕ"
+
+msgid "Take it off the calendar"
+msgstr "ካብ ዓውደ ኣዋርሕ ኣልግስ"

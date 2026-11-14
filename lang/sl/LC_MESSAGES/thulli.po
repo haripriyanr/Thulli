@@ -688,3 +688,839 @@ msgstr "Načrtovano za danes"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Za danes ni nič načrtovano. Dodajte opravila na zaslonu Prostori."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Cilj je nekaj, kar želite doseči. Razdelite ga na mejnike, povežite opravila, ki vas vodijo do njega, in spremljajte svoj napredek."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "O tem cilju"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktivni"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Dodaj mejnik"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "UI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Modeli UI (približno 2,3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Modeli UI nameščeni"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Karkoli drugega, kar si velja zapomniti"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arhiviraj"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Arhivirano"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Nazaj na cilje"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "knjige, ure…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategorija"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Spremeni mejnik"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Zapri"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Prihajajoče"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Dokončani"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Štej mejnike"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Ustvarite aktiven cilj, da prejmete predloge."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Ustvari cilj"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Ustvarite svoj prvi cilj"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Trenutno"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Trenutna vrednost"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Datum (neobvezno)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Izbriši"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Izbriši cilj"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Izbrisati ta cilj?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Opišite želeni rezultat"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Opis"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Opravljeno"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Prenesi zdaj"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Prenašanje..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Uredi cilj"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Čas fokusa na ciljih"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Cilji"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Cilji z napredkom ta teden"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Visoka"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Visoka prioriteta"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Zgodovina"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Kako se šteje napredek?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "V teku"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Ohrani cilj"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Zadnjih 7 dni"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Poveži opravilo"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Nizka"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Nizka prioriteta"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Označi kot dokončano"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Srednja"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Srednja prioriteta"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Mejnik"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Mejnik: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Mejniki"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Doseženi mejniki"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Zahteva pozornost"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Nov cilj"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Naslednje: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "V naslednjih sedmih dneh ni rokov."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Za ta cilj še ni bilo fokusnih sej. Začnite fokusno sejo na enem od njegovih opravil."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Noben cilj ta teden ni imel mejnika, opravila ali fokusne seje."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Ni ustreznih ciljev"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Še ni ciljev"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Še ni mejnikov. Dodajte prvo postajo na poti do tega cilja."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Ni odprtih opravil za povezavo. Opravila, ki so že v cilju, niso prikazana."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Še ni povezanih opravil. Povežite opravila iz Prostorov, da jih vidite tukaj."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Nič ne zamuja in ni zapostavljeno. Odlično."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Odprti"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Odpri Prostore"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Zaustavi"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Zaustavljeno"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Pripni nove povezave na mejnik"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Načrtovanje, prepoznavanje govora in branje na glas se izvajajo v tej napravi. Nič, kar rečete ali vtipkate, je ne zapusti."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioriteta"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Napredek"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Napredek je delež mejnikov, ki ste jih dosegli."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Napredek je vaše trenutno število glede na cilj, na primer 12 od 20 knjig."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Beri na glas"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Pripravljeno"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Nedavno"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Osveži"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Odstrani"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Odstranite jih, da sprostite prostor; po potrebi se znova prenesejo."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Znova odpri"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Obnovi"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Nadaljuj"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Shrani spremembe"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Išči cilje"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Išči med odprtimi opravili"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Razvrsti po"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Študij, zdravje, delo…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Predlagane prioritete za naslednji teden"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Ciljna vrednost"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Ciljni datum"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Ciljni datum (YYYY-MM-DD, neobvezno)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Opravljena opravila"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Opravila za ta cilj"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Prvo načrtovanje prenese modele UI za napravo (približno 2,3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Cilj in njegovi mejniki se odstranijo. Vaša opravila ostanejo v Prostorih, le ne kažejo več na ta cilj."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Zadnjih sedem dni, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Prenesejo se ob prvi uporabi UI ali zdaj."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Ta cilj sledi številu. Mejniki še vedno označujejo postaje na poti, vendar ne vplivajo na odstotek."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Naslov"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Skupaj"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Sledi številu"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Poskusite z drugim filtrom ali drugačnim iskanjem."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Enota"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Prekini povezavo"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Posodobi"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Tedenski pregled"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Kaj želite doseči?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Zakaj je to pomembno"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Vaš razlog za to"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "Še: {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktivnih"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} dokončanih"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} z rokom čez {} dni"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} z rokom danes"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} z rokom jutri"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} v fokusu"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} od {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} od {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "Doseženih mejnikov: {} od {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "Opravljenih opravil: {} od {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} zamujenih"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} zaustavljenih"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "Še: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Dodaj mejnik ali ciljni datum"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Rok: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Rok čez {} dni"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Rok danes"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Rok jutri"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Vsi mejniki so doseženi"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Čas fokusa zabeležen"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Doseženi mejniki: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Brez dejavnosti že {} dni"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Še ni mejnikov"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Zamuja {} dni"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Zamuja 1 dan"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Načrtuj"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Načrtovanje..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Nastavite cilj za prikaz napredka"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Cilj dosežen"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Opravljenih opravil: {}"
+
+msgid "Planning"
+msgstr "Načrtovanje"
+
+msgid "Speech to text"
+msgstr "Govor v besedilo"
+
+msgid "Add subtask"
+msgstr "Dodaj podopravilo"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Vprašajte o svojih opravilih ali opišite, kaj želite načrtovati. Nič se ne spremeni, dokler ne odobrite."
+
+msgid "Asking AI..."
+msgstr "Sprašujem AI..."
+
+msgid "Chat"
+msgstr "Klepet"
+
+msgid "Chats"
+msgstr "Klepeti"
+
+msgid "Click again to delete"
+msgstr "Kliknite znova za izbris"
+
+msgid "Collapse"
+msgstr "Strni"
+
+msgid "Collapse menu"
+msgstr "Strni meni"
+
+msgid "Copy"
+msgstr "Kopiraj"
+
+msgid "Count my focus hours"
+msgstr "Štej moje ure osredotočenosti"
+
+msgid "Decrease"
+msgstr "Zmanjšaj"
+
+msgid "Deep"
+msgstr "Poglobljeno"
+
+msgid "Delete chat"
+msgstr "Izbriši klepet"
+
+msgid "Delete note"
+msgstr "Izbriši opombo"
+
+msgid "Delete subtask"
+msgstr "Izbriši podopravilo"
+
+msgid "Delete this chat?"
+msgstr "Izbrišem ta klepet?"
+
+msgid "Dictate"
+msgstr "Narekuj"
+
+msgid "Exit full screen"
+msgstr "Izhod iz celozaslonskega načina"
+
+msgid "Expand"
+msgstr "Razširi"
+
+msgid "Expand menu"
+msgstr "Razširi meni"
+
+msgid "Fork from here"
+msgstr "Razveji od tukaj"
+
+msgid "Fork this chat"
+msgstr "Razveji ta klepet"
+
+msgid "Full screen"
+msgstr "Celozaslonski način"
+
+msgid "Hide subtasks"
+msgstr "Skrij podopravila"
+
+msgid "Increase"
+msgstr "Povečaj"
+
+msgid "Jump to latest"
+msgstr "Skoči na najnovejše"
+
+msgid "Launch"
+msgstr "Zaženi"
+
+msgid "Let the assistant search the web"
+msgstr "Dovoli pomočniku iskanje po spletu"
+
+msgid "Maximize"
+msgstr "Maksimiraj"
+
+msgid "Merging the notes"
+msgstr "Združevanje opomb"
+
+msgid "Message"
+msgstr "Sporočilo"
+
+msgid "Minimize"
+msgstr "Minimiraj"
+
+msgid "More"
+msgstr "Več"
+
+msgid "Move back"
+msgstr "Premakni nazaj"
+
+msgid "Move down"
+msgstr "Premakni navzdol"
+
+msgid "Move forward"
+msgstr "Premakni naprej"
+
+msgid "Move up"
+msgstr "Premakni navzgor"
+
+msgid "New chat"
+msgstr "Nov klepet"
+
+msgid "New space"
+msgstr "Nov prostor"
+
+msgid "Next mode"
+msgstr "Naslednji način"
+
+msgid "Next version"
+msgstr "Naslednja različica"
+
+msgid "Next week"
+msgstr "Naslednji teden"
+
+msgid "Planned the searches"
+msgstr "Iskanja načrtovana"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Načrtovanje, prepoznavanje govora in glasno branje potekajo v tej napravi. Na splet se povežejo le iskanja, ki jih dovolite."
+
+msgid "Previous mode"
+msgstr "Prejšnji način"
+
+msgid "Previous version"
+msgstr "Prejšnja različica"
+
+msgid "Previous week"
+msgstr "Prejšnji teden"
+
+msgid "Quick"
+msgstr "Hitro"
+
+msgid "Reading {}"
+msgstr "Branje {}"
+
+msgid "Redo"
+msgstr "Uveljavi znova"
+
+msgid "Searching: {}"
+msgstr "Iskanje: {}"
+
+msgid "Send"
+msgstr "Pošlji"
+
+msgid "Show subtasks"
+msgstr "Pokaži podopravila"
+
+msgid "Skipped {}"
+msgstr "Izpuščeno {}"
+
+msgid "Standard"
+msgstr "Standardno"
+
+msgid "Start"
+msgstr "Začni"
+
+msgid "Start focus on this task"
+msgstr "Začni osredotočanje na to opravilo"
+
+msgid "Stop"
+msgstr "Ustavi"
+
+msgid "Stop recording"
+msgstr "Ustavi snemanje"
+
+msgid "Suggest with AI"
+msgstr "Predlagaj z AI"
+
+msgid "Switch to dark mode"
+msgstr "Preklopi na temni način"
+
+msgid "Switch to light mode"
+msgstr "Preklopi na svetli način"
+
+msgid "Target hours"
+msgstr "Ciljne ure"
+
+msgid "Thinking..."
+msgstr "Razmišljam..."
+
+msgid "Took notes from {}"
+msgstr "Zapiski iz {}"
+
+msgid "Undo"
+msgstr "Razveljavi"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Ko je vklopljeno, se iskalne poizvedbe pošljejo uporabljenim iskalnikom. Vse ostalo ostane v tej napravi."
+
+msgid "Writing the answer"
+msgstr "Pisanje odgovora"
+
+msgid "Yes, delete"
+msgstr "Da, izbriši"
+
+msgid "Yesterday"
+msgstr "Včeraj"
+
+msgid "{} results"
+msgstr "{} rezultatov"
+
+msgid "A longer rest"
+msgstr "Daljši odmor"
+
+msgid "A short rest"
+msgstr "Kratek odmor"
+
+msgid "A work session"
+msgstr "Delovna seja"
+
+msgid "Activity for the day"
+msgstr "Aktivnost za dan"
+
+msgid "Activity for the month"
+msgstr "Aktivnost za mesec"
+
+msgid "Activity for the week"
+msgstr "Aktivnost za teden"
+
+msgid "Activity for the year"
+msgstr "Aktivnost za leto"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Opišite, kaj potrebujete, in pomočnik bo načrtoval"
+
+msgid "Go to this week"
+msgstr "Pojdi na ta teden"
+
+msgid "Move to this week"
+msgstr "Premakni na ta teden"
+
+msgid "See tasks in columns"
+msgstr "Prikaži opravila v stolpcih"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Prikaži opravila na tedenskem koledarju"
+
+msgid "Set your own length"
+msgstr "Nastavi svoje trajanje"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Razvrsti po nujnosti in pomembnosti"
+
+msgid "Take it off the calendar"
+msgstr "Odstrani s koledarja"

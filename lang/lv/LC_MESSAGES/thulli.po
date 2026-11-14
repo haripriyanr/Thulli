@@ -688,3 +688,839 @@ msgstr "Ieplānots šodienai"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Šodienai nekas nav ieplānots. Pievienojiet uzdevumus Telpu ekrānā."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Mērķis ir tas, ko vēlaties sasniegt. Sadaliet to starpposmos, piesaistiet uzdevumus, kas palīdz to sasniegt, un vērojiet savu progresu."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Par šo mērķi"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktīvie"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Pievienot starpposmu"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "MI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "MI modeļi (aptuveni 2,3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "MI modeļi instalēti"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Jebkas cits, ko vērts atcerēties"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Arhivēt"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Arhivēts"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Atpakaļ pie mērķiem"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "grāmatas, stundas…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategorija"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Mainīt starpposmu"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Aizvērt"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Gaidāmie"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Pabeigtie"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Skaitīt starpposmus"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Izveidojiet aktīvu mērķi, lai saņemtu ieteikumus."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Izveidot mērķi"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Izveidojiet savu pirmo mērķi"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Pašreizējais"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Pašreizējā vērtība"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Datums (neobligāts)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Dzēst"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Dzēst mērķi"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Dzēst šo mērķi?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Aprakstiet vēlamo rezultātu"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Apraksts"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Gatavs"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Lejupielādēt tūlīt"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Lejupielādē..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Rediģēt mērķi"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Fokusa laiks mērķiem"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Mērķi"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Mērķi ar progresu šonedēļ"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Augsta"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Augsta prioritāte"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Vēsture"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Kā tiek rēķināts progress?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Procesā"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Paturēt mērķi"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Pēdējās 7 dienas"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Piesaistīt uzdevumu"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Zema"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Zema prioritāte"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Atzīmēt kā pabeigtu"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Vidēja"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Vidēja prioritāte"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Starpposms"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Starpposms: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Starpposmi"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Pabeigtie starpposmi"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Nepieciešama uzmanība"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Jauns mērķis"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Nākamais: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Nākamajās septiņās dienās termiņu nav."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Šim mērķim vēl nav fokusa sesiju. Sāciet fokusa sesiju kādam no tā uzdevumiem."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Šonedēļ nevienam mērķim nebija starpposma, uzdevuma vai fokusa sesijas."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Neviens mērķis neatbilst"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Mērķu vēl nav"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Starpposmu vēl nav. Pievienojiet pirmo pieturzīmi ceļā uz šo mērķi."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Nav atvērtu uzdevumu, ko piesaistīt. Uzdevumi, kas jau ir mērķī, netiek rādīti."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Uzdevumi vēl nav piesaistīti. Piesaistiet uzdevumus no Telpām, lai tos redzētu šeit."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Nekas nav nokavēts vai aizmirsts. Lieliski."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Atvērtie"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Atvērt Telpas"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Apturēt"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Apturēts"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Piespraust jaunas saites starpposmam"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Plānošana, runas atpazīšana un lasīšana balsī darbojas šajā ierīcē. Nekas no teiktā vai rakstītā to nepamet."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioritāte"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Progress"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Progress ir jūsu pabeigto starpposmu daļa."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Progress ir jūsu pašreizējais rādītājs attiecībā pret mērķi, piemēram, 12 no 20 grāmatām."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Lasīt skaļi"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Gatavs"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Nesenās"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Atsvaidzināt"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Noņemt"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Noņemiet tos, lai atbrīvotu vietu; tie tiks lejupielādēti no jauna, kad būs nepieciešams."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Atvērt no jauna"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Atjaunot"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Atsākt"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Saglabāt izmaiņas"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Meklēt mērķus"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Meklēt atvērtos uzdevumos"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Kārtot pēc"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Mācības, veselība, darbs…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Ieteicamās prioritātes nākamajai nedēļai"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Mērķa vērtība"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Mērķa datums"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Mērķa datums (YYYY-MM-DD, neobligāts)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Pabeigtie uzdevumi"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Uzdevumi šim mērķim"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Pirmais plāns lejupielādē ierīces MI modeļus (aptuveni 2,3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Mērķis un tā starpposmi tiek noņemti. Jūsu uzdevumi paliek Telpās; tie tikai vairs nenorāda uz šo mērķi."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Pēdējās septiņas dienas, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Tie tiek lejupielādēti, pirmo reizi izmantojot MI, vai tagad."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Šis mērķis seko skaitlim. Starpposmi joprojām atzīmē pieturzīmes ceļā, bet nemaina procentus."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Nosaukums"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Kopā"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Sekot skaitlim"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Izmēģiniet citu filtru vai citu meklēšanu."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Vienība"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Atsaistīt"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Atjaunināt"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Iknedēļas pārskats"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Ko vēlaties sasniegt?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Kāpēc tas ir svarīgi"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Jūsu iemesls to darīt"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "Atlicis: {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktīvi"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} pabeigts"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} ar termiņu pēc {} dienām"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} ar termiņu šodien"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} ar termiņu rīt"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} fokusā"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} no {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} no {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "Pabeigti starpposmi: {} no {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "Pabeigti uzdevumi: {} no {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} nokavēts"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} apturēts"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "Atlicis: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Pievienot starpposmu vai mērķa datumu"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Termiņš: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Termiņš pēc {} dienām"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Termiņš šodien"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Termiņš rīt"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Visi starpposmi ir pabeigti"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Fokusa laiks reģistrēts"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Pabeigti starpposmi: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Nav aktivitātes {} dienas"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Starpposmu vēl nav"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Nokavēts par {} dienām"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Nokavēts par 1 dienu"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Ieplānot"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Plānošana..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Iestatiet mērķi, lai redzētu progresu"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Mērķis sasniegts"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Pabeigti uzdevumi: {}"
+
+msgid "Planning"
+msgstr "Plānošana"
+
+msgid "Speech to text"
+msgstr "Runa par tekstu"
+
+msgid "Add subtask"
+msgstr "Pievienot apakšuzdevumu"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Jautājiet par saviem uzdevumiem vai aprakstiet ieceres. Nekas nemainīsies, kamēr to neapstiprināsiet."
+
+msgid "Asking AI..."
+msgstr "Vaicā MI..."
+
+msgid "Chat"
+msgstr "Tērzēšana"
+
+msgid "Chats"
+msgstr "Tērzēšanas"
+
+msgid "Click again to delete"
+msgstr "Noklikšķiniet vēlreiz, lai dzēstu"
+
+msgid "Collapse"
+msgstr "Sakļaut"
+
+msgid "Collapse menu"
+msgstr "Sakļaut izvēlni"
+
+msgid "Copy"
+msgstr "Kopēt"
+
+msgid "Count my focus hours"
+msgstr "Skaitīt manas fokusa stundas"
+
+msgid "Decrease"
+msgstr "Samazināt"
+
+msgid "Deep"
+msgstr "Padziļināta"
+
+msgid "Delete chat"
+msgstr "Dzēst tērzēšanu"
+
+msgid "Delete note"
+msgstr "Dzēst piezīmi"
+
+msgid "Delete subtask"
+msgstr "Dzēst apakšuzdevumu"
+
+msgid "Delete this chat?"
+msgstr "Dzēst šo tērzēšanu?"
+
+msgid "Dictate"
+msgstr "Diktēt"
+
+msgid "Exit full screen"
+msgstr "Iziet no pilnekrāna"
+
+msgid "Expand"
+msgstr "Izvērst"
+
+msgid "Expand menu"
+msgstr "Izvērst izvēlni"
+
+msgid "Fork from here"
+msgstr "Sazarot no šejienes"
+
+msgid "Fork this chat"
+msgstr "Sazarot šo tērzēšanu"
+
+msgid "Full screen"
+msgstr "Pilnekrāns"
+
+msgid "Hide subtasks"
+msgstr "Slēpt apakšuzdevumus"
+
+msgid "Increase"
+msgstr "Palielināt"
+
+msgid "Jump to latest"
+msgstr "Pāriet uz jaunāko"
+
+msgid "Launch"
+msgstr "Palaist"
+
+msgid "Let the assistant search the web"
+msgstr "Ļaut asistentam meklēt tīmeklī"
+
+msgid "Maximize"
+msgstr "Maksimizēt"
+
+msgid "Merging the notes"
+msgstr "Apvieno piezīmes"
+
+msgid "Message"
+msgstr "Ziņojums"
+
+msgid "Minimize"
+msgstr "Minimizēt"
+
+msgid "More"
+msgstr "Vairāk"
+
+msgid "Move back"
+msgstr "Pārvietot atpakaļ"
+
+msgid "Move down"
+msgstr "Pārvietot lejup"
+
+msgid "Move forward"
+msgstr "Pārvietot uz priekšu"
+
+msgid "Move up"
+msgstr "Pārvietot augšup"
+
+msgid "New chat"
+msgstr "Jauna tērzēšana"
+
+msgid "New space"
+msgstr "Jauna telpa"
+
+msgid "Next mode"
+msgstr "Nākamais režīms"
+
+msgid "Next version"
+msgstr "Nākamā versija"
+
+msgid "Next week"
+msgstr "Nākamā nedēļa"
+
+msgid "Planned the searches"
+msgstr "Meklējumi saplānoti"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Plānošana, runas atpazīšana un lasīšana balsī darbojas šajā ierīcē. Tikai atļautie tīmekļa meklējumi nonāk tiešsaistē."
+
+msgid "Previous mode"
+msgstr "Iepriekšējais režīms"
+
+msgid "Previous version"
+msgstr "Iepriekšējā versija"
+
+msgid "Previous week"
+msgstr "Iepriekšējā nedēļa"
+
+msgid "Quick"
+msgstr "Ātra"
+
+msgid "Reading {}"
+msgstr "Nolasa {}"
+
+msgid "Redo"
+msgstr "Atcelt atsaukšanu"
+
+msgid "Searching: {}"
+msgstr "Meklē: {}"
+
+msgid "Send"
+msgstr "Sūtīt"
+
+msgid "Show subtasks"
+msgstr "Rādīt apakšuzdevumus"
+
+msgid "Skipped {}"
+msgstr "Izlaists {}"
+
+msgid "Standard"
+msgstr "Standarta"
+
+msgid "Start"
+msgstr "Sākt"
+
+msgid "Start focus on this task"
+msgstr "Sākt fokusu šim uzdevumam"
+
+msgid "Stop"
+msgstr "Apturēt"
+
+msgid "Stop recording"
+msgstr "Apturēt ierakstīšanu"
+
+msgid "Suggest with AI"
+msgstr "Ieteikt ar MI"
+
+msgid "Switch to dark mode"
+msgstr "Pārslēgt uz tumšo režīmu"
+
+msgid "Switch to light mode"
+msgstr "Pārslēgt uz gaišo režīmu"
+
+msgid "Target hours"
+msgstr "Mērķa stundas"
+
+msgid "Thinking..."
+msgstr "Domā..."
+
+msgid "Took notes from {}"
+msgstr "Veica piezīmes no {}"
+
+msgid "Undo"
+msgstr "Atsaukt"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Ieslēdzot, meklētais tiek nosūtīts uz izmantotajām meklēšanas vietnēm. Viss pārējais paliek šajā ierīcē."
+
+msgid "Writing the answer"
+msgstr "Raksta atbildi"
+
+msgid "Yes, delete"
+msgstr "Jā, dzēst"
+
+msgid "Yesterday"
+msgstr "Vakar"
+
+msgid "{} results"
+msgstr "{} rezultāti"
+
+msgid "A longer rest"
+msgstr "Garāka pauze"
+
+msgid "A short rest"
+msgstr "Īsa pauze"
+
+msgid "A work session"
+msgstr "Darba sesija"
+
+msgid "Activity for the day"
+msgstr "Dienas aktivitāte"
+
+msgid "Activity for the month"
+msgstr "Mēneša aktivitāte"
+
+msgid "Activity for the week"
+msgstr "Nedēļas aktivitāte"
+
+msgid "Activity for the year"
+msgstr "Gada aktivitāte"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Aprakstiet, kas jums nepieciešams, un asistents to saplānos"
+
+msgid "Go to this week"
+msgstr "Doties uz šo nedēļu"
+
+msgid "Move to this week"
+msgstr "Pārvietot uz šo nedēļu"
+
+msgid "See tasks in columns"
+msgstr "Skatīt uzdevumus kolonnās"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Skatīt uzdevumus nedēļas kalendārā"
+
+msgid "Set your own length"
+msgstr "Iestatīt savu ilgumu"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Kārtot uzdevumus pēc steidzamības un svarīguma"
+
+msgid "Take it off the calendar"
+msgstr "Noņemt no kalendāra"

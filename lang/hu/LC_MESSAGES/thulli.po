@@ -688,3 +688,839 @@ msgstr "Mai tervezett elemek"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Ma nincs tervezett elem. Adj hozzá feladatokat a Területek képernyőn."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "A cél olyasmi, amit el szeretnél érni. Bontsd mérföldkövekre, csatold a hozzá vezető feladatokat, és figyeld a haladásodat."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Erről a célról"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Aktív"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Mérföldkő hozzáadása"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "MI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "MI-modellek (kb. 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "MI-modellek telepítve"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Bármi más, amire érdemes emlékezni"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Archiválás"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Archiválva"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Vissza a célokhoz"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "könyv, óra…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Kategória"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Mérföldkő módosítása"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Bezárás"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Közelgő"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Befejezve"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Mérföldkövek számlálása"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Hozz létre egy aktív célt a javaslatokhoz."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Cél létrehozása"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Hozd létre az első célodat"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Jelenlegi"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Jelenlegi érték"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Dátum (nem kötelező)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Törlés"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Cél törlése"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Törlöd ezt a célt?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Írd le az eredményt"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Leírás"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Kész"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Letöltés most"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Letöltés..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Cél szerkesztése"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Célokra fordított fókuszidő"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Célok"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Célok, amelyek haladtak ezen a héten"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Magas"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Magas prioritás"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Előzmények"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Hogyan számítódik a haladás?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Folyamatban"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Cél megtartása"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Elmúlt 7 nap"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Feladat csatolása"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Alacsony"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Alacsony prioritás"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Megjelölés készként"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Közepes"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Közepes prioritás"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Mérföldkő"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Mérföldkő: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Mérföldkövek"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Teljesített mérföldkövek"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Figyelmet igényel"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Új cél"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Következő: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Nincs határidő a következő hét napban."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Még nincs fókuszidőszak ehhez a célhoz. Indíts fókuszidőszakot az egyik feladatánál."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Ezen a héten egyetlen célhoz sem tartozott mérföldkő, feladat vagy fókuszidőszak."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Nincs egyező cél"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Még nincsenek célok"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Még nincsenek mérföldkövek. Add hozzá az első állomást a célhoz vezető úton."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Nincs csatolható nyitott feladat. A célhoz már hozzárendelt feladatok nem jelennek meg."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Még nincsenek csatolt feladatok. Csatolj feladatokat a Területekről, hogy itt lásd őket."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Semmi sem késett el és semmi sem inaktív. Remek."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Megnyitás"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Területek megnyitása"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Szüneteltetés"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Szüneteltetve"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Új hivatkozások rögzítése egy mérföldkőhöz"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "A tervezés, a beszédfelismerés és a felolvasás mind ezen az eszközön fut. Semmi nem hagyja el az eszközt, amit mondasz vagy beírsz."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Prioritás"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Haladás"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "A haladás a teljesített mérföldkövek aránya."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "A haladás a célhoz viszonyított jelenlegi szám, például 12 a 20 könyvből."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Felolvasás"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Kész"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Legutóbbi"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Frissítés"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Eltávolítás"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Távolítsd el őket a hely felszabadításához; szükség esetén újra letöltődnek."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Újra megnyitás"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Visszaállítás"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Folytatás"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Módosítások mentése"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Célok keresése"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Keresés a nyitott feladatok között"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Rendezés"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Tanulás, egészség, munka…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Javasolt prioritások a következő hétre"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Célérték"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Céldátum"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Céldátum (YYYY-MM-DD, nem kötelező)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Befejezett feladatok"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "A cél feladatai"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Az első tervezés letölti az eszközön futó MI-modelleket (kb. 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "A cél és a mérföldkövei törlődnek. A feladataid megmaradnak a Területeken; csak nem mutatnak többé erre a célra."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Az elmúlt hét nap, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Letöltődnek az MI első használatakor, vagy most."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Ez a cél egy számot követ. A mérföldkövek továbbra is jelzik az állomásokat, de nem változtatják meg a százalékot."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Cím"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Összesen"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Szám követése"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Próbálj meg egy másik szűrőt vagy keresést."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Egység"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Szétkapcsolás"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Frissítés"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Heti áttekintés"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Mit szeretnél elérni?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Miért fontos"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Miért csinálod ezt"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "még {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} aktív"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} befejezve"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} lejár {} nap múlva"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} ma jár le"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} holnap jár le"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} fókuszban"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} mérföldkő kész"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} feladat kész"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} lejárt"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} szüneteltetve"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "még {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Mérföldkő vagy céldátum hozzáadása"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Határidő: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Határidő {} nap múlva"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Határidő ma"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Határidő holnap"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Minden mérföldkő teljesítve"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Fókuszidő rögzítve"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Kész mérföldkövek: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{} napja nincs aktivitás"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Még nincsenek mérföldkövek"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{} napja lejárt"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1 napja lejárt"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Tervezés"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Tervezés..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Állíts be egy célt a haladás megtekintéséhez"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Cél elérve"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Kész feladatok: {}"
+
+msgid "Planning"
+msgstr "Tervezés"
+
+msgid "Speech to text"
+msgstr "Beszéd szöveggé"
+
+msgid "Add subtask"
+msgstr "Részfeladat hozzáadása"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Kérdezz a feladataidról, vagy írd le, mit szeretnél megtervezni. Semmi sem változik, amíg jóvá nem hagyod."
+
+msgid "Asking AI..."
+msgstr "AI megkérdezése..."
+
+msgid "Chat"
+msgstr "Csevegés"
+
+msgid "Chats"
+msgstr "Csevegések"
+
+msgid "Click again to delete"
+msgstr "Kattints újra a törléshez"
+
+msgid "Collapse"
+msgstr "Összecsukás"
+
+msgid "Collapse menu"
+msgstr "Menü összecsukása"
+
+msgid "Copy"
+msgstr "Másolás"
+
+msgid "Count my focus hours"
+msgstr "Fókuszóráim számlálása"
+
+msgid "Decrease"
+msgstr "Csökkentés"
+
+msgid "Deep"
+msgstr "Alapos"
+
+msgid "Delete chat"
+msgstr "Csevegés törlése"
+
+msgid "Delete note"
+msgstr "Jegyzet törlése"
+
+msgid "Delete subtask"
+msgstr "Részfeladat törlése"
+
+msgid "Delete this chat?"
+msgstr "Törlöd ezt a csevegést?"
+
+msgid "Dictate"
+msgstr "Diktálás"
+
+msgid "Exit full screen"
+msgstr "Kilépés a teljes képernyőből"
+
+msgid "Expand"
+msgstr "Kibontás"
+
+msgid "Expand menu"
+msgstr "Menü kibontása"
+
+msgid "Fork from here"
+msgstr "Új ág innen"
+
+msgid "Fork this chat"
+msgstr "Csevegés elágaztatása"
+
+msgid "Full screen"
+msgstr "Teljes képernyő"
+
+msgid "Hide subtasks"
+msgstr "Részfeladatok elrejtése"
+
+msgid "Increase"
+msgstr "Növelés"
+
+msgid "Jump to latest"
+msgstr "Ugrás a legújabbhoz"
+
+msgid "Launch"
+msgstr "Indítás"
+
+msgid "Let the assistant search the web"
+msgstr "Keresés engedélyezése a weben"
+
+msgid "Maximize"
+msgstr "Teljes méret"
+
+msgid "Merging the notes"
+msgstr "Jegyzetek egyesítése"
+
+msgid "Message"
+msgstr "Üzenet"
+
+msgid "Minimize"
+msgstr "Kis méret"
+
+msgid "More"
+msgstr "Továbbiak"
+
+msgid "Move back"
+msgstr "Mozgatás vissza"
+
+msgid "Move down"
+msgstr "Mozgatás le"
+
+msgid "Move forward"
+msgstr "Mozgatás előre"
+
+msgid "Move up"
+msgstr "Mozgatás fel"
+
+msgid "New chat"
+msgstr "Új csevegés"
+
+msgid "New space"
+msgstr "Új tér"
+
+msgid "Next mode"
+msgstr "Következő mód"
+
+msgid "Next version"
+msgstr "Következő verzió"
+
+msgid "Next week"
+msgstr "Következő hét"
+
+msgid "Planned the searches"
+msgstr "Keresések megtervezve"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "A tervezés, a beszédfelismerés és a felolvasás ezen az eszközön fut. Csak az általad engedélyezett webes keresések mennek online."
+
+msgid "Previous mode"
+msgstr "Előző mód"
+
+msgid "Previous version"
+msgstr "Előző verzió"
+
+msgid "Previous week"
+msgstr "Előző hét"
+
+msgid "Quick"
+msgstr "Gyors"
+
+msgid "Reading {}"
+msgstr "{} olvasása"
+
+msgid "Redo"
+msgstr "Újra"
+
+msgid "Searching: {}"
+msgstr "Keresés: {}"
+
+msgid "Send"
+msgstr "Küldés"
+
+msgid "Show subtasks"
+msgstr "Részfeladatok megjelenítése"
+
+msgid "Skipped {}"
+msgstr "{} kihagyva"
+
+msgid "Standard"
+msgstr "Normál"
+
+msgid "Start"
+msgstr "Indítás"
+
+msgid "Start focus on this task"
+msgstr "Fókuszálás indítása erre a feladatra"
+
+msgid "Stop"
+msgstr "Leállítás"
+
+msgid "Stop recording"
+msgstr "Felvétel leállítása"
+
+msgid "Suggest with AI"
+msgstr "Javaslat AI-val"
+
+msgid "Switch to dark mode"
+msgstr "Váltás sötét módra"
+
+msgid "Switch to light mode"
+msgstr "Váltás világos módra"
+
+msgid "Target hours"
+msgstr "Célórák"
+
+msgid "Thinking..."
+msgstr "Gondolkodom..."
+
+msgid "Took notes from {}"
+msgstr "Jegyzetek készítve innen: {}"
+
+msgid "Undo"
+msgstr "Visszavonás"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Bekapcsolt állapotban a keresett tartalmak a használt keresőoldalakra kerülnek. Minden más ezen az eszközön marad."
+
+msgid "Writing the answer"
+msgstr "Válasz írása"
+
+msgid "Yes, delete"
+msgstr "Igen, törlés"
+
+msgid "Yesterday"
+msgstr "Tegnap"
+
+msgid "{} results"
+msgstr "{} találat"
+
+msgid "A longer rest"
+msgstr "Hosszabb szünet"
+
+msgid "A short rest"
+msgstr "Rövid szünet"
+
+msgid "A work session"
+msgstr "Munkablokk"
+
+msgid "Activity for the day"
+msgstr "Napi aktivitás"
+
+msgid "Activity for the month"
+msgstr "Havi aktivitás"
+
+msgid "Activity for the week"
+msgstr "Heti aktivitás"
+
+msgid "Activity for the year"
+msgstr "Éves aktivitás"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Írd le, mire van szükséged, és az asszisztens megtervezi"
+
+msgid "Go to this week"
+msgstr "Ugrás erre a hétre"
+
+msgid "Move to this week"
+msgstr "Áthelyezés erre a hétre"
+
+msgid "See tasks in columns"
+msgstr "Feladatok oszlopokban"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Feladatok heti naptárban"
+
+msgid "Set your own length"
+msgstr "Egyéni időtartam"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Rendezés sürgősség és fontosság szerint"
+
+msgid "Take it off the calendar"
+msgstr "Eltávolítás a naptárból"

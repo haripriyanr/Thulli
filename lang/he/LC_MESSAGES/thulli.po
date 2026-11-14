@@ -688,3 +688,839 @@ msgstr "מתוכנן להיום"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "אין מה לתכנן להיום. הוסיפו משימות במסך המרחבים."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "יעד הוא משהו שאתה רוצה להשיג. חלק אותו לאבני דרך, קשר את המשימות שמביאות אותך לשם, וצפה בהתקדמות שלך נבנית."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "על יעד זה"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "פעיל"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "הוספת אבן דרך"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "בינה מלאכותית"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "מודלי בינה מלאכותית (כ-2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "מודלי הבינה המלאכותית הותקנו"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "כל דבר נוסף שכדאי לזכור"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "העברה לארכיון"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "בארכיון"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "חזרה ליעדים"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "ספרים, שעות…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "קטגוריה"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "שינוי אבן דרך"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "סגירה"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "בקרוב"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "הושלם"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "ספירת אבני דרך"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "צור יעד פעיל כדי לקבל הצעות."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "יצירת יעד"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "צור את היעד הראשון שלך"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "נוכחי"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "ערך נוכחי"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "תאריך (אופציונלי)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "מחיקה"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "מחיקת יעד"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "למחוק יעד זה?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "תאר את התוצאה"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "תיאור"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "בוצע"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "הורד עכשיו"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "מוריד..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "עריכת יעד"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "זמן מיקוד ביעדים"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "יעדים"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "יעדים שהתקדמו השבוע"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "גבוהה"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "עדיפות גבוהה"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "היסטוריה"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "כיצד מחושבת ההתקדמות?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "בביצוע"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "שמור יעד"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "7 הימים האחרונים"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "קשר משימה"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "נמוכה"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "עדיפות נמוכה"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "סמן כהושלם"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "בינונית"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "עדיפות בינונית"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "אבן דרך"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "אבן דרך: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "אבני דרך"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "אבני דרך שהושלמו"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "דורש תשומת לב"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "יעד חדש"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "הבא: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "אין מועדים בשבעת הימים הקרובים."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "עדיין אין סשנים ממוקדים ביעד זה. התחל סבב מיקוד באחת המשימות שלו."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "לאף יעד לא הייתה אבן דרך, משימה או סשן מיקוד השבוע."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "אין יעדים תואמים"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "עדיין אין יעדים"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "עדיין אין אבני דרך. הוסף את התחנה הראשונה בדרך ליעד זה."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "אין משימות פתוחות לקישור. משימות שכבר נמצאות ביעד אינן מוצגות."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "עדיין לא קושרו משימות. קשר משימות ממרחבים כדי לראות אותן כאן."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "שום דבר לא באיחור או מושהה. מצוין."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "פתוח"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "פתיחת מרחבים"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "השהה"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "מושהה"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "הצמד קישורים חדשים לאבן דרך"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "תכנון, זיהוי דיבור והקראה פועלים כולם במכשיר זה. שום דבר שאתה אומר או מקליד אינו עוזב אותו."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "עדיפות"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "התקדמות"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "התקדמות היא חלקן של אבני הדרך שהשלמת."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "התקדמות היא המספר הנוכחי שלך מול היעד, כמו 12 מתוך 20 ספרים."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "הקראה בקול"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "מוכן"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "אחרונים"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "רענון"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "הסרה"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "הסר אותם כדי לפנות מקום; הם יורדו שוב בעת הצורך."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "פתח מחדש"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "שחזר"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "המשך"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "שמירת שינויים"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "חיפוש יעדים"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "חפש במשימות הפתוחות שלך"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "מיון לפי"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "לימודים, בריאות, עבודה…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "עדיפויות מומלצות לשבוע הבא"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "יעד"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "תאריך יעד"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "תאריך יעד (YYYY-MM-DD, אופציונלי)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "משימות שהושלמו"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "משימות ליעד זה"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "התוכנית הראשונה מורידה את מודלי הבינה המלאכותית למכשיר (כ-2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "היעד ואבני הדרך שלו מוסרים. המשימות שלך נשמרות במרחבים; הן רק מפסיקות להצביע על יעד זה."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "שבעת הימים האחרונים, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "הם יורדים בפעם הראשונה שתשתמש בבינה מלאכותית, או עכשיו."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "יעד זה עוקב אחר מספר. אבני דרך עדיין מסמנות את התחנות בדרך, אך הן אינן משנות את האחוזים."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "כותרת"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "סך הכול"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "מעקב אחר מספר"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "נסה מסנן אחר או חיפוש שונה."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "יחידה"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "בטל קישור"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "עדכון"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "סקירה שבועית"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "מה אתה רוצה להשיג?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "למה זה חשוב"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "הסיבה שלך לעשות זאת"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "נותרו {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} פעילים"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} הושלמו"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} בעוד {} ימים"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} להיום"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} למחר"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} במיקוד"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} מתוך {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} מתוך {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} מתוך {} אבני דרך הושלמו"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} מתוך {} משימות בוצעו"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} באיחור"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} מושהים"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "נותרו {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "הוסף אבן דרך או תאריך יעד"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "עד {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "בעוד {} ימים"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "עד היום"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "עד מחר"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "כל אבני הדרך הושלמו"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "זמן מיקוד נרשם"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "אבני דרך שהושלמו: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "אין פעילות במשך {} ימים"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "עדיין אין אבני דרך"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "באיחור של {} ימים"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "באיחור של יום אחד"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "תכנון"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "מתכנן..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "הגדר יעד כדי לראות התקדמות"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "היעד הושג"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "משימות שבוצעו: {}"
+
+msgid "Planning"
+msgstr "תכנון"
+
+msgid "Speech to text"
+msgstr "דיבור לטקסט"
+
+msgid "Add subtask"
+msgstr "הוסף תת-משימה"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "שאל על המשימות שלך, או תאר מה תרצה לתכנן. שום דבר לא ישתנה עד שתאשר."
+
+msgid "Asking AI..."
+msgstr "שואל את ה-AI..."
+
+msgid "Chat"
+msgstr "צ'אט"
+
+msgid "Chats"
+msgstr "צ'אטים"
+
+msgid "Click again to delete"
+msgstr "לחץ שוב למחיקה"
+
+msgid "Collapse"
+msgstr "כווץ"
+
+msgid "Collapse menu"
+msgstr "כווץ תפריט"
+
+msgid "Copy"
+msgstr "העתק"
+
+msgid "Count my focus hours"
+msgstr "ספור את שעות המיקוד שלי"
+
+msgid "Decrease"
+msgstr "הקטן"
+
+msgid "Deep"
+msgstr "מעמיק"
+
+msgid "Delete chat"
+msgstr "מחק צ'אט"
+
+msgid "Delete note"
+msgstr "מחק פתק"
+
+msgid "Delete subtask"
+msgstr "מחק תת-משימה"
+
+msgid "Delete this chat?"
+msgstr "למחוק צ'אט זה?"
+
+msgid "Dictate"
+msgstr "הכתב"
+
+msgid "Exit full screen"
+msgstr "צא ממסך מלא"
+
+msgid "Expand"
+msgstr "הרחב"
+
+msgid "Expand menu"
+msgstr "הרחב תפריט"
+
+msgid "Fork from here"
+msgstr "פצל מכאן"
+
+msgid "Fork this chat"
+msgstr "פצל צ'אט זה"
+
+msgid "Full screen"
+msgstr "מסך מלא"
+
+msgid "Hide subtasks"
+msgstr "הסתר תת-משימות"
+
+msgid "Increase"
+msgstr "הגדל"
+
+msgid "Jump to latest"
+msgstr "קפוץ לאחרון"
+
+msgid "Launch"
+msgstr "הפעל"
+
+msgid "Let the assistant search the web"
+msgstr "אפשר לעוזר לחפש באינטרנט"
+
+msgid "Maximize"
+msgstr "הגדל למקסימום"
+
+msgid "Merging the notes"
+msgstr "ממזג את ההערות"
+
+msgid "Message"
+msgstr "הודעה"
+
+msgid "Minimize"
+msgstr "מזער"
+
+msgid "More"
+msgstr "עוד"
+
+msgid "Move back"
+msgstr "העבר אחורה"
+
+msgid "Move down"
+msgstr "העבר למטה"
+
+msgid "Move forward"
+msgstr "העבר קדימה"
+
+msgid "Move up"
+msgstr "העבר למעלה"
+
+msgid "New chat"
+msgstr "צ'אט חדש"
+
+msgid "New space"
+msgstr "מרחב חדש"
+
+msgid "Next mode"
+msgstr "המצב הבא"
+
+msgid "Next version"
+msgstr "הגרסה הבאה"
+
+msgid "Next week"
+msgstr "שבוע הבא"
+
+msgid "Planned the searches"
+msgstr "החיפושים תוכננו"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "התכנון, זיהוי הקולי וההקראה פועלים במכשיר זה. רק חיפושי הרשת שאישרת יתבצעו באינטרנט."
+
+msgid "Previous mode"
+msgstr "המצב הקודם"
+
+msgid "Previous version"
+msgstr "הגרסה הקודמת"
+
+msgid "Previous week"
+msgstr "שבוע שעבר"
+
+msgid "Quick"
+msgstr "מהיר"
+
+msgid "Reading {}"
+msgstr "קורא את {}"
+
+msgid "Redo"
+msgstr "בצע שוב"
+
+msgid "Searching: {}"
+msgstr "מחפש: {}"
+
+msgid "Send"
+msgstr "שלח"
+
+msgid "Show subtasks"
+msgstr "הצג תת-משימות"
+
+msgid "Skipped {}"
+msgstr "דולג על {}"
+
+msgid "Standard"
+msgstr "רגיל"
+
+msgid "Start"
+msgstr "התחל"
+
+msgid "Start focus on this task"
+msgstr "התחל מיקוד במשימה זו"
+
+msgid "Stop"
+msgstr "עצור"
+
+msgid "Stop recording"
+msgstr "עצור הקלטה"
+
+msgid "Suggest with AI"
+msgstr "הצע באמצעות AI"
+
+msgid "Switch to dark mode"
+msgstr "עבור למצב כהה"
+
+msgid "Switch to light mode"
+msgstr "עבור למצב בהיר"
+
+msgid "Target hours"
+msgstr "שעות יעד"
+
+msgid "Thinking..."
+msgstr "חושב..."
+
+msgid "Took notes from {}"
+msgstr "נרשמו הערות מ-{}"
+
+msgid "Undo"
+msgstr "בטל"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "כאשר המצב פעיל, מה שהוא מחפש נשלח לאתרי החיפוש שבהם הוא משתמש. כל השאר נשאר במכשיר זה."
+
+msgid "Writing the answer"
+msgstr "כותב את התשובה"
+
+msgid "Yes, delete"
+msgstr "כן, מחק"
+
+msgid "Yesterday"
+msgstr "אתמול"
+
+msgid "{} results"
+msgstr "{} תוצאות"
+
+msgid "A longer rest"
+msgstr "הפסקה ארוכה"
+
+msgid "A short rest"
+msgstr "הפסקה קצרה"
+
+msgid "A work session"
+msgstr "סבב עבודה"
+
+msgid "Activity for the day"
+msgstr "פעילות יומית"
+
+msgid "Activity for the month"
+msgstr "פעילות חודשית"
+
+msgid "Activity for the week"
+msgstr "פעילות שבועית"
+
+msgid "Activity for the year"
+msgstr "פעילות שנתית"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "תאר מה צריך והעוזר יתכנן זאת"
+
+msgid "Go to this week"
+msgstr "עבור לשבוע זה"
+
+msgid "Move to this week"
+msgstr "העבר לשבוע זה"
+
+msgid "See tasks in columns"
+msgstr "הצג משימות בעמודות"
+
+msgid "See tasks on a weekly calendar"
+msgstr "הצג משימות ביומן שבועי"
+
+msgid "Set your own length"
+msgstr "קבע משך זמן"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "מיין לפי דחיפות וחשיבות"
+
+msgid "Take it off the calendar"
+msgstr "הסר מהיומן"

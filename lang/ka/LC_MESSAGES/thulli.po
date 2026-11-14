@@ -688,3 +688,839 @@ msgstr "დღევანდელი დაგეგმილი"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "დღისთვის არაფერია დაგეგმილი. დაამატეთ დავალებები სივრცეების ეკრანზე."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "მიზანი არის ის, რისი მიღწევაც გსურთ. დაყავით იგი ეტაპებად, დააკავშირეთ დავალებები, რომლებიც იქამდე მიგიყვანთ და თვალყური ადევნეთ თქვენს პროგრესს."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "ამ მიზნის შესახებ"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "აქტიური"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "ეტაპის დამატება"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI მოდელები (დაახლოებით 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI მოდელები დაინსტალირებულია"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "კიდევ რამე, რისი დამახსოვრებაც ღირს"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "არქივაცია"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "დაარქივებული"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "მიზნებთან დაბრუნება"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "წიგნები, საათები…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "კატეგორია"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "ეტაპის შეცვლა"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "დახურვა"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "მოახლოებული"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "დასრულებული"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "ეტაპების დათვლა"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "შექმენით აქტიური მიზანი რეკომენდაციების მისაღებად."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "მიზნის შექმნა"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "შექმენით თქვენი პირველი მიზანი"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "მიმდინარე"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "მიმდინარე მნიშვნელობა"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "თარიღი (არასავალდებულო)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "წაშლა"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "მიზნის წაშლა"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "წაიშალოს ეს მიზანი?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "აღწერეთ შედეგი"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "აღწერა"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "მზადაა"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "ჩამოტვირთეთ ახლა"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "მიმდინარეობს ჩამოტვირთვა..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "მიზნის რედაქტირება"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "ფოკუსის დრო მიზნებზე"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "მიზნები"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "მიზნები, რომლებიც ამ კვირაში წინ წავიდა"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "მაღალი"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "მაღალი პრიორიტეტი"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "ისტორია"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "როგორ ითვლება პროგრესი?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "პროცესში"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "მიზნის შენარჩუნება"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "ბოლო 7 დღე"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "დავალების დაკავშირება"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "დაბალი"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "დაბალი პრიორიტეტი"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "მონიშნეთ დასრულებულად"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "საშუალო"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "საშუალო პრიორიტეტი"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "ეტაპი"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "ეტაპი: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "ეტაპები"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "დასრულებული ეტაპები"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "საჭიროებს ყურადღებას"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "ახალი მიზანი"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "შემდეგი: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "მომდევნო შვიდი დღის განმავლობაში ვადები არ არის."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "ამ მიზანზე ფოკუსის სესიები ჯერ არ ჩატარებულა. დაიწყეთ ფოკუსის რაუნდი მის ერთ-ერთ დავალებაზე."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "ამ კვირაში არცერთ მიზანს არ ჰქონია ეტაპი, დავალება ან ფოკუსის სესია."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "შესაბამისი მიზნები არ მოიძებნა"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "მიზნები ჯერ არ არის"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "ეტაპები ჯერ არ არის. დაამატეთ პირველი გაჩერება ამ მიზნისკენ მიმავალ გზაზე."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "დასაკავშირებელი ღია დავალებები არ არის. მიზანში უკვე არსებული დავალებები არ ჩანს."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "დავალებები ჯერ არ არის დაკავშირებული. დააკავშირეთ დავალებები სივრცეებიდან, რომ აქ ნახოთ."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "ვადაგადაცილებული ან უმოქმედო არაფერია. მშვენიერია."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "ღია"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "სივრცეების გახსნა"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "შეჩერება"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "შეჩერებული"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "ახალი ბმულების ეტაპზე მიმაგრება"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "დაგეგმვა, მეტყველების ამოცნობა და ხმამაღლა წაკითხვა მუშაობს ამ მოწყობილობაზე. არაფერი, რასაც ამბობთ ან წერთ, არ ტოვებს მას."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "პრიორიტეტი"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "პროგრესი"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "პროგრესი არის თქვენ მიერ დასრულებული ეტაპების წილი."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "პროგრესი არის თქვენი მიმდინარე მაჩვენებელი მიზანთან მიმართებაში, მაგალითად 20 წიგნიდან 12."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "ხმამაღლა წაკითხვა"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "მზადაა"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "უახლესი"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "განახლება"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "წაშლა"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "წაშალეთ ისინი სივრცის გასათავისუფლებლად; საჭიროების შემთხვევაში კვლავ ჩამოიტვირთება."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "ხელახლა გახსნა"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "აღდგენა"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "განახლება"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "ცვლილებების შენახვა"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "მიზნების ძიება"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "მოძებნეთ თქვენი ღია დავალებები"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "დახარისხება"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "სწავლა, ჯანმრთელობა, სამუშაო…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "შემოთავაზებული პრიორიტეტები მომავალი კვირისთვის"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "სამიზნე"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "სამიზნე თარიღი"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "სამიზნე თარიღი (YYYY-MM-DD, არასავალდებულო)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "დასრულებული დავალებები"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "დავალებები ამ მიზნისთვის"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "პირველი გეგმა ჩამოტვირთავს მოწყობილობის AI მოდელებს (დაახლოებით 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "მიზანი და მისი ეტაპები იშლება. თქვენი დავალებები რჩება სივრცეებში; ისინი უბრალოდ აღარ მიუთითებენ ამ მიზანზე."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "ბოლო შვიდი დღე, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "ისინი ჩამოიტვირთება AI-ს პირველად გამოყენებისას, ან ახლა."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "ეს მიზანი აკონტროლებს რიცხვს. ეტაპები კვლავ აღნიშნავს გზაზე გაჩერებებს, მაგრამ არ ცვლის პროცენტს."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "სათაური"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "სულ"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "აკონტროლეთ რიცხვი"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "სცადეთ სხვა ფილტრი ან განსხვავებული ძიება."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "ერთეული"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "კავშირის გაწყვეტა"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "განახლება"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "ყოველკვირეული მიმოხილვა"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "რისი მიღწევა გსურთ?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "რატომ არის ეს მნიშვნელოვანი"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "თქვენი მიზეზი ამის გასაკეთებლად"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "დარჩენილია {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} აქტიური"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} დასრულებული"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} ვადაა {} დღეში"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} ვადა დღესაა"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} ვადა ხვალაა"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} ფოკუსირებული"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} / {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} / {} ეტაპი დასრულდა"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} / {} დავალება შესრულდა"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} ვადაგადაცილებული"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} შეჩერებული"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "დარჩენილია {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "დაამატეთ ეტაპი ან სამიზნე თარიღი"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "ვადა: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "ვადაა {} დღეში"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "ვადა დღესაა"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "ვადა ხვალაა"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "ყველა ეტაპი დასრულებულია"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "ფოკუსის დრო ჩაწერილია"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "შესრულებული ეტაპები: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "აქტივობა არ ყოფილა {} დღის განმავლობაში"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "ეტაპები ჯერ არ არის"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "ვადაგადაცილებულია {} დღით"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "ვადაგადაცილებულია 1 დღით"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "დაგეგმვა"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "იგეგმება..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "დააყენეთ სამიზნე პროგრესის სანახავად"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "სამიზნე მიღწეულია"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "შესრულებული დავალებები: {}"
+
+msgid "Planning"
+msgstr "დაგეგმვა"
+
+msgid "Speech to text"
+msgstr "ხმიდან ტექსტად"
+
+msgid "Add subtask"
+msgstr "ქვედავალების დამატება"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "იკითხეთ თქვენი დავალებების შესახებ ან აღწერეთ, რის დაგეგმვა გსურთ. არაფერი შეიცვლება, სანამ არ დაამტკიცებთ."
+
+msgid "Asking AI..."
+msgstr "ვეკითხები AI-ს..."
+
+msgid "Chat"
+msgstr "ჩატი"
+
+msgid "Chats"
+msgstr "ჩატები"
+
+msgid "Click again to delete"
+msgstr "წასაშლელად დააწკაპუნეთ ხელახლა"
+
+msgid "Collapse"
+msgstr "ჩაკეცვა"
+
+msgid "Collapse menu"
+msgstr "მენიუს ჩაკეცვა"
+
+msgid "Copy"
+msgstr "კოპირება"
+
+msgid "Count my focus hours"
+msgstr "ჩემი ფოკუსირების საათების დათვლა"
+
+msgid "Decrease"
+msgstr "შემცირება"
+
+msgid "Deep"
+msgstr "ღრმა"
+
+msgid "Delete chat"
+msgstr "ჩატის წაშლა"
+
+msgid "Delete note"
+msgstr "შენიშვნის წაშლა"
+
+msgid "Delete subtask"
+msgstr "ქვედავალების წაშლა"
+
+msgid "Delete this chat?"
+msgstr "წაიშალოს ეს ჩატი?"
+
+msgid "Dictate"
+msgstr "კარნახი"
+
+msgid "Exit full screen"
+msgstr "სრული ეკრანიდან გამოსვლა"
+
+msgid "Expand"
+msgstr "გაშლა"
+
+msgid "Expand menu"
+msgstr "მენიუს გაშლა"
+
+msgid "Fork from here"
+msgstr "განშტოება აქედან"
+
+msgid "Fork this chat"
+msgstr "ამ ჩატის განშტოება"
+
+msgid "Full screen"
+msgstr "სრული ეკრანი"
+
+msgid "Hide subtasks"
+msgstr "ქვედავალებების დამალვა"
+
+msgid "Increase"
+msgstr "გაზრდა"
+
+msgid "Jump to latest"
+msgstr "უახლესზე გადასვლა"
+
+msgid "Launch"
+msgstr "გაშვება"
+
+msgid "Let the assistant search the web"
+msgstr "ასისტენტისთვის ვებზე ძიების ნებართვა"
+
+msgid "Maximize"
+msgstr "მაქსიმიზაცია"
+
+msgid "Merging the notes"
+msgstr "შენიშვნების შერწყმა"
+
+msgid "Message"
+msgstr "შეტყობინება"
+
+msgid "Minimize"
+msgstr "მინიმიზაცია"
+
+msgid "More"
+msgstr "მეტი"
+
+msgid "Move back"
+msgstr "უკან გადატანა"
+
+msgid "Move down"
+msgstr "ქვემოთ გადატანა"
+
+msgid "Move forward"
+msgstr "წინ გადატანა"
+
+msgid "Move up"
+msgstr "ზემოთ გადატანა"
+
+msgid "New chat"
+msgstr "ახალი ჩატი"
+
+msgid "New space"
+msgstr "ახალი სივრცე"
+
+msgid "Next mode"
+msgstr "შემდეგი რეჟიმი"
+
+msgid "Next version"
+msgstr "შემდეგი ვერსია"
+
+msgid "Next week"
+msgstr "შემდეგი კვირა"
+
+msgid "Planned the searches"
+msgstr "ძიებები დაიგეგმა"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "დაგეგმვა, მეტყველების ამოცნობა და ხმამაღლა წაკითხვა მუშაობს ამ მოწყობილობაზე. მხოლოდ თქვენ მიერ დაშვებული ვებძიებები გადის ონლაინ."
+
+msgid "Previous mode"
+msgstr "წინა რეჟიმი"
+
+msgid "Previous version"
+msgstr "წინა ვერსია"
+
+msgid "Previous week"
+msgstr "წინა კვირა"
+
+msgid "Quick"
+msgstr "სწრაფი"
+
+msgid "Reading {}"
+msgstr "იკითხება {}"
+
+msgid "Redo"
+msgstr "გამეორება"
+
+msgid "Searching: {}"
+msgstr "მიმდინარეობს ძიება: {}"
+
+msgid "Send"
+msgstr "გაგზავნა"
+
+msgid "Show subtasks"
+msgstr "ქვედავალებების ჩვენება"
+
+msgid "Skipped {}"
+msgstr "გამოტოვებულია {}"
+
+msgid "Standard"
+msgstr "სტანდარტული"
+
+msgid "Start"
+msgstr "დაწყება"
+
+msgid "Start focus on this task"
+msgstr "ფოკუსირების დაწყება ამ დავალებაზე"
+
+msgid "Stop"
+msgstr "შეჩერება"
+
+msgid "Stop recording"
+msgstr "ჩაწერის შეჩერება"
+
+msgid "Suggest with AI"
+msgstr "შეთავაზება AI-ით"
+
+msgid "Switch to dark mode"
+msgstr "მუქ რეჟიმზე გადართვა"
+
+msgid "Switch to light mode"
+msgstr "ნათელ რეჟიმზე გადართვა"
+
+msgid "Target hours"
+msgstr "სამიზნე საათები"
+
+msgid "Thinking..."
+msgstr "ფიქრობს..."
+
+msgid "Took notes from {}"
+msgstr "ჩანიშნულია {}-დან"
+
+msgid "Undo"
+msgstr "გაუქმება"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "როცა ჩართულია, საძიებო ინფორმაცია იგზავნება შესაბამის საძიებო საიტებზე. ყველაფერი დანარჩენი რჩება ამ მოწყობილობაზე."
+
+msgid "Writing the answer"
+msgstr "პასუხის მომზადება"
+
+msgid "Yes, delete"
+msgstr "დიახ, წაშალე"
+
+msgid "Yesterday"
+msgstr "გუშინ"
+
+msgid "{} results"
+msgstr "{} შედეგი"
+
+msgid "A longer rest"
+msgstr "ხანგრძლივი შესვენება"
+
+msgid "A short rest"
+msgstr "მოკლე შესვენება"
+
+msgid "A work session"
+msgstr "სამუშაო სესია"
+
+msgid "Activity for the day"
+msgstr "დღის აქტივობა"
+
+msgid "Activity for the month"
+msgstr "თვის აქტივობა"
+
+msgid "Activity for the week"
+msgstr "კვირის აქტივობა"
+
+msgid "Activity for the year"
+msgstr "წლის აქტივობა"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "აღწერე რა გჭირდება და ასისტენტი დაგეგმავს"
+
+msgid "Go to this week"
+msgstr "ამ კვირაზე გადასვლა"
+
+msgid "Move to this week"
+msgstr "ამ კვირაში გადატანა"
+
+msgid "See tasks in columns"
+msgstr "დავალებები სვეტებში"
+
+msgid "See tasks on a weekly calendar"
+msgstr "დავალებები კვირის კალენდარში"
+
+msgid "Set your own length"
+msgstr "დააყენე შენი ხანგრძლივობა"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "დალაგება სისწრაფითა და მნიშვნელობით"
+
+msgid "Take it off the calendar"
+msgstr "კალენდრიდან წაშლა"

@@ -688,3 +688,839 @@ msgstr "Đã lên kế hoạch cho hôm nay"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Chưa có kế hoạch cho hôm nay. Thêm công việc ở màn hình Không gian."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Mục tiêu là điều bạn muốn vươn tới. Hãy chia nhỏ thành các cột mốc, liên kết các công việc dẫn lối, và theo dõi từng bước tiến của mình."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Về mục tiêu này"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Đang hoạt động"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Thêm cột mốc"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Các mô hình AI (khoảng 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Đã cài đặt các mô hình AI"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Bất cứ điều gì đáng ghi nhớ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Lưu trữ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Đã lưu trữ"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Quay lại mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "cuốn sách, giờ…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Danh mục"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Đổi cột mốc"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Đóng"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Sắp tới"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Đã hoàn thành"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Đếm cột mốc"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Tạo một mục tiêu đang hoạt động để nhận gợi ý."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Tạo mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Tạo mục tiêu đầu tiên của bạn"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Hiện tại"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Giá trị hiện tại"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Ngày (tùy chọn)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Xóa"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Xóa mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Xóa mục tiêu này?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Mô tả kết quả mong muốn"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Mô tả"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Xong"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Tải xuống ngay"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Đang tải xuống..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Sửa mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Thời gian tập trung cho mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Các mục tiêu có tiến triển tuần này"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Cao"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Ưu tiên cao"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Lịch sử"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Tiến độ được tính như thế nào?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Đang thực hiện"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Giữ lại mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "7 ngày qua"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Liên kết công việc"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Thấp"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Ưu tiên thấp"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Đánh dấu hoàn thành"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Trung bình"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Ưu tiên trung bình"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Cột mốc"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Cột mốc: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Cột mốc"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Cột mốc đã hoàn thành"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Cần chú ý"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Mục tiêu mới"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Tiếp theo: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Không có hạn chót trong bảy ngày tới."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Chưa có phiên tập trung nào cho mục tiêu này. Hãy bắt đầu một vòng tập trung vào một trong các công việc của nó."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Không có mục tiêu nào có cột mốc, công việc hoặc phiên tập trung trong tuần này."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Không có mục tiêu nào khớp"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Chưa có mục tiêu nào"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Chưa có cột mốc nào. Hãy thêm điểm dừng đầu tiên trên đường tới mục tiêu này."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Không có công việc đang mở nào để liên kết. Các công việc đã nằm trong một mục tiêu sẽ không hiển thị."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Chưa có công việc nào được liên kết. Liên kết công việc từ Không gian để thấy chúng ở đây."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Không có gì quá hạn hoặc ngưng trệ. Tuyệt vời."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Mở"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Mở Không gian"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Tạm dừng"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Đã tạm dừng"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Ghim các liên kết mới vào một cột mốc"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Việc lập kế hoạch, nhận dạng giọng nói và đọc to đều chạy trên thiết bị này. Không có gì bạn nói hoặc nhập rời khỏi thiết bị."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Mức độ ưu tiên"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Tiến độ"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Tiến độ là tỷ lệ các cột mốc bạn đã hoàn thành."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Tiến độ là con số hiện tại của bạn so với mục tiêu, chẳng hạn như 12 trên 20 cuốn sách."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Đọc to"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Sẵn sàng"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Gần đây"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Làm mới"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Xóa bỏ"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Xóa chúng để giải phóng dung lượng; chúng sẽ được tải lại khi cần."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Mở lại"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Khôi phục"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Tiếp tục"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Lưu thay đổi"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Tìm kiếm mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Tìm công việc chưa hoàn thành của bạn"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Sắp xếp theo"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Học tập, sức khỏe, công việc…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Ưu tiên đề xuất cho tuần tới"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Đích"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Ngày đích"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Ngày đích (YYYY-MM-DD, tùy chọn)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Công việc đã hoàn thành"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Công việc cho mục tiêu này"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Lần lập kế hoạch đầu tiên sẽ tải về các mô hình AI trên thiết bị (khoảng 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Mục tiêu và các cột mốc của nó sẽ bị xóa. Công việc của bạn vẫn được giữ trong Không gian; chúng chỉ ngừng trỏ tới mục tiêu này."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Bảy ngày qua, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Chúng sẽ tải về vào lần đầu tiên bạn sử dụng AI, hoặc ngay bây giờ."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Mục tiêu này theo dõi một con số. Các cột mốc vẫn đánh dấu các điểm dừng trên đường đi, nhưng chúng không làm thay đổi tỷ lệ phần trăm."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Tiêu đề"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Tổng cộng"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Theo dõi một con số"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Hãy thử một bộ lọc khác hoặc một tìm kiếm khác."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Đơn vị"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Hủy liên kết"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Cập nhật"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Đánh giá hàng tuần"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Bạn muốn đạt được điều gì?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Tại sao điều này quan trọng"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Lý do bạn làm điều này"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "Còn {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} đang hoạt động"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} đã hoàn thành"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} đến hạn sau {} ngày"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} đến hạn hôm nay"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} đến hạn ngày mai"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} đã tập trung"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} trên {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} trên {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "Đã xong {} trên {} cột mốc"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "Đã xong {} trên {} công việc"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} quá hạn"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} đã tạm dừng"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "Còn {} việc"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Thêm cột mốc hoặc ngày đích"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Đến hạn {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Đến hạn sau {} ngày"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Đến hạn hôm nay"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Đến hạn ngày mai"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Mọi cột mốc đã hoàn thành"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Đã ghi nhận thời gian tập trung"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Cột mốc đã xong: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Không có hoạt động trong {} ngày"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Chưa có cột mốc nào"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Quá hạn {} ngày"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Quá hạn 1 ngày"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Lập kế hoạch"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Đang lập kế hoạch..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Đặt mục tiêu để theo dõi tiến độ"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Đã đạt mục tiêu"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Công việc đã xong: {}"
+
+msgid "Planning"
+msgstr "Lập kế hoạch"
+
+msgid "Speech to text"
+msgstr "Giọng nói thành văn bản"
+
+msgid "Add subtask"
+msgstr "Thêm việc phụ"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Hỏi về nhiệm vụ của bạn hoặc mô tả những gì muốn lên kế hoạch. Không có gì thay đổi trừ khi bạn đồng ý."
+
+msgid "Asking AI..."
+msgstr "Đang hỏi AI..."
+
+msgid "Chat"
+msgstr "Trò chuyện"
+
+msgid "Chats"
+msgstr "Danh sách trò chuyện"
+
+msgid "Click again to delete"
+msgstr "Nhấn lần nữa để xóa"
+
+msgid "Collapse"
+msgstr "Thu gọn"
+
+msgid "Collapse menu"
+msgstr "Thu gọn menu"
+
+msgid "Copy"
+msgstr "Sao chép"
+
+msgid "Count my focus hours"
+msgstr "Tính giờ tập trung của tôi"
+
+msgid "Decrease"
+msgstr "Giảm"
+
+msgid "Deep"
+msgstr "Sâu"
+
+msgid "Delete chat"
+msgstr "Xóa trò chuyện"
+
+msgid "Delete note"
+msgstr "Xóa ghi chú"
+
+msgid "Delete subtask"
+msgstr "Xóa việc phụ"
+
+msgid "Delete this chat?"
+msgstr "Xóa cuộc trò chuyện này?"
+
+msgid "Dictate"
+msgstr "Nhập giọng nói"
+
+msgid "Exit full screen"
+msgstr "Thoát toàn màn hình"
+
+msgid "Expand"
+msgstr "Mở rộng"
+
+msgid "Expand menu"
+msgstr "Mở rộng menu"
+
+msgid "Fork from here"
+msgstr "Rẽ nhánh từ đây"
+
+msgid "Fork this chat"
+msgstr "Tạo bản sao trò chuyện này"
+
+msgid "Full screen"
+msgstr "Toàn màn hình"
+
+msgid "Hide subtasks"
+msgstr "Ẩn việc phụ"
+
+msgid "Increase"
+msgstr "Tăng"
+
+msgid "Jump to latest"
+msgstr "Đến tin mới nhất"
+
+msgid "Launch"
+msgstr "Ưu tiên ngay"
+
+msgid "Let the assistant search the web"
+msgstr "Cho phép trợ lý tìm kiếm web"
+
+msgid "Maximize"
+msgstr "Phóng to"
+
+msgid "Merging the notes"
+msgstr "Đang tổng hợp ghi chú"
+
+msgid "Message"
+msgstr "Nhập tin nhắn"
+
+msgid "Minimize"
+msgstr "Thu nhỏ"
+
+msgid "More"
+msgstr "Thêm"
+
+msgid "Move back"
+msgstr "Chuyển lại"
+
+msgid "Move down"
+msgstr "Chuyển xuống"
+
+msgid "Move forward"
+msgstr "Chuyển tiếp"
+
+msgid "Move up"
+msgstr "Chuyển lên"
+
+msgid "New chat"
+msgstr "Trò chuyện mới"
+
+msgid "New space"
+msgstr "Không gian mới"
+
+msgid "Next mode"
+msgstr "Chế độ tiếp"
+
+msgid "Next version"
+msgstr "Phiên bản sau"
+
+msgid "Next week"
+msgstr "Tuần sau"
+
+msgid "Planned the searches"
+msgstr "Đã lên kế hoạch tìm kiếm"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Việc lập kế hoạch, nhận diện giọng nói và đọc to đều diễn ra trên thiết bị này. Chỉ các tìm kiếm web bạn cho phép mới kết nối mạng."
+
+msgid "Previous mode"
+msgstr "Chế độ trước"
+
+msgid "Previous version"
+msgstr "Phiên bản trước"
+
+msgid "Previous week"
+msgstr "Tuần trước"
+
+msgid "Quick"
+msgstr "Nhanh"
+
+msgid "Reading {}"
+msgstr "Đang đọc {}"
+
+msgid "Redo"
+msgstr "Làm lại"
+
+msgid "Searching: {}"
+msgstr "Đang tìm kiếm: {}"
+
+msgid "Send"
+msgstr "Gửi"
+
+msgid "Show subtasks"
+msgstr "Hiện việc phụ"
+
+msgid "Skipped {}"
+msgstr "Đã bỏ qua {}"
+
+msgid "Standard"
+msgstr "Tiêu chuẩn"
+
+msgid "Start"
+msgstr "Bắt đầu"
+
+msgid "Start focus on this task"
+msgstr "Bắt đầu tập trung vào việc này"
+
+msgid "Stop"
+msgstr "Dừng"
+
+msgid "Stop recording"
+msgstr "Dừng ghi âm"
+
+msgid "Suggest with AI"
+msgstr "Nhờ AI gợi ý"
+
+msgid "Switch to dark mode"
+msgstr "Chuyển sang giao diện tối"
+
+msgid "Switch to light mode"
+msgstr "Chuyển sang giao diện sáng"
+
+msgid "Target hours"
+msgstr "Giờ mục tiêu"
+
+msgid "Thinking..."
+msgstr "Đang suy nghĩ..."
+
+msgid "Took notes from {}"
+msgstr "Đã ghi chú từ {}"
+
+msgid "Undo"
+msgstr "Hoàn tác"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Khi bật, nội dung tìm kiếm sẽ được gửi đến các trang tìm kiếm. Mọi dữ liệu khác đều lưu trên thiết bị này."
+
+msgid "Writing the answer"
+msgstr "Đang viết câu trả lời"
+
+msgid "Yes, delete"
+msgstr "Có, xóa"
+
+msgid "Yesterday"
+msgstr "Hôm qua"
+
+msgid "{} results"
+msgstr "{} kết quả"
+
+msgid "A longer rest"
+msgstr "Nghỉ dài hơn"
+
+msgid "A short rest"
+msgstr "Nghỉ ngắn"
+
+msgid "A work session"
+msgstr "Phiên làm việc"
+
+msgid "Activity for the day"
+msgstr "Hoạt động trong ngày"
+
+msgid "Activity for the month"
+msgstr "Hoạt động trong tháng"
+
+msgid "Activity for the week"
+msgstr "Hoạt động trong tuần"
+
+msgid "Activity for the year"
+msgstr "Hoạt động trong năm"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Mô tả điều bạn cần, trợ lý sẽ lên kế hoạch"
+
+msgid "Go to this week"
+msgstr "Đi tới tuần này"
+
+msgid "Move to this week"
+msgstr "Chuyển sang tuần này"
+
+msgid "See tasks in columns"
+msgstr "Xem việc theo cột"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Xem việc trên lịch tuần"
+
+msgid "Set your own length"
+msgstr "Tự chọn thời lượng"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Sắp xếp theo độ khẩn và quan trọng"
+
+msgid "Take it off the calendar"
+msgstr "Xóa khỏi lịch"

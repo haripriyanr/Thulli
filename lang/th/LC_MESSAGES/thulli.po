@@ -688,3 +688,839 @@ msgstr "วางแผนไว้สำหรับวันนี้"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "ยังไม่มีแผนสำหรับวันนี้ เพิ่มงานในหน้าพื้นที่"
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "เป้าหมายคือสิ่งที่คุณต้องการไปให้ถึง แบ่งเป้าหมายออกเป็นหมุดหมาย เชื่อมโยงงานที่จะพาคุณไปถึงจุดนั้น และเฝ้าดูความคืบหน้าที่เติบโตขึ้น"
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "เกี่ยวกับเป้าหมายนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "กำลังดำเนินการ"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "เพิ่มหมุดหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "โมเดล AI (ประมาณ 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "ติดตั้งโมเดล AI แล้ว"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "สิ่งอื่นที่ควรจดจำ"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "เก็บถาวร"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "เก็บถาวรแล้ว"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "กลับไปยังเป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "เล่ม, ชั่วโมง…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "หมวดหมู่"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "เปลี่ยนหมุดหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "ปิด"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "เร็วๆ นี้"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "เสร็จสิ้น"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "นับหมุดหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "สร้างเป้าหมายที่กำลังดำเนินการเพื่อรับคำแนะนำ"
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "สร้างเป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "สร้างเป้าหมายแรกของคุณ"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "ปัจจุบัน"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "ค่าปัจจุบัน"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "วันที่ (ไม่บังคับ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "ลบ"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "ลบเป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "ลบเป้าหมายนี้หรือไม่?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "อธิบายผลลัพธ์ที่ต้องการ"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "คำอธิบาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "เสร็จสิ้น"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "ดาวน์โหลดทันที"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "กำลังดาวน์โหลด..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "แก้ไขเป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "เวลาโฟกัสในเป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "เป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "เป้าหมายที่มีความคืบหน้าในสัปดาห์นี้"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "สูง"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "ความสำคัญสูง"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "ประวัติ"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "นับความคืบหน้าอย่างไร?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "กำลังดำเนินการ"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "เก็บเป้าหมายไว้"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "7 วันล่าสุด"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "เชื่อมโยงงาน"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "ต่ำ"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "ความสำคัญต่ำ"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "ทำเครื่องหมายว่าเสร็จสิ้น"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "ปานกลาง"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "ความสำคัญปานกลาง"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "หมุดหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "หมุดหมาย: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "หมุดหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "หมุดหมายที่เสร็จสิ้น"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "ต้องได้รับการดูแล"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "เป้าหมายใหม่"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "ถัดไป: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "ไม่มีกำหนดส่งในอีกเจ็ดวันข้างหน้า"
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "ยังไม่มีช่วงโฟกัสในเป้าหมายนี้ เริ่มรอบโฟกัสในงานใดงานหนึ่ง"
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "ไม่มีเป้าหมายใดที่มีหมุดหมาย งาน หรือช่วงโฟกัสในสัปดาห์นี้"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "ไม่มีเป้าหมายที่ตรงกัน"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "ยังไม่มีเป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "ยังไม่มีหมุดหมาย เพิ่มจุดแวะแรกระหว่างทางสู่เป้าหมายนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "ไม่มีงานที่เปิดอยู่ให้เชื่อมโยง งานที่อยู่ในเป้าหมายแล้วจะไม่แสดง"
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "ยังไม่มีงานที่เชื่อมโยง เชื่อมโยงงานจากพื้นที่เพื่อดูที่นี่"
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "ไม่มีอะไรเกินกำหนดหรือเงียบหาย เยี่ยมมาก"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "เปิด"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "เปิดพื้นที่"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "พักไว้"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "พักไว้แล้ว"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "ปักหมุดลิงก์ใหม่ไปยังหมุดหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "การวางแผน การรู้จำเสียงพูด และการอ่านออกเสียงทั้งหมดทำงานบนอุปกรณ์นี้ สิ่งที่คุณพูดหรือพิมพ์จะไม่ถูกส่งออกจากเครื่อง"
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "ความสำคัญ"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "ความคืบหน้า"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "ความคืบหน้าคือสัดส่วนของหมุดหมายที่คุณทำเสร็จสิ้น"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "ความคืบหน้าคือตัวเลขปัจจุบันเทียบกับเป้าหมาย เช่น 12 จาก 20 เล่ม"
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "อ่านออกเสียง"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "พร้อม"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "ล่าสุด"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "รีเฟรช"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "ลบออก"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "ลบออกเพื่อเพิ่มพื้นที่ว่าง โดยจะดาวน์โหลดอีกครั้งเมื่อจำเป็น"
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "เปิดอีกครั้ง"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "กู้คืน"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "ดำเนินการต่อ"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "บันทึกการเปลี่ยนแปลง"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "ค้นหาเป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "ค้นหางานที่ยังไม่เสร็จของคุณ"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "จัดเรียงตาม"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "การเรียน, สุขภาพ, การทำงาน…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "ลำดับความสำคัญที่แนะนำสำหรับสัปดาห์หน้า"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "เป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "วันที่เป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "วันที่เป้าหมาย (YYYY-MM-DD, ไม่บังคับ)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "งานที่เสร็จสิ้น"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "งานสำหรับเป้าหมายนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "แผนแรกจะดาวน์โหลดโมเดล AI บนอุปกรณ์ (ประมาณ 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "เป้าหมายและหมุดหมายจะถูกลบออก งานของคุณจะยังคงอยู่ในพื้นที่ เพียงแต่จะไม่เชื่อมโยงกับเป้าหมายนี้อีก"
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "เจ็ดวันที่ผ่านมา, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "โมเดลจะดาวน์โหลดเมื่อคุณใช้ AI เป็นครั้งแรก หรือดาวน์โหลดตอนนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "เป้าหมายนี้ติดตามตัวเลข หมุดหมายยังคงทำหน้าที่เป็นจุดแวะระหว่างทาง แต่จะไม่เปลี่ยนเปอร์เซ็นต์ความคืบหน้า"
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "ชื่อเรื่อง"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "รวม"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "ติดตามตัวเลข"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "ลองใช้ตัวกรองอื่นหรือคำค้นหาอื่น"
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "หน่วย"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "ยกเลิกการเชื่อมโยง"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "อัปเดต"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "การทบทวนประจำสัปดาห์"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "คุณต้องการบรรลุอะไร?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "ทำไมสิ่งนี้จึงสำคัญ"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "เหตุผลที่คุณทำสิ่งนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "เหลืออีก {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "กำลังดำเนินการ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "เสร็จสิ้น {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} รายการครบกำหนดในอีก {} วัน"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} รายการครบกำหนดวันนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} รายการครบกำหนดพรุ่งนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "โฟกัสแล้ว {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} จาก {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} จาก {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "หมุดหมายเสร็จ {} จาก {} รายการ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "งานเสร็จ {} จาก {} รายการ"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "เกินกำหนด {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "พักไว้ {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "เหลืออีก {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "เพิ่มหมุดหมายหรือวันที่เป้าหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "ครบกำหนด {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "ครบกำหนดในอีก {} วัน"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "ครบกำหนดวันนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "ครบกำหนดพรุ่งนี้"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "หมุดหมายทั้งหมดเสร็จสิ้นแล้ว"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "บันทึกเวลาโฟกัสแล้ว"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "หมุดหมายที่เสร็จสิ้น: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "ไม่มีกิจกรรมมาเป็นเวลา {} วัน"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "ยังไม่มีหมุดหมาย"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "เกินกำหนด {} วัน"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "เกินกำหนด 1 วัน"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "วางแผน"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "กำลังวางแผน..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "กำหนดเป้าหมายเพื่อดูความคืบหน้า"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "ถึงเป้าหมายแล้ว"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "งานที่เสร็จแล้ว: {}"
+
+msgid "Planning"
+msgstr "การวางแผน"
+
+msgid "Speech to text"
+msgstr "เสียงเป็นข้อความ"
+
+msgid "Add subtask"
+msgstr "เพิ่มงานย่อย"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "ถามเกี่ยวกับงานของคุณ หรือบอกสิ่งที่คุณอยากวางแผน จะไม่มีอะไรเปลี่ยนแปลงจนกว่าคุณจะอนุมัติ"
+
+msgid "Asking AI..."
+msgstr "กำลังถาม AI..."
+
+msgid "Chat"
+msgstr "แชท"
+
+msgid "Chats"
+msgstr "ประวัติแชท"
+
+msgid "Click again to delete"
+msgstr "คลิกอีกครั้งเพื่อลบ"
+
+msgid "Collapse"
+msgstr "ยุบ"
+
+msgid "Collapse menu"
+msgstr "ยุบเมนู"
+
+msgid "Copy"
+msgstr "คัดลอก"
+
+msgid "Count my focus hours"
+msgstr "นับชั่วโมงโฟกัสของฉัน"
+
+msgid "Decrease"
+msgstr "ลด"
+
+msgid "Deep"
+msgstr "ละเอียด"
+
+msgid "Delete chat"
+msgstr "ลบแชท"
+
+msgid "Delete note"
+msgstr "ลบโน้ต"
+
+msgid "Delete subtask"
+msgstr "ลบงานย่อย"
+
+msgid "Delete this chat?"
+msgstr "ลบแชทนี้หรือไม่?"
+
+msgid "Dictate"
+msgstr "พิมพ์ด้วยเสียง"
+
+msgid "Exit full screen"
+msgstr "ออกจากเต็มหน้าจอ"
+
+msgid "Expand"
+msgstr "ขยาย"
+
+msgid "Expand menu"
+msgstr "ขยายเมนู"
+
+msgid "Fork from here"
+msgstr "แยกบทสนทนาจากที่นี่"
+
+msgid "Fork this chat"
+msgstr "คัดลอกแชทนี้เป็นแชทใหม่"
+
+msgid "Full screen"
+msgstr "เต็มหน้าจอ"
+
+msgid "Hide subtasks"
+msgstr "ซ่อนงานย่อย"
+
+msgid "Increase"
+msgstr "เพิ่ม"
+
+msgid "Jump to latest"
+msgstr "ไปที่ล่าสุด"
+
+msgid "Launch"
+msgstr "เริ่มทันที"
+
+msgid "Let the assistant search the web"
+msgstr "อนุญาตให้ผู้ช่วยค้นหาเว็บ"
+
+msgid "Maximize"
+msgstr "ขยายใหญ่สุด"
+
+msgid "Merging the notes"
+msgstr "กำลังรวมโน้ต"
+
+msgid "Message"
+msgstr "ข้อความ"
+
+msgid "Minimize"
+msgstr "ย่อเล็กสุด"
+
+msgid "More"
+msgstr "เพิ่มเติม"
+
+msgid "Move back"
+msgstr "ย้ายกลับ"
+
+msgid "Move down"
+msgstr "ย้ายลง"
+
+msgid "Move forward"
+msgstr "ย้ายไปข้างหน้า"
+
+msgid "Move up"
+msgstr "ย้ายขึ้น"
+
+msgid "New chat"
+msgstr "แชทใหม่"
+
+msgid "New space"
+msgstr "พื้นที่ใหม่"
+
+msgid "Next mode"
+msgstr "โหมดถัดไป"
+
+msgid "Next version"
+msgstr "เวอร์ชันถัดไป"
+
+msgid "Next week"
+msgstr "สัปดาห์หน้า"
+
+msgid "Planned the searches"
+msgstr "วางแผนการค้นหาแล้ว"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "การวางแผน การรู้จำเสียงพูด และการอ่านออกเสียงจะทำงานบนอุปกรณ์นี้ มีเพียงการค้นหาเว็บที่คุณอนุญาตเท่านั้นที่จะออนไลน์"
+
+msgid "Previous mode"
+msgstr "โหมดก่อนหน้า"
+
+msgid "Previous version"
+msgstr "เวอร์ชันก่อนหน้า"
+
+msgid "Previous week"
+msgstr "สัปดาห์ก่อน"
+
+msgid "Quick"
+msgstr "ด่วน"
+
+msgid "Reading {}"
+msgstr "กำลังอ่าน {}"
+
+msgid "Redo"
+msgstr "ทำซ้ำ"
+
+msgid "Searching: {}"
+msgstr "กำลังค้นหา: {}"
+
+msgid "Send"
+msgstr "ส่ง"
+
+msgid "Show subtasks"
+msgstr "แสดงงานย่อย"
+
+msgid "Skipped {}"
+msgstr "ข้าม {} แล้ว"
+
+msgid "Standard"
+msgstr "มาตรฐาน"
+
+msgid "Start"
+msgstr "เริ่ม"
+
+msgid "Start focus on this task"
+msgstr "เริ่มโฟกัสกับงานนี้"
+
+msgid "Stop"
+msgstr "หยุด"
+
+msgid "Stop recording"
+msgstr "หยุดบันทึกเสียง"
+
+msgid "Suggest with AI"
+msgstr "ให้ AI แนะนำ"
+
+msgid "Switch to dark mode"
+msgstr "สลับเป็นโหมดมืด"
+
+msgid "Switch to light mode"
+msgstr "สลับเป็นโหมดสว่าง"
+
+msgid "Target hours"
+msgstr "ชั่วโมงเป้าหมาย"
+
+msgid "Thinking..."
+msgstr "กำลังคิด..."
+
+msgid "Took notes from {}"
+msgstr "จดบันทึกจาก {} แล้ว"
+
+msgid "Undo"
+msgstr "เลิกทำ"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "เมื่อเปิด สิ่งที่ค้นหาจะถูกส่งไปยังเว็บไซต์ค้นหาที่ใช้ ส่วนข้อมูลอื่นๆ จะอยู่บนอุปกรณ์นี้เท่านั้น"
+
+msgid "Writing the answer"
+msgstr "กำลังเขียนคำตอบ"
+
+msgid "Yes, delete"
+msgstr "ใช่ ลบเลย"
+
+msgid "Yesterday"
+msgstr "เมื่อวาน"
+
+msgid "{} results"
+msgstr "ผลลัพธ์ {} รายการ"
+
+msgid "A longer rest"
+msgstr "พักยาวขึ้น"
+
+msgid "A short rest"
+msgstr "พักสั้นๆ"
+
+msgid "A work session"
+msgstr "ช่วงทำงาน"
+
+msgid "Activity for the day"
+msgstr "กิจกรรมรายวัน"
+
+msgid "Activity for the month"
+msgstr "กิจกรรมรายเดือน"
+
+msgid "Activity for the week"
+msgstr "กิจกรรมรายสัปดาห์"
+
+msgid "Activity for the year"
+msgstr "กิจกรรมรายปี"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "บอกสิ่งที่คุณต้องการ แล้วผู้ช่วยจะวางแผนให้"
+
+msgid "Go to this week"
+msgstr "ไปที่สัปดาห์นี้"
+
+msgid "Move to this week"
+msgstr "ย้ายไปสัปดาห์นี้"
+
+msgid "See tasks in columns"
+msgstr "ดูงานแบบคอลัมน์"
+
+msgid "See tasks on a weekly calendar"
+msgstr "ดูงานบนปฏิทินรายสัปดาห์"
+
+msgid "Set your own length"
+msgstr "ตั้งเวลาเอง"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "เรียงตามความด่วนและความสำคัญ"
+
+msgid "Take it off the calendar"
+msgstr "เอาออกจากปฏิทิน"

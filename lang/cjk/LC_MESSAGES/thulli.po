@@ -688,3 +688,839 @@ msgstr "Chapangiwa lelo"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "Kuli chapangiwa lelo. Ongeleza milimo pa chikasa cha Malunda."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "Chitondo chili chuma unazange kuheta. Chipambule ha yinjikijilo ya milimo, kunga milimo yize yinakutwala ko, nawa tala kukola cha mulimo we."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "Ha chitondo chino"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "Yili nakukalakala"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "Ongeleza chinjikijilo cha mulimo"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "Milimo ya AI (kambwi 2.3 GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "Milimo ya AI yanjihemo"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "Chuma cheka cheswacho chakwiwuluka"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "Sunga mu kulo"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "Chinashuliwa mu kulo"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "Hiluka ku yitondo"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "mikanda, jola…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "Mukanjila"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "Sintulula chinjikijilo cha mulimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "Yika"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "Yize yili nayeza"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "Yahwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "Tanga yinjikijilo ya milimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "Tunga chitondo chize chinakilikita hanga uwane maano."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "Tunga chitondo"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "Tunga chitondo che chitangu"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "Chalelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "Ndando yalelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "Tangwa (kachi unazange)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "Jima"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "Jima chitondo"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "Kujima chitondo chino?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "Lumbununa yize yakatuhuka"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "Chilumbunwiso"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "Chalingiwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "Hulula kaliapwila"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "Kuli nakuhulula..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "Sintulula chitondo"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "Ola ya kumona ha yitondo"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "Yitondo"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "Yitondo yize yinatambuka chalumingo chino"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "Helu"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "Kulema chinji"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "Chikuma chakushikulu"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "Kukola kwanukisa kuchi?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "Yili nakuhita"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "Sunga chitondo"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "Mawa 7 ahinguka"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "Kunga mulimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "Tshi"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "Kulema chikepe"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "Chinjika ngwe chahwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "Mukachi"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "Kulema cha mukachi"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "Chinjikijilo cha mulimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "Chinjikijilo cha mulimo: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "Yinjikijilo ya milimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "Yinjikijilo ya milimo yahwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "Chinafupiwe kulemesa"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "Chitondo chaha"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "Chikwavo: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "Kushi matangwa a kusulila mu mawa shindimwe ali nayeza."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "Kushi jola ja kumona ha chitondo chino tekele chalelo. Putuka ola ya kumona ha umwe wa milimo yacho."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "Kushi chitondo chalikwata ni chinjikijilo, mulimo hanji ola ya kumona chalumingo chino."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "Kushi yitondo yinalitele"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "Kushi yitondo tekele chalelo"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "Kushi yinjikijilo tekele chalelo. Sa chilombolwelo chitangu mu jila yakuya ku chitondo chino."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "Kushi milimo yapwaza yakukunga. Milimo yili kale mu chitondo kayishi kusoloka."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "Kushi milimo yakungwe tekele chalelo. Kunga milimo kufuma mu Milongo hanga uyimone hano."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "Chuma nichimwe kachihingulukile mawa hanji kuhola. Chize chipema chinji."
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "Zula"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "Zula Milongo"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "Yimika hakepe"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "Yimikwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "Kunga yikungo yaha ha chinjikijilo cha mulimo"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "Kulinga, kwivwa lizu ni kutanga ni lizu linene yeswe yakukalakala ha chisekeseke chino. Kakushi chuma unambe hanji usoneke chize machituhuka."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "Kulema"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "Kukola"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "Kukola chili chisu cha yinjikijilo ya milimo yize unemanisa."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "Kukola chili nambala ye yalelo kulita ni chitondo, ngwe mikanda 12 ha mikanda 20."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "Tanga ni lizu linene"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "Yalilulieka"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "Kambwi"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "Lulieka nawa"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "Katula"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "Yikatule hanga uhane chihela; muyikahulukila nawa haze muyifupiwa."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "Zula nawa"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "Hilwisa"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "Nunguluka"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "Sunga yize yinasintuluka"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "Zuka yitondo"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "Zuka milimo ye yapwaza"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "Chonga ha"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "Kulongoka, uhashi, mulimo…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "Yilema yize yanasakwilwa ha chalumingo chinayeza"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "Chitondo chize chanachingiwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "Tangwa lia kusulila"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "Tangwa lia kusulila (YYYY-MM-DD, kachi unazange)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "Milimo yahwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "Milimo ya chitondo chino"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "Chilinga chitangu chakuhulula milimo ya AI yali ha chisekeseke (kambwi 2.3 GB)."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "Chitondo ni yinjikijilo yacho machikatuka. Milimo ye muyisala mu Milongo; muyeha wika kusolola chitondo chino."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "Mawa shindimwe ahinguka, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "Yikahulukila ha chisu chitangu unazachisa AI, hanji kaliapwila."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "Chitondo chino chakukwata nambala. Yinjikijilo ya milimo yakusolola tekele mawaneno mu jila, alioze kayeshi kusintulula porcentagem."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "Mutwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "Yoswe hamwe"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "Kwata nambala"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "Esa chiseko cheka hanji kuzuka cheka."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "Chikuma cha kulingila"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "Sahula"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "Sintulula"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "Kutala cha chalumingo"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "Chika unazange kuheta?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "Mumu liaka chalema"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "Mumu liaka unalingila chino"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} yinasala"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "{} yili nakukalakala"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "{} yahwa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{} chalema mu mawa {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{} chalema lelo"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{} chalema mawa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "{} yamona"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{} ha {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} ha {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "{} ha yinjikijilo ya milimo {} yahwa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "{} ha milimo {} yahwa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "{} yihingulukile mu mawa"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "{} yimikwe"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{} yinasala"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "Ongeleza chinjikijilo cha mulimo hanji tangwa lia kusulila"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "Chalema ha {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "Chalema mu mawa {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "Chalema lelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "Chalema mawa"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "Chinjikijilo cheswacho chahwa"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "Ola ya kumona yinasoneka"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "Yinjikijilo ya milimo yalingiwa: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "Kushi milimo ha mawa {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "Kushi yinjikijilo tekele chalelo"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "Chihingulukile mu mawa {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "Chihingulukile mu lusuku 1"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "Chilinge"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "Nakulinga..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "Sa chitondo hanga umone kukola"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "Chitondo chanahetamo"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "Milimo yalingiwa: {}"
+
+msgid "Planning"
+msgstr "Kusalungula"
+
+msgid "Speech to text"
+msgstr "Lizi ku soneka"
+
+msgid "Add subtask"
+msgstr "Wezako mulimo wikehe"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "Hula ha milimo ye, nyi lumbununa yize unazange kulinga. Kashi chuma chachindumuka te hiwawana lisesa."
+
+msgid "Asking AI..."
+msgstr "Kwehulisa AI..."
+
+msgid "Chat"
+msgstr "Shimbi"
+
+msgid "Chats"
+msgstr "Yishimbi"
+
+msgid "Click again to delete"
+msgstr "Kinda nawa hanga uchenyese"
+
+msgid "Collapse"
+msgstr "Zhika"
+
+msgid "Collapse menu"
+msgstr "Zhika menyu"
+
+msgid "Copy"
+msgstr "Kopolola"
+
+msgid "Count my focus hours"
+msgstr "Tanga ola jami ja kukolweza"
+
+msgid "Decrease"
+msgstr "Tepulula"
+
+msgid "Deep"
+msgstr "Ndando"
+
+msgid "Delete chat"
+msgstr "Chenyesa shimbi"
+
+msgid "Delete note"
+msgstr "Chenyesa mukanda"
+
+msgid "Delete subtask"
+msgstr "Chenyesa mulimo wikehe"
+
+msgid "Delete this chat?"
+msgstr "Chenyesa shimbi yino?"
+
+msgid "Dictate"
+msgstr "Hanjika"
+
+msgid "Exit full screen"
+msgstr "Katuka ha chivwimbimbi cheswe"
+
+msgid "Expand"
+msgstr "Sokoza"
+
+msgid "Expand menu"
+msgstr "Sokoza menyu"
+
+msgid "Fork from here"
+msgstr "Putuka nawa haha"
+
+msgid "Fork this chat"
+msgstr "Kopolola shimbi yino"
+
+msgid "Full screen"
+msgstr "Chivwimbimbi cheswe"
+
+msgid "Hide subtasks"
+msgstr "Sweka milimo yikehe"
+
+msgid "Increase"
+msgstr "Wezako"
+
+msgid "Jump to latest"
+msgstr "Ya ku yuma yahaha"
+
+msgid "Launch"
+msgstr "Putuka"
+
+msgid "Let the assistant search the web"
+msgstr "Echela mukwashi akondole ha web"
+
+msgid "Maximize"
+msgstr "Kulumisa"
+
+msgid "Merging the notes"
+msgstr "Kulungisa mikanda"
+
+msgid "Message"
+msgstr "Sango"
+
+msgid "Minimize"
+msgstr "Kehesa"
+
+msgid "More"
+msgstr "Nawa"
+
+msgid "Move back"
+msgstr "Tshimbwila kunyima"
+
+msgid "Move down"
+msgstr "Tshimbwila mushi"
+
+msgid "Move forward"
+msgstr "Tshimbwila kulutwe"
+
+msgid "Move up"
+msgstr "Tshimbwila helu"
+
+msgid "New chat"
+msgstr "Shimbi yaha"
+
+msgid "New space"
+msgstr "Chihela chaha"
+
+msgid "Next mode"
+msgstr "Mutapu unukwiza"
+
+msgid "Next version"
+msgstr "Chitela chinukwiza"
+
+msgid "Next week"
+msgstr "Chalumingo chinukwiza"
+
+msgid "Planned the searches"
+msgstr "Halulieka kukonda"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "Kululieka, kwivwa liji, ni kutanga ha liji kuli ha chitiya chino. Kukonda ha web kuze mutayiza kwawashi kuya ha online."
+
+msgid "Previous mode"
+msgstr "Mutapu wamukwa"
+
+msgid "Previous version"
+msgstr "Chitela chamukwa"
+
+msgid "Previous week"
+msgstr "Chalumingo chamukwa"
+
+msgid "Quick"
+msgstr "Kawashi"
+
+msgid "Reading {}"
+msgstr "Kutanga {}"
+
+msgid "Redo"
+msgstr "Fundulula nawa"
+
+msgid "Searching: {}"
+msgstr "Kukonda: {}"
+
+msgid "Send"
+msgstr "Tuma"
+
+msgid "Show subtasks"
+msgstr "Solola milimo yikehe"
+
+msgid "Skipped {}"
+msgstr "Ahambakana {}"
+
+msgid "Standard"
+msgstr "Halutwe"
+
+msgid "Start"
+msgstr "Putuka"
+
+msgid "Start focus on this task"
+msgstr "Putuka kukolweza ha mulimo uno"
+
+msgid "Stop"
+msgstr "Imika"
+
+msgid "Stop recording"
+msgstr "Imika kukwata liji"
+
+msgid "Suggest with AI"
+msgstr "Hana maana ni AI"
+
+msgid "Switch to dark mode"
+msgstr "Lumuna ku mutapu wipweke"
+
+msgid "Switch to light mode"
+msgstr "Lumuna ku mutapu watoma"
+
+msgid "Target hours"
+msgstr "Ola jinatondeka"
+
+msgid "Thinking..."
+msgstr "Kunyonga..."
+
+msgid "Took notes from {}"
+msgstr "Akwata mikanda kuli {}"
+
+msgid "Undo"
+msgstr "Fundulula"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "Muze unate, yize anakondo yakuya ku mafu ja kukonda. Yuma yeswe yinasala ha chitiya chino."
+
+msgid "Writing the answer"
+msgstr "Kusoneka kumbululo"
+
+msgid "Yes, delete"
+msgstr "Ewa, chenyesa"
+
+msgid "Yesterday"
+msgstr "Zozwe"
+
+msgid "{} results"
+msgstr "{} yipeta"
+
+msgid "A longer rest"
+msgstr "Kuhwima chize"
+
+msgid "A short rest"
+msgstr "Kuhwima chikehe"
+
+msgid "A work session"
+msgstr "Tangu ya mulimo"
+
+msgid "Activity for the day"
+msgstr "Milimo ya tangwa"
+
+msgid "Activity for the month"
+msgstr "Milimo ya kakweji"
+
+msgid "Activity for the week"
+msgstr "Milimo ya lumingu"
+
+msgid "Activity for the year"
+msgstr "Milimo ya mwaka"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "Lumbununa chize unafupu, mukwa-kukwasa mwa chi hanga"
+
+msgid "Go to this week"
+msgstr "Yako ku lumingu lino"
+
+msgid "Move to this week"
+msgstr "Twala ku lumingu lino"
+
+msgid "See tasks in columns"
+msgstr "Tala milimo mu mikala"
+
+msgid "See tasks on a weekly calendar"
+msgstr "Tala milimo ha kalendariu ya lumingu"
+
+msgid "Set your own length"
+msgstr "Seka tangu yize unafupu"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "Soneka milimo kulita ni ufupi ni ulemu"
+
+msgid "Take it off the calendar"
+msgstr "Katula ha kalendariu"

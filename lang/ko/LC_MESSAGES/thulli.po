@@ -688,3 +688,839 @@ msgstr "오늘 계획"
 msgid "Nothing planned for today. Add tasks on the Spaces screen."
 msgstr "오늘 계획된 항목이 없습니다. 스페이스 화면에서 할 일을 추가하세요."
 
+
+#: ui\screens\goals_screen.slint
+msgid "{}%"
+msgstr "{}%"
+
+#: ui\screens\goals_screen.slint
+msgid "A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build."
+msgstr "목표는 도달하고자 하는 지점입니다. 마일스톤으로 나누고, 그곳으로 이끄는 할 일을 연결하여 차곡차곡 쌓이는 진행 상황을 확인하세요."
+
+#: ui\screens\goals_screen.slint
+msgid "About this goal"
+msgstr "이 목표 정보"
+
+#: ui\screens\goals_screen.slint
+msgid "Active"
+msgstr "진행 중"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone"
+msgstr "마일스톤 추가"
+
+#: ui\screens\goals_screen.slint
+msgid "AI"
+msgstr "AI"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models (about 2.3 GB)"
+msgstr "AI 모델 (약 2.3GB)"
+
+#: ui\screens\goals_screen.slint
+msgid "AI models installed"
+msgstr "AI 모델 설치됨"
+
+#: ui\screens\goals_screen.slint
+msgid "Anything else worth remembering"
+msgstr "기억해 둘 만한 기타 내용"
+
+#: ui\screens\goals_screen.slint
+msgid "Archive"
+msgstr "보관"
+
+#: ui\screens\goals_screen.slint
+msgid "Archived"
+msgstr "보관됨"
+
+#: ui\screens\goals_screen.slint
+msgid "Back to goals"
+msgstr "목표 목록으로 돌아가기"
+
+#: ui\screens\goals_screen.slint
+msgid "books, hours…"
+msgstr "권, 시간…"
+
+#: ui\screens\goals_screen.slint
+msgid "Category"
+msgstr "카테고리"
+
+#: ui\screens\goals_screen.slint
+msgid "Change milestone"
+msgstr "마일스톤 변경"
+
+#: ui\screens\goals_screen.slint
+msgid "Close"
+msgstr "닫기"
+
+#: ui\screens\goals_screen.slint
+msgid "Coming up"
+msgstr "다가오는 마감"
+
+#: ui\screens\goals_screen.slint
+msgid "Completed"
+msgstr "완료됨"
+
+#: ui\screens\goals_screen.slint
+msgid "Count milestones"
+msgstr "마일스톤 수 계산"
+
+#: ui\screens\goals_screen.slint
+msgid "Create an active goal to get suggestions."
+msgstr "제안을 받으려면 진행 중인 목표를 만드세요."
+
+#: ui\screens\goals_screen.slint
+msgid "Create goal"
+msgstr "목표 만들기"
+
+#: ui\screens\goals_screen.slint
+msgid "Create your first goal"
+msgstr "첫 목표 만들기"
+
+#: ui\screens\goals_screen.slint
+msgid "Current"
+msgstr "현재"
+
+#: ui\screens\goals_screen.slint
+msgid "Current value"
+msgstr "현재 값"
+
+#: ui\screens\goals_screen.slint
+msgid "Date (optional)"
+msgstr "날짜 (선택 사항)"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete"
+msgstr "삭제"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete goal"
+msgstr "목표 삭제"
+
+#: ui\screens\goals_screen.slint
+msgid "Delete this goal?"
+msgstr "이 목표를 삭제할까요?"
+
+#: ui\screens\goals_screen.slint
+msgid "Describe the outcome"
+msgstr "기대하는 결과를 설명하세요"
+
+#: ui\screens\goals_screen.slint
+msgid "Description"
+msgstr "설명"
+
+#: ui\screens\goals_screen.slint
+msgid "Done"
+msgstr "완료"
+
+#: ui\screens\goals_screen.slint
+msgid "Download now"
+msgstr "지금 다운로드"
+
+#: ui\screens\goals_screen.slint
+msgid "Downloading..."
+msgstr "다운로드 중..."
+
+#: ui\screens\goals_screen.slint
+msgid "Edit goal"
+msgstr "목표 편집"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time on goals"
+msgstr "목표 집중 시간"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals"
+msgstr "목표"
+
+#: ui\screens\goals_screen.slint
+msgid "Goals that moved this week"
+msgstr "이번 주에 진전된 목표"
+
+#: ui\screens\goals_screen.slint
+msgid "High"
+msgstr "높음"
+
+#: ui\screens\goals_screen.slint
+msgid "High priority"
+msgstr "높은 우선순위"
+
+#: ui\screens\goals_screen.slint
+msgid "History"
+msgstr "기록"
+
+#: ui\screens\goals_screen.slint
+msgid "How is progress counted?"
+msgstr "진행률은 어떻게 계산되나요?"
+
+#: ui\screens\goals_screen.slint
+msgid "In play"
+msgstr "진행 중"
+
+#: ui\screens\goals_screen.slint
+msgid "Keep goal"
+msgstr "목표 유지"
+
+#: ui\screens\goals_screen.slint
+msgid "Last 7 days"
+msgstr "지난 7일"
+
+#: ui\screens\goals_screen.slint
+msgid "Link a task"
+msgstr "할 일 연결"
+
+#: ui\screens\goals_screen.slint
+msgid "Low"
+msgstr "낮음"
+
+#: ui\screens\goals_screen.slint
+msgid "Low priority"
+msgstr "낮은 우선순위"
+
+#: ui\screens\goals_screen.slint
+msgid "Mark complete"
+msgstr "완료로 표시"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium"
+msgstr "중간"
+
+#: ui\screens\goals_screen.slint
+msgid "Medium priority"
+msgstr "중간 우선순위"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone"
+msgstr "마일스톤"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestone: {}"
+msgstr "마일스톤: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones"
+msgstr "마일스톤"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones completed"
+msgstr "완료된 마일스톤"
+
+#: ui\screens\goals_screen.slint
+msgid "Needs attention"
+msgstr "주의 필요"
+
+#: ui\screens\goals_screen.slint
+msgid "New goal"
+msgstr "새 목표"
+
+#: ui\screens\goals_screen.slint
+msgid "Next: {}"
+msgstr "다음: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No deadlines in the next seven days."
+msgstr "향후 7일 동안 마감 기한이 없습니다."
+
+#: ui\screens\goals_screen.slint
+msgid "No focus sessions on this goal yet. Start a focus round on one of its tasks."
+msgstr "이 목표에 아직 집중 세션이 없습니다. 연결된 할 일 중 하나로 집중 라운드를 시작하세요."
+
+#: ui\screens\goals_screen.slint
+msgid "No goal had a milestone, task or focus session this week."
+msgstr "이번 주에 마일스톤, 할 일 또는 집중 세션 활동이 있는 목표가 없습니다."
+
+#: ui\screens\goals_screen.slint
+msgid "No goals match"
+msgstr "일치하는 목표 없음"
+
+#: ui\screens\goals_screen.slint
+msgid "No goals yet"
+msgstr "아직 목표가 없습니다"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet. Add the first stop on the way to this goal."
+msgstr "아직 마일스톤이 없습니다. 이 목표로 가는 첫 경유지를 추가하세요."
+
+#: ui\screens\goals_screen.slint
+msgid "No open tasks to link. Tasks already in a goal are not shown."
+msgstr "연결할 수 있는 미완료 할 일이 없습니다. 이미 목표에 포함된 할 일은 표시되지 않습니다."
+
+#: ui\screens\goals_screen.slint
+msgid "No tasks linked yet. Link tasks from Spaces to see them here."
+msgstr "아직 연결된 할 일이 없습니다. 스페이스에서 할 일을 연결하면 여기에 표시됩니다."
+
+#: ui\screens\goals_screen.slint
+msgid "Nothing is overdue or quiet. Nice."
+msgstr "기한이 지나거나 정체된 항목이 없습니다. 좋습니다!"
+
+#: ui\screens\goals_screen.slint
+msgid "Open"
+msgstr "열기"
+
+#: ui\screens\goals_screen.slint
+msgid "Open Spaces"
+msgstr "스페이스 열기"
+
+#: ui\screens\goals_screen.slint
+msgid "Pause"
+msgstr "일시 정지"
+
+#: ui\screens\goals_screen.slint
+msgid "Paused"
+msgstr "일시 정지됨"
+
+#: ui\screens\goals_screen.slint
+msgid "Pin new links to a milestone"
+msgstr "새 링크를 마일스톤에 고정"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it."
+msgstr "계획 수립, 음성 인식 및 소리 내어 읽기는 모두 이 기기에서 실행됩니다. 말하거나 입력한 내용이 기기 외부로 유출되지 않습니다."
+
+#: ui\screens\goals_screen.slint
+msgid "Priority"
+msgstr "우선순위"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress"
+msgstr "진행률"
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is the share of milestones you have completed."
+msgstr "진행률은 완료한 마일스톤의 비율입니다."
+
+#: ui\screens\goals_screen.slint
+msgid "Progress is your current number against the target, such as 12 of 20 books."
+msgstr "진행률은 책 20권 중 12권처럼 목표 대비 현재 달성한 수치입니다."
+
+#: ui\screens\goals_screen.slint
+msgid "Read aloud"
+msgstr "소리 내어 읽기"
+
+#: ui\screens\goals_screen.slint
+msgid "Ready"
+msgstr "준비 완료"
+
+#: ui\screens\goals_screen.slint
+msgid "Recent"
+msgstr "최근"
+
+#: ui\screens\goals_screen.slint
+msgid "Refresh"
+msgstr "새로고침"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove"
+msgstr "제거"
+
+#: ui\screens\goals_screen.slint
+msgid "Remove them to free the space; they download again when needed."
+msgstr "저장 공간을 확보하기 위해 제거합니다. 필요할 때 다시 다운로드됩니다."
+
+#: ui\screens\goals_screen.slint
+msgid "Reopen"
+msgstr "다시 열기"
+
+#: ui\screens\goals_screen.slint
+msgid "Restore"
+msgstr "복원"
+
+#: ui\screens\goals_screen.slint
+msgid "Resume"
+msgstr "다시 시작"
+
+#: ui\screens\goals_screen.slint
+msgid "Save changes"
+msgstr "변경 사항 저장"
+
+#: ui\screens\goals_screen.slint
+msgid "Search goals"
+msgstr "목표 검색"
+
+#: ui\screens\goals_screen.slint
+msgid "Search your open tasks"
+msgstr "진행 중인 할 일 검색"
+
+#: ui\screens\goals_screen.slint
+msgid "Sort by"
+msgstr "정렬 기준"
+
+#: ui\screens\goals_screen.slint
+msgid "Study, health, work…"
+msgstr "공부, 건강, 업무…"
+
+#: ui\screens\goals_screen.slint
+msgid "Suggested priorities for next week"
+msgstr "다음 주 추천 우선순위"
+
+#: ui\screens\goals_screen.slint
+msgid "Target"
+msgstr "목표치"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date"
+msgstr "목표 날짜"
+
+#: ui\screens\goals_screen.slint
+msgid "Target date (YYYY-MM-DD, optional)"
+msgstr "목표 날짜 (YYYY-MM-DD, 선택 사항)"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks completed"
+msgstr "완료된 할 일"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks for this goal"
+msgstr "이 목표에 속한 할 일"
+
+#: ui\screens\goals_screen.slint
+msgid "The first plan downloads the on-device AI models (about 2.3 GB)."
+msgstr "첫 계획 수립 시 기기 내 AI 모델(약 2.3GB)을 다운로드합니다."
+
+#: ui\screens\goals_screen.slint
+msgid "The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal."
+msgstr "목표와 마일스톤이 제거됩니다. 할 일은 스페이스에 보존되며, 이 목표와의 연결만 해제됩니다."
+
+#: ui\screens\goals_screen.slint
+msgid "The last seven days, {}"
+msgstr "지난 7일, {}"
+
+#: ui\screens\goals_screen.slint
+msgid "They download the first time you use AI, or now."
+msgstr "AI를 처음 사용할 때 또는 지금 다운로드됩니다."
+
+#: ui\screens\goals_screen.slint
+msgid "This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage."
+msgstr "이 목표는 숫자를 추적합니다. 마일스톤은 여전히 경유지를 표시하지만 진행률(%)에는 영향을 주지 않습니다."
+
+#: ui\screens\goals_screen.slint
+msgid "Title"
+msgstr "제목"
+
+#: ui\screens\goals_screen.slint
+msgid "Total"
+msgstr "총합"
+
+#: ui\screens\goals_screen.slint
+msgid "Track a number"
+msgstr "숫자 추적"
+
+#: ui\screens\goals_screen.slint
+msgid "Try another filter or a different search."
+msgstr "다른 필터를 적용하거나 다른 검색어를 입력해 보세요."
+
+#: ui\screens\goals_screen.slint
+msgid "Unit"
+msgstr "단위"
+
+#: ui\screens\goals_screen.slint
+msgid "Unlink"
+msgstr "연결 해제"
+
+#: ui\screens\goals_screen.slint
+msgid "Update"
+msgstr "업데이트"
+
+#: ui\screens\goals_screen.slint
+msgid "Weekly review"
+msgstr "주간 검토"
+
+#: ui\screens\goals_screen.slint
+msgid "What do you want to achieve?"
+msgstr "무엇을 달성하고 싶으신가요?"
+
+#: ui\screens\goals_screen.slint
+msgid "Why it matters"
+msgstr "중요한 이유"
+
+#: ui\screens\goals_screen.slint
+msgid "Your reason for doing this"
+msgstr "이 목표를 추진하는 이유"
+
+#: ui\screens\goals_screen.slint
+msgid "{} {} to go"
+msgstr "{} {} 남음"
+
+#: ui\screens\goals_screen.slint
+msgid "{} active"
+msgstr "진행 중 {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} completed"
+msgstr "완료됨 {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due in {} days"
+msgstr "{}개 {}일 내 마감"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due today"
+msgstr "{}개 오늘 마감"
+
+#: ui\screens\goals_screen.slint
+msgid "{} due tomorrow"
+msgstr "{}개 내일 마감"
+
+#: ui\screens\goals_screen.slint
+msgid "{} focused"
+msgstr "집중 {}회"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {}"
+msgstr "{}/{}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} {}"
+msgstr "{} / {} {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} milestones done"
+msgstr "마일스톤 {}/{} 완료"
+
+#: ui\screens\goals_screen.slint
+msgid "{} of {} tasks done"
+msgstr "할 일 {}/{} 완료"
+
+#: ui\screens\goals_screen.slint
+msgid "{} overdue"
+msgstr "기한 지남 {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} paused"
+msgstr "일시 정지됨 {}"
+
+#: ui\screens\goals_screen.slint
+msgid "{} to go"
+msgstr "{}개 남음"
+
+#: ui\screens\goals_screen.slint
+msgid "Add a milestone or a target date"
+msgstr "마일스톤 또는 목표 날짜 추가"
+
+#: ui\screens\goals_screen.slint
+msgid "Due {}"
+msgstr "{} 마감"
+
+#: ui\screens\goals_screen.slint
+msgid "Due in {} days"
+msgstr "{}일 후 마감"
+
+#: ui\screens\goals_screen.slint
+msgid "Due today"
+msgstr "오늘 마감"
+
+#: ui\screens\goals_screen.slint
+msgid "Due tomorrow"
+msgstr "내일 마감"
+
+#: ui\screens\goals_screen.slint
+msgid "Every milestone is done"
+msgstr "모든 마일스톤 완료됨"
+
+#: ui\screens\goals_screen.slint
+msgid "Focus time logged"
+msgstr "집중 시간 기록됨"
+
+#: ui\screens\goals_screen.slint
+msgid "Milestones done: {}"
+msgstr "완료된 마일스톤: {}"
+
+#: ui\screens\goals_screen.slint
+msgid "No activity for {} days"
+msgstr "{}일 동안 활동 없음"
+
+#: ui\screens\goals_screen.slint
+msgid "No milestones yet"
+msgstr "아직 마일스톤이 없습니다"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by {} days"
+msgstr "{}일 지남"
+
+#: ui\screens\goals_screen.slint
+msgid "Overdue by 1 day"
+msgstr "1일 지남"
+
+#: ui\screens\goals_screen.slint
+msgid "Plan it"
+msgstr "계획 세우기"
+
+#: ui\screens\goals_screen.slint
+msgid "Planning..."
+msgstr "계획 중..."
+
+#: ui\screens\goals_screen.slint
+msgid "Set a target to see progress"
+msgstr "진행 상황을 보려면 목표치를 설정하세요"
+
+#: ui\screens\goals_screen.slint
+msgid "Target reached"
+msgstr "목표 달성"
+
+#: ui\screens\goals_screen.slint
+msgid "Tasks done: {}"
+msgstr "완료된 할 일: {}"
+
+msgid "Planning"
+msgstr "계획"
+
+msgid "Speech to text"
+msgstr "음성 텍스트 변환"
+
+msgid "Add subtask"
+msgstr "하위 작업 추가"
+
+msgid "Ask about your tasks, or describe what you want to plan. Nothing changes until you approve it."
+msgstr "작업에 대해 질문하거나 계획할 내용을 작성해 보세요. 승인하기 전까지는 아무것도 변경되지 않습니다."
+
+msgid "Asking AI..."
+msgstr "AI에 물어보는 중..."
+
+msgid "Chat"
+msgstr "채팅"
+
+msgid "Chats"
+msgstr "대화"
+
+msgid "Click again to delete"
+msgstr "다시 클릭하여 삭제"
+
+msgid "Collapse"
+msgstr "접기"
+
+msgid "Collapse menu"
+msgstr "메뉴 접기"
+
+msgid "Copy"
+msgstr "복사"
+
+msgid "Count my focus hours"
+msgstr "집중 시간 기록"
+
+msgid "Decrease"
+msgstr "감소"
+
+msgid "Deep"
+msgstr "정밀"
+
+msgid "Delete chat"
+msgstr "대화 삭제"
+
+msgid "Delete note"
+msgstr "메모 삭제"
+
+msgid "Delete subtask"
+msgstr "하위 작업 삭제"
+
+msgid "Delete this chat?"
+msgstr "이 대화를 삭제할까요?"
+
+msgid "Dictate"
+msgstr "음성 입력"
+
+msgid "Exit full screen"
+msgstr "전체 화면 종료"
+
+msgid "Expand"
+msgstr "펼치기"
+
+msgid "Expand menu"
+msgstr "메뉴 펼치기"
+
+msgid "Fork from here"
+msgstr "여기서부터 분기"
+
+msgid "Fork this chat"
+msgstr "대화 복제"
+
+msgid "Full screen"
+msgstr "전체 화면"
+
+msgid "Hide subtasks"
+msgstr "하위 작업 숨기기"
+
+msgid "Increase"
+msgstr "증가"
+
+msgid "Jump to latest"
+msgstr "최신 메시지로 이동"
+
+msgid "Launch"
+msgstr "시작"
+
+msgid "Let the assistant search the web"
+msgstr "어시스턴트 웹 검색 허용"
+
+msgid "Maximize"
+msgstr "최대화"
+
+msgid "Merging the notes"
+msgstr "메모 합치는 중"
+
+msgid "Message"
+msgstr "메시지"
+
+msgid "Minimize"
+msgstr "최소화"
+
+msgid "More"
+msgstr "더보기"
+
+msgid "Move back"
+msgstr "뒤로 이동"
+
+msgid "Move down"
+msgstr "아래로 이동"
+
+msgid "Move forward"
+msgstr "앞으로 이동"
+
+msgid "Move up"
+msgstr "위로 이동"
+
+msgid "New chat"
+msgstr "새 대화"
+
+msgid "New space"
+msgstr "새 공간"
+
+msgid "Next mode"
+msgstr "다음 모드"
+
+msgid "Next version"
+msgstr "다음 버전"
+
+msgid "Next week"
+msgstr "다음 주"
+
+msgid "Planned the searches"
+msgstr "검색 계획 완료"
+
+msgid "Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online."
+msgstr "계획, 음성 인식 및 음성 낭독은 이 기기에서 실행됩니다. 허용한 웹 검색만 온라인으로 전송됩니다."
+
+msgid "Previous mode"
+msgstr "이전 모드"
+
+msgid "Previous version"
+msgstr "이전 버전"
+
+msgid "Previous week"
+msgstr "지난주"
+
+msgid "Quick"
+msgstr "빠름"
+
+msgid "Reading {}"
+msgstr "{} 읽는 중"
+
+msgid "Redo"
+msgstr "다시 실행"
+
+msgid "Searching: {}"
+msgstr "검색 중: {}"
+
+msgid "Send"
+msgstr "보내기"
+
+msgid "Show subtasks"
+msgstr "하위 작업 표시"
+
+msgid "Skipped {}"
+msgstr "{} 건너뜀"
+
+msgid "Standard"
+msgstr "보통"
+
+msgid "Start"
+msgstr "시작"
+
+msgid "Start focus on this task"
+msgstr "이 작업에 집중 시작"
+
+msgid "Stop"
+msgstr "중지"
+
+msgid "Stop recording"
+msgstr "녹음 중지"
+
+msgid "Suggest with AI"
+msgstr "AI로 제안받기"
+
+msgid "Switch to dark mode"
+msgstr "다크 모드로 전환"
+
+msgid "Switch to light mode"
+msgstr "라이트 모드로 전환"
+
+msgid "Target hours"
+msgstr "목표 시간"
+
+msgid "Thinking..."
+msgstr "생각 중..."
+
+msgid "Took notes from {}"
+msgstr "{}에서 메모 작성 완료"
+
+msgid "Undo"
+msgstr "실행 취소"
+
+msgid "When on, what it looks up is sent to the search sites it uses. Everything else stays on this device."
+msgstr "켜져 있으면 검색 대상만 사용하는 검색 사이트로 전송됩니다. 그 외 모든 정보는 이 기기에 유지됩니다."
+
+msgid "Writing the answer"
+msgstr "답변 작성 중"
+
+msgid "Yes, delete"
+msgstr "예, 삭제합니다"
+
+msgid "Yesterday"
+msgstr "어제"
+
+msgid "{} results"
+msgstr "결과 {}개"
+
+msgid "A longer rest"
+msgstr "긴 휴식"
+
+msgid "A short rest"
+msgstr "짧은 휴식"
+
+msgid "A work session"
+msgstr "집중 세션"
+
+msgid "Activity for the day"
+msgstr "오늘의 활동"
+
+msgid "Activity for the month"
+msgstr "이번 달 활동"
+
+msgid "Activity for the week"
+msgstr "이번 주 활동"
+
+msgid "Activity for the year"
+msgstr "올해 활동"
+
+msgid "Describe what you need and the assistant plans it"
+msgstr "필요한 내용을 입력하면 어시스턴트가 계획을 세워줘요"
+
+msgid "Go to this week"
+msgstr "이번 주로 이동"
+
+msgid "Move to this week"
+msgstr "이번 주로 옮기기"
+
+msgid "See tasks in columns"
+msgstr "열 형식으로 할 일 보기"
+
+msgid "See tasks on a weekly calendar"
+msgstr "주간 캘린더에서 할 일 보기"
+
+msgid "Set your own length"
+msgstr "원하는 시간 설정"
+
+msgid "Sort tasks by urgency and importance"
+msgstr "긴급도와 중요도순 정렬"
+
+msgid "Take it off the calendar"
+msgstr "캘린더에서 빼기"
