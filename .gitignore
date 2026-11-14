@@ -16,3 +16,9 @@ inspect*.js
 logs/
 /models
 /thulli-translations.zip
+/thulli-translations-goals.zip
+/thulli-app-for-review.zip
+/tools/finetune/work/
+
+# Python bytecode from the fine-tune tools
+__pycache__/
