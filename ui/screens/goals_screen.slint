@@ -1,0 +1,835 @@
+import { Theme } from "../theme.slint";
+import { HoverTip } from "../components/tips.slint";
+import { IconTarget, IconPlus, IconChevronLeft, IconCheck, IconClose, IconPlay } from "../icons.slint";
+import { GlassCard } from "../components/glass.slint";
+import { SearchField } from "../components/focus_controls.slint";
+import { TickBox } from "../components/space_widgets.slint";
+import { GoalText, GoalButton, GoalChip, GoalProgressBar, GoalChoice, GoalField, GoalCard, SectionHeading, SmallAction, ReviewSection, ReviewStat } from "../components/goal_widgets.slint";
+import { ChoiceModel } from "../types.slint";
+import { AppData } from "../app_data.slint";
+
+/// GoalsScreen: the goals dashboard, one goal in detail, and the form that
+/// creates or edits a goal. Everything shown comes from AppData.
+export component GoalsScreen inherits Rectangle {
+    // Switches to the Spaces screen so a goal's tasks can be worked on.
+    callback open-spaces();
+    clip: true;
+    background: transparent;
+
+    // ----- form state -----
+    property <bool> form-open: false;
+    property <string> editing-id: "";
+    property <string> f-title;
+    property <string> f-description;
+    property <string> f-motivation;
+    property <string> f-category;
+    property <string> f-notes;
+    property <string> f-priority: "medium";
+    property <string> f-mode: "milestones";
+    property <string> f-date;
+    property <string> f-current;
+    property <string> f-target;
+    property <string> f-unit;
+
+    // ----- detail state -----
+    property <bool> confirm-delete: false;
+    property <bool> link-open: false;
+    property <string> link-milestone: "";
+    property <string> new-milestone: "";
+    property <string> new-milestone-date: "";
+    property <string> editing-milestone: "";
+    property <string> em-title;
+    property <string> em-date;
+    property <string> value-draft;
+
+    property <[ChoiceModel]> filters: [
+        { id: "in_play", label: @tr("In play") },
+        { id: "active", label: @tr("Active") },
+        { id: "paused", label: @tr("Paused") },
+        { id: "completed", label: @tr("Completed") },
+        { id: "archived", label: @tr("Archived") },
+    ];
+    property <[ChoiceModel]> sorts: [
+        { id: "priority", label: @tr("Priority") },
+        { id: "deadline", label: @tr("Deadline") },
+        { id: "progress", label: @tr("Progress") },
+        { id: "recent", label: @tr("Recent") },
+    ];
+    property <[ChoiceModel]> priorities: [
+        { id: "high", label: @tr("High") },
+        { id: "medium", label: @tr("Medium") },
+        { id: "low", label: @tr("Low") },
+    ];
+    property <[ChoiceModel]> modes: [
+        { id: "milestones", label: @tr("Count milestones") },
+        { id: "measured", label: @tr("Track a number") },
+        { id: "hours", label: @tr("Count my focus hours") },
+    ];
+
+    function open-new() {
+        root.editing-id = "";
+        root.f-title = ""; root.f-description = ""; root.f-motivation = ""; root.f-category = ""; root.f-notes = "";
+        root.f-priority = "medium"; root.f-mode = "milestones"; root.f-date = "";
+        root.f-current = ""; root.f-target = ""; root.f-unit = "";
+        AppData.goals-error = "";
+        root.form-open = true;
+    }
+
+    function open-edit() {
+        root.editing-id = AppData.goal.id;
+        root.f-title = AppData.goal.title; root.f-description = AppData.goal.description;
+        root.f-motivation = AppData.goal.motivation; root.f-category = AppData.goal.category;
+        root.f-notes = AppData.goal.notes; root.f-priority = AppData.goal.priority;
+        root.f-mode = AppData.goal.mode; root.f-date = AppData.goal.target-date;
+        root.f-current = AppData.goal.current-value; root.f-target = AppData.goal.target-value;
+        root.f-unit = AppData.goal.unit;
+        AppData.goals-error = "";
+        root.form-open = true;
+    }
+
+    function save-form() {
+        AppData.goal-save(root.editing-id, root.f-title, root.f-description, root.f-motivation, root.f-category,
+            root.f-priority, root.f-mode, root.f-date, root.f-current, root.f-target, root.f-unit, root.f-notes);
+    }
+
+    function close-detail() {
+        root.confirm-delete = false;
+        root.link-open = false;
+        root.editing-milestone = "";
+        AppData.goal-closed();
+    }
+
+    // Rust bumps goal-saved-seq after a successful save; the form closes.
+    property <int> saved-seq: AppData.goal-saved-seq;
+    changed saved-seq => { root.form-open = false; }
+    // Keep the "current value" box in step with the open goal.
+    property <string> current-shown: AppData.goal.current-value;
+    changed current-shown => { root.value-draft = root.current-shown; }
+
+    // ===================== DASHBOARD =====================
+    if !AppData.goal-open: VerticalLayout {
+        padding: 24px;
+        padding-left: root.width < 640px ? 12px : 28px;
+        padding-right: root.width < 640px ? 12px : 28px;
+        spacing: 14px;
+
+        HorizontalLayout {
+            spacing: 12px;
+            VerticalLayout {
+                spacing: 4px;
+                horizontal-stretch: 1;
+                HorizontalLayout {
+                    spacing: 10px;
+                    alignment: start;
+                    VerticalLayout { alignment: center; IconTarget { width: 22px; height: 22px; } }
+                    Text { text: @tr("Goals"); font-size: 22px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; }
+                }
+                Text { text: GoalText.summary(AppData.goals-active, AppData.goals-paused, AppData.goals-completed, AppData.goals-overdue); font-size: 13px; color: Theme.text-secondary; wrap: word-wrap; }
+            }
+            VerticalLayout {
+                alignment: center;
+                GoalButton {
+                    label: AppData.review-open ? @tr("Back to goals") : @tr("Weekly review");
+                    clicked => {
+                        AppData.review-open = !AppData.review-open;
+                        AppData.review-toggled(AppData.review-open);
+                    }
+                }
+            }
+            VerticalLayout {
+                alignment: center;
+                GoalButton { label: @tr("New goal"); kind: "primary"; clicked => { root.open-new(); } }
+            }
+        }
+
+        if !AppData.review-open: GoalChoice {
+            choices: root.filters;
+            selected: AppData.goals-filter;
+            picked(id) => { AppData.goals-filter-changed(id); }
+        }
+
+        if !AppData.review-open && root.width >= 760px: HorizontalLayout {
+            spacing: 10px;
+            SearchField {
+                horizontal-stretch: 1;
+                placeholder: @tr("Search goals");
+                text: AppData.goals-search;
+                edited(t) => { AppData.goals-search-changed(t); }
+            }
+            VerticalLayout {
+                alignment: center;
+                HorizontalLayout {
+                    spacing: 8px;
+                    Text { text: @tr("Sort by"); font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
+                    GoalChoice {
+                        choices: root.sorts;
+                        selected: AppData.goals-sort;
+                        picked(id) => { AppData.goals-sort-changed(id); }
+                    }
+                }
+            }
+        }
+        if !AppData.review-open && root.width < 760px: VerticalLayout {
+            spacing: 8px;
+            SearchField {
+                placeholder: @tr("Search goals");
+                text: AppData.goals-search;
+                edited(t) => { AppData.goals-search-changed(t); }
+            }
+            Flickable {
+                height: 34px;
+                content-width: sort-strip.preferred-width;
+                sort-strip := HorizontalLayout {
+                    spacing: 8px;
+                    alignment: start;
+                    Text { text: @tr("Sort by"); font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
+                    GoalChoice {
+                        choices: root.sorts;
+                        selected: AppData.goals-sort;
+                        picked(id) => { AppData.goals-sort-changed(id); }
+                    }
+                }
+            }
+        }
+
+        if AppData.review-open: Flickable {
+            vertical-stretch: 1;
+            content-height: review-list.preferred-height + 8px;
+            review-list := VerticalLayout {
+                spacing: 12px;
+                alignment: start;
+                padding-bottom: 8px;
+                Text { text: @tr("The last seven days, {}", AppData.review-range); font-size: 13px; color: Theme.text-secondary; }
+                GlassCard {
+                    height: stats.preferred-height;
+                    stats := HorizontalLayout {
+                        padding: root.width < 560px ? 12px : 18px;
+                        spacing: root.width < 560px ? 10px : 24px;
+                        alignment: start;
+                        ReviewStat { horizontal-stretch: 1; value: AppData.review-milestones; caption: @tr("Milestones completed"); }
+                        ReviewStat { horizontal-stretch: 1; value: AppData.review-tasks; caption: @tr("Tasks completed"); }
+                        ReviewStat { horizontal-stretch: 1; value: AppData.review-focus; caption: @tr("Focus time on goals"); }
+                    }
+                }
+                ReviewSection {
+                    title: @tr("Goals that moved this week");
+                    empty-text: @tr("No goal had a milestone, task or focus session this week.");
+                    rows: AppData.review-progressed;
+                    picked(id) => { AppData.review-open = false; AppData.review-toggled(false); AppData.goal-opened(id); }
+                }
+                ReviewSection {
+                    title: @tr("Coming up");
+                    empty-text: @tr("No deadlines in the next seven days.");
+                    rows: AppData.review-upcoming;
+                    picked(id) => { AppData.review-open = false; AppData.review-toggled(false); AppData.goal-opened(id); }
+                }
+                ReviewSection {
+                    title: @tr("Needs attention");
+                    empty-text: @tr("Nothing is overdue or quiet. Nice.");
+                    rows: AppData.review-attention;
+                    picked(id) => { AppData.review-open = false; AppData.review-toggled(false); AppData.goal-opened(id); }
+                }
+                ReviewSection {
+                    title: @tr("Suggested priorities for next week");
+                    empty-text: @tr("Create an active goal to get suggestions.");
+                    rows: AppData.review-priorities;
+                    picked(id) => { AppData.review-open = false; AppData.review-toggled(false); AppData.goal-opened(id); }
+                }
+            }
+        }
+
+        if AppData.goals.length == 0 && !AppData.review-open: Rectangle {
+            vertical-stretch: 1;
+            VerticalLayout {
+                alignment: center;
+                spacing: 12px;
+                HorizontalLayout { alignment: center; IconTarget { width: 44px; height: 44px; } }
+                Text {
+                    text: AppData.goals-none-yet ? @tr("No goals yet") : @tr("No goals match");
+                    font-size: 20px;
+                    font-weight: 700;
+                    color: Theme.text-primary;
+                    horizontal-alignment: center;
+                }
+                Text {
+                    text: AppData.goals-none-yet
+                        ? @tr("A goal is something you want to reach. Break it into milestones, link the tasks that get you there, and watch your progress build.")
+                        : @tr("Try another filter or a different search.");
+                    font-size: 13px;
+                    color: Theme.text-secondary;
+                    horizontal-alignment: center;
+                    wrap: word-wrap;
+                }
+                if AppData.goals-none-yet: HorizontalLayout {
+                    alignment: center;
+                    GoalButton { label: @tr("Create your first goal"); kind: "primary"; clicked => { root.open-new(); } }
+                }
+            }
+        }
+
+        if AppData.goals.length > 0 && !AppData.review-open: Flickable {
+            vertical-stretch: 1;
+            content-height: list.preferred-height + 8px;
+            list := VerticalLayout {
+                spacing: 12px;
+                padding-bottom: 8px;
+                for g in AppData.goals: GoalCard {
+                    title: g.title;
+                    category: g.category;
+                    priority: g.priority;
+                    status: g.status;
+                    percent: g.percent;
+                    percent-known: g.percent-known;
+                    progress-text: GoalText.progress(g);
+                    due-text: GoalText.due(g.due-kind, g.due-n, g.due-date);
+                    overdue: g.overdue;
+                    next-milestone: g.next-milestone;
+                    tasks-text: GoalText.tasks(g.tasks-done, g.tasks-total);
+                    focus-text: GoalText.focus(g);
+                    clicked => { AppData.goal-opened(g.id); }
+                }
+            }
+        }
+    }
+
+    // ===================== DETAIL =====================
+    if AppData.goal-open: Flickable {
+        content-height: detail.preferred-height + 24px;
+        detail := VerticalLayout {
+            alignment: start;
+            padding: 24px;
+            padding-left: root.width < 640px ? 12px : 28px;
+            padding-right: root.width < 640px ? 12px : 28px;
+            spacing: 14px;
+
+            // Title and actions
+            HorizontalLayout {
+                spacing: 10px;
+                VerticalLayout {
+                    alignment: start;
+                    Rectangle {
+                        width: 40px;
+                        height: 40px;
+                        border-radius: 20px;
+                        background: back-touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill-strong;
+                        border-width: 1px;
+                        border-color: Theme.glass-border;
+                        IconChevronLeft { x: (parent.width - self.width) / 2; y: (parent.height - self.height) / 2; width: 18px; height: 18px; stroke-color: Theme.text-primary; }
+                        back-touch := TouchArea { width: 100%; height: 100%; mouse-cursor: pointer; clicked => { root.close-detail(); } }
+                    }
+                }
+                VerticalLayout {
+                    horizontal-stretch: 1;
+                    spacing: 6px;
+                    alignment: start;
+                    Text { text: AppData.goal.title; font-size: 22px; font-weight: 700; color: Theme.text-primary; wrap: word-wrap; }
+                    HorizontalLayout {
+                        spacing: 6px;
+                        alignment: start;
+                        GoalChip {
+                            text: AppData.goal.status == "paused" ? @tr("Paused") : AppData.goal.status == "completed" ? @tr("Completed")
+                                : AppData.goal.status == "archived" ? @tr("Archived") : @tr("Active");
+                            tint: AppData.goal.status == "completed" ? Theme.accent-green : AppData.goal.status == "active" ? Theme.accent-violet : Theme.accent-amber;
+                        }
+                        if AppData.goal.category != "": GoalChip { text: AppData.goal.category; tint: Theme.accent-blue; }
+                        GoalChip {
+                            text: AppData.goal.priority == "high" ? @tr("High priority") : AppData.goal.priority == "low" ? @tr("Low priority") : @tr("Medium priority");
+                            tint: AppData.goal.priority == "high" ? Theme.accent-pink : AppData.goal.priority == "low" ? Theme.text-muted : Theme.accent-violet;
+                        }
+                    }
+                }
+            }
+
+            HorizontalLayout {
+                spacing: 8px;
+                alignment: start;
+                GoalButton { label: @tr("Edit"); clicked => { root.open-edit(); } }
+                if AppData.goal.status == "active": GoalButton { label: @tr("Pause"); clicked => { AppData.goal-set-status(AppData.goal.id, "paused"); } }
+                if AppData.goal.status == "paused" || AppData.goal.status == "archived": GoalButton {
+                    label: AppData.goal.status == "archived" ? @tr("Restore") : @tr("Resume");
+                    clicked => { AppData.goal-set-status(AppData.goal.id, "active"); }
+                }
+                if AppData.goal.status == "active" || AppData.goal.status == "paused": GoalButton { label: @tr("Mark complete"); kind: "primary"; clicked => { AppData.goal-set-status(AppData.goal.id, "completed"); } }
+                if AppData.goal.status == "completed": GoalButton { label: @tr("Reopen"); clicked => { AppData.goal-set-status(AppData.goal.id, "active"); } }
+            }
+            HorizontalLayout {
+                spacing: 8px;
+                alignment: start;
+                if AppData.goal.status != "archived": GoalButton { label: @tr("Archive"); clicked => { AppData.goal-set-status(AppData.goal.id, "archived"); } }
+                GoalButton { label: @tr("Delete"); kind: "danger"; clicked => { root.confirm-delete = true; } }
+            }
+
+            if root.confirm-delete: GlassCard {
+                height: confirm-body.preferred-height;
+                border-color: Theme.destructive.with-alpha(0.6);
+                confirm-body := VerticalLayout {
+                    padding: 16px;
+                    spacing: 10px;
+                    Text { text: @tr("Delete this goal?"); font-size: 14px; font-weight: 700; color: Theme.text-primary; }
+                    Text {
+                        text: @tr("The goal and its milestones are removed. Your tasks are kept in Spaces; they just stop pointing at this goal.");
+                        font-size: 12px;
+                        color: Theme.text-secondary;
+                        wrap: word-wrap;
+                    }
+                    HorizontalLayout {
+                        spacing: 8px;
+                        alignment: start;
+                        GoalButton { label: @tr("Keep goal"); clicked => { root.confirm-delete = false; } }
+                        GoalButton { label: @tr("Delete goal"); kind: "danger"; clicked => { root.confirm-delete = false; root.link-open = false; AppData.goal-delete(AppData.goal.id); } }
+                    }
+                }
+            }
+
+            if AppData.goals-error != "" && !root.form-open: Text { text: AppData.goals-error; font-size: 12px; color: Theme.destructive; wrap: word-wrap; }
+
+            // Overview and progress
+            GlassCard {
+                height: overview.preferred-height;
+                overview := VerticalLayout {
+                    padding: 20px;
+                    spacing: 10px;
+                    SectionHeading { text: @tr("Progress"); note: GoalText.due(AppData.goal.due-kind, AppData.goal.due-n, AppData.goal.due-date); }
+                    GoalProgressBar { percent: AppData.goal.percent; known: AppData.goal.percent-known; bar-height: 12px; }
+                    Text { text: GoalText.progress(AppData.goal); font-size: 13px; color: Theme.text-secondary; wrap: word-wrap; }
+                    if GoalText.remaining(AppData.goal) != "": Text { text: GoalText.remaining(AppData.goal); font-size: 12px; color: Theme.text-muted; wrap: word-wrap; }
+                    if AppData.goal.mode == "measured": HorizontalLayout {
+                        spacing: 8px;
+                        alignment: start;
+                        Rectangle {
+                            width: 120px;
+                            GoalField {
+                                label: @tr("Current value");
+                                text <=> root.value-draft;
+                                accepted => { AppData.goal-set-value(AppData.goal.id, root.value-draft); }
+                            }
+                        }
+                        VerticalLayout {
+                            alignment: end;
+                            GoalButton { label: @tr("Update"); clicked => { AppData.goal-set-value(AppData.goal.id, root.value-draft); } }
+                        }
+                    }
+                    if AppData.goal.description != "": VerticalLayout {
+                        spacing: 2px;
+                        Text { text: @tr("About this goal"); font-size: 12px; font-weight: 600; color: Theme.text-secondary; }
+                        Text { text: AppData.goal.description; font-size: 13px; color: Theme.text-primary; wrap: word-wrap; }
+                    }
+                    if AppData.goal.motivation != "": VerticalLayout {
+                        spacing: 2px;
+                        Text { text: @tr("Why it matters"); font-size: 12px; font-weight: 600; color: Theme.text-secondary; }
+                        Text { text: AppData.goal.motivation; font-size: 13px; color: Theme.text-primary; wrap: word-wrap; }
+                    }
+                    if AppData.goal.notes != "": VerticalLayout {
+                        spacing: 2px;
+                        Text { text: @tr("Notes"); font-size: 12px; font-weight: 600; color: Theme.text-secondary; }
+                        Text { text: AppData.goal.notes; font-size: 13px; color: Theme.text-primary; wrap: word-wrap; }
+                    }
+                }
+            }
+
+            // Milestones
+            GlassCard {
+                height: ms.preferred-height;
+                ms := VerticalLayout {
+                    padding: 20px;
+                    spacing: 8px;
+                    SectionHeading {
+                        text: @tr("Milestones");
+                        note: AppData.goal.mode == "milestones" ? GoalText.progress(AppData.goal) : "";
+                    }
+                    if AppData.goal.mode == "measured" || AppData.goal.mode == "hours": Text {
+                        text: @tr("This goal tracks a number. Milestones still mark the stops on the way, but they do not change the percentage.");
+                        font-size: 12px;
+                        color: Theme.text-muted;
+                        wrap: word-wrap;
+                    }
+                    if AppData.goal-milestones.length == 0: Text {
+                        text: @tr("No milestones yet. Add the first stop on the way to this goal.");
+                        font-size: 13px;
+                        color: Theme.text-muted;
+                        wrap: word-wrap;
+                    }
+                    for m[i] in AppData.goal-milestones: VerticalLayout {
+                        spacing: 4px;
+                        if root.editing-milestone != m.id: Rectangle {
+                            height: mrow.preferred-height;
+                            border-radius: 12px;
+                            background: Theme.glass-fill;
+                            mrow := HorizontalLayout {
+                                padding: 8px;
+                                padding-left: 12px;
+                                spacing: 10px;
+                                VerticalLayout {
+                                    alignment: start;
+                                    padding-top: 2px;
+                                    TickBox { checked: m.done; size: 20px; toggled => { AppData.milestone-toggle(AppData.goal.id, m.id); } }
+                                }
+                                VerticalLayout {
+                                    horizontal-stretch: 1;
+                                    spacing: 2px;
+                                    Text {
+                                        text: m.title;
+                                        font-size: 14px;
+                                        font-weight: 600;
+                                        color: m.done ? Theme.text-muted : Theme.text-primary;
+                                        wrap: word-wrap;
+                                    }
+                                    HorizontalLayout {
+                                        spacing: 10px;
+                                        alignment: start;
+                                        if GoalText.due(m.due-kind, m.due-n, m.due-date) != "": Text { text: GoalText.due(m.due-kind, m.due-n, m.due-date); font-size: 11px; font-weight: m.overdue ? 700 : 400; color: m.overdue ? Theme.destructive : Theme.text-secondary; }
+                                        if GoalText.tasks(m.tasks-done, m.tasks-total) != "": Text { text: GoalText.tasks(m.tasks-done, m.tasks-total); font-size: 11px; color: Theme.text-secondary; }
+                                    }
+                                    if m.description != "": Text { text: m.description; font-size: 12px; color: Theme.text-secondary; wrap: word-wrap; }
+                                }
+                                VerticalLayout {
+                                    alignment: start;
+                                    HorizontalLayout {
+                                        spacing: 0px;
+                                        SmallAction { label: "↑"; tip: @tr("Move up"); enabled: !m.first; clicked => { AppData.milestone-move(AppData.goal.id, m.id, -1); } }
+                                        SmallAction { label: "↓"; tip: @tr("Move down"); enabled: !m.last; clicked => { AppData.milestone-move(AppData.goal.id, m.id, 1); } }
+                                        SmallAction {
+                                            label: @tr("Edit");
+                                            clicked => {
+                                                root.em-title = m.title;
+                                                root.em-date = m.date-input;
+                                                root.editing-milestone = m.id;
+                                            }
+                                        }
+                                        SmallAction { label: @tr("Remove"); danger: true; clicked => { AppData.milestone-delete(AppData.goal.id, m.id); } }
+                                    }
+                                }
+                            }
+                        }
+                        if root.editing-milestone == m.id: Rectangle {
+                            height: medit.preferred-height + 8px;
+                            border-radius: 12px;
+                            background: Theme.glass-fill-strong;
+                            border-width: 1px;
+                            border-color: Theme.accent-violet.with-alpha(0.5);
+                            medit := VerticalLayout {
+                                padding: 12px;
+                                spacing: 8px;
+                                GoalField { label: @tr("Milestone"); text <=> root.em-title; }
+                                GoalField { label: @tr("Target date (YYYY-MM-DD, optional)"); text <=> root.em-date; placeholder: "2026-12-31"; }
+                                HorizontalLayout {
+                                    spacing: 8px;
+                                    alignment: start;
+                                    GoalButton {
+                                        label: @tr("Save");
+                                        kind: "primary";
+                                        clicked => {
+                                            AppData.milestone-edit(AppData.goal.id, m.id, root.em-title, root.em-date, m.description);
+                                            if AppData.goals-error == "" { root.editing-milestone = ""; }
+                                        }
+                                    }
+                                    GoalButton { label: @tr("Cancel"); clicked => { root.editing-milestone = ""; } }
+                                }
+                            }
+                        }
+                    }
+                    HorizontalLayout {
+                        spacing: 8px;
+                        padding-top: 4px;
+                        Rectangle {
+                            horizontal-stretch: 1;
+                            GoalField {
+                                label: "";
+                                placeholder: @tr("Add a milestone");
+                                text <=> root.new-milestone;
+                                accepted => {
+                                    AppData.milestone-add(AppData.goal.id, root.new-milestone, root.new-milestone-date, "");
+                                    if AppData.goals-error == "" { root.new-milestone = ""; root.new-milestone-date = ""; }
+                                }
+                            }
+                        }
+                        Rectangle {
+                            width: 130px;
+                            GoalField { label: ""; placeholder: @tr("Date (optional)"); text <=> root.new-milestone-date; }
+                        }
+                        VerticalLayout {
+                            alignment: end;
+                            GoalButton {
+                                label: @tr("Add");
+                                enabled: root.new-milestone != "";
+                                clicked => {
+                                    AppData.milestone-add(AppData.goal.id, root.new-milestone, root.new-milestone-date, "");
+                                    if AppData.goals-error == "" { root.new-milestone = ""; root.new-milestone-date = ""; }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Linked tasks
+            GlassCard {
+                height: lt.preferred-height;
+                lt := VerticalLayout {
+                    padding: 20px;
+                    spacing: 8px;
+                    SectionHeading { text: @tr("Tasks for this goal"); note: GoalText.tasks(AppData.goal.tasks-done, AppData.goal.tasks-total); }
+                    if AppData.goal-tasks.length == 0: Text {
+                        text: @tr("No tasks linked yet. Link tasks from Spaces to see them here.");
+                        font-size: 13px;
+                        color: Theme.text-muted;
+                        wrap: word-wrap;
+                    }
+                    for t in AppData.goal-tasks: Rectangle {
+                        height: trow.preferred-height;
+                        border-radius: 12px;
+                        background: Theme.glass-fill;
+                        trow := HorizontalLayout {
+                            padding: 8px;
+                            padding-left: 12px;
+                            spacing: 10px;
+                            VerticalLayout {
+                                horizontal-stretch: 1;
+                                spacing: 2px;
+                                Text {
+                                    text: t.title;
+                                    font-size: 14px;
+                                    color: t.done ? Theme.text-muted : Theme.text-primary;
+                                    wrap: word-wrap;
+                                }
+                                HorizontalLayout {
+                                    spacing: 10px;
+                                    alignment: start;
+                                    Text { text: t.done ? @tr("Done") : @tr("Open"); font-size: 11px; font-weight: 600; color: t.done ? Theme.accent-green : Theme.text-secondary; }
+                                    if GoalText.task-meta(t.space, t.due-date) != "": Text { text: GoalText.task-meta(t.space, t.due-date); font-size: 11px; color: Theme.text-secondary; }
+                                    if t.milestone != "": Text { text: @tr("Milestone: {}", t.milestone); font-size: 11px; color: Theme.text-secondary; }
+                                }
+                            }
+                            VerticalLayout {
+                                alignment: start;
+                                HorizontalLayout {
+                                    // Starts a focus round on this task; finished tasks have nothing to focus on.
+                                    if !t.done: Rectangle {
+                                        width: 32px;
+                                        height: 32px;
+                                        border-radius: 8px;
+                                        background: play-touch.pressed ? Theme.glass-fill-strong : (play-touch.has-hover ? Theme.glass-fill-hover : transparent);
+                                        animate background { duration: 150ms; easing: ease-out; }
+                                        IconPlay { width: 14px; height: 14px; x: 9px; y: 9px; stroke-color: Theme.accent-green; }
+                                        play-touch := TouchArea { width: 100%; height: 100%; mouse-cursor: pointer; clicked => { AppData.task-launched(t.id); } }
+                                        HoverTip { tip: @tr("Start focus on this task"); hovered: play-touch.has-hover; pressed: play-touch.pressed; }
+                                    }
+                                    SmallAction { label: @tr("Change milestone"); enabled: AppData.goal-milestones.length > 0; clicked => { AppData.goal-pin-task(t.id, "next"); } }
+                                    SmallAction { label: @tr("Unlink"); danger: true; clicked => { AppData.goal-unlink-task(t.id); } }
+                                }
+                            }
+                        }
+                    }
+                    HorizontalLayout {
+                        spacing: 8px;
+                        alignment: start;
+                        padding-top: 4px;
+                        GoalButton {
+                            label: root.link-open ? @tr("Close") : @tr("Link a task");
+                            clicked => {
+                                root.link-open = !root.link-open;
+                                AppData.goal-link-search-changed("");
+                            }
+                        }
+                        GoalButton { label: @tr("Open Spaces"); clicked => { root.open-spaces(); } }
+                    }
+                    if root.link-open: VerticalLayout {
+                        spacing: 8px;
+                        SearchField {
+                            placeholder: @tr("Search your open tasks");
+                            text: AppData.goal-link-search;
+                            edited(t) => { AppData.goal-link-search-changed(t); }
+                        }
+                        if AppData.goal-milestones.length > 0: VerticalLayout {
+                            spacing: 4px;
+                            Text { text: @tr("Pin new links to a milestone"); font-size: 12px; color: Theme.text-secondary; }
+                            Flickable {
+                                height: 32px;
+                                content-width: pins.preferred-width;
+                                pins := HorizontalLayout {
+                                    spacing: 6px;
+                                    alignment: start;
+                                    Rectangle {
+                                        width: none-text.preferred-width + 24px;
+                                        height: 30px;
+                                        border-radius: 15px;
+                                        border-width: 1px;
+                                        border-color: root.link-milestone == "" ? Theme.accent-violet.with-alpha(0.7) : Theme.glass-border;
+                                        background: root.link-milestone == "" ? Theme.accent-violet.with-alpha(0.22) : Theme.glass-fill;
+                                        none-text := Text { text: @tr("None"); font-size: 12px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
+                                        TouchArea { mouse-cursor: pointer; clicked => { root.link-milestone = ""; } }
+                                    }
+                                    for m in AppData.goal-milestones: Rectangle {
+                                        width: pin-text.preferred-width + 24px;
+                                        height: 30px;
+                                        border-radius: 15px;
+                                        border-width: 1px;
+                                        border-color: root.link-milestone == m.id ? Theme.accent-violet.with-alpha(0.7) : Theme.glass-border;
+                                        background: root.link-milestone == m.id ? Theme.accent-violet.with-alpha(0.22) : Theme.glass-fill;
+                                        pin-text := Text { text: m.title; font-size: 12px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; overflow: elide; }
+                                        TouchArea { mouse-cursor: pointer; clicked => { root.link-milestone = m.id; } }
+                                    }
+                                }
+                            }
+                        }
+                        if AppData.goal-link-options.length == 0: Text {
+                            text: @tr("No open tasks to link. Tasks already in a goal are not shown.");
+                            font-size: 12px;
+                            color: Theme.text-muted;
+                            wrap: word-wrap;
+                        }
+                        for o in AppData.goal-link-options: Rectangle {
+                            height: 44px;
+                            border-radius: 10px;
+                            background: opt-touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill;
+                            animate background { duration: 150ms; easing: ease-out; }
+                            HorizontalLayout {
+                                padding-left: 12px;
+                                padding-right: 12px;
+                                spacing: 8px;
+                                Text { horizontal-stretch: 1; text: o.title; font-size: 13px; color: Theme.text-primary; vertical-alignment: center; overflow: elide; }
+                                Text { text: o.space; font-size: 11px; color: Theme.text-secondary; vertical-alignment: center; }
+                                VerticalLayout { alignment: center; IconPlus { width: 14px; height: 14px; stroke-color: Theme.accent-violet; } }
+                            }
+                            opt-touch := TouchArea {
+                                mouse-cursor: pointer;
+                                clicked => { AppData.goal-link-task(AppData.goal.id, o.id, root.link-milestone); }
+                            }
+                        }
+                    }
+                }
+            }
+
+            // Focus time
+            GlassCard {
+                height: ft.preferred-height;
+                ft := VerticalLayout {
+                    padding: 20px;
+                    spacing: 8px;
+                    SectionHeading { text: @tr("Focus time"); }
+                    HorizontalLayout {
+                        spacing: 28px;
+                        alignment: start;
+                        VerticalLayout {
+                            Text { text: AppData.goal.total-focus-text; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+                            Text { text: @tr("Total"); font-size: 12px; color: Theme.text-secondary; }
+                        }
+                        VerticalLayout {
+                            Text { text: AppData.goal.week-focus-text; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+                            Text { text: @tr("Last 7 days"); font-size: 12px; color: Theme.text-secondary; }
+                        }
+                    }
+                    if AppData.goal-sessions.length == 0: Text {
+                        text: @tr("No focus sessions on this goal yet. Start a focus round on one of its tasks.");
+                        font-size: 13px;
+                        color: Theme.text-muted;
+                        wrap: word-wrap;
+                    }
+                    for s in AppData.goal-sessions: HorizontalLayout {
+                        spacing: 10px;
+                        Text { width: 110px; text: s.when; font-size: 12px; color: Theme.text-secondary; }
+                        Text { horizontal-stretch: 1; text: s.task; font-size: 12px; color: Theme.text-primary; overflow: elide; }
+                        Text { text: s.duration; font-size: 12px; font-weight: 600; color: Theme.text-primary; horizontal-alignment: right; }
+                    }
+                }
+            }
+
+            // History
+            if AppData.goal-history.length > 0: GlassCard {
+                height: hist.preferred-height;
+                hist := VerticalLayout {
+                    padding: 20px;
+                    spacing: 6px;
+                    SectionHeading { text: @tr("History"); }
+                    for line in AppData.goal-history: Text { text: line; font-size: 12px; color: Theme.text-secondary; wrap: word-wrap; }
+                }
+            }
+        }
+    }
+
+    // ===================== FORM =====================
+    if root.form-open: Rectangle {
+        width: 100%;
+        height: 100%;
+        background: #00000080;
+        TouchArea { width: 100%; height: 100%; }
+        Flickable {
+            width: 100%;
+            height: 100%;
+            content-height: form-box.preferred-height + 48px;
+            Rectangle {
+                width: parent.width;
+                height: form-box.preferred-height + 48px;
+                form-box := GlassCard {
+                    x: max(16px, (parent.width - 560px) / 2);
+                    y: 24px;
+                    width: min(560px, parent.width - 32px);
+                    height: form-body.preferred-height;
+                    background: Theme.dark-mode ? #221C3A : #FFFFFF;
+                    drop-shadow-blur: 30px;
+                    drop-shadow-color: #00000059;
+                    form-body := VerticalLayout {
+                        padding: 22px;
+                        spacing: 12px;
+                        Text {
+                            text: root.editing-id == "" ? @tr("New goal") : @tr("Edit goal");
+                            font-size: 18px;
+                            font-weight: 700;
+                            color: Theme.text-primary;
+                        }
+                        GoalField { label: @tr("Title"); placeholder: @tr("What do you want to achieve?"); text <=> root.f-title; accepted => { root.save-form(); } }
+                        GoalField { label: @tr("Description"); placeholder: @tr("Describe the outcome"); lines: 2; text <=> root.f-description; }
+                        GoalField { label: @tr("Why it matters"); placeholder: @tr("Your reason for doing this"); lines: 2; text <=> root.f-motivation; }
+                        HorizontalLayout {
+                            spacing: 10px;
+                            GoalField { horizontal-stretch: 1; label: @tr("Category"); placeholder: @tr("Study, health, work…"); text <=> root.f-category; }
+                            GoalField { horizontal-stretch: 1; label: @tr("Target date"); placeholder: "YYYY-MM-DD"; text <=> root.f-date; }
+                        }
+                        VerticalLayout {
+                            spacing: 4px;
+                            Text { text: @tr("Priority"); font-size: 12px; font-weight: 600; color: Theme.text-secondary; }
+                            GoalChoice { choices: root.priorities; selected: root.f-priority; picked(id) => { root.f-priority = id; } }
+                        }
+                        VerticalLayout {
+                            spacing: 4px;
+                            Text { text: @tr("How is progress counted?"); font-size: 12px; font-weight: 600; color: Theme.text-secondary; }
+                            GoalChoice { choices: root.modes; selected: root.f-mode; picked(id) => { root.f-mode = id; } }
+                            Text {
+                                text: root.f-mode == "milestones"
+                                    ? @tr("Progress is the share of milestones you have completed.")
+                                    : @tr("Progress is your current number against the target, such as 12 of 20 books.");
+                                font-size: 11px;
+                                color: Theme.text-muted;
+                                wrap: word-wrap;
+                            }
+                        }
+                        if root.f-mode == "measured": HorizontalLayout {
+                            spacing: 10px;
+                            GoalField { horizontal-stretch: 1; label: @tr("Current"); placeholder: "0"; text <=> root.f-current; }
+                            GoalField { horizontal-stretch: 1; label: @tr("Target"); placeholder: "20"; text <=> root.f-target; }
+                            GoalField { horizontal-stretch: 1; label: @tr("Unit"); placeholder: @tr("books, hours…"); text <=> root.f-unit; }
+                        }
+                        if root.f-mode == "hours": HorizontalLayout {
+                            spacing: 10px;
+                            GoalField { horizontal-stretch: 1; label: @tr("Target hours"); placeholder: "20"; text <=> root.f-target; }
+                        }
+                        GoalField { label: @tr("Notes"); placeholder: @tr("Anything else worth remembering"); lines: 2; text <=> root.f-notes; }
+                        if AppData.goals-error != "": Text { text: AppData.goals-error; font-size: 12px; color: Theme.destructive; wrap: word-wrap; }
+                        HorizontalLayout {
+                            spacing: 8px;
+                            alignment: end;
+                            GoalButton { label: @tr("Cancel"); clicked => { AppData.goals-error = ""; root.form-open = false; } }
+                            GoalButton { label: root.editing-id == "" ? @tr("Create goal") : @tr("Save changes"); kind: "primary"; clicked => { root.save-form(); } }
+                        }
+                    }
+                }
+            }
+        }
+        FocusScope {
+            key-pressed(event) => {
+                if event.text == Key.Escape { AppData.goals-error = ""; root.form-open = false; return accept; }
+                return reject;
+            }
+        }
+    }
+}

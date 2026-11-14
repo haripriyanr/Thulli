@@ -177,6 +177,11 @@ pub struct Task {
     pub deadline: Option<NaiveDate>,
     #[serde(default)]
     pub matrix_quadrant: Option<MatrixQuadrant>,
+    /// The goal this task works toward, and the milestone it is pinned to.
+    #[serde(default)]
+    pub goal_id: Option<String>,
+    #[serde(default)]
+    pub milestone_id: Option<String>,
     #[serde(default)]
     pub history: Vec<TaskHistoryEntry>,
     #[serde(default)]
@@ -218,6 +223,8 @@ impl Task {
             do_date: None,
             deadline: None,
             matrix_quadrant: None,
+            goal_id: None,
+            milestone_id: None,
             history: vec![TaskHistoryEntry { at: Utc::now(), event: "Created".to_string() }],
             completed_at: None,
             last_worked_at: None,

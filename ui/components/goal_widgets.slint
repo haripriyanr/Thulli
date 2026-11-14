@@ -1,0 +1,413 @@
+import { Theme } from "../theme.slint";
+import { IconCheck, IconChevronDown, IconChevronRight } from "../icons.slint";
+import { GlassCard } from "glass.slint";
+import { HoverTip } from "tips.slint";
+import { TickBox } from "space_widgets.slint";
+import { ChoiceModel } from "../types.slint";
+
+import { GoalRow, ReviewRow } from "../types.slint";
+
+/// GoalText: builds every sentence the Goals screens show from plain facts,
+/// so each one is a translatable @tr string (no English text comes from Rust).
+export global GoalText {
+    public pure function due(kind: string, n: int, date: string) -> string {
+        if kind == "today" { return @tr("Due today"); }
+        if kind == "tomorrow" { return @tr("Due tomorrow"); }
+        if kind == "overdue" { return n == 1 ? @tr("Overdue by 1 day") : @tr("Overdue by {} days", n); }
+        if kind == "future" || kind == "date" { return @tr("Due {}", date); }
+        return "";
+    }
+    public pure function progress(g: GoalRow) -> string {
+        if g.mode == "milestones" {
+            return g.milestones-total == 0 ? @tr("No milestones yet") : @tr("{} of {} milestones done", g.milestones-done, g.milestones-total);
+        }
+        if !g.percent-known { return @tr("Set a target to see progress"); }
+        return g.unit == "" ? @tr("{} of {}", g.current-value, g.target-value) : @tr("{} of {} {}", g.current-value, g.target-value, g.unit);
+    }
+    public pure function remaining(g: GoalRow) -> string {
+        if g.mode == "milestones" {
+            if g.milestones-total == 0 { return ""; }
+            return g.milestones-total - g.milestones-done == 0 ? @tr("Every milestone is done") : @tr("{} to go", g.milestones-total - g.milestones-done);
+        }
+        if !g.percent-known { return ""; }
+        if g.remaining-value == "0" { return @tr("Target reached"); }
+        return g.unit == "" ? @tr("{} to go", g.remaining-value) : @tr("{} {} to go", g.remaining-value, g.unit);
+    }
+    public pure function tasks(done: int, total: int) -> string {
+        return total == 0 ? "" : @tr("{} of {} tasks done", done, total);
+    }
+    public pure function focus(g: GoalRow) -> string {
+        return g.has-focus ? @tr("{} focused", g.total-focus-text) : "";
+    }
+    public pure function task-meta(space: string, due-date: string) -> string {
+        if space != "" && due-date != "" { return space + " · " + @tr("Due {}", due-date); }
+        if due-date != "" { return @tr("Due {}", due-date); }
+        return space;
+    }
+    public pure function summary(active: int, paused: int, completed: int, overdue: int) -> string {
+        if active + paused + completed == 0 { return ""; }
+        return @tr("{} active", active)
+            + (paused > 0 ? " · " + @tr("{} paused", paused) : "")
+            + (completed > 0 ? " · " + @tr("{} completed", completed) : "")
+            + (overdue > 0 ? " · " + @tr("{} overdue", overdue) : "");
+    }
+    public pure function review(r: ReviewRow) -> string {
+        if r.kind == "progressed" {
+            if r.a == 0 && r.b == 0 { return @tr("Focus time logged"); }
+            if r.a > 0 && r.b > 0 { return @tr("Milestones done: {}", r.a) + ", " + @tr("Tasks done: {}", r.b); }
+            return r.a > 0 ? @tr("Milestones done: {}", r.a) : @tr("Tasks done: {}", r.b);
+        }
+        if r.kind == "deadline" {
+            if r.a < 0 { return r.a == -1 ? @tr("Overdue by 1 day") : @tr("Overdue by {} days", -r.a); }
+            if r.a == 0 { return @tr("Due today"); }
+            return r.a == 1 ? @tr("Due tomorrow") : @tr("Due in {} days", r.a);
+        }
+        if r.kind == "milestone_due" {
+            if r.a == 0 { return @tr("{} due today", r.s); }
+            return r.a == 1 ? @tr("{} due tomorrow", r.s) : @tr("{} due in {} days", r.s, r.a);
+        }
+        if r.kind == "quiet" { return @tr("No activity for {} days", r.a); }
+        if r.kind == "next" { return @tr("Next: {}", r.s); }
+        return @tr("Add a milestone or a target date");
+    }
+}
+
+
+/// GoalButton: a pill button. `kind` is "normal", "primary" or "danger".
+export component GoalButton inherits Rectangle {
+    in property <string> label;
+    in property <string> kind: "normal";
+    in property <bool> enabled: true;
+    callback clicked();
+
+    property <color> tint: root.kind == "danger" ? Theme.destructive : Theme.accent-violet;
+    width: max(44px, label-text.preferred-width + 28px);
+    height: 38px;
+    border-radius: 19px;
+    opacity: root.enabled ? 1 : 0.45;
+    background: root.kind == "normal"
+        ? (touch.pressed && root.enabled ? Theme.glass-fill : (touch.has-hover && root.enabled ? Theme.glass-fill-hover : Theme.glass-fill-strong))
+        : (touch.pressed && root.enabled ? root.tint.with-alpha(0.48) : (touch.has-hover && root.enabled ? root.tint.with-alpha(0.38) : root.tint.with-alpha(0.22)));
+    border-width: (btn-focus.has-focus && root.enabled) ? 2px : 1px;
+    border-color: (btn-focus.has-focus && root.enabled) ? Theme.accent-violet : (root.kind == "normal" ? Theme.glass-border : root.tint.with-alpha(0.6));
+    animate background { duration: 150ms; easing: ease-out; }
+    label-text := Text {
+        text: root.label;
+        font-size: 13px;
+        font-weight: 600;
+        color: root.kind == "danger" ? Theme.destructive : Theme.text-primary;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+    btn-focus := FocusScope {
+        enabled: root.enabled;
+        key-pressed(event) => {
+            if (event.text == Key.Return || event.text == " ") && root.enabled {
+                root.clicked();
+                return accept;
+            }
+            return reject;
+        }
+    }
+    touch := TouchArea {
+        width: 100%;
+        height: 100%;
+        enabled: root.enabled;
+        mouse-cursor: root.enabled ? pointer : default;
+        clicked => { root.clicked(); }
+    }
+}
+
+/// GoalChip: a small read-only label.
+export component GoalChip inherits Rectangle {
+    in property <string> text;
+    in property <color> tint: Theme.accent-violet;
+    height: 22px;
+    width: chip-text.preferred-width + 18px;
+    border-radius: 11px;
+    background: root.tint.with-alpha(0.18);
+    chip-text := Text {
+        text: root.text;
+        font-size: 11px;
+        font-weight: 600;
+        color: Theme.text-primary;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+}
+
+/// GoalProgressBar: a thin bar with the percentage beside it. With nothing
+/// to measure yet it shows an empty track and a dash, never a made-up 0%.
+export component GoalProgressBar inherits HorizontalLayout {
+    in property <int> percent;
+    in property <bool> known: true;
+    in property <color> tint: Theme.accent-violet;
+    in property <length> bar-height: 8px;
+    spacing: 10px;
+    Rectangle {
+        horizontal-stretch: 1;
+        VerticalLayout {
+            alignment: center;
+            Rectangle {
+                height: root.bar-height;
+                border-radius: root.bar-height / 2;
+                background: Theme.glass-fill-strong;
+                clip: true;
+                Rectangle {
+                    x: 0px;
+                    width: root.known ? parent.width * clamp(root.percent, 0, 100) / 100 : 0px;
+                    height: 100%;
+                    border-radius: root.bar-height / 2;
+                    background: root.percent >= 100 ? Theme.accent-green : root.tint;
+                    animate width { duration: 400ms; easing: ease-out; }
+                }
+            }
+        }
+    }
+    Text {
+        width: 40px;
+        text: root.known ? @tr("{}%", root.percent) : "–";
+        font-size: 12px;
+        font-weight: 700;
+        color: Theme.text-secondary;
+        horizontal-alignment: right;
+        vertical-alignment: center;
+    }
+}
+
+/// GoalChoice: a row of choices; one is selected.
+export component GoalChoice inherits HorizontalLayout {
+    in property <[ChoiceModel]> choices;
+    in property <string> selected;
+    callback picked(string);
+    spacing: 6px;
+    alignment: start;
+    for choice in root.choices: Rectangle {
+        width: max(40px, choice-text.preferred-width + 24px);
+        height: 32px;
+        border-radius: 16px;
+        border-width: 1px;
+        border-color: choice.id == root.selected ? Theme.accent-violet.with-alpha(0.75) : Theme.glass-border;
+        background: choice.id == root.selected
+            ? Theme.accent-violet.with-alpha(0.24)
+            : (touch.pressed ? Theme.glass-fill-strong : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill));
+        animate background { duration: 150ms; easing: ease-out; }
+        choice-text := Text {
+            text: choice.label;
+            font-size: 12px;
+            font-weight: choice.id == root.selected ? 700 : 500;
+            color: choice.id == root.selected ? Theme.text-primary : Theme.text-secondary;
+            horizontal-alignment: center;
+            vertical-alignment: center;
+        }
+        touch := TouchArea { width: 100%; height: 100%; mouse-cursor: pointer; clicked => { root.picked(choice.id); } }
+    }
+}
+
+/// GoalField: a labelled text box. `lines` above 1 makes it a wrapping,
+/// taller box.
+export component GoalField inherits VerticalLayout {
+    in property <string> label;
+    in property <string> placeholder;
+    in property <int> lines: 1;
+    in-out property <string> text <=> input.text;
+    callback accepted();
+    callback edited();
+    spacing: 4px;
+    Text { text: root.label; font-size: 12px; font-weight: 600; color: Theme.text-secondary; }
+    Rectangle {
+        height: root.lines <= 1 ? 36px : 16px + 18px * root.lines;
+        border-radius: 10px;
+        background: Theme.glass-fill;
+        border-width: 1px;
+        border-color: input.has-focus ? Theme.accent-violet.with-alpha(0.7) : Theme.glass-border;
+        animate border-color { duration: 150ms; easing: ease-out; }
+        clip: true;
+        Text {
+            x: 12px;
+            y: root.lines <= 1 ? 0px : 8px;
+            width: parent.width - 24px;
+            height: root.lines <= 1 ? parent.height : 18px;
+            text: root.placeholder;
+            visible: input.text == "";
+            font-size: 13px;
+            color: Theme.text-muted;
+            vertical-alignment: root.lines <= 1 ? center : top;
+            overflow: elide;
+        }
+        input := TextInput {
+            x: 12px;
+            y: root.lines <= 1 ? 0px : 8px;
+            width: parent.width - 24px;
+            height: root.lines <= 1 ? parent.height : parent.height - 16px;
+            font-size: 13px;
+            color: Theme.text-primary;
+            vertical-alignment: root.lines <= 1 ? center : top;
+            single-line: root.lines <= 1;
+            wrap: root.lines <= 1 ? no-wrap : word-wrap;
+            accepted => { root.accepted(); }
+            edited => { root.edited(); }
+        }
+    }
+}
+
+/// GoalCard: one goal on the dashboard. The whole card opens the goal.
+export component GoalCard inherits Rectangle {
+    in property <string> title;
+    in property <string> category;
+    in property <string> priority;
+    in property <string> status;
+    in property <int> percent;
+    in property <bool> percent-known: true;
+    in property <string> progress-text;
+    in property <string> due-text;
+    in property <bool> overdue;
+    in property <string> next-milestone;
+    in property <string> tasks-text;
+    in property <string> focus-text;
+    callback clicked();
+
+    height: body.preferred-height;
+    border-radius: 18px;
+    background: touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill-strong;
+    border-width: 1px;
+    border-color: touch.has-hover ? Theme.accent-violet.with-alpha(0.5) : Theme.glass-border;
+    animate background { duration: 150ms; easing: ease-out; }
+    animate border-color { duration: 150ms; easing: ease-out; }
+    clip: true;
+
+    touch := TouchArea {
+        width: 100%;
+        height: 100%;
+        mouse-cursor: pointer;
+        clicked => { root.clicked(); }
+    }
+
+    body := VerticalLayout {
+        padding: 18px;
+        spacing: 10px;
+        HorizontalLayout {
+            spacing: 8px;
+            Text {
+                horizontal-stretch: 1;
+                text: root.title;
+                font-size: 16px;
+                font-weight: 700;
+                color: Theme.text-primary;
+                wrap: word-wrap;
+            }
+            VerticalLayout {
+                alignment: start;
+                GoalChip {
+                    visible: root.status != "active";
+                    width: root.status != "active" ? self.preferred-width : 0px;
+                    text: root.status == "paused" ? @tr("Paused") : root.status == "completed" ? @tr("Completed") : @tr("Archived");
+                    tint: root.status == "completed" ? Theme.accent-green : Theme.accent-amber;
+                }
+            }
+        }
+        HorizontalLayout {
+            spacing: 6px;
+            alignment: start;
+            if root.category != "": GoalChip { text: root.category; tint: Theme.accent-blue; }
+            GoalChip {
+                text: root.priority == "high" ? @tr("High priority") : root.priority == "low" ? @tr("Low priority") : @tr("Medium priority");
+                tint: root.priority == "high" ? Theme.accent-pink : root.priority == "low" ? Theme.text-muted : Theme.accent-violet;
+            }
+        }
+        GoalProgressBar { percent: root.percent; known: root.percent-known; }
+        Text { text: root.progress-text; font-size: 12px; color: Theme.text-secondary; wrap: word-wrap; }
+        if root.next-milestone != "": Text {
+            text: @tr("Next: {}", root.next-milestone);
+            font-size: 12px;
+            color: Theme.text-secondary;
+            wrap: word-wrap;
+        }
+        HorizontalLayout {
+            spacing: 14px;
+            alignment: start;
+            if root.due-text != "": Text {
+                text: root.due-text;
+                font-size: 12px;
+                font-weight: root.overdue ? 700 : 400;
+                color: root.overdue ? Theme.destructive : Theme.text-secondary;
+            }
+            if root.tasks-text != "": Text { text: root.tasks-text; font-size: 12px; color: Theme.text-secondary; }
+            if root.focus-text != "": Text { text: root.focus-text; font-size: 12px; color: Theme.text-secondary; }
+        }
+    }
+}
+
+/// SectionHeading: a title with an optional note on the right.
+export component SectionHeading inherits HorizontalLayout {
+    in property <string> text;
+    in property <string> note;
+    spacing: 8px;
+    Text { text: root.text; font-size: 15px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; }
+    Rectangle { horizontal-stretch: 1; }
+    Text { text: root.note; font-size: 12px; color: Theme.text-muted; vertical-alignment: center; }
+}
+
+/// SmallAction: a compact text action inside a row.
+export component SmallAction inherits Rectangle {
+    in property <string> label;
+    in property <string> tip;
+    in property <bool> danger: false;
+    in property <bool> enabled: true;
+    callback clicked();
+    height: 32px;
+    width: max(32px, small-text.preferred-width + 18px);
+    border-radius: 8px;
+    opacity: root.enabled ? 1 : 0.35;
+    background: touch.pressed && root.enabled ? Theme.glass-fill-strong : (touch.has-hover && root.enabled ? Theme.glass-fill-hover : transparent);
+    animate background { duration: 150ms; easing: ease-out; }
+    small-text := Text {
+        text: root.label;
+        font-size: 12px;
+        font-weight: 600;
+        color: root.danger ? Theme.destructive : Theme.text-secondary;
+        horizontal-alignment: center;
+        vertical-alignment: center;
+    }
+    touch := TouchArea { width: 100%; height: 100%; enabled: root.enabled; mouse-cursor: root.enabled ? pointer : default; clicked => { root.clicked(); } }
+    HoverTip { tip: root.tip; hovered: touch.has-hover; pressed: touch.pressed; }
+}
+
+/// ReviewSection: a titled list of goals for the weekly review. Each row
+/// opens its goal; an empty list shows `empty-text`.
+export component ReviewSection inherits GlassCard {
+    in property <string> title;
+    in property <string> empty-text;
+    in property <[ReviewRow]> rows;
+    callback picked(string);
+    height: body.preferred-height;
+    body := VerticalLayout {
+        padding: 18px;
+        spacing: 8px;
+        SectionHeading { text: root.title; }
+        if root.rows.length == 0: Text { text: root.empty-text; font-size: 12px; color: Theme.text-muted; wrap: word-wrap; }
+        for r in root.rows: Rectangle {
+            height: row-body.preferred-height;
+            border-radius: 10px;
+            background: touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill;
+            animate background { duration: 150ms; easing: ease-out; }
+            row-body := HorizontalLayout {
+                padding: 10px;
+                padding-left: 12px;
+                padding-right: 12px;
+                spacing: 10px;
+                Text { horizontal-stretch: 1; text: r.title; font-size: 13px; font-weight: 600; color: Theme.text-primary; vertical-alignment: center; overflow: elide; }
+                Text { text: GoalText.review(r); font-size: 12px; color: Theme.text-secondary; vertical-alignment: center; horizontal-alignment: right; overflow: elide; horizontal-stretch: 0; }
+            }
+            touch := TouchArea { width: 100%; height: 100%; mouse-cursor: pointer; clicked => { root.picked(r.id); } }
+        }
+    }
+}
+
+/// ReviewStat: one big figure with a caption.
+export component ReviewStat inherits VerticalLayout {
+    in property <string> value;
+    in property <string> caption;
+    Text { text: root.value; font-size: 22px; font-weight: 700; color: Theme.text-primary; }
+    Text { text: root.caption; font-size: 12px; color: Theme.text-secondary; wrap: word-wrap; }
+}

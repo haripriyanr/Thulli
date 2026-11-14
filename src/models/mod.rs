@@ -6,6 +6,7 @@
 
 mod chat;
 mod focus;
+mod goal;
 mod list;
 mod notes;
 mod preferences;
@@ -21,6 +22,7 @@ pub use chat::{
     SuggestionState,
 };
 pub use focus::{DayPlan, FocusSession, TimeEntry, TimeEntryKind};
+pub use goal::{Goal, GoalEvent, GoalPriority, GoalProgress, GoalStatus, Milestone, ProgressMode};
 pub use list::{ListFolder, TaskList};
 pub use notes::{BragEntry, MeetingNote, Note, NoteFolder, QuickCapture};
 pub use preferences::{
@@ -36,7 +38,7 @@ pub use task::{MatrixQuadrant, Task, TaskHistoryEntry, TaskSection, TaskStatus};
 pub type ThulliPreferences = Preferences;
 
 /// Version of the persisted layout. Bump when a migration is added.
-pub const CURRENT_SCHEMA_VERSION: u32 = 4;
+pub const CURRENT_SCHEMA_VERSION: u32 = 5;
 
 /// Root aggregate persisted in encrypted storage.
 ///
@@ -82,6 +84,8 @@ pub struct AppStateStore {
     #[serde(default)]
     pub suggestion_states: Vec<SuggestionState>,
     #[serde(default)]
+    pub goals: Vec<Goal>,
+    #[serde(default)]
     pub preferences: Preferences,
 }
 
@@ -107,6 +111,7 @@ impl Default for AppStateStore {
             chat_threads: Vec::new(),
             assistant_memories: Vec::new(),
             suggestion_states: Vec::new(),
+            goals: Vec::new(),
             preferences: Preferences::default(),
         }
     }

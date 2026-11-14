@@ -5,6 +5,7 @@
 
 pub mod alerts;
 pub mod assistant;
+pub mod goals;
 pub mod history;
 pub mod insights;
 pub mod lists;
@@ -19,6 +20,7 @@ pub mod timer;
 pub mod today;
 
 pub use assistant::AssistantService;
+pub use goals::GoalService;
 pub use history::{ActionHistory, MoveSection, UndoableAction};
 pub use insights::InsightsService;
 pub use lists::ListService;
