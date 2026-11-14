@@ -1,4 +1,5 @@
 import { Theme } from "../theme.slint";
+import { HoverTip } from "tips.slint";
 
 /// ThulliButton — Reusable primary/secondary action button component
 ///
@@ -51,6 +52,7 @@ export component ThulliIconButton inherits TouchArea {
     in property <length> size: 24px;
     in property <color> hover-bg: #EF444433;
     in property <color> active-bg: #EF444455;
+    in property <string> tip;
 
     width: root.size;
     height: root.size;
@@ -63,4 +65,5 @@ export component ThulliIconButton inherits TouchArea {
 
         @children
     }
+    HoverTip { tip: root.tip; hovered: root.has-hover; pressed: root.pressed; }
 }

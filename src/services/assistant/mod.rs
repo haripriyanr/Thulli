@@ -25,8 +25,22 @@ pub fn plan_messages(store: &crate::models::AppStateStore, request: &str) -> Vec
     prompt::plan_prompt(store, request, Local::now())
 }
 
-use crate::models::{TaskList, 
-    AssistantMemory, ChatRole, ChatThread, MemoryKind, Note, SuggestionKind, SuggestionState, Task,
+/// Like [`plan_messages`] for a given moment; used to build training data.
+pub fn plan_messages_at(store: &crate::models::AppStateStore, request: &str, now: DateTime<Local>) -> Vec<EngineMessage> {
+    prompt::plan_prompt(store, request, now)
+}
+
+/// The chat prompt for one question against `store`: the system prompt with a
+/// compact snapshot of the user's data, then the question.
+pub fn chat_messages(store: &crate::models::AppStateStore, request: &str) -> Vec<EngineMessage> {
+    vec![
+        EngineMessage::new(EngineRole::System, prompt::system_prompt(store, Local::now())),
+        EngineMessage::new(EngineRole::User, request.to_string()),
+    ]
+}
+
+use crate::models::{
+    AssistantMemory, ChatRole, ChatThread, Goal, MemoryKind, Milestone, Note, SuggestionKind, SuggestionState, Task, TaskList,
 };
 use crate::services::store_handle::StoreHandle;
 
@@ -44,6 +58,16 @@ pub struct ThreadSummary {
     pub updated_at: DateTime<Utc>,
 }
 
+/// One message as the Chat screen shows it.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MessageView {
+    pub from_user: bool,
+    pub text: String,
+    pub at: DateTime<Utc>,
+    /// Earlier replies to the same turn, oldest first.
+    pub versions: Vec<String>,
+}
+
 /// What came back from one assistant turn.
 #[derive(Debug, Clone, PartialEq, Eq)]
 pub struct TurnOutcome {
@@ -51,6 +75,9 @@ pub struct TurnOutcome {
     pub text: String,
     /// Plain-language lines for each proposed change; empty when none.
     pub proposals: Vec<String>,
+    /// The reply tried to change something but nothing usable came of it, so the
+    /// screen says that no changes were made.
+    pub nothing_changed: bool,
 }
 
 /// What happened when proposals were applied.
@@ -83,6 +110,8 @@ impl ApplyReport {
 pub struct AssistantService {
     handle: StoreHandle,
     pending: Mutex<Vec<ProposedAction>>,
+    /// Earlier replies carried onto the next reply after an edit.
+    carry: Mutex<Vec<String>>,
     engine: Mutex<EngineSlot>,
 }
 
@@ -96,7 +125,7 @@ struct EngineSlot {
 
 impl AssistantService {
     pub fn new(handle: StoreHandle) -> Self {
-        Self { handle, pending: Mutex::new(Vec::new()), engine: Mutex::new(EngineSlot::default()) }
+        Self { handle, pending: Mutex::new(Vec::new()), carry: Mutex::new(Vec::new()), engine: Mutex::new(EngineSlot::default()) }
     }
 
     pub fn handle(&self) -> &StoreHandle {
@@ -195,6 +224,7 @@ impl AssistantService {
             return Err("That message is too long.".into());
         }
         self.discard_pending();
+        self.carry.lock().unwrap().clear();
         Ok(self.handle.mutate(|s| {
             let idx = thread_id.and_then(|id| s.chat_threads.iter().position(|t| t.id == id)).unwrap_or_else(|| {
                 s.chat_threads.push(ChatThread::new(""));
@@ -223,10 +253,21 @@ impl AssistantService {
         on_token: &mut dyn FnMut(&str) -> bool,
     ) -> Result<TurnOutcome, EngineError> {
         let engine = self.engine()?;
-        let prompt = self.handle.read(|s| prompt::build_prompt(s, thread_id, now));
+        let prompt = self.thread_prompt(thread_id, now);
         let raw = engine.generate(&prompt, on_token)?;
+        Ok(self.finish_turn(thread_id, &raw))
+    }
 
-        let mut parsed = parse_reply(crate::ai::llm::strip_thinking(&raw));
+    /// The prompt for answering the latest message of a thread.
+    pub fn thread_prompt(&self, thread_id: &str, now: DateTime<Local>) -> Vec<EngineMessage> {
+        self.handle.read(|s| prompt::build_prompt(s, thread_id, now))
+    }
+
+    /// Stores the model's raw reply in the thread and holds its valid
+    /// proposals for the user's decision. Split from [`respond`](Self::respond)
+    /// so a caller can run the model on another thread.
+    pub fn finish_turn(&self, thread_id: &str, raw: &str) -> TurnOutcome {
+        let mut parsed = parse_reply(crate::ai::llm::strip_thinking(raw));
         if parsed.text.is_empty() {
             parsed.text = if parsed.actions.is_empty() {
                 "I do not have an answer for that.".to_string()
@@ -238,10 +279,98 @@ impl AssistantService {
         self.handle.mutate(|s| {
             if let Some(t) = s.chat_threads.iter_mut().find(|t| t.id == thread_id) {
                 t.push(ChatRole::Assistant, parsed.text.clone());
+                if let Some(m) = t.messages.last_mut() {
+                    m.versions = std::mem::take(&mut *self.carry.lock().unwrap());
+                }
             }
         });
         *self.pending.lock().unwrap() = parsed.actions;
-        Ok(TurnOutcome { text: parsed.text, proposals })
+        TurnOutcome { nothing_changed: proposals.is_empty() && (parsed.attempted || !parsed.rejected.is_empty()), text: parsed.text, proposals }
+    }
+
+    /// Messages of a thread with their times and older replies.
+    pub fn message_views(&self, thread_id: &str) -> Vec<MessageView> {
+        self.handle.read(|s| {
+            s.chat_threads
+                .iter()
+                .find(|t| t.id == thread_id)
+                .map(|t| {
+                    t.messages
+                        .iter()
+                        .map(|m| MessageView { from_user: m.role == ChatRole::User, text: m.text.clone(), at: m.created_at, versions: m.versions.clone() })
+                        .collect()
+                })
+                .unwrap_or_default()
+        })
+    }
+
+    /// Adds a reply written outside the model call (a finished research).
+    pub fn push_assistant(&self, thread_id: &str, text: &str) {
+        self.handle.mutate(|s| {
+            if let Some(t) = s.chat_threads.iter_mut().find(|t| t.id == thread_id) {
+                t.push(ChatRole::Assistant, text);
+            }
+        });
+    }
+
+    /// Replaces the text of the sent message at `index` and drops everything
+    /// after it. The reply it had (and that reply's older versions) is kept
+    /// and attached to the new reply, so the person can still read it.
+    /// Returns the thread id; run the model next, as after `begin_turn`.
+    pub fn edit_turn(&self, thread_id: &str, index: usize, text: &str) -> Result<String, String> {
+        let text = text.trim();
+        if text.is_empty() {
+            return Err("Type a message first.".into());
+        }
+        if text.chars().count() > MAX_USER_CHARS {
+            return Err("That message is too long.".into());
+        }
+        self.discard_pending();
+        let carried = self.handle.mutate(|s| {
+            let t = s.chat_threads.iter_mut().find(|t| t.id == thread_id).ok_or_else(|| "That conversation is gone.".to_string())?;
+            if t.messages.get(index).map(|m| m.role) != Some(ChatRole::User) {
+                return Err("Only a sent message can be edited.".to_string());
+            }
+            let mut carried = Vec::new();
+            if let Some(old) = t.messages.get(index + 1).filter(|m| m.role == ChatRole::Assistant) {
+                carried = old.versions.clone();
+                carried.push(old.text.clone());
+            }
+            t.messages.truncate(index + 1);
+            t.messages[index].text = text.to_string();
+            t.updated_at = Utc::now();
+            Ok(carried)
+        })?;
+        *self.carry.lock().unwrap() = carried;
+        Ok(thread_id.to_string())
+    }
+
+    /// Removes a conversation.
+    pub fn delete_thread(&self, thread_id: &str) -> bool {
+        self.discard_pending();
+        self.handle.mutate(|s| {
+            let before = s.chat_threads.len();
+            s.chat_threads.retain(|t| t.id != thread_id);
+            s.chat_threads.len() != before
+        })
+    }
+
+    /// Copies a conversation, up to and including message `upto` (all of it
+    /// when `None`), into a new one and returns the new id.
+    pub fn fork_thread(&self, thread_id: &str, upto: Option<usize>) -> Option<String> {
+        self.discard_pending();
+        self.handle.mutate(|s| {
+            let src = s.chat_threads.iter().find(|t| t.id == thread_id)?.clone();
+            let keep = upto.map_or(src.messages.len(), |i| (i + 1).min(src.messages.len()));
+            let mut copy = ChatThread::new(src.title.clone());
+            copy.messages = src.messages.into_iter().take(keep).map(|mut m| {
+                m.id = uuid::Uuid::new_v4().to_string();
+                m
+            }).collect();
+            let id = copy.id.clone();
+            s.chat_threads.push(copy);
+            Some(id)
+        })
     }
 
     // ---- proposals ----------------------------------------------------
@@ -558,12 +687,13 @@ const SPACE_COLOR: &str = "#8B5CF6";
 
 fn apply_one(store: &mut crate::models::AppStateStore, action: &ProposedAction) -> Result<(), String> {
     match action {
-        ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps } => {
+        ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, deadline, steps } => {
             let list_id = space_for_new_task(store, list.as_ref());
             let mut task = Task::new(list_id, title.clone(), *estimate_mins, *section);
             task.sort_order = store.tasks.iter().map(|t| t.sort_order).max().map_or(0, |m| m + 1);
             task.matrix_quadrant = *quadrant;
             task.do_date = *do_date;
+            task.deadline = *deadline;
             let task = store.add_task(task);
             for (i, step_title) in steps.iter().enumerate() {
                 let mut step = Task::new_step(&task, step_title.clone());
@@ -664,6 +794,91 @@ fn apply_one(store: &mut crate::models::AppStateStore, action: &ProposedAction) 
             store.remove_list_cascade(&id);
             Ok(())
         }
+        ProposedAction::CreateGoal { title, description, motivation, category, priority, target_date, milestones, tasks } => {
+            let same = |g: &Goal| g.title.trim().eq_ignore_ascii_case(title.trim());
+            if store.goals.iter().any(|g| same(g) && g.status != crate::models::GoalStatus::Archived) {
+                return Err(format!("a goal called \"{title}\" already exists"));
+            }
+            let mut goal = Goal::new(title.clone());
+            goal.description = description.clone();
+            goal.motivation = motivation.clone();
+            goal.category = category.clone();
+            goal.priority = *priority;
+            goal.target_date = *target_date;
+            for m in milestones {
+                let mut ms = Milestone::new(m.title.clone());
+                ms.target_date = m.date;
+                goal.milestones.push(ms);
+            }
+            goal.renumber_milestones();
+            if !tasks.is_empty() {
+                let list_id = space_for_new_task(store, None);
+                let mut order = store.tasks.iter().map(|t| t.sort_order).max().map_or(0, |m| m + 1);
+                for t in tasks {
+                    let mut task = Task::new(list_id.clone(), t.title.clone(), t.estimate_mins, crate::models::TaskSection::ThisWeek);
+                    task.sort_order = order;
+                    order += 1;
+                    task.goal_id = Some(goal.id.clone());
+                    task.milestone_id = t.milestone.as_deref().and_then(|name| {
+                        goal.milestones.iter().find(|m| m.title.trim().eq_ignore_ascii_case(name.trim())).map(|m| m.id.clone())
+                    });
+                    store.add_task(task);
+                }
+            }
+            store.goals.push(goal);
+            Ok(())
+        }
+        ProposedAction::LinkTask { goal, task, milestone } => {
+            let wanted = goal.trim().to_lowercase();
+            let found = store
+                .goals
+                .iter()
+                .find(|g| g.status != crate::models::GoalStatus::Archived && g.title.trim().to_lowercase() == wanted)
+                .ok_or_else(|| format!("no goal called \"{goal}\""))?;
+            let goal_id = found.id.clone();
+            let milestone_id = match milestone {
+                Some(name) => Some(
+                    found
+                        .milestones
+                        .iter()
+                        .find(|m| m.title.trim().eq_ignore_ascii_case(name.trim()))
+                        .map(|m| m.id.clone())
+                        .ok_or_else(|| format!("no milestone called \"{name}\""))?,
+                ),
+                None => None,
+            };
+            let task_id = resolve_task(store, task)?;
+            // A step links through its top-level task.
+            let mut root = task_id;
+            while let Some(parent) = store.task(&root).and_then(|t| t.parent_id.clone()) {
+                root = parent;
+            }
+            let t = store.task_mut(&root).ok_or_else(|| format!("no task called \"{task}\""))?;
+            t.goal_id = Some(goal_id);
+            t.milestone_id = milestone_id;
+            t.record("Linked to a goal by the assistant");
+            Ok(())
+        }
+        ProposedAction::LogTime { task, minutes, date } => {
+            let id = resolve_task(store, task)?;
+            let secs = u64::from(*minutes) * 60;
+            let end = match date {
+                Some(d) => d
+                    .and_hms_opt(12, 0, 0)
+                    .and_then(|dt| dt.and_local_timezone(Local).earliest())
+                    .map(|t| t.with_timezone(&Utc))
+                    .unwrap_or_else(Utc::now),
+                None => Utc::now(),
+            };
+            let start = end - chrono::Duration::seconds(secs as i64);
+            let mut entry = crate::models::TimeEntry::new(crate::models::TimeEntryKind::Focus, start, end);
+            entry.task_id = Some(id.clone());
+            store.time_entries.push(entry);
+            let t = store.task_mut(&id).ok_or_else(|| format!("no task called \"{task}\""))?;
+            t.add_time(secs);
+            t.record("Time logged by the assistant");
+            Ok(())
+        }
         // Handled in apply_actions; they change no data.
         ProposedAction::StartFocus { .. } | ProposedAction::StopFocus => Ok(()),
     }
@@ -738,6 +953,71 @@ mod tests {
             assert!(!s.lists.iter().any(|l| l.name == "Finals"));
             assert!(!s.tasks.iter().any(|t| t.title == "Revise"));
         });
+    }
+
+    #[test]
+    fn goal_plans_create_a_goal_with_milestones_and_linked_tasks() {
+        let svc = service();
+        let reply = r#"{"actions":[{"type":"create_goal","title":"Finish thesis","description":"Write it","priority":"high",
+            "target_date":"2027-02-01","category":"Study",
+            "milestones":["Outline",{"title":"Draft","date":"2026-12-01"},{"title":"Final","date":"not a date"}],
+            "tasks":[{"title":"Write intro","estimate_mins":90,"milestone":"outline"},"Collect sources",{"title":"Polish","milestone":"Missing"}]}]}"#;
+        assert_eq!(svc.accept_reply(reply).len(), 1);
+        let report = svc.apply_pending(None);
+        assert!(report.skipped.is_empty(), "{:?}", report.skipped);
+        svc.handle().read(|s| {
+            assert_eq!(s.goals.len(), 1);
+            let g = &s.goals[0];
+            assert_eq!((g.title.as_str(), g.priority), ("Finish thesis", crate::models::GoalPriority::High));
+            assert_eq!(g.milestones.len(), 3);
+            assert!(g.milestones[2].target_date.is_none(), "a bad milestone date is dropped, not the milestone");
+            let linked = crate::services::goals::linked_tasks(s, &g.id);
+            assert_eq!(linked.len(), 3);
+            let intro = linked.iter().find(|t| t.title == "Write intro").unwrap();
+            assert_eq!(intro.milestone_id.as_deref(), Some(g.milestones[0].id.as_str()));
+            assert!(linked.iter().find(|t| t.title == "Polish").unwrap().milestone_id.is_none());
+            assert_eq!(intro.estimate_mins, 90);
+        });
+    }
+
+    #[test]
+    fn a_second_goal_with_the_same_title_is_refused_and_link_task_works() {
+        let svc = service();
+        svc.apply_actions(&[ProposedAction::CreateGoal {
+            title: "Read".into(),
+            description: String::new(),
+            motivation: String::new(),
+            category: String::new(),
+            priority: crate::models::GoalPriority::Medium,
+            target_date: None,
+            milestones: vec![actions::MilestoneDraft { title: "Half".into(), date: None }],
+            tasks: vec![],
+        }]);
+        let r = svc.apply_actions(&[ProposedAction::CreateGoal {
+            title: " read ".into(),
+            description: String::new(),
+            motivation: String::new(),
+            category: String::new(),
+            priority: crate::models::GoalPriority::Medium,
+            target_date: None,
+            milestones: vec![],
+            tasks: vec![],
+        }]);
+        assert_eq!(r.applied.len(), 0);
+        assert_eq!(r.skipped.len(), 1);
+        let task_title = svc.handle().mutate(|s| {
+            let list = s.lists[0].id.clone();
+            s.add_task(Task::new(list, "Chapter one", 30, TaskSection::Today)).title
+        });
+        let r = svc.apply_actions(&[ProposedAction::LinkTask { goal: "READ".into(), task: task_title.clone(), milestone: Some("half".into()) }]);
+        assert!(r.skipped.is_empty(), "{:?}", r.skipped);
+        svc.handle().read(|s| {
+            let t = s.tasks.iter().find(|t| t.title == task_title).unwrap();
+            assert_eq!(t.goal_id.as_deref(), Some(s.goals[0].id.as_str()));
+            assert!(t.milestone_id.is_some());
+        });
+        let r = svc.apply_actions(&[ProposedAction::LinkTask { goal: "Nope".into(), task: task_title, milestone: None }]);
+        assert_eq!(r.skipped.len(), 1);
     }
 
     #[test]
@@ -858,7 +1138,7 @@ mod tests {
         let svc = service();
         let at = Utc.with_ymd_and_hms(2026, 5, 4, 9, 30, 0).unwrap();
         let actions = vec![
-            ProposedAction::CreateTask { title: "Write report".into(), section: TaskSection::Today, estimate_mins: 30, list: None, quadrant: None, do_date: None, steps: Vec::new() },
+            ProposedAction::CreateTask { title: "Write report".into(), section: TaskSection::Today, estimate_mins: 30, list: None, quadrant: None, do_date: None, deadline: None, steps: Vec::new() },
             ProposedAction::AddSubtask { task: "write REPORT".into(), title: "Outline".into() },
             ProposedAction::ScheduleTask { task: "Write report".into(), at },
             ProposedAction::AddSubtask { task: "Ghost task".into(), title: "x".into() },
@@ -880,8 +1160,8 @@ mod tests {
     fn ambiguous_titles_are_skipped_not_guessed() {
         let svc = service();
         svc.apply_actions(&[
-            ProposedAction::CreateTask { title: "Dup".into(), section: TaskSection::Today, estimate_mins: 0, list: None, quadrant: None, do_date: None, steps: Vec::new() },
-            ProposedAction::CreateTask { title: "Dup".into(), section: TaskSection::Backlog, estimate_mins: 0, list: None, quadrant: None, do_date: None, steps: Vec::new() },
+            ProposedAction::CreateTask { title: "Dup".into(), section: TaskSection::Today, estimate_mins: 0, list: None, quadrant: None, do_date: None, deadline: None, steps: Vec::new() },
+            ProposedAction::CreateTask { title: "Dup".into(), section: TaskSection::Backlog, estimate_mins: 0, list: None, quadrant: None, do_date: None, deadline: None, steps: Vec::new() },
         ]);
         let r = svc.apply_actions(&[ProposedAction::AddSubtask { task: "Dup".into(), title: "x".into() }]);
         assert_eq!(r.applied.len(), 0);
@@ -893,8 +1173,8 @@ mod tests {
         let svc = service();
         let list_id = svc.handle().mutate(|s| s.add_list(crate::models::TaskList::new("Work", "#3CC9C4")));
         svc.apply_actions(&[
-            ProposedAction::CreateTask { title: "In work".into(), section: TaskSection::Today, estimate_mins: 0, list: Some("work".into()), quadrant: None, do_date: None, steps: Vec::new() },
-            ProposedAction::CreateTask { title: "Fallback".into(), section: TaskSection::Today, estimate_mins: 0, list: Some("Nope".into()), quadrant: None, do_date: None, steps: Vec::new() },
+            ProposedAction::CreateTask { title: "In work".into(), section: TaskSection::Today, estimate_mins: 0, list: Some("work".into()), quadrant: None, do_date: None, deadline: None, steps: Vec::new() },
+            ProposedAction::CreateTask { title: "Fallback".into(), section: TaskSection::Today, estimate_mins: 0, list: Some("Nope".into()), quadrant: None, do_date: None, deadline: None, steps: Vec::new() },
         ]);
         svc.handle().read(|s| {
             assert_eq!(s.tasks.iter().find(|t| t.title == "In work").unwrap().list_id, list_id);
@@ -973,5 +1253,44 @@ mod tests {
         assert!(AssistantService::quick_action_prompt("quick_prioritize").is_some());
         assert!(AssistantService::quick_action_prompt("wind_down_reflection").is_some());
         assert!(AssistantService::quick_action_prompt("other").is_none());
+    }
+    #[test]
+    fn editing_a_sent_message_keeps_the_old_reply_and_drops_what_followed() {
+        let svc = service();
+        svc.set_engine(Arc::new(MockEngine::new(["First answer.", "Second answer.", "Third answer."])));
+        let (id, _) = ask(&svc, None, "first question");
+        let _ = ask(&svc, Some(&id), "follow up");
+        assert_eq!(svc.messages(&id).len(), 4);
+        // Edit the first question: the follow-up and its reply go, the old reply is kept.
+        svc.edit_turn(&id, 0, "better question").unwrap();
+        assert_eq!(svc.messages(&id), vec![(true, "better question".to_string())]);
+        svc.respond(&id, now(), &mut |_| true).unwrap();
+        let views = svc.message_views(&id);
+        assert_eq!(views.len(), 2);
+        assert_eq!(views[1].text, "Third answer.");
+        assert_eq!(views[1].versions, vec!["First answer.".to_string()]);
+        // Only sent messages can be edited, and not with empty text.
+        assert!(svc.edit_turn(&id, 1, "x").is_err());
+        assert!(svc.edit_turn(&id, 0, "  ").is_err());
+        assert!(svc.edit_turn("nope", 0, "x").is_err());
+    }
+
+    #[test]
+    fn threads_can_be_forked_and_deleted() {
+        let svc = service();
+        svc.set_engine(Arc::new(MockEngine::new(["A.", "B."])));
+        let (id, _) = ask(&svc, None, "one");
+        let _ = ask(&svc, Some(&id), "two");
+        let part = svc.fork_thread(&id, Some(1)).unwrap();
+        assert_eq!(svc.messages(&part).len(), 2);
+        let whole = svc.fork_thread(&id, None).unwrap();
+        assert_eq!(svc.messages(&whole).len(), 4);
+        assert_ne!(part, whole);
+        assert_eq!(svc.threads().len(), 3);
+        assert!(svc.delete_thread(&part));
+        assert!(!svc.delete_thread(&part));
+        assert_eq!(svc.threads().len(), 2);
+        assert_eq!(svc.messages(&id).len(), 4, "the original is untouched");
+        assert!(svc.fork_thread("missing", None).is_none());
     }
 }

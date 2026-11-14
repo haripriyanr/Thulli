@@ -15,7 +15,7 @@ use thulli_core::services::pomodoro::{PomodoroPhase, PomodoroSettings, PomodoroT
 use thulli_core::models::MatrixQuadrant;
 use thulli_core::services::preferences::{language_name, LANGUAGE_CHOICES};
 use thulli_core::services::tasks::{parse_date_input, DateFilter, TaskEdit};
-use thulli_core::services::{ActionHistory, ListService, NotesService, PreferencesService, StoreHandle, TaskService};
+use thulli_core::services::{ActionHistory, GoalService, ListService, NotesService, PreferencesService, StoreHandle, TaskService};
 
 use crate::audio::{Ambient, AmbientPlayer};
 use chrono::Duration as ChronoDuration;
@@ -26,6 +26,10 @@ use thulli_core::services::assistant::AssistantService;
 
 #[path = "data_hub_ai.rs"]
 mod ai;
+#[path = "data_hub_goals.rs"]
+mod goals_hub;
+#[path = "data_hub_chat.rs"]
+mod chat_hub;
 use crate::{AppData, LanguageRow, MainWindow, NoteRow};
 
 /// Setting keys the Settings screen can step, with the step size for each.
@@ -76,6 +80,21 @@ pub struct DataHub {
     models: Arc<thulli_core::ai::Models>,
     /// The microphone while a mic button is on, with the field it serves.
     recorder: RefCell<Option<(String, crate::voice::Recorder)>>,
+    /// Goals: saved goals and the Goals screen state.
+    goals: GoalService,
+    goal_ui: RefCell<goals_hub::GoalUi>,
+    /// The conversation open on the Chat screen.
+    chat_thread: RefCell<Option<String>>,
+    /// The stop switch of the run in progress; each run gets a fresh one, so a
+    /// new message never restarts a run that was stopped.
+    chat_stop: RefCell<Arc<std::sync::atomic::AtomicBool>>,
+    /// Number of the latest run. A reply from an older run (one that was stopped)
+    /// is dropped when it finally arrives.
+    chat_run: Arc<std::sync::atomic::AtomicU64>,
+    /// Feeds the microphone's loudness to the voice ring while it records.
+    level_timer: slint::Timer,
+    /// The steps of a research in progress, as the Chat screen lists them.
+    chat_trace: RefCell<Vec<crate::ChatTraceRow>>,
 }
 
 impl DataHub {
@@ -91,6 +110,13 @@ impl DataHub {
             triage: RefCell::new(ai::Triage::default()),
             models: Arc::new(thulli_core::ai::Models::default()),
             recorder: RefCell::new(None),
+            goals: GoalService::from_handle(handle.clone()),
+            goal_ui: RefCell::new(goals_hub::GoalUi::default()),
+            chat_thread: RefCell::new(None),
+            chat_stop: RefCell::new(Arc::new(std::sync::atomic::AtomicBool::new(false))),
+            chat_run: Arc::new(std::sync::atomic::AtomicU64::new(0)),
+            level_timer: slint::Timer::default(),
+            chat_trace: RefCell::new(Vec::new()),
             tasks: TaskService::new(state, repository),
             notes: NotesService::new(handle.clone()),
             prefs: PreferencesService::new(handle.clone()),
@@ -114,6 +140,23 @@ impl DataHub {
         self.wire_pomodoro(window);
         self.wire_tasks(window);
         self.wire_spaces(window);
+        self.wire_goals(window);
+        self.wire_chat(window);
+        {
+            // About 20 times a second while the mic is on; costs nothing otherwise.
+            let hub = Rc::downgrade(self);
+            let weak = window.as_weak();
+            self.level_timer.start(slint::TimerMode::Repeated, std::time::Duration::from_millis(50), move || {
+                let (Some(hub), Some(w)) = (hub.upgrade(), weak.upgrade()) else { return };
+                let data = w.global::<AppData>();
+                let level = hub.recorder.borrow().as_ref().map(|(_, r)| r.level());
+                match level {
+                    Some(l) => data.set_mic_level(l),
+                    None if data.get_mic_level() != 0.0 => data.set_mic_level(0.0),
+                    None => {}
+                }
+            });
+        }
         self.wire_notes(window);
         self.wire_settings(window);
     }
@@ -138,14 +181,18 @@ impl DataHub {
     }
 
     pub fn refresh_all(&self, window: &MainWindow) {
+        let began = std::time::Instant::now();
         self.refresh_pomodoro(window);
         self.refresh_tasks(window);
         self.refresh_spaces(window);
+        self.refresh_goals(window);
+        self.refresh_chat(window);
         self.refresh_notes(window);
         self.refresh_insights(window);
         self.refresh_settings(window);
         self.refresh_activity(window);
         self.refresh_task_picker(window);
+        crate::telemetry::log_timing("UI_OPERATION", "refresh_all", began);
     }
 
     fn refresh_pomodoro(&self, window: &MainWindow) {
@@ -572,6 +619,7 @@ impl DataHub {
         data.set_setting_rounds(prefs.pomodoro_rounds as i32);
         data.set_setting_auto_advance(prefs.pomodoro_auto_advance);
         data.set_setting_breaks(prefs.pomodoro_breaks);
+        data.set_setting_web_search(prefs.web_search);
         data.set_setting_start_next(prefs.start_next_after_early_break);
         data.set_setting_language(prefs.language.clone().into());
         data.set_language_name(language_name(&prefs.language).into());

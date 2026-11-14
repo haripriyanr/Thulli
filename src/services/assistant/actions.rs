@@ -36,7 +36,7 @@ use serde_json::Value;
 
 use chrono::NaiveDate;
 
-use crate::models::{MatrixQuadrant, TaskSection};
+use crate::models::{GoalPriority, MatrixQuadrant, TaskSection};
 
 /// Most actions accepted from one reply.
 pub const MAX_ACTIONS: usize = 25;
@@ -59,6 +59,7 @@ pub enum ProposedAction {
         list: Option<String>,
         quadrant: Option<MatrixQuadrant>,
         do_date: Option<NaiveDate>,
+        deadline: Option<NaiveDate>,
         steps: Vec<String>,
     },
     AddSubtask { task: String, title: String },
@@ -69,6 +70,8 @@ pub enum ProposedAction {
     StartFocus { task: String },
     /// Stops the running timer and logs the time to its task.
     StopFocus,
+    /// Records time already worked on a task (a timesheet entry).
+    LogTime { task: String, minutes: u32, date: Option<NaiveDate> },
     UpdateTask {
         task: String,
         title: Option<String>,
@@ -84,7 +87,39 @@ pub enum ProposedAction {
     CreateSpace { name: String, color: Option<String> },
     RenameSpace { space: String, name: String },
     DeleteSpace { space: String },
+    /// A goal with its milestones and the tasks that lead to it.
+    CreateGoal {
+        title: String,
+        description: String,
+        motivation: String,
+        category: String,
+        priority: GoalPriority,
+        target_date: Option<NaiveDate>,
+        milestones: Vec<MilestoneDraft>,
+        tasks: Vec<GoalTaskDraft>,
+    },
+    /// Links an existing task to an existing goal.
+    LinkTask { goal: String, task: String, milestone: Option<String> },
 }
+
+/// A proposed milestone.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct MilestoneDraft {
+    pub title: String,
+    pub date: Option<NaiveDate>,
+}
+
+/// A proposed task for a new goal, optionally pinned to a milestone by title.
+#[derive(Debug, Clone, PartialEq, Eq)]
+pub struct GoalTaskDraft {
+    pub title: String,
+    pub estimate_mins: u32,
+    pub milestone: Option<String>,
+}
+
+/// Most milestones and tasks one proposed goal can carry; extras are dropped.
+pub const MAX_GOAL_MILESTONES: usize = 12;
+pub const MAX_GOAL_TASKS: usize = 20;
 
 /// Display name of a quadrant.
 pub fn quadrant_title(q: MatrixQuadrant) -> &'static str {
@@ -100,7 +135,7 @@ impl ProposedAction {
     /// One line describing the change, in plain words.
     pub fn describe(&self) -> String {
         match self {
-            ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps } => {
+            ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, deadline, steps } => {
                 let mut s = format!("Add task \"{title}\" to {}", section.title());
                 if *estimate_mins > 0 {
                     s.push_str(&format!(" ({} min)", estimate_mins));
@@ -113,6 +148,9 @@ impl ProposedAction {
                 }
                 if let Some(d) = do_date {
                     s.push_str(&format!(", on {}", d.format("%a %-d %b")));
+                }
+                if let Some(d) = deadline {
+                    s.push_str(&format!(", due {}", d.format("%a %-d %b")));
                 }
                 if !steps.is_empty() {
                     s.push_str(&format!(", {} {}", steps.len(), if steps.len() == 1 { "step" } else { "steps" }));
@@ -127,6 +165,10 @@ impl ProposedAction {
             ProposedAction::SetQuadrant { task, quadrant } => format!("Sort \"{task}\" into {}", quadrant_title(*quadrant)),
             ProposedAction::StartFocus { task } => format!("Start a focus round on \"{task}\""),
             ProposedAction::StopFocus => "Stop the timer".to_string(),
+            ProposedAction::LogTime { task, minutes, date } => match date {
+                Some(d) => format!("Log {minutes} min on \"{task}\" ({})", d.format("%a %-d %b")),
+                None => format!("Log {minutes} min on \"{task}\""),
+            },
             ProposedAction::UpdateTask { task, title, .. } => match title {
                 Some(t) => format!("Edit \"{task}\" (now \"{t}\")"),
                 None => format!("Edit \"{task}\""),
@@ -137,6 +179,20 @@ impl ProposedAction {
             ProposedAction::CreateSpace { name, .. } => format!("Create space \"{name}\""),
             ProposedAction::RenameSpace { space, name } => format!("Rename space \"{space}\" to \"{name}\""),
             ProposedAction::DeleteSpace { space } => format!("Delete space \"{space}\" and its tasks"),
+            ProposedAction::CreateGoal { title, target_date, milestones, tasks, .. } => {
+                let mut s = format!("Create goal \"{title}\"");
+                if let Some(d) = target_date {
+                    s.push_str(&format!(", by {}", d.format("%-d %b %Y")));
+                }
+                if !milestones.is_empty() {
+                    s.push_str(&format!(", {} {}", milestones.len(), if milestones.len() == 1 { "milestone" } else { "milestones" }));
+                }
+                if !tasks.is_empty() {
+                    s.push_str(&format!(", {} {}", tasks.len(), if tasks.len() == 1 { "task" } else { "tasks" }));
+                }
+                s
+            }
+            ProposedAction::LinkTask { goal, task, .. } => format!("Link \"{task}\" to goal \"{goal}\""),
         }
     }
 }
@@ -150,10 +206,13 @@ pub struct ParsedReply {
     pub actions: Vec<ProposedAction>,
     /// Why each rejected proposal was refused (for diagnostics and tests).
     pub rejected: Vec<String>,
+    /// The reply tried to change something (it held action objects, valid or not).
+    /// With no valid action left, the screen says plainly that nothing changed.
+    pub attempted: bool,
 }
 
 #[derive(Deserialize)]
-#[serde(tag = "type", rename_all = "snake_case", deny_unknown_fields)]
+#[serde(tag = "type", rename_all = "snake_case")]
 enum RawAction {
     CreateTask {
         title: String,
@@ -167,6 +226,8 @@ enum RawAction {
         quadrant: Option<String>,
         #[serde(default)]
         do_date: Option<String>,
+        #[serde(default, alias = "due", alias = "due_date")]
+        deadline: Option<String>,
         #[serde(default)]
         steps: Option<Vec<String>>,
         // Small models add notes to new tasks; accepted and ignored.
@@ -192,9 +253,17 @@ enum RawAction {
         quadrant: String,
     },
     StartFocus {
+        #[serde(alias = "title")]
         task: String,
     },
     StopFocus {},
+    LogTime {
+        task: String,
+        #[serde(alias = "duration_minutes", alias = "mins", alias = "duration_mins")]
+        minutes: u32,
+        #[serde(default)]
+        date: Option<String>,
+    },
     UpdateTask {
         task: String,
         #[serde(default)]
@@ -232,19 +301,114 @@ enum RawAction {
     DeleteSpace {
         space: String,
     },
+    CreateGoal {
+        title: String,
+        #[serde(default)]
+        description: Option<String>,
+        #[serde(default)]
+        motivation: Option<String>,
+        #[serde(default)]
+        category: Option<String>,
+        #[serde(default)]
+        priority: Option<String>,
+        #[serde(default, alias = "deadline")]
+        target_date: Option<String>,
+        #[serde(default)]
+        milestones: Option<Vec<RawMilestone>>,
+        #[serde(default)]
+        tasks: Option<Vec<RawGoalTask>>,
+    },
+    LinkTask {
+        goal: String,
+        task: String,
+        #[serde(default)]
+        milestone: Option<String>,
+    },
+}
+
+/// A milestone as the model writes it: a bare title or an object.
+#[derive(Deserialize)]
+#[serde(untagged)]
+enum RawMilestone {
+    Title(String),
+    Full {
+        title: String,
+        #[serde(default, alias = "target_date")]
+        date: Option<String>,
+    },
+}
+
+/// A task inside a proposed goal, or just its title.
+#[derive(Deserialize)]
+#[serde(untagged)]
+enum RawGoalTask {
+    Title(String),
+    Full {
+        title: String,
+        #[serde(default)]
+        estimate_mins: Option<u32>,
+        #[serde(default)]
+        milestone: Option<String>,
+    },
 }
 
 /// Reads a model reply: separates prose from a JSON action block and
 /// validates each proposed action.
 pub fn parse_reply(raw: &str) -> ParsedReply {
     let mut out = ParsedReply::default();
-    let Some(found) = find_envelope(raw) else {
-        out.text = raw.trim().to_string();
-        return out;
+    // Small models sometimes write the JSON with every quote escaped (\"),
+    // as if it sat inside a string. Undo that once, then read it as usual.
+    let unescaped;
+    let raw = if find_envelope(raw).is_none() && raw.contains("\\\":") {
+        unescaped = raw.replace("\\\"", "\"").replace("\\n", "\n");
+        unescaped.as_str()
+    } else {
+        raw
+    };
+    let repaired;
+    let raw = if find_envelope(raw).is_none() {
+        match repair_envelope(raw) {
+            Some(r) if find_envelope(&r).is_some() => {
+                repaired = r;
+                repaired.as_str()
+            }
+            _ => raw,
+        }
+    } else {
+        raw
+    };
+    // A block with actions wins; an empty one gives salvage a chance (the model
+    // may have put one action in the root object) before it counts as empty.
+    let read = find_envelope(raw);
+    let join = |e: &Envelope| format!("{}\n{}", raw[..e.start].trim_end(), raw[e.end..].trim_start()).trim().to_string();
+    let (found, text) = match read {
+        Some(e) if !e.actions.is_empty() => {
+            let t = join(&e);
+            (e, t)
+        }
+        other => match salvage_envelope(raw).or(other) {
+            Some(e) => {
+                let t = join(&e);
+                (e, t)
+            }
+            None => {
+                // No block at all: the model may have written each action as a loose
+                // object, one per line. Read those; anything else that looks like
+                // JSON is kept out of what the user reads.
+                let (actions, rest) = loose_actions(raw);
+                if actions.is_empty() {
+                    let (text, hid) = hide_json(raw.trim());
+                    out.text = text;
+                    out.attempted = hid;
+                    return out;
+                }
+                (Envelope { start: 0, end: 0, actions }, rest)
+            }
+        },
     };
 
-    out.text = format!("{}\n{}", raw[..found.start].trim_end(), raw[found.end..].trim_start()).trim().to_string();
-    out.text = strip_empty_fences(&out.text);
+    out.attempted = !found.actions.is_empty();
+    out.text = hide_json(&strip_empty_fences(&text)).0;
 
     for (i, value) in found.actions.into_iter().enumerate() {
         if i >= MAX_ACTIONS {
@@ -260,7 +424,179 @@ pub fn parse_reply(raw: &str) -> ParsedReply {
             Err(why) => out.rejected.push(format!("action {}: {why}", i + 1)),
         }
     }
+    drop_stray_deletes(&mut out);
     out
+}
+
+/// Action objects written loose in the text (no `{"actions":[...]}` around them),
+/// and the text with them taken out. Only objects with a `type` count.
+fn loose_actions(raw: &str) -> (Vec<Value>, String) {
+    let mut actions = Vec::new();
+    let mut rest = String::with_capacity(raw.len());
+    let mut i = 0;
+    while let Some(rel) = raw[i..].find('{') {
+        let s = i + rel;
+        match balanced_end(raw, s) {
+            Some(e) => match serde_json::from_str::<Value>(&raw[s..e]) {
+                Ok(v) if v.get("type").and_then(Value::as_str).is_some() => {
+                    rest.push_str(&raw[i..s]);
+                    actions.push(v);
+                    i = e;
+                }
+                _ => {
+                    rest.push_str(&raw[i..s + 1]);
+                    i = s + 1;
+                }
+            },
+            None => break,
+        }
+    }
+    rest.push_str(&raw[i..]);
+    // Commas and brackets left between the objects.
+    let rest = rest.lines().filter(|l| !l.trim().trim_matches(|c| c == ',' || c == '[' || c == ']').is_empty() || l.trim().is_empty()).collect::<Vec<_>>().join("\n");
+    (actions, rest.trim().to_string())
+}
+
+/// Removes JSON the user should never read: fenced code blocks and lines that
+/// are only JSON (they start with a brace or bracket, or an "actions" key).
+/// Returns the text and whether anything was removed.
+fn hide_json(text: &str) -> (String, bool) {
+    let mut out: Vec<&str> = Vec::new();
+    let mut removed = false;
+    let mut in_fence = false;
+    for line in text.lines() {
+        let t = line.trim();
+        if t.starts_with("```") {
+            in_fence = !in_fence;
+            removed = true;
+            continue;
+        }
+        // "[1] ..." is a source mark, not JSON: a bracket counts only before {, " or ].
+        let json_list = t.starts_with('[') && t[1..].trim_start().starts_with(['{', '"', ']']) || t == "[";
+        if in_fence || t.starts_with('{') || t.starts_with('}') || json_list || t.starts_with(']') || t.starts_with("\"actions\"") {
+            removed = removed || !t.is_empty();
+            continue;
+        }
+        out.push(line);
+    }
+    // Collapse the blank lines the removal leaves behind.
+    let mut text = out.join("\n");
+    while text.contains("\n\n\n") {
+        text = text.replace("\n\n\n", "\n\n");
+    }
+    (text.trim().to_string(), removed)
+}
+
+/// A reply that mixes deletions with other changes is a planning or
+/// rescheduling answer, which never needs to delete anything. Drop the
+/// deletions and say so. A reply made only of deletions is kept: that is
+/// what a plain "delete this" request produces.
+fn drop_stray_deletes(out: &mut ParsedReply) {
+    let is_delete = |a: &ProposedAction| matches!(a, ProposedAction::DeleteTask { .. } | ProposedAction::DeleteSpace { .. });
+    if out.actions.iter().all(is_delete) {
+        return;
+    }
+    let before = out.actions.len();
+    out.actions.retain(|a| !is_delete(a));
+    for _ in out.actions.len()..before {
+        out.rejected.push("a plan may not delete anything".to_string());
+    }
+}
+
+/// Last-resort repair of an action block that small models often get nearly
+/// right: a missing comma between two objects, or missing closing brackets.
+/// Only used when the reply has no readable block as written.
+fn repair_envelope(raw: &str) -> Option<String> {
+    let start = raw.find("{\"actions\"")?;
+    let end = raw.rfind(['}', ']'])? + 1;
+    if end <= start {
+        return None;
+    }
+    let body = &raw[start..end];
+    // Two objects side by side inside the array need a comma.
+    let mut fixed = String::with_capacity(body.len() + 8);
+    let chars: Vec<char> = body.chars().collect();
+    let (mut in_str, mut escaped) = (false, false);
+    let mut stack: Vec<char> = Vec::new();
+    let mut i = 0;
+    while i < chars.len() {
+        let c = chars[i];
+        fixed.push(c);
+        if in_str {
+            if escaped {
+                escaped = false;
+            } else if c == '\\' {
+                escaped = true;
+            } else if c == '"' {
+                in_str = false;
+            }
+        } else {
+            match c {
+                '"' => in_str = true,
+                '{' | '[' => stack.push(c),
+                '}' | ']' => {
+                    stack.pop();
+                    // `}` then whitespace then `{` while an array is open.
+                    if c == '}' && stack.last() == Some(&'[') {
+                        let mut j = i + 1;
+                        while j < chars.len() && chars[j].is_whitespace() {
+                            j += 1;
+                        }
+                        if j < chars.len() && chars[j] == '{' {
+                            fixed.push(',');
+                        }
+                    }
+                }
+                _ => {}
+            }
+        }
+        i += 1;
+    }
+    if in_str {
+        fixed.push('"');
+    }
+    while let Some(open) = stack.pop() {
+        fixed.push(if open == '{' { '}' } else { ']' });
+    }
+    Some(fixed)
+}
+
+/// Last resort: picks every complete, valid action object out of a block
+/// that is broken elsewhere (stray text after it, a cut-off tail, extra keys
+/// beyond the closing bracket).
+fn salvage_envelope(raw: &str) -> Option<Envelope> {
+    let key = raw.find("\"actions\"")?;
+    let start = raw[..key].rfind('{')?;
+    let open = key + raw[key..].find('[')? + 1;
+    let mut actions = Vec::new();
+    let (mut i, mut end) = (open, open);
+    // The model sometimes writes one action straight into the root object,
+    // next to an empty "actions" list.
+    if let Some(e) = balanced_end(raw, start) {
+        if let Ok(Value::Object(mut map)) = serde_json::from_str::<Value>(&raw[start..e]) {
+            if map.contains_key("type") {
+                map.remove("actions");
+                actions.push(Value::Object(map));
+                end = e;
+                i = e;
+            }
+        }
+    }
+    while let Some(rel) = raw[i..].find('{') {
+        let s = i + rel;
+        match balanced_end(raw, s) {
+            Some(e) => match serde_json::from_str::<Value>(&raw[s..e]) {
+                Ok(v) if v.get("type").is_some() => {
+                    actions.push(v);
+                    i = e;
+                    end = e;
+                }
+                _ => i = s + 1,
+            },
+            None => i = s + 1,
+        }
+    }
+    (!actions.is_empty()).then_some(Envelope { start, end, actions })
 }
 
 struct Envelope {
@@ -340,10 +676,30 @@ fn strip_empty_fences(text: &str) -> String {
     text.replace("```json\n```", "").replace("```\n```", "").trim().to_string()
 }
 
-fn validate(value: Value) -> Result<ProposedAction, String> {
+fn validate(mut value: Value) -> Result<ProposedAction, String> {
+    // A task written as a wrapper object ({"type":"create_task","task":{...}}) is
+    // read as if its fields sat beside the type.
+    if let Some(map) = value.as_object_mut() {
+        if matches!(map.get("task"), Some(Value::Object(_))) {
+            if let Some(Value::Object(inner)) = map.remove("task") {
+                for (k, v) in inner {
+                    map.entry(k).or_insert(v);
+                }
+            }
+        }
+    }
+    // A new goal often arrives with stray task-style keys (do_asap, space...).
+    // They mean nothing here, so drop them instead of refusing the goal.
+    if value.get("type").and_then(Value::as_str) == Some("create_goal") {
+        const KEEP: [&str; 10] =
+            ["type", "title", "description", "motivation", "category", "priority", "target_date", "deadline", "milestones", "tasks"];
+        if let Some(map) = value.as_object_mut() {
+            map.retain(|k, _| KEEP.contains(&k.as_str()));
+        }
+    }
     let raw: RawAction = serde_json::from_value(value).map_err(|e| e.to_string())?;
     match raw {
-        RawAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps, .. } => {
+        RawAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, deadline, steps, .. } => {
             let title = clean_line(&title, MAX_TITLE_CHARS, "title")?;
             let section = match section.as_deref().map(str::trim) {
                 None | Some("") => TaskSection::Today,
@@ -362,11 +718,15 @@ fn validate(value: Value) -> Result<ProposedAction, String> {
                 None | Some("") => None,
                 Some(d) => Some(NaiveDate::parse_from_str(d, "%Y-%m-%d").map_err(|_| "do_date is not YYYY-MM-DD".to_string())?),
             };
+            let deadline = match deadline.as_deref().map(str::trim) {
+                None | Some("") => None,
+                Some(d) => Some(NaiveDate::parse_from_str(d, "%Y-%m-%d").map_err(|_| "deadline is not YYYY-MM-DD".to_string())?),
+            };
             let steps: Vec<String> =
                 steps.unwrap_or_default().iter().filter_map(|st| clean_line(st, MAX_TITLE_CHARS, "step").ok()).take(MAX_STEPS).collect();
             // A quadrant decides the section, so the two always agree.
             let section = quadrant.map(|q| q.section()).unwrap_or(section);
-            Ok(ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, steps })
+            Ok(ProposedAction::CreateTask { title, section, estimate_mins, list, quadrant, do_date, deadline, steps })
         }
         RawAction::AddSubtask { task, title } => Ok(ProposedAction::AddSubtask {
             task: clean_line(&task, MAX_TITLE_CHARS, "task")?,
@@ -387,6 +747,16 @@ fn validate(value: Value) -> Result<ProposedAction, String> {
         }),
         RawAction::StartFocus { task } => Ok(ProposedAction::StartFocus { task: clean_line(&task, MAX_TITLE_CHARS, "task")? }),
         RawAction::StopFocus {} => Ok(ProposedAction::StopFocus),
+        RawAction::LogTime { task, minutes, date } => {
+            if minutes == 0 {
+                return Err("minutes must be above zero".to_string());
+            }
+            let date = match date.as_deref().map(str::trim) {
+                None | Some("") => None,
+                Some(d) => Some(NaiveDate::parse_from_str(d, "%Y-%m-%d").map_err(|_| "date is not YYYY-MM-DD".to_string())?),
+            };
+            Ok(ProposedAction::LogTime { task: clean_line(&task, MAX_TITLE_CHARS, "task")?, minutes: minutes.min(24 * 60), date })
+        }
         RawAction::UpdateTask { task, title, estimate_mins, section, notes, do_date, deadline, space } => {
             let opt_line = |v: Option<String>, field: &str| -> Result<Option<String>, String> {
                 match v {
@@ -422,6 +792,59 @@ fn validate(value: Value) -> Result<ProposedAction, String> {
             name: clean_line(&name, 80, "name")?,
         }),
         RawAction::DeleteSpace { space } => Ok(ProposedAction::DeleteSpace { space: clean_line(&space, 80, "space")? }),
+        RawAction::CreateGoal { title, description, motivation, category, priority, target_date, milestones, tasks } => {
+            let priority = match priority.as_deref().map(str::trim) {
+                None | Some("") => GoalPriority::Medium,
+                Some(p) => GoalPriority::parse(&p.to_lowercase()).ok_or_else(|| format!("unknown priority \"{}\"", truncate(p, 20)))?,
+            };
+            // A bad date on a milestone drops the date, not the whole goal.
+            let milestones: Vec<MilestoneDraft> = milestones
+                .unwrap_or_default()
+                .into_iter()
+                .filter_map(|m| {
+                    let (t, d) = match m {
+                        RawMilestone::Title(t) => (t, None),
+                        RawMilestone::Full { title, date } => (title, date),
+                    };
+                    let title = clean_line(&t, MAX_TITLE_CHARS, "milestone").ok()?;
+                    let date = d.and_then(|d| opt_date(&d, "date").ok().flatten());
+                    Some(MilestoneDraft { title, date })
+                })
+                .take(MAX_GOAL_MILESTONES)
+                .collect();
+            let tasks: Vec<GoalTaskDraft> = tasks
+                .unwrap_or_default()
+                .into_iter()
+                .filter_map(|t| {
+                    let (title, est, ms) = match t {
+                        RawGoalTask::Title(t) => (t, None, None),
+                        RawGoalTask::Full { title, estimate_mins, milestone } => (title, estimate_mins, milestone),
+                    };
+                    let title = clean_line(&title, MAX_TITLE_CHARS, "task").ok()?;
+                    let milestone = ms.and_then(|m| clean_line(&m, MAX_TITLE_CHARS, "milestone").ok());
+                    Some(GoalTaskDraft { title, estimate_mins: est.unwrap_or(0).min(MAX_ESTIMATE_MINS), milestone })
+                })
+                .take(MAX_GOAL_TASKS)
+                .collect();
+            Ok(ProposedAction::CreateGoal {
+                title: clean_line(&title, MAX_TITLE_CHARS, "title")?,
+                description: clean_text(&description.unwrap_or_default(), MAX_BODY_CHARS, "description")?,
+                motivation: clean_text(&motivation.unwrap_or_default(), MAX_BODY_CHARS, "motivation")?,
+                category: clean_line(&category.unwrap_or_default(), 40, "category").unwrap_or_default(),
+                priority,
+                target_date: match target_date {
+                    Some(d) => opt_date(&d, "target_date")?,
+                    None => None,
+                },
+                milestones,
+                tasks,
+            })
+        }
+        RawAction::LinkTask { goal, task, milestone } => Ok(ProposedAction::LinkTask {
+            goal: clean_line(&goal, MAX_TITLE_CHARS, "goal")?,
+            task: clean_line(&task, MAX_TITLE_CHARS, "task")?,
+            milestone: milestone.and_then(|m| clean_line(&m, MAX_TITLE_CHARS, "milestone").ok()),
+        }),
     }
 }
 
@@ -496,11 +919,146 @@ fn parse_time(s: &str) -> Result<DateTime<Utc>, String> {
 }
 
 #[cfg(test)]
+mod loose_reply_tests {
+    use super::*;
+
+    #[test]
+    fn loose_action_lines_become_proposals_and_leave_the_text() {
+        let raw = "Got it. I'll delete all your tasks.\n\n{\"type\":\"delete_task\",\"task\":\"Sample task 2\",\"done\":true}\n{\"type\":\"delete_task\",\"task\":\"Sample task 3\",\"done\":true}";
+        let p = parse_reply(raw);
+        assert_eq!(p.actions.len(), 2, "{:?}", p.rejected);
+        assert!(p.attempted);
+        assert_eq!(p.text, "Got it. I'll delete all your tasks.");
+    }
+
+    #[test]
+    fn broken_json_is_hidden_and_counts_as_an_attempt() {
+        let p = parse_reply("Sure.\n{\"type\": \"delete_task\", \"task\": ");
+        assert!(p.actions.is_empty());
+        assert!(p.attempted);
+        assert_eq!(p.text, "Sure.");
+    }
+
+    #[test]
+    fn source_marks_are_kept() {
+        let p = parse_reply("The canal opened in 1914 [1].
+[2] Ships no longer round Cape Horn.");
+        assert!(!p.attempted);
+        assert!(p.text.contains("[2] Ships"));
+    }
+
+    #[test]
+    fn a_plain_answer_is_not_an_attempt() {
+        let p = parse_reply("Paris is the capital of France.");
+        assert!(!p.attempted);
+        assert_eq!(p.text, "Paris is the capital of France.");
+    }
+}
+
+#[cfg(test)]
 mod tests {
     use super::*;
 
     fn actions(raw: &str) -> ParsedReply {
         parse_reply(raw)
+    }
+
+    #[test]
+    fn goal_actions_parse_leniently_and_describe_themselves() {
+        let p = actions(
+            r#"{"actions":[{"type":"create_goal","title":"Learn Rust","priority":"HIGH","deadline":"2027-01-31",
+            "milestones":["Basics",{"title":"Project","date":"oops"}],"tasks":["Read the book",{"title":"Build a CLI","estimate_mins":9999}]},
+            {"type":"link_task","goal":"Learn Rust","task":"abc123","milestone":"Basics"},
+            {"type":"create_goal","title":"","milestones":[]},
+            {"type":"create_goal","title":"X","priority":"urgent"}]}"#,
+        );
+        assert_eq!(p.actions.len(), 2, "{:?}", p.rejected);
+        assert_eq!(p.rejected.len(), 2);
+        match &p.actions[0] {
+            ProposedAction::CreateGoal { priority, target_date, milestones, tasks, .. } => {
+                assert_eq!(*priority, GoalPriority::High);
+                assert_eq!(*target_date, NaiveDate::from_ymd_opt(2027, 1, 31));
+                assert_eq!(milestones.len(), 2);
+                assert!(milestones[1].date.is_none());
+                assert_eq!(tasks[1].estimate_mins, MAX_ESTIMATE_MINS);
+            }
+            other => panic!("unexpected {other:?}"),
+        }
+        assert_eq!(p.actions[0].describe(), "Create goal \"Learn Rust\", by 31 Jan 2027, 2 milestones, 2 tasks");
+        assert_eq!(p.actions[1].describe(), "Link \"abc123\" to goal \"Learn Rust\"");
+    }
+
+    #[test]
+    fn goal_milestones_and_tasks_are_capped_not_rejected() {
+        let many: Vec<String> = (0..40).map(|i| format!("\"m{i}\"")).collect();
+        let raw = format!("{{\"actions\":[{{\"type\":\"create_goal\",\"title\":\"Big\",\"milestones\":[{}],\"tasks\":[{}]}}]}}", many.join(","), many.join(","));
+        match &actions(&raw).actions[0] {
+            ProposedAction::CreateGoal { milestones, tasks, .. } => {
+                assert_eq!(milestones.len(), MAX_GOAL_MILESTONES);
+                assert_eq!(tasks.len(), MAX_GOAL_TASKS);
+            }
+            other => panic!("unexpected {other:?}"),
+        }
+    }
+
+    #[test]
+    fn json_with_escaped_quotes_is_still_read() {
+        let raw = r#"{"actions":[{\"type\":\"create_task\",\"title\":\"Write intro\",\"estimate_mins\":30}]}"#;
+        let p = actions(raw);
+        assert_eq!(p.actions.len(), 1, "{:?}", p.rejected);
+        assert_eq!(p.actions[0].describe(), "Add task \"Write intro\" to Today (30 min)");
+        // Ordinary replies are untouched.
+        assert!(actions("No quotes \\\" here").actions.is_empty());
+    }
+
+    #[test]
+    fn nearly_valid_blocks_are_repaired() {
+        // Missing comma between two actions and missing closing "]}".
+        let raw = "{\"actions\":[{\"type\":\"create_task\",\"title\":\"A\"}\n{\"type\":\"create_task\",\"title\":\"B\"}";
+        let p = actions(raw);
+        assert_eq!(p.actions.len(), 2, "{:?}", p.rejected);
+        // Goal closed but the array and envelope left open.
+        let raw = "Here you go: {\"actions\":[{\"type\":\"create_goal\",\"title\":\"G\",\"milestones\":[\"One\"],\"tasks\":[{\"title\":\"T\"}]}";
+        let p = actions(raw);
+        assert_eq!(p.actions.len(), 1, "{:?}", p.rejected);
+        // A truncated string is closed rather than lost.
+        let p = actions("{\"actions\":[{\"type\":\"create_task\",\"title\":\"Half");
+        assert!(p.actions.is_empty() || p.actions.len() == 1);
+        // Prose with braces is left alone.
+        assert!(actions("Use {braces} like this").actions.is_empty());
+    }
+
+    #[test]
+    fn complete_actions_are_salvaged_from_a_broken_block() {
+        let raw = r#"{"actions":[{"type":"create_task","title":"Keep me"},{"type":"create_task","title":"And me"}],"space":"x","do_asap":true}"} trailing"#;
+        let p = actions(raw);
+        assert_eq!(p.actions.len(), 2, "{:?}", p.rejected);
+        // The real failure: the goal object is whole, junk follows it.
+        let raw = r#"{"actions":[{"type":"create_goal","title":"G","milestones":["A"],"tasks":[{"title":"T","milestone":"A"}]}","space":"VLSI Lab","start_focus":"G"}"#;
+        let p = actions(raw);
+        assert_eq!(p.actions.len(), 1, "{:?}", p.rejected);
+        assert!(matches!(p.actions[0], ProposedAction::CreateGoal { .. }));
+    }
+
+    #[test]
+    fn partly_escaped_and_root_level_actions_are_read() {
+        // Run-to-run quirks of a small model: a stray \" in the middle ...
+        let raw = r#"{"actions":[{"type":"create_goal","title":"G","milestones":[{"title":"A"},{"title\":\"B"}],"tasks":[]}]}"#;
+        assert_eq!(actions(raw).actions.len(), 1);
+        // ... and one action written beside an empty actions list.
+        let raw = r#"{"actions":[],"type":"create_goal","title":"G2","milestones":["A"],"tasks":[{"title":"T"}]}"#;
+        let p = actions(raw);
+        assert_eq!(p.actions.len(), 1, "{:?}", p.rejected);
+        assert!(matches!(&p.actions[0], ProposedAction::CreateGoal { title, .. } if title == "G2"));
+    }
+
+    #[test]
+    fn stray_keys_on_a_new_goal_are_dropped_not_fatal() {
+        let p = actions(r#"{"actions":[{"type":"create_goal","title":"G","do_asap":true,"space":"Lab","milestones":["A"]}]}"#);
+        assert_eq!(p.actions.len(), 1, "{:?}", p.rejected);
+        // Other actions forgive stray keys too.
+        let p = actions(r#"{"actions":[{"type":"delete_task","task":"x","extra":1}]}"#);
+        assert_eq!(p.actions.len(), 1);
     }
 
     #[test]
@@ -530,6 +1088,7 @@ mod tests {
                 list: Some("Work".into()),
                 quadrant: None,
                 do_date: None,
+                deadline: None,
                 steps: Vec::new(),
             }
         );
@@ -570,8 +1129,9 @@ mod tests {
             {\"type\":\"create_task\"},\
             {\"type\":\"create_task\",\"title\":\"fine\"}]}",
         );
-        assert_eq!(p.actions.len(), 1);
-        assert_eq!(p.rejected.len(), 3);
+        // The stray key is ignored; the unknown type and the missing title are refused.
+        assert_eq!(p.actions.len(), 2);
+        assert_eq!(p.rejected.len(), 2);
     }
 
     #[test]
@@ -617,8 +1177,9 @@ mod tests {
             {\"type\":\"delete_space\",\"space\":\"Finals\"},\
             {\"type\":\"stop_focus\"}]}",
         );
-        assert_eq!(p.actions.len(), 7, "{:?}", p.rejected);
-        assert_eq!(p.actions[6], ProposedAction::StopFocus);
+        // The two deletions are dropped because the reply also changes other things.
+        assert_eq!(p.actions.len(), 5, "{:?}", p.rejected);
+        assert_eq!(p.actions[4], ProposedAction::StopFocus);
     }
 
     #[test]
@@ -699,8 +1260,35 @@ mod tests {
             list: None,
             quadrant: None,
             do_date: None,
+            deadline: None,
             steps: Vec::new(),
         };
         assert_eq!(a.describe(), "Add task \"Write\" to Today (25 min)");
+    }
+    #[test]
+    fn deadline_and_log_time_are_read() {
+        let p = parse_reply(r#"{"actions":[{"type":"create_task","title":"Essay","deadline":"2026-12-05"},{"type":"log_time","task":"Essay","minutes":45}]}"#);
+        assert_eq!(p.rejected, Vec::<String>::new());
+        assert!(matches!(&p.actions[0], ProposedAction::CreateTask { deadline: Some(_), .. }));
+        assert_eq!(p.actions[1], ProposedAction::LogTime { task: "Essay".into(), minutes: 45, date: None });
+        assert!(parse_reply(r#"{"actions":[{"type":"log_time","task":"x","minutes":0}]}"#).actions.is_empty());
+    }
+
+    #[test]
+    fn common_slips_are_forgiven() {
+        // A wrapper object, a title on start_focus and an extra key.
+        let p = parse_reply(r#"{"actions":[{"type":"create_task","task":{"title":"Read","estimate_mins":20}},{"type":"start_focus","title":"Read","duration_minutes":25}]}"#);
+        assert_eq!(p.rejected, Vec::<String>::new());
+        assert_eq!(p.actions.len(), 2);
+        assert_eq!(p.actions[1], ProposedAction::StartFocus { task: "Read".into() });
+    }
+
+    #[test]
+    fn plans_never_delete() {
+        let mixed = parse_reply(r#"{"actions":[{"type":"schedule_task","task":"A","at":"2026-12-01T09:00:00"},{"type":"delete_task","task":"B"}]}"#);
+        assert_eq!(mixed.actions.len(), 1);
+        assert!(mixed.rejected.iter().any(|r| r.contains("may not delete")));
+        let only = parse_reply(r#"{"actions":[{"type":"delete_task","task":"B"}]}"#);
+        assert_eq!(only.actions.len(), 1);
     }
 }

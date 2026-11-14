@@ -19,8 +19,8 @@ component TimerCard inherits GlassCard {
     property <bool> picker-open: false;
     property <color> accent: Theme.accent-violet;
     property <string> phase-label: AppData.pomodoro-phase == "focus"
-        ? "Deep Focus"
-        : (AppData.pomodoro-phase == "short_break" ? "Short Break" : "Long Break");
+        ? @tr("Focus")
+        : (AppData.pomodoro-phase == "short_break" ? @tr("Short Break") : @tr("Long Break"));
 
     VerticalLayout {
         padding: 22px;
@@ -32,13 +32,13 @@ component TimerCard inherits GlassCard {
         if !AppData.immersive: HorizontalLayout {
             alignment: center;
             spacing: 8px;
-            IconTab { label: @tr("Focus"); selected: AppData.pomodoro-mode == "focus"; clicked => { AppData.pomodoro-select("focus"); }
+            IconTab { label: @tr("Focus"); tip: @tr("A work session"); selected: AppData.pomodoro-mode == "focus"; clicked => { AppData.pomodoro-select("focus"); }
                 IconTimer { width: 16px; height: 16px; stroke-color: AppData.pomodoro-mode == "focus" ? Theme.accent-violet : Theme.text-secondary; } }
-            IconTab { label: @tr("Short Break"); selected: AppData.pomodoro-mode == "short_break"; clicked => { AppData.pomodoro-select("short_break"); }
+            IconTab { label: @tr("Short Break"); tip: @tr("A short rest"); selected: AppData.pomodoro-mode == "short_break"; clicked => { AppData.pomodoro-select("short_break"); }
                 IconCoffee { width: 16px; height: 16px; stroke-color: AppData.pomodoro-mode == "short_break" ? Theme.accent-violet : Theme.text-secondary; } }
-            IconTab { label: @tr("Long Break"); selected: AppData.pomodoro-mode == "long_break"; clicked => { AppData.pomodoro-select("long_break"); }
+            IconTab { label: @tr("Long Break"); tip: @tr("A longer rest"); selected: AppData.pomodoro-mode == "long_break"; clicked => { AppData.pomodoro-select("long_break"); }
                 IconPill { width: 16px; height: 16px; stroke-color: AppData.pomodoro-mode == "long_break" ? Theme.accent-violet : Theme.text-secondary; } }
-            IconTab { label: @tr("Custom"); selected: AppData.pomodoro-mode == "custom"; clicked => { AppData.pomodoro-select("custom"); }
+            IconTab { label: @tr("Custom"); tip: @tr("Set your own length"); selected: AppData.pomodoro-mode == "custom"; clicked => { AppData.pomodoro-select("custom"); }
                 IconSettings { width: 16px; height: 16px; stroke-color: AppData.pomodoro-mode == "custom" ? Theme.accent-violet : Theme.text-secondary; } }
         }
 
@@ -50,6 +50,7 @@ component TimerCard inherits GlassCard {
                 alignment: center;
                 GlassIconButton {
                     dia: 44px;
+                    tip: @tr("Previous mode");
                     clicked => { AppData.pomodoro-previous(); }
                     IconChevronLeft { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
                 }
@@ -95,17 +96,16 @@ component TimerCard inherits GlassCard {
                         IconWave { width: 22px; height: 22px; stroke-color: root.accent; }
                     }
                     Text { text: root.phase-label; font-size: 14px; color: Theme.text-secondary; horizontal-alignment: center; }
-                    // While the timer runs the digits breathe: a slow 4 s swell
-                    // in size and brightness. Paused, they rest.
+                    // Driven by background-phase instead of animation-tick() to eliminate continuous 60 FPS GPU repaints.
                     Text {
-                        property <float> breath: AppData.pomodoro-running ? (1 - Math.cos(animation-tick() / 4s * 360deg)) / 2 : 0;
+                        property <float> breath: AppData.pomodoro-running ? (1 - Math.cos(AppData.background-phase * 3600deg)) / 2 : 0;
                         text: AppData.pomodoro-time;
                         font-size: AppData.immersive ? 96px : 64px;
                         font-weight: 700;
                         color: Theme.text-primary;
                         horizontal-alignment: center;
-                        transform-scale: 1 + 0.035 * self.breath;
-                        opacity: 0.82 + 0.18 * self.breath;
+                        transform-scale: 1 + 0.025 * self.breath;
+                        opacity: 0.88 + 0.12 * self.breath;
                         animate font-size { duration: 700ms; easing: ease-in-out; }
                     }
                     Text { text: AppData.pomodoro-round; font-size: 13px; color: Theme.text-secondary; horizontal-alignment: center; }
@@ -135,12 +135,14 @@ component TimerCard inherits GlassCard {
                         height: 62px;
                         GlassIconButton {
                             dia: 44px;
+                            tip: AppData.pomodoro-running ? @tr("Pause") : @tr("Start");
                             clicked => { AppData.pomodoro-toggle(); }
                             if !AppData.pomodoro-running: IconPlay { width: 18px; height: 18px; stroke-color: Theme.text-primary; fill-color: Theme.text-primary; }
                             if AppData.pomodoro-running: IconPause { width: 18px; height: 18px; stroke-color: Theme.text-primary; fill-color: Theme.text-primary; }
                         }
                         GlassIconButton {
                             dia: 44px;
+                            tip: @tr("Exit full screen");
                             clicked => { AppData.immersive = false; }
                             IconExpand { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
                         }
@@ -152,6 +154,7 @@ component TimerCard inherits GlassCard {
                 alignment: center;
                 GlassIconButton {
                     dia: 44px;
+                    tip: @tr("Next mode");
                     clicked => { AppData.pomodoro-next(); }
                     IconChevronRight { width: 16px; height: 16px; stroke-color: Theme.text-secondary; }
                 }
@@ -168,18 +171,21 @@ component TimerCard inherits GlassCard {
                     alignment: center;
                     GlassIconButton {
                         dia: 52px;
+                        tip: @tr("Reset");
                         clicked => { AppData.pomodoro-reset(); }
                         IconRefresh { width: 18px; height: 18px; stroke-color: Theme.text-secondary; }
                     }
                 }
                 PlayButton {
                     running: AppData.pomodoro-running;
+                    tip: AppData.pomodoro-running ? @tr("Pause") : @tr("Start");
                     clicked => { AppData.pomodoro-toggle(); }
                 }
                 VerticalLayout {
                     alignment: center;
                     GlassIconButton {
                         dia: 52px;
+                        tip: @tr("Skip");
                         clicked => { AppData.pomodoro-next(); }
                         IconSkip { width: 18px; height: 18px; stroke-color: Theme.text-secondary; }
                     }
@@ -187,6 +193,7 @@ component TimerCard inherits GlassCard {
             }
             GlassIconButton {
                 dia: 44px;
+                tip: AppData.immersive ? @tr("Exit full screen") : @tr("Full screen");
                 x: parent.width - self.width;
                 y: (parent.height - self.height) / 2;
                 clicked => { AppData.immersive = !AppData.immersive; }
@@ -442,10 +449,10 @@ component AnalyticsCard inherits GlassCard {
                     width: self.preferred-width;
                     height: 38px;
                     spacing: 4px;
-                    IconTab { label: @tr("Day"); selected: AppData.activity-range == "day"; clicked => { AppData.activity-range-selected("day"); } }
-                    IconTab { label: @tr("Week"); selected: AppData.activity-range == "week"; clicked => { AppData.activity-range-selected("week"); } }
-                    IconTab { label: @tr("Month"); selected: AppData.activity-range == "month"; clicked => { AppData.activity-range-selected("month"); } }
-                    IconTab { label: @tr("Year"); selected: AppData.activity-range == "year"; clicked => { AppData.activity-range-selected("year"); } }
+                    IconTab { label: @tr("Day"); tip: @tr("Activity for the day"); selected: AppData.activity-range == "day"; clicked => { AppData.activity-range-selected("day"); } }
+                    IconTab { label: @tr("Week"); tip: @tr("Activity for the week"); selected: AppData.activity-range == "week"; clicked => { AppData.activity-range-selected("week"); } }
+                    IconTab { label: @tr("Month"); tip: @tr("Activity for the month"); selected: AppData.activity-range == "month"; clicked => { AppData.activity-range-selected("month"); } }
+                    IconTab { label: @tr("Year"); tip: @tr("Activity for the year"); selected: AppData.activity-range == "year"; clicked => { AppData.activity-range-selected("year"); } }
                 }
             }
         }

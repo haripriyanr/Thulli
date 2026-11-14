@@ -7,11 +7,13 @@ import { SpaceTask, SpaceColumn } from "../types.slint";
 import { AppData } from "../app_data.slint";
 import { PlanPanel } from "ai_panels.slint";
 import { DropZone } from "../components/drag.slint";
+import { HoverTip } from "../components/tips.slint";
 import { IconStar } from "../icons.slint";
 
 /// A small rounded choice chip, tinted when it is the current choice.
 component Chip inherits Rectangle {
     in property <string> label;
+    in property <string> tip;
     in property <color> tint: Theme.accent-violet;
     in property <bool> current: false;
     callback clicked();
@@ -24,6 +26,7 @@ component Chip inherits Rectangle {
     animate background { duration: 200ms; easing: ease-out; }
     chip-text := Text { text: root.label; font-size: 11px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
     touch := TouchArea { mouse-cursor: pointer; clicked => { root.clicked(); } }
+    HoverTip { tip: root.tip; hovered: touch.has-hover; pressed: touch.pressed; }
 }
 
 /// One row of the space list.
@@ -51,7 +54,7 @@ component SpaceItem inherits Rectangle {
         Text { horizontal-stretch: 1; text: root.name; font-size: 14px; color: Theme.text-primary; vertical-alignment: center; overflow: elide; }
         if root.has-menu && touch.has-hover: VerticalLayout {
             alignment: center;
-            CardAction { tip: ""; clicked => { root.menu(); }
+            CardAction { tip: @tr("More"); clicked => { root.menu(); }
                 IconMore { width: 14px; height: 14px; stroke-color: Theme.text-secondary; } }
         }
         if !root.has-menu || !touch.has-hover: Text { text: @tr("{}", root.count); font-size: 13px; color: Theme.text-muted; vertical-alignment: center; }
@@ -485,10 +488,10 @@ component CalendarView inherits Rectangle {
                         Text { text: AppData.calendar-label; font-size: 17px; font-weight: 700; color: Theme.text-primary; }
                         Text { text: @tr("Weekly schedule"); font-size: 12px; color: Theme.text-muted; }
                     }
-                    VerticalLayout { alignment: center; GlassIconButton { dia: 32px; clicked => { AppData.calendar-shift(-1); }
+                    VerticalLayout { alignment: center; GlassIconButton { dia: 32px; tip: @tr("Previous week"); clicked => { AppData.calendar-shift(-1); }
                         IconChevronLeft { width: 12px; height: 12px; stroke-color: Theme.text-secondary; } } }
-                    VerticalLayout { alignment: center; Chip { label: @tr("Today"); clicked => { AppData.calendar-shift(0); } } }
-                    VerticalLayout { alignment: center; GlassIconButton { dia: 32px; clicked => { AppData.calendar-shift(1); }
+                    VerticalLayout { alignment: center; Chip { label: @tr("Today"); tip: @tr("Go to this week"); clicked => { AppData.calendar-shift(0); } } }
+                    VerticalLayout { alignment: center; GlassIconButton { dia: 32px; tip: @tr("Next week"); clicked => { AppData.calendar-shift(1); }
                         IconChevronRight { width: 12px; height: 12px; stroke-color: Theme.text-secondary; } } }
                 }
                 week-scroll := Flickable {
@@ -531,7 +534,7 @@ component CalendarView inherits Rectangle {
                                             launched => { AppData.task-launched(task.id); root.launched(); }
                                             deleted => { AppData.space-task-deleted(task.id); }
                                             saved(title, estimate, notes, do-date, deadline) => { AppData.space-task-edited(task.id, title, estimate, notes, do-date, deadline); }
-                                            Chip { label: @tr("Unplan"); tint: Theme.text-muted; clicked => { AppData.task-day-set(task.id, -1); } }
+                                            Chip { label: @tr("Unplan"); tip: @tr("Take it off the calendar"); tint: Theme.text-muted; clicked => { AppData.task-day-set(task.id, -1); } }
                                         }
                                         AddTaskField {
                                             label: @tr("Add");
@@ -588,6 +591,7 @@ export component SpacesScreen inherits Rectangle {
                     Text { horizontal-stretch: 1; text: @tr("SPACES"); font-size: 12px; font-weight: 600; color: Theme.text-muted; vertical-alignment: center; }
                     GlassIconButton {
                         dia: 32px;
+                        tip: @tr("New space");
                         clicked => { root.creating = true; root.menu-id = ""; root.edit-id = ""; }
                         IconPlus { width: 13px; height: 13px; stroke-color: Theme.text-primary; }
                     }
@@ -632,25 +636,25 @@ export component SpacesScreen inherits Rectangle {
                     SpaceBadge { size: 40px; tint: AppData.space-color; letter: AppData.space-letter; }
                 }
                 Text { text: AppData.space-name; font-size: 28px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; overflow: elide; }
-                VerticalLayout { alignment: center; CardAction { tip: AppData.can-undo ? "Undo" : ""; clicked => { AppData.space-undo(); }
+                VerticalLayout { alignment: center; CardAction { tip: AppData.can-undo ? @tr("Undo") : ""; clicked => { AppData.space-undo(); }
                     IconUndo { stroke-color: AppData.can-undo ? Theme.text-secondary : Theme.text-muted.with-alpha(0.4); } } }
-                VerticalLayout { alignment: center; CardAction { tip: AppData.can-redo ? "Redo" : ""; clicked => { AppData.space-redo(); }
+                VerticalLayout { alignment: center; CardAction { tip: AppData.can-redo ? @tr("Redo") : ""; clicked => { AppData.space-redo(); }
                     IconRedo { stroke-color: AppData.can-redo ? Theme.text-secondary : Theme.text-muted.with-alpha(0.4); } } }
                 Rectangle { horizontal-stretch: 1; }
                 VerticalLayout {
                     alignment: center;
-                    IconTab { label: @tr("Plan with AI"); clicked => { root.plan-open = true; }
+                    IconTab { label: @tr("Plan with AI"); tip: @tr("Describe what you need and the assistant plans it"); clicked => { root.plan-open = true; }
                         IconStar { width: 16px; height: 16px; stroke-color: Theme.accent-violet; } }
                 }
                 VerticalLayout {
                     alignment: center;
                     HorizontalLayout {
                         spacing: 6px;
-                        IconTab { label: @tr("Board"); selected: AppData.space-view == "board"; clicked => { AppData.space-view = "board"; }
+                        IconTab { label: @tr("Board"); tip: @tr("See tasks in columns"); selected: AppData.space-view == "board"; clicked => { AppData.space-view = "board"; }
                             IconBoard { stroke-color: AppData.space-view == "board" ? Theme.accent-violet : Theme.text-secondary; } }
-                        IconTab { label: @tr("Matrix"); selected: AppData.space-view == "matrix"; clicked => { AppData.space-view = "matrix"; }
+                        IconTab { label: @tr("Matrix"); tip: @tr("Sort tasks by urgency and importance"); selected: AppData.space-view == "matrix"; clicked => { AppData.space-view = "matrix"; }
                             IconGrid { stroke-color: AppData.space-view == "matrix" ? Theme.accent-violet : Theme.text-secondary; } }
-                        IconTab { label: @tr("Calendar"); selected: AppData.space-view == "calendar"; clicked => { AppData.space-view = "calendar"; }
+                        IconTab { label: @tr("Calendar"); tip: @tr("See tasks on a weekly calendar"); selected: AppData.space-view == "calendar"; clicked => { AppData.space-view = "calendar"; }
                             IconCalendar { width: 16px; height: 16px; stroke-color: AppData.space-view == "calendar" ? Theme.accent-violet : Theme.text-secondary; } }
                     }
                 }

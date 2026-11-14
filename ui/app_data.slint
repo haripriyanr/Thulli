@@ -1,4 +1,4 @@
-import { TaskRow, NoteRow, DayBar, SessionRow, TaskOption, SpaceRow, SpaceTask, SpaceColumn, CalendarDay, LanguageRow } from "types.slint";
+import { TaskRow, NoteRow, DayBar, SessionRow, TaskOption, SpaceRow, SpaceTask, SpaceColumn, CalendarDay, LanguageRow, GoalRow, MilestoneRow, GoalTaskRow, GoalTaskOption, GoalSessionRow, ReviewRow, ChatThreadModel, ChatMessageModel, ChatTraceRow } from "types.slint";
 
 /// AppData: everything the screens show. Rust fills it from the saved data
 /// and handles the callbacks; the screens only display it and report taps.
@@ -130,6 +130,8 @@ export global AppData {
     // transcript with the field it belongs to. `mic-seq` counts results.
     in-out property <string> mic-listening: "";
     in-out property <bool> mic-busy: false;
+    // How loud the mic hears right now, 0 to 1, while it is on.
+    in-out property <float> mic-level: 0.0;
     in-out property <string> mic-owner: "";
     in-out property <string> mic-text: "";
     in-out property <int> mic-seq: 0;
@@ -142,6 +144,39 @@ export global AppData {
     // Set by ai-apply when the plan started a focus round, so the screen
     // can open Pomodoro.
     in-out property <bool> ai-focus-started: false;
+    // Chat: conversations with the on-device assistant.
+    in-out property <[ChatThreadModel]> chat-threads: [];
+    in-out property <[ChatMessageModel]> chat-messages: [];
+    in-out property <string> chat-thread: "";
+    in-out property <[string]> chat-proposals: [];
+    in-out property <bool> chat-busy: false;
+    in-out property <string> chat-status: "";
+    // What the assistant is doing: "loading" (starting the model), "reading" (taking in
+    // the message), "writing", "searching" (web research), "stopped", or "" when idle.
+    in-out property <string> chat-phase: "";
+    callback chat-send(string);
+    // The steps of a research in progress.
+    in-out property <[ChatTraceRow]> chat-trace: [];
+    // question, depth ("quick", "standard" or "deep")
+    callback chat-research(string, string);
+    // Worker to screen: kind, text, detail.
+    callback chat-research-event(string, string, string);
+    callback chat-research-done(string, bool, string);
+    callback chat-new();
+    callback chat-open(string);
+    callback chat-apply();
+    callback chat-discard();
+    // Stops the answer being written; what was written so far is kept.
+    callback chat-stop();
+    // message index, new text: edit a sent message and answer it again
+    callback chat-edit(int, string);
+    callback chat-copy(string);
+    // Fork the open chat up to this message index (-1: all of it).
+    callback chat-fork(int);
+    callback chat-fork-thread(string);
+    callback chat-delete(string);
+    // thread id, succeeded, reply text or error
+    callback chat-reply(string, bool, string);
     // Opens or closes Windows voice typing for the focused field.
     callback mic-toggle(string);
     callback ai-models-download();
@@ -201,6 +236,8 @@ export global AppData {
     callback set-auto-advance(bool);
     // Breaks between focus rounds; off runs focus after focus.
     in-out property <bool> setting-breaks: true;
+    // The assistant may search the web (off until the person turns it on).
+    in-out property <bool> setting-web-search: false;
     in-out property <bool> setting-start-next: false;
     // Saved language id, such as "en".
     in-out property <string> setting-language: "en";
@@ -214,4 +251,74 @@ export global AppData {
     in-out property <string> language-name: "English";
     in-out property <[LanguageRow]> language-rows;
     callback language-search(string);
+
+    // Goals: the dashboard.
+    in-out property <[GoalRow]> goals: [];
+    // "in_play", "active", "paused", "completed" or "archived".
+    in-out property <string> goals-filter: "in_play";
+    // "priority", "deadline", "progress" or "recent".
+    in-out property <string> goals-sort: "priority";
+    in-out property <string> goals-search: "";
+    // Counts for the dashboard header; the sentence is built in Slint.
+    in-out property <int> goals-active: 0;
+    in-out property <int> goals-paused: 0;
+    in-out property <int> goals-completed: 0;
+    in-out property <int> goals-overdue: 0;
+    // True when there are no goals at all, so the first-run message shows.
+    in-out property <bool> goals-none-yet: true;
+    // A short message for the person when a goal action did not go through.
+    in-out property <string> goals-error: "";
+    // Rust adds one after a goal was saved, so the form can close.
+    in-out property <int> goal-saved-seq: 0;
+    callback goals-filter-changed(string);
+    callback goals-sort-changed(string);
+    callback goals-search-changed(string);
+    // id (empty to create), title, description, motivation, category,
+    // priority, mode, target date, current, target, unit, notes.
+    callback goal-save(string, string, string, string, string, string, string, string, string, string, string, string);
+
+    // Goals: the open goal.
+    in-out property <bool> goal-open: false;
+    in-out property <GoalRow> goal;
+    in-out property <[MilestoneRow]> goal-milestones: [];
+    in-out property <[GoalTaskRow]> goal-tasks: [];
+    in-out property <[GoalSessionRow]> goal-sessions: [];
+    in-out property <[string]> goal-history: [];
+    // Open tasks that could be linked, filtered by goal-link-search.
+    in-out property <[GoalTaskOption]> goal-link-options: [];
+    in-out property <string> goal-link-search: "";
+    callback goal-opened(string);
+    callback goal-closed();
+    // goal id, "active", "paused", "completed" or "archived"
+    callback goal-set-status(string, string);
+    callback goal-delete(string);
+    // goal id, new current value
+    callback goal-set-value(string, string);
+    // goal id, title, date, description
+    callback milestone-add(string, string, string, string);
+    // goal id, milestone id, title, date, description
+    callback milestone-edit(string, string, string, string, string);
+    callback milestone-toggle(string, string);
+    // goal id, milestone id, -1 or 1
+    callback milestone-move(string, string, int);
+    callback milestone-delete(string, string);
+    // goal id, task id, milestone id (empty for none)
+    callback goal-link-task(string, string, string);
+    callback goal-unlink-task(string);
+    // task id, milestone id (empty to clear)
+    callback goal-pin-task(string, string);
+    callback goal-link-search-changed(string);
+
+    // Goals: the weekly review (the last seven days). It is only built
+    // while review-open is true.
+    in-out property <bool> review-open: false;
+    in-out property <string> review-range: "";
+    in-out property <int> review-milestones: 0;
+    in-out property <int> review-tasks: 0;
+    in-out property <string> review-focus: "0m";
+    in-out property <[ReviewRow]> review-progressed: [];
+    in-out property <[ReviewRow]> review-upcoming: [];
+    in-out property <[ReviewRow]> review-attention: [];
+    in-out property <[ReviewRow]> review-priorities: [];
+    callback review-toggled(bool);
 }

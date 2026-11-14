@@ -25,11 +25,42 @@ fn timestamp() -> String {
 
 /// Append one line to `logs/telemetry.log`. Silent no-op on any failure or when
 /// telemetry is disabled via `THULLI_TELEMETRY=0`.
+///
+/// Lines go through a channel to a writer thread, so the UI thread never waits
+/// on the disk.
 fn append_line(line: &str) {
     if !enabled() {
         return;
     }
+    static WRITER: std::sync::OnceLock<Option<std::sync::mpsc::Sender<String>>> = std::sync::OnceLock::new();
+    let tx = WRITER.get_or_init(|| {
+        let (tx, rx) = std::sync::mpsc::channel::<String>();
+        std::thread::Builder::new()
+            .name("telemetry-writer".into())
+            .spawn(move || {
+                for line in rx {
+                    append_now(&line);
+                }
+            })
+            .ok()
+            .map(|_| tx)
+    });
+    match tx {
+        Some(tx) if tx.send(line.to_string()).is_ok() => {}
+        _ => append_now(line),
+    }
+}
+
+/// Largest size of `logs/telemetry.log` before it moves to `telemetry.log.1`.
+const MAX_LOG_BYTES: u64 = 4 * 1024 * 1024;
+
+/// Writes one line right away, rotating the file when it grows too large.
+/// Also used by the crash hook, where a background thread may not get to run.
+fn append_now(line: &str) {
     let _ = std::fs::create_dir_all("logs");
+    if std::fs::metadata(TELEMETRY_FILE).map(|m| m.len() > MAX_LOG_BYTES).unwrap_or(false) {
+        let _ = std::fs::rename(TELEMETRY_FILE, format!("{TELEMETRY_FILE}.1"));
+    }
     use std::io::Write as _;
     if let Ok(mut file) = std::fs::OpenOptions::new()
         .create(true)
@@ -37,6 +68,15 @@ fn append_line(line: &str) {
         .open(TELEMETRY_FILE)
     {
         let _ = writeln!(file, "{line}");
+    }
+}
+
+/// Logs how long an operation took: `<time> <CATEGORY> <name> <ms>ms`.
+/// Names must be fixed words, never user content.
+pub fn log_timing(category: &str, name: &str, since: std::time::Instant) {
+    // Developer builds only; release builds collect no performance data.
+    if cfg!(debug_assertions) && enabled() {
+        append_line(&format!("{} {} {} {:.1}ms", timestamp(), category, name, since.elapsed().as_secs_f64() * 1000.0));
     }
 }
 
@@ -85,12 +125,14 @@ fn write_crash_report(info: &std::panic::PanicHookInfo<'_>) {
     let _ = std::fs::create_dir_all("logs");
     let _ = std::fs::write(format!("logs/crash-{file_stamp}.log"), contents);
 
-    append_line(&format!(
+    if enabled() {
+        append_now(&format!(
         "{} crash message=\"{}\" at {}",
         timestamp(),
         msg.replace('\n', " "),
         location
-    ));
+        ));
+    }
 }
 
 /// Frame counter fed by Slint's rendering notifier.

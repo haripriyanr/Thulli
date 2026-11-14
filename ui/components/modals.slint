@@ -39,6 +39,7 @@ export component ThulliCreateListModal inherits Rectangle {
                 }
                 close-btn := ThulliIconButton {
                     size: 24px;
+                    tip: @tr("Close");
                     clicked => { root.cancel(); }
                     IconClose {
                         width: 14px;
@@ -183,6 +184,7 @@ export component ThulliPreferencesModal inherits Rectangle {
 
                 close-pref-btn := ThulliIconButton {
                     size: 24px;
+                    tip: @tr("Close");
                     clicked => { root.close(); }
                     IconClose {
                         width: 14px;

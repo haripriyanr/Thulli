@@ -1,0 +1,556 @@
+import { Theme } from "../theme.slint";
+import { HoverTip } from "tips.slint";
+import { IconChevronRight, IconCheck, IconClose, IconSettings } from "../icons.slint";
+
+// Building blocks for showing what an AI is doing: shimmering status text, a
+// thinking bar, collapsible steps and chains of thought, tool calls, a
+// reasoning block and a scroll-to-bottom button. They hold no data of their
+// own; a screen feeds them. The structure follows the open prompt-kit
+// components (TextShimmer, ThinkingBar, Steps, ChainOfThought, Tool,
+// Reasoning, ChatContainer); the code is written for Slint.
+
+/// A chevron pointing down, or up when `up`. Slint cannot rotate shapes, so the
+/// two directions are two paths.
+export component Chevron inherits Path {
+    in property <bool> up: false;
+    in property <color> stroke-color: Theme.text-secondary;
+    viewbox-x: 0;
+    viewbox-y: 0;
+    viewbox-width: 24;
+    viewbox-height: 24;
+    width: 14px;
+    height: 14px;
+    stroke: root.stroke-color;
+    stroke-width: 1.8px;
+    stroke-line-cap: round;
+    stroke-line-join: round;
+    fill: transparent;
+    commands: root.up ? "M 6 15 L 12 9 L 18 15" : "M 6 9 L 12 15 L 18 9";
+}
+
+/// Text with a soft highlight that sweeps across it, for work in progress.
+/// `spread` is the width of the highlight as a share of the text (5 to 45).
+export component TextShimmer inherits Text {
+    in property <bool> running: true;
+    in property <int> spread: 20;
+    in property <color> base: Theme.text-muted;
+    in property <color> lit: Theme.text-primary;
+    // 0 to 1, repeating while `running`.
+    property <float> sweep: root.running ? 1.0 : 0.0;
+    animate sweep { duration: 2200ms; iteration-count: -1; easing: linear; }
+    property <float> at: root.sweep;
+    property <float> half: min(max(root.spread, 5), 45) / 100;
+    property <float> before: max(0.0, root.at - root.half);
+    property <float> after: min(1.0, root.at + root.half);
+    font-weight: 600;
+    color: root.running
+        ? @linear-gradient(90deg, root.base 0, root.base root.before, root.lit root.at, root.base root.after, root.base 1)
+        : root.base;
+}
+
+/// A small sphere of dots that turns while the AI works, after the "thinking
+/// orbs" look from libraries.dev (written here for Slint, no code copied).
+/// Dots sit on a Fibonacci sphere; nearer dots are larger and brighter.
+/// `state`: "thinking" (slow turn), "searching" (faster turn that rocks),
+/// "solving" (turn and breathe), "listening" (bands ripple).
+export component ThinkingOrb inherits Rectangle {
+    in property <string> state: "thinking";
+    in property <bool> running: true;
+    in property <int> dots: 56;
+    in property <color> near-color: Theme.accent-pink;
+    in property <color> far-color: Theme.accent-violet;
+    width: 20px;
+    height: 20px;
+
+    // Seconds since start; frozen when not running so the orb stops drawing.
+    property <float> t: root.running ? animation-tick() / 1s : 0;
+    property <float> speed: root.state == "searching" ? 110 : (root.state == "listening" ? 30 : 55);
+    property <angle> spin: mod(root.t * root.speed, 360) * 1deg;
+    property <angle> tilt: root.state == "searching" ? (18 + 14 * sin(root.t * 140deg)) * 1deg : 20deg;
+    property <float> breathe: root.state == "solving" ? 0.88 + 0.12 * sin(root.t * 220deg) : 1.0;
+    property <length> r: min(root.width, root.height) / 2 - 1.5px;
+
+    for i in root.dots: Rectangle {
+        property <float> yy: 1 - 2 * (i + 0.5) / root.dots;
+        property <float> band: root.state == "listening" ? 0.85 + 0.15 * sin(root.t * 300deg - yy * 360deg) : 1.0;
+        property <float> ring: sqrt(max(0, 1 - yy * yy)) * band * root.breathe;
+        property <angle> lon: i * 137.508deg + root.spin;
+        property <float> x1: ring * cos(lon);
+        property <float> z1: ring * sin(lon);
+        property <float> y2: yy * band * root.breathe * cos(root.tilt) - z1 * sin(root.tilt);
+        property <float> z2: yy * band * root.breathe * sin(root.tilt) + z1 * cos(root.tilt);
+        property <float> near: (z2 + 1) / 2;
+        property <length> size: (0.9 + 1.4 * near) * 1px * max(1, root.width / 24px);
+        x: root.width / 2 + root.r * x1 - self.size / 2;
+        y: root.height / 2 + root.r * y2 - self.size / 2;
+        width: self.size;
+        height: self.size;
+        border-radius: self.size / 2;
+        background: root.far-color.mix(root.near-color, 1 - near);
+        opacity: 0.18 + 0.82 * near;
+    }
+}
+
+/// "Thinking" with a stop link on the right. The whole label can be pressed
+/// to open the details behind it.
+export component ThinkingBar inherits Rectangle {
+    in property <string> text: "";
+    in property <string> stop-label: "";
+    in property <bool> expandable: false;
+    in property <string> orb-state: "thinking";
+    callback stopped();
+    callback clicked();
+    height: 28px;
+
+    HorizontalLayout {
+        spacing: 8px;
+        VerticalLayout {
+            alignment: center;
+            ThinkingOrb { state: root.orb-state; width: 22px; height: 22px; }
+        }
+        label-touch := TouchArea {
+            width: label.preferred-width + (root.expandable ? 22px : 0px);
+            enabled: root.expandable;
+            mouse-cursor: root.expandable ? pointer : default;
+            clicked => { root.clicked(); }
+            label := TextShimmer { text: root.text; font-size: 14px; vertical-alignment: center; height: parent.height; }
+            if root.expandable: IconChevronRight { x: label.preferred-width + 6px; y: (parent.height - self.height) / 2; width: 14px; height: 14px; stroke-color: Theme.text-muted; }
+        }
+        Rectangle { horizontal-stretch: 1; }
+        if root.stop-label != "": Rectangle {
+            width: stop-text.preferred-width;
+            VerticalLayout {
+                alignment: center;
+                stop-text := Text { text: root.stop-label; font-size: 13px; color: stop-touch.has-hover ? Theme.text-primary : Theme.text-secondary; }
+                Rectangle { height: 1px; background: stop-touch.has-hover ? Theme.text-primary : Theme.text-muted; }
+            }
+            stop-touch := TouchArea { mouse-cursor: pointer; clicked => { root.stopped(); } }
+        }
+    }
+}
+
+/// The clickable header of a collapsible block: an icon slot that gives way to
+/// a chevron on hover, then the label. The chevron turns when open.
+export component CollapseHeader inherits Rectangle {
+    in property <string> label;
+    in property <bool> open;
+    // Draw a small dot in the icon slot when no icon is given.
+    in property <bool> dot: true;
+    callback toggled();
+    height: 28px;
+    width: row.preferred-width;
+
+    row := HorizontalLayout {
+        spacing: 8px;
+        Rectangle {
+            width: 16px;
+            if root.dot: Rectangle {
+                x: 4px; y: (parent.height - self.height) / 2;
+                width: 8px; height: 8px; border-radius: 4px;
+                background: Theme.text-secondary;
+                opacity: touch.has-hover ? 0 : 1;
+                animate opacity { duration: 150ms; }
+            }
+            Chevron {
+                x: 1px; y: (parent.height - self.height) / 2;
+                up: root.open;
+                stroke-color: Theme.text-primary;
+                opacity: touch.has-hover || !root.dot ? 1 : 0;
+                animate opacity { duration: 150ms; }
+            }
+        }
+        VerticalLayout {
+            alignment: center;
+            Text { text: root.label; font-size: 13px; color: touch.has-hover ? Theme.text-primary : Theme.text-secondary; animate color { duration: 150ms; } }
+        }
+    }
+    touch := TouchArea { mouse-cursor: pointer; clicked => { root.toggled(); } }
+}
+
+/// Steps: a titled, collapsible list with a thin bar beside the items. Put
+/// StepItem rows (or anything else) inside.
+export component Steps inherits Rectangle {
+    in property <string> title;
+    in-out property <bool> open: true;
+    height: col.preferred-height;
+
+    col := VerticalLayout {
+        spacing: 2px;
+        CollapseHeader { label: root.title; open: root.open; toggled => { root.open = !root.open; } }
+        Rectangle {
+            clip: true;
+            height: root.open ? body.preferred-height : 0px;
+            animate height { duration: 200ms; easing: ease-out; }
+            body := HorizontalLayout {
+                spacing: 14px;
+                padding-left: 7px;
+                padding-top: 4px;
+                Rectangle { width: 2px; background: Theme.glass-border; }
+                VerticalLayout { spacing: 6px; @children }
+            }
+        }
+    }
+}
+
+/// One row inside Steps or a chain of thought.
+export component StepItem inherits Text {
+    font-size: 13px;
+    color: Theme.text-secondary;
+    wrap: word-wrap;
+}
+
+/// One step of a chain of thought. The line below joins it to the next step;
+/// set `last` on the final step to leave it out.
+export component CotStep inherits Rectangle {
+    in property <string> title;
+    in property <bool> last: false;
+    in-out property <bool> open: false;
+    height: col.preferred-height;
+
+    col := VerticalLayout {
+        CollapseHeader { label: root.title; open: root.open; toggled => { root.open = !root.open; } }
+        HorizontalLayout {
+            spacing: 14px;
+            padding-left: 7px;
+            // The connector runs down the left edge, through the content.
+            Rectangle {
+                width: 1px;
+                background: !root.last ? Theme.accent-violet.with-alpha(0.3) : transparent;
+            }
+            Rectangle {
+                clip: true;
+                height: root.open ? content.preferred-height + (root.last ? 0px : 12px) : (root.last ? 0px : 12px);
+                animate height { duration: 200ms; easing: ease-out; }
+                content := VerticalLayout { padding-top: 6px; padding-bottom: 6px; spacing: 6px; @children }
+            }
+        }
+    }
+}
+
+/// A tool call as the AI made it. `state` is "input-streaming" (processing),
+/// "input-available" (ready), "output-available" (completed) or "output-error".
+export component ToolCard inherits Rectangle {
+    in property <string> name;
+    in property <string> state;
+    in property <string> status-label;
+    in property <string> input-label;
+    in property <string> output-label;
+    in property <string> input-text;
+    in property <string> output-text;
+    in property <string> error-text;
+    in-out property <bool> open: false;
+    property <color> tint: root.state == "output-available" ? Theme.accent-green
+        : (root.state == "output-error" ? Theme.destructive
+        : (root.state == "input-available" ? Theme.accent-amber : Theme.accent-violet));
+    // 0 to 1 and back while a call is still being made.
+    property <float> spin: root.state == "input-streaming" ? 1.0 : 0.0;
+    animate spin { duration: 700ms; iteration-count: -1; direction: alternate; easing: ease-in-out; }
+    height: col.preferred-height;
+    border-radius: 12px;
+    border-width: 1px;
+    border-color: Theme.glass-border;
+    background: Theme.glass-fill;
+    clip: true;
+
+    col := VerticalLayout {
+        Rectangle {
+            height: 40px;
+            HorizontalLayout {
+                padding-left: 12px;
+                padding-right: 12px;
+                spacing: 8px;
+                VerticalLayout {
+                    alignment: center;
+                    Rectangle {
+                        width: 16px;
+                        height: 16px;
+                        if root.state == "input-streaming": Rectangle { x: 4px; y: 4px; width: 8px; height: 8px; border-radius: 4px; background: root.tint; opacity: 0.3 + 0.7 * root.spin; }
+                        if root.state == "input-available": IconSettings { width: 16px; height: 16px; stroke-color: root.tint; }
+                        if root.state == "output-available": IconCheck { width: 16px; height: 16px; stroke-color: root.tint; }
+                        if root.state == "output-error": IconClose { width: 16px; height: 16px; stroke-color: root.tint; }
+                    }
+                }
+                VerticalLayout { alignment: center; Text { text: root.name; font-size: 13px; font-weight: 600; color: Theme.text-primary; } }
+                VerticalLayout {
+                    alignment: center;
+                    Rectangle {
+                        height: 20px;
+                        width: badge.preferred-width + 16px;
+                        border-radius: 10px;
+                        background: root.tint.with-alpha(0.16);
+                        badge := Text { text: root.status-label; font-size: 11px; font-weight: 600; color: root.tint; horizontal-alignment: center; vertical-alignment: center; }
+                    }
+                }
+                Rectangle { horizontal-stretch: 1; }
+                VerticalLayout {
+                    alignment: center;
+                    Chevron { up: root.open; }
+                }
+            }
+            TouchArea { mouse-cursor: pointer; clicked => { root.open = !root.open; } }
+        }
+        Rectangle {
+            clip: true;
+            height: root.open ? details.preferred-height : 0px;
+            animate height { duration: 200ms; easing: ease-out; }
+            details := VerticalLayout {
+                padding: 12px;
+                spacing: 10px;
+                Rectangle { height: 1px; background: Theme.glass-border; }
+                if root.input-text != "": VerticalLayout {
+                    spacing: 4px;
+                    Text { text: root.input-label; font-size: 12px; font-weight: 600; color: Theme.text-secondary; }
+                    Text { text: root.input-text; font-size: 12px; color: Theme.text-primary; wrap: word-wrap; }
+                }
+                if root.output-text != "": VerticalLayout {
+                    spacing: 4px;
+                    Text { text: root.output-label; font-size: 12px; font-weight: 600; color: Theme.text-secondary; }
+                    Text { text: root.output-text; font-size: 12px; color: Theme.text-primary; wrap: word-wrap; }
+                }
+                if root.error-text != "": Text { text: root.error-text; font-size: 12px; color: Theme.destructive; wrap: word-wrap; }
+            }
+        }
+    }
+}
+
+/// A collapsible block of the AI's reasoning. It opens by itself while the
+/// reasoning streams in and closes when it ends; the person can still toggle.
+export component ReasoningBlock inherits Rectangle {
+    in property <string> label;
+    in property <string> text;
+    in property <bool> streaming: false;
+    in-out property <bool> open: false;
+    changed streaming => { root.open = root.streaming; }
+    height: col.preferred-height;
+
+    col := VerticalLayout {
+        spacing: 2px;
+        HorizontalLayout {
+            CollapseHeader { dot: false; label: root.label; open: root.open; toggled => { root.open = !root.open; } }
+            Rectangle { horizontal-stretch: 1; }
+        }
+        Rectangle {
+            clip: true;
+            height: root.open ? body.preferred-height : 0px;
+            animate height { duration: 200ms; easing: ease-out; }
+            body := HorizontalLayout {
+                spacing: 12px;
+                padding-top: 4px;
+                padding-left: 7px;
+                Rectangle { width: 2px; background: Theme.glass-border; }
+                Text { text: root.text; font-size: 13px; color: Theme.text-secondary; wrap: word-wrap; }
+            }
+        }
+    }
+}
+
+/// A round button that scrolls a chat back to the newest message. It shows
+/// only while the view is scrolled away from the bottom.
+export component ScrollToBottomButton inherits Rectangle {
+    in property <bool> shown: false;
+    callback clicked();
+    width: 36px;
+    height: 36px;
+    border-radius: 18px;
+    opacity: root.shown ? 1 : 0;
+    visible: root.opacity > 0.01;
+    background: touch.has-hover ? Theme.glass-fill-strong : Theme.glass-fill;
+    border-width: 1px;
+    border-color: Theme.glass-border;
+    animate opacity { duration: 180ms; easing: ease-out; }
+    Chevron { x: 11px; y: 11px; stroke-color: Theme.text-primary; }
+    touch := TouchArea { enabled: root.shown; mouse-cursor: pointer; clicked => { root.clicked(); } }
+    HoverTip { tip: @tr("Jump to latest"); hovered: touch.has-hover; pressed: touch.pressed; }
+}
+
+/// One line of a trace, after shadcn's Trace: an icon for the action (put it
+/// inside), a single-line title, an optional description, and a trailing
+/// mark for the status. `status` is "" (done), "running", "error" or
+/// "pending". A running title shimmers.
+export component TraceLine inherits Rectangle {
+    in property <string> title;
+    in property <string> description;
+    in property <string> status: "";
+    in property <bool> expandable: false;
+    in property <bool> open: false;
+    callback clicked();
+    property <float> pulse: root.status == "running" ? 1.0 : 0.0;
+    animate pulse { duration: 700ms; iteration-count: -1; direction: alternate; easing: ease-in-out; }
+    height: 26px;
+
+    HorizontalLayout {
+        spacing: 8px;
+        Rectangle { width: 16px; @children }
+        VerticalLayout {
+            alignment: center;
+            horizontal-stretch: 0;
+            if root.status != "running": Text {
+                text: root.title;
+                font-size: 13px;
+                color: root.status == "error" ? Theme.destructive : (root.status == "pending" ? Theme.text-muted : Theme.text-secondary);
+                overflow: elide;
+            }
+            if root.status == "running": TextShimmer { text: root.title; font-size: 13px; overflow: elide; }
+        }
+        if root.description != "": VerticalLayout {
+            alignment: center;
+            Text { text: root.description; font-size: 12px; color: Theme.text-muted; }
+        }
+        VerticalLayout {
+            alignment: center;
+            Rectangle {
+                width: 14px;
+                height: 14px;
+                if root.status == "running": Rectangle { x: 3px; y: 3px; width: 8px; height: 8px; border-radius: 4px; background: Theme.accent-violet; opacity: 0.3 + 0.7 * root.pulse; }
+                if root.status == "error": IconClose { width: 12px; height: 12px; x: 1px; y: 1px; stroke-color: Theme.destructive; }
+                if root.status == "pending": Rectangle { x: 3px; y: 3px; width: 8px; height: 8px; border-radius: 4px; border-width: 1px; border-color: Theme.text-muted; }
+            }
+        }
+        if root.expandable: VerticalLayout { alignment: center; Chevron { up: root.open; } }
+        Rectangle { horizontal-stretch: 1; }
+    }
+    TouchArea { enabled: root.expandable; mouse-cursor: root.expandable ? pointer : default; clicked => { root.clicked(); } }
+}
+
+/// A beam of light that runs round a rounded border while something works.
+/// Lay it over the thing it frames; it takes no clicks.
+///
+/// The beam is a fixed length in pixels with a long fading tail and a bright
+/// head, and it moves at one speed all the way round: its place is measured
+/// along the border and only then turned into the angle the conic gradient
+/// needs (an angle from the centre would race along the long sides of a wide
+/// box and crawl round its ends). A wider faint copy under the line gives a
+/// soft glow.
+export component BorderBeam inherits Rectangle {
+    in property <bool> active: true;
+    in property <float> strength: 1.0;
+    in property <color> beam-color: Theme.accent-violet;
+    in property <color> head-color: #FBCFE8;
+    // 0 to 1 around the border, one lap every 2.6 s while active. Read from the
+    // frame clock (like ThinkingOrb), so it runs exactly while it is drawn.
+    property <float> sweep: root.active ? mod(animation-tick() / 2600ms, 1) : 0;
+    // A short welcome: `play-intro()` sends the beam round the border three
+    // times (easing out on the last lap), then it rests.
+    property <bool> intro-on: false;
+    property <duration> intro-at: 0ms;
+    property <float> intro-p: root.intro-on ? (animation-tick() - root.intro-at) / 3600ms : 0;
+    changed intro-p => { if root.intro-p >= 1 { root.intro-on = false; } }
+    property <float> intro-laps: 3 * (1 - (1 - min(1, root.intro-p)) * (1 - min(1, root.intro-p)));
+    public function play-intro() {
+        root.intro-at = animation-tick();
+        root.intro-on = true;
+    }
+    property <bool> showing: root.active || root.intro-on;
+
+    // Border length, beam length, and where the head and the end of the tail are.
+    property <length> per: 2 * (root.width + root.height);
+    property <length> tail-len: min(root.per * 0.28, 260px);
+    property <float> at: root.active ? root.sweep : mod(root.intro-laps, 1);
+    property <length> head-s: root.at * root.per;
+    property <length> tail-s: root.head-s - root.tail-len;
+
+    // A point on the border, `d` along it clockwise from the top centre, as an
+    // offset from the centre.
+    pure function wrap(d: length) -> length {
+        return d < 0px ? d + root.per : (d >= root.per ? d - root.per : d);
+    }
+    pure function bx(d: length) -> length {
+        return d < root.width / 2 ? d
+            : d < root.width / 2 + root.height ? root.width / 2
+            : d < 1.5 * root.width + root.height ? root.width / 2 - (d - root.width / 2 - root.height)
+            : d < 1.5 * root.width + 2 * root.height ? -root.width / 2
+            : -root.width / 2 + (d - 1.5 * root.width - 2 * root.height);
+    }
+    pure function by(d: length) -> length {
+        return d < root.width / 2 ? -root.height / 2
+            : d < root.width / 2 + root.height ? -root.height / 2 + (d - root.width / 2)
+            : d < 1.5 * root.width + root.height ? root.height / 2
+            : d < 1.5 * root.width + 2 * root.height ? root.height / 2 - (d - 1.5 * root.width - root.height)
+            : -root.height / 2;
+    }
+    // Clockwise from the top, 0 to 360 degrees, as the conic gradient counts.
+    pure function ang(d: length) -> angle {
+        return atan2(root.bx(root.wrap(d)) / 1px, -root.by(root.wrap(d)) / 1px) < 0deg
+            ? atan2(root.bx(root.wrap(d)) / 1px, -root.by(root.wrap(d)) / 1px) + 360deg
+            : atan2(root.bx(root.wrap(d)) / 1px, -root.by(root.wrap(d)) / 1px);
+    }
+    property <angle> head-a: root.ang(root.head-s);
+    property <angle> tail-raw: root.ang(root.tail-s);
+    // When the tail crosses the top centre (where the gradient starts and ends) it
+    // continues below zero; the part before zero is drawn at the end of the circle.
+    property <bool> wraps: root.tail-raw > root.head-a;
+    property <angle> tail-a: root.wraps ? root.tail-raw - 360deg : root.tail-raw;
+    property <float> zero-mix: root.wraps ? (0deg - root.tail-a) / (root.head-a - root.tail-a) : 0;
+    property <color> faded: root.beam-color.with-alpha(0);
+    property <color> at-zero: root.wraps ? root.faded.mix(root.beam-color, 1 - root.zero-mix) : root.faded;
+    property <angle> s1: max(0deg, root.tail-a);
+    property <color> c1: root.wraps ? root.at-zero : root.faded;
+    property <angle> s3: min(360deg, root.head-a + 1.5deg);
+    property <angle> s4: root.wraps ? 360deg + root.tail-a : 360deg;
+    property <brush> beam: @conic-gradient(
+        root.at-zero 0deg,
+        root.c1 root.s1,
+        root.beam-color root.head-a,
+        root.head-color root.head-a,
+        root.faded root.s3,
+        root.faded root.s4,
+        root.at-zero 360deg);
+
+    background: transparent;
+    opacity: root.showing ? root.strength : 0;
+    animate opacity { duration: 350ms; easing: ease-out; }
+
+    // Soft glow under the line.
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: root.border-radius;
+        border-width: 6px;
+        border-color: root.beam;
+        opacity: 0.38;
+    }
+    // The line itself.
+    Rectangle {
+        width: 100%;
+        height: 100%;
+        border-radius: root.border-radius;
+        border-width: 2px;
+        border-color: root.beam;
+    }
+}
+
+/// A ring of light for the voice: it breathes while idle, swells with the
+/// loudness of the voice while listening, and shows a moving highlight while
+/// the answer is being worked out. `state` is "idle", "listening" or
+/// "processing"; `level` is 0 to 1. It sits behind the button it surrounds.
+export component VoiceRing inherits Rectangle {
+    in property <string> state: "idle";
+    in property <float> level: 0.0;
+    property <float> breath: 1.0;
+    animate breath { duration: 1600ms; iteration-count: -1; direction: alternate; easing: ease-in-out; }
+    property <float> sweep: root.state == "processing" ? 1.0 : 0.0;
+    animate sweep { duration: 1400ms; iteration-count: -1; easing: linear; }
+    property <angle> head: root.sweep * 360deg;
+    property <angle> t0: max(0deg, root.head - 80deg);
+    property <angle> t1: max(0deg, root.head - 40deg);
+    property <angle> t2: min(360deg, root.head + 10deg);
+    // How far the rings swell beyond their resting size.
+    property <float> swell: root.state == "listening" ? root.level : (root.state == "idle" ? 0.15 * root.breath : 0.1);
+
+    for k in 3: Rectangle {
+        property <length> d: root.width * (0.66 + 0.1 * k + root.swell * (0.12 + 0.07 * k));
+        x: (parent.width - self.width) / 2;
+        y: (parent.height - self.height) / 2;
+        width: self.d;
+        height: self.d;
+        border-radius: self.d / 2;
+        border-width: 1.5px;
+        opacity: root.state == "idle" ? 0.35 : (0.75 - 0.2 * k);
+        animate width { duration: 90ms; easing: ease-out; }
+        animate height { duration: 90ms; easing: ease-out; }
+        animate opacity { duration: 200ms; }
+        border-color: root.state == "processing"
+            ? @conic-gradient(#00000000 0deg, #00000000 root.t0, #7C3AED root.t1, #2DD4BF root.head, #00000000 root.t2, #00000000 360deg)
+            : @conic-gradient(#7C3AED 0deg, #14B8A6 90deg, #EC4899 180deg, #F59E0B 270deg, #7C3AED 360deg);
+    }
+}

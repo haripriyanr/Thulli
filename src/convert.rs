@@ -350,7 +350,12 @@ pub fn task_options(
             let option = TaskOption {
                 id: task.id.clone().into(),
                 title: task.title.clone().into(),
-                meta: sessions.into(),
+                // The goal the task works toward, when it has one.
+                meta: match task.goal_id.as_deref().and_then(|id| store.goals.iter().find(|g| g.id == id)) {
+                    Some(goal) => format!("{sessions} · {}", goal.title),
+                    None => sessions,
+                }
+                .into(),
                 priority: priority.into(),
                 header: "".into(),
             };
@@ -375,4 +380,28 @@ pub fn task_options(
         options.push(option);
     }
     options
+}
+
+#[cfg(test)]
+mod goal_tests {
+    use super::*;
+    use thulli_core::models::{Goal, Task, TaskSection};
+
+    #[test]
+    fn the_task_picker_names_the_goal_a_task_works_toward() {
+        let mut store = AppStateStore::default();
+        store.lists.push(thulli_core::models::TaskList::new_personal());
+        let list = store.lists[0].id.clone();
+        let goal = Goal::new("Finish thesis");
+        let mut linked = Task::new(list.clone(), "Write intro", 30, TaskSection::Today);
+        linked.goal_id = Some(goal.id.clone());
+        store.goals.push(goal);
+        store.tasks.push(linked);
+        store.tasks.push(Task::new(list, "Plain task", 30, TaskSection::Today));
+        let today = chrono::Local::now().date_naive();
+        let options = task_options(&store, today, "", 25);
+        let meta = |title: &str| options.iter().find(|o| o.title.as_str() == title).unwrap().meta.to_string();
+        assert!(meta("Write intro").ends_with("· Finish thesis"), "{}", meta("Write intro"));
+        assert!(!meta("Plain task").contains('·'));
+    }
 }

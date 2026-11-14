@@ -1,5 +1,6 @@
 import { Theme } from "../theme.slint";
-import { IconCalendar, IconTasks, IconTimer, IconNote, IconChart, IconSettings, IconChevronLeft, IconChevronRight } from "../icons.slint";
+import { HoverTip } from "tips.slint";
+import { IconCalendar, IconTasks, IconTimer, IconNote, IconChart, IconSettings, IconTarget, IconChat, IconChevronLeft, IconChevronRight } from "../icons.slint";
 
 /// One destination in the rail. The icon is chosen by `icon-name`, and the
 /// active destination gets the warm pill and the filled glyph.
@@ -27,6 +28,8 @@ export component NavigationRailItem inherits Rectangle {
         width: 100%;
         height: 100%;
         clicked => { root.selected(root.item-id); }
+        // The label is already on screen when the rail is open.
+        HoverTip { to-right: !root.compact; tip: root.expanded && !root.compact ? "" : root.label; hovered: item-touch.has-hover; pressed: item-touch.pressed; }
 
         Rectangle {
             width: compact ? 40px : parent.width - 12px;
@@ -41,41 +44,55 @@ export component NavigationRailItem inherits Rectangle {
 
             if root.icon-name == "today": IconCalendar {
                 width: 22px; height: 22px;
-                x: 14px;
+                x: root.compact ? (parent.width - self.width) / 2 : 14px;
+                y: (parent.height - self.height) / 2;
+                stroke-color: root.icon-color;
+                fill-color: root.icon-fill;
+            }
+            if root.icon-name == "goals": IconTarget {
+                width: 22px; height: 22px;
+                x: root.compact ? (parent.width - self.width) / 2 : 14px;
+                y: (parent.height - self.height) / 2;
+                stroke-color: root.icon-color;
+                fill-color: root.icon-fill;
+            }
+            if root.icon-name == "chat": IconChat {
+                width: 22px; height: 22px;
+                x: root.compact ? (parent.width - self.width) / 2 : 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: root.icon-color;
                 fill-color: root.icon-fill;
             }
             if root.icon-name == "tasks": IconTasks {
                 width: 22px; height: 22px;
-                x: 14px;
+                x: root.compact ? (parent.width - self.width) / 2 : 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: root.icon-color;
             }
             if root.icon-name == "pomodoro": IconTimer {
                 width: 22px; height: 22px;
-                x: 14px;
+                x: root.compact ? (parent.width - self.width) / 2 : 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: root.icon-color;
                 fill-color: root.icon-fill;
             }
             if root.icon-name == "notes": IconNote {
                 width: 22px; height: 22px;
-                x: 14px;
+                x: root.compact ? (parent.width - self.width) / 2 : 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: root.icon-color;
                 fill-color: root.icon-fill;
             }
             if root.icon-name == "insights": IconChart {
                 width: 22px; height: 22px;
-                x: 14px;
+                x: root.compact ? (parent.width - self.width) / 2 : 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: root.icon-color;
                 fill-color: root.icon-fill;
             }
             if root.icon-name == "settings": IconSettings {
                 width: 22px; height: 22px;
-                x: 14px;
+                x: root.compact ? (parent.width - self.width) / 2 : 14px;
                 y: (parent.height - self.height) / 2;
                 stroke-color: root.icon-color;
                 fill-color: root.icon-fill;
@@ -149,6 +166,7 @@ export component NavigationRail inherits Rectangle {
                 height: 100%;
                 clicked => { root.touch-pinned = !root.expanded; }
             }
+            HoverTip { tip: root.expanded ? @tr("Collapse menu") : @tr("Expand menu"); hovered: header-hover.has-hover; pressed: header-hover.pressed; }
             if root.expanded || !header-hover.has-hover: Image {
                 source: @image-url("../../assets/Thulli-Mark.png");
                 image-fit: contain;
@@ -177,8 +195,10 @@ export component NavigationRail inherits Rectangle {
 
         NavigationRailItem { label: @tr("Today"); item-id: "today"; icon-name: "today"; active: root.active-item == "today"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: @tr("Spaces"); item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: @tr("Goals"); item-id: "goals"; icon-name: "goals"; active: root.active-item == "goals"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: @tr("Pomodoro"); item-id: "pomodoro"; icon-name: "pomodoro"; active: root.active-item == "pomodoro"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: @tr("Notes"); item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { label: @tr("Chat"); item-id: "chat"; icon-name: "chat"; active: root.active-item == "chat"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: @tr("Insights"); item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
         NavigationRailItem { label: @tr("Settings"); item-id: "settings"; icon-name: "settings"; active: root.active-item == "settings"; expanded: root.expanded; wide-width: root.width - 14px; selected(id) => { root.active-item = id; root.item-selected(id); } }
     }
@@ -191,12 +211,14 @@ export component NavigationRail inherits Rectangle {
         padding-bottom: 8px;
         spacing: 2px;
 
-        NavigationRailItem { compact: true; item-id: "today"; icon-name: "today"; active: root.active-item == "today"; selected(id) => { root.active-item = id; root.item-selected(id); } }
-        NavigationRailItem { compact: true; item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; selected(id) => { root.active-item = id; root.item-selected(id); } }
-        NavigationRailItem { compact: true; item-id: "pomodoro"; icon-name: "pomodoro"; active: root.active-item == "pomodoro"; selected(id) => { root.active-item = id; root.item-selected(id); } }
-        NavigationRailItem { compact: true; item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; selected(id) => { root.active-item = id; root.item-selected(id); } }
-        NavigationRailItem { compact: true; item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; selected(id) => { root.active-item = id; root.item-selected(id); } }
-        NavigationRailItem { compact: true; item-id: "settings"; icon-name: "settings"; active: root.active-item == "settings"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; label: @tr("Today"); item-id: "today"; icon-name: "today"; active: root.active-item == "today"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; label: @tr("Spaces"); item-id: "tasks"; icon-name: "tasks"; active: root.active-item == "tasks"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; label: @tr("Goals"); item-id: "goals"; icon-name: "goals"; active: root.active-item == "goals"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; label: @tr("Pomodoro"); item-id: "pomodoro"; icon-name: "pomodoro"; active: root.active-item == "pomodoro"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; label: @tr("Notes"); item-id: "notes"; icon-name: "notes"; active: root.active-item == "notes"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; label: @tr("Chat"); item-id: "chat"; icon-name: "chat"; active: root.active-item == "chat"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; label: @tr("Insights"); item-id: "insights"; icon-name: "insights"; active: root.active-item == "insights"; selected(id) => { root.active-item = id; root.item-selected(id); } }
+        NavigationRailItem { compact: true; label: @tr("Settings"); item-id: "settings"; icon-name: "settings"; active: root.active-item == "settings"; selected(id) => { root.active-item = id; root.item-selected(id); } }
     }
 
     // Drawn last so the edge stays visible above the artwork at every side.

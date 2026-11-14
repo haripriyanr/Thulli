@@ -3,6 +3,7 @@ import { IconPlus, IconClose, IconCheck, IconTrash, IconChevronLeft, IconChevron
 import { AppData } from "../app_data.slint";
 import { DragState, DropZone, TipState } from "drag.slint";
 import { GlassCard, GlassIconButton } from "glass.slint";
+import { HoverTip } from "tips.slint";
 import { SpaceTask } from "../types.slint";
 
 /// SpaceBadge: a rounded square in a space's colour with its first letter.
@@ -208,17 +209,9 @@ export component CardAction inherits Rectangle {
     }
     touch := TouchArea {
         mouse-cursor: pointer;
-        clicked => { TipState.text = ""; root.clicked(); }
-        changed has-hover => {
-            if self.has-hover && root.tip != "" {
-                TipState.text = root.tip;
-                TipState.x = root.absolute-position.x + root.width / 2;
-                TipState.y = root.absolute-position.y;
-            } else if TipState.text == root.tip {
-                TipState.text = "";
-            }
-        }
+        clicked => { root.clicked(); }
     }
+    HoverTip { tip: root.tip; hovered: touch.has-hover; pressed: touch.pressed; }
 }
 
 /// TickBox: a rounded tick box.
@@ -493,7 +486,7 @@ export component TaskCard inherits Rectangle {
             HorizontalLayout {
                 spacing: 8px;
                 CardAction {
-                    tip: "Add subtask";
+                    tip: @tr("Add subtask");
                     width: 32px;
                     height: 32px;
                     clicked => { root.adding-step = true; root.steps-open = true; }
@@ -537,7 +530,7 @@ export component TaskCard inherits Rectangle {
                         vertical-alignment: center;
                     }
                     CardAction {
-                        tip: "Add subtask";
+                        tip: @tr("Add subtask");
                         width: root.task.steps.length > 0 ? 22px : 96px;
                         height: 22px;
                         clicked => { root.adding-step = true; root.steps-open = true; }
@@ -549,7 +542,7 @@ export component TaskCard inherits Rectangle {
                     }
                     Rectangle { horizontal-stretch: 1; }
                     if root.task.steps.length > 0: CardAction {
-                        tip: root.steps-open ? "Hide" : "Show";
+                        tip: root.steps-open ? @tr("Hide subtasks") : @tr("Show subtasks");
                         width: 22px;
                         height: 22px;
                         clicked => { root.steps-open = !root.steps-open; }
@@ -582,7 +575,7 @@ export component TaskCard inherits Rectangle {
                                 width: 22px;
                                 height: 22px;
                                 opacity: step-touch.has-hover ? 1 : 0;
-                                tip: "Delete subtask";
+                                tip: @tr("Delete subtask");
                                 clicked => { root.step-deleted(step.id); }
                                 IconTrash { width: 12px; height: 12px; stroke-color: Theme.destructive; }
                             }
@@ -640,15 +633,15 @@ export component TaskCard inherits Rectangle {
             x: 4px;
             alignment: center;
             spacing: 2px;
-            if root.can-back: CardAction { tip: "Back"; clicked => { root.back(); }
+            if root.can-back: CardAction { tip: @tr("Move back"); clicked => { root.back(); }
                 IconChevronLeft { width: 13px; height: 13px; stroke-color: Theme.text-secondary; } }
-            if root.can-forward: CardAction { tip: "Forward"; clicked => { root.forward(); }
+            if root.can-forward: CardAction { tip: @tr("Move forward"); clicked => { root.forward(); }
                 IconChevronRight { width: 13px; height: 13px; stroke-color: Theme.text-secondary; } }
-            if root.can-launch && !root.task.done: CardAction { tip: "Launch"; clicked => { root.launched(); }
+            if root.can-launch && !root.task.done: CardAction { tip: @tr("Launch"); clicked => { root.launched(); }
                 IconRocket { width: 15px; height: 15px; stroke-color: Theme.text-secondary; } }
-            CardAction { tip: "Edit"; clicked => { root.begin-edit(); }
+            CardAction { tip: @tr("Edit"); clicked => { root.begin-edit(); }
                 IconNote { width: 14px; height: 14px; stroke-color: Theme.text-secondary; } }
-            CardAction { tip: "Delete"; clicked => { root.deleted(); }
+            CardAction { tip: @tr("Delete"); clicked => { root.deleted(); }
                 IconTrash { width: 14px; height: 14px; stroke-color: Theme.destructive; } }
         }
     }
@@ -685,6 +678,7 @@ export component ColumnShell inherits Rectangle {
             y: 14px;
             dia: 30px;
             fill: transparent;
+            tip: @tr("Expand");
             clicked => { root.collapse-toggled(); }
             IconExpand { width: 13px; height: 13px; stroke-color: Theme.text-muted; }
         }
@@ -709,12 +703,14 @@ export component ColumnShell inherits Rectangle {
             if root.can-add: GlassIconButton {
                 dia: 28px;
                 fill: transparent;
+                tip: @tr("Add task");
                 clicked => { root.add-clicked(); }
                 IconPlus { width: 12px; height: 12px; stroke-color: Theme.text-muted; }
             }
             GlassIconButton {
                 dia: 28px;
                 fill: transparent;
+                tip: @tr("Collapse");
                 clicked => { root.collapse-toggled(); }
                 IconCollapse { width: 13px; height: 13px; }
             }
@@ -783,6 +779,7 @@ export component MicButton inherits Rectangle {
         mouse-cursor: pointer;
         clicked => { AppData.mic-toggle(root.owner); }
     }
+    HoverTip { tip: root.listening ? @tr("Stop recording") : @tr("Dictate"); hovered: touch.has-hover; pressed: touch.pressed; }
 }
 
 /// A small rounded option chip in the composer.

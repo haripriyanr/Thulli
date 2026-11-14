@@ -1,4 +1,5 @@
 import { Theme } from "theme.slint";
+import { HoverTip } from "components/tips.slint";
 
 // Adaptive window controls for the frameless shell.
 // Displays macOS traffic lights (top-left) on macOS, or sleek frameless controls (top-right) on Windows/Linux.
@@ -25,6 +26,7 @@ export component WindowControls {
                 width: 12px;
                 height: 12px;
                 clicked => { root.close(); }
+                HoverTip { tip: @tr("Close"); hovered: mac-close-touch.has-hover; pressed: mac-close-touch.pressed; }
 
                 Rectangle {
                     width: 12px;
@@ -51,6 +53,7 @@ export component WindowControls {
                 width: 12px;
                 height: 12px;
                 clicked => { root.minimize(); }
+                HoverTip { tip: @tr("Minimize"); hovered: mac-min-touch.has-hover; pressed: mac-min-touch.pressed; }
 
                 Rectangle {
                     width: 12px;
@@ -75,6 +78,7 @@ export component WindowControls {
                 width: 12px;
                 height: 12px;
                 clicked => { root.maximize(); }
+                HoverTip { tip: root.is-maximized ? @tr("Restore") : @tr("Maximize"); hovered: mac-max-touch.has-hover; pressed: mac-max-touch.pressed; }
 
                 Rectangle {
                     width: 12px;
@@ -108,6 +112,7 @@ export component WindowControls {
             width: 30px;
             height: 30px;
             clicked => { root.minimize(); }
+            HoverTip { tip: @tr("Minimize"); hovered: min-touch.has-hover; pressed: min-touch.pressed; }
 
             Rectangle {
                 width: 100%;
@@ -130,6 +135,7 @@ export component WindowControls {
             width: 30px;
             height: 30px;
             clicked => { root.maximize(); }
+            HoverTip { tip: root.is-maximized ? @tr("Restore") : @tr("Maximize"); hovered: max-touch.has-hover; pressed: max-touch.pressed; }
 
             Rectangle {
                 width: 100%;
@@ -174,6 +180,7 @@ export component WindowControls {
             width: 30px;
             height: 30px;
             clicked => { root.close(); }
+            HoverTip { tip: @tr("Close"); hovered: close-touch.has-hover; pressed: close-touch.pressed; }
 
             Rectangle {
                 width: 100%;

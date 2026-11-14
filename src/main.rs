@@ -82,6 +82,10 @@ fn start_morph(
     from: Rect,
     to: Rect,
 ) {
+    // The clip comes off for the whole move; it is set again when the morph ends.
+    if let Some(w) = weak.upgrade() {
+        clear_window_shape(&w.window());
+    }
     let timer = slint::Timer::default();
     let began = Instant::now();
     let slot_for_callback = slot.clone();
@@ -108,11 +112,10 @@ fn start_morph(
             ));
         }
         if t >= 1.0 {
-            #[cfg(target_os = "windows")]
-            {
-                let maximized = window.global::<ShellState>().get_is_maximized();
-                apply_window_shape(&wnd, r.w.round() as u32, r.h.round() as u32, maximized);
-            }
+            // Changing the clip every frame makes Windows draw its classic
+            // frame, so it is set once, when the window has stopped moving.
+            let maximized = window.global::<ShellState>().get_is_maximized();
+            apply_window_shape(&wnd, r.w.round() as u32, r.h.round() as u32, maximized);
             slot_for_callback.borrow_mut().take();
         }
     });
@@ -155,6 +158,14 @@ const BACKGROUND_LOOP_SECS: f32 = 40.0;
 const BACKGROUND_FRAME: Duration = Duration::from_millis(50);
 
 fn main() -> Result<(), Box<dyn std::error::Error>> {
+    let boot = Instant::now();
+    // If the interface pauses for a few seconds (a heavy load, a busy machine),
+    // Windows paints an old-style "not responding" frame with caption buttons
+    // over the window. The shell has no such frame, so switch that off.
+    #[cfg(target_os = "windows")]
+    unsafe {
+        windows_sys::Win32::UI::WindowsAndMessaging::DisableProcessWindowsGhosting();
+    }
     telemetry::install_crash_hook();
     let security = Arc::new(SecurityManager::init()?);
     let repository: Arc<dyn StorageRepository> = Arc::new(EncryptedStorageRepository::new_default(security)?);
@@ -200,18 +211,30 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         });
     }
 
+
     // Background drift: the orbs complete one loop every BACKGROUND_LOOP_SECS,
     // updated BACKGROUND_FRAME times a second.
     let _background_ticker = slint::Timer::default();
     {
         let weak = window.as_weak();
         let started = Instant::now();
-        _background_ticker.start(slint::TimerMode::Repeated, BACKGROUND_FRAME, move || {
+        // THULLI_BG_MS tunes the interval for performance experiments; 0 stops the drift.
+        let every = std::env::var("THULLI_BG_MS").ok().and_then(|v| v.parse::<u64>().ok()).map(Duration::from_millis).unwrap_or(BACKGROUND_FRAME);
+        if every.is_zero() {
+            _background_ticker.stop();
+        } else {
+            _background_ticker.start(slint::TimerMode::Repeated, every, move || {
             if let Some(w) = weak.upgrade() {
+                // Minimized or behind another window: nobody sees the drift, so
+                // draw nothing. It picks up from the clock when the window returns.
+                if !thulli_core::window::WindowManager::is_in_front() {
+                    return;
+                }
                 let phase = (started.elapsed().as_secs_f32() / BACKGROUND_LOOP_SECS).fract();
                 w.global::<AppData>().set_background_phase(phase);
             }
-        });
+            });
+        }
     }
 
     // Keep sampling and file I/O off the UI thread. The sampler is only
@@ -442,8 +465,6 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
             }
 
             wnd.set_size(slint::PhysicalSize::new(r.w.round() as u32, r.h.round() as u32));
-            #[cfg(target_os = "windows")]
-            apply_window_shape(&wnd, r.w.round() as u32, r.h.round() as u32, false);
             if left || top {
                 wnd.set_position(slint::PhysicalPosition::new(
                     r.x.round() as i32,
@@ -469,9 +490,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         let weak = window.as_weak();
         #[cfg(target_os = "windows")]
         let mut last_shape: (u32, u32, bool) = (0, 0, false);
+        // True while the size is changing and the clip has been taken off.
+        #[cfg(target_os = "windows")]
+        let mut unclipped = false;
         _sync_timer.start(
             slint::TimerMode::Repeated,
-            std::time::Duration::from_millis(250),
+            std::time::Duration::from_millis(100),
             move || {
                 if let Some(w) = weak.upgrade() {
                     let maximized = w.window().is_maximized();
@@ -481,7 +505,12 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
                         let size = w.window().size();
                         let shape = (size.width, size.height, shell.get_is_maximized());
                         if shape != last_shape {
+                            // Still changing: no clip until it settles (see start_morph).
                             last_shape = shape;
+                            clear_window_shape(&w.window());
+                            unclipped = true;
+                        } else if unclipped {
+                            unclipped = false;
                             apply_window_shape(&w.window(), shape.0, shape.1, shape.2);
                         }
                     }
@@ -498,6 +527,7 @@ fn main() -> Result<(), Box<dyn std::error::Error>> {
         );
     }
 
+    telemetry::log_timing("STARTUP", "ready_to_run", boot);
     Ok(window.run()?)
 }
 
@@ -546,6 +576,24 @@ fn begin_native_resize(window: &slint::Window, edge: &str) -> bool {
 #[cfg(target_os = "windows")]
 const SHELL_CORNER_RADIUS: f32 = 16.0;
 
+/// Removes the rounded clip while the window is moving or resizing.
+#[cfg(target_os = "windows")]
+fn clear_window_shape(window: &slint::Window) {
+    use raw_window_handle::{HasWindowHandle, RawWindowHandle};
+    use windows_sys::Win32::Graphics::Gdi::SetWindowRgn;
+
+    let provider = window.window_handle();
+    let Ok(handle) = provider.window_handle() else {
+        return;
+    };
+    let RawWindowHandle::Win32(handle) = handle.as_raw() else {
+        return;
+    };
+    unsafe {
+        SetWindowRgn(handle.hwnd.get() as _, std::ptr::null_mut(), 0);
+    }
+}
+
 /// Clips the window to the rounded shell frame. Pixels outside the rounded
 /// corners are then not part of the window, so they show the desktop rather
 /// than the window's opaque black backing. A maximized window keeps its
@@ -590,6 +638,53 @@ fn schedule_corner_update(weak: slint::Weak<MainWindow>) {
     });
 }
 
+/// Stops Windows from drawing its own window frame (the old caption and
+/// border) while the shell resizes, maximizes, minimizes or changes focus.
+/// The whole window is client area, and frame paint requests are swallowed.
+#[cfg(target_os = "windows")]
+fn install_frame_guard(hwnd: windows_sys::Win32::Foundation::HWND) {
+    use windows_sys::Win32::Foundation::{LPARAM, LRESULT, WPARAM};
+    use windows_sys::Win32::UI::Shell::{DefSubclassProc, SetWindowSubclass};
+    use windows_sys::Win32::UI::WindowsAndMessaging::{WM_NCACTIVATE, WM_NCCALCSIZE, WM_NCPAINT};
+
+    unsafe extern "system" fn guard(
+        hwnd: windows_sys::Win32::Foundation::HWND,
+        msg: u32,
+        wparam: WPARAM,
+        lparam: LPARAM,
+        _id: usize,
+        _data: usize,
+    ) -> LRESULT {
+        match msg {
+            // No non-client area: nothing for the system to draw a frame in.
+            WM_NCCALCSIZE if wparam != 0 => {
+                use windows_sys::Win32::Graphics::Gdi::{GetMonitorInfoW, MonitorFromWindow, MONITORINFO, MONITOR_DEFAULTTONEAREST};
+                use windows_sys::Win32::UI::WindowsAndMessaging::{IsZoomed, NCCALCSIZE_PARAMS};
+                // A window the system maximized would hang past the screen by
+                // its hidden border; keep it inside the work area.
+                if unsafe { IsZoomed(hwnd) } != 0 {
+                    let mut info: MONITORINFO = unsafe { std::mem::zeroed() };
+                    info.cbSize = std::mem::size_of::<MONITORINFO>() as u32;
+                    let monitor = unsafe { MonitorFromWindow(hwnd, MONITOR_DEFAULTTONEAREST) };
+                    if unsafe { GetMonitorInfoW(monitor, &mut info) } != 0 {
+                        let params = lparam as *mut NCCALCSIZE_PARAMS;
+                        unsafe { (*params).rgrc[0] = info.rcWork };
+                    }
+                }
+                0
+            }
+            WM_NCPAINT => 0,
+            // Keep the active look but do not let the frame repaint on focus change.
+            WM_NCACTIVATE => unsafe { DefSubclassProc(hwnd, msg, wparam, -1) },
+            _ => unsafe { DefSubclassProc(hwnd, msg, wparam, lparam) },
+        }
+    }
+    // The same id every time, so calling again changes nothing.
+    unsafe {
+        SetWindowSubclass(hwnd, Some(guard), 0x7448, 0);
+    }
+}
+
 #[cfg(target_os = "windows")]
 fn set_rounded_window_corners(window: &slint::Window) -> bool {
     use raw_window_handle::{HasWindowHandle, RawWindowHandle};
@@ -604,10 +699,20 @@ fn set_rounded_window_corners(window: &slint::Window) -> bool {
     let RawWindowHandle::Win32(handle) = handle.as_raw() else {
         return false;
     };
+    install_frame_guard(handle.hwnd.get() as _);
     // The shell draws its own rounded frame, so the system must not round
     // the window too: two different radii leave a visible corner artifact.
     let preference = DWMWCP_DONOTROUND;
+    // Windows' own minimize/restore animation draws a ghost of an ordinary
+    // framed window around ours; the shell has no such frame.
+    let no_transitions: i32 = 1;
     unsafe {
+        DwmSetWindowAttribute(
+            handle.hwnd.get() as _,
+            3, // DWMWA_TRANSITIONS_FORCEDISABLED
+            (&no_transitions as *const i32).cast(),
+            std::mem::size_of_val(&no_transitions) as u32,
+        );
         DwmSetWindowAttribute(
             handle.hwnd.get() as _,
             DWMWA_WINDOW_CORNER_PREFERENCE as u32,
@@ -650,3 +755,4 @@ fn monitor_work_area(window: &slint::Window) -> Option<Rect> {
         h: (area.bottom - area.top) as f32,
     })
 }
+

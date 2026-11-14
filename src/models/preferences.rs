@@ -260,6 +260,8 @@ pub struct Preferences {
     pub pomodoro_auto_advance: bool,
     /// Breaks between focus rounds. Off runs focus round after focus round.
     pub pomodoro_breaks: bool,
+    /// The assistant may search the web. Off by default: a search leaves the device.
+    pub web_search: bool,
     /// Length of the Custom focus interval, in minutes.
     pub pomodoro_custom_mins: u32,
     /// Ambient sound while the timer runs: off, forest, lofi or rain.
@@ -328,6 +330,7 @@ impl Default for Preferences {
             pomodoro_rounds: 4,
             pomodoro_auto_advance: false,
             pomodoro_breaks: true,
+            web_search: false,
             pomodoro_custom_mins: 40,
             pomodoro_ambient: "forest".to_string(),
             break_reminder_sound_id: "soft-chime".to_string(),

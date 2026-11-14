@@ -4,7 +4,7 @@
 #[cfg(target_os = "windows")]
 use windows_sys::Win32::UI::WindowsAndMessaging::{
     FindWindowW, FlashWindowEx, GetForegroundWindow, SendMessageW, WM_NCLBUTTONDOWN, HTCAPTION,
-    ShowWindow, IsZoomed, FLASHWINFO, FLASHW_ALL, FLASHW_TIMERNOFG, SW_MINIMIZE, SW_MAXIMIZE, SW_RESTORE,
+    ShowWindow, IsIconic, IsZoomed, FLASHWINFO, FLASHW_ALL, FLASHW_TIMERNOFG, SW_MINIMIZE, SW_MAXIMIZE, SW_RESTORE,
 };
 #[cfg(target_os = "windows")]
 use windows_sys::Win32::UI::Input::KeyboardAndMouse::ReleaseCapture;
@@ -112,6 +112,51 @@ impl WindowManager {
         {
             // Portable maximize is driven via `toggle_maximize_window`
         }
+    }
+
+    /// False only when the Thulli window is minimized or a full-screen
+    /// window of another app covers the monitor Thulli is on, so decorative
+    /// motion can rest. Another app merely having focus, or Thulli sitting
+    /// on a different screen, keeps it moving. Where this cannot be told
+    /// (macOS, Linux), the window counts as visible.
+    pub fn is_in_front() -> bool {
+        #[cfg(target_os = "windows")]
+        unsafe {
+            use windows_sys::Win32::Foundation::RECT;
+            use windows_sys::Win32::Graphics::Gdi::{
+                GetMonitorInfoW, MonitorFromWindow, MONITORINFO, MONITOR_DEFAULTTONEAREST,
+            };
+            use windows_sys::Win32::UI::WindowsAndMessaging::{
+                GetDesktopWindow, GetShellWindow, GetWindowRect,
+            };
+            let title: Vec<u16> = "Thulli".encode_utf16().chain(std::iter::once(0)).collect();
+            let ours = FindWindowW(std::ptr::null(), title.as_ptr());
+            if ours.is_null() {
+                return true;
+            }
+            if IsIconic(ours) != 0 {
+                return false;
+            }
+            let front = GetForegroundWindow();
+            if front.is_null() || front == ours || front == GetShellWindow() || front == GetDesktopWindow() {
+                return true;
+            }
+            let monitor = MonitorFromWindow(ours, MONITOR_DEFAULTTONEAREST);
+            if MonitorFromWindow(front, MONITOR_DEFAULTTONEAREST) != monitor {
+                return true;
+            }
+            let mut info: MONITORINFO = std::mem::zeroed();
+            info.cbSize = std::mem::size_of::<MONITORINFO>() as u32;
+            let mut rect: RECT = std::mem::zeroed();
+            if GetMonitorInfoW(monitor, &mut info) == 0 || GetWindowRect(front, &mut rect) == 0 {
+                return true;
+            }
+            let m = info.rcMonitor;
+            let covers = rect.left <= m.left && rect.top <= m.top && rect.right >= m.right && rect.bottom >= m.bottom;
+            return !covers;
+        }
+        #[allow(unreachable_code)]
+        true
     }
 
     /// Flashes the Thulli window in the dock/taskbar to get the person's attention.

@@ -16,10 +16,13 @@ import { PomodoroScreen } from "screens/pomodoro_screen.slint";
 import { SpacesScreen } from "screens/spaces_screen.slint";
 import { SortScreen } from "screens/ai_panels.slint";
 import { DragGhost, TipLayer } from "components/drag.slint";
+import { HoverTip } from "components/tips.slint";
 import { TodayScreen } from "screens/today_screen.slint";
 import { NotesScreen } from "screens/notes_screen.slint";
 import { InsightsScreen } from "screens/insights_screen.slint";
 import { SettingsScreen } from "screens/settings_screen.slint";
+import { GoalsScreen } from "screens/goals_screen.slint";
+import { ChatScreen } from "screens/chat_screen.slint";
 
 export { ShellState }
 export { Theme }
@@ -86,8 +89,11 @@ export component MainWindow inherits Window {
             // Declared first so the controls stay on top of the drag region.
             // Plain clicks and drag still reach the move area; a double-click
             // on the strip toggles maximize.
+            // The strip stops short of the buttons so the system never treats them as part of the
+            // drag region (that would take their hover and tips away).
             WindowMoveArea {
-                width: 100%;
+                x: ShellState.is-macos ? 90px : 0px;
+                width: parent.width - (ShellState.is-macos ? 140px : 152px);
                 height: 100%;
 
                 TouchArea {
@@ -124,6 +130,7 @@ export component MainWindow inherits Window {
                         ShellState.theme-choice = Theme.theme-choice;
                         ShellState.theme-choice-changed(Theme.theme-choice);
                     }
+                    HoverTip { tip: Theme.dark-mode ? @tr("Switch to light mode") : @tr("Switch to dark mode"); hovered: theme-touch.has-hover; pressed: theme-touch.pressed; }
                     Rectangle {
                         width: 100%; height: 100%; border-radius: 9px;
                         background: theme-touch.has-hover ? Theme.glass-fill-hover : transparent;
@@ -170,6 +177,12 @@ export component MainWindow inherits Window {
                 open-pomodoro => { navigation-rail.active-item = "pomodoro"; }
             }
 
+            if navigation-rail.active-item == "goals": GoalsScreen {
+                width: 100%;
+                height: 100%;
+                open-spaces => { navigation-rail.active-item = "tasks"; }
+            }
+
             if navigation-rail.active-item == "pomodoro": PomodoroScreen {
                 width: 100%;
                 height: 100%;
@@ -177,6 +190,11 @@ export component MainWindow inherits Window {
             }
 
             if navigation-rail.active-item == "notes": NotesScreen {
+                width: 100%;
+                height: 100%;
+            }
+
+            if navigation-rail.active-item == "chat": ChatScreen {
                 width: 100%;
                 height: 100%;
             }
@@ -212,7 +230,7 @@ export component MainWindow inherits Window {
         // The card following the pointer while a task is dragged.
         DragGhost {}
         // Hover tooltips, above every container.
-        TipLayer {}
+        TipLayer { bound: parent.width; }
 
         // --- Frameless resize edges: transparent strips pinned to the ------
         // window frame, on top of everything, hidden while maximized.

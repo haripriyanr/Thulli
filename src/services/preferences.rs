@@ -541,6 +541,7 @@ impl PreferencesService {
                 "hide_estimates" => p.hide_estimates = value,
                 "pomodoro_auto_advance" => p.pomodoro_auto_advance = value,
                 "pomodoro_breaks" => p.pomodoro_breaks = value,
+                "web_search" => p.web_search = value,
                 "auto_parse_estimates" => p.auto_parse_estimates = value,
                 "open_at_login" => p.open_at_login = value,
                 "open_on_wake" => p.open_on_wake = value,

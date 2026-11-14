@@ -62,6 +62,7 @@ export component ThulliListCard inherits TouchArea {
 
                 del-btn := ThulliIconButton {
                     size: 26px;
+                    tip: @tr("Delete");
                     clicked => { root.delete(); }
                     IconClose {
                         width: 12px;
@@ -202,6 +203,7 @@ export component ThulliTaskCard inherits Rectangle {
 
             del-touch := ThulliIconButton {
                 size: 22px;
+                tip: @tr("Delete");
                 clicked => { root.deleted(); }
                 IconClose {
                     width: 10px;

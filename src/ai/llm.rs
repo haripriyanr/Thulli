@@ -28,7 +28,7 @@ const HEAD_DIM: usize = 256;
 /// `<|im_end|>` and `<|endoftext|>`.
 const STOP_IDS: [u32; 2] = [248_046, 248_044];
 /// The answer only: reasoning is switched off.
-const MAX_NEW_TOKENS: usize = 3072;
+const MAX_NEW_TOKENS: usize = 1200;
 /// The model card's sampling settings.
 const TEMPERATURE: f32 = 0.6;
 const TOP_K: usize = 20;

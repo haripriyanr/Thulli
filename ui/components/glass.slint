@@ -1,4 +1,5 @@
 import { Theme } from "../theme.slint";
+import { HoverTip } from "tips.slint";
 
 /// GlassCard: a translucent panel with a soft top sheen and a hairline edge.
 /// The shared AppBackground shows through, which gives the glass effect.
@@ -17,8 +18,10 @@ export component GlassPill inherits Rectangle {
     in property <string> label: "";
     in property <bool> selected: false;
     in property <color> accent: Theme.accent-amber;
+    in property <string> tip;
     callback clicked();
 
+    width: max(88px, pill-label.preferred-width + 28px);
     height: 36px;
     border-radius: 18px;
     background: root.selected ? root.accent.with-alpha(0.18) : (touch.has-hover ? Theme.glass-fill-hover : Theme.glass-fill);
@@ -26,7 +29,7 @@ export component GlassPill inherits Rectangle {
     border-color: root.selected ? root.accent.with-alpha(0.55) : Theme.glass-border;
     animate background, border-color { duration: 200ms; easing: ease-out; }
 
-    Text {
+    pill-label := Text {
         text: root.label;
         font-size: 13px;
         font-weight: root.selected ? 600 : 400;
@@ -40,6 +43,7 @@ export component GlassPill inherits Rectangle {
         height: 100%;
         clicked => { root.clicked(); }
     }
+    HoverTip { tip: root.tip; hovered: touch.has-hover; pressed: touch.pressed; }
 }
 
 /// GlassIconButton: a round, translucent button that holds one icon.
@@ -48,6 +52,8 @@ export component GlassPill inherits Rectangle {
 export component GlassIconButton inherits Rectangle {
     in property <length> dia: 48px;
     in property <color> fill: Theme.glass-fill-strong;
+    // Shown after the pointer rests on the button. Pass it through @tr().
+    in property <string> tip;
     callback clicked();
 
     // Even diameter and no border: a 1px edge on a round shape rasterises
@@ -71,4 +77,5 @@ export component GlassIconButton inherits Rectangle {
         height: 100%;
         clicked => { root.clicked(); }
     }
+    HoverTip { tip: root.tip; hovered: touch.has-hover; pressed: touch.pressed; }
 }

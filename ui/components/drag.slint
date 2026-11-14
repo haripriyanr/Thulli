@@ -1,5 +1,7 @@
 import { Theme } from "../theme.slint";
 import { AppData } from "../app_data.slint";
+import { TipState } from "tips.slint";
+export { TipState }
 
 /// DragState: the task being dragged on the Spaces screen and the drop zone
 /// under the pointer. Positions are window coordinates. `view` is "board",
@@ -65,19 +67,14 @@ export component DropZone inherits Rectangle {
     background: root.hot ? root.tint.with-alpha(0.10) : transparent;
 }
 
-/// TipState: the one hover tooltip, drawn at window level so no container
-/// covers or clips it. `x` is the centre of the hovered control, `y` its top.
-export global TipState {
-    in-out property <string> text;
-    in-out property <length> x;
-    in-out property <length> y;
-}
-
 /// TipLayer: draws the TipState tooltip above everything.
 export component TipLayer inherits Rectangle {
+    // Width of the window area the tip must stay inside.
+    in property <length> bound;
     visible: TipState.text != "" && !DragState.active;
-    x: max(4px, TipState.x - self.width / 2);
-    y: max(4px, TipState.y - self.height - 6px);
+    // Centred above the control; below it when there is no room above; always inside the window.
+    x: TipState.side ? TipState.x + 8px : max(4px, min(TipState.x - self.width / 2, root.bound - self.width - 4px));
+    y: TipState.side ? TipState.y + TipState.h / 2 - self.height / 2 : (TipState.y - self.height - 6px < 4px ? TipState.y + TipState.h + 6px : TipState.y - self.height - 6px);
     width: tip-text.preferred-width + 16px;
     height: 24px;
     border-radius: 8px;

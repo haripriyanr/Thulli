@@ -1,11 +1,13 @@
 import { Theme } from "../theme.slint";
 import { IconPlay, IconPause, IconClose, IconChevronDown, IconSearch } from "../icons.slint";
 import { GlassCard, GlassIconButton } from "glass.slint";
+import { HoverTip } from "tips.slint";
 
 /// IconTab: a tab or pill with an icon in front of its label. Selected tabs
 /// take a violet tint. The icon goes in as a child.
 export component IconTab inherits Rectangle {
     in property <string> label;
+    in property <string> tip;
     in property <bool> selected: false;
     callback clicked();
 
@@ -40,11 +42,13 @@ export component IconTab inherits Rectangle {
         height: 100%;
         clicked => { root.clicked(); }
     }
+    HoverTip { tip: root.tip; hovered: touch.has-hover; pressed: touch.pressed; }
 }
 
 /// PlayButton: the purple play and pause button with a soft glow.
 export component PlayButton inherits Rectangle {
     in property <bool> running: false;
+    in property <string> tip;
     callback clicked();
 
     width: 88px;
@@ -282,6 +286,7 @@ export component FieldCard inherits GlassCard {
         dia: 28px;
         x: parent.width - self.width - 16px;
         y: (parent.height - self.height) / 2;
+        tip: @tr("Clear");
         clicked => { root.cleared(); }
         IconClose { width: 10px; height: 10px; stroke-color: Theme.text-secondary; }
     }

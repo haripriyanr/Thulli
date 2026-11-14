@@ -15,6 +15,10 @@ export component TaskRowView inherits Rectangle {
     in property <string> meta;
     in property <bool> done: false;
     in property <string> section: "today";
+    /// When set, the pill is an action (for example "Later") instead of showing the section.
+    in property <string> action-label: "";
+    /// Hover tip for the action pill.
+    in property <string> action-tip: "";
     callback toggled();
     callback moved();
     callback deleted();
@@ -80,8 +84,9 @@ export component TaskRowView inherits Rectangle {
             alignment: center;
             GlassPill {
                 width: 84px;
-                label: root.section == "today" ? "Today" : (root.section == "week" ? "This week" : "Backlog");
+                label: root.action-label != "" ? root.action-label : (root.section == "today" ? "Today" : (root.section == "week" ? "This week" : "Backlog"));
                 selected: false;
+                tip: root.action-tip;
                 clicked => { root.moved(); }
             }
         }
@@ -90,6 +95,7 @@ export component TaskRowView inherits Rectangle {
             alignment: center;
             GlassIconButton {
                 dia: 32px;
+                tip: @tr("Delete");
                 clicked => { root.deleted(); }
                 IconTrash {
                     width: 14px;
@@ -125,6 +131,7 @@ export component StepperRow inherits Rectangle {
                 alignment: center;
                 GlassIconButton {
                     dia: 32px;
+                    tip: @tr("Decrease");
                     clicked => { root.step(-1); }
                     Text { text: "−"; font-size: 16px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
                 }
@@ -144,6 +151,7 @@ export component StepperRow inherits Rectangle {
                 alignment: center;
                 GlassIconButton {
                     dia: 32px;
+                    tip: @tr("Increase");
                     clicked => { root.step(1); }
                     Text { text: "+"; font-size: 16px; color: Theme.text-primary; horizontal-alignment: center; vertical-alignment: center; }
                 }

@@ -19,13 +19,17 @@ pub struct ChatMessage {
     pub role: ChatRole,
     #[serde(default)]
     pub text: String,
+    /// Earlier replies to this turn, oldest first, kept when a sent message is
+    /// edited and answered again. `text` is the current reply.
+    #[serde(default)]
+    pub versions: Vec<String>,
     #[serde(default = "Utc::now")]
     pub created_at: DateTime<Utc>,
 }
 
 impl ChatMessage {
     pub fn new(role: ChatRole, text: impl Into<String>) -> Self {
-        Self { id: Uuid::new_v4().to_string(), role, text: text.into(), created_at: Utc::now() }
+        Self { id: Uuid::new_v4().to_string(), role, text: text.into(), versions: Vec::new(), created_at: Utc::now() }
     }
 }
 

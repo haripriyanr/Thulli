@@ -1,0 +1,62 @@
+// Hover tooltips. One tip is drawn at a time, at window level (see TipLayer in
+// drag.slint), so no container ever clips or covers it.
+
+/// TipState: the one hover tooltip. `x` is the centre of the hovered control,
+/// `y` its top and `h` its height, all in window coordinates.
+export global TipState {
+    in-out property <string> text;
+    in-out property <length> x;
+    in-out property <length> y;
+    in-out property <length> h;
+    // True: draw the tip to the right of the control instead of above it.
+    in-out property <bool> side;
+}
+
+/// HoverTip: lay it over a control (same size, no clicks of its own) and feed
+/// it that control's `has-hover` and `pressed`. After the pointer has rested
+/// on the control for a moment the tip appears; it goes when the pointer
+/// leaves or the control is pressed. Pass the text through `@tr()` so it is
+/// translated.
+///
+///   touch := TouchArea { ... }
+///   HoverTip { tip: @tr("Delete"); hovered: touch.has-hover; pressed: touch.pressed; }
+export component HoverTip inherits Rectangle {
+    in property <string> tip;
+    in property <bool> hovered;
+    in property <bool> pressed;
+    in property <duration> delay: 450ms;
+    in property <bool> to-right: false;
+    property <bool> shown: false;
+    x: 0px;
+    y: 0px;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+
+    function show() {
+        TipState.text = root.tip;
+        TipState.side = root.to-right;
+        TipState.x = root.absolute-position.x + (root.to-right ? root.width : root.width / 2);
+        TipState.y = root.absolute-position.y;
+        TipState.h = root.height;
+        root.shown = true;
+    }
+    function hide() {
+        if root.shown {
+            root.shown = false;
+            if TipState.text == root.tip {
+                TipState.text = "";
+            }
+        }
+    }
+
+    Timer {
+        interval: root.delay;
+        running: root.hovered && !root.shown && !root.pressed && root.tip != "";
+        triggered => { root.show(); }
+    }
+    changed hovered => { if !root.hovered { root.hide(); } }
+    changed pressed => { if root.pressed { root.hide(); } }
+    // A language change or a state change (Show/Hide) updates a tip that is open.
+    changed tip => { if root.shown { if root.tip == "" { root.hide(); } else { TipState.text = root.tip; } } }
+}

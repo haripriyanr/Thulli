@@ -30,7 +30,7 @@ component SettingsSection inherits GlassCard {
         padding-top: 24px;
         spacing: 8px;
         Text { text: root.title; font-size: 20px; font-weight: 700; color: Theme.text-primary; }
-        if root.caption != "": Text { text: root.caption; font-size: 15px; color: Theme.text-muted; }
+        if root.caption != "": Text { text: root.caption; font-size: 15px; color: Theme.text-muted; wrap: word-wrap; }
         @children
     }
 }
@@ -45,6 +45,7 @@ export component SettingsScreen inherits Rectangle {
         width: 100%;
         height: 100%;
         content-height: page.preferred-height;
+        content-width: self.width;
         page := VerticalLayout {
             width: parent.width;
             padding-top: 20px;
@@ -74,33 +75,73 @@ export component SettingsScreen inherits Rectangle {
 
             SettingsSection {
                 title: @tr("AI");
-                caption: @tr("Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it.");
+                caption: AppData.setting-web-search
+                    ? @tr("Planning, speech recognition and reading aloud run on this device. Only the web searches you allow go online.")
+                    : @tr("Planning, speech recognition and reading aloud all run on this device. Nothing you say or type leaves it.");
+
+                // Searching the web sends the search words to the search sites, so it is off until turned on.
                 SettingRow {
-                    label: AppData.ai-models-ready ? @tr("AI models installed") : @tr("AI models (about 2.3 GB)");
-                    hint: AppData.ai-models-ready ? @tr("Remove them to free the space; they download again when needed.") : @tr("They download the first time you use AI, or now.");
-                    HorizontalLayout {
-                        spacing: 8px;
-                        // Installed: a small green Ready chip, centred on the buttons.
-                        if AppData.ai-models-ready: VerticalLayout {
-                            alignment: center;
-                            Rectangle {
-                                height: 28px;
-                                border-radius: 14px;
-                                background: Theme.accent-green.with-alpha(0.14);
-                                border-width: 1px;
-                                border-color: Theme.accent-green.with-alpha(0.45);
-                                HorizontalLayout {
-                                    padding-left: 10px;
-                                    padding-right: 12px;
-                                    spacing: 6px;
-                                    VerticalLayout { alignment: center; IconCheck { width: 12px; height: 12px; stroke-color: Theme.accent-green; } }
-                                    Text { text: @tr("Ready"); font-size: 13px; font-weight: 600; color: Theme.accent-green; vertical-alignment: center; }
-                                }
+                    label: @tr("Let the assistant search the web");
+                    hint: @tr("When on, what it looks up is sent to the search sites it uses. Everything else stays on this device.");
+                    Switch { on: AppData.setting-web-search; toggled(on) => { AppData.set-setting-flag("web_search", on); } }
+                }
+
+                // The three abilities, each ticked once its files are on this device.
+                HorizontalLayout {
+                    spacing: 10px;
+                    padding-top: 10px;
+                    alignment: start;
+                    for ability[i] in [@tr("Planning"), @tr("Speech to text"), @tr("Read aloud")]: Rectangle {
+                        height: 34px;
+                        width: chip-row.preferred-width + 24px;
+                        border-radius: 17px;
+                        background: AppData.ai-models-ready ? Theme.accent-green.with-alpha(0.12) : Theme.glass-fill-strong;
+                        border-width: 1px;
+                        border-color: AppData.ai-models-ready ? Theme.accent-green.with-alpha(0.4) : Theme.glass-border;
+                        chip-row := HorizontalLayout {
+                            padding-left: 12px;
+                            padding-right: 12px;
+                            spacing: 7px;
+                            VerticalLayout {
+                                alignment: center;
+                                IconCheck { width: 13px; height: 13px; stroke-color: AppData.ai-models-ready ? Theme.accent-green : Theme.text-muted; }
                             }
+                            Text { text: ability; font-size: 13px; font-weight: 600; color: AppData.ai-models-ready ? Theme.text-primary : Theme.text-secondary; vertical-alignment: center; }
                         }
-                        PlainButton { label: @tr("Refresh"); clicked => { AppData.ai-models-refresh(); } }
-                        if !AppData.ai-models-ready: PlainButton { label: AppData.ai-busy ? @tr("Downloading...") : @tr("Download now"); clicked => { if !AppData.ai-busy { AppData.ai-models-download(); } } }
-                        if AppData.ai-models-ready: PlainButton { label: @tr("Remove"); clicked => { AppData.ai-models-remove(); } }
+                    }
+                }
+
+                // A hairline, then the status on the left and the actions on the right.
+                Rectangle { height: 1px; background: Theme.glass-border; }
+                HorizontalLayout {
+                    spacing: 16px;
+                    padding-top: 6px;
+                    VerticalLayout {
+                        horizontal-stretch: 1;
+                        alignment: center;
+                        spacing: 4px;
+                        Text {
+                            text: AppData.ai-models-ready ? @tr("AI models installed") : @tr("AI models (about 2.3 GB)");
+                            font-size: 16px;
+                            font-weight: 700;
+                            color: Theme.text-primary;
+                            wrap: word-wrap;
+                        }
+                        Text {
+                            text: AppData.ai-models-ready ? @tr("Remove them to free the space; they download again when needed.") : @tr("They download the first time you use AI, or now.");
+                            font-size: 13px;
+                            color: Theme.text-secondary;
+                            wrap: word-wrap;
+                        }
+                    }
+                    VerticalLayout {
+                        alignment: center;
+                        HorizontalLayout {
+                            spacing: 8px;
+                            PlainButton { label: @tr("Refresh"); clicked => { AppData.ai-models-refresh(); } }
+                            if !AppData.ai-models-ready: PlainButton { label: AppData.ai-busy ? @tr("Downloading...") : @tr("Download now"); clicked => { if !AppData.ai-busy { AppData.ai-models-download(); } } }
+                            if AppData.ai-models-ready: PlainButton { label: @tr("Remove"); clicked => { AppData.ai-models-remove(); } }
+                        }
                     }
                 }
                 if AppData.ai-status != "": Text { text: AppData.ai-status; font-size: 13px; color: Theme.text-secondary; wrap: word-wrap; }

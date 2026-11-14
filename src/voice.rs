@@ -50,11 +50,28 @@ impl Recorder {
         Ok(Self { _stream: stream, samples, rate })
     }
 
+    /// How loud the last moments were, 0 to 1, for a live level display.
+    pub fn level(&self) -> f32 {
+        let samples = self.samples.lock().unwrap_or_else(|p| p.into_inner());
+        let window = (self.rate as usize / 20).max(1);
+        let start = samples.len().saturating_sub(window);
+        level_of(&samples[start..])
+    }
+
     /// Stops recording; returns mono samples at `target_rate`.
     pub fn finish(self, target_rate: u32) -> Vec<f32> {
         let samples = std::mem::take(&mut *self.samples.lock().unwrap_or_else(|p| p.into_inner()));
         resample(&samples, self.rate, target_rate)
     }
+}
+
+/// Loudness of a short stretch of speech as 0 to 1 (normal speech sits near 0.05 to 0.2 RMS).
+fn level_of(samples: &[f32]) -> f32 {
+    if samples.is_empty() {
+        return 0.0;
+    }
+    let rms = (samples.iter().map(|s| s * s).sum::<f32>() / samples.len() as f32).sqrt();
+    (rms * 8.0).min(1.0)
 }
 
 /// Averages interleaved channels into one.
@@ -113,5 +130,19 @@ mod tests {
         let sink = Mutex::new(Vec::new());
         push_mono(&sink, [1.0, 0.0, 0.5, 0.5].into_iter(), 2);
         assert_eq!(*sink.lock().unwrap(), vec![0.5, 0.5]);
+    }
+}
+
+#[cfg(test)]
+mod level_tests {
+    use super::level_of;
+
+    #[test]
+    fn silence_is_zero_and_loud_is_capped() {
+        assert_eq!(level_of(&[]), 0.0);
+        assert_eq!(level_of(&[0.0; 100]), 0.0);
+        assert_eq!(level_of(&[1.0; 100]), 1.0);
+        let speech = level_of(&[0.1, -0.1, 0.1, -0.1]);
+        assert!(speech > 0.5 && speech < 1.0);
     }
 }

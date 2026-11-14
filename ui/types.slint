@@ -151,10 +151,31 @@ export struct ChatThreadModel {
     updated_label: string,
 }
 
+/// One step of a research in progress. The screen phrases it from `kind`
+/// ("plan", "search", "read", "note", "skip", "merge", "write"): `text` is the
+/// search words, address or page title, `detail` the extra fact (a count or why).
+export struct ChatTraceRow {
+    kind: string,
+    text: string,
+    detail: string,
+    // "" done, "running", "error" or "pending"
+    status: string,
+}
+
 export struct ChatMessageModel {
     id: string,
+    // Position in the conversation, used to edit or fork from this message.
+    index: int,
     from_user: bool,
     text: string,
+    // Local time such as "14:32".
+    time: string,
+    // "today", "yesterday" or "date" on the first message of a day, else "".
+    day_kind: string,
+    // Date such as "Mon 9 Nov", set together with day_kind.
+    day_date: string,
+    // Earlier replies to this turn, oldest first (after an edit).
+    versions: [string],
 }
 
 /// A keyboard shortcut row in preferences.
@@ -362,4 +383,98 @@ export struct LanguageRow {
 export struct SelectOption {
     label: string,
     value: int,
+}
+
+/// One goal as a card and as the detail header. Wording is built in Slint
+/// from these facts so every sentence can be translated.
+export struct GoalRow {
+    id: string,
+    title: string,
+    description: string,
+    motivation: string,
+    notes: string,
+    category: string,
+    // "high", "medium" or "low".
+    priority: string,
+    // "active", "paused", "completed" or "archived".
+    status: string,
+    // "milestones" or "measured".
+    mode: string,
+    percent: int,
+    // False when there is nothing to measure yet (no milestones, no target).
+    percent-known: bool,
+    milestones-done: int,
+    milestones-total: int,
+    // Measured goals: current and target as text, and the number still to go.
+    current-value: string,
+    target-value: string,
+    remaining-value: string,
+    unit: string,
+    // "", "today", "tomorrow", "overdue", "future" or "date" (no urgency).
+    due-kind: string,
+    due-n: int,
+    due-date: string,
+    overdue: bool,
+    next-milestone: string,
+    tasks-done: int,
+    tasks-total: int,
+    has-focus: bool,
+    total-focus-text: string,
+    week-focus-text: string,
+    // Form field.
+    target-date: string,
+}
+
+/// A milestone in a goal's timeline.
+export struct MilestoneRow {
+    id: string,
+    title: string,
+    description: string,
+    due-kind: string,
+    due-n: int,
+    due-date: string,
+    date-input: string,
+    done: bool,
+    overdue: bool,
+    tasks-done: int,
+    tasks-total: int,
+    first: bool,
+    last: bool,
+}
+
+/// A task linked to a goal.
+export struct GoalTaskRow {
+    id: string,
+    title: string,
+    done: bool,
+    space: string,
+    // Formatted deadline such as "9 Nov", or empty.
+    due-date: string,
+    milestone: string,
+    milestone-id: string,
+}
+
+/// A task that could be linked to the open goal.
+export struct GoalTaskOption {
+    id: string,
+    title: string,
+    space: string,
+}
+
+/// One recorded focus session on a goal.
+export struct GoalSessionRow {
+    when: string,
+    duration: string,
+    task: string,
+}
+
+/// One line of the weekly review: a goal and why it is listed. `kind` says
+/// which sentence to build; `a` and `b` are its numbers and `s` its text.
+export struct ReviewRow {
+    id: string,
+    title: string,
+    kind: string,
+    a: int,
+    b: int,
+    s: string,
 }

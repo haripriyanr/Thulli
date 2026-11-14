@@ -165,6 +165,7 @@ export component ThulliTopBar inherits Rectangle {
 
             pref-touch := ThulliIconButton {
                 size: 30px;
+                tip: @tr("Settings");
                 y: 9px;
                 hover-bg: Theme.bg-card-hover;
                 clicked => { root.toggle-preferences(); }

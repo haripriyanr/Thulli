@@ -15,7 +15,13 @@ export component TodayScreen inherits Rectangle {
         return "today";
     }
 
-    VerticalLayout {
+    Flickable {
+      width: 100%;
+      height: 100%;
+      content-height: page.preferred-height;
+      content-width: self.width;
+      page := VerticalLayout {
+        width: parent.width;
         padding-top: 24px;
         padding-bottom: 24px;
         padding-left: 28px;
@@ -24,7 +30,7 @@ export component TodayScreen inherits Rectangle {
 
         VerticalLayout {
             spacing: 4px;
-            Text { text: @tr("Today"); font-size: 20px; font-weight: 700; color: Theme.text-primary; }
+            Text { text: @tr("Today"); font-size: 22px; font-weight: 700; color: Theme.text-primary; }
             HorizontalLayout {
                 alignment: start;
                 spacing: 6px;
@@ -51,11 +57,14 @@ export component TodayScreen inherits Rectangle {
                     meta: task.meta;
                     done: task.done;
                     section: task.section;
+                    action-label: @tr("Later");
+                    action-tip: @tr("Move to this week");
                     toggled => { AppData.toggle-task(task.id); }
-                    moved => { AppData.move-task(task.id, root.next-section(task.section)); }
+                    moved => { AppData.move-task(task.id, "week"); }
                     deleted => { AppData.delete-task(task.id); }
                 }
             }
         }
+      }
     }
 }

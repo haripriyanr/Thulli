@@ -3,6 +3,7 @@ import { IconStar, IconClose, IconCheck, IconChevronLeft, IconSkip } from "../ic
 import { GlassIconButton } from "../components/glass.slint";
 import { TaskCard, MicButton } from "../components/space_widgets.slint";
 import { AppData } from "../app_data.slint";
+import { ThinkingOrb } from "../components/ai_kit.slint";
 
 /// A rounded text button. `primary` uses the violet fill.
 component PanelButton inherits Rectangle {
@@ -58,7 +59,7 @@ export component PlanPanel inherits Rectangle {
                 spacing: 10px;
                 VerticalLayout { alignment: center; IconStar { width: 20px; height: 20px; stroke-color: Theme.accent-violet; } }
                 Text { horizontal-stretch: 1; text: @tr("Plan with AI"); font-size: 20px; font-weight: 700; color: Theme.text-primary; vertical-alignment: center; }
-                GlassIconButton { dia: 32px; clicked => { root.closed(); } IconClose { width: 11px; height: 11px; stroke-color: Theme.text-secondary; } }
+                GlassIconButton { dia: 32px; tip: @tr("Close"); clicked => { root.closed(); } IconClose { width: 11px; height: 11px; stroke-color: Theme.text-secondary; } }
             }
             Text {
                 text: @tr("Say what you need to get done. You'll see every change before anything is saved.");
@@ -119,8 +120,12 @@ export component PlanPanel inherits Rectangle {
                     TouchArea { mouse-cursor: pointer; clicked => { root.start-now = !root.start-now; } }
                 }
                 Text { horizontal-stretch: 1; text: @tr("Start the first task now"); font-size: 14px; color: Theme.text-secondary; vertical-alignment: center; }
+                if AppData.ai-busy: VerticalLayout {
+                    alignment: center;
+                    ThinkingOrb { width: 22px; height: 22px; state: "solving"; }
+                }
                 PanelButton {
-                    label: AppData.ai-busy ? "Planning..." : "Plan it";
+                    label: AppData.ai-busy ? @tr("Planning...") : @tr("Plan it");
                     primary: true;
                     enabled: !AppData.ai-busy && root.request != "";
                     clicked => { AppData.ai-plan(root.request, root.start-now); }
@@ -245,12 +250,12 @@ export component SortScreen inherits Rectangle {
             VerticalLayout {
                 alignment: center;
                 PanelButton {
-                    label: AppData.ai-busy ? "Asking AI..." : "Suggest with AI";
+                    label: AppData.ai-busy ? @tr("Asking AI...") : @tr("Suggest with AI");
                     enabled: !AppData.ai-busy && AppData.triage-total > 0;
                     clicked => { AppData.triage-ask-ai(); keys.focus(); }
                 }
             }
-            VerticalLayout { alignment: center; GlassIconButton { dia: 40px; clicked => { AppData.triage-close(); }
+            VerticalLayout { alignment: center; GlassIconButton { dia: 40px; tip: @tr("Close"); clicked => { AppData.triage-close(); }
                 IconClose { width: 13px; height: 13px; stroke-color: Theme.text-secondary; } } }
         }
 
