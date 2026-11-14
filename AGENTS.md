@@ -316,7 +316,7 @@ Behaviour rules observed in a third-party reference app (read-only study of its 
 
 ### c. Pending work
 - Verify in the running app: mic transcription, Read aloud, planner speed on CPU, translated UI with non-Latin scripts.
-- Fine-tune the planner (Polaris) for Thulli actions in all languages with fewer reasoning tokens; the stalled side session on branch `claude/sleepy-diffie-8d9c7b` is not merged.
+- Fine-tune the planner (Polaris) for Thulli actions in all languages with fewer reasoning tokens (now done with `tools/finetune/`, see c2). The earlier attempt in `tools/assistant_ft/` is kept on main for reference only; it is superseded. The repo has one branch, `main`.
 
 ### c2. State, goals and TODO (handoff 2026-11-14)
 
